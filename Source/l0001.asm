@@ -1,4 +1,4 @@
-; l0001.asm outside the hive
+; L0001.asm outside the hive
 ; Generated 08.27.2000 by mlevel
 ; Modified  08.27.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0001_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0001_Map:
-INCBIN "Data/Levels/l0001_bees.lvl"
+INCBIN "Data/Levels/L0001_bees.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

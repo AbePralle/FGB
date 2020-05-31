@@ -1,4 +1,4 @@
-; l0303.asm mist stone henge
+; L0303.asm mist stone henge
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0303_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0303_Map:
-INCBIN "Data/Levels/l0303_stone_mist.lvl"
+INCBIN "Data/Levels/L0303_stone_mist.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

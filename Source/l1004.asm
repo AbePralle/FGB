@@ -1,4 +1,4 @@
-; l1004.asm
+; L1004.asm
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

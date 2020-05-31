@@ -1,4 +1,4 @@
-; l0803.asm genie
+; L0803.asm genie
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0803_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0803_Map:
-INCBIN "Data/Levels/l0803_djinn.lvl"
+INCBIN "Data/Levels/L0803_djinn.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0114.asm haiku in moonbase tunnel
+; L0114.asm haiku in moonbase tunnel
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0114_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0114_Map:
-INCBIN "Data/Levels/l0114_intro_haiku2.lvl"
+INCBIN "Data/Levels/L0114_intro_haiku2.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

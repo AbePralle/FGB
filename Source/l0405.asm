@@ -1,4 +1,4 @@
-; l0405.asm west gardens
+; L0405.asm west gardens
 ; Generated 10.16.2000 by mlevel
 ; Modified  10.16.2000 by Abe Pralle
 
@@ -15,7 +15,7 @@ VAR_ALARM   EQU 1
 STATE_NORMAL EQU 1
 STATE_TALKED EQU 2
 
-;for l0505
+;for L0505
 STATE_AFTERWEDDING EQU 2
 
 
@@ -24,14 +24,14 @@ SECTION "Level0405Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0405_ho_gtx:
-  INCBIN "Data/Dialog/talk/l0405_ho.gtx"
+L0405_ho_gtx:
+  INCBIN "Data/Dialog/talk/L0405_ho.gtx"
 
-l0405_hero_reaction_gtx:
-  INCBIN "Data/Dialog/talk/l0405_hero_reaction.gtx"
+L0405_hero_reaction_gtx:
+  INCBIN "Data/Dialog/talk/L0405_hero_reaction.gtx"
 
-l0405_final_word_gtx:
-  INCBIN "Data/Dialog/talk/l0405_final_word.gtx"
+L0405_final_word_gtx:
+  INCBIN "Data/Dialog/talk/L0405_final_word.gtx"
 
 L0405_Contents::
   DW L0405_Load
@@ -53,7 +53,7 @@ L0405_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0405_Map:
-INCBIN "Data/Levels/l0405_garden.lvl"
+INCBIN "Data/Levels/L0405_garden.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -138,15 +138,15 @@ L0405_Check2:
         call    SetDialogSkip
 
         ;Ho, miscreant!
-        ld      de,l0405_ho_gtx
+        ld      de,L0405_ho_gtx
         call    ShowDialogNPC
 
         ;Reaction
-        ld      de,l0405_hero_reaction_gtx
+        ld      de,L0405_hero_reaction_gtx
         call    ShowDialogHero
 
         ;Final word
-        ld      de,l0405_final_word_gtx
+        ld      de,L0405_final_word_gtx
         call    ShowDialogNPC
 
 .afterDialog

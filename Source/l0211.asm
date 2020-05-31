@@ -1,4 +1,4 @@
-; l0211.asm
+; L0211.asm
 ; Generated 10.20.2000 by mlevel
 ; Modified  10.20.2000 by Abe Pralle
 
@@ -41,7 +41,7 @@ L0211_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0211_Map:
-INCBIN "Data/Levels/l0211_tower.lvl"
+INCBIN "Data/Levels/L0211_tower.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

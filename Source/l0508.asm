@@ -1,4 +1,4 @@
-; l0508.asm
+; L0508.asm
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0508_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0508_Map:
-INCBIN "Data/Levels/l0508_witch.lvl"
+INCBIN "Data/Levels/L0508_witch.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

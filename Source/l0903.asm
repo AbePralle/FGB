@@ -1,4 +1,4 @@
-; l0903.asm
+; L0903.asm
 ; Generated 01.03.1980 by mlevel
 ; Modified  01.03.1980 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0903_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0903_Map:
-INCBIN "Data/Levels/l0903_cornville.lvl"
+INCBIN "Data/Levels/L0903_cornville.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

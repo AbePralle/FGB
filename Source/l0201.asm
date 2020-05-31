@@ -1,4 +1,4 @@
-; l0201.asm mist south of evil village
+; L0201.asm mist south of evil village
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0201_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0201_Map:
-INCBIN "Data/Levels/l0201_mist.lvl"
+INCBIN "Data/Levels/L0201_mist.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

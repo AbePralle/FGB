@@ -1,4 +1,4 @@
-; l1008.asm east graves
+; L1008.asm east graves
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L1008_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1008_Map:
-INCBIN "Data/Levels/l1008_graves.lvl"
+INCBIN "Data/Levels/L1008_graves.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

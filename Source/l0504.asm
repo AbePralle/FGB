@@ -1,4 +1,4 @@
-; l0504.asm north gardens
+; L0504.asm north gardens
 ; Generated 10.16.2000 by mlevel
 ; Modified  10.16.2000 by Abe Pralle
 

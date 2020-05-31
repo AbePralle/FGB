@@ -1,4 +1,4 @@
-; l0411.asm top of tower
+; L0411.asm top of tower
 ; Generated 10.20.2000 by mlevel
 ; Modified  10.20.2000 by Abe Pralle
 
@@ -42,7 +42,7 @@ L0411_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0411_Map:
-INCBIN "Data/Levels/l0411_tower.lvl"
+INCBIN "Data/Levels/L0411_tower.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

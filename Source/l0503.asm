@@ -1,4 +1,4 @@
-; l0503.asm
+; L0503.asm
 ; Generated 09.05.2000 by mlevel
 ; Modified  09.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0503_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0503_Map:
-INCBIN "Data/Levels/l0503_hermit.lvl"
+INCBIN "Data/Levels/L0503_hermit.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

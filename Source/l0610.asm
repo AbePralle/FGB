@@ -1,4 +1,4 @@
-; l0610.asm outback
+; L0610.asm outback
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0610_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0610_Map:
-INCBIN "Data/Levels/l0610_outback.lvl"
+INCBIN "Data/Levels/L0610_outback.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

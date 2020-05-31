@@ -1,4 +1,4 @@
-; l0505.asm palace / wedding
+; L0505.asm palace / wedding
 ; Generated 10.19.2000 by mlevel
 ; Modified  10.19.2000 by Abe Pralle
 
@@ -13,7 +13,7 @@ VAR_HERO         EQU 11
 
 STATE_INIT          EQU 0
 STATE_WEDDING       EQU 1
-;STATE_AFTERWEDDING referenced in l0405 and l0505
+;STATE_AFTERWEDDING referenced in L0405 and L0505
 STATE_AFTERWEDDING  EQU 2
 
 
@@ -42,7 +42,7 @@ L0505_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0505_Map:
-INCBIN "Data/Levels/l0505_palace.lvl"
+INCBIN "Data/Levels/L0505_palace.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

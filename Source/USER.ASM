@@ -30,7 +30,7 @@ UserMain::
         call    InitGfx
 
         ;set up initial location + hero
-        ;initial level 0009 (demo intro)
+        ;initial leveL0009 (demo intro)
         ld      a,LEVELSTATEBANK
         ld      [$ff70],a
         xor     a
@@ -2787,7 +2787,7 @@ HandleInput:
         ;--if no link, attempt link connection ----------------------
         ld      a,[amLinkMaster]
         cp      $ff
-        jr      z,.afterLinkAttempt    ;l1101 attempts link as slave
+        jr      z,.afterLinkAttempt    ;L1101 attempts link as slave
         cp      $fe                    ;attempt link as master?
         jr      nz,.afterLinkAttempt
 

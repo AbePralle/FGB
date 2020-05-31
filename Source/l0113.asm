@@ -1,4 +1,4 @@
-; l0113.asm ship blows up battleground BA
+; L0113.asm ship blows up battleground BA
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -46,7 +46,7 @@ L0113_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0113_Map:
-INCBIN "Data/Levels/l0113_intro_ba2.lvl"
+INCBIN "Data/Levels/L0113_intro_ba2.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

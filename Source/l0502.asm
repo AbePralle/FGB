@@ -1,4 +1,4 @@
-; l0502.asm
+; L0502.asm
 ; Generated 09.05.2000 by mlevel
 ; Modified  09.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0502_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0502_Map:
-INCBIN "Data/Levels/l0502_chill.lvl"
+INCBIN "Data/Levels/L0502_chill.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l1000.asm crouton base camp landing
+; L1000.asm crouton base camp landing
 ; Generated 01.02.1998 by mlevel
 ; Modified  01.02.1998 by Abe Pralle
 
@@ -29,17 +29,17 @@ SECTION "Level1000Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1000_needbomb_gtx:
-  INCBIN "Data/Dialog/talk/l1000_needbomb.gtx"
+L1000_needbomb_gtx:
+  INCBIN "Data/Dialog/talk/L1000_needbomb.gtx"
 
-l1000_freeze_gtx:
-  INCBIN "Data/Dialog/talk/l1000_freeze.gtx"
+L1000_freeze_gtx:
+  INCBIN "Data/Dialog/talk/L1000_freeze.gtx"
 
-l1000_toolate_gtx:
-  INCBIN "Data/Dialog/talk/l1000_toolate.gtx"
+L1000_toolate_gtx:
+  INCBIN "Data/Dialog/talk/L1000_toolate.gtx"
 
-l1000_follow_gtx:
-  INCBIN "Data/Dialog/talk/l1000_follow.gtx"
+L1000_follow_gtx:
+  INCBIN "Data/Dialog/talk/L1000_follow.gtx"
 
 L1000_Contents::
   DW L1000_Load
@@ -61,7 +61,7 @@ L1000_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1000_Map:
-INCBIN "Data/Levels/l1000_basecamp.lvl"
+INCBIN "Data/Levels/L1000_basecamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -189,11 +189,11 @@ L1000_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l1000_freeze_gtx
+        ld      de,L1000_freeze_gtx
         call    ShowDialogAtBottom
 
         call    ClearDialog
-        ld      de,l1000_toolate_gtx
+        ld      de,L1000_toolate_gtx
         ld      c,GYRO_INDEX
         call    ShowDialogAtTop
 
@@ -230,7 +230,7 @@ L1000_Check2:
 
         ld      a,[levelVars+VAR_SPEAKER]
         ld      c,a
-        ld      de,l1000_follow_gtx
+        ld      de,L1000_follow_gtx
         call    ShowDialogAtBottom
 
 .afterConfrontDialog
@@ -297,7 +297,7 @@ L1000_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l1000_needbomb_gtx
+        ld      de,L1000_needbomb_gtx
         call    ShowDialogAtBottom
 
 .afterDialog

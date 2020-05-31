@@ -1,4 +1,4 @@
-; l0506.asm
+; L0506.asm
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -48,7 +48,7 @@ L0506_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0506_Map:
-INCBIN "Data/Levels/l0506_garden.lvl"
+INCBIN "Data/Levels/L0506_garden.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

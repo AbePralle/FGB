@@ -1,4 +1,4 @@
-; l0007.asm
+; L0007.asm
 ; Generated 09.04.2000 by mlevel
 ; Modified  09.04.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0007_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0007_Map:
-INCBIN "Data/Levels/l0007_forest.lvl"
+INCBIN "Data/Levels/L0007_forest.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

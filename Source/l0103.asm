@@ -1,4 +1,4 @@
-; l0103.asm east farm
+; L0103.asm east farm
 ; Generated 08.27.2000 by mlevel
 ; Modified  08.27.2000 by Abe Pralle
 
@@ -20,38 +20,38 @@ SECTION "Level0103Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0103_shootinfast_gtx:
-  INCBIN "Data/Dialog/talk/l0103_shootinfast.gtx"
+L0103_shootinfast_gtx:
+  INCBIN "Data/Dialog/talk/L0103_shootinfast.gtx"
 
-l0103_wrangling_gtx:
-  INCBIN "Data/Dialog/talk/l0103_wrangling.gtx"
+L0103_wrangling_gtx:
+  INCBIN "Data/Dialog/talk/L0103_wrangling.gtx"
 
-l0103_bs_where_gtx:
-  INCBIN "Data/Dialog/talk/l0103_bs_where.gtx"
+L0103_bs_where_gtx:
+  INCBIN "Data/Dialog/talk/L0103_bs_where.gtx"
 
-l0103_forest_gtx:
-  INCBIN "Data/Dialog/talk/l0103_forest.gtx"
+L0103_forest_gtx:
+  INCBIN "Data/Dialog/talk/L0103_forest.gtx"
 
-l0103_bs_figures_gtx:
-  INCBIN "Data/Dialog/talk/l0103_bs_figures.gtx"
+L0103_bs_figures_gtx:
+  INCBIN "Data/Dialog/talk/L0103_bs_figures.gtx"
 
-l0103_learn_gtx:
-  INCBIN "Data/Dialog/talk/l0103_learn.gtx"
+L0103_learn_gtx:
+  INCBIN "Data/Dialog/talk/L0103_learn.gtx"
 
-l0103_honey_gtx:
-  INCBIN "Data/Dialog/talk/l0103_honey.gtx"
+L0103_honey_gtx:
+  INCBIN "Data/Dialog/talk/L0103_honey.gtx"
 
-l0103_hero_honeyresponse_gtx:
-  INCBIN "Data/Dialog/talk/l0103_hero_honeyresponse.gtx"
+L0103_hero_honeyresponse_gtx:
+  INCBIN "Data/Dialog/talk/L0103_hero_honeyresponse.gtx"
 
-l0103_gethoney_gtx:
-  INCBIN "Data/Dialog/talk/l0103_gethoney.gtx"
+L0103_gethoney_gtx:
+  INCBIN "Data/Dialog/talk/L0103_gethoney.gtx"
 
-l0103_snakebitekit_gtx:
-  INCBIN "Data/Dialog/talk/l0103_snakebitekit.gtx"
+L0103_snakebitekit_gtx:
+  INCBIN "Data/Dialog/talk/L0103_snakebitekit.gtx"
 
-l0103_seenyoubefore_gtx:
-  INCBIN "Data/Dialog/talk/l0103_seenyoubefore.gtx"
+L0103_seenyoubefore_gtx:
+  INCBIN "Data/Dialog/talk/L0103_seenyoubefore.gtx"
 
 
 L0103_Contents::
@@ -74,7 +74,7 @@ L0103_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0103_Map:
-INCBIN "Data/Levels/l0103_green.lvl"
+INCBIN "Data/Levels/L0103_green.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -147,19 +147,19 @@ L0103_Check2:
         ld      de,((.afterUpgradeDialog-L0103_Check2)+levelCheckRAM)
         call    SetDialogSkip
 
-        ld      de,l0103_wrangling_gtx
+        ld      de,L0103_wrangling_gtx
         call    ShowDialogNPC
 
         ;Where's the wrangling iron?
-        ld      de,l0103_bs_where_gtx
+        ld      de,L0103_bs_where_gtx
         call    ShowDialogHero
 
         ;under a bee hive
-        ld      de,l0103_forest_gtx
+        ld      de,L0103_forest_gtx
         call    ShowDialogNPC
 
         ;Typical
-        ld      de,l0103_bs_figures_gtx
+        ld      de,L0103_bs_figures_gtx
         call    ShowDialogHero
         jr      .afterUpgradeDialog
 
@@ -168,7 +168,7 @@ L0103_Check2:
         call    SetDialogSkip
 
         ;How to shoot fast
-        ld      de,l0103_learn_gtx
+        ld      de,L0103_learn_gtx
         call    ShowDialogNPC
 
 .afterLearnDialog
@@ -187,7 +187,7 @@ L0103_Check2:
         call    SetDialogSkip
 
         ;"Jeb is my name"
-        ld      de,l0103_shootinfast_gtx
+        ld      de,L0103_shootinfast_gtx
         call    ShowDialogNPC 
 
 .afterUpgradeDialog
@@ -215,15 +215,15 @@ L0103_Check2:
         call    SetDialogSkip
 
         ;I love honey
-        ld      de,l0103_honey_gtx
+        ld      de,L0103_honey_gtx
         call    ShowDialogNPC
 
         ;Hero's response to honey lover
-        ld      de,l0103_hero_honeyresponse_gtx
+        ld      de,L0103_hero_honeyresponse_gtx
         call    ShowDialogHero
 
         ;Get me some honey
-        ld      de,l0103_gethoney_gtx
+        ld      de,L0103_gethoney_gtx
         call    ShowDialogNPC
         jr      .afterHoneyDialog
 
@@ -232,7 +232,7 @@ L0103_Check2:
         call    SetDialogSkip
 
         ;seen you before
-        ld      de,l0103_seenyoubefore_gtx
+        ld      de,L0103_seenyoubefore_gtx
         call    ShowDialogNPC
         jr      .afterHoneyDialog
 
@@ -241,7 +241,7 @@ L0103_Check2:
         call    SetDialogSkip
 
         ;give snake bite kit
-        ld      de,l0103_snakebitekit_gtx
+        ld      de,L0103_snakebitekit_gtx
         call    ShowDialogNPC
 
 .giveKit

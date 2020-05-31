@@ -1,4 +1,4 @@
-; l1502.asm approach to kiwi
+; L1502.asm approach to kiwi
 ; Generated 03.06.2001 by mlevel
 ; Modified  03.06.2001 by Abe Pralle
 

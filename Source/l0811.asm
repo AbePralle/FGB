@@ -1,4 +1,4 @@
-; l0811.asm ssa nw goblin module
+; L0811.asm ssa nw goblin module
 ; Generated 04.26.2001 by mlevel
 ; Modified  04.26.2001 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0811_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0811_Map:
-INCBIN "Data/Levels/l0811_ssa_nw.lvl"
+INCBIN "Data/Levels/L0811_ssa_nw.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -40,7 +40,7 @@ INCBIN "Data/Levels/l0811_ssa_nw.lvl"
 L0811_Init:
         DW ((L0811_InitFinished - L0811_Init2))  ;size
 L0811_Init2:
-        ld      a,BANK(l0012_defused_gtx)
+        ld      a,BANK(L0012_defused_gtx)
         ld      [dialogBank],a
         call    SetPressBDialog
 
@@ -138,11 +138,11 @@ L0811_Check2:
         cp      3
         jr      nz,.bombsRemain
 
-        ld      hl,l0012_alldefused_gtx
+        ld      hl,L0012_alldefused_gtx
         jr      .dialog
 
 .bombsRemain
-        ld      hl,l0012_defused_gtx
+        ld      hl,L0012_defused_gtx
 
 .dialog
         call    MakeIdle

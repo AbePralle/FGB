@@ -1,4 +1,4 @@
-; l0006.asm Sunset Village
+; L0006.asm Sunset Village
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 

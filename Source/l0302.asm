@@ -1,4 +1,4 @@
-; l0302.asm mist landing
+; L0302.asm mist landing
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -34,7 +34,7 @@ L0302_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0302_Map:
-INCBIN "Data/Levels/l0302_mistland.lvl"
+INCBIN "Data/Levels/L0302_mistland.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

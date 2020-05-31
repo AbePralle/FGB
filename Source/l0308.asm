@@ -1,4 +1,4 @@
-; l0308.asm desert bridge
+; L0308.asm desert bridge
 ; Generated 11.07.2000 by mlevel
 ; Modified  11.07.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0308_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0308_Map:
-INCBIN "Data/Levels/l0308_drylake.lvl"
+INCBIN "Data/Levels/L0308_drylake.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

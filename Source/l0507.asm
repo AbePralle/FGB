@@ -1,4 +1,4 @@
-; l0507.asm swamp
+; L0507.asm swamp
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0507_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0507_Map:
-INCBIN "Data/Levels/l0507_swamp.lvl"
+INCBIN "Data/Levels/L0507_swamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

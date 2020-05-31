@@ -1,4 +1,4 @@
-; l0902.asm Ice Plain Landing
+; L0902.asm Ice Plain Landing
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0902_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0902_Map:
-INCBIN "Data/Levels/l0902_iceplainland.lvl"
+INCBIN "Data/Levels/L0902_iceplainland.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

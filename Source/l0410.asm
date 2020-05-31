@@ -1,4 +1,4 @@
-; l0410.asm crouton outpost
+; L0410.asm crouton outpost
 ; Generated 11.07.2000 by mlevel
 ; Modified  11.07.2000 by Abe Pralle
 
@@ -36,7 +36,7 @@ L0410_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0410_Map:
-INCBIN "Data/Levels/l0410_outpost.lvl"
+INCBIN "Data/Levels/L0410_outpost.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

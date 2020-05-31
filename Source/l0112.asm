@@ -1,4 +1,4 @@
-; l0112.asm hive entrance
+; L0112.asm hive entrance
 ; Generated 08.31.2000 by mlevel
 ; Modified  08.31.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0112_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0112_Map:
-INCBIN "Data/Levels/l0112_hive_entrance.lvl"
+INCBIN "Data/Levels/L0112_hive_entrance.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

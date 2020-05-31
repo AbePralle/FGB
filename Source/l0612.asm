@@ -1,4 +1,4 @@
-; l0612.asm crouton teleport chamber
+; L0612.asm crouton teleport chamber
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -29,23 +29,23 @@ SECTION "Level0612Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0612_plan_gtx:
-  INCBIN "Data/Dialog/talk/l0612_plan.gtx"
+L0612_plan_gtx:
+  INCBIN "Data/Dialog/talk/L0612_plan.gtx"
 
-l0612_clearance_gtx:
-  INCBIN "Data/Dialog/talk/l0612_clearance.gtx"
+L0612_clearance_gtx:
+  INCBIN "Data/Dialog/talk/L0612_clearance.gtx"
 
-l0612_controls_gtx:
-  INCBIN "Data/Dialog/talk/l0612_controls.gtx"
+L0612_controls_gtx:
+  INCBIN "Data/Dialog/talk/L0612_controls.gtx"
 
-l0612_go_gtx:
-  INCBIN "Data/Dialog/talk/l0612_go.gtx"
+L0612_go_gtx:
+  INCBIN "Data/Dialog/talk/L0612_go.gtx"
 
-l0612_duke_gtx:
-  INCBIN "Data/Dialog/talk/l0612_duke.gtx"
+L0612_duke_gtx:
+  INCBIN "Data/Dialog/talk/L0612_duke.gtx"
 
-l0612_return_gtx:
-  INCBIN "Data/Dialog/talk/l0612_return.gtx"
+L0612_return_gtx:
+  INCBIN "Data/Dialog/talk/L0612_return.gtx"
 
 L0612_Contents::
   DW L0612_Load
@@ -78,7 +78,7 @@ L0612_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0612_Map:
-INCBIN "Data/Levels/l0612_teleport.lvl"
+INCBIN "Data/Levels/L0612_teleport.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -191,7 +191,7 @@ L0612_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerToFirstHero
-        ld      de,l0612_plan_gtx
+        ld      de,L0612_plan_gtx
         call    ShowDialogAtBottom
 
 .afterTalkPlanDialog
@@ -228,7 +228,7 @@ L0612_Check2:
         ld      de,((.afterControlsDialog-L0612_Check2)+levelCheckRAM)
         call    SetDialogSkip
 
-        ld      de,l0612_controls_gtx
+        ld      de,L0612_controls_gtx
         call    ShowDialogAtBottom
 
 .afterControlsDialog
@@ -248,7 +248,7 @@ L0612_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerToFirstHero
-        ld      de,l0612_clearance_gtx
+        ld      de,L0612_clearance_gtx
         call    ShowDialogAtBottom
 
 .afterClearanceDialog
@@ -305,7 +305,7 @@ L0612_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0612_go_gtx
+        ld      de,L0612_go_gtx
         call    ShowDialogAtBottom
 
 .afterGoDialog
@@ -333,7 +333,7 @@ L0612_Check2:
         ld      [camera_i],a
         ld      [camera_j],a
 
-        ld      de,l0612_duke_gtx
+        ld      de,L0612_duke_gtx
         call    ShowDialogAtBottom
 
         ld      c,7
@@ -399,7 +399,7 @@ L0612_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerToFirstHero
-        ld      de,l0612_return_gtx
+        ld      de,L0612_return_gtx
         call    ShowDialogAtBottom
 
 .afterReturnDialog

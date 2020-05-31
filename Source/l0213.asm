@@ -1,4 +1,4 @@
-; l0213.asm storming moonbase obliteration
+; L0213.asm storming moonbase obliteration
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.31.2000 by Abe Pralle
 
@@ -30,7 +30,7 @@ L0213_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0213_Map:
-INCBIN "Data/Levels/l0213_intro_ba3.lvl"
+INCBIN "Data/Levels/L0213_intro_ba3.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

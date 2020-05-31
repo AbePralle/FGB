@@ -1,4 +1,4 @@
-; l1204.asm Escape from the space station
+; L1204.asm Escape from the space station
 ; Generated 05.02.2001 by mlevel
 ; Modified  05.02.2001 by Abe Pralle
 
@@ -44,32 +44,32 @@ SECTION "Level1204Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1204_gyro_notthere_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_notthere.gtx"
+L1204_gyro_notthere_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_notthere.gtx"
 
-l1204_gyro_ofcourse_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_ofcourse.gtx"
+L1204_gyro_ofcourse_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_ofcourse.gtx"
 
-l1204_gyro_unfortunately_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_unfortunately.gtx"
+L1204_gyro_unfortunately_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_unfortunately.gtx"
 
-l1204_gyro_explode_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_explode.gtx"
+L1204_gyro_explode_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_explode.gtx"
 
-l1204_gyro_escape_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_escape.gtx"
+L1204_gyro_escape_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_escape.gtx"
 
-l1204_gyro_button_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gyro_button.gtx"
+L1204_gyro_button_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gyro_button.gtx"
 
-l1204_gotitall_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_gotitall.gtx"
+L1204_gotitall_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_gotitall.gtx"
 
-l1204_datahere_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_datahere.gtx"
+L1204_datahere_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_datahere.gtx"
 
-l1204_letsroll_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1204_letsroll.gtx"
+L1204_letsroll_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1204_letsroll.gtx"
 
 blank_gtx:
   INCBIN "Data/Dialog/main_intro/blank.gtx"
@@ -107,7 +107,7 @@ L1204_Load2:
 
 .notThere
         ld      c,0
-        DIALOGBOTTOM l1204_gyro_notthere_gtx
+        DIALOGBOTTOM L1204_gyro_notthere_gtx
         ld      de,((.ofCourse-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -116,7 +116,7 @@ L1204_Load2:
 
 .ofCourse
         ld      c,0
-        DIALOGBOTTOM   l1204_gyro_ofcourse_gtx
+        DIALOGBOTTOM   L1204_gyro_ofcourse_gtx
         ld      de,((.unfortunately-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -124,7 +124,7 @@ L1204_Load2:
 
 .unfortunately
         ld      c,0
-        DIALOGBOTTOM l1204_gyro_unfortunately_gtx
+        DIALOGBOTTOM L1204_gyro_unfortunately_gtx
         ld      de,((.explode-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -132,7 +132,7 @@ L1204_Load2:
 
 .explode
         ld      c,0
-        DIALOGBOTTOM l1204_gyro_explode_gtx
+        DIALOGBOTTOM L1204_gyro_explode_gtx
         ld      de,((.escape-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -140,7 +140,7 @@ L1204_Load2:
 
 .escape
         ld      c,0
-        DIALOGBOTTOM l1204_gyro_escape_gtx
+        DIALOGBOTTOM L1204_gyro_escape_gtx
         ld      de,((.button-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -154,7 +154,7 @@ L1204_Load2:
 
         call    ((.quickFromBlack-L1204_Load2)+levelCheckRAM)
         ld      c,0
-        DIALOGBOTTOM l1204_gyro_button_gtx
+        DIALOGBOTTOM L1204_gyro_button_gtx
         ld      de,((.minuteslater-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
 
@@ -197,7 +197,7 @@ L1204_Load2:
         call    LoadCinemaBG
         call    ((.quickFromBlack-L1204_Load2)+levelCheckRAM)
         ld      c,0
-        DIALOGBOTTOM l1204_gotitall_gtx
+        DIALOGBOTTOM L1204_gotitall_gtx
         ld      de,((.datahere-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -210,7 +210,7 @@ L1204_Load2:
         call    LoadCinemaBG
         call    ((.quickFromBlack-L1204_Load2)+levelCheckRAM)
         ld      c,0
-        DIALOGBOTTOM l1204_datahere_gtx
+        DIALOGBOTTOM L1204_datahere_gtx
         ld      de,((.letsroll-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,4
@@ -223,7 +223,7 @@ L1204_Load2:
         call    LoadCinemaBG
         call    ((.quickFromBlack-L1204_Load2)+levelCheckRAM)
         ld      c,0
-        DIALOGBOTTOM l1204_letsroll_gtx
+        DIALOGBOTTOM L1204_letsroll_gtx
         ld      de,((.descending-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,2

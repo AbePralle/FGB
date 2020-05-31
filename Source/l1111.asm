@@ -1,4 +1,4 @@
-; l1111.asm ssa se hulk module
+; L1111.asm ssa se hulk module
 ; Generated 04.26.2001 by mlevel
 ; Modified  04.26.2001 by Abe Pralle
 
@@ -32,7 +32,7 @@ L1111_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1111_Map:
-INCBIN "Data/Levels/l1111_ssa_se.lvl"
+INCBIN "Data/Levels/L1111_ssa_se.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -40,7 +40,7 @@ INCBIN "Data/Levels/l1111_ssa_se.lvl"
 L1111_Init:
         DW ((L1111_InitFinished - L1111_Init2))  ;size
 L1111_Init2:
-        ld      a,BANK(l0012_defused_gtx)
+        ld      a,BANK(L0012_defused_gtx)
         ld      [dialogBank],a
         call    SetPressBDialog
 
@@ -138,11 +138,11 @@ L1111_Check2:
         cp      3
         jr      nz,.bombsRemain
 
-        ld      hl,l0012_alldefused_gtx
+        ld      hl,L0012_alldefused_gtx
         jr      .dialog
 
 .bombsRemain
-        ld      hl,l0012_defused_gtx
+        ld      hl,L0012_defused_gtx
 
 .dialog
         call    MakeIdle

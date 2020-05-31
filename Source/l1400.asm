@@ -1,4 +1,4 @@
-; l1400.asm Appomattox flying 
+; L1400.asm Appomattox flying 
 ; Generated 02.21.2001 by mlevel
 ; Modified  02.21.2001 by Abe Pralle
 

@@ -1,4 +1,4 @@
-; l0800.asm ice bridge
+; L0800.asm ice bridge
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -34,7 +34,7 @@ L0800_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0800_Map:
-INCBIN "Data/Levels/l0800_ice.lvl"
+INCBIN "Data/Levels/L0800_ice.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

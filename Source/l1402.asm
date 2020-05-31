@@ -1,4 +1,4 @@
-; l1402.asm lady flower intervenes
+; L1402.asm lady flower intervenes
 ; Generated 08.13.2000 by mlevel
 ; Modified  08.13.2000 by Abe Pralle
 

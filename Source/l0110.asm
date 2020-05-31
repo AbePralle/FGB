@@ -1,4 +1,4 @@
-; l0110.asm
+; L0110.asm
 ; Generated 11.06.2000 by mlevel
 ; Modified  11.06.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0110_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0110_Map:
-INCBIN "Data/Levels/l0110_mouse.lvl"
+INCBIN "Data/Levels/L0110_mouse.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

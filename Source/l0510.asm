@@ -1,4 +1,4 @@
-; l0510.asm
+; L0510.asm
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

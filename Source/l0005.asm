@@ -1,4 +1,4 @@
-; l0005.asm trakktor clearing
+; L0005.asm trakktor clearing
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 

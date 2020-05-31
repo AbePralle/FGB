@@ -1,4 +1,4 @@
-; l0604.asm outside of tower
+; L0604.asm outside of tower
 ; Generated 10.20.2000 by mlevel
 ; Modified  10.20.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0604_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0604_Map:
-INCBIN "Data/Levels/l0604_tower.lvl"
+INCBIN "Data/Levels/L0604_tower.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

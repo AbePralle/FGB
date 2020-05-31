@@ -1,4 +1,4 @@
-; l0707.asm
+; L0707.asm
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0707_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0707_Map:
-INCBIN "Data/Levels/l0707_barrows.lvl"
+INCBIN "Data/Levels/L0707_barrows.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0108.asm forest landing
+; L0108.asm forest landing
 ; Generated 09.04.2000 by mlevel
 ; Modified  09.04.2000 by Abe Pralle
 
@@ -14,8 +14,8 @@ SECTION "Level0108Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0108_sign_gtx:
-  INCBIN "Data/Dialog/talk/l0108_sign.gtx"
+L0108_sign_gtx:
+  INCBIN "Data/Dialog/talk/L0108_sign.gtx"
 
 L0108_Contents::
   DW L0108_Load
@@ -37,7 +37,7 @@ L0108_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0108_Map:
-INCBIN "Data/Levels/l0108_forest_landing.lvl"
+INCBIN "Data/Levels/L0108_forest_landing.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -86,7 +86,7 @@ L0108_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0108_sign_gtx
+        ld      de,L0108_sign_gtx
         call    ShowDialogAtTop
 .afterSignDialog
         call    ClearDialogSkipForward

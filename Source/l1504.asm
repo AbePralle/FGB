@@ -1,4 +1,4 @@
-; l1504.asm kidnap
+; L1504.asm kidnap
 ; Generated 03.09.2001 by mlevel
 ; Modified  03.09.2001 by Abe Pralle
 

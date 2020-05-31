@@ -1,4 +1,4 @@
-; l0003.asm green pastures big sheep pen
+; L0003.asm green pastures big sheep pen
 ; Generated 08.26.2000 by mlevel
 ; Modified  08.26.2000 by Abe Pralle
 
@@ -17,20 +17,20 @@ SECTION "Level0003Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0003_wolves_gtx:
-  INCBIN "Data/Dialog/talk/l0003_wolves.gtx"
+L0003_wolves_gtx:
+  INCBIN "Data/Dialog/talk/L0003_wolves.gtx"
 
-l0003_shootfast_gtx:
-  INCBIN "Data/Dialog/talk/l0003_shootfast.gtx"
+L0003_shootfast_gtx:
+  INCBIN "Data/Dialog/talk/L0003_shootfast.gtx"
 
-l0003_hero_jeb_gtx:
-  INCBIN "Data/Dialog/talk/l0003_hero_jeb.gtx"
+L0003_hero_jeb_gtx:
+  INCBIN "Data/Dialog/talk/L0003_hero_jeb.gtx"
 
-l0003_nevermind_gtx:
-  INCBIN "Data/Dialog/talk/l0003_nevermind.gtx"
+L0003_nevermind_gtx:
+  INCBIN "Data/Dialog/talk/L0003_nevermind.gtx"
 
-l0003_aboutjeb_gtx:
-  INCBIN "Data/Dialog/talk/l0003_aboutjeb.gtx"
+L0003_aboutjeb_gtx:
+  INCBIN "Data/Dialog/talk/L0003_aboutjeb.gtx"
 
 L0003_Contents::
   DW L0003_Load
@@ -52,7 +52,7 @@ L0003_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0003_Map:
-INCBIN "Data/Levels/l0003_green.lvl"
+INCBIN "Data/Levels/L0003_green.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -119,7 +119,7 @@ L0003_Check2:
         ;Warn about wolves
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0003_wolves_gtx
+        ld      de,L0003_wolves_gtx
         call    ShowDialogAtTop
         call    ClearDialog
 
@@ -146,7 +146,7 @@ L0003_Check2:
         ;Out here ya gotta shoot fast
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0003_shootfast_gtx
+        ld      de,L0003_shootfast_gtx
         call    ShowDialogAtTop
         call    ClearDialog
 
@@ -154,7 +154,7 @@ L0003_Check2:
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
         call    SetSpeakerFromHeroIndex
-        ld      de,l0003_hero_jeb_gtx
+        ld      de,L0003_hero_jeb_gtx
         call    ShowDialogAtBottom
         call    ClearDialog
 
@@ -165,7 +165,7 @@ L0003_Check2:
         ;nevermind
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0003_aboutjeb_gtx
+        ld      de,L0003_aboutjeb_gtx
         call    ShowDialogAtTop
         jr      .afterJebDialog
 
@@ -173,7 +173,7 @@ L0003_Check2:
         ;nevermind
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0003_nevermind_gtx
+        ld      de,L0003_nevermind_gtx
         call    ShowDialogAtTop
 
 .afterJebDialog

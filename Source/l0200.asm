@@ -1,4 +1,4 @@
-; l0200.asm evil village
+; L0200.asm evil village
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -35,7 +35,7 @@ L0200_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0200_Map:
-INCBIN "Data/Levels/l0200_evilvill.lvl"
+INCBIN "Data/Levels/L0200_evilvill.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0212.asm
+; L0212.asm
 ; Generated 08.31.2000 by mlevel
 ; Modified  08.31.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0212_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0212_Map:
-INCBIN "Data/Levels/l0212_sunsethouseup.lvl"
+INCBIN "Data/Levels/L0212_sunsethouseup.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

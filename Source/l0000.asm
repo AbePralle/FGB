@@ -1,4 +1,4 @@
-;level0000.asm hive
+;leveL0000.asm hive
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -13,8 +13,8 @@ SECTION "LevelsSection0000",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 dialog:
-l0000_hero_honey_gtx:
-  INCBIN "Data/Dialog/talk/l0000_hero_honey.gtx"
+L0000_hero_honey_gtx:
+  INCBIN "Data/Dialog/talk/L0000_hero_honey.gtx"
 
 L0000_Contents::
   DW L0000_Load
@@ -34,7 +34,7 @@ L0000_Load2:
 L0000_LoadFinished:
 
 L0000_Map:
-INCBIN "Data/Levels/l0000_hive.lvl"
+INCBIN "Data/Levels/L0000_hive.lvl"
 
 ;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
 ;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
@@ -99,7 +99,7 @@ L0000_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0000_hero_honey_gtx
+        ld      de,L0000_hero_honey_gtx
         call    ShowDialogAtBottom
 .afterDialog
         call    ClearDialog

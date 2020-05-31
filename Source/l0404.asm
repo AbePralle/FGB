@@ -1,4 +1,4 @@
-; l0404.asm
+; L0404.asm
 ; Generated 08.26.2000 by mlevel
 ; Modified  08.26.2000 by Abe Pralle
 
@@ -31,7 +31,7 @@ L0404_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0404_Map:
-INCBIN "Data/Levels/l0404_shroom.lvl"
+INCBIN "Data/Levels/L0404_shroom.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

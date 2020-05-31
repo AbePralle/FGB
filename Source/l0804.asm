@@ -1,4 +1,4 @@
-; l0804.asm grand canyon
+; L0804.asm grand canyon
 ; Generated 09.18.2000 by mlevel
 ; Modified  09.18.2000 by Abe Pralle
 
@@ -33,7 +33,7 @@ L0804_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0804_Map:
-INCBIN "Data/Levels/l0804_canyon.lvl"
+INCBIN "Data/Levels/L0804_canyon.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

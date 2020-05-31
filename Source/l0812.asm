@@ -1,4 +1,4 @@
-; l0812.asm demo warp zone
+; L0812.asm demo warp zone
 ; Generated 12.01.2000 by mlevel
 ; Modified  12.01.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0812_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0812_Map:
-INCBIN "Data/Levels/l0812_warp.lvl"
+INCBIN "Data/Levels/L0812_warp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

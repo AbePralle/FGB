@@ -1,4 +1,4 @@
-; l1006.asm crouton outpost
+; L1006.asm crouton outpost
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -31,7 +31,7 @@ L1006_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1006_Map:
-INCBIN "Data/Levels/l1006_outpost.lvl"
+INCBIN "Data/Levels/L1006_outpost.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

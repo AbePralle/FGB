@@ -1,4 +1,4 @@
-; l0904.asm
+; L0904.asm
 ; Generated 09.18.2000 by mlevel
 ; Modified  09.18.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0904_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0904_Map:
-INCBIN "Data/Levels/l0904_canyon.lvl"
+INCBIN "Data/Levels/L0904_canyon.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

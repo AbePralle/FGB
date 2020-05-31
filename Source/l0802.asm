@@ -1,4 +1,4 @@
-; l0802.asm windy passage
+; L0802.asm windy passage
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0802_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0802_Map:
-INCBIN "Data/Levels/l0802_windypass.lvl"
+INCBIN "Data/Levels/L0802_windypass.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

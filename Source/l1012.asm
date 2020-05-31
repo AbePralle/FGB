@@ -1,4 +1,4 @@
-; l1012.asm library
+; L1012.asm library
 ; Generated 04.10.2001 by mlevel
 ; Modified  04.10.2001 by Abe Pralle
 
@@ -13,8 +13,8 @@ SECTION "Level1012Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1012_hero_readbook_gtx:
-  INCBIN "Data/Dialog/talk/l1012_hero_readbook.gtx"
+L1012_hero_readbook_gtx:
+  INCBIN "Data/Dialog/talk/L1012_hero_readbook.gtx"
 
 L1012_Contents::
   DW L1012_Load
@@ -36,7 +36,7 @@ L1012_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1012_Map:
-INCBIN "Data/Levels/l1012_library.lvl"
+INCBIN "Data/Levels/L1012_library.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -83,7 +83,7 @@ L1012_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l1012_hero_readbook_gtx
+        ld      de,L1012_hero_readbook_gtx
         call    ShowDialogAtBottom
 
 .afterDialog

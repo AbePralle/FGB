@@ -1,4 +1,4 @@
-; l0215.asm BRAINIAC computer room
+; L0215.asm BRAINIAC computer room
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -380,7 +380,7 @@ L0215_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0215_Map:
-INCBIN "Data/Levels/l0215_intro_bs3.lvl"
+INCBIN "Data/Levels/L0215_intro_bs3.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

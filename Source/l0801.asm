@@ -1,4 +1,4 @@
-; l0801.asm
+; L0801.asm
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0801_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0801_Map:
-INCBIN "Data/Levels/l0801_escape.lvl"
+INCBIN "Data/Levels/L0801_escape.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

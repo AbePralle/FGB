@@ -1,4 +1,4 @@
-; l0512.asm
+; L0512.asm
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0512_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0512_Map:
-INCBIN "Data/Levels/l0512_witch_house.lvl"
+INCBIN "Data/Levels/L0512_witch_house.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

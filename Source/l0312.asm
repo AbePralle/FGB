@@ -1,4 +1,4 @@
-; l0312.asm sunset bee house
+; L0312.asm sunset bee house
 ; Generated 08.31.2000 by mlevel
 ; Modified  08.31.2000 by Abe Pralle
 
@@ -33,7 +33,7 @@ L0312_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0312_Map:
-INCBIN "Data/Levels/l0312_sunsethousedown.lvl"
+INCBIN "Data/Levels/L0312_sunsethousedown.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

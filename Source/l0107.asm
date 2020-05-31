@@ -1,4 +1,4 @@
-;level0107.asm first landing
+;leveL0107.asm first landing
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -23,7 +23,7 @@ STATE_WAITPANSIES      EQU 3
 STATE_WAITGATE         EQU 4
 STATE_WAITRETURN       EQU 5
 
-;referenced in l1401 lz_brokenwall_bg
+;referenced in L1401 lz_brokenwall_bg
 STATE_NORMAL           EQU 6
 
 EXPORT bigLaserSound

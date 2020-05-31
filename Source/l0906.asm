@@ -1,4 +1,4 @@
-; l0906.asm
+; L0906.asm
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0906_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0906_Map:
-INCBIN "Data/Levels/l0906_stone_wisp.lvl"
+INCBIN "Data/Levels/L0906_stone_wisp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

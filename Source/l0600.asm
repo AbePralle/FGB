@@ -1,4 +1,4 @@
-; l0600.asm
+; L0600.asm
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0600_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0600_Map:
-INCBIN "Data/Levels/l0600_ice.lvl"
+INCBIN "Data/Levels/L0600_ice.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

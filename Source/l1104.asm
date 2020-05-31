@@ -1,4 +1,4 @@
-; l1104.asm To Space Station Apocalypse
+; L1104.asm To Space Station Apocalypse
 ; Generated 04.22.2001 by mlevel
 ; Modified  04.22.2001 by Abe Pralle
 
@@ -46,17 +46,17 @@ SECTION "Level1104Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1104_whereisgyro_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1104_whereisgyro.gtx"
+L1104_whereisgyro_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1104_whereisgyro.gtx"
 
-l1104_station_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1104_station.gtx"
+L1104_station_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1104_station.gtx"
 
-l1104_apocalypse_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1104_apocalypse.gtx"
+L1104_apocalypse_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1104_apocalypse.gtx"
 
-l1104_letsgo_gtx:
-  INCBIN "Data/Dialog/apocalypse/l1104_letsgo.gtx"
+L1104_letsgo_gtx:
+  INCBIN "Data/Dialog/apocalypse/L1104_letsgo.gtx"
 
 
 L1104_Contents::
@@ -128,7 +128,7 @@ L1104_Load2:
         call    SetupFadeFromStandard
 
         ld      c,3
-        DIALOGBOTTOM l1104_whereisgyro_gtx
+        DIALOGBOTTOM L1104_whereisgyro_gtx
 
         ld      a,150
         call    Delay
@@ -138,7 +138,7 @@ L1104_Load2:
         call    SetDialogForward
 
         ld      c,2
-        DIALOGBOTTOM l1104_station_gtx
+        DIALOGBOTTOM L1104_station_gtx
 
         ld      a,150
         call    Delay
@@ -164,7 +164,7 @@ L1104_Load2:
 
 
         ld      c,2
-        DIALOGBOTTOM l1104_apocalypse_gtx
+        DIALOGBOTTOM L1104_apocalypse_gtx
 
         ;blink station id
         ld      c,15
@@ -202,7 +202,7 @@ L1104_Load2:
         call    ((.quickFromBlack-L1104_Load2)+levelCheckRAM)
 
         ld      c,1
-        DIALOGBOTTOM l1104_letsgo_gtx
+        DIALOGBOTTOM L1104_letsgo_gtx
 
         ld      a,75 
         call    Delay

@@ -1,4 +1,4 @@
-; l0808.asm crouton war camp
+; L0808.asm crouton war camp
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -35,7 +35,7 @@ L0808_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0808_Map:
-INCBIN "Data/Levels/l0808_warcamp.lvl"
+INCBIN "Data/Levels/L0808_warcamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

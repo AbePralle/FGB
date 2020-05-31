@@ -1,4 +1,4 @@
-; l0304.asm pansies eat shrooms
+; L0304.asm pansies eat shrooms
 ; Generated 08.03.2000 by mlevel
 ; Modified  08.03.2000 by Abe Pralle
 
@@ -12,8 +12,8 @@ SECTION "Level0304Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0304_spores_gtx:
-  INCBIN "Data/Dialog/talk/l0304_spores.gtx"
+L0304_spores_gtx:
+  INCBIN "Data/Dialog/talk/L0304_spores.gtx"
 
 L0304_Contents::
   DW L0304_Load
@@ -35,7 +35,7 @@ L0304_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0304_Map:
-INCBIN "Data/Levels/l0304_shroom.lvl"
+INCBIN "Data/Levels/L0304_shroom.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -174,7 +174,7 @@ L0304_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerToFirstHero
-        ld      de,l0304_spores_gtx
+        ld      de,L0304_spores_gtx
         call    ShowDialogAtBottom
 .afterTalk
         call    ClearDialogSkipForward

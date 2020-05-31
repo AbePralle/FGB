@@ -1,4 +1,4 @@
-; l0400.asm crouton ice post
+; L0400.asm crouton ice post
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 

@@ -1,4 +1,4 @@
-; l1302.asm gyves cornered cinema
+; L1302.asm gyves cornered cinema
 ; Generated 07.31.2000 by mlevel
 ; Modified  07.31.2000 by Abe Pralle
 

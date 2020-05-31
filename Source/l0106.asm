@@ -1,4 +1,4 @@
-;level0106.asm
+;leveL0106.asm
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -11,17 +11,17 @@ SECTION "LevelsSection0106",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0106_heysonny_gtx:
-  INCBIN "Data/Dialog/talk/l0106_heysonny.gtx"
+L0106_heysonny_gtx:
+  INCBIN "Data/Dialog/talk/L0106_heysonny.gtx"
 
-l0106_hero_seethem_gtx:
-  INCBIN "Data/Dialog/talk/l0106_hero_seethem.gtx"
+L0106_hero_seethem_gtx:
+  INCBIN "Data/Dialog/talk/L0106_hero_seethem.gtx"
 
-l0106_sure_gtx:
-  INCBIN "Data/Dialog/talk/l0106_sure.gtx"
+L0106_sure_gtx:
+  INCBIN "Data/Dialog/talk/L0106_sure.gtx"
 
-l0106_headnorth_gtx:
-  INCBIN "Data/Dialog/talk/l0106_headnorth.gtx"
+L0106_headnorth_gtx:
+  INCBIN "Data/Dialog/talk/L0106_headnorth.gtx"
 
 L0106_Contents::
   DW L0106_Load
@@ -41,7 +41,7 @@ L0106_Load2:
 L0106_LoadFinished:
 
 L0106_Map:
-INCBIN "Data/Levels/l0106_path.lvl"
+INCBIN "Data/Levels/L0106_path.lvl"
 
 ;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
 ;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
@@ -106,7 +106,7 @@ L0106_Check2:
         ;Hey Sonny
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0106_heysonny_gtx
+        ld      de,L0106_heysonny_gtx
         call    ShowDialogAtTop
         call    ClearDialog
 
@@ -114,18 +114,18 @@ L0106_Check2:
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
         call    SetSpeakerFromHeroIndex
-        ld      de,l0106_hero_seethem_gtx
+        ld      de,L0106_hero_seethem_gtx
         call    ShowDialogAtBottom
         call    ClearDialog
 
         ;Sure
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0106_sure_gtx
+        ld      de,L0106_sure_gtx
         call    ShowDialogAtTop
 
         ;Head north
-        ld      de,l0106_headnorth_gtx
+        ld      de,L0106_headnorth_gtx
         call    ShowDialogAtTop
 
 .afterDialog

@@ -1,4 +1,4 @@
-; l1010.asm king grenade
+; L1010.asm king grenade
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -17,14 +17,14 @@ SECTION "Level1010Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1010_amking_gtx:
-  INCBIN "Data/Dialog/talk/l1010_amking.gtx"
+L1010_amking_gtx:
+  INCBIN "Data/Dialog/talk/L1010_amking.gtx"
 
-l1010_cannotleave_gtx:
-  INCBIN "Data/Dialog/talk/l1010_cannotleave.gtx"
+L1010_cannotleave_gtx:
+  INCBIN "Data/Dialog/talk/L1010_cannotleave.gtx"
 
-l1010_readytogo_gtx:
-  INCBIN "Data/Dialog/talk/l1010_readytogo.gtx"
+L1010_readytogo_gtx:
+  INCBIN "Data/Dialog/talk/L1010_readytogo.gtx"
 
 L1010_Contents::
   DW L1010_Load
@@ -46,7 +46,7 @@ L1010_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1010_Map:
-INCBIN "Data/Levels/l1010_kinggrenade.lvl"
+INCBIN "Data/Levels/L1010_kinggrenade.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -129,7 +129,7 @@ L1010_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l1010_amking_gtx
+        ld      de,L1010_amking_gtx
         ld      c,KING_INDEX
         call    ShowDialogAtTop
 
@@ -139,12 +139,12 @@ L1010_Check2:
         or      a
         jr      nz,.blownUp
 
-        ld      de,l1010_cannotleave_gtx
+        ld      de,L1010_cannotleave_gtx
         call    ShowDialogAtTop
         jr      .afterDialog
 
 .blownUp
-        ld      de,l1010_readytogo_gtx
+        ld      de,L1010_readytogo_gtx
         call    ShowDialogAtTop
 
 .afterDialog

@@ -1,4 +1,4 @@
-; l1500.asm
+; L1500.asm
 ; Generated 03.22.2001 by mlevel
 ; Modified  03.22.2001 by Abe Pralle
 

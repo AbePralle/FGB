@@ -1,4 +1,4 @@
-; l0607.asm swampy
+; L0607.asm swampy
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0607_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0607_Map:
-INCBIN "Data/Levels/l0607_swampthang.lvl"
+INCBIN "Data/Levels/L0607_swampthang.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0314.asm skippy runs for it
+; L0314.asm skippy runs for it
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -393,7 +393,7 @@ L0314_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0314_Map:
-INCBIN "Data/Levels/l0314_intro_haiku4.lvl"
+INCBIN "Data/Levels/L0314_intro_haiku4.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

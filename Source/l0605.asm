@@ -1,4 +1,4 @@
-; l0605.asm
+; L0605.asm
 ; Generated 09.14.2000 by mlevel
 ; Modified  09.14.2000 by Abe Pralle
 
@@ -54,7 +54,7 @@ L0605_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0605_Map:
-INCBIN "Data/Levels/l0605_garden.lvl"
+INCBIN "Data/Levels/L0605_garden.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

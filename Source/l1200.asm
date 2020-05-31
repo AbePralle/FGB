@@ -1,4 +1,4 @@
-;level1200 logo cinema
+;leveL1200 logo cinema
 ;Abe Pralle 5.2.2000
 
 INCLUDE "Source/defs.inc"
