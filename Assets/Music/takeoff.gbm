@@ -1,0 +1,1307 @@
+//FGB
+//Appomattox takeoff sequence
+//Jacob Stevens
+
+notesPerSecond 10   
+ 
+track 1   //countermelody
+
+	.counterMain1       //section 1
+		.counterA1
+			counterA
+			cmp r0,1
+			jmp eq,.counterB1
+			cmp r0,2
+			jmp eq,.counterB2
+			cmp r0,3
+			jmp eq,.counterB3
+			cmp r0,4
+			jmp eq,.counterB4
+			cmp r0,5
+			jmp eq,.counterB5
+		.counterB1
+			counterB
+			cmp r0,1
+			jmp eq,.counterC1
+			cmp r0,2
+			jmp eq,.counterC2
+			cmp r0,3
+			jmp eq,.counterC3
+			cmp r0,4
+			jmp eq,.counterC4
+			cmp r0,5
+			jmp eq,.counterC5
+		.counterC1
+			counterC
+			cmp r0,1
+			jmp eq,.counterD1
+			cmp r0,2
+			jmp eq,.counterD2
+			cmp r0,3
+			jmp eq,.counterD3
+			cmp r0,4
+			jmp eq,.counterD4
+			cmp r0,5
+			jmp eq,.counterD5
+		.counterD1
+			counterD
+			cmp r0,1
+			jmp eq,.counterE1
+			cmp r0,2
+			jmp eq,.counterE2
+			cmp r0,3
+			jmp eq,.counterE3
+			cmp r0,4
+			jmp eq,.counterE4
+			cmp r0,5
+			jmp eq,.counterE5
+		.counterE1
+			counterE
+			cmp r0,1
+			jmp eq,.counterF1
+			cmp r0,2
+			jmp eq,.counterF2
+			cmp r0,3
+			jmp eq,.counterF3
+			cmp r0,4
+			jmp eq,.counterF4
+			cmp r0,5
+			jmp eq,.counterF5
+		.counterF1
+			counterF
+			cmp r0,1
+			jmp eq,.counterA1
+			cmp r0,2
+			jmp eq,.counterA2
+			cmp r0,3
+			jmp eq,.counterA3
+			cmp r0,4
+			jmp eq,.counterA4
+			cmp r0,5
+			jmp eq,.counterA5
+	jmp counterMain1
+
+	.counterMain2       //section 2
+		.counterA2
+			counterA
+			cmp r0,1
+			jmp eq,.counterB1
+			cmp r0,2
+			jmp eq,.counterB2
+			cmp r0,3
+			jmp eq,.counterB3
+			cmp r0,4
+			jmp eq,.counterB4
+			cmp r0,5
+			jmp eq,.counterB5
+		.counterB2
+			counterB
+			cmp r0,1
+			jmp eq,.counterC1
+			cmp r0,2
+			jmp eq,.counterC2
+			cmp r0,3
+			jmp eq,.counterC3
+			cmp r0,4
+			jmp eq,.counterC4
+			cmp r0,5
+			jmp eq,.counterC5
+		.counterC2
+			counterC
+			cmp r0,1
+			jmp eq,.counterD1
+			cmp r0,2
+			jmp eq,.counterD2
+			cmp r0,3
+			jmp eq,.counterD3
+			cmp r0,4
+			jmp eq,.counterD4
+			cmp r0,5
+			jmp eq,.counterD5
+		.counterD2
+			counterD
+			cmp r0,1
+			jmp eq,.counterE1
+			cmp r0,2
+			jmp eq,.counterE2
+			cmp r0,3
+			jmp eq,.counterE3
+			cmp r0,4
+			jmp eq,.counterE4
+			cmp r0,5
+			jmp eq,.counterE5
+		.counterE2
+			counterE
+			cmp r0,1
+			jmp eq,.counterF1
+			cmp r0,2
+			jmp eq,.counterF2
+			cmp r0,3
+			jmp eq,.counterF3
+			cmp r0,4
+			jmp eq,.counterF4
+			cmp r0,5
+			jmp eq,.counterF5
+		.counterF2
+			counterF
+			cmp r0,1
+			jmp eq,.counterA1
+			cmp r0,2
+			jmp eq,.counterA2
+			cmp r0,3
+			jmp eq,.counterA3
+			cmp r0,4
+			jmp eq,.counterA4
+			cmp r0,5
+			jmp eq,.counterA5
+	jmp counterMain2
+
+	.counterMain3       //section 3
+		.counterA3
+			counterA
+			cmp r0,1
+			jmp eq,.counterB1
+			cmp r0,2
+			jmp eq,.counterB2
+			cmp r0,3
+			jmp eq,.counterB3
+			cmp r0,4
+			jmp eq,.counterB4
+			cmp r0,5
+			jmp eq,.counterB5
+		.counterB3
+			counterB
+			cmp r0,1
+			jmp eq,.counterC1
+			cmp r0,2
+			jmp eq,.counterC2
+			cmp r0,3
+			jmp eq,.counterC3
+			cmp r0,4
+			jmp eq,.counterC4
+			cmp r0,5
+			jmp eq,.counterC5
+		.counterC3
+			counterC
+			cmp r0,1
+			jmp eq,.counterD1
+			cmp r0,2
+			jmp eq,.counterD2
+			cmp r0,3
+			jmp eq,.counterD3
+			cmp r0,4
+			jmp eq,.counterD4
+			cmp r0,5
+			jmp eq,.counterD5
+		.counterD3
+			counterD
+			cmp r0,1
+			jmp eq,.counterE1
+			cmp r0,2
+			jmp eq,.counterE2
+			cmp r0,3
+			jmp eq,.counterE3
+			cmp r0,4
+			jmp eq,.counterE4
+			cmp r0,5
+			jmp eq,.counterE5
+		.counterE3
+			counterE
+			cmp r0,1
+			jmp eq,.counterF1
+			cmp r0,2
+			jmp eq,.counterF2
+			cmp r0,3
+			jmp eq,.counterF3
+			cmp r0,4
+			jmp eq,.counterF4
+			cmp r0,5
+			jmp eq,.counterF5
+		.counterF3
+			counterF
+			cmp r0,1
+			jmp eq,.counterA1
+			cmp r0,2
+			jmp eq,.counterA2
+			cmp r0,3
+			jmp eq,.counterA3
+			cmp r0,4
+			jmp eq,.counterA4
+			cmp r0,5
+			jmp eq,.counterA5
+	jmp counterMain3
+
+	.counterMain4       //section 4
+		.counterA4
+			counterA
+			cmp r0,1
+			jmp eq,.counterB1
+			cmp r0,2
+			jmp eq,.counterB2
+			cmp r0,3
+			jmp eq,.counterB3
+			cmp r0,4
+			jmp eq,.counterB4
+			cmp r0,5
+			jmp eq,.counterB5
+		.counterB4
+			counterB
+			cmp r0,1
+			jmp eq,.counterC1
+			cmp r0,2
+			jmp eq,.counterC2
+			cmp r0,3
+			jmp eq,.counterC3
+			cmp r0,4
+			jmp eq,.counterC4
+			cmp r0,5
+			jmp eq,.counterC5
+		.counterC4
+			counterC
+			cmp r0,1
+			jmp eq,.counterD1
+			cmp r0,2
+			jmp eq,.counterD2
+			cmp r0,3
+			jmp eq,.counterD3
+			cmp r0,4
+			jmp eq,.counterD4
+			cmp r0,5
+			jmp eq,.counterD5
+		.counterD4
+			counterD
+			cmp r0,1
+			jmp eq,.counterE1
+			cmp r0,2
+			jmp eq,.counterE2
+			cmp r0,3
+			jmp eq,.counterE3
+			cmp r0,4
+			jmp eq,.counterE4
+			cmp r0,5
+			jmp eq,.counterE5
+		.counterE4
+			counterE
+			cmp r0,1
+			jmp eq,.counterF1
+			cmp r0,2
+			jmp eq,.counterF2
+			cmp r0,3
+			jmp eq,.counterF3
+			cmp r0,4
+			jmp eq,.counterF4
+			cmp r0,5
+			jmp eq,.counterF5
+		.counterF4
+			counterF
+			cmp r0,1
+			jmp eq,.counterA1
+			cmp r0,2
+			jmp eq,.counterA2
+			cmp r0,3
+			jmp eq,.counterA3
+			cmp r0,4
+			jmp eq,.counterA4
+			cmp r0,5
+			jmp eq,.counterA5
+	jmp counterMain4
+
+	.counterMain5       //section 5
+		.counterA5
+			counterG
+			cmp r0,1
+			jmp eq,.counterB1
+			cmp r0,2
+			jmp eq,.counterB2
+			cmp r0,3
+			jmp eq,.counterB3
+			cmp r0,4
+			jmp eq,.counterB4
+			cmp r0,5
+			jmp eq,.counterB5
+		.counterB5
+			counterH
+			cmp r0,1
+			jmp eq,.counterC1
+			cmp r0,2
+			jmp eq,.counterC2
+			cmp r0,3
+			jmp eq,.counterC3
+			cmp r0,4
+			jmp eq,.counterC4
+			cmp r0,5
+			jmp eq,.counterC5
+		.counterC5
+			counterJ
+			cmp r0,1
+			jmp eq,.counterD1
+			cmp r0,2
+			jmp eq,.counterD2
+			cmp r0,3
+			jmp eq,.counterD3
+			cmp r0,4
+			jmp eq,.counterD4
+			cmp r0,5
+			jmp eq,.counterD5
+		.counterD5
+			counterK
+			cmp r0,1
+			jmp eq,.counterE1
+			cmp r0,2
+			jmp eq,.counterE2
+			cmp r0,3
+			jmp eq,.counterE3
+			cmp r0,4
+			jmp eq,.counterE4
+			cmp r0,5
+			jmp eq,.counterE5
+		.counterE5
+			counterL
+			cmp r0,1
+			jmp eq,.counterF1
+			cmp r0,2
+			jmp eq,.counterF2
+			cmp r0,3
+			jmp eq,.counterF3
+			cmp r0,4
+			jmp eq,.counterF4
+			cmp r0,5
+			jmp eq,.counterF5
+		.counterF5
+			counterM
+			cmp r0,1
+			jmp eq,.counterA1
+			cmp r0,2
+			jmp eq,.counterA2
+			cmp r0,3
+			jmp eq,.counterA3
+			cmp r0,4
+			jmp eq,.counterA4
+			cmp r0,5
+			jmp eq,.counterA5
+	jmp counterMain5
+
+
+track 2   //melody
+	.melodyMain1       //section 1
+		.melodyA1
+			melodyA
+			cmp r0,1
+			jmp eq,.melodyB1
+			cmp r0,2
+			jmp eq,.melodyB2
+			cmp r0,3
+			jmp eq,.melodyB3
+			cmp r0,4
+			jmp eq,.melodyB4
+			cmp r0,5
+			jmp eq,.melodyB5
+		.melodyB1
+			melodyB
+			cmp r0,1
+			jmp eq,.melodyC1
+			cmp r0,2
+			jmp eq,.melodyC2
+			cmp r0,3
+			jmp eq,.melodyC3
+			cmp r0,4
+			jmp eq,.melodyC4
+			cmp r0,5
+			jmp eq,.melodyC5
+		.melodyC1
+			melodyC
+			cmp r0,1
+			jmp eq,.melodyD1
+			cmp r0,2
+			jmp eq,.melodyD2
+			cmp r0,3
+			jmp eq,.melodyD3
+			cmp r0,4
+			jmp eq,.melodyD4
+			cmp r0,5
+			jmp eq,.melodyD5
+		.melodyD1
+			melodyD
+			cmp r0,1
+			jmp eq,.melodyE1
+			cmp r0,2
+			jmp eq,.melodyE2
+			cmp r0,3
+			jmp eq,.melodyE3
+			cmp r0,4
+			jmp eq,.melodyE4
+			cmp r0,5
+			jmp eq,.melodyE5
+		.melodyE1
+			melodyE
+			cmp r0,1
+			jmp eq,.melodyF1
+			cmp r0,2
+			jmp eq,.melodyF2
+			cmp r0,3
+			jmp eq,.melodyF3
+			cmp r0,4
+			jmp eq,.melodyF4
+			cmp r0,5
+			jmp eq,.melodyF5
+		.melodyF1
+			melodyF
+			cmp r0,1
+			jmp eq,.melodyA1
+			cmp r0,2
+			jmp eq,.melodyA2
+			cmp r0,3
+			jmp eq,.melodyA3
+			cmp r0,4
+			jmp eq,.melodyA4
+			cmp r0,5
+			jmp eq,.melodyA5
+	jmp melodyMain1
+
+	.melodyMain2       //section 2
+		.melodyA2
+			melodyA
+			cmp r0,1
+			jmp eq,.melodyB1
+			cmp r0,2
+			jmp eq,.melodyB2
+			cmp r0,3
+			jmp eq,.melodyB3
+			cmp r0,4
+			jmp eq,.melodyB4
+			cmp r0,5
+			jmp eq,.melodyB5
+		.melodyB2
+			melodyB
+			cmp r0,1
+			jmp eq,.melodyC1
+			cmp r0,2
+			jmp eq,.melodyC2
+			cmp r0,3
+			jmp eq,.melodyC3
+			cmp r0,4
+			jmp eq,.melodyC4
+			cmp r0,5
+			jmp eq,.melodyC5
+		.melodyC2
+			melodyC
+			cmp r0,1
+			jmp eq,.melodyD1
+			cmp r0,2
+			jmp eq,.melodyD2
+			cmp r0,3
+			jmp eq,.melodyD3
+			cmp r0,4
+			jmp eq,.melodyD4
+			cmp r0,5
+			jmp eq,.melodyD5
+		.melodyD2
+			melodyD
+			cmp r0,1
+			jmp eq,.melodyE1
+			cmp r0,2
+			jmp eq,.melodyE2
+			cmp r0,3
+			jmp eq,.melodyE3
+			cmp r0,4
+			jmp eq,.melodyE4
+			cmp r0,5
+			jmp eq,.melodyE5
+		.melodyE2
+			melodyE
+			cmp r0,1
+			jmp eq,.melodyF1
+			cmp r0,2
+			jmp eq,.melodyF2
+			cmp r0,3
+			jmp eq,.melodyF3
+			cmp r0,4
+			jmp eq,.melodyF4
+			cmp r0,5
+			jmp eq,.melodyF5
+		.melodyF2
+			melodyF
+			cmp r0,1
+			jmp eq,.melodyA1
+			cmp r0,2
+			jmp eq,.melodyA2
+			cmp r0,3
+			jmp eq,.melodyA3
+			cmp r0,4
+			jmp eq,.melodyA4
+			cmp r0,5
+			jmp eq,.melodyA5
+	jmp melodyMain2
+
+	.melodyMain3       //section 3
+		.melodyA3
+			melodyG
+			cmp r0,1
+			jmp eq,.melodyB1
+			cmp r0,2
+			jmp eq,.melodyB2
+			cmp r0,3
+			jmp eq,.melodyB3
+			cmp r0,4
+			jmp eq,.melodyB4
+			cmp r0,5
+			jmp eq,.melodyB5
+		.melodyB3
+			melodyH
+			cmp r0,1
+			jmp eq,.melodyC1
+			cmp r0,2
+			jmp eq,.melodyC2
+			cmp r0,3
+			jmp eq,.melodyC3
+			cmp r0,4
+			jmp eq,.melodyC4
+			cmp r0,5
+			jmp eq,.melodyC5
+		.melodyC3
+			melodyJ
+			cmp r0,1
+			jmp eq,.melodyD1
+			cmp r0,2
+			jmp eq,.melodyD2
+			cmp r0,3
+			jmp eq,.melodyD3
+			cmp r0,4
+			jmp eq,.melodyD4
+			cmp r0,5
+			jmp eq,.melodyD5
+		.melodyD3
+			melodyK
+			cmp r0,1
+			jmp eq,.melodyE1
+			cmp r0,2
+			jmp eq,.melodyE2
+			cmp r0,3
+			jmp eq,.melodyE3
+			cmp r0,4
+			jmp eq,.melodyE4
+			cmp r0,5
+			jmp eq,.melodyE5
+		.melodyE3
+			melodyL
+			cmp r0,1
+			jmp eq,.melodyF1
+			cmp r0,2
+			jmp eq,.melodyF2
+			cmp r0,3
+			jmp eq,.melodyF3
+			cmp r0,4
+			jmp eq,.melodyF4
+			cmp r0,5
+			jmp eq,.melodyF5
+		.melodyF3
+			melodyM
+			cmp r0,1
+			jmp eq,.melodyA1
+			cmp r0,2
+			jmp eq,.melodyA2
+			cmp r0,3
+			jmp eq,.melodyA3
+			cmp r0,4
+			jmp eq,.melodyA4
+			cmp r0,5
+			jmp eq,.melodyA5
+	jmp melodyMain3
+
+	.melodyMain4       //section 4
+		.melodyA4
+			melodyN
+			cmp r0,1
+			jmp eq,.melodyB1
+			cmp r0,2
+			jmp eq,.melodyB2
+			cmp r0,3
+			jmp eq,.melodyB3
+			cmp r0,4
+			jmp eq,.melodyB4
+			cmp r0,5
+			jmp eq,.melodyB5
+		.melodyB4
+			melodyO
+			cmp r0,1
+			jmp eq,.melodyC1
+			cmp r0,2
+			jmp eq,.melodyC2
+			cmp r0,3
+			jmp eq,.melodyC3
+			cmp r0,4
+			jmp eq,.melodyC4
+			cmp r0,5
+			jmp eq,.melodyC5
+		.melodyC4
+			melodyP
+			cmp r0,1
+			jmp eq,.melodyD1
+			cmp r0,2
+			jmp eq,.melodyD2
+			cmp r0,3
+			jmp eq,.melodyD3
+			cmp r0,4
+			jmp eq,.melodyD4
+			cmp r0,5
+			jmp eq,.melodyD5
+		.melodyD4
+			melodyQ
+			cmp r0,1
+			jmp eq,.melodyE1
+			cmp r0,2
+			jmp eq,.melodyE2
+			cmp r0,3
+			jmp eq,.melodyE3
+			cmp r0,4
+			jmp eq,.melodyE4
+			cmp r0,5
+			jmp eq,.melodyE5
+		.melodyE4
+			melodyR
+			cmp r0,1
+			jmp eq,.melodyF1
+			cmp r0,2
+			jmp eq,.melodyF2
+			cmp r0,3
+			jmp eq,.melodyF3
+			cmp r0,4
+			jmp eq,.melodyF4
+			cmp r0,5
+			jmp eq,.melodyF5
+		.melodyF4
+			melodyS
+			cmp r0,1
+			jmp eq,.melodyA1
+			cmp r0,2
+			jmp eq,.melodyA2
+			cmp r0,3
+			jmp eq,.melodyA3
+			cmp r0,4
+			jmp eq,.melodyA4
+			cmp r0,5
+			jmp eq,.melodyA5
+	jmp melodyMain4
+
+	.melodyMain5       //section 5
+		.melodyA5
+			melodyN
+			cmp r0,1
+			jmp eq,.melodyB1
+			cmp r0,2
+			jmp eq,.melodyB2
+			cmp r0,3
+			jmp eq,.melodyB3
+			cmp r0,4
+			jmp eq,.melodyB4
+			cmp r0,5
+			jmp eq,.melodyB5
+		.melodyB5
+			melodyO
+			cmp r0,1
+			jmp eq,.melodyC1
+			cmp r0,2
+			jmp eq,.melodyC2
+			cmp r0,3
+			jmp eq,.melodyC3
+			cmp r0,4
+			jmp eq,.melodyC4
+			cmp r0,5
+			jmp eq,.melodyC5
+		.melodyC5
+			melodyP
+			cmp r0,1
+			jmp eq,.melodyD1
+			cmp r0,2
+			jmp eq,.melodyD2
+			cmp r0,3
+			jmp eq,.melodyD3
+			cmp r0,4
+			jmp eq,.melodyD4
+			cmp r0,5
+			jmp eq,.melodyD5
+		.melodyD5
+			melodyQ
+			cmp r0,1
+			jmp eq,.melodyE1
+			cmp r0,2
+			jmp eq,.melodyE2
+			cmp r0,3
+			jmp eq,.melodyE3
+			cmp r0,4
+			jmp eq,.melodyE4
+			cmp r0,5
+			jmp eq,.melodyE5
+		.melodyE5
+			melodyR
+			cmp r0,1
+			jmp eq,.melodyF1
+			cmp r0,2
+			jmp eq,.melodyF2
+			cmp r0,3
+			jmp eq,.melodyF3
+			cmp r0,4
+			jmp eq,.melodyF4
+			cmp r0,5
+			jmp eq,.melodyF5
+		.melodyF5
+			melodyS
+			cmp r0,1
+			jmp eq,.melodyA1
+			cmp r0,2
+			jmp eq,.melodyA2
+			cmp r0,3
+			jmp eq,.melodyA3
+			cmp r0,4
+			jmp eq,.melodyA4
+			cmp r0,5
+			jmp eq,.melodyA5
+	jmp melodyMain5
+	
+track 3   //bass
+	.bassMain1       //section 1
+		.bassA1
+			bassA
+			cmp r0,1
+			jmp eq,.bassB1
+			cmp r0,2
+			jmp eq,.bassB2
+			cmp r0,3
+			jmp eq,.bassB3
+			cmp r0,4
+			jmp eq,.bassB4
+			cmp r0,5
+			jmp eq,.bassB5
+		.bassB1
+			bassB
+			cmp r0,1
+			jmp eq,.bassC1
+			cmp r0,2
+			jmp eq,.bassC2
+			cmp r0,3
+			jmp eq,.bassC3
+			cmp r0,4
+			jmp eq,.bassC4
+			cmp r0,5
+			jmp eq,.bassC5
+		.bassC1
+			bassC
+			cmp r0,1
+			jmp eq,.bassD1
+			cmp r0,2
+			jmp eq,.bassD2
+			cmp r0,3
+			jmp eq,.bassD3
+			cmp r0,4
+			jmp eq,.bassD4
+			cmp r0,5
+			jmp eq,.bassD5
+		.bassD1
+			bassD
+			cmp r0,1
+			jmp eq,.bassE1
+			cmp r0,2
+			jmp eq,.bassE2
+			cmp r0,3
+			jmp eq,.bassE3
+			cmp r0,4
+			jmp eq,.bassE4
+			cmp r0,5
+			jmp eq,.bassE5
+		.bassE1
+			bassE
+			cmp r0,1
+			jmp eq,.bassF1
+			cmp r0,2
+			jmp eq,.bassF2
+			cmp r0,3
+			jmp eq,.bassF3
+			cmp r0,4
+			jmp eq,.bassF4
+			cmp r0,5
+			jmp eq,.bassF5
+		.bassF1
+			bassF
+			cmp r0,1
+			jmp eq,.bassA1
+			cmp r0,2
+			jmp eq,.bassA2
+			cmp r0,3
+			jmp eq,.bassA3
+			cmp r0,4
+			jmp eq,.bassA4
+			cmp r0,5
+			jmp eq,.bassA5
+	jmp bassMain1
+
+	.bassMain2       //section 2
+		.bassA2
+			bassG
+			cmp r0,1
+			jmp eq,.bassB1
+			cmp r0,2
+			jmp eq,.bassB2
+			cmp r0,3
+			jmp eq,.bassB3
+			cmp r0,4
+			jmp eq,.bassB4
+			cmp r0,5
+			jmp eq,.bassB5
+		.bassB2
+			bassH
+			cmp r0,1
+			jmp eq,.bassC1
+			cmp r0,2
+			jmp eq,.bassC2
+			cmp r0,3
+			jmp eq,.bassC3
+			cmp r0,4
+			jmp eq,.bassC4
+			cmp r0,5
+			jmp eq,.bassC5
+		.bassC2
+			bassJ
+			cmp r0,1
+			jmp eq,.bassD1
+			cmp r0,2
+			jmp eq,.bassD2
+			cmp r0,3
+			jmp eq,.bassD3
+			cmp r0,4
+			jmp eq,.bassD4
+			cmp r0,5
+			jmp eq,.bassD5
+		.bassD2
+			bassK
+			cmp r0,1
+			jmp eq,.bassE1
+			cmp r0,2
+			jmp eq,.bassE2
+			cmp r0,3
+			jmp eq,.bassE3
+			cmp r0,4
+			jmp eq,.bassE4
+			cmp r0,5
+			jmp eq,.bassE5
+		.bassE2
+			bassL
+			cmp r0,1
+			jmp eq,.bassF1
+			cmp r0,2
+			jmp eq,.bassF2
+			cmp r0,3
+			jmp eq,.bassF3
+			cmp r0,4
+			jmp eq,.bassF4
+			cmp r0,5
+			jmp eq,.bassF5
+		.bassF2
+			bassM
+			cmp r0,1
+			jmp eq,.bassA1
+			cmp r0,2
+			jmp eq,.bassA2
+			cmp r0,3
+			jmp eq,.bassA3
+			cmp r0,4
+			jmp eq,.bassA4
+			cmp r0,5
+			jmp eq,.bassA5
+	jmp bassMain2
+
+	.bassMain3       //section 3
+		.bassA3
+			bassG
+			cmp r0,1
+			jmp eq,.bassB1
+			cmp r0,2
+			jmp eq,.bassB2
+			cmp r0,3
+			jmp eq,.bassB3
+			cmp r0,4
+			jmp eq,.bassB4
+			cmp r0,5
+			jmp eq,.bassB5
+		.bassB3
+			bassH
+			cmp r0,1
+			jmp eq,.bassC1
+			cmp r0,2
+			jmp eq,.bassC2
+			cmp r0,3
+			jmp eq,.bassC3
+			cmp r0,4
+			jmp eq,.bassC4
+			cmp r0,5
+			jmp eq,.bassC5
+		.bassC3
+			bassJ
+			cmp r0,1
+			jmp eq,.bassD1
+			cmp r0,2
+			jmp eq,.bassD2
+			cmp r0,3
+			jmp eq,.bassD3
+			cmp r0,4
+			jmp eq,.bassD4
+			cmp r0,5
+			jmp eq,.bassD5
+		.bassD3
+			bassK
+			cmp r0,1
+			jmp eq,.bassE1
+			cmp r0,2
+			jmp eq,.bassE2
+			cmp r0,3
+			jmp eq,.bassE3
+			cmp r0,4
+			jmp eq,.bassE4
+			cmp r0,5
+			jmp eq,.bassE5
+		.bassE3
+			bassL
+			cmp r0,1
+			jmp eq,.bassF1
+			cmp r0,2
+			jmp eq,.bassF2
+			cmp r0,3
+			jmp eq,.bassF3
+			cmp r0,4
+			jmp eq,.bassF4
+			cmp r0,5
+			jmp eq,.bassF5
+		.bassF3
+			bassM
+			cmp r0,1
+			jmp eq,.bassA1
+			cmp r0,2
+			jmp eq,.bassA2
+			cmp r0,3
+			jmp eq,.bassA3
+			cmp r0,4
+			jmp eq,.bassA4
+			cmp r0,5
+			jmp eq,.bassA5
+	jmp bassMain3
+
+	.bassMain4       //section 4
+		.bassA4
+			bassG
+			cmp r0,1
+			jmp eq,.bassB1
+			cmp r0,2
+			jmp eq,.bassB2
+			cmp r0,3
+			jmp eq,.bassB3
+			cmp r0,4
+			jmp eq,.bassB4
+			cmp r0,5
+			jmp eq,.bassB5
+		.bassB4
+			bassH
+			cmp r0,1
+			jmp eq,.bassC1
+			cmp r0,2
+			jmp eq,.bassC2
+			cmp r0,3
+			jmp eq,.bassC3
+			cmp r0,4
+			jmp eq,.bassC4
+			cmp r0,5
+			jmp eq,.bassC5
+		.bassC4
+			bassJ
+			cmp r0,1
+			jmp eq,.bassD1
+			cmp r0,2
+			jmp eq,.bassD2
+			cmp r0,3
+			jmp eq,.bassD3
+			cmp r0,4
+			jmp eq,.bassD4
+			cmp r0,5
+			jmp eq,.bassD5
+		.bassD4
+			bassK
+			cmp r0,1
+			jmp eq,.bassE1
+			cmp r0,2
+			jmp eq,.bassE2
+			cmp r0,3
+			jmp eq,.bassE3
+			cmp r0,4
+			jmp eq,.bassE4
+			cmp r0,5
+			jmp eq,.bassE5
+		.bassE4
+			bassL
+			cmp r0,1
+			jmp eq,.bassF1
+			cmp r0,2
+			jmp eq,.bassF2
+			cmp r0,3
+			jmp eq,.bassF3
+			cmp r0,4
+			jmp eq,.bassF4
+			cmp r0,5
+			jmp eq,.bassF5
+		.bassF4
+			bassM
+			cmp r0,1
+			jmp eq,.bassA1
+			cmp r0,2
+			jmp eq,.bassA2
+			cmp r0,3
+			jmp eq,.bassA3
+			cmp r0,4
+			jmp eq,.bassA4
+			cmp r0,5
+			jmp eq,.bassA5
+	jmp bassMain4
+
+	.bassMain5       //section 5
+		.bassA5
+			bassG
+			cmp r0,1
+			jmp eq,.bassB1
+			cmp r0,2
+			jmp eq,.bassB2
+			cmp r0,3
+			jmp eq,.bassB3
+			cmp r0,4
+			jmp eq,.bassB4
+			cmp r0,5
+			jmp eq,.bassB5
+		.bassB5
+			bassH
+			cmp r0,1
+			jmp eq,.bassC1
+			cmp r0,2
+			jmp eq,.bassC2
+			cmp r0,3
+			jmp eq,.bassC3
+			cmp r0,4
+			jmp eq,.bassC4
+			cmp r0,5
+			jmp eq,.bassC5
+		.bassC5
+			bassJ
+			cmp r0,1
+			jmp eq,.bassD1
+			cmp r0,2
+			jmp eq,.bassD2
+			cmp r0,3
+			jmp eq,.bassD3
+			cmp r0,4
+			jmp eq,.bassD4
+			cmp r0,5
+			jmp eq,.bassD5
+		.bassD5
+			bassK
+			cmp r0,1
+			jmp eq,.bassE1
+			cmp r0,2
+			jmp eq,.bassE2
+			cmp r0,3
+			jmp eq,.bassE3
+			cmp r0,4
+			jmp eq,.bassE4
+			cmp r0,5
+			jmp eq,.bassE5
+		.bassE5
+			bassL
+			cmp r0,1
+			jmp eq,.bassF1
+			cmp r0,2
+			jmp eq,.bassF2
+			cmp r0,3
+			jmp eq,.bassF3
+			cmp r0,4
+			jmp eq,.bassF4
+			cmp r0,5
+			jmp eq,.bassF5
+		.bassF5
+			bassM
+			cmp r0,1
+			jmp eq,.bassA1
+			cmp r0,2
+			jmp eq,.bassA2
+			cmp r0,3
+			jmp eq,.bassA3
+			cmp r0,4
+			jmp eq,.bassA4
+			cmp r0,5
+			jmp eq,.bassA5
+	jmp bassMain5
+
+
+//countermelody
+track 1
+counterA:
+G5,h E5,h C5,h
+
+track 1
+counterB:
+G5,h G5,h E5,h
+
+track 1
+counterC:
+C5,h G5,h
+
+track 1
+counterD:
+A5,h F5#,h D5,h
+
+track 1
+counterE:
+F5#,h A5,h F5#,h
+
+track 1
+counterF:
+D5,h F5#,h
+
+track 1
+counterG:
+C7 G6 E6 C6 G6 C6
+
+track 1
+counterH:
+E7 C7 G6 E6 G6 E6
+
+track 1
+counterJ:
+G6 E6 C6 G5
+
+track 1
+counterK:
+F7# D7 A6 F6# A6 F6#
+
+track 1
+counterL:
+A7 F7# D7 A6 D7 A7
+
+track 1
+counterM:
+D7 A6 F6# D6
+
+//melody
+track 2
+melodyA:
+-6
+
+track 2
+melodyB:
+-6
+
+track 2
+melodyC:
+-4
+
+track 2
+melodyD:
+-6
+
+track 2
+melodyE:
+-6
+
+track 2
+melodyF:
+-4
+
+track 2
+melodyG:
+C6,h G5,h E5,h
+
+track 2
+melodyH:
+C6,h C6,h G5,h
+
+track 2
+melodyJ:
+E5,h C6,h
+
+track 2
+melodyK:
+D6,h A5,h F5#,h
+
+track 2
+melodyL:
+A5,h D6,h A5,h
+
+track 2
+melodyM:
+F5#,h A5,h
+
+track 2
+melodyN:
+E6,h C6 D6 E6,h
+
+track 2
+melodyO:
+G6,h E6,h C6 D6
+
+track 2
+melodyP:
+E6,h G6,h
+
+track 2
+melodyQ:
+F6# D6 A5 F5# D5,h
+
+track 2
+melodyR:
+F6# D6 F6# D6 A5 F5#
+
+track 2
+melodyS:
+D5,h F5#,h
+
+//bass
+track 3
+bassA:
+-6
+
+track 3
+bassB:
+-6
+
+track 3
+bassC:
+-4
+
+track 3
+bassD:
+-6
+
+track 3
+bassE:
+-6
+
+track 3
+bassF:
+-4
+
+track 3
+bassG:
+C4,h5
+
+track 3
+bassH:
+C4,h5
+
+track 3
+bassJ:
+C4,h3
+
+track 3
+bassK:
+D4,h5
+
+track 3
+bassL:
+D4,h5
+
+track 3
+bassM:
+D4,h3

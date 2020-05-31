@@ -1,0 +1,121 @@
+//FGB
+//Cowboy
+//Jacob Stevens
+notesPerSecond 4    //quarter = 80, one note equals one triplet
+ 
+track 1   //countermelody
+	instrument1 0044A23286
+	
+	counterA,counterA	
+
+	.repeat
+	counterA,counterB,counterA,counterB
+	counterC,counterD,counterE,counterF
+	counterA
+	jmp .repeat
+
+track 2   //melody
+	
+	melodyA,melodyB
+
+	.repeat
+	melodyC,melodyD,melodyE,melodyG
+	melodyH,melodyJ,melodyK,melodyL
+	melodyB
+	jmp .repeat
+
+//counter
+track 1
+counterA:
+C5,h G4
+A4,h G4
+C5,h G4
+A4,h G4
+
+track 1
+counterB:
+F4,h C4
+D4,h C4
+F4,h C4
+D4,h C4
+
+track 1
+counterC:
+C5,h2
+E5,h G5
+B4,h2
+D5,h G5
+
+track 1
+counterD:
+A4,h2
+C5,h E5
+F4,h2
+A4,h C5
+
+track 1
+counterE:
+G4,h8
+G4,h2
+
+track 1
+counterF:
+C4,h G4
+A4,h G4
+C5,h G4
+A4,h G4
+
+//melody
+track 2
+melodyA:
+-12
+
+track 2
+melodyB:
+-11
+G6
+
+track 2
+melodyC:
+G6,h5
+E6,h2
+C6,h2
+
+track 2
+melodyD:
+G5,h A5,h6
+G6,h2
+
+track 2
+melodyE:
+G6,h5
+E6,h2
+G6,h2
+
+track 2
+melodyG:
+A6,h8
+C6,h D6
+
+track 2
+melodyH:
+E6,h2 E6,h2
+D6,h2
+E6,h
+D6
+
+track 2
+melodyJ:
+C6,h B5
+C6,h
+A5,h3
+A5,h2
+
+track 2
+melodyK:
+G5,h2 C6,h2 D6,h
+C6,h3
+
+track 2
+melodyL:
+C6,h11
