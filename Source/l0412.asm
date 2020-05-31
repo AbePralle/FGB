@@ -14,7 +14,7 @@ STATE_FIXED_TALKED   EQU 4
 STATE_HIVE_DESTROYED EQU 2   ;from 0312
 
 ;---------------------------------------------------------------------
-SECTION "Level0412Section",DATA
+SECTION "Level0412Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

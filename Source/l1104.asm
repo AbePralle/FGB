@@ -8,7 +8,7 @@ INCLUDE "Source/levels.inc"
 VAR_TAKEOFFPOS EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level1104Gfx1",DATA
+SECTION "Level1104Gfx1",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_bg:
   INCBIN "..\\fgbpix\\ending\\appx_takeoff.bg"
@@ -17,7 +17,7 @@ station_tactical_bg::
   INCBIN "..\\fgbpix\\ending\\station_tactical.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1104Gfx2",DATA
+SECTION "Level1104Gfx2",ROMX
 ;---------------------------------------------------------------------
 small_station_approach_bg:
   INCBIN "..\\fgbpix\\ending\\small_station_approach.bg"
@@ -26,7 +26,7 @@ big_station_approach_bg:
   INCBIN "..\\fgbpix\\ending\\big_station_approach.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1104Gfx3",DATA
+SECTION "Level1104Gfx3",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_sprites_sp:
   INCBIN "..\\fgbpix\\ending\\appx_takeoff_sprites.sp"
@@ -42,7 +42,7 @@ big_station_sprites_sp:
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1104Section",DATA
+SECTION "Level1104Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

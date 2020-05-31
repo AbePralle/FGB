@@ -8,7 +8,7 @@ INCLUDE "Source/levels.inc"
 VAR_SELECTION EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level1105Gfx1",DATA
+SECTION "Level1105Gfx1",ROMX
 ;---------------------------------------------------------------------
 savegame_bg:
   INCBIN "..\\fgbpix\\appomattox\\savegame.bg"
@@ -17,13 +17,13 @@ cantsave_bg:
   INCBIN "..\\fgbpix\\appomattox\\cantsave.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1105Gfx2",DATA
+SECTION "Level1105Gfx2",ROMX
 ;---------------------------------------------------------------------
 cantsave_flying_bg:
   INCBIN "..\\fgbpix\\appomattox\\cantsave_flying.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1105Section",DATA
+SECTION "Level1105Section",ROMX
 ;---------------------------------------------------------------------
 
 L1105_Contents::

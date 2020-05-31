@@ -8,7 +8,7 @@ INCLUDE "Source/levels.inc"
 FIRST_HOLE EQU 26
 
 ;---------------------------------------------------------------------
-SECTION "Level0211Section",DATA
+SECTION "Level0211Section",ROMX
 ;---------------------------------------------------------------------
 
 L0211_Contents::

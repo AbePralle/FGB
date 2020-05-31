@@ -7,7 +7,7 @@ INCLUDE "Source/levels.inc"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1500Section",DATA
+SECTION "Level1500Section",ROMX
 ;---------------------------------------------------------------------
 
 deathscreen_bg:

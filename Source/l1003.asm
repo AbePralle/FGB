@@ -11,7 +11,7 @@ LIGHTINDEX EQU 64
 VAR_LIGHT EQU 1
 
 ;---------------------------------------------------------------------
-SECTION "Level1003Section",DATA
+SECTION "Level1003Section",ROMX
 ;---------------------------------------------------------------------
 
 L1003_Contents::

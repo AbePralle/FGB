@@ -12,7 +12,7 @@ EXITAPPOMATTOX EQU $1300
 
 
 ;---------------------------------------------------------------------
-SECTION "L1100Gfx1",DATA
+SECTION "L1100Gfx1",ROMX
 ;---------------------------------------------------------------------
 select_grenade_sp:
   INCBIN "..\\fgbpix\\charselect\\select_grenade.sp"
@@ -21,7 +21,7 @@ select_grenade_name_bg:
   INCBIN "..\\fgbpix\\charselect\\kgname.bg"
 
 ;---------------------------------------------------------------------
-SECTION "L1100Section",DATA
+SECTION "L1100Section",ROMX
 ;---------------------------------------------------------------------
 
 select_hero_bg:

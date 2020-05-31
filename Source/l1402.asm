@@ -7,7 +7,7 @@ INCLUDE "Source/levels.inc"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionData2",DATA
+SECTION "Level1402SectionData2",ROMX
 ;---------------------------------------------------------------------
 spacepan_bg:
   INCBIN "..\\fgbpix\\distress\\spacepan.bg"
@@ -16,7 +16,7 @@ final_bg:
   INCBIN "..\\fgbpix\\distress\\final.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402Section",DATA
+SECTION "Level1402Section",ROMX
 ;---------------------------------------------------------------------
 
 L1402_Contents::

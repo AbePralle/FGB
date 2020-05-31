@@ -6,13 +6,13 @@ INCLUDE "Source/defs.inc"
 INCLUDE "Source/levels.inc"
 
 ;---------------------------------------------------------------------
-SECTION "Level1304Gfx",DATA
+SECTION "Level1304Gfx",ROMX
 ;---------------------------------------------------------------------
 backinside_bg:
   INCBIN "..\\fgbpix\\charselect\\backinside.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1304Section",DATA
+SECTION "Level1304Section",ROMX
 ;---------------------------------------------------------------------
 
 L1304_Contents::

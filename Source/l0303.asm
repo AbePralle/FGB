@@ -9,7 +9,7 @@ WATERINDEX EQU 3
 VAR_WATER  EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0303Section",DATA
+SECTION "Level0303Section",ROMX
 ;---------------------------------------------------------------------
 
 L0303_Contents::

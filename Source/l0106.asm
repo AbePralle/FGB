@@ -7,7 +7,7 @@ INCLUDE "Source/levels.inc"
 STATE_TALKED EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection0106",DATA
+SECTION "LevelsSection0106",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

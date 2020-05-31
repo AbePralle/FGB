@@ -11,7 +11,7 @@ STATE_NORMAL        EQU 1
 STATE_HIVEDESTROYED EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection0105",DATA
+SECTION "LevelsSection0105",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

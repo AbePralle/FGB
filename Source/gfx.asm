@@ -123,7 +123,7 @@ InitGfx::
         or      1
         ld      [$ffff],a
 
-        ;turn LCD on 
+        ;turn LCD on
         ld      a,%11000011
         ld      [$ff40], a       ;lcdc control
 
@@ -170,7 +170,7 @@ VMemCopy::
         push    hl
         push    af
 
-        ;test if screen is on 
+        ;test if screen is on
         ldio    a,[$ff40]
         and     %10000000
         jr      nz,.screenIsOn
@@ -236,7 +236,7 @@ MemSet::
 
 ;---------------------------------------------------------------------
 ; Routine:      MemCopy
-; Arguments:    a  - RAM bank 
+; Arguments:    a  - RAM bank
 ;               bc - non-zero length in bytes
 ;               de - destination starting address
 ;               hl - source start address
@@ -361,10 +361,10 @@ DMALoad::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      DisplayOff   
+; Routine:      DisplayOff
 ; Arguments:
 ; Alters:       af
-; Description:  Waits for VBlank then turns of the display           
+; Description:  Waits for VBlank then turns of the display
 ;---------------------------------------------------------------------
 DisplayOff::
         ;skip if the display is off already
@@ -385,7 +385,7 @@ DisplayOff::
         ld      [$ff40],a
         pop     af                   ;retrieve original interrupt settings
         ld      [$ffff],a
-        
+
 .waitVRAM
         ld      a,[$ff41]            ;STAT register
         and     %00000010            ;bit 1 needs to be zero to access VRAM
@@ -490,12 +490,12 @@ PrepLevel::
 
         xor     a
         ldh     [$ff43], a        ;set screen offsets to 0
-        ldh     [$ff42], a 
+        ldh     [$ff42], a
 
         xor     a
         ldh     [$ff4a], a        ;set window offsets to 7,0
         ld      a,7
-        ldh     [$ff4b], a 
+        ldh     [$ff4b], a
 
         xor     a
         ld      [specialFX],a
@@ -692,8 +692,8 @@ oamHandlerFinish:
 ;---------------------------------------------------------------------
 ; Routine:      SetupCommonColor
 ; Arguments:    b  - Color Spec for entry to set up
-;               de - color for entry 
-; Description:  Sets all 8 palettes (bg AND sprite) to have the same 
+;               de - color for entry
+; Description:  Sets all 8 palettes (bg AND sprite) to have the same
 ;               colors for the specified entry.
 ; Note:         The format specification should have bit 7 set so it
 ;               auto-selects the next palette
@@ -716,7 +716,7 @@ SetupCommonColor::
 
         ld      c,16
 
-.loop   
+.loop
         ld      a,e              ;Get low byte of color
         ld      [hl+],a          ;store it in game palette
 
@@ -765,14 +765,14 @@ SetupGamePalettes:
         ld      hl,.stdPaletteData
         ld      de,gamePalette
         ld      a,32     ;set up 64 bytes (32 colors)
-        
+
 
 .loop   push    af
         ld      a,[hl+]
         ld      [de],a       ;copy of palette
         inc     de
         ld      a,[hl+]
-        ld      [de],a 
+        ld      [de],a
         inc     de
 
         ld      a,c
@@ -795,7 +795,7 @@ SetupGamePalettes:
         ld      [de],a       ;copy of palette
         inc     de
         ld      a,[hl+]
-        ld      [de],a 
+        ld      [de],a
         inc     de
 
         dec     c
@@ -930,7 +930,7 @@ TileIndexEToAddressDE:
 
         pop     af
         ret
-  
+
 
 ;---------------------------------------------------------------------
 ; Routine:      TileCopyRotateCCW
@@ -972,7 +972,7 @@ TileCopyRotateCCW:
         dec     a
         jr      nz,.inner1
 
- 
+
         ld      a,b          ;save next two bytes of result
         ld      [hl+],a
         ld      a,c
@@ -999,7 +999,7 @@ TileCopyRotateCCW:
 ;               TileCopyShiftDown
 ; Arguments:    e - Source tile index (0-15)
 ;               l - Dest tile index (0-15)
-; Description:  Copies tiles while shifting 4 pixels in the specified 
+; Description:  Copies tiles while shifting 4 pixels in the specified
 ;               direction (except for plain TileCopy).  Tile patterns
 ;               should be stored in $c000-$c0ff.  "Overlay" routines
 ;               OR the source with the destination.
@@ -1204,7 +1204,7 @@ TileCopyShiftDown:
 ; Arguments:    a - number of tiles to duplicate (1+)
 ;               c - index of first tile in tile mem
 ; Alters:       af
-; Description:  Copies {a} number of tiles (a*16 bytes) from $c000 
+; Description:  Copies {a} number of tiles (a*16 bytes) from $c000
 ;               (backBuffer) to $8000 + c*16.
 ; Note:         Uses current VRAM bank
 ;---------------------------------------------------------------------
@@ -1222,7 +1222,7 @@ DuplicateTilesToSpriteMem:
         add     $80
         ld      d,a
 
-        ld      a,c       
+        ld      a,c
         swap    a
         and     %11110000
         ld      e,a
@@ -1307,7 +1307,7 @@ ENDC
 ; Routine:      GenerateFacings
 ; Arguments:    a - index (0-255) of the first of two consecutive
 ;                   tiles (frame1 and frame2) which should be facing
-;                   east.  Tiles should be located at $c000 
+;                   east.  Tiles should be located at $c000
 ;                   (backBuffer).
 ;               [curObjWidthHeight] - copy of FG attribute flags
 ; Description:  Creates the following tiles at $9000-$97ff (indices
@@ -1315,7 +1315,7 @@ ENDC
 ;               a   - North facing, frame 1
 ;               a+1 - Top half of North facing, frame 2
 ;               a+2 - Bottom half of North facing, frame 2
-;               a+3...a+5  - East facing (frame1, left frame2, right 
+;               a+3...a+5  - East facing (frame1, left frame2, right
 ;                            frame2)
 ;
 ;               Duplicates any tiles in area $9000-$9800 into
@@ -1400,7 +1400,7 @@ GenerateFacings::
         call    TileCopyShiftUp
 
 .copyBufferToVMem
-        ;Copy 6 tiles beginning at $c000+ to $9000+(c*16).  
+        ;Copy 6 tiles beginning at $c000+ to $9000+(c*16).
         ;Next location after $97f0 is $8800.
         ld      a,c
         cp      122         ;122+6 < 128
@@ -1506,7 +1506,7 @@ GenerateFacings::
         ld      l,5
         call    TileCopyRotateCCW
 
-        ;Copy 20 tiles beginning at $c000+ to $9000+(c*16).  
+        ;Copy 20 tiles beginning at $c000+ to $9000+(c*16).
         ;Next location after $97f0 is $8800.
         ld      a,c
         cp      108         ;108+20 < 128
@@ -1556,7 +1556,7 @@ GenerateFacings::
 SECTION "Graphics",ROM0
 ;---------------------------------------------------------------------
 ; Routine:      LoadGraphics
-; Arguments:   
+; Arguments:
 ;---------------------------------------------------------------------
 LoadGraphics:
         ld      a,BANK(BGTiles)
@@ -1709,7 +1709,7 @@ PrepareForInitialMapDraw::
         ld      [mapOffsetSouth],a
 
         ;north offset is -pitch
-        cpl 
+        cpl
         inc     a
         ld      [mapOffsetNorth],a
         ld      a,$ff
@@ -1722,7 +1722,7 @@ PrepareForInitialMapDraw::
 ; Arguments:    None.
 ; Description:  Centers camera on hero, then adjusts so that maximum
 ;               amount of space on in all 4 directions is visible
-;               
+;
 ;---------------------------------------------------------------------
 AdjustCameraToHero::
         ld      a,[displayType]
@@ -1779,7 +1779,7 @@ AdjustCameraToHero::
         ld      a,[mapPitch]
         cpl
         add     1
-        ld      e,a                 
+        ld      e,a
         push    hl
 
 .nloop  add     hl,de
@@ -1788,7 +1788,7 @@ AdjustCameraToHero::
         or      a
         jr      z,.nloop            ;nothing at all here
         cp      c                   ;found something, check if monster
-        jr      nc,.nloop           ;don't count monsters 
+        jr      nc,.nloop           ;don't count monsters
         call    GetBGAttributes
         and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
         ld      a,MAPBANK
@@ -1891,7 +1891,7 @@ AdjustCameraToHero::
 
         ;now b is distance of closest wall to west
         ld      h,d                 ;set hl back to original location
-        ld      l,e 
+        ld      l,e
         ld      d,b                 ;store west distance in d
         ld      b,0
         inc     hl
@@ -2018,7 +2018,7 @@ GentleCameraAdjust::
 
         ;new i > old i
         sub     b                   ;d = new_i - old_i
-        ld      d,a 
+        ld      d,a
         ld      a,[distToWall_E]    ;a = dist_E + offset
         add     d
         cp      11
@@ -2051,7 +2051,7 @@ GentleCameraAdjust::
 
         ;new j > old j
         sub     c                   ;d = new_j - old_j
-        ld      d,a 
+        ld      d,a
         ld      a,[distToWall_S]    ;a = dist_S + offset
         add     d
         cp      10
@@ -2259,7 +2259,7 @@ ScrollToCamera::
         ld      a,d
         dec     a
 
-        ;first scroll sprites right by value to be masked off 
+        ;first scroll sprites right by value to be masked off
         ld      e,a
         ld      hl,desiredPixelOffset_x
         ld      a,[hl]
@@ -2269,7 +2269,7 @@ ScrollToCamera::
         call    ScrollSpritesRight
         pop     de
         ld      a,e
-        cpl   
+        cpl
         and     %00000111
         ld      e,a
         ld      a,[hl]
@@ -2428,7 +2428,7 @@ ScrollToCamera::
         pop     de
         ld      a,e
 
-        cpl  
+        cpl
         and     %00000111
         ld      e,a
         ld      a,[hl]
@@ -2534,10 +2534,10 @@ ScrollToCamera::
         ret
 
 ;---------------------------------------------------------------------
-; Routines:     ScrollSpritesLeft  
-;               ScrollSpritesRight 
+; Routines:     ScrollSpritesLeft
+;               ScrollSpritesRight
 ;               ScrollSpritesUp
-;               ScrollSpritesDown  
+;               ScrollSpritesDown
 ; Arguments:    d - pixels to scroll
 ; Alters:       af
 ; Description:  Scrolls each of the 40 sprites (if their y-pos!=0)
@@ -2685,7 +2685,7 @@ DrawMapToBackBuffer::
         ;recopy FG tiles from shadow buffers
         ld      a,TILESHADOWBANK
         ld      [$ff70],a
-        
+
         ldio    a,[firstMonster]
         ld      b,a
 
@@ -2695,7 +2695,7 @@ DrawMapToBackBuffer::
 
         pop     hl
         pop     de
-        
+
         ld      a,MAPBANK
         ld      [$ff70],a
         ld      a,h
@@ -3437,7 +3437,7 @@ ShowTitle::
 
 .loop
         xor     a                    ;sprite attributes
-        ld      [hl-],a              
+        ld      [hl-],a
         ld      a,[de]               ;letter
         inc     de
         ld      [hl-],a
@@ -3447,7 +3447,7 @@ ShowTitle::
         sla     a
         sla     a
         ld      [hl-],a              ;y coordinate
-        ld      a,80 
+        ld      a,80
         ld      [hl],a
         ld      a,l                  ;add 7 to hl
         add     7
@@ -3510,7 +3510,7 @@ SetSpeakerToFirstHero::
 ; Returns:      [dialogSpeakerIndex]
 ;               [dialogJoyIndex]
 ; Alters:       af
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 SetSpeakerFromHeroIndex::
         push    de
@@ -3564,14 +3564,14 @@ SetDialogJoy::
         jr      z,.cinemaType
         ld      a,[canJoinMap]
         cp      2                  ;asynchronous join?
-        jr      z,.cinemaType 
+        jr      z,.cinemaType
 
         ld      hl,curInput0
         ld      a,[dialogJoyIndex]
         or      a
         ret     z
         inc     hl
-        ret 
+        ret
 
 .cinemaType
         ld      hl,myJoy
@@ -3631,7 +3631,7 @@ CheckDialogContinue::
         ld      a,1
         jr      .done
 
-        
+
 .returnFalse
         xor     a
 .done
@@ -3648,7 +3648,7 @@ CheckDialogContinue::
 ;               c  - class index of speaking character
 ;               de - pointer to gtx text
 ; Description:  Shows the text centered at the top or bottom dialog
-;               bar & waits until the user presses a button to 
+;               bar & waits until the user presses a button to
 ;               continue.
 ; Alters:       none
 ; Note:         Format of gtx:
@@ -3726,7 +3726,7 @@ ShowDialogAtTopCommon::
         rlca                   ;times 8 = pixels for window
         rlca
         rlca
-        add     7 
+        add     7
         ld      [hblankWinOff],a
 
         ld      a,143
@@ -3867,7 +3867,7 @@ ShowDialogWait::
         ld      [heroesIdle],a
 
         ret
-        
+
 .waitInputZero
 DialogWaitInputZero::
         call    UpdateObjects
@@ -3888,7 +3888,7 @@ DialogWaitInputZero::
 ;               b  - lines to skip at top
 ;               c  - class index of speaking character
 ;               de - pointer to gtx text beginning with #lines
-; Description:  
+; Description:
 ; Alters:       af
 ; Note:         Format of gtx:
 ;               BYTE  number of lines
@@ -3921,7 +3921,7 @@ ShowDialogCommon::
         add     1
         ld      b,a
         ld      hl,backBuffer
-        
+
 .clearLines
         call    ClearGTXLine
         push    bc
@@ -3982,7 +3982,7 @@ ShowDialogCommon::
 
 ;---------------------------------------------------------------------
 ; Routine:      ClearGTXLine
-; Arguments:   
+; Arguments:
 ;               hl - backbuffer location to draw at
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -4063,7 +4063,7 @@ GfxBlitBackBufferToWindow::
         ;ld      hl,$c000  ;source
         ;call    VMemCopy
         ;ret
-        
+
         ld      a,$9c            ;copy to window map memory
         ldio    [backBufferDestHighByte],a
         ld      a,1
@@ -4268,7 +4268,7 @@ DrawTileToTLCorner:    ;class index in c, 1 line down in b
 ; Routine:      ChooseFromDialogAlternates
 ; Arguments:    de - pointer to gtx text
 ; Returns:      de - adjusted pointer
-; Alters:       de    
+; Alters:       de
 ; Description:  de points to start of an indeterminate number of
 ;               byte triplets of the form:
 ;                 [mask] [offsetL] [offsetH]
@@ -4320,9 +4320,9 @@ ChooseFromDialogAlternates:
 ; Arguments:    None.
 ; Returns:      Nothing.
 ; Alters:       af
-; Description:  Intended for use in cinemas and in-game dialog, 
-;               resets the pc and sp to an address set with 
-;               SetDialogSkip.  Sets to the skip address if start is 
+; Description:  Intended for use in cinemas and in-game dialog,
+;               resets the pc and sp to an address set with
+;               SetDialogSkip.  Sets to the skip address if start is
 ;               pushed, to fast-forward address if B is pushed.
 ;---------------------------------------------------------------------
 CheckSkip::
@@ -4357,12 +4357,12 @@ CheckSkip::
         push    hl
         ld      hl,levelCheckSkip    ;fast forward address
         jr      .restore
-        
+
 .startPressed
         push    hl
         ld      hl,levelCheckSkip+2  ;skip address
 
-.restore 
+.restore
         ld      a,[hl]
         or      a
         jr      nz,.addressOkay
@@ -4414,14 +4414,14 @@ CheckSkip::
 .done
         pop     hl
         ret
- 
+
 
 ;---------------------------------------------------------------------
 ; Routine:      Delay
 ; Arguments:    a  - number of 1/60 seconds to delay
 ; Alters:       af
-; Description:  Updates and displays objects for specified number of 
-;               1/60 seconds.  Jumps to [levelCheckSkip] if start 
+; Description:  Updates and displays objects for specified number of
+;               1/60 seconds.  Jumps to [levelCheckSkip] if start
 ;               button is pressed if addr is non-null.
 ;---------------------------------------------------------------------
 Delay::
@@ -4550,7 +4550,7 @@ GetRandomNumMask::
         push    bc
         push    hl
 
-        ld      b,a          ;b is bitmask 
+        ld      b,a          ;b is bitmask
 
         PUSHROM
         ld      a,BANK(randomTable)
@@ -4606,7 +4606,7 @@ SetupFadeFromWhite::
 
 FadeCommonSetPaletteToWhite::
         ld      c,64
-.loop   
+.loop
         ld      a,$ff
         ld      [hl+],a
         ld      a,$7f
@@ -4775,7 +4775,7 @@ SetupFadeToBlack::
 FadeCommonSetPaletteToBlack::
         ld      c,64
         xor     a
-.loop   
+.loop
         ld      [hl+],a
         ld      [hl+],a
         dec     c
@@ -4823,7 +4823,7 @@ SetupFadeFromBlackBGOnly::
 
 ;---------------------------------------------------------------------
 ; Routine:      BlackoutPalette
-; Arguments:  
+; Arguments:
 ; Alters:       af
 ; Description:  Sets fadeCurPalette and final palette to all black
 ;---------------------------------------------------------------------
@@ -4900,7 +4900,7 @@ SetupFadeToBlackBGOnly::
 FadeCommonSetPaletteToBlackBGOnly::
         ld      c,32
         xor     a
-.loop   
+.loop
         ld      [hl+],a
         ld      [hl+],a
         dec     c
@@ -4995,7 +4995,7 @@ SetupFadeToGamePalette::
         ld      a,FADEBANK
         ld      [$ff70],a
 
-        ;set final palette to be current game palette 
+        ;set final palette to be current game palette
         ld      hl,gamePalette
         ld      de,fadeFinalPalette
         call    FadeCommonCopyPalette
@@ -5023,7 +5023,7 @@ SetupFadeToHalfbrite::
         ld      a,FADEBANK
         ld      [$ff70],a
 
-        ;set final palette to be halfbrite game palette 
+        ;set final palette to be halfbrite game palette
         ld      hl,gamePalette
         ld      de,fadeCurPalette
         ld      c,64
@@ -5077,10 +5077,10 @@ FadeCommonGetColor:
         inc     de
         ld      b,a
         ret
-  
+
 ;---------------------------------------------------------------------
-; Routine:      FadeInit      
-; Arguments:    a - number of steps                             
+; Routine:      FadeInit
+; Arguments:    a - number of steps
 ;               [fadeCurPalette], [fadeFinalPalette] already setup
 ;               with palettes to fade between
 ; Alters:       af
@@ -5100,7 +5100,7 @@ FadeInit::
         ld      a,FADEBANK
         ld      [$ff70],a
 
-        ;for each color component, difference is (c2-c1) 
+        ;for each color component, difference is (c2-c1)
         ;subtract each element of fadeCurPalette from fadeFinalPalette
         ;and store separate RGB offsets in fadeDelta.
         ;fadeCurPalette RGB elements in fadeCurRGB.
@@ -5117,7 +5117,7 @@ FadeInit::
         dec     c
         jr      nz,.clearError
 
-        ;begin by storing each color component of each color in 
+        ;begin by storing each color component of each color in
         ;fadeCurPalette into fadeDelta
         ld      a,64
         ld      hl,fadeDelta
@@ -5180,7 +5180,7 @@ FadeInit::
 
 
 ;---------------------------------------------------------------------
-; Routine:      FadeStep      
+; Routine:      FadeStep
 ; Alters:       af
 ; Description:  Peforms the next step of the fade in progress.
 ;               Should only be called if [specialFX] & FX_FADE is 1.
@@ -5356,7 +5356,7 @@ FadeStep::
         ;>=32
         ld      c,0
 .while_pos_ge_32
-        sub     b 
+        sub     b
         inc     c
         cp      b
         jr      nc,.while_pos_ge_32
@@ -5428,7 +5428,7 @@ SetColors123AllPalettes::
         push    hl
 
         ld      d,16
-.loop   
+.loop
         inc     hl
         inc     hl
         ld      e,3
@@ -5481,7 +5481,7 @@ LighteningOut::
 
         ld      c,7
         call    .pause
-        
+
         pop     hl
         pop     de
         pop     bc
@@ -5540,7 +5540,7 @@ LighteningIn::
         call    FadeCommonCopyPalette
         ld      a,128
         ldio    [paletteBufferReady],a
-        
+
         pop     hl
         pop     de
         pop     bc
@@ -5552,12 +5552,12 @@ LighteningIn::
         ret
 
 ;---------------------------------------------------------------------
-; Routines:     GetRedComponent 
-;               GetGreenComponent 
-;               GetBlueComponent 
-;               SetRedComponent 
-;               SetGreenComponent 
-;               SetBlueComponent 
+; Routines:     GetRedComponent
+;               GetGreenComponent
+;               GetBlueComponent
+;               SetRedComponent
+;               SetGreenComponent
+;               SetBlueComponent
 ; Arguments:    Get:  bc - 15 bit BGR value
 ;               Set:  bc - 15 bit BGR value, a - value to set
 ; Returns:      Get:  a - color component
@@ -5702,7 +5702,7 @@ PlaySoundChannel1::
         ld      a,[musicOverride1]
         or      a
         ret     nz
-        
+
 .playSound
         ld      a,[hl+]
         ldio    [$ff10],a
@@ -5761,7 +5761,7 @@ PlaySoundChannel4::
         ld      a,[musicOverride4]
         or      a
         ret     nz
-        
+
 .playSound
         ld      a,[hl+]
         ldio    [$ff20],a
@@ -5894,11 +5894,11 @@ ResetSprites::
 
 
 ;---------------------------------------------------------------------
-; Routine:      AllocateSprite    
+; Routine:      AllocateSprite
 ; Arguments:    none
 ; Returns:      a - 00-9C=success (lowptr), ff=failure
 ; Alters:       af
-; Description:  Loops through spritesUsed flag table, finds a free 
+; Description:  Loops through spritesUsed flag table, finds a free
 ;               sprite, and returns that sprite's loPtr.
 ;---------------------------------------------------------------------
 AllocateSprite::
@@ -5911,7 +5911,7 @@ AllocateSprite::
         ret
 
 .freeSpriteExists
-        push    bc 
+        push    bc
         push    de
         push    hl
 
@@ -5936,7 +5936,7 @@ AllocateSprite::
 .foundSprite
         dec     hl
         ld      a,1           ;mark sprite as used
-        ld      [hl],a 
+        ld      [hl],a
 
         ld      a,l           ;return loptr in a
         inc     a
@@ -5955,7 +5955,7 @@ AllocateSprite::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      FreeSprite        
+; Routine:      FreeSprite
 ; Arguments:    a - loptr to sprite
 ; Alters:       af
 ; Description:  Sets the sprite's YPOS to zero
@@ -6003,9 +6003,9 @@ FreeSprite::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      CreateMetaSprite        
-; Arguments:    
-;               bc - width (b) and height (c) of metasprite, in 8x8 
+; Routine:      CreateMetaSprite
+; Arguments:
+;               bc - width (b) and height (c) of metasprite, in 8x8
 ;                    tiles.
 ;               d  - initial pattern number for first sprite.
 ;               e  - default attributes for each sprite.
@@ -6081,8 +6081,8 @@ CreateMetaSprite::
 
 ;---------------------------------------------------------------------
 ; Routine:      CreateMetaSpriteUsingMask
-; Arguments:    
-;               bc - width (b) and height (c) of metasprite, in 8x8 
+; Arguments:
+;               bc - width (b) and height (c) of metasprite, in 8x8
 ;                    tiles.
 ;               d  - initial pattern number for first sprite.
 ;               e  - default attributes for each sprite.
@@ -6113,7 +6113,7 @@ CreateMetaSpriteUsingMask::
         ;store total sprites used in metaSpriteInfo
         ld      [hl+],a
 
-        ;go through and allocate each sprite marked with non-zero, 
+        ;go through and allocate each sprite marked with non-zero,
         ;set it up, and store its loptr in the metaSpriteInfo
         push    bc
 .height pop     af     ;setup width from original value
@@ -6170,9 +6170,9 @@ CreateMetaSpriteUsingMask::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      ScrollMetaSprite          
+; Routine:      ScrollMetaSprite
 ; Arguments:    bc - x (b) and y (c) offset to scroll each sprite.
-;               hl - ptr to metaSpriteInfo created with 
+;               hl - ptr to metaSpriteInfo created with
 ;                    CreateMetaSprite
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -6202,10 +6202,10 @@ ScrollMetaSprite::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetMetaSpritePos          
+; Routine:      SetMetaSpritePos
 ; Arguments:    bc - desired x (b) and y (c) pixel position in sprite
 ;                    coords
-;               hl - ptr to metaSpriteInfo created with 
+;               hl - ptr to metaSpriteInfo created with
 ;                    CreateMetaSprite
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -6219,7 +6219,7 @@ SetMetaSpritePos::
         ld      h,((spriteOAMBuffer>>8) & $ff)
 
         ld      a,c    ;desired y pos
-        sub     [hl] 
+        sub     [hl]
         ld      c,a    ;becomes offset to scroll
 
         inc     hl
@@ -6235,8 +6235,8 @@ SetMetaSpritePos::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      FreeMetaSprite          
-; Arguments:    hl - ptr to metaSpriteInfo created with 
+; Routine:      FreeMetaSprite
+; Arguments:    hl - ptr to metaSpriteInfo created with
 ;                    CreateMetaSprite
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -6264,7 +6264,7 @@ FreeMetaSprite::
 ;               d  - max sprites (must be >0)
 ;               e  - flags for allowed explosion types:
 ;                    :0 - small round explosions
-;                    :1 - shrapnel plus 
+;                    :1 - shrapnel plus
 ;                    :2 - big (2x2) round explosions (4 sprites ea)
 ;               hl - TL map corner (e.g. $d0ca) of explosion
 ;               [bulletColor]
@@ -6272,7 +6272,7 @@ FreeMetaSprite::
 ; Alters:       af
 ; Description:  Creates a big explosion of randomly dispersed smaller
 ;               explosions within the given area.
-;               
+;
 ;---------------------------------------------------------------------
 CreateBigExplosion::
         push    bc
@@ -6308,11 +6308,11 @@ CreateBigExplosion::
         ld      d,1
         jr      .afterCreateExplosion
 .afterLimitToSmaller
-        
+
         ;select random tile position within area
 
         ;width
-        ld      a,b   
+        ld      a,b
         dec     a
         call    GetRandomNumZeroToN
         add     h
@@ -6475,7 +6475,7 @@ BlitMap::
         push    hl
         ldio    a,[firstMonster]
         ld      c,a
-        
+
 .blitMapInner
         ld      a,[de]
         cp      c       ;< first monster?
@@ -6524,11 +6524,11 @@ BlitMap::
 ;---------------------------------------------------------------------
 ConvertLocHLToXY::
         ld      a,[mapPitchMinusOne]
-        and     l   
+        and     l
         push    af          ;push a (x index) on stack
 
         ld      a,h         ;subtract $D000 from hl by adding $3000
-        add     $30 
+        add     $30
         ld      h,a
         ld      a,[mapPitchMinusOneComplement]  ;times to left-shift
 .shift  rlca                      ;shift a bit left out of a
@@ -6536,7 +6536,7 @@ ConvertLocHLToXY::
         sla     l
         rl      h
         jr      .shift
-        
+
 .shiftDone
         ld      l,h
         pop     af
@@ -6600,7 +6600,7 @@ LCheckGetVectorToState::
 ;---------------------------------------------------------------------
 ; Routine:      SaveIdle
 ; Arguments:    None.
-; Returns: 
+; Returns:
 ; Alters:       af,hl
 ; Description:  Saves the current state of [heroesIdle] and [allIdle]
 ;               in [dialogIdleSettings] and activates both idle
@@ -6621,7 +6621,7 @@ SaveIdle::
 ;---------------------------------------------------------------------
 ; Routine:      RestoreIdle
 ; Arguments:    None.
-; Returns: 
+; Returns:
 ; Alters:       af,hl
 ; Description:  Restores the idle settings to what they were previous
 ;               to SaveIdle
@@ -6639,7 +6639,7 @@ RestoreIdle::
 ;---------------------------------------------------------------------
 ; Routine:      MakeIdle
 ; Arguments:    None.
-; Returns: 
+; Returns:
 ; Alters:       af
 ; Description:  Sets [heroesIdle] and [allIdle] to 1
 ;---------------------------------------------------------------------
@@ -6652,7 +6652,7 @@ MakeIdle::
 ;---------------------------------------------------------------------
 ; Routine:      MakeNonIdle
 ; Arguments:    None.
-; Returns: 
+; Returns:
 ; Alters:       af
 ; Description:  Sets [heroesIdle] and [allIdle] to 0
 ;---------------------------------------------------------------------
@@ -6676,7 +6676,7 @@ UseAlternatePalette::
 
         ld      a,FADEBANK
         ldio    [$ff70],a
-        
+
         ld      c,16
         ld      hl,gamePalette+2
 .loop   call    .halve
@@ -6729,7 +6729,7 @@ GetMyHero::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetBGAttributes  
+; Routine:      GetBGAttributes
 ; Arguments:    a - class index
 ; Alters:       af
 ; Returns:      a - attributes for given class index
@@ -6871,10 +6871,10 @@ DisableDialogBalloons::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      FindNextFreeSprite  
-; Arguments:    de - ptr to position within spritesUsed to begin 
+; Routine:      FindNextFreeSprite
+; Arguments:    de - ptr to position within spritesUsed to begin
 ;                    resetting
-;               hl - ptr to sprite OAM buffer corresponding to 
+;               hl - ptr to sprite OAM buffer corresponding to
 ;                    de
 ; Alters:       af,de,hl
 ; Returns:      a  - 0 on failure
@@ -6912,7 +6912,7 @@ FindNextFreeSprite:
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      PutBalloonAboveObject  
+; Routine:      PutBalloonAboveObject
 ; Arguments:    de - ptr to object
 ;               hl - ptr to sprite OAM buffer
 ; Alters:       af
@@ -6958,15 +6958,15 @@ PutBalloonAboveObject:
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      ResetFreeSprites  
-; Arguments:    de - ptr to position within spritesUsed to begin 
+; Routine:      ResetFreeSprites
+; Arguments:    de - ptr to position within spritesUsed to begin
 ;                    resetting
-;               hl - ptr to sprite OAM buffer corresponding to 
+;               hl - ptr to sprite OAM buffer corresponding to
 ;                    de
 ; Alters:       af,de,hl
 ; Returns:      Nothing.
-; Description:  Sets y=0 of all sprites after initial position not 
-;               flagged as in use; necessary for resetting 
+; Description:  Sets y=0 of all sprites after initial position not
+;               flagged as in use; necessary for resetting
 ;               environmental effects
 ;---------------------------------------------------------------------
 ResetFreeSprites::
@@ -6998,7 +6998,7 @@ ResetFreeSprites::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetEnvEffect  
+; Routine:      SetEnvEffect
 ; Arguments:    a - env effect such as ENV_RAIN
 ; Alters:       af
 ; Returns:      Nothing.
@@ -7021,7 +7021,7 @@ SetEnvEffect::
 
 
 ;---------------------------------------------------------------------
-; Routine:      UpdateEnvEffect  
+; Routine:      UpdateEnvEffect
 ; Arguments:    None.
 ; Alters:       af
 ; Returns:      Nothing.
@@ -7579,7 +7579,7 @@ flakeSineTable:
 
 ;---------------------------------------------------------------------
 ; EnvDisco
-; Uses binary data "discoLights" to set all colors to purple in 
+; Uses binary data "discoLights" to set all colors to purple in
 ; drawing buffer except where lights are flashing.  Uses levelVars[0]
 ; to determine current frame
 ;---------------------------------------------------------------------
@@ -7636,14 +7636,14 @@ EnvDisco:
         ret
 
 discoLights:
-INCBIN "discolights.dat"
+INCBIN "Data/discolights.dat"
 
 ;Not in HOME
 
 ;---------------------------------------------------------------------
-SECTION  "FontSection",DATA,BANK[MAP0ROM]
-fontData:            
-  INCBIN "font.bin"
+SECTION  "FontSection",ROMX,BANK[MAP0ROM]
+fontData:
+  INCBIN "Data/font.bin"
 
 blankTileData:
   DW 0,0,0,0,0,0,0,0
@@ -7712,7 +7712,7 @@ DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 
 
-;SECTION "InGameGraphicsSection1",DATA
+;SECTION "InGameGraphicsSection1",ROMX
 ;select_hero_bg::
 ;  INCBIN "gamebg\\select_hero.bg"
 

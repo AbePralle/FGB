@@ -9,7 +9,7 @@ LIGHTINDEX EQU 40
 VAR_LIGHT EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0810Section",DATA
+SECTION "Level0810Section",ROMX
 ;---------------------------------------------------------------------
 
 L0810_Contents::

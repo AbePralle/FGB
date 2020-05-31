@@ -9,7 +9,7 @@ STATE_NORMAL        EQU 1
 STATE_HONEYTAKEN    EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection0000",DATA,BANK[MAP0ROM]
+SECTION "LevelsSection0000",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 dialog:

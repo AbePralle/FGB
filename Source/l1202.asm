@@ -9,7 +9,7 @@ STATE_BASHUTTLE     EQU 1
 STATE_SKIPPYSHUTTLE EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "Level1202Section",DATA
+SECTION "Level1202Section",ROMX
 ;---------------------------------------------------------------------
 
 L1202_Contents::

@@ -7,7 +7,7 @@ INCLUDE "Source/levels.inc"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1204Gfx1",DATA
+SECTION "Level1204Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_screen_bg:
   INCBIN "..\\fgbpix\\ending\\gyro_screen.bg"
@@ -19,7 +19,7 @@ minuteslater_bg:
   INCBIN "..\\fgbpix\\ending\\minuteslater.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1204Gfx2",DATA
+SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 appland3d2_bg:
   INCBIN "..\\fgbpix\\ending\\appland3d2.bg"
@@ -28,7 +28,7 @@ appland_sprites_sp:
   INCBIN "..\\fgbpix\\ending\\appland_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1204Gfx2",DATA
+SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 willtheyland_bg:
   INCBIN "..\\fgbpix\\promo\\willtheyland.bg"
@@ -40,7 +40,7 @@ publish_bg:
   INCBIN "..\\fgbpix\\promo\\publish.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1204Section",DATA
+SECTION "Level1204Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

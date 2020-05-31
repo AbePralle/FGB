@@ -18,7 +18,7 @@ VAR_DESTBANK  EQU 5
 VAR_SELSTAGE  EQU 6
 
 ;---------------------------------------------------------------------
-SECTION "Level1503Gfx1",DATA
+SECTION "Level1503Gfx1",ROMX
 ;---------------------------------------------------------------------
 downramp_bg::
   INCBIN "..\\fgbpix\\distress\\downramp.bg"
@@ -27,7 +27,7 @@ downramp_sprites_sp:
   INCBIN "..\\fgbpix\\distress\\downramp_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1503Gfx2",DATA
+SECTION "Level1503Gfx2",ROMX
 ;---------------------------------------------------------------------
 flower_and_flour_establishing_bg:
   INCBIN "..\\fgbpix\\distress\\flower_and_flour_establishing.bg"
@@ -36,7 +36,7 @@ flour_and_flower_bg:
   INCBIN "..\\fgbpix\\distress\\flour_and_flower.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1503Section",DATA
+SECTION "Level1503Section",ROMX
 ;---------------------------------------------------------------------
 
 L1503_Contents::

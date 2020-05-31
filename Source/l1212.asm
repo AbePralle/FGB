@@ -18,7 +18,7 @@ STATE_MAKESURE EQU 1
 STATE_SUCKS    EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "Level1212Section",DATA
+SECTION "Level1212Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

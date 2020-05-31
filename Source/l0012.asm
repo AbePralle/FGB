@@ -15,7 +15,7 @@ GRUNT_INDEX  EQU 28
 GYRO_INDEX   EQU 29
 
 ;---------------------------------------------------------------------
-SECTION "Level0012Section",DATA
+SECTION "Level0012Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

@@ -10,7 +10,7 @@ HIVE_INDEX EQU 15
 STATE_HIVE_DESTROYED EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "Level0312Section",DATA
+SECTION "Level0312Section",ROMX
 ;---------------------------------------------------------------------
 
 L0312_Contents::

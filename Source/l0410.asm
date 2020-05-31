@@ -13,7 +13,7 @@ VAR_HFENCE EQU 0
 VAR_VFENCE EQU 1
 
 ;---------------------------------------------------------------------
-SECTION "Level0410Section",DATA
+SECTION "Level0410Section",ROMX
 ;---------------------------------------------------------------------
 
 L0410_Contents::

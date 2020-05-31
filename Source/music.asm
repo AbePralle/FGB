@@ -621,7 +621,7 @@ ld b,b
 
 
 ;---------------------------------------------------------------------
-SECTION "MusicData1",DATA
+SECTION "MusicData1",ROMX
 ;---------------------------------------------------------------------
 instrumentDefaults:
 .instrument1
@@ -655,7 +655,7 @@ haiku_gbm::
   INCBIN "music\\maybe_haiku.gbm.bin"
 
 ;---------------------------------------------------------------------
-SECTION "MusicData2",DATA
+SECTION "MusicData2",ROMX
 ;---------------------------------------------------------------------
 
 moon_base_ba_gbm::
@@ -683,7 +683,7 @@ takeoff_gbm::
   INCBIN "music\\takeoff.gbm.bin"
 
 ;---------------------------------------------------------------------
-SECTION "MusicData3",DATA
+SECTION "MusicData3",ROMX
 ;---------------------------------------------------------------------
 
 spaceish_gbm::
@@ -699,7 +699,7 @@ death_gbm::
   INCBIN "music\\death.gbm.bin"
 
 ;---------------------------------------------------------------------
-SECTION "MusicData4",DATA
+SECTION "MusicData4",ROMX
 ;---------------------------------------------------------------------
 jungle_gbm::
   INCBIN "music\\jungle.gbm.bin"

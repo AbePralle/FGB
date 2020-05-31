@@ -11,7 +11,7 @@ VAR_HERO EQU 11
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1103Gfx1",DATA
+SECTION "Level1103Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_tree_bg:
   INCBIN "..\\fgbpix\\wedding\\gyro_tree.bg"
@@ -23,7 +23,7 @@ gang_watches_wedding_bg:
   INCBIN "..\\fgbpix\\wedding\\gang_watches_wedding.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1103Gfx2",DATA
+SECTION "Level1103Gfx2",ROMX
 ;---------------------------------------------------------------------
 preacher_bg:
   INCBIN "..\\fgbpix\\wedding\\preacher.bg"
@@ -35,7 +35,7 @@ flour_at_wedding_bg:
   INCBIN "..\\fgbpix\\wedding\\flour_at_wedding.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1103Gfx3",DATA
+SECTION "Level1103Gfx3",ROMX
 ;---------------------------------------------------------------------
 flower_at_wedding_bg:
   INCBIN "..\\fgbpix\\wedding\\flower_at_wedding.bg"
@@ -47,7 +47,7 @@ gyro_big_bg:
   INCBIN "..\\fgbpix\\wedding\\gyro_big.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1103Dialog",DATA
+SECTION "Level1103Dialog",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
@@ -125,7 +125,7 @@ lady_dontbesilly_gtx:
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1103Section",DATA
+SECTION "Level1103Section",ROMX
 ;---------------------------------------------------------------------
 
 L1103_Contents::

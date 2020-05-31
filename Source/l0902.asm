@@ -9,7 +9,7 @@ LIGHTINDEX EQU 70
 VAR_LIGHT EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0902Section",DATA
+SECTION "Level0902Section",ROMX
 ;---------------------------------------------------------------------
 
 L0902_Contents::

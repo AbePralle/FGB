@@ -3682,7 +3682,7 @@ RandomizeFlightCodes::
 ;---------------------------------------------------------------------
 ; map data
 ;---------------------------------------------------------------------
-SECTION "MapLookupTableSection",DATA
+SECTION "MapLookupTableSection",ROMX
 MapLookupTable:
 
 ;calculate index number 0-255 from xxyy with "i = yy*16 + xx"
@@ -3944,8 +3944,8 @@ DW      BANK(L1315_Contents),L1315_Contents  ;253
 DW      BANK(L1415_Contents),L1415_Contents  ;254
 DW      BANK(L1515_Contents),L1515_Contents  ;255
 
-;SECTION "BGTileSection",DATA,BANK[BGTILEROM]
-SECTION "BGTileSection",DATA[$4000],BANK[BGTILEROM1]
+;SECTION "BGTileSection",ROMX,BANK[BGTILEROM]
+SECTION "BGTileSection",ROMX[$4000],BANK[BGTILEROM1]
 BGTiles::
 DB     0,0,0,0, 0,0,0,0, 0,0,0,0,0,0,0,0  ;blank tile zero
 INCBIN "bgTiles1-256.bin"
@@ -3953,7 +3953,7 @@ INCBIN "bgTiles257-512.bin"
 INCBIN "bgTiles513-768.bin"
 INCBIN "bgTiles769-979.bin"
 
-SECTION "BGTileSection2",DATA[$4000],BANK[BGTILEROM2]
+SECTION "BGTileSection2",ROMX[$4000],BANK[BGTILEROM2]
 BGTiles1024::
 DB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 INCBIN "bgTiles1024-1279.bin"
@@ -3963,7 +3963,7 @@ INCBIN "bgTiles1792-2047.bin"
 
 ;DS     16*((1024-256)-1)       ;pad tiles
 
-SECTION "BGColorTable",DATA[$4000]
+SECTION "BGColorTable",ROMX[$4000]
 bg_colorTable::  ;defines a byte for the tile attribute (color) for each class
 ;0=Grey, 1=Red, 2=Blue, 3=Green, 4=Purple, 5=Yellow, 6=Brown/Orange, 7=Fuscia
 ;+8=can walk over
@@ -4084,7 +4084,7 @@ bg_colorTable::  ;defines a byte for the tile attribute (color) for each class
 ;+16=can shoot over
 ;+32=attackable
 
-SECTION "FGTileSection",DATA[$4800]
+SECTION "FGTileSection",ROMX[$4800]
 FGTiles:
 INCBIN "fgTiles2048-2302.bin"  ;monsta tiles
 INCBIN "fgTiles2304-2559.bin"  ;monsta tiles
@@ -4128,7 +4128,7 @@ DB  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  ;2468 +420
 ;   8  9  0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7
 
 ;---------------------------------------------------------------------
-SECTION "MapBGPix",DATA
+SECTION "MapBGPix",ROMX
 ;---------------------------------------------------------------------
 waitingToJoin_bg:
   INCBIN "..\\fgbpix\\menu\\waitingToJoin.bg"

@@ -11,7 +11,7 @@ TEMPKLUDGE EQU 0
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx1",DATA
+SECTION "Level1502Gfx1",ROMX
 ;---------------------------------------------------------------------
 flour_gang_mono_bg:
   INCBIN "..\\fgbpix\\distress\\flour_gang_mono.bg"
@@ -27,7 +27,7 @@ nar_certaindanger_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx2",DATA
+SECTION "Level1502Gfx2",ROMX
 ;---------------------------------------------------------------------
 flourdriving_bg::
   INCBIN "..\\fgbpix\\distress\\flourdriving.bg"
@@ -39,7 +39,7 @@ bs_bg::
   INCBIN "..\\fgbpix\\distress\\bs.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx3",DATA
+SECTION "Level1502Gfx3",ROMX
 ;---------------------------------------------------------------------
 remote_bg:
   INCBIN "..\\fgbpix\\distress\\remote.bg"
@@ -48,7 +48,7 @@ flowerviewscreen_bg::
   INCBIN "..\\fgbpix\\distress\\flowerviewscreen.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx4",DATA
+SECTION "Level1502Gfx4",ROMX
 ;---------------------------------------------------------------------
 yacht_under_fire_bg:
   INCBIN "..\\fgbpix\\distress\\yacht_under_fire.bg"
@@ -57,7 +57,7 @@ pirate_sprites_sp:
   INCBIN "..\\fgbpix\\distress\\pirate_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx5",DATA
+SECTION "Level1502Gfx5",ROMX
 ;---------------------------------------------------------------------
 starfield_bg:
   INCBIN "..\\fgbpix\\intro\\starfield.bg"
@@ -66,14 +66,14 @@ starfield_sprite_sp::
   INCBIN "..\\fgbpix\\intro\\starfield_sprite.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Gfx6",DATA
+SECTION "Level1502Gfx6",ROMX
 ;---------------------------------------------------------------------
 appomattox_tokiwi_bg::
   INCBIN "..\\fgbpix\\distress\\appomattox_tokiwi.bg"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Dialog",DATA
+SECTION "Level1502Dialog",ROMX
 ;---------------------------------------------------------------------
 dialog:
 captain_cider_gtx:
@@ -153,7 +153,7 @@ ba_goneawhile_gtx::
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1502Section",DATA
+SECTION "Level1502Section",ROMX
 ;---------------------------------------------------------------------
 
 L1502_Contents::

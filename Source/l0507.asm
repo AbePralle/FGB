@@ -9,7 +9,7 @@ WATERINDEX EQU 1
 VAR_WATER  EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0507Section",DATA
+SECTION "Level0507Section",ROMX
 ;---------------------------------------------------------------------
 
 L0507_Contents::

@@ -25,7 +25,7 @@ STATE_AVERTED        EQU  2
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1112Gfx1",DATA
+SECTION "Level1112Gfx1",ROMX
 ;---------------------------------------------------------------------
 success_bg:
   INCBIN "..\\fgbpix\\disco\\success.bg"
@@ -34,7 +34,7 @@ party_over_bg:
   INCBIN "..\\fgbpix\\disco\\party_over.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1112Section",DATA
+SECTION "Level1112Section",ROMX
 ;---------------------------------------------------------------------
 
 L1112_Contents::

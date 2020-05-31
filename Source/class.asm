@@ -11543,7 +11543,7 @@ WispCheck:
         jp      SetFacing
 
 ;----GetFireTargetAsObject--------------------------------------------
-GetFireTargetAsObject
+GetFireTargetAsObject:
         ld      a,[fireBulletLocation]
         ld      l,a
         ld      a,[fireBulletLocation+1]

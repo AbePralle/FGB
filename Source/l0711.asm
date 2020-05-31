@@ -13,7 +13,7 @@ import classBSPlayerSpace
 import classHaikuPlayerSpace
 
 ;---------------------------------------------------------------------
-SECTION "Level0711Section",DATA
+SECTION "Level0711Section",ROMX
 ;---------------------------------------------------------------------
 
 L0711_Contents::

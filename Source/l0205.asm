@@ -25,7 +25,7 @@ STATE_HIVE_DESTROYED EQU 2
 
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection0205",DATA,BANK[MAP0ROM]
+SECTION "LevelsSection0205",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 dialog:

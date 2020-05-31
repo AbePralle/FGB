@@ -32,7 +32,7 @@ EXPORT closeGateSound
 
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection1",DATA,BANK[MAP0ROM]
+SECTION "LevelsSection1",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 L0107_Contents::

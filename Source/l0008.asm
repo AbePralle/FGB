@@ -10,7 +10,7 @@ STATE_NORMAL        EQU 1
 STATE_SPRAYTAKEN    EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "Level0008Section",DATA
+SECTION "Level0008Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

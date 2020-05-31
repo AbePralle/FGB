@@ -8,7 +8,7 @@ INCLUDE "Source/defs.inc"
 INCLUDE "Source/levels.inc"
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection1201",DATA,BANK[MAP0ROM]
+SECTION "LevelsSection1201",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 L1201_Contents::

@@ -13,7 +13,7 @@ VAR_TALKED    EQU 0
 VAR_DICELIGHT EQU 3
 
 ;---------------------------------------------------------------------
-SECTION "Level1010Section",DATA
+SECTION "Level1010Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

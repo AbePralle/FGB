@@ -15,7 +15,7 @@ VAR_TALKEDTELEPORT EQU 2
 
 
 ;---------------------------------------------------------------------
-SECTION "Level0912Section",DATA
+SECTION "Level0912Section",ROMX
 ;---------------------------------------------------------------------
 dialog:
 l0912_sign_gtx:

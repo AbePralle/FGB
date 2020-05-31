@@ -14,92 +14,92 @@ VAR_SELSTAGE  EQU 6
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ1",DATA
+SECTION "Level1402SectionLZ1",ROMX
 ;---------------------------------------------------------------------
 lz_mist_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_mist.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ2",DATA
+SECTION "Level1402SectionLZ2",ROMX
 ;---------------------------------------------------------------------
 lz_ice1_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_ice1.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ3",DATA
+SECTION "Level1402SectionLZ3",ROMX
 ;---------------------------------------------------------------------
 lz_gate_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_gate.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ4",DATA
+SECTION "Level1402SectionLZ4",ROMX
 ;---------------------------------------------------------------------
 lz_brokenwall_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_brokenwall.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ5",DATA
+SECTION "Level1402SectionLZ5",ROMX
 ;---------------------------------------------------------------------
 lz_canyon_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_canyon.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ6",DATA
+SECTION "Level1402SectionLZ6",ROMX
 ;---------------------------------------------------------------------
 lz_desert_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_desert.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ7",DATA
+SECTION "Level1402SectionLZ7",ROMX
 ;---------------------------------------------------------------------
 lz_graves_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_graves.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ8",DATA
+SECTION "Level1402SectionLZ8",ROMX
 ;---------------------------------------------------------------------
 lz_icecubes_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_icecubes.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ9",DATA
+SECTION "Level1402SectionLZ9",ROMX
 ;---------------------------------------------------------------------
 lz_jungle_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_jungle.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ10",DATA
+SECTION "Level1402SectionLZ10",ROMX
 ;---------------------------------------------------------------------
 lz_mountains_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_mountains.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ11",DATA
+SECTION "Level1402SectionLZ11",ROMX
 ;---------------------------------------------------------------------
 lz_ocean_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_ocean.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ12",DATA
+SECTION "Level1402SectionLZ12",ROMX
 ;---------------------------------------------------------------------
 lz_pencil_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_pencil.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ13",DATA
+SECTION "Level1402SectionLZ13",ROMX
 ;---------------------------------------------------------------------
 lz_treepath_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_treepath.bg"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionData3",DATA
+SECTION "Level1402SectionData3",ROMX
 ;---------------------------------------------------------------------
 lz_trees1_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_trees1.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionData2",DATA
+SECTION "Level1402SectionData2",ROMX
 ;---------------------------------------------------------------------
 cloud0_bg::
   INCBIN "..\\fgbpix\\appomattox\\cloud0.bg"
@@ -113,7 +113,7 @@ cloud4_bg::
   INCBIN "..\\fgbpix\\appomattox\\cloud4.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1400Section",DATA
+SECTION "Level1400Section",ROMX
 ;---------------------------------------------------------------------
 
 cloud5_bg::

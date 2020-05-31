@@ -10,7 +10,7 @@ LIGHTINDEX EQU 65
 VAR_LIGHT EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0704Section",DATA
+SECTION "Level0704Section",ROMX
 ;---------------------------------------------------------------------
 
 L0704_Contents::

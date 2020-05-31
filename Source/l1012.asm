@@ -9,7 +9,7 @@ STATE_NORMAL    EQU 1
 STATE_READBOOK  EQU 2
 
 ;---------------------------------------------------------------------
-SECTION "Level1012Section",DATA
+SECTION "Level1012Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

@@ -8,7 +8,7 @@ INCLUDE "Source/items.inc"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1203Gfx1",DATA
+SECTION "Level1203Gfx1",ROMX
 ;---------------------------------------------------------------------
 in_prison_bg:
   INCBIN "..\\fgbpix\\wedding\\in_prison.bg"
@@ -17,7 +17,7 @@ bs_driving_bg:
   INCBIN "..\\fgbpix\\wedding\\bs_driving.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1203Section",DATA
+SECTION "Level1203Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:

@@ -12,7 +12,7 @@ NEXTLEVEL EQU $0313
 NEXTLEVELDIR EQU EXIT_D
 
 ;---------------------------------------------------------------------
-SECTION "Level1102Section2",DATA
+SECTION "Level1102Section2",ROMX
 ;---------------------------------------------------------------------
 flour_bg::
   INCBIN "..\\fgbpix\\mainchardialog\\flour_triumph.bg"
@@ -63,7 +63,7 @@ nar_crewquarters_bg:
   INCBIN "..\\fgbpix\\main_intro\\nar_crewquarters.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1102Section",DATA
+SECTION "Level1102Section",ROMX
 ;---------------------------------------------------------------------
 
 L1102_Contents::

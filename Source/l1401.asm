@@ -22,13 +22,13 @@ VAR_LASTDIR   EQU 11
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1401Gfx2",DATA
+SECTION "Level1401Gfx2",ROMX
 ;---------------------------------------------------------------------
 nokey_bg::
   INCBIN "..\\fgbpix\\appomattox\\nokey.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1401Gfx",DATA
+SECTION "Level1401Gfx",ROMX
 ;---------------------------------------------------------------------
 lz_zorhaus_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_zorhaus.bg"
@@ -40,7 +40,7 @@ lz_croutongate_bg::
   INCBIN "..\\fgbpix\\appomattox\\lz_croutongate.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1401SectionDataControlPanel",DATA
+SECTION "Level1401SectionDataControlPanel",ROMX
 ;---------------------------------------------------------------------
 controlpanel_bg::
   INCBIN "..\\fgbpix\\appomattox\\controlpanel.bg"
@@ -49,7 +49,7 @@ panelsprites_sp::
   INCBIN "..\\fgbpix\\appomattox\\panelsprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1401Waves",DATA
+SECTION "Level1401Waves",ROMX
 ;---------------------------------------------------------------------
 appwaves0_dat::
   INCBIN "..\\fgbpix\\appomattox\\appwaves0.dat"
@@ -68,7 +68,7 @@ appwaves4_dat::
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1401Section",DATA
+SECTION "Level1401Section",ROMX
 ;---------------------------------------------------------------------
 
 L1401_Contents::

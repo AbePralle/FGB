@@ -8,7 +8,7 @@ INCLUDE "Source/gfx.inc"
 TEMPKLUDGE EQU 50
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection",DATA
+SECTION "L1200DataSection",ROMX
 ;---------------------------------------------------------------------
 logo160_bg:
   INCBIN "..\\fgbpix\\logo\\logo160.bg"
@@ -20,7 +20,7 @@ fgbtitle_bg:
   INCBIN "..\\fgbpix\\logo\\fgbtitle.bg"
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection2",DATA
+SECTION "L1200DataSection2",ROMX
 ;---------------------------------------------------------------------
 kiwi1_bg::
   INCBIN "..\\fgbpix\\intro\\kiwi1.bg"
@@ -38,7 +38,7 @@ landing_sprites_sp::
   INCBIN "..\\fgbpix\\intro\\landing_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection3",DATA
+SECTION "L1200DataSection3",ROMX
 ;---------------------------------------------------------------------
 titlesprite_sp:
   INCBIN "..\\fgbpix\\logo\\titlesprite.sp"
@@ -50,7 +50,7 @@ ocloud1_bg:
   INCBIN "..\\fgbpix\\logo\\ocloud1.bg"
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection4",DATA
+SECTION "L1200DataSection4",ROMX
 ;---------------------------------------------------------------------
 ocloud2_bg:
   INCBIN "..\\fgbpix\\logo\\ocloud2.bg"
@@ -60,7 +60,7 @@ ocloud3_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection5",DATA
+SECTION "L1200DataSection5",ROMX
 ;---------------------------------------------------------------------
 ocloud4_bg:
   INCBIN "..\\fgbpix\\logo\\ocloud4.bg"
@@ -70,7 +70,7 @@ ocloud5_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection6",DATA
+SECTION "L1200DataSection6",ROMX
 ;---------------------------------------------------------------------
 ocloud6_bg:
   INCBIN "..\\fgbpix\\logo\\ocloud6.bg"
@@ -80,7 +80,7 @@ ocloud7_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection7",DATA
+SECTION "L1200DataSection7",ROMX
 ;---------------------------------------------------------------------
 ocloud8_bg:
   INCBIN "..\\fgbpix\\logo\\ocloud8.bg"
@@ -90,7 +90,7 @@ ocloud9_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection8",DATA
+SECTION "L1200DataSection8",ROMX
 ;---------------------------------------------------------------------
 oclouda_bg:
   INCBIN "..\\fgbpix\\logo\\oclouda.bg"
@@ -100,7 +100,7 @@ ocloudb_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection9",DATA
+SECTION "L1200DataSection9",ROMX
 ;---------------------------------------------------------------------
 ocloudc_bg:
   INCBIN "..\\fgbpix\\logo\\ocloudc.bg"
@@ -110,7 +110,7 @@ ocloudd_bg:
 
 
 ;---------------------------------------------------------------------
-SECTION "L1200DataSection10",DATA
+SECTION "L1200DataSection10",ROMX
 ;---------------------------------------------------------------------
 ocloude_bg:
   INCBIN "..\\fgbpix\\logo\\ocloude.bg"
@@ -119,7 +119,7 @@ ocloudf_bg:
   INCBIN "..\\fgbpix\\logo\\ocloudf.bg"
 
 ;---------------------------------------------------------------------
-SECTION "L1200CodeSection",DATA
+SECTION "L1200CodeSection",ROMX
 ;---------------------------------------------------------------------
 L1200_Contents::
   DW L1200_Load

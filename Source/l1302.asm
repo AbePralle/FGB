@@ -6,7 +6,7 @@ INCLUDE "Source/defs.inc"
 INCLUDE "Source/levels.inc"
 
 ;---------------------------------------------------------------------
-SECTION "Level1302Section",DATA
+SECTION "Level1302Section",ROMX
 ;---------------------------------------------------------------------
 
 L1302_Contents::

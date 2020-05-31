@@ -20,7 +20,7 @@ STATE_BOTHEXITED  EQU 4
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1504Gfx1",DATA
+SECTION "Level1504Gfx1",ROMX
 ;---------------------------------------------------------------------
 at_gunpoint_bg:
   INCBIN "..\\fgbpix\\distress\\at_gunpoint.bg"
@@ -29,7 +29,7 @@ at_gunpoint_sprites_sp:
   INCBIN "..\\fgbpix\\distress\\at_gunpoint_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1504Section",DATA
+SECTION "Level1504Section",ROMX
 ;---------------------------------------------------------------------
 
 L1504_Contents::

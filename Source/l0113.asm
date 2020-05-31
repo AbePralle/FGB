@@ -8,7 +8,7 @@ INCLUDE "Source/levels.inc"
 CRATERINDEX EQU 30
 
 ;---------------------------------------------------------------------
-SECTION "Level0113Section",DATA
+SECTION "Level0113Section",ROMX
 ;---------------------------------------------------------------------
 
 L0113_Contents::

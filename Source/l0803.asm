@@ -9,7 +9,7 @@ WATERINDEX EQU 24
 VAR_WATER  EQU 0
 
 ;---------------------------------------------------------------------
-SECTION "Level0803Section",DATA
+SECTION "Level0803Section",ROMX
 ;---------------------------------------------------------------------
 
 L0803_Contents::

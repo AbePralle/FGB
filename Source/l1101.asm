@@ -17,14 +17,14 @@ JOINDIR EQU EXIT_D
 ;JOINDIR EQU EXIT_W
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection1101_data2",DATA
+SECTION "LevelsSection1101_data2",ROMX
 ;---------------------------------------------------------------------
 bullet_sp:
   INCBIN "..\\fgbpix\\menu\\menucursor.sp"
 
 
 ;---------------------------------------------------------------------
-SECTION "LevelsSection1101",DATA
+SECTION "LevelsSection1101",ROMX
 ;---------------------------------------------------------------------
 
 L1101_Contents::
