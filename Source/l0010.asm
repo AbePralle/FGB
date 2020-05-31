@@ -1,4 +1,4 @@
-; l0010.asm mouse teleport room
+; L0010.asm mouse teleport room
 ; Generated 11.06.2000 by mlevel
 ; Modified  11.06.2000 by Abe Pralle
 
@@ -23,14 +23,14 @@ SECTION "Level0010Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0010_mattermitter_gtx:
-  INCBIN "Data/Dialog/talk/l0010_mattermitter.gtx"
+L0010_mattermitter_gtx:
+  INCBIN "Data/Dialog/talk/L0010_mattermitter.gtx"
 
-l0010_foundmask_gtx:
-  INCBIN "Data/Dialog/talk/l0010_foundmask.gtx"
+L0010_foundmask_gtx:
+  INCBIN "Data/Dialog/talk/L0010_foundmask.gtx"
 
-l0010_crate_gtx:
-  INCBIN "Data/Dialog/talk/l0010_crate.gtx"
+L0010_crate_gtx:
+  INCBIN "Data/Dialog/talk/L0010_crate.gtx"
 
 L0010_Contents::
   DW L0010_Load
@@ -52,7 +52,7 @@ L0010_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0010_Map:
-INCBIN "Data/Levels/l0010_serpent.lvl"
+INCBIN "Data/Levels/L0010_serpent.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -139,7 +139,7 @@ L0010_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0010_mattermitter_gtx
+        ld      de,L0010_mattermitter_gtx
         call    ShowDialogAtBottom
 .afterTportDialog
         call    ClearDialogSkipForward
@@ -234,7 +234,7 @@ L0010_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0010_crate_gtx
+        ld      de,L0010_crate_gtx
         call    ShowDialogAtBottom
 .afterSignDialog
         call    ClearDialog
@@ -409,7 +409,7 @@ L0010_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0010_foundmask_gtx
+        ld      de,L0010_foundmask_gtx
         call    ShowDialogAtBottom
 .afterDialog
         call    ClearDialog

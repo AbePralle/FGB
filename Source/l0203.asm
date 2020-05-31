@@ -1,4 +1,4 @@
-;level0203.asm
+;L0203.asm
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -26,7 +26,7 @@ L0203_Load2:
 L0203_LoadFinished:
 
 L0203_Map:
-INCBIN "Data/Levels/l0203_path.lvl"
+INCBIN "Data/Levels/L0203_path.lvl"
 
 ;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
 ;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"

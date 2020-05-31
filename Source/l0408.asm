@@ -1,4 +1,4 @@
-; l0408.asm death valley
+; L0408.asm death valley
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0408_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0408_Map:
-INCBIN "Data/Levels/l0408_deathvalley.lvl"
+INCBIN "Data/Levels/L0408_deathvalley.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

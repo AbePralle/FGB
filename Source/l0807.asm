@@ -1,4 +1,4 @@
-; l0807.asm
+; L0807.asm
 ; Generated 11.03.2000 by mlevel
 ; Modified  11.03.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0807_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0807_Map:
-INCBIN "Data/Levels/l0807_swamp.lvl"
+INCBIN "Data/Levels/L0807_swamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

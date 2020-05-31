@@ -1,4 +1,4 @@
-; l0011.asm House of the Seasons
+; L0011.asm House of the Seasons
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

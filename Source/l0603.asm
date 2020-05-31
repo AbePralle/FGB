@@ -1,4 +1,4 @@
-; l0603.asm
+; L0603.asm
 ; Generated 10.23.2000 by mlevel
 ; Modified  10.23.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0603_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0603_Map:
-INCBIN "Data/Levels/l0603_hillpeople.lvl"
+INCBIN "Data/Levels/L0603_hillpeople.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

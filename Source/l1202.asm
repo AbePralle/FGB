@@ -1,4 +1,4 @@
-; l1202.asm dropship leaving triumph
+; L1202.asm dropship leaving triumph
 ; Generated 07.30.2000 by mlevel
 ; Modified  07.30.2000 by Abe Pralle
 

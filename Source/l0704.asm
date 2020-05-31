@@ -1,4 +1,4 @@
-; l0704.asm Canyon Landing
+; L0704.asm Canyon Landing
 ; Generated 09.18.2000 by mlevel
 ; Modified  09.18.2000 by Abe Pralle
 
@@ -33,7 +33,7 @@ L0704_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0704_Map:
-INCBIN "Data/Levels/l0704_canyon.lvl"
+INCBIN "Data/Levels/L0704_canyon.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

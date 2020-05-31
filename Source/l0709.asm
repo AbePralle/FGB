@@ -1,4 +1,4 @@
-; l0709.asm scardie
+; L0709.asm scardie
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0709_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0709_Map:
-INCBIN "Data/Levels/l0709_outback.lvl"
+INCBIN "Data/Levels/L0709_outback.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0601.asm
+; L0601.asm
 ; Generated 09.05.2000 by mlevel
 ; Modified  09.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0601_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0601_Map:
-INCBIN "Data/Levels/l0601_wolf.lvl"
+INCBIN "Data/Levels/L0601_wolf.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0606.asm moores landing
+; L0606.asm moores landing
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0606_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0606_Map:
-INCBIN "Data/Levels/l0606_mooreslanding.lvl"
+INCBIN "Data/Levels/L0606_mooreslanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0407.asm
+; L0407.asm
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0407_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0407_Map:
-INCBIN "Data/Levels/l0407_bios.lvl"
+INCBIN "Data/Levels/L0407_bios.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

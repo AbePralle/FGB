@@ -1,4 +1,4 @@
-; l0900.asm Crouton Guard Post
+; L0900.asm Crouton Guard Post
 ; Generated 01.03.1980 by mlevel
 ; Modified  01.03.1980 by Abe Pralle
 
@@ -31,7 +31,7 @@ L0900_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0900_Map:
-INCBIN "Data/Levels/l0900_guardpost.lvl"
+INCBIN "Data/Levels/L0900_guardpost.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

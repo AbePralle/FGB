@@ -1,4 +1,4 @@
-; l0907.asm bullseye village
+; L0907.asm bullseye village
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0907_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0907_Map:
-INCBIN "Data/Levels/l0907_bullseye.lvl"
+INCBIN "Data/Levels/L0907_bullseye.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

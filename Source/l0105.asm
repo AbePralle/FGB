@@ -1,4 +1,4 @@
-;level0105.asm rainy forest w/hive & wrangling iron
+;L0105.asm rainy forest w/hive & wrangling iron
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -15,8 +15,8 @@ SECTION "LevelsSection0105",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0105_hero_wrangling_gtx:
-  INCBIN "Data/Dialog/talk/l0105_hero_wrangling.gtx"
+L0105_hero_wrangling_gtx:
+  INCBIN "Data/Dialog/talk/L0105_hero_wrangling.gtx"
 
 L0105_Contents::
   DW L0105_Load
@@ -36,7 +36,7 @@ L0105_Load2:
 L0105_LoadFinished:
 
 L0105_Map:
-INCBIN "Data/Levels/l0105_path.lvl"
+INCBIN "Data/Levels/L0105_path.lvl"
 
 ;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
 ;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
@@ -83,7 +83,7 @@ L0105_Check2:
         call    MakeIdle
 
         call    SetSpeakerToFirstHero
-        ld      de,l0105_hero_wrangling_gtx
+        ld      de,L0105_hero_wrangling_gtx
         call    ShowDialogAtBottom
 .afterDialog
         call    ClearDialog

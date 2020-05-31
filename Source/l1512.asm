@@ -1,4 +1,4 @@
-; l1512.asm Crouton Homeworld 4
+; L1512.asm Crouton Homeworld 4
 ; Generated 04.19.2001 by mlevel
 ; Modified  04.19.2001 by Abe Pralle
 

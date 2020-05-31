@@ -1,4 +1,4 @@
-; l0313.asm ba ships quarters
+; L0313.asm ba ships quarters
 ; Generated 07.28.2000 by mlevel
 ; Modified  07.28.2000 by Abe Pralle
 
@@ -33,7 +33,7 @@ L0313_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0313_Map:
-INCBIN "Data/Levels/l0313_intro_ba4.lvl"
+INCBIN "Data/Levels/L0313_intro_ba4.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

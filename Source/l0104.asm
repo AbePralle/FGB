@@ -1,4 +1,4 @@
-; l0104.asm Spring
+; L0104.asm Spring
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

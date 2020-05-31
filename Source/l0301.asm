@@ -1,4 +1,4 @@
-; l0301.asm mist se of evil village
+; L0301.asm mist se of evil village
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0301_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0301_Map:
-INCBIN "Data/Levels/l0301_mist.lvl"
+INCBIN "Data/Levels/L0301_mist.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

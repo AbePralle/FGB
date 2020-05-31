@@ -1,4 +1,4 @@
-; l0911.asm apocalypse NE goblin module
+; L0911.asm apocalypse NE goblin module
 ; Generated 04.26.2001 by mlevel
 ; Modified  04.26.2001 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0911_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0911_Map:
-INCBIN "Data/Levels/l0911_ssa_ne.lvl"
+INCBIN "Data/Levels/L0911_ssa_ne.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -40,7 +40,7 @@ INCBIN "Data/Levels/l0911_ssa_ne.lvl"
 L0911_Init:
         DW ((L0911_InitFinished - L0911_Init2))  ;size
 L0911_Init2:
-        ld      a,BANK(l0012_defused_gtx)
+        ld      a,BANK(L0012_defused_gtx)
         ld      [dialogBank],a
         call    SetPressBDialog
 
@@ -137,11 +137,11 @@ L0911_Check2:
         cp      3
         jr      nz,.bombsRemain
 
-        ld      hl,l0012_alldefused_gtx
+        ld      hl,L0012_alldefused_gtx
         jr      .dialog
 
 .bombsRemain
-        ld      hl,l0012_defused_gtx
+        ld      hl,L0012_defused_gtx
 
 .dialog
         call    MakeIdle

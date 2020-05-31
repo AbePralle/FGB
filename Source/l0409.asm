@@ -1,4 +1,4 @@
-; l0409.asm
+; L0409.asm
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0409_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0409_Map:
-INCBIN "Data/Levels/l0409_desert.lvl"
+INCBIN "Data/Levels/L0409_desert.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

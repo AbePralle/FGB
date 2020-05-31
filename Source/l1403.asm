@@ -1,4 +1,4 @@
-; l1403.asm approaching kiwi
+; L1403.asm approaching kiwi
 ; Generated 03.08.2001 by mlevel
 ; Modified  03.08.2001 by Abe Pralle
 

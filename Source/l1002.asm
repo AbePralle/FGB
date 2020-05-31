@@ -1,4 +1,4 @@
-; l1002.asm
+; L1002.asm
 ; Generated 01.02.1998 by mlevel
 ; Modified  01.02.1998 by Abe Pralle
 
@@ -31,7 +31,7 @@ L1002_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1002_Map:
-INCBIN "Data/Levels/l1002_guardpost.lvl"
+INCBIN "Data/Levels/L1002_guardpost.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

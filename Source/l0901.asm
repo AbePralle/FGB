@@ -1,4 +1,4 @@
-; l0901.asm
+; L0901.asm
 ; Generated 01.03.1980 by mlevel
 ; Modified  01.03.1980 by Abe Pralle
 
@@ -34,7 +34,7 @@ L0901_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0901_Map:
-INCBIN "Data/Levels/l0901_slavecamp.lvl"
+INCBIN "Data/Levels/L0901_slavecamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

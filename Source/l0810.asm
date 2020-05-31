@@ -1,4 +1,4 @@
-; l0810.asm graves landing
+; L0810.asm graves landing
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0810_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0810_Map:
-INCBIN "Data/Levels/l0810_graveslanding.lvl"
+INCBIN "Data/Levels/L0810_graveslanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

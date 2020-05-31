@@ -1,4 +1,4 @@
-; l1300.asm appomattox interior
+; L1300.asm appomattox interior
 ; Generated 02.16.2001 by mlevel
 ; Modified  02.16.2001 by Abe Pralle
 
@@ -48,7 +48,7 @@ L1300_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1300_Map:
-INCBIN "Data/Levels/l1300_appomattox.lvl"
+INCBIN "Data/Levels/L1300_appomattox.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

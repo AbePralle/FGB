@@ -1,4 +1,4 @@
-; l0012.asm Command Core
+; L0012.asm Command Core
 ; Generated 04.26.2001 by mlevel
 ; Modified  04.26.2001 by Abe Pralle
 
@@ -19,14 +19,14 @@ SECTION "Level0012Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0012_bombs_gtx:
-  INCBIN "Data/Dialog/apocalypse/l0012_bombs.gtx"
+L0012_bombs_gtx:
+  INCBIN "Data/Dialog/apocalypse/L0012_bombs.gtx"
 
-l0012_defused_gtx::
-  INCBIN "Data/Dialog/apocalypse/l0012_defused.gtx"
+L0012_defused_gtx::
+  INCBIN "Data/Dialog/apocalypse/L0012_defused.gtx"
 
-l0012_alldefused_gtx::
-  INCBIN "Data/Dialog/apocalypse/l0012_alldefused.gtx"
+L0012_alldefused_gtx::
+  INCBIN "Data/Dialog/apocalypse/L0012_alldefused.gtx"
 
 L0012_Contents::
   DW L0012_Load
@@ -48,7 +48,7 @@ L0012_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0012_Map:
-INCBIN "Data/Levels/l0012_ssa_cmdcore.lvl"
+INCBIN "Data/Levels/L0012_ssa_cmdcore.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -146,7 +146,7 @@ L0012_Check2:
         call    MakeIdle
 
         call    SetSpeakerToFirstHero
-        ld      de,l0012_bombs_gtx
+        ld      de,L0012_bombs_gtx
         call    ShowDialogAtBottom
 
 .afterDialog

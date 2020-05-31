@@ -1,4 +1,4 @@
-; l0809.asm grenade vs goblin charge
+; L0809.asm grenade vs goblin charge
 ; Generated 11.01.2000 by mlevel
 ; Modified  11.01.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0809_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0809_Map:
-INCBIN "Data/Levels/l0809_warzone.lvl"
+INCBIN "Data/Levels/L0809_warzone.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

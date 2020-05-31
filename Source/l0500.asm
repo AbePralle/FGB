@@ -1,4 +1,4 @@
-; l0500.asm
+; L0500.asm
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 

@@ -1,4 +1,4 @@
-; l0701.asm kiwi keep
+; L0701.asm kiwi keep
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0701_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0701_Map:
-INCBIN "Data/Levels/l0701_kiwikeep.lvl"
+INCBIN "Data/Levels/L0701_kiwikeep.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

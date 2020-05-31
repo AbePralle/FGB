@@ -1,4 +1,4 @@
-; l0712.asm farm landing
+; L0712.asm farm landing
 ; Generated 11.29.2000 by mlevel
 ; Modified  11.29.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0712_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0712_Map:
-INCBIN "Data/Levels/l0712_farmlanding.lvl"
+INCBIN "Data/Levels/L0712_farmlanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

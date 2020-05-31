@@ -1,4 +1,4 @@
-; l1401.asm Appomattox control panel / destination select
+; L1401.asm Appomattox control panel / destination select
 ; Generated 02.27.2001 by mlevel
 ; Modified  02.27.2001 by Abe Pralle
 

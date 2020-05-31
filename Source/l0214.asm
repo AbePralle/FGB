@@ -1,4 +1,4 @@
-; l0214.asm skippy's prison
+; L0214.asm skippy's prison
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -43,7 +43,7 @@ L0214_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0214_Map:
-INCBIN "Data/Levels/l0214_intro_haiku3.lvl"
+INCBIN "Data/Levels/L0214_intro_haiku3.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

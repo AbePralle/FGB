@@ -1,4 +1,4 @@
-; l0908.asm
+; L0908.asm
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0908_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0908_Map:
-INCBIN "Data/Levels/l0908_warzone.lvl"
+INCBIN "Data/Levels/L0908_warzone.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

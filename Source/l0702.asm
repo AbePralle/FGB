@@ -1,4 +1,4 @@
-; l0702.asm
+; L0702.asm
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0702_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0702_Map:
-INCBIN "Data/Levels/l0702_caverns.lvl"
+INCBIN "Data/Levels/L0702_caverns.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

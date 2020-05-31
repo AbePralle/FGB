@@ -1,4 +1,4 @@
-; l0002.asm bee border
+; L0002.asm bee border
 ; Generated 08.27.2000 by mlevel
 ; Modified  08.27.2000 by Abe Pralle
 
@@ -17,20 +17,20 @@ SECTION "Level0002Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0002_bees_gtx:
-  INCBIN "Data/Dialog/talk/l0002_bees.gtx"
+L0002_bees_gtx:
+  INCBIN "Data/Dialog/talk/L0002_bees.gtx"
 
-l0002_hero_spray_gtx:
-  INCBIN "Data/Dialog/talk/l0002_hero_spray.gtx"
+L0002_hero_spray_gtx:
+  INCBIN "Data/Dialog/talk/L0002_hero_spray.gtx"
 
-l0002_village_gtx:
-  INCBIN "Data/Dialog/talk/l0002_village.gtx"
+L0002_village_gtx:
+  INCBIN "Data/Dialog/talk/L0002_village.gtx"
 
-l0002_hero_no_gtx:
-  INCBIN "Data/Dialog/talk/l0002_hero_no.gtx"
+L0002_hero_no_gtx:
+  INCBIN "Data/Dialog/talk/L0002_hero_no.gtx"
 
-l0002_croutons_gtx:
-  INCBIN "Data/Dialog/talk/l0002_croutons.gtx"
+L0002_croutons_gtx:
+  INCBIN "Data/Dialog/talk/L0002_croutons.gtx"
 
 L0002_Contents::
   DW L0002_Load
@@ -52,7 +52,7 @@ L0002_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0002_Map:
-INCBIN "Data/Levels/l0002_bees.lvl"
+INCBIN "Data/Levels/L0002_bees.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -104,23 +104,23 @@ L0002_Check2:
         call    SetDialogSkip
 
         ;Careful; bees
-        ld      de,l0002_bees_gtx
+        ld      de,L0002_bees_gtx
         call    ShowDialogNPC
 
         ;Where's the spray?
-        ld      de,l0002_hero_spray_gtx
+        ld      de,L0002_hero_spray_gtx
         call    ShowDialogHero
 
         ;Down south; seen anybody?
-        ld      de,l0002_village_gtx
+        ld      de,L0002_village_gtx
         call    ShowDialogNPC
 
         ;No
-        ld      de,l0002_hero_no_gtx
+        ld      de,L0002_hero_no_gtx
         call    ShowDialogHero
 
         ;tell about croutons
-        ld      de,l0002_croutons_gtx
+        ld      de,L0002_croutons_gtx
         call    ShowDialogNPC
 
 .afterDialog

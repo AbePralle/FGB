@@ -1,4 +1,4 @@
-; l1005.asm
+; L1005.asm
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

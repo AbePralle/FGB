@@ -1,4 +1,4 @@
-; l1007.asm liars heads
+; L1007.asm liars heads
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L1007_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1007_Map:
-INCBIN "Data/Levels/l1007_stoneheads.lvl"
+INCBIN "Data/Levels/L1007_stoneheads.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

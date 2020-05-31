@@ -1,4 +1,4 @@
-; l1001.asm
+; L1001.asm
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L1001_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1001_Map:
-INCBIN "Data/Levels/l1001_iceplain.lvl"
+INCBIN "Data/Levels/L1001_iceplain.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

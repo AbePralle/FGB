@@ -1,4 +1,4 @@
-;level0205.asm bridge
+;L0205.asm bridge
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -20,7 +20,7 @@ STATE_TALK_GOWEST   EQU 7
 STATE_TALK_AFTER    EQU 8
 STATE_WAIT_DIALOG   EQU 9
 
-;from l0312
+;from L0312
 STATE_HIVE_DESTROYED EQU 2
 
 
@@ -29,20 +29,20 @@ SECTION "LevelsSection0205",ROMX,BANK[MAP0ROM]
 ;---------------------------------------------------------------------
 
 dialog:
-l0205_idiot_gtx:
-  INCBIN "Data/Dialog/talk/l0205_idiot.gtx"
+L0205_idiot_gtx:
+  INCBIN "Data/Dialog/talk/L0205_idiot.gtx"
 
-l0205_what_gtx:
-  INCBIN "Data/Dialog/talk/l0205_what.gtx"
+L0205_what_gtx:
+  INCBIN "Data/Dialog/talk/L0205_what.gtx"
 
-l0205_forgive_gtx:
-  INCBIN "Data/Dialog/talk/l0205_forgive.gtx"
+L0205_forgive_gtx:
+  INCBIN "Data/Dialog/talk/L0205_forgive.gtx"
 
-l0205_okay_gtx:
-  INCBIN "Data/Dialog/talk/l0205_okay.gtx"
+L0205_okay_gtx:
+  INCBIN "Data/Dialog/talk/L0205_okay.gtx"
 
-l0205_west_gtx:
-  INCBIN "Data/Dialog/talk/l0205_west.gtx"
+L0205_west_gtx:
+  INCBIN "Data/Dialog/talk/L0205_west.gtx"
 
 L0205_Contents::
   DW L0205_Load
@@ -62,7 +62,7 @@ L0205_Load2:
 L0205_LoadFinished:
 
 L0205_Map:
-INCBIN "Data/Levels/l0205_bridge.lvl"
+INCBIN "Data/Levels/L0205_bridge.lvl"
 
 ;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
 ;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
@@ -187,7 +187,7 @@ L0205_Check2:
         call    SetDialogForward
         ld      de,((.afterDialog-L0205_Check2) + levelCheckRAM)
         call    SetDialogSkip
-        DIALOGTOP l0205_idiot_gtx
+        DIALOGTOP L0205_idiot_gtx
         WAITDIALOG STATE_TALK_WHAT
         ret
 
@@ -196,7 +196,7 @@ L0205_Check2:
         call    ClearDialog
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
-        DIALOGBOTTOM l0205_what_gtx
+        DIALOGBOTTOM L0205_what_gtx
         WAITDIALOG STATE_TALK_FORGIVE
         ret
 
@@ -205,7 +205,7 @@ L0205_Check2:
         call    ClearDialog
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        DIALOGTOP l0205_forgive_gtx
+        DIALOGTOP L0205_forgive_gtx
         WAITDIALOG STATE_TALK_OKAY
         ret
 
@@ -214,7 +214,7 @@ L0205_Check2:
         call    ClearDialog
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
-        DIALOGBOTTOM l0205_okay_gtx
+        DIALOGBOTTOM L0205_okay_gtx
         WAITDIALOG STATE_TALK_GOWEST
         ret
 
@@ -223,7 +223,7 @@ L0205_Check2:
         call    ClearDialog
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        DIALOGTOP l0205_west_gtx
+        DIALOGTOP L0205_west_gtx
         WAITDIALOG STATE_TALK_AFTER
         ret
 

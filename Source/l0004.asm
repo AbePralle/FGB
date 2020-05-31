@@ -1,4 +1,4 @@
-; l0004.asm start of green pastures
+; L0004.asm start of green pastures
 ; Generated 08.24.2000 by mlevel
 ; Modified  08.24.2000 by Abe Pralle
 
@@ -14,14 +14,14 @@ SECTION "Level0004Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0004_howdypilgrim_gtx:
-  INCBIN "Data/Dialog/talk/l0004_howdypilgrim.gtx"
+L0004_howdypilgrim_gtx:
+  INCBIN "Data/Dialog/talk/L0004_howdypilgrim.gtx"
 
-l0004_sure_gtx:
-  INCBIN "Data/Dialog/talk/l0004_sure.gtx"
+L0004_sure_gtx:
+  INCBIN "Data/Dialog/talk/L0004_sure.gtx"
 
-l0004_mindyourbusiness_gtx:
-  INCBIN "Data/Dialog/talk/l0004_mindyourbusiness.gtx"
+L0004_mindyourbusiness_gtx:
+  INCBIN "Data/Dialog/talk/L0004_mindyourbusiness.gtx"
 
 L0004_Contents::
   DW L0004_Load
@@ -103,7 +103,7 @@ L0004_Check2:
         ;Howdy pilgrim
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0004_howdypilgrim_gtx
+        ld      de,L0004_howdypilgrim_gtx
         call    ShowDialogAtTop
         call    ClearDialog
 
@@ -111,14 +111,14 @@ L0004_Check2:
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
         call    SetSpeakerFromHeroIndex
-        ld      de,l0004_sure_gtx
+        ld      de,L0004_sure_gtx
         call    ShowDialogAtBottom
         call    ClearDialog
 
         ;Mind your own business
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0004_mindyourbusiness_gtx
+        ld      de,L0004_mindyourbusiness_gtx
         call    ShowDialogAtTop
 
 .afterDialog

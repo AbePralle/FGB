@@ -1,4 +1,4 @@
-; l1003.asm beach
+; L1003.asm beach
 ; Generated 01.03.1980 by mlevel
 ; Modified  01.03.1980 by Abe Pralle
 
@@ -34,7 +34,7 @@ L1003_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1003_Map:
-INCBIN "Data/Levels/l1003_beach.lvl"
+INCBIN "Data/Levels/L1003_beach.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0014.asm
+; L0014.asm
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -55,7 +55,7 @@ L0014_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0014_Map:
-INCBIN "Data/Levels/l0014_intro_haiku1.lvl"
+INCBIN "Data/Levels/L0014_intro_haiku1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

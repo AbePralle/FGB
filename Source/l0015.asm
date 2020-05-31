@@ -1,4 +1,4 @@
-; l0015.asm
+; L0015.asm
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -54,7 +54,7 @@ L0015_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0015_Map:
-INCBIN "Data/Levels/l0015_intro_bs1.lvl"
+INCBIN "Data/Levels/L0015_intro_bs1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

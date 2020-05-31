@@ -7712,7 +7712,3 @@ DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 
 
-;SECTION "InGameGraphicsSection1",ROMX
-;select_hero_bg::
-;  INCBIN "gamebg/select_hero.bg"
-

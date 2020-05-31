@@ -1,4 +1,4 @@
-;level1201.asm
+;L1201.asm
 ;Abe Pralle 6.13.2000
 
 ;called when the level the guest is going to is the same as the one

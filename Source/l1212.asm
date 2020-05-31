@@ -1,4 +1,4 @@
-; l1212.asm Crouton Homeworld 1
+; L1212.asm Crouton Homeworld 1
 ; Generated 04.19.2001 by mlevel
 ; Modified  04.19.2001 by Abe Pralle
 
@@ -22,17 +22,17 @@ SECTION "Level1212Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l1212_anytime_gtx:
-  INCBIN "Data/Dialog/talk/l1212_anytime.gtx"
+L1212_anytime_gtx:
+  INCBIN "Data/Dialog/talk/L1212_anytime.gtx"
 
-l1212_yeah_gtx:
-  INCBIN "Data/Dialog/talk/l1212_yeah.gtx"
+L1212_yeah_gtx:
+  INCBIN "Data/Dialog/talk/L1212_yeah.gtx"
 
-l1212_makesure_gtx:
-  INCBIN "Data/Dialog/talk/l1212_makesure.gtx"
+L1212_makesure_gtx:
+  INCBIN "Data/Dialog/talk/L1212_makesure.gtx"
 
-l1212_suckstobehim_gtx:
-  INCBIN "Data/Dialog/talk/l1212_suckstobehim.gtx"
+L1212_suckstobehim_gtx:
+  INCBIN "Data/Dialog/talk/L1212_suckstobehim.gtx"
 
 L1212_Contents::
   DW L1212_Load
@@ -141,7 +141,7 @@ L1212_Check2:
 
         call    ClearDialog
         ld      c,GOBLIN_INDEX
-        ld      de,l1212_yeah_gtx
+        ld      de,L1212_yeah_gtx
         call    ShowDialogAtBottom
 
 .afterDialog
@@ -176,7 +176,7 @@ L1212_Check2:
         ret
 
 .dialogLookup
-  DW 0,l1212_anytime_gtx,l1212_makesure_gtx,l1212_suckstobehim_gtx
+  DW 0,L1212_anytime_gtx,L1212_makesure_gtx,L1212_suckstobehim_gtx
 
 L1212_CheckFinished:
 PRINTT "1212 Script Sizes (Load/Init/Check) (of $500):  "

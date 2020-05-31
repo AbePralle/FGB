@@ -1,4 +1,4 @@
-; l0705.asm
+; L0705.asm
 ; Generated 10.26.2000 by mlevel
 ; Modified  10.26.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0705_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0705_Map:
-INCBIN "Data/Levels/l0705_jungle.lvl"
+INCBIN "Data/Levels/L0705_jungle.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

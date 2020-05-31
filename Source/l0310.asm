@@ -1,4 +1,4 @@
-; l0310.asm desert landing
+; L0310.asm desert landing
 ; Generated 11.03.2000 by mlevel
 ; Modified  11.03.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0310_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0310_Map:
-INCBIN "Data/Levels/l0310_desertland.lvl"
+INCBIN "Data/Levels/L0310_desertland.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

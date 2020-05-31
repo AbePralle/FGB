@@ -1,4 +1,4 @@
-; l0412.asm sunset village stonehead house
+; L0412.asm sunset village stonehead house
 ; Generated 08.31.2000 by mlevel
 ; Modified  08.31.2000 by Abe Pralle
 
@@ -18,17 +18,17 @@ SECTION "Level0412Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0006_avacado_gtx:
-  INCBIN "Data/Dialog/talk/l0006_avacado.gtx"
+L0006_avacado_gtx:
+  INCBIN "Data/Dialog/talk/L0006_avacado.gtx"
 
-l0006_hero_sayagain_gtx:
-  INCBIN "Data/Dialog/talk/l0006_hero_sayagain.gtx"
+L0006_hero_sayagain_gtx:
+  INCBIN "Data/Dialog/talk/L0006_hero_sayagain.gtx"
 
-l0006_fixbridge_gtx:
-  INCBIN "Data/Dialog/talk/l0006_fixbridge.gtx"
+L0006_fixbridge_gtx:
+  INCBIN "Data/Dialog/talk/L0006_fixbridge.gtx"
 
-l0006_fixed_gtx:
-  INCBIN "Data/Dialog/talk/l0006_fixed.gtx"
+L0006_fixed_gtx:
+  INCBIN "Data/Dialog/talk/L0006_fixed.gtx"
 
 L0412_Contents::
   DW L0412_Load
@@ -50,7 +50,7 @@ L0412_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0412_Map:
-INCBIN "Data/Levels/l0412_sunsethousewest.lvl"
+INCBIN "Data/Levels/L0412_sunsethousewest.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -142,21 +142,21 @@ L0412_Check2:
         ;Crush you like avacado
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0006_avacado_gtx   
+        ld      de,L0006_avacado_gtx   
         call    ShowDialogAtTop
         call    ClearDialog
 
         ;say again?
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
-        ld      de,l0006_hero_sayagain_gtx
+        ld      de,L0006_hero_sayagain_gtx
         call    ShowDialogAtBottom
         call    ClearDialog
 
         ;Fix bridge
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0006_fixbridge_gtx
+        ld      de,L0006_fixbridge_gtx
         call    ShowDialogAtTop
 
 .afterFixDialog
@@ -172,7 +172,7 @@ L0412_Check2:
         ;bridge fixed
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
-        ld      de,l0006_fixed_gtx
+        ld      de,L0006_fixed_gtx
         call    ShowDialogAtTop
 .afterFixedDialog 
         call    ClearDialog

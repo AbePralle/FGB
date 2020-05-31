@@ -1,4 +1,4 @@
-; l0509.asm big desert
+; L0509.asm big desert
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0509_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0509_Map:
-INCBIN "Data/Levels/l0509_bigdesert.lvl"
+INCBIN "Data/Levels/L0509_bigdesert.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

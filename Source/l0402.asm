@@ -1,4 +1,4 @@
-; l0402.asm
+; L0402.asm
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

@@ -1,4 +1,4 @@
-; l0501.asm
+; L0501.asm
 ; Generated 09.05.2000 by mlevel
 ; Modified  09.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0501_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0501_Map:
-INCBIN "Data/Levels/l0501_winter.lvl"
+INCBIN "Data/Levels/L0501_winter.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

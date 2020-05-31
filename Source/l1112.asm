@@ -1,4 +1,4 @@
-; l1112.asm duke's disco
+; L1112.asm duke's disco
 ; Generated 04.10.2001 by mlevel
 ; Modified  04.10.2001 by Abe Pralle
 
@@ -57,7 +57,7 @@ L1112_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1112_Map:
-INCBIN "Data/Levels/l1112_disco.lvl"
+INCBIN "Data/Levels/L1112_disco.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

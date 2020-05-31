@@ -1,16 +1,16 @@
-l1104_whereisgyro
+L1104_whereisgyro
 Brainstorming|begins|Where did the|General go|In his tiny ship?
 
-l1104_station
+L1104_station
 Looks like there's|a Crouton space|station not too far|from here...|
 
-l1104_apocalypse
+L1104_apocalypse
 ...Space Station|"Apocalypse." I'll|bet he went there!||
 
-l1104_letsgo
+L1104_letsgo
 I'll show them an|apocalypse! Let's|go!||
 
-l0012_bombs
+L0012_bombs
 bs:
 This must be the|command core. It'll|have to wait,|though: sensors are|picking up four|bombs planted around|the station! I'd|better disarm them!
 haiku:
@@ -18,7 +18,7 @@ See the command|core||Station scans reveal|four bombs||I must disarm them
 ba:
 This is the|command core.|Scanners show four|bombs planted around|the station. That's|four places I have|to go and rough|things up. Better|get started.
 
-l0012_defused
+L0012_defused
 bs:
 I defused this|bomb; on to the|next!
 haiku:
@@ -26,7 +26,7 @@ This bomb is|defused||But it is not the|last one||On to another
 ba:
 This bomb's|disarmed. Where's|the next one?
 
-l0012_alldefused
+L0012_alldefused
 bs:
 That's the last! I|haven't seen Gyro|though; I'd better|get to the command|core and try to|track him from|there.
 haiku:
@@ -34,30 +34,30 @@ That bomb was the|last||Now it's to the|command core||Need to find Gyro
 ba:
 I better head over|to the command core|and find Gyro. He's|outta bombs and he's|outta time.
 
-l1204_gyro_notthere
+L1204_gyro_notthere
 You've reached the|Command Core. Too|bad I'm not there!|I'm on Space Station|Armageddon far away!
 
-l1204_gyro_ofcourse
+L1204_gyro_ofcourse
 Apocalypse would|be the obvious place|for me to... retreat|to, so of course I|didn't go there!
 
-l1204_gyro_unfortunately
+L1204_gyro_unfortunately
 It all goes to|show why I'm a gen-|eral and you're not!|I'd love to chat but|unfortunately...
 
-l1204_gyro_explode
+L1204_gyro_explode
 ...the space station|is about to explode!|There's too much top|secret information|stored there.
 
-l1204_gyro_escape
+L1204_gyro_escape
 Don't worry,|there's plenty of|time to escape. You|have about... 5|seconds!Hah-hah-hah!
 
-l1204_gyro_button
+L1204_gyro_button
 Hah-ha! Ha! Hum.|Actually, could you|press that blinking|red button over|there? Oh darn...
 
-l1204_gotitall
+L1204_gotitall
 Scan shows inbound|Crouton warships!|They must be ticked|about losing that|data! We get it all?
 
-l1204_datahere
+L1204_datahere
 The data is here|All twelve|exabytes of it|That's really a lot|
 
-l1204_letsroll
+L1204_letsroll
 Tight! Let's roll!||||
 

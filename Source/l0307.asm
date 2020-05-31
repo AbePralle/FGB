@@ -1,4 +1,4 @@
-; l0307.asm crouton outpost: desolation
+; L0307.asm crouton outpost: desolation
 ; Generated 11.07.2000 by mlevel
 ; Modified  11.07.2000 by Abe Pralle
 
@@ -31,7 +31,7 @@ L0307_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0307_Map:
-INCBIN "Data/Levels/l0307_outpost.lvl"
+INCBIN "Data/Levels/L0307_outpost.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

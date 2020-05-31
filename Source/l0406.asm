@@ -1,4 +1,4 @@
-; l0406.asm
+; L0406.asm
 ; Generated 10.30.2000 by mlevel
 ; Modified  10.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0406_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0406_Map:
-INCBIN "Data/Levels/l0406_bios.lvl"
+INCBIN "Data/Levels/L0406_bios.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

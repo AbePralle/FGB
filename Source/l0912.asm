@@ -1,4 +1,4 @@
-; l0912.asm monkey homeworld
+; L0912.asm monkey homeworld
 ; Generated 04.09.2001 by mlevel
 ; Modified  04.09.2001 by Abe Pralle
 
@@ -18,38 +18,38 @@ VAR_TALKEDTELEPORT EQU 2
 SECTION "Level0912Section",ROMX
 ;---------------------------------------------------------------------
 dialog:
-l0912_sign_gtx:
-  INCBIN "Data/Dialog/talk/l0912_sign.gtx"
+L0912_sign_gtx:
+  INCBIN "Data/Dialog/talk/L0912_sign.gtx"
 
-l0912_welcome_gtx:
-  INCBIN "Data/Dialog/talk/l0912_welcome.gtx"
+L0912_welcome_gtx:
+  INCBIN "Data/Dialog/talk/L0912_welcome.gtx"
 
-l0912_hero_revolt_gtx:
-  INCBIN "Data/Dialog/talk/l0912_hero_revolt.gtx"
+L0912_hero_revolt_gtx:
+  INCBIN "Data/Dialog/talk/L0912_hero_revolt.gtx"
 
-l0912_justit_gtx:
-  INCBIN "Data/Dialog/talk/l0912_justit.gtx"
+L0912_justit_gtx:
+  INCBIN "Data/Dialog/talk/L0912_justit.gtx"
 
-l0912_hero_losing_gtx:
-  INCBIN "Data/Dialog/talk/l0912_hero_losing.gtx"
+L0912_hero_losing_gtx:
+  INCBIN "Data/Dialog/talk/L0912_hero_losing.gtx"
 
-l0912_killpatsy_gtx:
-  INCBIN "Data/Dialog/talk/l0912_killpatsy.gtx"
+L0912_killpatsy_gtx:
+  INCBIN "Data/Dialog/talk/L0912_killpatsy.gtx"
 
-l0912_hero_brokenteleport_gtx:
-  INCBIN "Data/Dialog/talk/l0912_hero_brokenteleport.gtx"
+L0912_hero_brokenteleport_gtx:
+  INCBIN "Data/Dialog/talk/L0912_hero_brokenteleport.gtx"
 
-l0912_hero_startteleport_nopassword_gtx:
-  INCBIN "Data/Dialog/talk/l0912_hero_startteleport_nopassword.gtx"
+L0912_hero_startteleport_nopassword_gtx:
+  INCBIN "Data/Dialog/talk/L0912_hero_startteleport_nopassword.gtx"
 
-l0912_needpassword_gtx:
-  INCBIN "Data/Dialog/talk/l0912_needpassword.gtx"
+L0912_needpassword_gtx:
+  INCBIN "Data/Dialog/talk/L0912_needpassword.gtx"
 
-l0912_hero_startteleport_password_gtx:
-  INCBIN "Data/Dialog/talk/l0912_hero_startteleport_password.gtx"
+L0912_hero_startteleport_password_gtx:
+  INCBIN "Data/Dialog/talk/L0912_hero_startteleport_password.gtx"
 
-l0912_ba_givepassword_gtx:
-  INCBIN "Data/Dialog/talk/l0912_ba_givepassword.gtx"
+L0912_ba_givepassword_gtx:
+  INCBIN "Data/Dialog/talk/L0912_ba_givepassword.gtx"
 
 L0912_Contents::
   DW L0912_Load
@@ -71,7 +71,7 @@ L0912_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0912_Map:
-INCBIN "Data/Levels/l0912_monkeyworld.lvl"
+INCBIN "Data/Levels/L0912_monkeyworld.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -194,13 +194,13 @@ L0912_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_hero_startteleport_nopassword_gtx
+        ld      de,L0912_hero_startteleport_nopassword_gtx
         call    ShowDialogAtBottom
         call    ClearDialog
 
         push    bc
         ld      c,CROUTON_INDEX
-        ld      de,l0912_needpassword_gtx
+        ld      de,L0912_needpassword_gtx
         call    ShowDialogAtTop
         pop     bc
 
@@ -216,7 +216,7 @@ L0912_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_hero_startteleport_password_gtx
+        ld      de,L0912_hero_startteleport_password_gtx
         call    ShowDialogAtBottom
 
 .afterHasPasswordDialog
@@ -227,17 +227,17 @@ L0912_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_hero_startteleport_nopassword_gtx
+        ld      de,L0912_hero_startteleport_nopassword_gtx
         call    ShowDialogAtBottom
 
         push    bc
         ld      c,CROUTON_INDEX
-        ld      de,l0912_needpassword_gtx
+        ld      de,L0912_needpassword_gtx
         call    ShowDialogAtBottom
         pop     bc
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_ba_givepassword_gtx
+        ld      de,L0912_ba_givepassword_gtx
         call    ShowDialogAtBottom
 .afterBATeleportDialog
 
@@ -269,7 +269,7 @@ L0912_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_hero_brokenteleport_gtx
+        ld      de,L0912_hero_brokenteleport_gtx
         call    ShowDialogAtBottom
 
 .afterTeleportDialog
@@ -308,7 +308,7 @@ L0912_Check2:
         call    SetDialogSkip
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0912_sign_gtx
+        ld      de,L0912_sign_gtx
         call    ShowDialogAtBottom
 
 .afterSignDialog
@@ -335,19 +335,19 @@ L0912_Check2:
         ld      de,((.afterDialog-L0912_Check2)+levelCheckRAM)
         call    SetDialogSkip
 
-        ld      de,l0912_welcome_gtx
+        ld      de,L0912_welcome_gtx
         call    ShowDialogNPC
 
-        ld      de,l0912_hero_revolt_gtx
+        ld      de,L0912_hero_revolt_gtx
         call    ShowDialogHero
 
-        ld      de,l0912_justit_gtx
+        ld      de,L0912_justit_gtx
         call    ShowDialogNPC
 
-        ld      de,l0912_hero_losing_gtx
+        ld      de,L0912_hero_losing_gtx
         call    ShowDialogHero
 
-        ld      de,l0912_killpatsy_gtx
+        ld      de,L0912_killpatsy_gtx
         call    ShowDialogNPC
 
 .afterDialog

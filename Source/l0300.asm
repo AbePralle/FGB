@@ -1,4 +1,4 @@
-; l0300.asm
+; L0300.asm
 ; Generated 11.13.2000 by mlevel
 ; Modified  11.13.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0300_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0300_Map:
-INCBIN "Data/Levels/l0300_mist.lvl"
+INCBIN "Data/Levels/L0300_mist.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

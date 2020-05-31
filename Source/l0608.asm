@@ -1,4 +1,4 @@
-; l0608.asm
+; L0608.asm
 ; Generated 11.08.2000 by mlevel
 ; Modified  11.08.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0608_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0608_Map:
-INCBIN "Data/Levels/l0608_moores.lvl"
+INCBIN "Data/Levels/L0608_moores.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

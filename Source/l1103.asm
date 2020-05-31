@@ -1,11 +1,11 @@
-; l1103.asm wedding / gyro pops from tree
+; L1103.asm wedding / gyro pops from tree
 ; Generated 08.03.2000 by mlevel
 ; Modified  08.03.2000 by Abe Pralle
 
 INCLUDE "Source/defs.inc"
 INCLUDE "Source/levels.inc"
 
-;from l0505
+;from L0505
 VAR_HERO EQU 11
 
 

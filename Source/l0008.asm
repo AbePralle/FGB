@@ -1,4 +1,4 @@
-; l0008.asm
+; L0008.asm
 ; Generated 09.04.2000 by mlevel
 ; Modified  09.04.2000 by Abe Pralle
 
@@ -14,8 +14,8 @@ SECTION "Level0008Section",ROMX
 ;---------------------------------------------------------------------
 
 dialog:
-l0008_findspray_gtx:
-  INCBIN "Data/Dialog/talk/l0008_findspray.gtx"
+L0008_findspray_gtx:
+  INCBIN "Data/Dialog/talk/L0008_findspray.gtx"
 
 L0008_Contents::
   DW L0008_Load
@@ -37,7 +37,7 @@ L0008_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0008_Map:
-INCBIN "Data/Levels/l0008_forest.lvl"
+INCBIN "Data/Levels/L0008_forest.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
@@ -97,7 +97,7 @@ L0008_Check2:
         call    MakeIdle
 
         call    SetSpeakerFromHeroIndex
-        ld      de,l0008_findspray_gtx
+        ld      de,L0008_findspray_gtx
         call    ShowDialogAtBottom
 .afterDialog
         call    ClearDialog

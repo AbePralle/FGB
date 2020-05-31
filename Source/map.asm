@@ -3686,7 +3686,7 @@ SECTION "MapLookupTableSection",ROMX
 MapLookupTable:
 
 ;calculate index number 0-255 from xxyy with "i = yy*16 + xx"
-;e.g. l0205 = 5*16 + 2 = 82
+;e.g. L0205 = 5*16 + 2 = 82
 DW      BANK(L0000_Contents),L0000_Contents  ;0 The Hive
 DW      BANK(L0100_Contents),L0100_Contents  ;1
 DW      BANK(L0200_Contents),L0200_Contents  ;2

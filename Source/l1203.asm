@@ -1,4 +1,4 @@
-; l1203.asm Rescue From The Tower Cinema
+; L1203.asm Rescue From The Tower Cinema
 ; Generated 03.31.2001 by mlevel
 ; Modified  03.31.2001 by Abe Pralle
 

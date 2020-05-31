@@ -1,4 +1,4 @@
-; l0806.asm
+; L0806.asm
 ; Generated 10.29.2000 by mlevel
 ; Modified  10.29.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0806_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0806_Map:
-INCBIN "Data/Levels/l0806_moores.lvl"
+INCBIN "Data/Levels/L0806_moores.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

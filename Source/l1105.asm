@@ -1,4 +1,4 @@
-; l1105.asm Save game screen
+; L1105.asm Save game screen
 ; Generated 05.09.2001 by mlevel
 ; Modified  05.09.2001 by Abe Pralle
 

@@ -1,4 +1,4 @@
-; l0700.asm
+; L0700.asm
 ; Generated 09.06.2000 by mlevel
 ; Modified  09.06.2000 by Abe Pralle
 

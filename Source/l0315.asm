@@ -1,4 +1,4 @@
-; l0315.asm
+; L0315.asm
 ; Generated 07.30.2000 by mlevel
 ; Modified  07.30.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0315_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0315_Map:
-INCBIN "Data/Levels/l0315_intro_bs4.lvl"
+INCBIN "Data/Levels/L0315_intro_bs4.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

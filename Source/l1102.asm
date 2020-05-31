@@ -1,4 +1,4 @@
-; l1102.asm main intro cinema
+; L1102.asm main intro cinema
 ; Generated 07.26.2000 by mlevel
 ; Modified  07.26.2000 by Abe Pralle
 

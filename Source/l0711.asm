@@ -1,4 +1,4 @@
-; l0711.asm Space Station Apocalypse Exterior
+; L0711.asm Space Station Apocalypse Exterior
 ; Generated 04.25.2001 by mlevel
 ; Modified  04.25.2001 by Abe Pralle
 
@@ -56,7 +56,7 @@ L0711_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0711_Map:
-INCBIN "Data/Levels/l0711_spacestation.lvl"
+INCBIN "Data/Levels/L0711_spacestation.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -1,4 +1,4 @@
-; l0708.asm
+; L0708.asm
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -29,7 +29,7 @@ L0708_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0708_Map:
-INCBIN "Data/Levels/l0708_swamp.lvl"
+INCBIN "Data/Levels/L0708_swamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

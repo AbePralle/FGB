@@ -1,4 +1,4 @@
-; l0115.asm BS sneaks in the crouton base
+; L0115.asm BS sneaks in the crouton base
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -81,7 +81,7 @@ L0115_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0115_Map:
-INCBIN "Data/Levels/l0115_intro_bs2.lvl"
+INCBIN "Data/Levels/L0115_intro_bs2.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

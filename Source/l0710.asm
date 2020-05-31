@@ -1,4 +1,4 @@
-; l0710.asm outback croc keeper
+; L0710.asm outback croc keeper
 ; Generated 11.05.2000 by mlevel
 ; Modified  11.05.2000 by Abe Pralle
 
@@ -32,7 +32,7 @@ L0710_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0710_Map:
-INCBIN "Data/Levels/l0710_outback.lvl"
+INCBIN "Data/Levels/L0710_outback.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

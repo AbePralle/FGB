@@ -1,4 +1,4 @@
-; l0013.asm - first map, ba lands on the moon
+; L0013.asm - first map, ba lands on the moon
 ; Generated 07.09.2000 by mlevel
 ; Modified  07.09.2000 by Abe Pralle
 
@@ -53,7 +53,7 @@ L0013_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0013_Map:
-INCBIN "Data/Levels/l0013_intro_ba1.lvl"
+INCBIN "Data/Levels/L0013_intro_ba1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
