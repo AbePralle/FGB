@@ -174,11 +174,11 @@ L1502_Load2:
         ld      [hero1_health],a
 
         ld      a,BANK(dialog)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
-				ld      a,BANK(intro_cinema_gbm)
-				ld      hl,intro_cinema_gbm
-				call    InitMusic
+        ld      a,BANK(intro_cinema_gbm)
+        ld      hl,intro_cinema_gbm
+        call    InitMusic
 
         xor     a
         ld      [levelVars+VAR_EXHAUST_FRAME],a
@@ -221,7 +221,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_cider_gtx
+        DIALOGBOTTOM captain_cider_gtx
 
         call    ((.animateFlourDriving4-L1502_Load2)+levelCheckRAM)
 
@@ -239,7 +239,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM haiku_cider_gtx
+        DIALOGBOTTOM haiku_cider_gtx
 
         LONGCALLNOARGS AnimateHaiku
 
@@ -251,7 +251,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_whyglum_gtx
+        DIALOGBOTTOM captain_whyglum_gtx
 
         call    ((.animateFlourDriving3-L1502_Load2)+levelCheckRAM)
 
@@ -269,7 +269,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM ba_surrendering_gtx
+        DIALOGBOTTOM ba_surrendering_gtx
 
         ld      d,4
         LONGCALLNOARGS AnimateBA
@@ -282,7 +282,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_winsome_gtx
+        DIALOGBOTTOM captain_winsome_gtx
 
         call    ((.animateFlourDriving4-L1502_Load2)+levelCheckRAM)
 
@@ -300,7 +300,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM bs_nearKiwi_gtx
+        DIALOGBOTTOM bs_nearKiwi_gtx
 
         ld      d,4
         LONGCALLNOARGS AnimateBS
@@ -313,7 +313,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM haiku_signal_gtx
+        DIALOGBOTTOM haiku_signal_gtx
 
         LONGCALLNOARGS AnimateHaiku
 
@@ -325,7 +325,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_showit_gtx
+        DIALOGBOTTOM captain_showit_gtx
 
         call    ((.animateFlourDriving4-L1502_Load2)+levelCheckRAM)
 
@@ -360,8 +360,8 @@ L1502_Load2:
 
 ;----"Help, our ship is being attacked by a space gang!"---------------
 .help
-				ld      a,BANK(alarm_gbm)
-				ld      hl,alarm_gbm
+        ld      a,BANK(alarm_gbm)
+        ld      hl,alarm_gbm
         call    InitMusic
         call    ((.loadLadyFlowerInDistress-L1502_Load2)+levelCheckRAM)
         call    ((.quickFromBlack-L1502_Load2)+levelCheckRAM)
@@ -391,7 +391,7 @@ L1502_Load2:
         call    ((.ladyFaceToViewscreen-L1502_Load2)+levelCheckRAM)
 
         ld      c,0
-				DIALOGBOTTOM lady_help_gtx
+        DIALOGBOTTOM lady_help_gtx
 
         ld      d,(3|$80)
         LONGCALLNOARGS AnimateLadyFlowerDistress
@@ -404,7 +404,7 @@ L1502_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_goodness_gtx
+        DIALOGBOTTOM captain_goodness_gtx
 
         call    ((.animateFlourDriving3-L1502_Load2)+levelCheckRAM)
 
@@ -448,23 +448,23 @@ L1502_Load2:
         ;----------------star field-----------------------------
 .appxWarp
         call    ((.quickToBlack-L1502_Load2)+levelCheckRAM)
-				ld      a,BANK(main_in_game_gbm)
-				ld      hl,main_in_game_gbm
+        ld      a,BANK(main_in_game_gbm)
+        ld      hl,main_in_game_gbm
         call    InitMusic
 
-				ld       a,BANK(starfield_bg)
-				ld       hl,starfield_bg
-				call     LoadCinemaBG
+        ld       a,BANK(starfield_bg)
+        ld       hl,starfield_bg
+        call     LoadCinemaBG
 
-				ld       a,BANK(starfield_sprite_sp)
-				ld       hl,starfield_sprite_sp
-				call     LoadCinemaSprite
+        ld       a,BANK(starfield_sprite_sp)
+        ld       hl,starfield_sprite_sp
+        call     LoadCinemaSprite
 
-				ld       d,48 + (TEMPKLUDGE/2) + 40
-				call     ScrollSpritesLeft
+        ld       d,48 + (TEMPKLUDGE/2) + 40
+        call     ScrollSpritesLeft
 
-				ld       d,48 + (TEMPKLUDGE/2) + 40
-				call     ScrollSpritesDown
+        ld       d,48 + (TEMPKLUDGE/2) + 40
+        call     ScrollSpritesDown
 
         call    ((.quickFromBlack-L1502_Load2)+levelCheckRAM)
 
@@ -477,39 +477,39 @@ L1502_Load2:
 .loop
         push     bc
 
-				call     (.clearPaletteToBlack + (levelCheckRAM-L1502_Load2))
-				call     (.cycleColors + (levelCheckRAM-L1502_Load2))
-				ld       a,1
-				ld       [paletteBufferReady],a
+        call     (.clearPaletteToBlack + (levelCheckRAM-L1502_Load2))
+        call     (.cycleColors + (levelCheckRAM-L1502_Load2))
+        ld       a,1
+        ld       [paletteBufferReady],a
 
         ld       a,1
-				call     Delay
-				pop      bc
+        call     Delay
+        pop      bc
 
-				ld       a,b
-				and      %00000001
-				jr       nz,.afterScrollSprites
+        ld       a,b
+        and      %00000001
+        jr       nz,.afterScrollSprites
 
-				ld       d,1
-				call     ScrollSpritesUp
+        ld       d,1
+        call     ScrollSpritesUp
 
-				ld       d,1
-				call     ScrollSpritesRight
+        ld       d,1
+        call     ScrollSpritesRight
 
 .afterScrollSprites
         ld       a,b
-				and      %00000010
-				jr       nz,.turnThrustOn
+        and      %00000010
+        jr       nz,.turnThrustOn
 
         call     (.routine_thrustoff + (levelCheckRAM-L1502_Load2))
-				jr       .afterThrust
+        jr       .afterThrust
 
 .turnThrustOn
         call     (.routine_thruston + (levelCheckRAM-L1502_Load2))
 
 .afterThrust
-				dec      b
-				jr       nz,.loop
+        dec      b
+        jr       nz,.loop
 
         call    ((.quickToBlack-L1502_Load2)+levelCheckRAM)
 
@@ -561,24 +561,24 @@ L1502_Load2:
         call    LoadFont
 
         ld      hl,$1403
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,2
-				ld      [timeToChangeLevel],a
+        ld      a,2
+        ld      [timeToChangeLevel],a
         ret
 
 .loadYachtScene
         call    ((.quickToBlack-L1502_Load2)+levelCheckRAM)
 
-				ld      a,BANK(yacht_under_fire_bg)
-				ld      hl,yacht_under_fire_bg
-				call    LoadCinemaBG
+        ld      a,BANK(yacht_under_fire_bg)
+        ld      hl,yacht_under_fire_bg
+        call    LoadCinemaBG
 
-				ld      a,BANK(pirate_sprites_sp)
-				ld      hl,pirate_sprites_sp
-				call    LoadCinemaSprite
+        ld      a,BANK(pirate_sprites_sp)
+        ld      hl,pirate_sprites_sp
+        call    LoadCinemaSprite
 
         ret
 
@@ -764,170 +764,170 @@ L1502_Load2:
         ret
 
 .routine_thrustoff
-				;turn thrust off by setting sprites 0-5 to pattern 50
-				ld       hl,spriteOAMBuffer+2
-				ld       de,4
-				ld       a,50
-				ld       c,6
+        ;turn thrust off by setting sprites 0-5 to pattern 50
+        ld       hl,spriteOAMBuffer+2
+        ld       de,4
+        ld       a,50
+        ld       c,6
 .thrustOffLoop
-				ld       [hl],a
-				add      hl,de
-				dec      c
-				jr       nz,.thrustOffLoop
-				ret
+        ld       [hl],a
+        add      hl,de
+        dec      c
+        jr       nz,.thrustOffLoop
+        ret
 
 .routine_thruston
-				;turn thrust on by setting sprites 0-5 to patterns 0,2,4,6,8,10
-				ld       hl,spriteOAMBuffer+2
-				ld       de,4
-				xor      a
-				ld       c,6
+        ;turn thrust on by setting sprites 0-5 to patterns 0,2,4,6,8,10
+        ld       hl,spriteOAMBuffer+2
+        ld       de,4
+        xor      a
+        ld       c,6
 .thrustOnLoop
-				ld       [hl],a
-				inc      a
-				inc      a
-				add      hl,de
-				dec      c
-				jr       nz,.thrustOnLoop
-				ret
+        ld       [hl],a
+        inc      a
+        inc      a
+        add      hl,de
+        dec      c
+        jr       nz,.thrustOnLoop
+        ret
 
 .clearPaletteToBlack
         push     bc
         ld       c,64
-				ld       hl,fadeCurPalette
-				xor      a
+        ld       hl,fadeCurPalette
+        xor      a
 .clearPaletteLoop
-				ld       [hl+],a
-				dec      c
-				jr       nz,.clearPaletteLoop
-				pop      bc
-				ret
+        ld       [hl+],a
+        dec      c
+        jr       nz,.clearPaletteLoop
+        pop      bc
+        ret
 
 .cycleColors
         ;b is current cycle
-				;set palettes 1,5, & 7 to cycle half-speed (1/8 speed of b)
-				;rest to cycle full speed (1/4 speed of b)
-				push     bc
+        ;set palettes 1,5, & 7 to cycle half-speed (1/8 speed of b)
+        ;rest to cycle full speed (1/4 speed of b)
+        push     bc
 
         ;----------set full-speed palettes (0,2,3,4,6)------------
-				;color = (clock % 6) / 2
-				ld       c,6
-				ld       a,b
+        ;color = (clock % 6) / 2
+        ld       c,6
+        ld       a,b
 .getMod6
-				cp       c
-				jr       c,.gotMod6
-				sub      c
-				jr       .getMod6
+        cp       c
+        jr       c,.gotMod6
+        sub      c
+        jr       .getMod6
 .gotMod6
-				srl      a      ;divided by 2 yields 0-2
-				ld       c,a
-				inc      c      ;c is now 1-3
+        srl      a      ;divided by 2 yields 0-2
+        ld       c,a
+        inc      c      ;c is now 1-3
 
         push     bc
-				ld       b,0
-				xor      a
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;0
-				inc      a
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;2
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;3
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;4
-				inc      a
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;6
-				pop      bc
+        ld       b,0
+        xor      a
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;0
+        inc      a
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;2
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;3
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;4
+        inc      a
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;6
+        pop      bc
 
         ;----------set half-speed palettes (1,5,7)---------------
-				;color = (clock % 12) / 4
-				ld       c,12
-				ld       a,b
+        ;color = (clock % 12) / 4
+        ld       c,12
+        ld       a,b
 .getMod12
-				cp       c
-				jr       c,.gotMod12
-				sub      c
-				jr       .getMod12
+        cp       c
+        jr       c,.gotMod12
+        sub      c
+        jr       .getMod12
 .gotMod12
-				srl      a      ;divided by 4 yields 0-2
-				srl      a
-				ld       c,a
-				inc      c      ;c is now 1-3
+        srl      a      ;divided by 4 yields 0-2
+        srl      a
+        ld       c,a
+        inc      c      ;c is now 1-3
 
         push     bc
-				ld       b,1
+        ld       b,1
         ld       a,1
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;1
-				ld       a,5
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;5
-				inc      a
-				call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;7
-				pop      bc
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;1
+        ld       a,5
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;5
+        inc      a
+        call     (.setCycle + (levelCheckRAM-L1502_Load2))  ;7
+        pop      bc
 
-				pop      bc
-				ret
+        pop      bc
+        ret
 
 .setCycle
         ;a is palette # to set (0-7)
-				;b is color flag (0=white, 1=grey)
-				;c is color number to set (1-3)
-				push     af
-				push     hl
+        ;b is color flag (0=white, 1=grey)
+        ;c is color number to set (1-3)
+        push     af
+        push     hl
 
-				;(palette# * 4 + color) * 2 + 128 is first byte to set
-				rlca
-				rlca
-				add      c
-				rlca
-				add      128
-				ld       l,a
-				ld       h,((fadeCurPalette>>8) & $ff)
+        ;(palette# * 4 + color) * 2 + 128 is first byte to set
+        rlca
+        rlca
+        add      c
+        rlca
+        add      128
+        ld       l,a
+        ld       h,((fadeCurPalette>>8) & $ff)
 
         ld       a,b
-				cp       1
-				jr       z,.setToGrey
+        cp       1
+        jr       z,.setToGrey
 
         ;set to white
         ld       a,$ff
-				ld       [hl+],a
-				ld       a,$7f
-				ld       [hl],a
-				jr       .done
+        ld       [hl+],a
+        ld       a,$7f
+        ld       [hl],a
+        jr       .done
 
 .setToGrey
         ld       a,$08
-				ld       [hl+],a
-				ld       a,$21
-				ld       [hl],a
+        ld       [hl+],a
+        ld       a,$21
+        ld       [hl],a
 
 .done
-				pop      hl
-				pop      af
-				inc      a
-				ret
+        pop      hl
+        pop      af
+        inc      a
+        ret
 
 .animate_ship
         push     bc
-				ld       b,90
+        ld       b,90
 .animate_loop
         push     bc
-				ld       a,1
-				call     Delay
-				pop      bc
+        ld       a,1
+        call     Delay
+        pop      bc
 
-				ld       a,b
-				and      %10   ;thrust on or off?
+        ld       a,b
+        and      %10   ;thrust on or off?
 
-				jr       nz,.animate_thruston
+        jr       nz,.animate_thruston
         call     (.routine_thrustoff + (levelCheckRAM-L1502_Load2))
-				jr       .animate_check_done
+        jr       .animate_check_done
 
 .animate_thruston
         call     (.routine_thruston + (levelCheckRAM-L1502_Load2))
 
 .animate_check_done
-				dec      b
-				jr       nz,.animate_loop
+        dec      b
+        jr       nz,.animate_loop
 
-				pop      bc
+        pop      bc
 
-				ret
+        ret
 
 .pirateLaserSound
    DB 1,$3c,00,$f6,00,$87

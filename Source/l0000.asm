@@ -29,7 +29,7 @@ L0000_Load:
         DW ((L0000_LoadFinished - L0000_Load2))  ;size
 L0000_Load2:
         call    ParseMap
-				ret
+        ret
 
 L0000_LoadFinished:
 

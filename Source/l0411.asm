@@ -25,12 +25,12 @@ L0411_Load:
 L0411_Load2:
         call    ParseMap
 
-				;alter yellow palette to purple w/black
-				ld      a,FADEBANK
-				ld      bc,6
-				ld      de,gamePalette + 5*8 + 2
-				ld      hl,((.purpleBlackPalette-L0411_Load2)+levelCheckRAM)
-				call    MemCopy
+        ;alter yellow palette to purple w/black
+        ld      a,FADEBANK
+        ld      bc,6
+        ld      de,gamePalette + 5*8 + 2
+        ld      hl,((.purpleBlackPalette-L0411_Load2)+levelCheckRAM)
+        call    MemCopy
 
         ret
 
@@ -78,21 +78,21 @@ L0411_Check:
         DW ((L0411_CheckFinished - L0411_Check2))  ;size
 L0411_Check2:
         call    ((.checkFalling-L0411_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .checkFalling
         ld      a,[timeToChangeLevel]
-				or      a
-				ret     z
+        or      a
+        ret     z
 
-				ld      a,[exitTileIndex]
-				cp      FIRST_HOLE
-				ret     c
+        ld      a,[exitTileIndex]
+        cp      FIRST_HOLE
+        ret     c
 
-				ld      hl,((.fallSound-L0411_Check2)+levelCheckRAM)
-				call    PlaySound
-				ld      a,15
-				call    Delay
+        ld      hl,((.fallSound-L0411_Check2)+levelCheckRAM)
+        call    PlaySound
+        ld      a,15
+        call    Delay
         ret
 
 .fallSound

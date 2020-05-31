@@ -37,9 +37,9 @@ INCBIN "..\\fgbeditor\\L0006_sunset.lvl"
 L0006_Init:
         DW ((L0006_InitFinished - L0006_Init2))  ;size
 L0006_Init2:
-				ld      a,BANK(main_in_game_gbm)
-				ld      hl,main_in_game_gbm
-				call    InitMusic
+        ld      a,BANK(main_in_game_gbm)
+        ld      hl,main_in_game_gbm
+        call    InitMusic
 
         ret
 

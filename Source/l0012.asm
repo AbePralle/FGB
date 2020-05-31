@@ -130,12 +130,12 @@ L0012_Check2:
         call    YankRemotePlayer
 
         ld      hl,$1204
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 
@@ -158,15 +158,15 @@ L0012_Check2:
         ret
 
 .animateStatic
-				ldio    a,[updateTimer]
-				rrca
-				and     %00000010
-				add     STATIC_INDEX
-				ld      hl,bgTileMap+STATIC_INDEX
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
-				ret
+        ldio    a,[updateTimer]
+        rrca
+        and     %00000010
+        add     STATIC_INDEX
+        ld      hl,bgTileMap+STATIC_INDEX
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
+        ret
 
 L0012_CheckFinished:
 PRINTT "0012 Script Sizes (Load/Init/Check) (of $500):  "

@@ -154,11 +154,11 @@ L1212_Check2:
 
 .animateFence
         ldio    a,[updateTimer]
-				rrca
-				and     3
-				ld      b,a
-				ld      hl,bgTileMap+HFENCE_INDEX
-				ld      d,HFENCE_INDEX
+        rrca
+        and     3
+        ld      b,a
+        ld      hl,bgTileMap+HFENCE_INDEX
+        ld      d,HFENCE_INDEX
         call    ((.animateFourFrames-L1212_Check2)+levelCheckRAM)
         ret
 
@@ -167,13 +167,13 @@ L1212_Check2:
 
 .animateFourFrames_loop
         ld      a,b
-				add     c
-				and     3
-				add     d
-				ld      [hl+],a
-				dec     c
-				jr      nz,.animateFourFrames_loop
-				ret
+        add     c
+        and     3
+        add     d
+        ld      [hl+],a
+        dec     c
+        jr      nz,.animateFourFrames_loop
+        ret
 
 .dialogLookup
   DW 0,l1212_anytime_gtx,l1212_makesure_gtx,l1212_suckstobehim_gtx

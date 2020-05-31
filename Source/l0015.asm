@@ -81,29 +81,29 @@ L0015_Init:
         DW ((L0015_InitFinished - L0015_Init2))  ;size
 L0015_Init2:
         ld      hl,$0015
-				call    SetJoinMap
+        call    SetJoinMap
 
         ld      hl,$0015
-				call    SetRespawnMap
+        call    SetRespawnMap
 
         ld      a,BANK(bs_gbm)
         ld      hl,bs_gbm
-				call    InitMusic
+        call    InitMusic
 
         call    SetPressBDialog
         ld      a,BANK(dialog)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
         ld      a,[bgTileMap+RADARINDEX]
-				ld      [levelVars+VAR_RADAR],a
+        ld      [levelVars+VAR_RADAR],a
 
         ld      bc,classB12Soldier
-				ld      de,classDoNothing
-				call    ChangeClass
+        ld      de,classDoNothing
+        call    ChangeClass
 
         ld      bc,classCroutonGrunt
-				ld      de,classDoNothing
-				call    ChangeClass
+        ld      de,classDoNothing
+        call    ChangeClass
         ret
 
 L0015_InitFinished:
@@ -115,220 +115,220 @@ L0015_Check:
 L0015_Check2:
         call    ((.animateRadar-L0015_Check2)+levelCheckRAM)
 
-				ldio    a,[mapState]
-				cp      STATE_NORMAL
-				jr      nz,.checkInitialDraw
+        ldio    a,[mapState]
+        cp      STATE_NORMAL
+        jr      nz,.checkInitialDraw
 
-				ret
+        ret
 
 .checkInitialDraw
         cp      STATE_INITIALDRAW
-				jr      nz,.checkTalkSoldier1
+        jr      nz,.checkTalkSoldier1
 
-				ld      a,STATE_TALKSOLDIER1
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_TALKSOLDIER1
+        ldio    [mapState],a
+        ret
 
 .checkTalkSoldier1
         cp      STATE_TALKSOLDIER1
-				jr      nz,.checkTalkSoldier2
+        jr      nz,.checkTalkSoldier2
 
-				call    SetSpeakerToFirstHero
+        call    SetSpeakerToFirstHero
 
-				ld      de,soldier_how_gtx
-				ld      c,B12SOLDIERINDEX
-				call    ShowDialogAtTopNoWait
+        ld      de,soldier_how_gtx
+        ld      c,B12SOLDIERINDEX
+        call    ShowDialogAtTopNoWait
 
-				ld      de,((.endTalkSoldier-L0015_Check2)+levelCheckRAM)
-				call    SetDialogSkip
+        ld      de,((.endTalkSoldier-L0015_Check2)+levelCheckRAM)
+        call    SetDialogSkip
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKSOLDIER2
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
-				ret
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKSOLDIER2
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
+        ret
 
 .checkTalkSoldier2
         cp      STATE_TALKSOLDIER2
-				jr      nz,.checkTalkSoldier3
+        jr      nz,.checkTalkSoldier3
 
         call    SetSpeakerToFirstHero
-				ld      de,bs_likeButter_gtx
-				call    ShowDialogAtBottomNoWait
+        ld      de,bs_likeButter_gtx
+        call    ShowDialogAtBottomNoWait
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKSOLDIER3
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
-				ret
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKSOLDIER3
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
+        ret
 
 .checkTalkSoldier3
         cp      STATE_TALKSOLDIER3
-				jr      nz,.checkTalkSoldier4
+        jr      nz,.checkTalkSoldier4
 
-				ld      de,soldier_yellow_gtx
-				ld      c,B12SOLDIERINDEX
-				call    ShowDialogAtTopNoWait
+        ld      de,soldier_yellow_gtx
+        ld      c,B12SOLDIERINDEX
+        call    ShowDialogAtTopNoWait
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKSOLDIER4
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
-				ret
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKSOLDIER4
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
+        ret
 
 .checkTalkSoldier4
         cp      STATE_TALKSOLDIER4
-				jr      nz,.checkTalkGuard1
+        jr      nz,.checkTalkGuard1
 
         call    SetSpeakerToFirstHero
-				ld      de,bs_slippery_gtx
-				call    ShowDialogAtBottomNoWait
+        ld      de,bs_slippery_gtx
+        call    ShowDialogAtBottomNoWait
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKGUARD1
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
-				ret
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKGUARD1
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
+        ret
 
 .endTalkSoldier
         xor     a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
+        ld      [heroesIdle],a
+        ld      [allIdle],a
         ld      de,0
-				call    SetDialogSkip
+        call    SetDialogSkip
         call    ClearDialog
-				ld      a,STATE_TALKGUARD1
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_TALKGUARD1
+        ldio    [mapState],a
+        ret
 
 .checkTalkGuard1
         cp      STATE_TALKGUARD1
-				jr      nz,.checkTalkGuard2
+        jr      nz,.checkTalkGuard2
 
-				ld      a,[hero0_index]
-				call    ((.checkHeroTalkToGuard-L0015_Check2)+levelCheckRAM)
-				ld      a,[hero1_index]
-				call    ((.checkHeroTalkToGuard-L0015_Check2)+levelCheckRAM)
-				ret
+        ld      a,[hero0_index]
+        call    ((.checkHeroTalkToGuard-L0015_Check2)+levelCheckRAM)
+        ld      a,[hero1_index]
+        call    ((.checkHeroTalkToGuard-L0015_Check2)+levelCheckRAM)
+        ret
 
 .checkTalkGuard2
         cp      STATE_TALKGUARD2
-				jr      nz,.checkTalkGuard3
+        jr      nz,.checkTalkGuard3
 
-				ld      a,[levelVars + VAR_SPEAKINGHERO]
-				ld      c,a
-				call    SetSpeakerFromHeroIndex
-				ld      de,bs_actually_gtx
-				call    ShowDialogAtBottomNoWait
+        ld      a,[levelVars + VAR_SPEAKINGHERO]
+        ld      c,a
+        call    SetSpeakerFromHeroIndex
+        ld      de,bs_actually_gtx
+        call    ShowDialogAtBottomNoWait
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKGUARD3
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKGUARD3
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
 
-				ret
+        ret
 
 .checkTalkGuard3
         cp      STATE_TALKGUARD3
-				jr      nz,.checkWaitDialog
+        jr      nz,.checkWaitDialog
 
-				ld      c,GRUNTINDEX
-				ld      de,guard_moveAlong_gtx
-				call    ShowDialogAtTopNoWait
+        ld      c,GRUNTINDEX
+        ld      de,guard_moveAlong_gtx
+        call    ShowDialogAtTopNoWait
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_NORMAL
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_NORMAL
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
 
-				ret
+        ret
 
 .endTalkGuard
         ld      de,0
-				call    SetDialogSkip
+        call    SetDialogSkip
         xor     a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
-				call    ClearDialog
-				ld      a,STATE_NORMAL
-				ldio    [mapState],a
-				ret
+        ld      [heroesIdle],a
+        ld      [allIdle],a
+        call    ClearDialog
+        ld      a,STATE_NORMAL
+        ldio    [mapState],a
+        ret
 
 .checkWaitDialog
-				call    CheckDialogContinue
-				or      a
-				ret     z
+        call    CheckDialogContinue
+        or      a
+        ret     z
 
         xor     a
-				ld      [heroesIdle],a
+        ld      [heroesIdle],a
 
-				ldio    a,[mapState+1]
-				ldio    [mapState],a
-				ret
+        ldio    a,[mapState+1]
+        ldio    [mapState],a
+        ret
 
         ret
 
 .animateRadar
         ;animate the radar tower (index 47-52) based on timer/8
-				ldio    a,[updateTimer]
-				rrca                    ;(t/8)*6 == t/4*3
-				and     %00000110
-				ld      b,a
-				add     b
-				add     b
-				ld      b,a
-				ld      a,[levelVars+VAR_RADAR]
-				add     b
+        ldio    a,[updateTimer]
+        rrca                    ;(t/8)*6 == t/4*3
+        and     %00000110
+        ld      b,a
+        add     b
+        add     b
+        ld      b,a
+        ld      a,[levelVars+VAR_RADAR]
+        add     b
 
-				ld      hl,bgTileMap + RADARINDEX
-				ld      c,6
+        ld      hl,bgTileMap + RADARINDEX
+        ld      c,6
 .animateTower
         ld      [hl+],a
-				inc     a
-				dec     c
-				jr      nz,.animateTower
-				ret
+        inc     a
+        dec     c
+        jr      nz,.animateTower
+        ret
 
 .checkHeroTalkToGuard
         or      a
-				ret     z
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      2
-				ret     nz
+        ret     z
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      2
+        ret     nz
 
-				ld      a,c
-				ld      [levelVars + VAR_SPEAKINGHERO],a
-				call    SetSpeakerFromHeroIndex
+        ld      a,c
+        ld      [levelVars + VAR_SPEAKINGHERO],a
+        call    SetSpeakerFromHeroIndex
 
-				ld      de,guard_freeze_gtx
-				ld      c,GRUNTINDEX
-				call    ShowDialogAtTopNoWait
+        ld      de,guard_freeze_gtx
+        ld      c,GRUNTINDEX
+        call    ShowDialogAtTopNoWait
 
         pop     bc   ;adjust stack pos for dialog skip
-				ld      de,((.endTalkGuard-L0015_Check2)+levelCheckRAM)
-				call    SetDialogSkip
-				push    bc
+        ld      de,((.endTalkGuard-L0015_Check2)+levelCheckRAM)
+        call    SetDialogSkip
+        push    bc
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      a,STATE_TALKGUARD2
-				ldio    [mapState+1],a
-				ld      a,STATE_WAIT_DIALOG
-				ldio    [mapState],a
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      a,STATE_TALKGUARD2
+        ldio    [mapState+1],a
+        ld      a,STATE_WAIT_DIALOG
+        ldio    [mapState],a
         ret
 
 L0015_CheckFinished:

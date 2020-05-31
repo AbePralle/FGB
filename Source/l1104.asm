@@ -338,12 +338,12 @@ L1104_Load2:
         call    SetRespawnMap
 
         ld      hl,$0711
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 

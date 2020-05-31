@@ -41,7 +41,7 @@ L0303_Init:
         DW ((L0303_InitFinished - L0303_Init2))  ;size
 L0303_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
 
         ld      a,BANK(mysterious_gbm)
         ld      hl,mysterious_gbm
@@ -60,12 +60,12 @@ L0303_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0303_CheckFinished:
 PRINTT "0303 Script Sizes (Load/Init/Check) (of $500):  "

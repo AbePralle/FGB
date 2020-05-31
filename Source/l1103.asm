@@ -144,8 +144,8 @@ L1103_Load2:
         ld      [dialogBank],a
 
         ld      a,BANK(wedding_panoramic_bg)
-				ld      hl,wedding_panoramic_bg
-				call    LoadCinemaBG
+        ld      hl,wedding_panoramic_bg
+        call    LoadCinemaBG
 
         ld      a,EXIT_D
         ld      hl,$1103
@@ -180,8 +180,8 @@ L1103_Load2:
         call    ((.quickToBlack-L1103_Load2)+levelCheckRAM)
 
         ld      a,BANK(preacher_bg)
-				ld      hl,preacher_bg
-				call    LoadCinemaBG
+        ld      hl,preacher_bg
+        call    LoadCinemaBG
 
         call    ((.quickFromBlack-L1103_Load2)+levelCheckRAM)
 
@@ -532,40 +532,40 @@ L1103_Load2:
         call    ((.quickToBlack-L1103_Load2)+levelCheckRAM)
 
         ld      hl,2400  ;captain flour
-				ld      a,l
-				ld      [hero0_class],a
-				ld      a,h
-				ld      [hero0_class+1],a
-				ld      a,HERO_FLOUR_FLAG
-				ld      [hero0_type],a
+        ld      a,l
+        ld      [hero0_class],a
+        ld      a,h
+        ld      [hero0_class+1],a
+        ld      a,HERO_FLOUR_FLAG
+        ld      [hero0_type],a
 
         ld      hl,2398   ;haiku
-				ld      a,l
-				ld      [hero1_class],a
-				ld      a,h
-				ld      [hero1_class+1],a
-				ld      a,HERO_FLOWER_FLAG
-				ld      [hero1_type],a
+        ld      a,l
+        ld      [hero1_class],a
+        ld      a,h
+        ld      [hero1_class+1],a
+        ld      a,HERO_FLOWER_FLAG
+        ld      [hero1_type],a
 
         ld      a,EXIT_S
         ld      [hero0_enterLevelFacing],a
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$0604
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 
 .shedCostume
         ld      b,30
 .shedCostumeLoop
-				;move sprites 12-29 3 pixels right and 1 down
-				ld      c,18
+        ;move sprites 12-29 3 pixels right and 1 down
+        ld      c,18
         ld      de,3
         ld      hl,spriteOAMBuffer+12*4
 .shedCostumeSpriteLoop
@@ -574,9 +574,9 @@ L1103_Load2:
         inc     [hl]
         inc     [hl]
         inc     [hl]
-				add     hl,de
-				dec     c
-				jr      nz,.shedCostumeSpriteLoop
+        add     hl,de
+        dec     c
+        jr      nz,.shedCostumeSpriteLoop
 
         ld      a,1
         call    Delay
@@ -643,8 +643,8 @@ L1103_Load2:
         call    ResetSprites
 
         ld      a,BANK(gang_watches_wedding_bg)
-				ld      hl,gang_watches_wedding_bg
-				call    LoadCinemaBG
+        ld      hl,gang_watches_wedding_bg
+        call    LoadCinemaBG
         pop     hl
 
         ld      bc,$0d06
@@ -660,17 +660,17 @@ L1103_Load2:
         ld      de,((.poppedOut-L1103_Load2)+levelCheckRAM)
         call    SetDialogForward
 
-				ld      a,30
-				call    Delay
+        ld      a,30
+        call    Delay
 
-				ld      c,48
+        ld      c,48
 .popOutLoop
         ld      d,1
-				call    ScrollSpritesRight
-				ld      a,2
-				call    Delay
-				dec     c
-				jr      nz,.popOutLoop
+        call    ScrollSpritesRight
+        ld      a,2
+        call    Delay
+        dec     c
+        jr      nz,.popOutLoop
 
 .poppedOut
         ld      de,0
@@ -688,53 +688,53 @@ L1103_Load2:
         call    ((.quickToBlack-L1103_Load2)+levelCheckRAM)
         call    ResetSprites
         ld      a,BANK(gyro_tree_bg)
-				ld      hl,gyro_tree_bg
-				call    LoadCinemaBG
+        ld      hl,gyro_tree_bg
+        call    LoadCinemaBG
 
-				ld      a,BANK(gyro_costume_sp)
-				ld      hl,gyro_costume_sp
-				call    LoadCinemaSprite
+        ld      a,BANK(gyro_costume_sp)
+        ld      hl,gyro_costume_sp
+        call    LoadCinemaSprite
 
-				;kill sprites 8-11  (alternate mouth)
-				ld      hl,spriteOAMBuffer + 4 * 8
-				xor     a
-				ld      de,3
-				ld      c,4
+        ;kill sprites 8-11  (alternate mouth)
+        ld      hl,spriteOAMBuffer + 4 * 8
+        xor     a
+        ld      de,3
+        ld      c,4
 .kill8to11
-				ld      [hl+],a  ;sprite 8 y pos to zero
-				add     hl,de
-				dec     c
-				jr      nz,.kill8to11
+        ld      [hl+],a  ;sprite 8 y pos to zero
+        add     hl,de
+        dec     c
+        jr      nz,.kill8to11
 
-				;move sprites 12-29 40 pixels up and 8 pixels left
-				ld      c,18
+        ;move sprites 12-29 40 pixels up and 8 pixels left
+        ld      c,18
 .scootCostume
         ld      a,[hl]
-				sub     40
-				ld      [hl+],a
-				ld      a,[hl]
-				sub     8
-				ld      [hl],a
-				add     hl,de
-				dec     c
-				jr      nz,.scootCostume
+        sub     40
+        ld      [hl+],a
+        ld      a,[hl]
+        sub     8
+        ld      [hl],a
+        add     hl,de
+        dec     c
+        jr      nz,.scootCostume
 
-				ld      d,20
-				call    ScrollSpritesRight
-				ld      d,40
-				call    ScrollSpritesDown
+        ld      d,20
+        call    ScrollSpritesRight
+        ld      d,40
+        call    ScrollSpritesDown
 
-				;set the priority of all sprites to appear behind BG
-				ld      hl,spriteOAMBuffer + 3
-				ld      de,3
-				ld      c,40
+        ;set the priority of all sprites to appear behind BG
+        ld      hl,spriteOAMBuffer + 3
+        ld      de,3
+        ld      c,40
 .setPriorityLoop
         ld      a,[hl]
-				or      %10000000
-				ld      [hl+],a
-				add     hl,de
-				dec     c
-				jr      nz,.setPriorityLoop
+        or      %10000000
+        ld      [hl+],a
+        add     hl,de
+        dec     c
+        jr      nz,.setPriorityLoop
 
         ret
 

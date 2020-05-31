@@ -69,14 +69,14 @@ INCBIN "..\\fgbeditor\\l1000_basecamp.lvl"
 L1000_Init:
         DW ((L1000_InitFinished - L1000_Init2))  ;size
 L1000_Init2:
-				ld      a,[bgTileMap+HFENCE_INDEX]
-				ld      [levelVars + VAR_HFENCE],a
-				ld      a,[bgTileMap+VFENCE_INDEX]
-				ld      [levelVars + VAR_VFENCE],a
+        ld      a,[bgTileMap+HFENCE_INDEX]
+        ld      [levelVars + VAR_HFENCE],a
+        ld      a,[bgTileMap+VFENCE_INDEX]
+        ld      [levelVars + VAR_VFENCE],a
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         ld      a,[bgTileMap+DICEINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_DICELIGHT],a
+        ld      [levelVars+VAR_DICELIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
 
         STDSETUPDIALOG
@@ -253,12 +253,12 @@ L1000_Check2:
         call    MakeNonIdle
 
         ld      hl,$1104
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ld      a,STATE_NORMAL
         ldio    [mapState],a
@@ -315,12 +315,12 @@ L1000_Check2:
         or      a
         ret     z
 
-				ld      bc,$0403
-				ld      de,$1407
+        ld      bc,$0403
+        ld      de,$1407
         ld      hl,$d24e
-				call    CreateBigExplosion
-				ld      hl,bigExplosionSound
-				call    PlaySound
+        call    CreateBigExplosion
+        ld      hl,bigExplosionSound
+        call    PlaySound
 
         ld      a,MAPBANK
         ldio    [$ff70],a
@@ -347,15 +347,15 @@ L1000_Check2:
 
 .animateFence
         ldio    a,[updateTimer]
-				rrca
-				and     3
-				ld      b,a
-				ld      hl,bgTileMap+HFENCE_INDEX
-				ld      a,[levelVars+VAR_HFENCE]
-				ld      d,a
+        rrca
+        and     3
+        ld      b,a
+        ld      hl,bgTileMap+HFENCE_INDEX
+        ld      a,[levelVars+VAR_HFENCE]
+        ld      d,a
         call    ((.animateFourFrames-L1000_Check2)+levelCheckRAM)
-				ld      a,[levelVars+VAR_VFENCE]
-				ld      d,a
+        ld      a,[levelVars+VAR_VFENCE]
+        ld      d,a
         jp      ((.animateFourFrames-L1000_Check2)+levelCheckRAM)
 
 .animateFourFrames
@@ -363,77 +363,77 @@ L1000_Check2:
 
 .animateFourFrames_loop
         ld      a,b
-				add     c
-				and     3
-				add     d
-				ld      [hl+],a
-				dec     c
-				jr      nz,.animateFourFrames_loop
-				ret
+        add     c
+        and     3
+        add     d
+        ld      [hl+],a
+        dec     c
+        jr      nz,.animateFourFrames_loop
+        ret
 
         ret
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L1000_Check2)+levelCheckRAM)
         call    ((.animateLight-L1000_Check2)+levelCheckRAM)
         call    ((.animateLight-L1000_Check2)+levelCheckRAM)
         call    ((.animateLight-L1000_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 .animateDiceLights
         ;animate dice lights
-				ld      a,[levelVars+VAR_DICELIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_DICELIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+DICEINDEX
-				call    ((.updateTwoLights - L1000_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+DICEINDEX
+        call    ((.updateTwoLights - L1000_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L1000_Check2) + levelCheckRAM)
-				ret
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L1000_Check2) + levelCheckRAM)
+        ret
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L1000_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L1000_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 L1000_CheckFinished:

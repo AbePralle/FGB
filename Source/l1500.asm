@@ -81,24 +81,24 @@ L1500_Load2:
         and     %11110000
         jr      z,.loop
 
-				;ld      de,HERODATA_ENTERDIR
-				;add     hl,de
-				;ld      a,EXIT_D
-				;ld      [hl],a
+        ;ld      de,HERODATA_ENTERDIR
+        ;add     hl,de
+        ;ld      a,EXIT_D
+        ;ld      [hl],a
 
         ld       a,15
         call     SetupFadeToBlack
         call     WaitFade
         call     ResetSprites
 
-				;----respawn at the appropriate map----
-				ld      hl,curLevelIndex
-				ld      a,[respawnMap]
-				ld      [hl+],a
-				ld      a,[respawnMap+1]
-				ld      [hl+],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ;----respawn at the appropriate map----
+        ld      hl,curLevelIndex
+        ld      a,[respawnMap]
+        ld      [hl+],a
+        ld      a,[respawnMap+1]
+        ld      [hl+],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
         ret
 
 .setEnvCounter

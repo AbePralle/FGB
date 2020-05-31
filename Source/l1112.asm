@@ -188,7 +188,7 @@ L1112_Check2:
 
 .animateBG
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         call    ((.animateDiscoBall-L1112_Check2)+levelCheckRAM)
         call    ((.animateDancer1-L1112_Check2)+levelCheckRAM)
@@ -204,7 +204,7 @@ L1112_Check2:
         and     %11
         ret     nz
 
-				ld      hl,bgTileMap+DISCOBALL_INDEX
+        ld      hl,bgTileMap+DISCOBALL_INDEX
         ld      b,DISCOBALL_INDEX
         call    ((.incDiscoFrame-L1112_Check2)+levelCheckRAM)
         call    ((.incDiscoFrame-L1112_Check2)+levelCheckRAM)
@@ -219,12 +219,12 @@ L1112_Check2:
         ret
 
 .incDiscoFrame
-				ld      a,[hl]
-				sub     b
+        ld      a,[hl]
+        sub     b
         add     4
-				and     %1100
-				add     b
-				ld      [hl+],a
+        and     %1100
+        add     b
+        ld      [hl+],a
         inc     b
         ret
 
@@ -233,7 +233,7 @@ L1112_Check2:
         and     %111
         ret     nz
 
-				ld      hl,bgTileMap+REDDANCER_INDEX
+        ld      hl,bgTileMap+REDDANCER_INDEX
         ld      b,REDDANCER_INDEX
         call    ((.inc1-L1112_Check2)+levelCheckRAM)
         ret
@@ -243,7 +243,7 @@ L1112_Check2:
         and     %11
         ret     nz
 
-				ld      hl,bgTileMap+BLUEDANCER_INDEX
+        ld      hl,bgTileMap+BLUEDANCER_INDEX
         ld      b,BLUEDANCER_INDEX
         call    ((.inc1-L1112_Check2)+levelCheckRAM)
         ret
@@ -253,7 +253,7 @@ L1112_Check2:
         and     %111
         ret     nz
 
-				ld      hl,bgTileMap+REDDANCER_2X1_INDEX
+        ld      hl,bgTileMap+REDDANCER_2X1_INDEX
         ld      b,REDDANCER_2X1_INDEX
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
@@ -265,7 +265,7 @@ L1112_Check2:
         and     %11
         ret     nz
 
-				ld      hl,bgTileMap+BLUEDANCER_2X1_INDEX
+        ld      hl,bgTileMap+BLUEDANCER_2X1_INDEX
         ld      b,BLUEDANCER_2X1_INDEX
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
@@ -277,7 +277,7 @@ L1112_Check2:
         and     %11
         ret     nz
 
-				ld      hl,bgTileMap+REDDANCER_1X2_INDEX
+        ld      hl,bgTileMap+REDDANCER_1X2_INDEX
         ld      b,REDDANCER_1X2_INDEX
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
@@ -289,28 +289,28 @@ L1112_Check2:
         and     %11
         ret     nz
 
-				ld      hl,bgTileMap+BLUEDANCER_1X2_INDEX
+        ld      hl,bgTileMap+BLUEDANCER_1X2_INDEX
         ld      b,BLUEDANCER_1X2_INDEX
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
         call    ((.inc2-L1112_Check2)+levelCheckRAM)
         ret
 
 .inc1
-				ld      a,[hl]
-				sub     b
+        ld      a,[hl]
+        sub     b
         inc     a
-				and     %1
-				add     b
-				ld      [hl+],a
+        and     %1
+        add     b
+        ld      [hl+],a
         ret
 
 .inc2
-				ld      a,[hl]
-				sub     b
+        ld      a,[hl]
+        sub     b
         add     2
-				and     %10
-				add     b
-				ld      [hl+],a
+        and     %10
+        add     b
+        ld      [hl+],a
         inc     b
         ret
 

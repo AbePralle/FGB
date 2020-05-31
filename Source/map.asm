@@ -180,7 +180,7 @@ dialogSettings::        DS 1    ;[:0] show border, [:1] show continue
                                 ;[:2] wait release (see defs.h DLG_*)
 fadeRange::             DS 1    ;defaults to 64 (all colors) but
                                 ;can be set to 32 (or the like) for
-																;BG fades only (is reset to 64 after)
+                                ;BG fades only (is reset to 64 after)
 guardAlarm::            DS 1    ;guard sounded the alarm?
 ;next pos:  $c2fe
 ;160/160
@@ -336,14 +336,14 @@ wayPointList::
                  ;bank 3, start of 4k of object storage
                  ;bank 4, start of 4k of tile shadow buffer
                  ;bank 5, start of 4k of attribute shadow buffer
-								 ;bank 6, start of 4k of zone info
-								 ;bank 7, start of 512 byte wayPointList
+                 ;bank 6, start of 4k of zone info
+                 ;bank 7, start of 512 byte wayPointList
 
 tailTable::
   DS 256         ;bank 1, bytes 256-512 of map
-	               ;bank 2, indices of objects at tail of list
+                 ;bank 2, indices of objects at tail of list
                  ;bank 3, bytes 256-512 of object storage
-								 ;bank 7, wayPointList continued
+                 ;bank 7, wayPointList continued
 
 pathList::
 rainbowColors::
@@ -351,13 +351,13 @@ rainbowColors::
   DS 256         ;bank 1, bytes 512-1024 of map (512 bytes)
                  ;bank 2, free
                  ;bank 3, bytes 512-1024 of object storage (512 bytes)
-								 ;bank 7, start of 1024-byte pathList (512 bytes)
+                 ;bank 7, start of 1024-byte pathList (512 bytes)
 
 horizontalOffset::
   DS 144         ;bank 1, bytes 768-1024 of map (256)
-	               ;bank 2, horizontal scroll position for each line (144)
+                 ;bank 2, horizontal scroll position for each line (144)
                  ;bank 3, bytes 768-1024 of object storage (256)
-								 ;bank 7, pathList continued (256)
+                 ;bank 7, pathList continued (256)
 
   DS 112         ;bank 2, free
 
@@ -366,57 +366,57 @@ objExists::
   DS 256         ;bank 1, bytes 1024-1535 of map
                  ;bank 2, 256 bytes validity of object index n
                  ;bank 3, bytes 1024-1535 of object storage
-								 ;bank 7, pathList continued
+                 ;bank 7, pathList continued
 
 FOFTable::
   ;$d500
   DS 256         ;bank 1, bytes 1024-1279 of map
                  ;bank 2, Group FOF table
                  ;bank 3, bytes 1024-1279 of object storage
-								 ;bank 7, pathList continued
+                 ;bank 7, pathList continued
 
 pathMatrix::
   ;$d600
   DS 256         ;bank 1, bytes 1536-1791 of map
-	               ;bank 2, free
+                 ;bank 2, free
                  ;bank 3, bytes 1536-1791 of object storage
-								 ;bank 7, 256 byte pathMatrix[16][16]
+                 ;bank 7, 256 byte pathMatrix[16][16]
 
 levelState::
 fgTileMap::      ;bank 1, bytes 1792-2047 of map
   ;$d700
   DS 256         ;bank 2, index of first tile for each class
                  ;bank 3, bytes 1792-2047 of object storage
-								 ;bank 7, 256 byte map state save levelState[256]
+                 ;bank 7, 256 byte map state save levelState[256]
 
 objClassLookup::
 heroState::     ;UNUSED!
   ;$d800
   DS 256         ;bank 1, bytes 2048-2303 of map
-	               ;bank 2, 256 byte lookup table for class type
+                 ;bank 2, 256 byte lookup table for class type
                  ;bank 3, bytes 2048-2303 of object storage
-								 ;bank 7, 256 byte heroState storage (16 bytes/hero)   UNUSED!
+                 ;bank 7, 256 byte heroState storage (16 bytes/hero)   UNUSED!
 
 musicStack::
   ;$d900
   DS 256         ;bank 1, bytes 2304-2559 of map
-	               ;bank 2, unused
+                 ;bank 2, unused
                  ;bank 3, bytes 2304-2559 of object storage
-								 ;bank 7, 128 byte stack for music code
+                 ;bank 7, 128 byte stack for music code
 
 associatedIndex::
 flightCode::
   ;$da00
   DS 256         ;bank 1, bytes 2560-2815 of map
-	               ;bank 2, 256 byte table of associated class indices
-								 ;bank 3, bytes 2560-2815 of object storage
+                 ;bank 2, 256 byte table of associated class indices
+                 ;bank 3, bytes 2560-2815 of object storage
                  ;bank 7, 1-byte count + 85 3-byte flight codes
 
 spritesUsed::
   ;$db00
   DS 128         ;bank 1, bytes 2816-3071 of map
-	               ;bank 2, 40-byte lookup (1=sprite used, 0=free)
-								 ;bank 3, bytes 2816-3071 of object storage
+                 ;bank 2, 40-byte lookup (1=sprite used, 0=free)
+                 ;bank 3, bytes 2816-3071 of object storage
 fadeFinalPalette::
   DS 128         ;bank 7, 128-byte fade final palette
 
@@ -429,20 +429,20 @@ fgAttributes::
   ;$dd00
   DS 256         ;bank 2, tile attributes for FG tiles
                  ;bank 1, bytes 3328-3583 of map
-								 ;bank 3, bytes 3328-3583 of object storage
+                 ;bank 3, bytes 3328-3583 of object storage
 
 classLookup::
 fadeDelta::      ;bank 1, bytes 3584-4095 of map
   ;$de00
-	DS 192         ;bank 2, 512 byte table for class info
-								 ;bank 3, bytes 3584-4095 of object storage
-								 ;bank 7, 192 bytes of fade info
+  DS 192         ;bank 2, 512 byte table for class info
+                 ;bank 3, bytes 3584-4095 of object storage
+                 ;bank 7, 192 bytes of fade info
 fadeError::
   DS 192         ;bank 7, 192 bytes of fade info
 
 gamePalette::
   ;$df80
-	DS 128         ;bank 7, 128 bytes of "true" game palette
+  DS 128         ;bank 7, 128 bytes of "true" game palette
 
 
 
@@ -461,215 +461,215 @@ LoadMap::
         push    hl
 
         ;clear out zone & exit memory
-				ld      a,ZONEBANK
-				ld      [$ff70],a
-				ld      hl,$d000
-				xor     a
-				ld      [displayType],a
+        ld      a,ZONEBANK
+        ld      [$ff70],a
+        ld      hl,$d000
+        xor     a
+        ld      [displayType],a
 
-				ld      c,0     ;256
+        ld      c,0     ;256
 .clr1_o ld      b,16    ;*16
 .clr1_i ld      [hl+],a
         dec     b
-				jr      nz,.clr1_i
+        jr      nz,.clr1_i
         dec     c
-				jr      nz,.clr1_o
+        jr      nz,.clr1_o
 
-				pop     hl
+        pop     hl
 
         call    MapCoordsToIndex
-				ld      l,a
-				ld      h,0
+        ld      l,a
+        ld      h,0
 
         ;load in the level state for this level
-				ld      a,l
-				ld      [curLevelStateIndex],a
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-			  push    hl
-				ld      h,((levelState>>8) & $ff)
-				ld      a,[hl]
-				ldio    [mapState],a
-				xor     a
-				ldio    [mapState+1],a
-				pop     hl
+        ld      a,l
+        ld      [curLevelStateIndex],a
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        push    hl
+        ld      h,((levelState>>8) & $ff)
+        ld      a,[hl]
+        ldio    [mapState],a
+        xor     a
+        ldio    [mapState+1],a
+        pop     hl
 
         ;multiply map index by 4 to find offset into address lookup
-				sla     l       ;shift <<= 2
-				rl      h
-				sla     l
-				rl      h
-				ld      de,MapLookupTable
-				add     hl,de
+        sla     l       ;shift <<= 2
+        rl      h
+        sla     l
+        rl      h
+        ld      de,MapLookupTable
+        add     hl,de
 
-				ld      a,BANK(MapLookupTable)
-				call    SetActiveROM
+        ld      a,BANK(MapLookupTable)
+        call    SetActiveROM
 
-				ld      de,mapBank      ;start of 4 bytes of info storage
-				ld      c,4
+        ld      de,mapBank      ;start of 4 bytes of info storage
+        ld      c,4
 .loop   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.loop
+        inc     de
+        dec     c
+        jr      nz,.loop
 
-				xor     a
-				ld      [amSynchronizing],a
-				ld      [hero0_index],a
-				ld      [hero1_index],a
-				ld      [heroJoyIndex],a
+        xor     a
+        ld      [amSynchronizing],a
+        ld      [hero0_index],a
+        ld      [hero1_index],a
+        ld      [heroJoyIndex],a
 
-				;set up one hero for now, hero 0 if we're master and hero 1
-				;if we're slave.
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.setMyHeroAs1
+        ;set up one hero for now, hero 0 if we're master and hero 1
+        ;if we're slave.
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.setMyHeroAs1
 
-				ld      a,1
-				ld      [hero0_index],a
-				ld      a,[hero0_type]
-				;note joy index remains zero if we're master
-				jr      .afterSetMyHero
+        ld      a,1
+        ld      [hero0_index],a
+        ld      a,[hero0_type]
+        ;note joy index remains zero if we're master
+        jr      .afterSetMyHero
 
 .setMyHeroAs1
-				ld      hl,heroJoyIndex
-				ld      a,1
-				ld      [hero1_index],a
-				ld      a,[hero1_type]
-				or      [hl]
-				ld      [hl],a
+        ld      hl,heroJoyIndex
+        ld      a,1
+        ld      [hero1_index],a
+        ld      a,[hero1_type]
+        or      [hl]
+        ld      [hl],a
 
 .afterSetMyHero
 
-				;Check if we're linked up to another game
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      z,.amLinked
-				jp      .afterLinkCheck
+        ;Check if we're linked up to another game
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      z,.amLinked
+        jp      .afterLinkCheck
 
 .amLinked
-				;am linked up.  See if I'm trying to join the same map
-				;as is already playing on the remote machine.
+        ;am linked up.  See if I'm trying to join the same map
+        ;as is already playing on the remote machine.
 .checkSameMap
-				ld      a,LGETMAPINDEX
-				call    ExchangeByte
-				cp      LGETMAPINDEX
-				jr      z,.linkMachineChangingMapAlso
-				call    CheckSimultaneousLCC
-				jr      nz,.checkSameMap      ;must repeat
-				jr      .compareMapIndex
+        ld      a,LGETMAPINDEX
+        call    ExchangeByte
+        cp      LGETMAPINDEX
+        jr      z,.linkMachineChangingMapAlso
+        call    CheckSimultaneousLCC
+        jr      nz,.checkSameMap      ;must repeat
+        jr      .compareMapIndex
 
 .linkMachineChangingMapAlso
         ;Proceed if I'm the Link Master, wait and try again
-				;if I'm the slave.
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.checkSameMapTryAgain
+        ;if I'm the slave.
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.checkSameMapTryAgain
 
-				;call    KillWaitScreen
-				jp      .afterLinkCheck
+        ;call    KillWaitScreen
+        jp      .afterLinkCheck
 
 .checkSameMapTryAgain
         call    ShowWaitScreen
 
         ;kill some time to allow host to do its thing
-				ld      c,10
+        ld      c,10
 .checkSameMapDelay
-				ld      a,LNULL
-				call    ExchangeByte
-				call    HandleRemoteInput
-				dec     c
-				jr      nz,.checkSameMapDelay
-				jr      .checkSameMap
+        ld      a,LNULL
+        call    ExchangeByte
+        call    HandleRemoteInput
+        dec     c
+        jr      nz,.checkSameMapDelay
+        jr      .checkSameMap
 
 .compareMapIndex
         call    ReceiveByte   ;next byte will be the map index
-				cp      $ff           ;wait code?
-				jr      z,.checkSameMapTryAgain
-				ld      b,a
+        cp      $ff           ;wait code?
+        jr      z,.checkSameMapTryAgain
+        ld      b,a
         ;call    KillWaitScreen
-				ld      a,[curLevelStateIndex]
-				cp      b
-				jr      z,.isSameMap
-				jp      .afterLinkCheck        ;not the same map
+        ld      a,[curLevelStateIndex]
+        cp      b
+        jr      z,.isSameMap
+        jp      .afterLinkCheck        ;not the same map
 
 .isSameMap
         ;same map; go ahead and synchronize to it
 .requestSynchronize
         ld      a,LSYNCHRONIZE
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.requestSynchronize
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.requestSynchronize
 
-				call    ReceiveByte  ;get the response
-				cp      LSYNCHREADY
-				jr      z,.readyToSynchronize
+        call    ReceiveByte  ;get the response
+        cp      LSYNCHREADY
+        jr      z,.readyToSynchronize
 
-				;Not ready.  Send a few null control codes to allow the other
-				;machine to continue game-play and then try again.
-				call    ShowWaitScreen
+        ;Not ready.  Send a few null control codes to allow the other
+        ;machine to continue game-play and then try again.
+        call    ShowWaitScreen
 
 .nullDelay_init
-				ld      c,10
+        ld      c,10
 .nullDelay
-				ld      a,LNULL
-				call    ExchangeByte
-				call    HandleRemoteInput
-				dec     c
-				jr      nz,.nullDelay
-			  ;jr      .requestSynchronize
-			  jr      .checkSameMap
+        ld      a,LNULL
+        call    ExchangeByte
+        call    HandleRemoteInput
+        dec     c
+        jr      nz,.nullDelay
+        ;jr      .requestSynchronize
+        jr      .checkSameMap
 
 .readyToSynchronize
         ld      hl,BailOutAddress
-				xor     a
-				call    SetLinkBailOutAddress
+        xor     a
+        call    SetLinkBailOutAddress
 
         call    KillWaitScreen
 
         ;send my desired entry direction so host can evaluate if there's
-				;a free spot
+        ;a free spot
         ld      a,1                ;just a precaution for slave, host MUST do this
         ldio    [curObjWidthHeight],a
-				LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,[hl]
-				call    TransmitByte
+        LDHL_CURHERODATA HERODATA_ENTERDIR
+        ld      a,[hl]
+        call    TransmitByte
 
-				call    ReceiveByte     ;go/nogo signal from host
-				or      a
+        call    ReceiveByte     ;go/nogo signal from host
+        or      a
         jr      nz,.goSignal
 
         ;nogo
-				jr      .nullDelay_init
+        jr      .nullDelay_init
 
 .goSignal
-				call    ReceiveByte
-				ldio    [mapState],a
-				call    ReceiveByte
-				ldio    [mapState+1],a
+        call    ReceiveByte
+        ldio    [mapState],a
+        call    ReceiveByte
+        ldio    [mapState+1],a
 
         call    GuestExchangeHeroData
 
-				ld      hl,heroJoyIndex
-				ld      a,[hero1_type]
-				or      [hl]
-				ld      [hl],a
+        ld      hl,heroJoyIndex
+        ld      a,[hero1_type]
+        or      [hl]
+        ld      [hl],a
 
         ld      a,1
-				ld      [amSynchronizing],a
+        ld      [amSynchronizing],a
 
 .afterLinkCheck
         call    KillWaitScreen
 
-				;Let the map figure out how to load itself.  Typically
-				;will be just a call to ParseMap, but it could be different
-				;to do some cinematic stuff
-				call    ClearBackBuffer
+        ;Let the map figure out how to load itself.  Typically
+        ;will be just a call to ParseMap, but it could be different
+        ;to do some cinematic stuff
+        call    ClearBackBuffer
 
-				ld      a,LVLOFFSET_LOAD
-				call    CopyMapMethodToRAM
+        ld      a,LVLOFFSET_LOAD
+        call    CopyMapMethodToRAM
         ld      a,OBJROM
-				call    SetActiveROM
+        call    SetActiveROM
 
         ld      hl,[sp+0]
         ld      a,l
@@ -679,91 +679,91 @@ LoadMap::
         ld      a,1
         ld      [inLoadMethod],a
 
-				call    levelCheckRAM
+        call    levelCheckRAM
 AfterLoadLevelMethod::
         xor     a
         ld      [inLoadMethod],a
 
         ld      a,[timeToChangeLevel]
-				or      a
-				jr      z,.stillOkay
+        or      a
+        jr      z,.stillOkay
 
         ;need to redo (perhaps cinematic)
         ;save the map state back where it came from
         ;if zero set to one to indicate we've been here
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-				ld      a,[curLevelStateIndex]
-				ld      l,a
-				ld      h,((levelState>>8) & $ff)
-				ldio    a,[mapState]
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        ld      a,[curLevelStateIndex]
+        ld      l,a
+        ld      h,((levelState>>8) & $ff)
+        ldio    a,[mapState]
         or      a
         jr      nz,.stateNotZero
         ld      a,1
 .stateNotZero
-				ld      [hl],a
-				jr      .done
+        ld      [hl],a
+        jr      .done
 
 .stillOkay
-				ld      a,OBJROM
-				call    SetActiveROM
-				call    AddObjectsToObjList
-				call    InitFOF
+        ld      a,OBJROM
+        call    SetActiveROM
+        call    AddObjectsToObjList
+        call    InitFOF
 
         ;Add the heroes to the map.  Add Host's hero first.
-				ld      a,[amSynchronizing]
-				or      a
-				jr      z,.addZeroThenOne
+        ld      a,[amSynchronizing]
+        or      a
+        jr      z,.addZeroThenOne
 
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.addZeroThenOne
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.addZeroThenOne
 
         ;add one then zero
-				ld      hl,hero0_index
-				push    hl
-				ld      hl,hero1_index
-				jr      .decidedHeroLoadOrder
+        ld      hl,hero0_index
+        push    hl
+        ld      hl,hero1_index
+        jr      .decidedHeroLoadOrder
 
 .addZeroThenOne
-				ld      hl,hero1_index
-				push    hl
-				ld      hl,hero0_index
+        ld      hl,hero1_index
+        push    hl
+        ld      hl,hero0_index
 
 .decidedHeroLoadOrder
         call    PrepSetupHero
-				pop     hl
+        pop     hl
         call    PrepSetupHero
 
         call    PrepareForInitialMapDraw  ;adjust camera & calc offsets
 
         ld      a,LVLOFFSET_INIT
-				call    CopyMapMethodToRAM
+        call    CopyMapMethodToRAM
         ld      a,OBJROM
-				call    SetActiveROM
-				call    levelCheckRAM
+        call    SetActiveROM
+        call    levelCheckRAM
 
-				call    ClearBackBuffer
+        call    ClearBackBuffer
 
         ld      a,LVLOFFSET_CHECK
-				call    CopyMapMethodToRAM
+        call    CopyMapMethodToRAM
         ld      a,OBJROM
-				call    SetActiveROM
+        call    SetActiveROM
 
-				;----continue synchronizing if warranted----------------------
-				ld      a,[amSynchronizing]
-				or      a
-				jr      z,.afterSynchronization
+        ;----continue synchronizing if warranted----------------------
+        ld      a,[amSynchronizing]
+        or      a
+        jr      z,.afterSynchronization
 
 .continueSynchronization
         LONGCALLNOARGS GuestContinueSynchronization
 
 .afterSynchronization
         xor     a
-				ld      [amSynchronizing],a
+        ld      [amSynchronizing],a
 
         ;turn LCD on and stuff
-				ld      a,%11000011
+        ld      a,%11000011
         ld      [$ff40], a       ;lcdc control
 
 .done
@@ -775,48 +775,48 @@ LoadMapDone:
 
 BailOutAddress:
         ld      hl,0
-				xor     a
-				call    SetLinkBailOutAddress
-				ld      a,1
-				ld      [timeToChangeLevel],a
-				jr      LoadMapDone
+        xor     a
+        call    SetLinkBailOutAddress
+        ld      a,1
+        ld      [timeToChangeLevel],a
+        jr      LoadMapDone
 
 ShowWaitScreen:
-				ld      a,[displayType]     ;shown the "waiting" screen yet
-				or      a
-				ret     nz
+        ld      a,[displayType]     ;shown the "waiting" screen yet
+        or      a
+        ret     nz
 
         ;load the "Waiting To Join" screen
-				ld      a,BANK(waitingToJoin_bg)
-				ld      hl,waitingToJoin_bg
-				call    LoadCinemaBG
+        ld      a,BANK(waitingToJoin_bg)
+        ld      hl,waitingToJoin_bg
+        call    LoadCinemaBG
         ld      a,1
         call    Delay
 
         ld      a,15
-				call    SetupFadeFromStandard
-				call    WaitFade
-				ret
+        call    SetupFadeFromStandard
+        call    WaitFade
+        ret
 
 KillWaitScreen:
         ;was I showing the "waiting to join" screen?
-				ld      a,[displayType]
-				or      a
-				ret     z
+        ld      a,[displayType]
+        or      a
+        ret     z
 
-				push    bc
-				push    de
-				push    hl
-				ld      a,15
-				call    SetupFadeToStandard
-				call    WaitFade
-				;call    DisplayOff
-				xor     a
-				ld      [displayType],a
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        push    bc
+        push    de
+        push    hl
+        ld      a,15
+        call    SetupFadeToStandard
+        call    WaitFade
+        ;call    DisplayOff
+        xor     a
+        ld      [displayType],a
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .afterRemoveWaitScreen
 
@@ -824,77 +824,77 @@ KillWaitScreen:
 .addHeroToMap
 PrepSetupHero::
         ld      a,[hl+]           ;get hero index
-				or      a
-				ret     z                 ;hero not present
+        or      a
+        ret     z                 ;hero not present
 
-				ld      a,l               ;get hero number 0 or 1
+        ld      a,l               ;get hero number 0 or 1
 IF HERODATASIZE!=16
   jr fix this
 ENDC
-				and     16
-				swap    a
-				ld      d,a               ;d is 0 or 1
+        and     16
+        swap    a
+        ld      d,a               ;d is 0 or 1
 
-				inc     hl                ;skip object L,H
-				inc     hl
-				inc     hl                ;skip bullet_index
-				ld      a,[hl+]           ;bc = heroClass
-				ld      c,a
-				ld      a,[hl+]
-				ld      b,a
-				ld      a,[hl+]           ;enter level direction
-				push    af
-				ld      a,[hl+]           ;hl = entry location in XY
-				ld      h,[hl]
-				ld      l,a
-				pop     af                ;retrieve entry direction
-				call    SetupHero
-				ret
+        inc     hl                ;skip object L,H
+        inc     hl
+        inc     hl                ;skip bullet_index
+        ld      a,[hl+]           ;bc = heroClass
+        ld      c,a
+        ld      a,[hl+]
+        ld      b,a
+        ld      a,[hl+]           ;enter level direction
+        push    af
+        ld      a,[hl+]           ;hl = entry location in XY
+        ld      h,[hl]
+        ld      l,a
+        pop     af                ;retrieve entry direction
+        call    SetupHero
+        ret
 
 PrepSetupHeroBC::
         ld      h,b
-				ld      l,c
-				jr      PrepSetupHero   ;ret will return to my caller
+        ld      l,c
+        jr      PrepSetupHero   ;ret will return to my caller
 
 GuestExchangeHeroData:
         ;get the host's hero data
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.recvHero0_sendHero1   ;slave exchange
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.recvHero0_sendHero1   ;slave exchange
 
 .recvHero1_sendHero0    ;master exchange
         ;turn on hero 1
-				ld      a,1
-				ld      [hero1_index],a
+        ld      a,1
+        ld      [hero1_index],a
 
         ;set hero 1 joy index
         ld      hl,hero0_data    ;send this second
-				push    hl
+        push    hl
 
-				ld      hl,hero1_data    ;recv this first
-				jr      .afterExchangeHeroData
+        ld      hl,hero1_data    ;recv this first
+        jr      .afterExchangeHeroData
 
 .recvHero0_sendHero1
         ;turn on hero 0
-				ld      a,1
-				ld      [hero0_index],a
+        ld      a,1
+        ld      [hero0_index],a
 
         ld      hl,hero1_data
-				push    hl
-				ld      hl,hero0_data   ;recv dest
+        push    hl
+        ld      hl,hero0_data   ;recv dest
 
 .afterExchangeHeroData
-				ld      bc,HERODATASIZE
-				xor     a
-				call    ReceiveData
+        ld      bc,HERODATASIZE
+        xor     a
+        call    ReceiveData
 
         ;send my hero data
-				pop     hl
-				ld      bc,HERODATASIZE
-				xor     a
-				call    TransmitData
+        pop     hl
+        ld      bc,HERODATASIZE
+        xor     a
+        call    TransmitData
 
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -907,21 +907,21 @@ GuestExchangeHeroData:
 MapCoordsToIndex::
         push    hl
 
-				;Change bytes hl from BCD to normal
-				ld      a,h
-				call    BCDToNumber
-				ld      h,a
-				ld      a,l
-				call    BCDToNumber
-				ld      l,a
+        ;Change bytes hl from BCD to normal
+        ld      a,h
+        call    BCDToNumber
+        ld      h,a
+        ld      a,l
+        call    BCDToNumber
+        ld      l,a
 
-				;a = l*16 + h  (h & l must be 0-15 for this code)
-				ld      a,l
-				swap    a
-				add     h
+        ;a = l*16 + h  (h & l must be 0-15 for this code)
+        ld      a,l
+        swap    a
+        add     h
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      BCDToNumber
@@ -931,28 +931,28 @@ MapCoordsToIndex::
 ;---------------------------------------------------------------------
 BCDToNumber:
         push    bc
-				push    hl
+        push    hl
 
-				;convert back to normal with:
-				;  a = a[7:4] * 10 + a[3:0]
-				ld      b,a                     ;save A
-				swap    a
-				and     %00001111
-				ld      hl,.lookupTimes10
-				add     l
-				ld      l,a
-				ld      a,0
-				adc     h
-				ld      h,a
-				ld      a,[hl]                  ;Upper nibble times 10
-				ld      c,a
-				ld      a,b
-				and     %00001111
-				add     c
+        ;convert back to normal with:
+        ;  a = a[7:4] * 10 + a[3:0]
+        ld      b,a                     ;save A
+        swap    a
+        and     %00001111
+        ld      hl,.lookupTimes10
+        add     l
+        ld      l,a
+        ld      a,0
+        adc     h
+        ld      h,a
+        ld      a,[hl]                  ;Upper nibble times 10
+        ld      c,a
+        ld      a,b
+        and     %00001111
+        add     c
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 .lookupTimes10
         DB  0,10,20,30,40,50,60,70,80,90
@@ -965,22 +965,22 @@ BCDToNumber:
 ;---------------------------------------------------------------------
 NumberToBCD::
         ;a[7:4] = num / 10, a[3:0] = num % 10;
-				push    bc
-				ld      b,0
+        push    bc
+        ld      b,0
 
 .divide10
-				cp      10
-				jr      c,.dividedOut10
+        cp      10
+        jr      c,.dividedOut10
 
-				inc     b
-				sub     10
-				jr      .divide10
+        inc     b
+        sub     10
+        jr      .divide10
 
 .dividedOut10
         swap    b
-				or      b
+        or      b
 
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -995,24 +995,24 @@ NumberToBCD::
 LookupInMapContents:
         push    de
 
-				ld      d,0
-				ld      e,a
+        ld      d,0
+        ld      e,a
 
         ld      a,[mapBank]
-				call    SetActiveROM
+        call    SetActiveROM
 
-				ld      a,[mapContents]
-				ld      l,a
-				ld      a,[mapContents+1]
-				ld      h,a
+        ld      a,[mapContents]
+        ld      l,a
+        ld      a,[mapContents+1]
+        ld      h,a
 
-				add     hl,de
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        add     hl,de
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
-				pop     de
-				ret
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupMapVarsFromWidthPitchAndHeight
@@ -1033,12 +1033,12 @@ SetupMapVarsFromWidthPitchAndHeight::
         sub     21
         ld      [mapMaxLeft],a
         ld      a,[mapPitch]
-				push    af
+        push    af
         dec     a
         ld      [mapPitchMinusOne],a
-				cpl
-				ld      [mapPitchMinusOneComplement],a
-				pop     af
+        cpl
+        ld      [mapPitchMinusOneComplement],a
+        pop     af
         sub     c
         ld      [mapSkip],a          ;skip width calculated fr width & pitch
         ld      a,[mapHeight]
@@ -1046,7 +1046,7 @@ SetupMapVarsFromWidthPitchAndHeight::
         sub     19
         ld      [mapMaxTop],a
 
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -1056,22 +1056,22 @@ SetupMapVarsFromWidthPitchAndHeight::
 ;---------------------------------------------------------------------
 ParseMap::
         ;set bank and ptr to map
-				ld      a,LVLOFFSET_MAP
-				call    LookupInMapContents  ;point hl at map
+        ld      a,LVLOFFSET_MAP
+        call    LookupInMapContents  ;point hl at map
 
-				ld      a,[hl+]              ;get and discard version number
+        ld      a,[hl+]              ;get and discard version number
         ld      a,[hl+]              ;get # of classes
         ld      [numClasses],a       ;store # classes
 
         ;Clear/initialize memory locations
         ;set initial # of bg/fg tiles
-				ld      a,40                 ;leave room for 2 sets of 4x4 hero
+        ld      a,40                 ;leave room for 2 sets of 4x4 hero
         ld      [numFGTiles],a       ;tiles (20*2)
         ld      a,1
         ld      [numBGTiles],a
 
         ;Set up ptrs to bg tile pattern mem and fg tile pattern mem
-				ld      a,$80
+        ld      a,$80
         ld      [fgDestPtr],a        ;fg ptr gets $9280 (low byte)
         ld      a,$92                ;high byte
         ld      [fgDestPtr+1],a
@@ -1100,7 +1100,7 @@ ParseMap::
         ld      [loadTileH],a
 
         ;set classLookup[i] to point to addr of class methods
-				call    SetClassLookupEntryForTile
+        call    SetClassLookupEntryForTile
 
         ;determine whether we're loading a BG tile or a monster tile
         ldio    a,[firstMonster]
@@ -1119,31 +1119,31 @@ ParseMap::
 .nowLoadTile
         call    LoadTile
 
-				;make sure we're back to the map bank
-				ld      a,[mapBank]
-				call    SetActiveROM
+        ;make sure we're back to the map bank
+        ld      a,[mapBank]
+        call    SetActiveROM
 
         pop     bc
         inc     b            ;next class
 
-				ldio    a,[firstMonster]    ;just loaded last bg tile?
-				cp      b
-				jr      nz,.terminationTest
-				ld      a,[numBGTiles]      ;already copied the remaining buffer?
-				and     31
-				call    nz,CopyBGWorkToVRAM ;not yet
+        ldio    a,[firstMonster]    ;just loaded last bg tile?
+        cp      b
+        jr      nz,.terminationTest
+        ld      a,[numBGTiles]      ;already copied the remaining buffer?
+        and     31
+        call    nz,CopyBGWorkToVRAM ;not yet
 
 .terminationTest
         dec     c            ;one less to go
         jr      nz,.loop
 
-				;current value of numClasses will be value of firstHero
-				ld      a,[numClasses]
-				ld      [firstHero],a
+        ;current value of numClasses will be value of firstHero
+        ld      a,[numClasses]
+        ld      [firstHero],a
 
-				;final value of numClasses (past 2 heroes+bullets)
-				add     4
-				ld      [numClasses],a
+        ;final value of numClasses (past 2 heroes+bullets)
+        add     4
+        ld      [numClasses],a
 
         ;Get level dimensions width, pitch, and height
         ld      a,[hl+]              ;width
@@ -1153,7 +1153,7 @@ ParseMap::
         ld      a,[hl+]              ;height
         ld      [mapHeight],a
         ld      b,a                  ;height in b
-				call    SetupMapVarsFromWidthPitchAndHeight
+        call    SetupMapVarsFromWidthPitchAndHeight
 
         ;Get width*height class indices
         ld      a,MAPBANK            ;switch to map RAM bank
@@ -1176,50 +1176,50 @@ ParseMap::
         jr      nz,.inner0
 
         ;load excess with zero to make internal map power of two wide
-				ld      a,[mapSkip]
-				or      a
-				jr      z,.afterFillExtra
-				ld      c,a
-				xor     a
+        ld      a,[mapSkip]
+        or      a
+        jr      z,.afterFillExtra
+        ld      c,a
+        xor     a
 .fillExtra
         ld      [hl+],a
-				dec     c
-				jr      nz,.fillExtra
+        dec     c
+        jr      nz,.fillExtra
 
 .afterFillExtra
         dec     b
         jr      nz,.outer0
 
-				;hl contains location 1 beyond end of map
-				ld      a,l
-				ld      [mapTotalSize],a
-				ld      a,h
-				ld      [mapTotalSize+1],a
+        ;hl contains location 1 beyond end of map
+        ld      a,l
+        ld      [mapTotalSize],a
+        ld      a,h
+        ld      [mapTotalSize+1],a
 
         ;Load background color
         ld      a,[de]               ;bg color low byte
-				inc     de
+        inc     de
         ld      [mapColor],a
         ld      l,a
         ld      a,[de]               ;bg color high byte
-				inc     de
+        inc     de
         ld      [mapColor+1],a
         ld      h,a
         ld      b,%10000000
-				push    de
-				ld      d,h
-				ld      e,l
+        push    de
+        ld      d,h
+        ld      e,l
         call    SetupCommonColor
-				pop     de
+        pop     de
 
         call    ParseWayPointStuff
-				call    ParseZones
-				call    ParseExits
-				call    SetBGSpecialFlags
+        call    ParseZones
+        call    ParseExits
+        call    SetBGSpecialFlags
 
-				ld      b,255
-				ld      hl,classExplosion
-				call    SetClassLookupEntry
+        ld      b,255
+        ld      hl,classExplosion
+        call    SetClassLookupEntry
 
         ret
 
@@ -1233,25 +1233,25 @@ ParseMap::
 ;---------------------------------------------------------------------
 ClearBackBuffer::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      bc,608
-				ld      d,0
-				ld      hl,backBuffer
-				xor     a
-				call    MemSet
+        ld      bc,608
+        ld      d,0
+        ld      hl,backBuffer
+        xor     a
+        call    MemSet
 
-				ld      bc,608
-				ld      d,0
-				ld      hl,attributeBuffer
-				xor     a
-				call    MemSet
+        ld      bc,608
+        ld      d,0
+        ld      hl,attributeBuffer
+        xor     a
+        call    MemSet
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetClassLookupEntryForTile
@@ -1262,23 +1262,23 @@ ClearBackBuffer::
 ;---------------------------------------------------------------------
 SetClassLookupEntryForTile:
         push    bc
-				push    de
+        push    de
         push    hl
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
-				;set de to point to classLookup[b] (times two)
-				ld      d,0
-				ld      e,b
-				sla     e
-				rl      d
-				ld      hl,classLookup
-				add     hl,de
-				ld      d,h
-				ld      e,l
+        ;set de to point to classLookup[b] (times two)
+        ld      d,0
+        ld      e,b
+        sla     e
+        rl      d
+        ld      hl,classLookup
+        add     hl,de
+        ld      d,h
+        ld      e,l
 
-				ld      a,[loadTileH]
+        ld      a,[loadTileH]
         ld      h,a
         ld      a,[loadTileL]
         ld      l,a
@@ -1289,20 +1289,20 @@ SetClassLookupEntryForTile:
         add     hl,bc
 
         ld      a,BANK(classTable)
-				call    SetActiveROM
+        call    SetActiveROM
         ld      a,[hl+]        ;low byte of addr of class methods
         ld      [de],a
         inc     de
         ld      a,[hl+]        ;high byte
         ld      [de],a
         ld      a,OBJROM
-				call    SetActiveROM
+        call    SetActiveROM
         ;inc     de
 
         pop     hl
-				pop     de
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetClassLookupEntry
@@ -1313,22 +1313,22 @@ SetClassLookupEntryForTile:
 ;---------------------------------------------------------------------
 SetClassLookupEntry:
         push    bc
-				push    de
+        push    de
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
-				;set de to point to classLookup[b] (times two)
-				push    hl
-				ld      d,0
-				ld      e,b
-				sla     e
-				rl      d
-				ld      hl,classLookup
-				add     hl,de
-				ld      d,h
-				ld      e,l
-				pop     hl
+        ;set de to point to classLookup[b] (times two)
+        push    hl
+        ld      d,0
+        ld      e,b
+        sla     e
+        rl      d
+        ld      hl,classLookup
+        add     hl,de
+        ld      d,h
+        ld      e,l
+        pop     hl
 
         ld      a,l            ;low byte of addr of class methods
         ld      [de],a
@@ -1336,9 +1336,9 @@ SetClassLookupEntry:
         ld      a,h            ;high byte
         ld      [de],a
 
-				pop     de
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ParseZones
@@ -1351,13 +1351,13 @@ ParseZones:
         ld      a,ZONEBANK       ;switch in RAM bank for zones
         ld      [$ff00+$70],a
 
-				ld      hl,zoneBuffer    ;dest
+        ld      hl,zoneBuffer    ;dest
 
-				call    .getNextRLEData
+        call    .getNextRLEData
 
         ;loop as usual
-				ld      a,[mapHeight]    ;# of rows
-				ld      b,a
+        ld      a,[mapHeight]    ;# of rows
+        ld      b,a
 
 .outer  ld      a,[mapWidth]     ;# of columns
         ld      c,a
@@ -1366,60 +1366,60 @@ ParseZones:
         ;save two bytes for each count
 .inner  ld      a,[loadTileL]      ;what's our RLE count look like?
         or      a
-				jr      nz,.continue
+        jr      nz,.continue
 
         push    bc
-				call    .getNextRLEData
-				pop     bc
+        call    .getNextRLEData
+        pop     bc
 
 .continue
         ld      a,[tempH]
-				ld      [hl+],a
-				ld      a,[tempL]
-				ld      [hl+],a
+        ld      [hl+],a
+        ld      a,[tempL]
+        ld      [hl+],a
 
-				ld      a,[loadTileL]      ;decrement RLE count
-				dec     a
-				ld      [loadTileL],a
-				;jr      nz,.continue
+        ld      a,[loadTileL]      ;decrement RLE count
+        dec     a
+        ld      [loadTileL],a
+        ;jr      nz,.continue
 
         ;push    bc
-				;call    .getNextRLEData
-				;pop     bc
+        ;call    .getNextRLEData
+        ;pop     bc
 
 ;.continue
 
-				dec     c
-				jr      nz,.inner
+        dec     c
+        jr      nz,.inner
 
-				;reached the end of a row, advance destptr to next row
-				push    bc
-				xor     a
-				ld      b,a
-				ld      a,[mapSkip]
-				ld      c,a
-				add     hl,bc
-				pop     bc
+        ;reached the end of a row, advance destptr to next row
+        push    bc
+        xor     a
+        ld      b,a
+        ld      a,[mapSkip]
+        ld      c,a
+        add     hl,bc
+        pop     bc
 
-				dec     b
-				jr      nz,.outer
+        dec     b
+        jr      nz,.outer
 
-				ret
+        ret
 
 .getNextRLEData
-				ld      a,[de]           ;read in a run length
-				inc     de
-				ld      [loadTileL],a    ;store remaining # of bytes
-				ld      a,[de]           ;read in run data
-				inc     de
-				ld      b,a
-				swap    a
-				and     $f               ;zone for first byte
-				ld      [tempH],a
-				ld      a,b
-				and     $f
-				ld      [tempL],a        ;zone for second byte
-				ret
+        ld      a,[de]           ;read in a run length
+        inc     de
+        ld      [loadTileL],a    ;store remaining # of bytes
+        ld      a,[de]           ;read in run data
+        inc     de
+        ld      b,a
+        swap    a
+        and     $f               ;zone for first byte
+        ld      [tempH],a
+        ld      a,b
+        and     $f
+        ld      [tempL],a        ;zone for second byte
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1433,13 +1433,13 @@ ParseExits:
         ld      a,ZONEBANK       ;switch in RAM bank for zones
         ld      [$ff00+$70],a
 
-				ld      hl,zoneBuffer    ;dest
+        ld      hl,zoneBuffer    ;dest
 
-				call    .getNextRLEData
+        call    .getNextRLEData
 
         ;loop as usual
-				ld      a,[mapHeight]    ;# of rows
-				ld      b,a
+        ld      a,[mapHeight]    ;# of rows
+        ld      b,a
 
 .outer  ld      a,[mapWidth]     ;# of columns
         ld      c,a
@@ -1448,65 +1448,65 @@ ParseExits:
         ;save two bytes for each count
 .inner  ld      a,[loadTileL]      ;what's our RLE count look like?
         or      a
-				jr      nz,.continue
+        jr      nz,.continue
 
         push    bc
-				call    .getNextRLEData
-				pop     bc
+        call    .getNextRLEData
+        pop     bc
 
 .continue
         ld      a,[tempH]
-				or      [hl]
-				ld      [hl+],a            ;exit in 7:4, zone in 3:0
-				ld      a,[tempL]
-				or      [hl]
-				ld      [hl+],a
+        or      [hl]
+        ld      [hl+],a            ;exit in 7:4, zone in 3:0
+        ld      a,[tempL]
+        or      [hl]
+        ld      [hl+],a
 
-				ld      a,[loadTileL]      ;decrement RLE count
-				dec     a
-				ld      [loadTileL],a
+        ld      a,[loadTileL]      ;decrement RLE count
+        dec     a
+        ld      [loadTileL],a
 
-				dec     c
-				jr      nz,.inner
+        dec     c
+        jr      nz,.inner
 
-				;reached the end of a row, advance destptr to next row
-				push    bc
-				xor     a
-				ld      b,a
-				ld      a,[mapSkip]
-				ld      c,a
-				add     hl,bc
-				pop     bc
+        ;reached the end of a row, advance destptr to next row
+        push    bc
+        xor     a
+        ld      b,a
+        ld      a,[mapSkip]
+        ld      c,a
+        add     hl,bc
+        pop     bc
 
-				dec     b
-				jr      nz,.outer
+        dec     b
+        jr      nz,.outer
 
-				;read in 16 bytes of map links
+        ;read in 16 bytes of map links
         ld      c,16
-				ld      hl,mapExitLinks
+        ld      hl,mapExitLinks
 .readLink
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				dec     c
-				jr      nz,.readLink
+        inc     de
+        ld      [hl+],a
+        dec     c
+        jr      nz,.readLink
 
-				ret
+        ret
 
 .getNextRLEData
-				ld      a,[de]           ;read in a run length
-				inc     de
-				ld      [loadTileL],a    ;store remaining # of bytes
-				ld      a,[de]           ;read in run data
-				inc     de
-				ld      b,a
-				and     $f0              ;exit for first byte (in 7:4)
-				ld      [tempH],a
-				ld      a,b
-				swap    a
-				and     $f0
-				ld      [tempL],a        ;exit for second byte
-				ret
+        ld      a,[de]           ;read in a run length
+        inc     de
+        ld      [loadTileL],a    ;store remaining # of bytes
+        ld      a,[de]           ;read in run data
+        inc     de
+        ld      b,a
+        and     $f0              ;exit for first byte (in 7:4)
+        ld      [tempH],a
+        ld      a,b
+        swap    a
+        and     $f0
+        ld      [tempL],a        ;exit for second byte
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetBGSpecialFlags
@@ -1522,49 +1522,49 @@ SetBGSpecialFlags::
         push    hl
 
         ;clear out bit 7 in zone bank
-				ld      a,ZONEBANK
-				ldio    [$ff70],a
+        ld      a,ZONEBANK
+        ldio    [$ff70],a
 
-				ld      hl,$d000
-				ld      a,$e0
+        ld      hl,$d000
+        ld      a,$e0
 .clearZone
         res     7,[hl]
-				inc     hl
-				cp      h
-				jr      nz,.clearZone
+        inc     hl
+        cp      h
+        jr      nz,.clearZone
 
 
-				ld      hl,map
-				ld      de,bgAttributes
+        ld      hl,map
+        ld      de,bgAttributes
 
-				ld      a,[mapHeight]
-				ld      b,a
+        ld      a,[mapHeight]
+        ld      b,a
 
 .outer
         push    bc
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,[mapPitch]
-				ld      c,a
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,[mapPitch]
+        ld      c,a
         ld      a,MAPBANK
         ld      [$ff00+$70],a
 
 .inner
         ld      a,[hl]             ;get a tile
-				or      a
-				jr      z,.notSpecial
-				cp      b
-				jr      nc,.notSpecial
+        or      a
+        jr      z,.notSpecial
+        cp      b
+        jr      nc,.notSpecial
 
-				;might be a Special tile
-				ld      e,a                ;look up its BG attributes
+        ;might be a Special tile
+        ld      e,a                ;look up its BG attributes
         ld      a,TILEINDEXBANK
         ld      [$ff00+$70],a
-				ld      a,[de]
-				and     BG_FLAG_SPECIAL
-				jr      z,.notSpecialResetRAMBank
+        ld      a,[de]
+        and     BG_FLAG_SPECIAL
+        jr      z,.notSpecialResetRAMBank
 
-				;is Special type
+        ;is Special type
         ld      a,ZONEBANK
         ld      [$ff00+$70],a
 
@@ -1576,16 +1576,16 @@ SetBGSpecialFlags::
 
 .notSpecial
         inc     hl
-				dec     c
-				jr      nz,.inner
+        dec     c
+        jr      nz,.inner
 
-				pop     bc
-				dec     b
-				jr      nz,.outer
+        pop     bc
+        dec     b
+        jr      nz,.outer
 
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -1597,43 +1597,43 @@ SetBGSpecialFlags::
 ;---------------------------------------------------------------------
 ResetMyBGSpecialFlags::
         push    bc
-				push    de
+        push    de
 
         ldio    a,[firstMonster]
-				ld      b,a
+        ld      b,a
 
         ld      a,MAPBANK
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
         ld      a,[hl]             ;get a tile
-				or      a
-				jr      z,.notSpecial
-				cp      b
-				jr      c,.maybeSpecial
+        or      a
+        jr      z,.notSpecial
+        cp      b
+        jr      c,.maybeSpecial
 
 .isMonster
         ;get tile under monster
         ld      a,TILESHADOWBANK
         ld      [$ff70],a
-				or      a
-				jr      z,.notSpecial
+        or      a
+        jr      z,.notSpecial
 
 .maybeSpecial
-				;might be a Special tile
-				ld      d,((bgAttributes>>8)&$ff)
-				ld      e,a                ;look up its BG attributes
+        ;might be a Special tile
+        ld      d,((bgAttributes>>8)&$ff)
+        ld      e,a                ;look up its BG attributes
         ld      a,TILEINDEXBANK
         ld      [$ff70],a
-				ld      a,[de]
-				and     BG_FLAG_SPECIAL
-				jr      z,.notSpecial
+        ld      a,[de]
+        and     BG_FLAG_SPECIAL
+        jr      z,.notSpecial
 
-				;is Special type
+        ;is Special type
         ld      a,ZONEBANK
         ld      [$ff00+$70],a
 
         set     7,[hl]
-				jr      .done
+        jr      .done
 
 .notSpecial
         ld      a,ZONEBANK
@@ -1641,9 +1641,9 @@ ResetMyBGSpecialFlags::
         res     7,[hl]
 
 .done
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1655,87 +1655,87 @@ ParseWayPointStuff:
         ld      a,WAYPOINTBANK       ;switch in waypoint RAM bank
         ld      [$ff00+$70],a
 
-				;zero out waypoint list
-				push    hl
-				ld      c,0
-				xor     a
-				ld      hl,wayPointList
+        ;zero out waypoint list
+        push    hl
+        ld      c,0
+        xor     a
+        ld      hl,wayPointList
 .zeroWayPoints
         ld      [hl+],a
         ld      [hl+],a
-				dec     c
-				jr      nz,.zeroWayPoints
+        dec     c
+        jr      nz,.zeroWayPoints
         pop     hl
 
-				;512-byte wayPoint list (location*[256])
-				ld      a,[de]               ;number of waypoints
-				inc     de
-				ld      [wayPointList],a
-				or      a
-				jr      nz,.continue
+        ;512-byte wayPoint list (location*[256])
+        ld      a,[de]               ;number of waypoints
+        inc     de
+        ld      [wayPointList],a
+        or      a
+        jr      nz,.continue
 
-				ret     ;no waypoints, no nothing
+        ret     ;no waypoints, no nothing
 
 .continue
         ld      c,a                  ;c is number of waypoints
-				ld      a,[de]               ;pad, discard
-				inc     de
-				ld      hl,wayPointList+2    ;&wayPointList[1]
+        ld      a,[de]               ;pad, discard
+        inc     de
+        ld      hl,wayPointList+2    ;&wayPointList[1]
 
 .wpLoad ld      a,[de]               ;copy high/low byte of waypoint
         inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
 
-				dec     c
-				jr      nz,.wpLoad
+        dec     c
+        jr      nz,.wpLoad
 
-				;load paths
-				ld      a,[de]               ;num paths
-				inc     de
-				ld      [pathList],a
-				or      a
-				jr      z,.afterPaths
+        ;load paths
+        ld      a,[de]               ;num paths
+        inc     de
+        ld      [pathList],a
+        or      a
+        jr      z,.afterPaths
 
-				ld      c,a
-				ld      hl,pathList+4        ;&pathList[1][0]
+        ld      c,a
+        ld      hl,pathList+4        ;&pathList[1][0]
 
 .pathLoad
         ld      a,[de]               ;each path has 4 waypoint indices
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
 
-				dec     c
-				jr      nz,.pathLoad
+        dec     c
+        jr      nz,.pathLoad
 
 .afterPaths
         ;load pathMatrix[16][16]
-				ld      hl,pathMatrix
+        ld      hl,pathMatrix
 
-				ld      b,16
+        ld      b,16
 
 .outer  ld      c,16
 
 .inner  ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
 
-				dec     c
-				jr      nz,.inner
+        dec     c
+        jr      nz,.inner
 
-				dec     b
-				jr      nz,.outer
+        dec     b
+        jr      nz,.outer
 
         ret
 
@@ -1765,35 +1765,35 @@ LoadTile:
 
         ;fg tile set
         ld      a,BANK(FGTiles)   ;Swap in the right bank
-				call    SetActiveROM
+        call    SetActiveROM
         ld      de,FGTiles
-				ld      a,h
-				sub     $08               ;minus 2048 (fg tiles new bank)
-				ld      h,a
+        ld      a,h
+        sub     $08               ;minus 2048 (fg tiles new bank)
+        ld      h,a
 
         jp      .loadTile
 
 .bgTileSet
         cp      $04               ;first or second bank?
-				jr      c,.bgSet1
+        jr      c,.bgSet1
 
 .bgSet2
         sub     $04
-				ld      h,a
+        ld      h,a
         ld      a,BANK(BGTiles1024)
         ld      de,BGTiles1024
-				jr      .gotBank
+        jr      .gotBank
 
 .bgSet1
         ld      a,BANK(BGTiles)   ;Swap in the right bank
         ld      de,BGTiles
 
 .gotBank
-				call    SetActiveROM
+        call    SetActiveROM
 
 .loadTile
         ;Convert hl into a src address offset (hl<<=4) and add base addr de
-				ld      a,h
+        ld      a,h
         sla     l
         rla
         sla     l
@@ -1846,9 +1846,9 @@ LoadBGTile:
         ld      e,b              ;b is class index
 
         ;set the attributes byte for this BG tile
-				PUSHROM
-				ld      a,BANK(bg_colorTable)
-				call    SetActiveROM
+        PUSHROM
+        ld      a,BANK(bg_colorTable)
+        call    SetActiveROM
         push    de
         push    hl
         push    de
@@ -1864,7 +1864,7 @@ LoadBGTile:
         ld      [de],a
         pop     hl
         pop     de
-				POPROM
+        POPROM
 
         ;Increment number of BG tiles counter
         ld      a,[numBGTiles]
@@ -1873,29 +1873,29 @@ LoadBGTile:
         ld      [numBGTiles],a
 
         ;Load in 16 bytes to the work buffer ($c000 + (bgDestPtr&511))
-				;(32 * 16 = 511)
+        ;(32 * 16 = 511)
         ld      a,[bgDestPtr]
         ld      e,a
         ld      a,[bgDestPtr+1]
-				ld      d,a
-				push    de
-				and     1
-				add     $c0
+        ld      d,a
+        push    de
+        and     1
+        add     $c0
         ld      d,a
 
-				ld      c,16
+        ld      c,16
 .loop   ld      a,[hl+]
         ld      [de],a
         inc     de
         dec     c
         jr      nz,.loop
 
-				pop     de
-				call    AddDE16
+        pop     de
+        call    AddDE16
 
-				;copy the work buffer to VRAM if numBGTiles is a multiple of 32
-				ld      a,[numBGTiles]
-				and     31
+        ;copy the work buffer to VRAM if numBGTiles is a multiple of 32
+        ld      a,[numBGTiles]
+        and     31
         call    z,CopyBGWorkToVRAM
 
 IF 0
@@ -1920,9 +1920,9 @@ ENDC
         ld      a,e
         ld      [bgDestPtr],a
         ld      a,d
-				cp      $98
-				jr      c,.checkedNegative
-				sub     $10
+        cp      $98
+        jr      c,.checkedNegative
+        sub     $10
 .checkedNegative
         ld      [bgDestPtr+1],a
 
@@ -1934,45 +1934,45 @@ ENDC
         ret
 
 CopyBGWorkToVRAM:
-				push    bc
-				push    de
-				push    hl
+        push    bc
+        push    de
+        push    hl
 
         ;set destptr to be bgDestPtr & (~511)
         ld      e,0
         ld      a,[bgDestPtr+1]
-				and     $fe
+        and     $fe
         ld      d,a
 
-				;if bgDestPtr is $9000 (1st tile) set $c000-$c00f to black
-				;for the blank tile
-				ld      a,e
-				or      a
-				jr      nz,.afterCopyBlank
-				ld      a,d
-				cp      $90
-				jr      nz,.afterCopyBlank
-				ld      c,16
-				ld      hl,$c000
-				xor     a
+        ;if bgDestPtr is $9000 (1st tile) set $c000-$c00f to black
+        ;for the blank tile
+        ld      a,e
+        or      a
+        jr      nz,.afterCopyBlank
+        ld      a,d
+        cp      $90
+        jr      nz,.afterCopyBlank
+        ld      c,16
+        ld      hl,$c000
+        xor     a
 .setBlankLoop
         ld      [hl+],a
-				dec     c
-				jr      nz,.setBlankLoop
+        dec     c
+        jr      nz,.setBlankLoop
 
 .afterCopyBlank
-				ld      a,[numBGTiles]
-				dec     a
-				and     31
-				inc     a
-				ld      c,a
-				xor     a
-				ld      hl,$c000
-				call    VMemCopy
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        ld      a,[numBGTiles]
+        dec     a
+        and     31
+        inc     a
+        ld      c,a
+        xor     a
+        ld      hl,$c000
+        call    VMemCopy
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -2005,7 +2005,7 @@ LoadFGTile:
         ld      a,[loadTileL]
         ld      e,a
         ld      a,[loadTileH]
-				and     $03
+        and     $03
         ld      d,a
         ld      hl,fg_colorTable
         add     hl,de
@@ -2013,7 +2013,7 @@ LoadFGTile:
         ld      d,((fgAttributes>>8)&$ff)
         ld      a,[hl]
         ld      [de],a
-				ld      b,a      ;save the attributes byte in b
+        ld      b,a      ;save the attributes byte in b
         ldio    [curObjWidthHeight],a
         pop     hl
         pop     de
@@ -2024,16 +2024,16 @@ LoadFGTile:
         push    af
 
         ;load in 2 tiles for a FG object
-				;b has bit 5 set for 2x2 or cleared for 1x1;
-				;manipulate b to have either 8 for 2x2 or 2 for 1x1.
-				bit     5,b
-				jr      nz,.load8Tiles
-				ld      b,2
-				jr      .setNumTilesToLoad
+        ;b has bit 5 set for 2x2 or cleared for 1x1;
+        ;manipulate b to have either 8 for 2x2 or 2 for 1x1.
+        bit     5,b
+        jr      nz,.load8Tiles
+        ld      b,2
+        jr      .setNumTilesToLoad
 .load8Tiles
         ld      b,8
 .setNumTilesToLoad
-				ld      de,$c000          ;load to work buffer
+        ld      de,$c000          ;load to work buffer
 
 .nextTile
         ;Increment number of FG tiles counter
@@ -2042,13 +2042,13 @@ LoadFGTile:
         ld      [numFGTiles],a
 
         ;Load in 16 bytes
-				ld      c,16
+        ld      c,16
 .nextByte
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.nextByte
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.nextByte
 
         dec     b
         jr      nz,.nextTile
@@ -2059,30 +2059,30 @@ LoadFGTile:
 
         ;Increment number of FG tiles counter to account for the new
         ;tiles added in Generate Facings (4 for 1x1 or 12 for 2x2)
-				ldio    a,[curObjWidthHeight]   ;xxFxxxxx
-				rrca                            ;xxxFxxxx
-				rrca                            ;xxxxFxxx
-				and     %00001000               ;0000F000
-				or      %00000100               ;0000F100  4 or 12
-				ld      b,a
+        ldio    a,[curObjWidthHeight]   ;xxFxxxxx
+        rrca                            ;xxxFxxxx
+        rrca                            ;xxxxFxxx
+        and     %00001000               ;0000F000
+        or      %00000100               ;0000F100  4 or 12
+        ld      b,a
         ld      a,[numFGTiles]
         add     b
         ld      [numFGTiles],a
 
         ;store modified destptr (plus n*16 extra tiles)
-				ld      a,[fgDestPtr]
-				ld      e,a
-				ld      a,[fgDestPtr+1]
-				ld      d,a
-				ld      h,0
-				ld      l,b        ;num extra tiles
-				swap    l          ;*16
+        ld      a,[fgDestPtr]
+        ld      e,a
+        ld      a,[fgDestPtr+1]
+        ld      d,a
+        ld      h,0
+        ld      l,b        ;num extra tiles
+        swap    l          ;*16
         add     hl,de
         ld      a,l
         ld      [fgDestPtr],a
         ld      a,h
-				cp      a,$98
-				jr      c,.doneCheckNegative
+        cp      a,$98
+        jr      c,.doneCheckNegative
 
         sub     $10
 .doneCheckNegative
@@ -2108,70 +2108,70 @@ LoadFGTile:
 ;---------------------------------------------------------------------
 LoadAssociatedClass::
         push    bc
-				push    hl
+        push    hl
 
         or      a
-				jr      z,.notFound  ;don't look for it
+        jr      z,.notFound  ;don't look for it
 
         push    bc
-				ld      b,d
-				ld      c,e
+        ld      b,d
+        ld      c,e
         call    FindClassIndex
-				pop     bc
-				or      a
-				jr      z,.notFound
+        pop     bc
+        or      a
+        jr      z,.notFound
 
 .foundMatch
-				ld      b,a
-				jr      .setAssociated
+        ld      b,a
+        jr      .setAssociated
 
 .notFound
 
         ;-------------------------------------------------------------
         ;Didn't find it; go ahead and load it into the next available
-				;slot
+        ;slot
         ;-------------------------------------------------------------
-				ld      a,l
-				ld      [loadTileL],a
-				ld      a,h
-				ld      [loadTileH],a
+        ld      a,l
+        ld      [loadTileL],a
+        ld      a,h
+        ld      [loadTileH],a
 
-				ld      a,[numClasses]
-				inc     a
-				ld      [numClasses],a
-				ld      b,a
+        ld      a,[numClasses]
+        inc     a
+        ld      [numClasses],a
+        ld      b,a
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ;----------Set classLookup to point to vector table----------
-				;set hl to point to classLookup[b] (times two)
-				push    de
-				ld      h,0
-				ld      l,b
-				sla     l
-				rl      h
-				ld      de,classLookup
-				add     hl,de
-				pop     de
-				ld      [hl],e
-				inc     hl
-				ld      [hl],d
+        ;set hl to point to classLookup[b] (times two)
+        push    de
+        ld      h,0
+        ld      l,b
+        sla     l
+        rl      h
+        ld      de,classLookup
+        add     hl,de
+        pop     de
+        ld      [hl],e
+        inc     hl
+        ld      [hl],d
 
         ;-----------Load in the tile--------------------------------
         push    bc
-				ld      c,1                  ;loading fg tile
-				call    LoadTile
-				pop     bc
+        ld      c,1                  ;loading fg tile
+        call    LoadTile
+        pop     bc
 
-				ld      a,OBJROM
-				call    SetActiveROM
+        ld      a,OBJROM
+        call    SetActiveROM
 
 .setAssociated
         ;-------------------------------------------------------------
         ;Expecting calling class index in c, new class index in b
         ;-------------------------------------------------------------
-				call    SetAssociated
+        call    SetAssociated
         pop     hl
         pop     bc
         ret
@@ -2185,25 +2185,25 @@ LoadAssociatedClass::
 ;               temporary variables.
 ;---------------------------------------------------------------------
 SaveFGTileInfo::
-				push    de
+        push    de
         push    hl
 
         ld      hl,numFGTiles
-				ld      a,[hl+]        ;get numFGTiles
-				ld      [hl+],a        ;put numFGTiles_save
-				ld      a,[hl+]        ;get numClasses
-				ld      [hl+],a        ;put numClasses_save
+        ld      a,[hl+]        ;get numFGTiles
+        ld      [hl+],a        ;put numFGTiles_save
+        ld      a,[hl+]        ;get numClasses
+        ld      [hl+],a        ;put numClasses_save
         ld      a,[hl+]        ;get fgTilePtrL
-				ld      e,a
-				ld      a,[hl+]        ;get fgTilePtrH
-				ld      d,a
-				ld      a,e
-				ld      [hl+],a        ;put fgTilePtrL
-				ld      [hl],d         ;put fgTilePtrH
+        ld      e,a
+        ld      a,[hl+]        ;get fgTilePtrH
+        ld      d,a
+        ld      a,e
+        ld      [hl+],a        ;put fgTilePtrL
+        ld      [hl],d         ;put fgTilePtrH
 
-				pop     hl
-				pop     de
-				ret
+        pop     hl
+        pop     de
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -2215,25 +2215,25 @@ SaveFGTileInfo::
 ;---------------------------------------------------------------------
 RestoreFGTileInfo::
         push    de
-				push    hl
+        push    hl
 
-				ld      hl,fgDestPtr_save+1
-				ld      a,[hl-]      ;get fgDestPtrH
-				ld      d,a
-				ld      a,[hl-]      ;get fgDestPtrL
-				ld      e,a
-				ld      a,d
-				ld      [hl-],a      ;put fgDestPtrH
-				ld      a,e
-				ld      [hl-],a      ;put fgDestPtrL
-				ld      a,[hl-]      ;get numClasses
-				ld      [hl-],a      ;put numClasses
-				ld      a,[hl-]      ;get numFGTiles
-				ld      [hl],a       ;put numFGTiles
+        ld      hl,fgDestPtr_save+1
+        ld      a,[hl-]      ;get fgDestPtrH
+        ld      d,a
+        ld      a,[hl-]      ;get fgDestPtrL
+        ld      e,a
+        ld      a,d
+        ld      [hl-],a      ;put fgDestPtrH
+        ld      a,e
+        ld      [hl-],a      ;put fgDestPtrL
+        ld      a,[hl-]      ;get numClasses
+        ld      [hl-],a      ;put numClasses
+        ld      a,[hl-]      ;get numFGTiles
+        ld      [hl],a       ;put numFGTiles
 
-				pop     hl
-				pop     de
-				ret
+        pop     hl
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupHero
@@ -2252,50 +2252,50 @@ RestoreFGTileInfo::
 ;---------------------------------------------------------------------
 SetupHero::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      e,a                  ;save exit type for a bit
+        ld      e,a                  ;save exit type for a bit
 
         ;save tile to load into method parameters
-				ld      a,c
-				ld      [loadTileL],a
-				ld      a,b
-				ld      [loadTileH],a
+        ld      a,c
+        ld      [loadTileL],a
+        ld      a,b
+        ld      [loadTileH],a
 
         ;pick one of two reserved tile sets to load hero into
-				call    SaveFGTileInfo
-				ld      a,d                  ;hero number
-				or      a
-				jr      nz,.loadHero1
+        call    SaveFGTileInfo
+        ld      a,d                  ;hero number
+        or      a
+        jr      nz,.loadHero1
 
         ld      a,[firstHero]
-				ld      [numClasses],a
-			  xor     a
-				ld      bc,$9000
-				jr      .decidedOnTileSet
+        ld      [numClasses],a
+        xor     a
+        ld      bc,$9000
+        jr      .decidedOnTileSet
 
 .loadHero1
         ld      a,[firstHero]
-				add     2
-				ld      [numClasses],a
+        add     2
+        ld      [numClasses],a
         ld      a,20
-				ld      bc,$9140
+        ld      bc,$9140
 .decidedOnTileSet
         ld      [numFGTiles],a
-				ld      a,c
-				ld      [fgDestPtr],a
-				ld      a,b
-				ld      [fgDestPtr+1],a
+        ld      a,c
+        ld      [fgDestPtr],a
+        ld      a,b
+        ld      [fgDestPtr+1],a
         ld      a,1
         ldio    [curObjWidthHeight],a
 
 .setupBC_heroX_index
         ;setup bc with addr of hero0_index or hero1_index
-				ld      bc,hero0_index
-				ld      a,d                  ;want hero 0 or 1?
-				or      a
-				jr      nz,.wantHero1
+        ld      bc,hero0_index
+        ld      a,d                  ;want hero 0 or 1?
+        or      a
+        jr      nz,.wantHero1
 
 .wantHero0
         ld      a,[hero0_type]
@@ -2306,9 +2306,9 @@ SetupHero::
         ldio    [curObjWidthHeight],a
 
 .hero0_afterSetWH
-				ld      a,[heroesPresent]
-				or      %01
-				jr      .heroDataPtrOkay
+        ld      a,[heroesPresent]
+        or      %01
+        jr      .heroDataPtrOkay
 
 .wantHero1
         ld      a,[hero1_type]
@@ -2320,60 +2320,60 @@ SetupHero::
 
 .hero1_afterSetWH
         ld      a,[heroesPresent]
-				or      %10
-				ld      c,(hero1_index & $ff)
+        or      %10
+        ld      c,(hero1_index & $ff)
 
 .heroDataPtrOkay
         ld      [heroesPresent],a
 
-				ld      a,e                  ;retrieve desired exit
-				push    bc                   ;save &heroX_index
+        ld      a,e                  ;retrieve desired exit
+        push    bc                   ;save &heroX_index
 
-				call    FindExitLocation     ;returns exit loc in hl
-				push    hl                   ;save it for later
+        call    FindExitLocation     ;returns exit loc in hl
+        push    hl                   ;save it for later
 
         ld      h,b
-				ld      l,c
-				ld      a,[numClasses]
-				inc     a
-				ld      [numClasses],a
-				ld      b,a
-				ld      [hl+],a         ;store class index in heroX_index
-				inc     hl              ;hl = &heroX_classL
-				inc     hl
-				inc     hl
-				push    af              ;save the hero class index
+        ld      l,c
+        ld      a,[numClasses]
+        inc     a
+        ld      [numClasses],a
+        ld      b,a
+        ld      [hl+],a         ;store class index in heroX_index
+        inc     hl              ;hl = &heroX_classL
+        inc     hl
+        inc     hl
+        push    af              ;save the hero class index
 
-				call    SetClassLookupEntryForTile
+        call    SetClassLookupEntryForTile
 
-				ld      c,1                  ;loading fg tile
-				call    LoadTile
+        ld      c,1                  ;loading fg tile
+        call    LoadTile
 
-				ld      a,OBJROM
-				call    SetActiveROM
+        ld      a,OBJROM
+        call    SetActiveROM
 
         pop     af                   ;retrieve hero class index
         ld      c,a
-				pop     hl                   ;starting location
-				call    CreateObject         ;returns objPtr in de
+        pop     hl                   ;starting location
+        call    CreateObject         ;returns objPtr in de
 
         pop     hl                   ;retrieve &heroX_index
-				inc     hl                   ;hl = &heroX_objectL
-				ld      [hl],e
-				inc     hl
-				ld      [hl],d
+        inc     hl                   ;hl = &heroX_objectL
+        ld      [hl],e
+        inc     hl
+        ld      [hl],d
 
-				call    RestoreFGTileInfo
+        call    RestoreFGTileInfo
 
-				ld      b,METHOD_INIT
-				call    CallMethod
+        ld      b,METHOD_INIT
+        call    CallMethod
 
         ;face opposite direction coming in
-				call    GetFacing
-				and     %11111000
-				ld      b,a
+        call    GetFacing
+        and     %11111000
+        ld      b,a
         LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,[hl]
+        ld      a,[hl]
         cp      EXIT_U
         jr      c,.cardinal
 
@@ -2382,48 +2382,48 @@ SetupHero::
         jr      .gotDir
 
 .cardinal
-				add     1
-				and     %11
+        add     1
+        and     %11
 .gotDir
-				or      b
-				call    SetFacing
+        or      b
+        call    SetFacing
 
         ;reset health of hero
-				;push    de
-				;ld      a,l
-				;and     (255 - (HERODATASIZE-1))     ;set back to heroX_data
-				;ld      l,a
-				;ld      de,HERODATA_HEALTH
-				;add     hl,de
-				;pop     de
+        ;push    de
+        ;ld      a,l
+        ;and     (255 - (HERODATASIZE-1))     ;set back to heroX_data
+        ;ld      l,a
+        ;ld      de,HERODATA_HEALTH
+        ;add     hl,de
+        ;pop     de
         LDHL_CURHERODATA HERODATA_HEALTH
-				ld      a,[hl]
-				or      a
-				jr      z,.afterInitHealth
+        ld      a,[hl]
+        or      a
+        jr      z,.afterInitHealth
 
-				;push    hl
-				call    SetHealth
-				;pop     hl
+        ;push    hl
+        call    SetHealth
+        ;pop     hl
 
-				;reset hero puffs
-				LDHL_CURHERODATA HERODATA_PUFFCOUNT
-				ld      a,[hl]
-				and     %1111
-				call    SetPuffCount
+        ;reset hero puffs
+        LDHL_CURHERODATA HERODATA_PUFFCOUNT
+        ld      a,[hl]
+        and     %1111
+        call    SetPuffCount
 
-				;inc     hl
-				;inc     hl    ;hl = heroX_puffCount
-				;ld      a,[hl]
-				;call    SetPuffCount
+        ;inc     hl
+        ;inc     hl    ;hl = heroX_puffCount
+        ;ld      a,[hl]
+        ;call    SetPuffCount
 
 .afterInitHealth
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      FindExitLocation
@@ -2447,46 +2447,46 @@ SetupHero::
 ;---------------------------------------------------------------------
 FindExitLocation::
         push    bc
-				push    de
+        push    de
 
-				ld      b,a                 ;save exit type
+        ld      b,a                 ;save exit type
 
-				;swap sides if exit type is NESW
-				ld      a,b
-				dec     a
-				and     %11111100
-				jr      nz,.afterSwapExit
+        ;swap sides if exit type is NESW
+        ld      a,b
+        dec     a
+        and     %11111100
+        jr      nz,.afterSwapExit
 
-				ld      a,b
-				dec     a
-				bit     0,a
-				jr      nz,.east_or_west
+        ld      a,b
+        dec     a
+        bit     0,a
+        jr      nz,.east_or_west
 
-				;north or south
-				bit     1,a
-				jr      nz,.south
+        ;north or south
+        bit     1,a
+        jr      nz,.south
 
 .north  ;looking for north entrance so coming from south, place at top
         ld      l,1
-				jr      .afterSwapExit
+        jr      .afterSwapExit
 
 .south  ;entering south means coming from north, place at bottom
         ld      a,[mapHeight]
-				dec     a
-				dec     a
-				ld      l,a
-				jr      .afterSwapExit
+        dec     a
+        dec     a
+        ld      l,a
+        jr      .afterSwapExit
 
 .east_or_west
         bit     0,a
-				jr      nz,.west
+        jr      nz,.west
 
-				;entering east, place at right
-				ld      a,[mapWidth]
-				dec     a
-				dec     a
-				ld      h,a
-				jr      .afterSwapExit
+        ;entering east, place at right
+        ld      a,[mapWidth]
+        dec     a
+        dec     a
+        ld      h,a
+        jr      .afterSwapExit
 
 .west   ;entering west, place at left
         ld      h,1
@@ -2494,111 +2494,111 @@ FindExitLocation::
 .afterSwapExit
         ;make sure x & y are within bounds
         ld      a,[mapWidth]
-				cp      h                 ;width > x?
-				jr      z,.xOutOfBounds
-				jr      nc,.xInBounds
+        cp      h                 ;width > x?
+        jr      z,.xOutOfBounds
+        jr      nc,.xInBounds
 
 .xOutOfBounds
-				sub     2   ;x out-of-bounds, set to width-2
-				ld      h,a
+        sub     2   ;x out-of-bounds, set to width-2
+        ld      h,a
 
 .xInBounds
         ld      a,[mapHeight]
-				cp      l
-				jr      z,.yOutOfBounds
-				jr      nc,.yInBounds
+        cp      l
+        jr      z,.yOutOfBounds
+        jr      nc,.yInBounds
 
 .yOutOfBounds
         sub     2
-				ld      l,a
+        ld      l,a
 
 .yInBounds
         call    ConvertXYToLocHL    ;location back to ptr
 
-				swap    b
-				ld      c,$f0       ;put mask in register for faster ANDing
+        swap    b
+        ld      c,$f0       ;put mask in register for faster ANDing
 
-				;setup de with first out-of-bounds index
-				ld      a,[mapTotalSize]
-				ld      e,a
-				ld      a,[mapTotalSize+1]
-				ld      d,a
+        ;setup de with first out-of-bounds index
+        ld      a,[mapTotalSize]
+        ld      e,a
+        ld      a,[mapTotalSize+1]
+        ld      d,a
 
-				ld      a,ZONEBANK
-				ld      [$ff70],a
+        ld      a,ZONEBANK
+        ld      [$ff70],a
 
-.loop		ld      a,h
+.loop    ld      a,h
         cp      d
-				jr      nz,.continue
-				ld      a,l
-				cp      e
-				jr      nz,.continue
+        jr      nz,.continue
+        ld      a,l
+        cp      e
+        jr      nz,.continue
 
-				;reached end of map
-				jr      .didntFind
+        ;reached end of map
+        jr      .didntFind
 
 .continue
         ld      a,[hl+]
         and     c
-				cp      b
-				jr      nz,.loop
+        cp      b
+        jr      nz,.loop
 
-				;found an exit location; see if it's empty
+        ;found an exit location; see if it's empty
         call    .isValidExit
-				jr      nz,.done
-				inc     hl
-				jr      .loop
+        jr      nz,.done
+        inc     hl
+        jr      .loop
 
 .didntFind      ;look again starting at beginning
         ld      hl,map
-				ld      a,[mapHeight]
-				ld      d,a
+        ld      a,[mapHeight]
+        ld      d,a
 
 .outer  ld      a,[mapPitch]
         ld      e,a
 .inner  ld      a,[hl+]
         and     c
-				cp      b
-				jr      nz,.notFoundYet
+        cp      b
+        jr      nz,.notFoundYet
 
-				;maybe found; check if map location occupied
+        ;maybe found; check if map location occupied
         call    .isValidExit
-				jr      nz,.done
+        jr      nz,.done
         inc     hl
 
 .notFoundYet
-				dec     e
-				jr      nz,.inner
-				dec     d
-				jr      nz,.outer
+        dec     e
+        jr      nz,.inner
+        dec     d
+        jr      nz,.outer
 
 ;didnt find it after searching the WHOLE map
         ld      hl,$0000
 
 .done
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 .isValidExit
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				dec     hl
-				ld      a,[hl]       ;get this location in the map array
-				push    af           ;save it for a sec
-				ld      a,ZONEBANK   ;switch back to zones just in case
-				ld      [$ff70],a
-				pop     af
-				or      a
-				jr      nz,.validFalse
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        dec     hl
+        ld      a,[hl]       ;get this location in the map array
+        push    af           ;save it for a sec
+        ld      a,ZONEBANK   ;switch back to zones just in case
+        ld      [$ff70],a
+        pop     af
+        or      a
+        jr      nz,.validFalse
 
         ldio    a,[curObjWidthHeight]
         cp      1
         jr      z,.validTrue
 
         ;2x2; must check locations to right, down-right, and down
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
         push    hl
 
         inc     hl
@@ -2624,14 +2624,14 @@ FindExitLocation::
 
 .validTrueCleanUp
         pop     hl
-				ld      a,ZONEBANK   ;switch back to zones
-				ld      [$ff70],a
+        ld      a,ZONEBANK   ;switch back to zones
+        ld      [$ff70],a
         jr      .validTrue
 
 .validFalseCleanUp
         pop     hl
-				ld      a,ZONEBANK   ;switch back to zones
-				ld      [$ff70],a
+        ld      a,ZONEBANK   ;switch back to zones
+        ld      [$ff70],a
         xor     a
         ret
 
@@ -2655,41 +2655,41 @@ FindExitLocation::
 ;---------------------------------------------------------------------
 FindClassIndex::
         push    de
-				push    hl
+        push    hl
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
-				ld      a,[numClasses]
-				ld      d,a
-				ld      e,1
+        ld      a,[numClasses]
+        ld      d,a
+        ld      e,1
 
-				ld      hl,classLookup+2
+        ld      hl,classLookup+2
 
 .loop   ld      a,[hl+]
         cp      c
-				jr      nz,.afterCheck
-				ld      a,[hl]
-				cp      b
-				jr      nz,.afterCheck
+        jr      nz,.afterCheck
+        ld      a,[hl]
+        cp      b
+        jr      nz,.afterCheck
 
         ;found it!
-				ld      a,e           ;a is class index
-				or      a
-				pop     hl
-				pop     de
-				ret
+        ld      a,e           ;a is class index
+        or      a
+        pop     hl
+        pop     de
+        ret
 
 .afterCheck
         inc     hl
-				inc     e
-				dec     d
-				jr      nz,.loop
+        inc     e
+        dec     d
+        jr      nz,.loop
 
-				pop     hl
+        pop     hl
         pop     de
         xor     a             ;didn't find it
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ChangeClass
@@ -2700,33 +2700,33 @@ FindClassIndex::
 ;               "new" class type
 ;---------------------------------------------------------------------
 ChangeClass::
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      a,$ff
-				ld      hl,classLookup+2
+        ld      hl,classLookup+2
 
 .loop   push    af
         ld      a,[hl+]
         cp      c
-				jr      nz,.afterCheck
-				ld      a,[hl]
-				cp      b
-				jr      nz,.afterCheck
+        jr      nz,.afterCheck
+        ld      a,[hl]
+        cp      b
+        jr      nz,.afterCheck
 
         ;replace old class with new
         ld      [hl],d
         dec     hl
-				ld      [hl],e
-				inc     hl
+        ld      [hl],e
+        inc     hl
 
 .afterCheck
         inc     hl
-				pop     af
-				dec     a
-				jr      nz,.loop
+        pop     af
+        dec     a
+        jr      nz,.loop
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ChangeFirstClass
@@ -2737,35 +2737,35 @@ ChangeClass::
 ;               type to the "new" class type
 ;---------------------------------------------------------------------
 ChangeFirstClass::
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      a,$ff
-				ld      hl,classLookup+2
+        ld      hl,classLookup+2
 
 .loop   push    af
         ld      a,[hl+]
         cp      c
-				jr      nz,.afterCheck
-				ld      a,[hl]
-				cp      b
-				jr      nz,.afterCheck
+        jr      nz,.afterCheck
+        ld      a,[hl]
+        cp      b
+        jr      nz,.afterCheck
 
         ;replace old class with new
         ld      [hl],d
         dec     hl
-				ld      [hl],e
-				inc     hl
+        ld      [hl],e
+        inc     hl
         pop     af
         ret
 
 .afterCheck
         inc     hl
-				pop     af
-				dec     a
-				jr      nz,.loop
+        pop     af
+        dec     a
+        jr      nz,.loop
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     CopyMapMethodToRAM
@@ -2782,48 +2782,48 @@ CopyMapMethodToRAM::
         push    de
         push    hl
 
-				call    LookupInMapContents    ;set hl to point to source
+        call    LookupInMapContents    ;set hl to point to source
 
-				;setup bc as # bytes to copy
-				ld      c,[hl]            ;low byte of size
-				inc     hl
-				ld      b,[hl]            ;high byte of size
-				inc     hl
+        ;setup bc as # bytes to copy
+        ld      c,[hl]            ;low byte of size
+        inc     hl
+        ld      b,[hl]            ;high byte of size
+        inc     hl
 
-				ld      de,levelCheckRAM  ;dest addr
+        ld      de,levelCheckRAM  ;dest addr
 
         ;copy sets of 256
-				ld      a,b
-				or      a
-				jr      z,.copy_lt_256
-				push    bc
+        ld      a,b
+        or      a
+        jr      z,.copy_lt_256
+        push    bc
 .outer  ld      c,0
 .inner  ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.inner
-				dec     b
-				jr      nz,.outer
-				pop     bc
+        inc     de
+        dec     c
+        jr      nz,.inner
+        dec     b
+        jr      nz,.outer
+        pop     bc
 
 .copy_lt_256
-				;copy remaining < 256 bytes
-				ld      a,c
-				or      a
-				jr      z,.done
+        ;copy remaining < 256 bytes
+        ld      a,c
+        or      a
+        jr      z,.done
 .loop   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.loop
+        inc     de
+        dec     c
+        jr      nz,.loop
 
 .done
         pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      HandleExitFromMap
@@ -2840,11 +2840,11 @@ CopyMapMethodToRAM::
 ;---------------------------------------------------------------------
 HandleExitFromMap::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;save exit type in B
-				call    GetCurLocation
+        call    GetCurLocation
         ldio    a,[curObjWidthHeight]
         cp      2
         jr      nz,.locationSet
@@ -2871,179 +2871,179 @@ HandleExitFromMap::
         call    ConvertXYToLocHL
 
 .locationSet
-			  ld      a,ZONEBANK
-				ld      [$ff70],a
-				ld      a,[hl]
-				swap    a
-				and     %00000111
-				ld      b,a
+        ld      a,ZONEBANK
+        ld      [$ff70],a
+        ld      a,[hl]
+        swap    a
+        and     %00000111
+        ld      b,a
 
         ;save exit location as entry location
-				call    ConvertLocHLToXY
+        call    ConvertLocHLToXY
 
-				push    de
-				ld      d,((hero0_data>>8) & $ff)
-				ld      a,[curHeroAddressL]
-				add     HERODATA_ENTERLOC
-				ld      e,a
-				ld      a,l
-				ld      [de],a
-				inc     de
-				ld      a,h
-				ld      [de],a
-				pop     de
+        push    de
+        ld      d,((hero0_data>>8) & $ff)
+        ld      a,[curHeroAddressL]
+        add     HERODATA_ENTERLOC
+        ld      e,a
+        ld      a,l
+        ld      [de],a
+        inc     de
+        ld      a,h
+        ld      [de],a
+        pop     de
 
-				;lookup link in link table
-				ld      a,b
-				sla     a
-				add     (mapExitLinks & $ff)
-				ld      l,a
-				ld      a,0
-				adc     ((mapExitLinks>>8) & $ff)
-				ld      h,a
+        ;lookup link in link table
+        ld      a,b
+        sla     a
+        add     (mapExitLinks & $ff)
+        ld      l,a
+        ld      a,0
+        adc     ((mapExitLinks>>8) & $ff)
+        ld      h,a
 
         ;store 16-bit BCD link value in hl
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
         ld      a,$40
-				cp      h
-				jr      nz,.linkOkay
-				cp      l
-				jr      nz,.linkOkay
-				jp      .done              ;link is $4040 = (+0,+0) = no link
+        cp      h
+        jr      nz,.linkOkay
+        cp      l
+        jr      nz,.linkOkay
+        jp      .done              ;link is $4040 = (+0,+0) = no link
 
 .linkOkay
         ;if remote hero exiting then don't change my map
-				push    hl
-				LDHL_CURHERODATA HERODATA_INDEX
-				ld      a,[hl]
-				pop     hl
-				cp      c            ;cur hero index == cur index?
-				jr      z,.localHero
-				jp      .removeRemoteHero
+        push    hl
+        LDHL_CURHERODATA HERODATA_INDEX
+        ld      a,[hl]
+        pop     hl
+        cp      c            ;cur hero index == cur index?
+        jr      z,.localHero
+        jp      .removeRemoteHero
 
 .localHero
         call    RemoveHero
         ld      a,h          ;x link/offset
-				and     %11000000
-				jr      nz,.xlinkRelative
+        and     %11000000
+        jr      nz,.xlinkRelative
 
-				ld      a,h
-				jr      .doY
+        ld      a,h
+        jr      .doY
 
 .xlinkRelative
         bit     6,h          ;positive offset?
-				jr      z,.negative_x_offset
+        jr      z,.negative_x_offset
 
         ;positive offset
-				call    .setupH
-				call    BCDToNumber
-				add     h
+        call    .setupH
+        call    BCDToNumber
+        add     h
         call    NumberToBCD
-				jr      .doY
+        jr      .doY
 
 .negative_x_offset
-				call    .setupH
-				call    BCDToNumber
-				sub     h
+        call    .setupH
+        call    BCDToNumber
+        sub     h
         call    NumberToBCD
-				jr      .doY
+        jr      .doY
 
 .setupH
-				ld      a,h
-				and     %00111111
-				ld      h,a
-				ld      a,[curLevelIndex+1]
-				ret
+        ld      a,h
+        and     %00111111
+        ld      h,a
+        ld      a,[curLevelIndex+1]
+        ret
 
 .doY
-				ld      [curLevelIndex+1],a
+        ld      [curLevelIndex+1],a
 
         ld      a,l          ;y link/offset
-				and     %11000000
-				jr      nz,.ylinkRelative
+        and     %11000000
+        jr      nz,.ylinkRelative
 
-				ld      a,l
-				jr      .finishedY
+        ld      a,l
+        jr      .finishedY
 
 .ylinkRelative
         bit     6,l          ;positive offset?
-				jr      z,.negative_y_offset
+        jr      z,.negative_y_offset
 
         ;positive offset
-				call    .setupL
-				call    BCDToNumber
-				add     l
+        call    .setupL
+        call    BCDToNumber
+        add     l
         call    NumberToBCD
-				jr      .finishedY
+        jr      .finishedY
 
 .negative_y_offset
-				call    .setupL
-				call    BCDToNumber
-				sub     l
+        call    .setupL
+        call    BCDToNumber
+        sub     l
         call    NumberToBCD
-				jr      .finishedY
+        jr      .finishedY
 
 .setupL
-				ld      a,l
-				and     %00111111
-				ld      l,a
-				ld      a,[curLevelIndex]
-				ret
+        ld      a,l
+        and     %00111111
+        ld      l,a
+        ld      a,[curLevelIndex]
+        ret
 
 .finishedY
-				ld      [curLevelIndex],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      [curLevelIndex],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
-				;switch NESW to be opposite
-				ld      a,b
-				dec     a
-				and     %11111100
-				jr      nz,.switchUp
+        ;switch NESW to be opposite
+        ld      a,b
+        dec     a
+        and     %11111100
+        jr      nz,.switchUp
 
-				ld      a,b
-				inc     a           ;same as a--, a+=2
-				and     %00000011
-				inc     a
-				ld      b,a
-				jr      .afterSwitchToOpposite
+        ld      a,b
+        inc     a           ;same as a--, a+=2
+        and     %00000011
+        inc     a
+        ld      b,a
+        jr      .afterSwitchToOpposite
 
 .switchUp
         ld      a,b
-				cp      EXIT_U
-				jr      nz,.switchDown
-				ld      b,EXIT_D
-				ld      a,b
-				jr      .afterSwitchToOpposite
+        cp      EXIT_U
+        jr      nz,.switchDown
+        ld      b,EXIT_D
+        ld      a,b
+        jr      .afterSwitchToOpposite
 
 .switchDown
-				cp      EXIT_D
-				jr      nz,.afterSwitchToOpposite
-				ld      b,EXIT_U
-				ld      a,b
+        cp      EXIT_D
+        jr      nz,.afterSwitchToOpposite
+        ld      b,EXIT_U
+        ld      a,b
 
 .afterSwitchToOpposite
         LDHL_CURHERODATA HERODATA_ENTERDIR
         ld      a,b
-				ld      [hl],a
+        ld      [hl],a
 
 .updateState
-				;don't update the state if it's an asynchronous can-join
-				;map or a cinema
-				ld      a,[canJoinMap]
-				cp      2
-				jr      z,.afterUpdateState
-				ld      a,[displayType]
-				cp      1
-				jr      z,.afterUpdateState
+        ;don't update the state if it's an asynchronous can-join
+        ;map or a cinema
+        ld      a,[canJoinMap]
+        cp      2
+        jr      z,.afterUpdateState
+        ld      a,[displayType]
+        cp      1
+        jr      z,.afterUpdateState
 
         call    UpdateState
 
 .removeRemoteHero
-				call    RemoveHero
+        call    RemoveHero
 
 .afterUpdateState
 .zeroIndex
@@ -3063,30 +3063,30 @@ HandleExitFromMap::
         ld      [hero1_index],a
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 UpdateState::
         ld      a,[amLinkMaster]
-				bit     7,a
+        bit     7,a
         ret     nz    ;no link
 
 .updateState
         ld      a,LUPDATESTATE
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.updateState      ;must repeat
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.updateState      ;must repeat
 
         ld      a,[curLevelStateIndex]
-				call    TransmitByte
+        call    TransmitByte
         ldio    a,[mapState]
         or      a
         jr      nz,.stateNotZero
         ld      a,1
 .stateNotZero
-				call    TransmitByte
+        call    TransmitByte
         ret
 
 
@@ -3104,7 +3104,7 @@ HasInventoryItem::
         call    PointHLToInventory
         pop     hl
         and     c
-				ret
+        ret
 
 AddInventoryItem::
         ;duplicate code also in user.asm
@@ -3113,15 +3113,15 @@ AddInventoryItem::
         or      c
         ld      [hl],a
 
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.afterUpdateRemote
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.afterUpdateRemote
 
 .updateRemote
-				ld      a,LADDINVITEM
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.updateRemote      ;must repeat
+        ld      a,LADDINVITEM
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.updateRemote      ;must repeat
         ld      a,c
         call    TransmitByte
         ld      a,b
@@ -3140,15 +3140,15 @@ RemoveInventoryItem::
         xor     $ff
         ld      [hl],a
 
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.afterUpdateRemote
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.afterUpdateRemote
 
 .updateRemote
-				ld      a,LREMINVITEM
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.updateRemote      ;must repeat
+        ld      a,LREMINVITEM
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.updateRemote      ;must repeat
         ld      a,c
         call    TransmitByte
         ld      a,b
@@ -3308,191 +3308,191 @@ GuestContinueSynchronization::
         push    hl
 
         xor     a
-				ld      [backBufferReady],a
+        ld      [backBufferReady],a
 
         ld      a,LSYNCHREADY
         call    TransmitByte
 
         ;receive fresh copy of all my hero data from host
-				ld      hl,hero0_data
-				ld      bc,HERODATASIZE*2
-				xor     a
-				call    ReceiveData
+        ld      hl,hero0_data
+        ld      bc,HERODATASIZE*2
+        xor     a
+        call    ReceiveData
 
         LONGCALLNOARGS ResetList
 
-				call    ReceiveByte
-				ld      [randomLoc],a
+        call    ReceiveByte
+        ld      [randomLoc],a
 
-				call    ReceiveByte
-				ld      [heroesIdle],a
+        call    ReceiveByte
+        ld      [heroesIdle],a
 
-				ld      hl,map
-				ld      bc,4096
-				ld      a,MAPBANK
-				call    ReceiveData
+        ld      hl,map
+        ld      bc,4096
+        ld      a,MAPBANK
+        call    ReceiveData
 
-				;fadeCurPalette
-				ld      hl,fadeCurPalette
-				ld      bc,128
-				xor     a
-				call    ReceiveData
+        ;fadeCurPalette
+        ld      hl,fadeCurPalette
+        ld      bc,128
+        xor     a
+        call    ReceiveData
 
-				;gamePalette
-				ld      hl,gamePalette
-				ld      bc,128
-				ld      a,FADEBANK
-				call    ReceiveData
+        ;gamePalette
+        ld      hl,gamePalette
+        ld      bc,128
+        ld      a,FADEBANK
+        call    ReceiveData
 
-				;first 16 bytes of level check RAM
-				ld      hl,levelCheckRAM
+        ;first 16 bytes of level check RAM
+        ld      hl,levelCheckRAM
         ld      bc,16
-				xor     a
-				call    ReceiveData
+        xor     a
+        call    ReceiveData
 
-				;spriteOAMdata
-				ld      hl,spriteOAMBuffer
+        ;spriteOAMdata
+        ld      hl,spriteOAMBuffer
         ld      bc,160
-				xor     a
-				call    ReceiveData
+        xor     a
+        call    ReceiveData
 
-				ld      hl,headTable    ;headTable - linked list head
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    ReceiveData
+        ld      hl,headTable    ;headTable - linked list head
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    ReceiveData
 
-				ld      hl,objExists     ;objExists, FOF table
-				ld      bc,512
-				ld      a,OBJLISTBANK
-				call    ReceiveCompressedData
+        ld      hl,objExists     ;objExists, FOF table
+        ld      bc,512
+        ld      a,OBJLISTBANK
+        call    ReceiveCompressedData
 
-				call    ReceiveByte
-				ld      [numClasses],a
-				ld      b,0    ;bc = numClasses*2 + 2
-				ld      c,a
-				sla     c
-				rl      b
+        call    ReceiveByte
+        ld      [numClasses],a
+        ld      b,0    ;bc = numClasses*2 + 2
+        ld      c,a
+        sla     c
+        rl      b
         inc     bc
         inc     bc
 
-				ld      hl,classLookup
-				;ld      bc,512 numClasses*2
-				ld      a,OBJLISTBANK
-				call    ReceiveData
+        ld      hl,classLookup
+        ;ld      bc,512 numClasses*2
+        ld      a,OBJLISTBANK
+        call    ReceiveData
 
-				ld      hl,fgTileMap
-				ld      a,[numClasses]
-				ld      b,0
-				ld      c,a
-				ld      a,OBJLISTBANK
-				call    ReceiveData
+        ld      hl,fgTileMap
+        ld      a,[numClasses]
+        ld      b,0
+        ld      c,a
+        ld      a,OBJLISTBANK
+        call    ReceiveData
 
-				ld      hl,objClassLookup   ;class indices for each obj
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    ReceiveData
+        ld      hl,objClassLookup   ;class indices for each obj
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    ReceiveData
 
-				ld      hl,associatedIndex
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    ReceiveData
+        ld      hl,associatedIndex
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    ReceiveData
 
-				ld      hl,spritesUsed
-				ld      bc,40
-				ld      a,OBJLISTBANK
-				call    ReceiveCompressedData
+        ld      hl,spritesUsed
+        ld      bc,40
+        ld      a,OBJLISTBANK
+        call    ReceiveCompressedData
 
-				;---------------receive  used objects-------------------------
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				ld      de,objExists+1
+        ;---------------receive  used objects-------------------------
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        ld      de,objExists+1
 .receiveUsedObject
         ld      a,[de]            ;is this object used?
-				or      a
-				jr      z,.afterReceiveUsedObject  ;not used
+        or      a
+        jr      z,.afterReceiveUsedObject  ;not used
 
         PREPLONGCALL .afterCvtIndexToPtr
         ld      a,e           ;get object index
-				LONGCALL IndexToPointerHL       ;cvt to ptr
+        LONGCALL IndexToPointerHL       ;cvt to ptr
 .afterCvtIndexToPtr
-				ld      bc,16
-				ld      a,OBJBANK
-				call    ReceiveData
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      bc,16
+        ld      a,OBJBANK
+        call    ReceiveData
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
 .afterReceiveUsedObject
-				inc     de
-				ld      a,e
-				or      a
-				jr      nz,.receiveUsedObject
+        inc     de
+        ld      a,e
+        or      a
+        jr      nz,.receiveUsedObject
 
-				call    ReceiveByte
-				ld      [numFreeSprites],a
+        call    ReceiveByte
+        ld      [numFreeSprites],a
 
-				call    ReceiveByte
-				ld      [firstFreeObj],a
+        call    ReceiveByte
+        ld      [firstFreeObj],a
 
-				call    ReceiveByte
-				ld      [randomLoc],a
+        call    ReceiveByte
+        ld      [randomLoc],a
 
-				call    ReceiveByte
-				ld      [guardAlarm],a
+        call    ReceiveByte
+        ld      [guardAlarm],a
 
-				;call    ReceiveByte
-				;ld      [dialogBank],a
+        ;call    ReceiveByte
+        ;ld      [dialogBank],a
 
-				call    ReceiveByte
-				ld      [respawnMap],a
-				call    ReceiveByte
-				ld      [respawnMap+1],a
+        call    ReceiveByte
+        ld      [respawnMap],a
+        call    ReceiveByte
+        ld      [respawnMap+1],a
 
-				call    ReceiveByte
-				ldio    [mapState],a
-				call    ReceiveByte
-				ldio    [mapState+1],a
+        call    ReceiveByte
+        ldio    [mapState],a
+        call    ReceiveByte
+        ldio    [mapState+1],a
 
-				ld      hl,levelVars
-				ld      bc,64
-				xor     a
-				call    ReceiveData
+        ld      hl,levelVars
+        ld      bc,64
+        xor     a
+        call    ReceiveData
 
-				;my music to off
-				xor     a
-				ld      [musicEnabled],a
+        ;my music to off
+        xor     a
+        ld      [musicEnabled],a
 
-				ld      hl,musicBank
-				ld      bc,64
-				xor     a
-				call    ReceiveData
+        ld      hl,musicBank
+        ld      bc,64
+        xor     a
+        call    ReceiveData
 
-				;setup the wave table
-				ld      c,16
-				ld      de,$ff30
-				ld      hl,musicWaveform
+        ;setup the wave table
+        ld      c,16
+        ld      de,$ff30
+        ld      hl,musicWaveform
 .setupWave
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.setupWave
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.setupWave
 
         ;set default instruments
-				ld      hl,musicInstrument1
-				ld      de,$ff10
-				ld      bc,4
-				xor     a
-				call    MemCopy
-				ld      hl,musicInstrument2
-				ld      de,$ff16
-				ld      bc,3
-				call    MemCopy
-				ld      hl,musicInstrument3
-				ld      de,$ff31
-				call    MemCopy
-				ld      hl,musicInstrument4
-				ld      de,$ff20
-				call    MemCopy
+        ld      hl,musicInstrument1
+        ld      de,$ff10
+        ld      bc,4
+        xor     a
+        call    MemCopy
+        ld      hl,musicInstrument2
+        ld      de,$ff16
+        ld      bc,3
+        call    MemCopy
+        ld      hl,musicInstrument3
+        ld      de,$ff31
+        call    MemCopy
+        ld      hl,musicInstrument4
+        ld      de,$ff20
+        call    MemCopy
 
         ;disable sound
         xor     a
@@ -3510,22 +3510,22 @@ GuestContinueSynchronization::
         ldio    [$ff24],a   ;volume
         ldio    [$ff25],a   ;sound output terminals
 
-				ld      hl,musicStack
-				ld      bc,128
-				ld      a,MUSICBANK
-				call    ReceiveData
+        ld      hl,musicStack
+        ld      bc,128
+        ld      a,MUSICBANK
+        call    ReceiveData
 
-				call    ReceiveByte
-				ldio    [musicEnabled],a
+        call    ReceiveByte
+        ldio    [musicEnabled],a
 
 
         LONGCALLNOARGS LinkRemakeLists
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      RandomizeFlightCodes

@@ -99,15 +99,15 @@ L0612_Init2:
         STDSETUPDIALOG
 
         ld      hl,$1100
-				call    SetJoinMap
-				call    SetRespawnMap
+        call    SetJoinMap
+        call    SetRespawnMap
 
         ld      a,BANK(fgbwar_gbm)
         ld      hl,fgbwar_gbm
         call    InitMusic
 
         ld      a,[bgTileMap+DICEINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_DICELIGHT],a
+        ld      [levelVars+VAR_DICELIGHT],a
 
         ld      a,ENV_COUNTER
         ld      [envEffectType],a
@@ -360,9 +360,9 @@ L0612_Check2:
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$0912
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
 
         ld      a,STATE_RETURNINIT
@@ -371,8 +371,8 @@ L0612_Check2:
         ld      a,EXIT_D
         call    YankRemotePlayer
 
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ld      a,1
         ret
@@ -497,7 +497,7 @@ L0612_Check2:
 
 .go
         ld      bc,classTeleportCube
-				call    FindClassIndex
+        call    FindClassIndex
         ret     z
         ld      c,a
         call    CreateInitAndDrawObject
@@ -530,38 +530,38 @@ L0612_Check2:
 
 .animateDiceLights
         ;animate dice lights
-				ld      a,[levelVars+VAR_DICELIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_DICELIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+DICEINDEX
-				call    ((.updateTwoLights - L0612_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+DICEINDEX
+        call    ((.updateTwoLights - L0612_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L0612_Check2) + levelCheckRAM)
-				ret
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L0612_Check2) + levelCheckRAM)
+        ret
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L0612_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L0612_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 .cubeAppearTable

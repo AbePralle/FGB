@@ -30,30 +30,30 @@ L1201_Load2:
         call    SetupFadeToWhite
         call    WaitFade
 
-				ld      a,BANK(waiting_to_join_bg)
-				ld      hl,waiting_to_join_bg
-				call    LoadCinemaBG
+        ld      a,BANK(waiting_to_join_bg)
+        ld      hl,waiting_to_join_bg
+        call    LoadCinemaBG
 
-				ld      a,16
-				call    SetupFadeFromStandard
-				call    WaitFade
+        ld      a,16
+        call    SetupFadeFromStandard
+        call    WaitFade
 
-				ld      a,30
-				call    Delay
+        ld      a,30
+        call    Delay
 
-				ld      a,16
-				call    SetupFadeToStandard
-				call    WaitFade
+        ld      a,16
+        call    SetupFadeToStandard
+        call    WaitFade
 
-				ld      a,$02
-				ld      [curLevelIndex+1],a
-				ld      a,$05
-				ld      [curLevelIndex],a
+        ld      a,$02
+        ld      [curLevelIndex+1],a
+        ld      a,$05
+        ld      [curLevelIndex],a
 
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
-				ret
+        ret
 
 
 L1201_LoadFinished:
@@ -76,7 +76,7 @@ L1201_Check:
 ;---------------------------------------------------------------------
         DW ((L1201_CheckFinished - L1201_Check) - 2)  ;size
 L1201_Check2:
-				ret
+        ret
 L1201_CheckFinished:
 
 

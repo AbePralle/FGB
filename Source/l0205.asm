@@ -57,7 +57,7 @@ L0205_Load:
         DW ((L0205_LoadFinished - L0205_Load2))  ;size
 L0205_Load2:
         call    ParseMap
-				ret
+        ret
 
 L0205_LoadFinished:
 
@@ -105,9 +105,9 @@ L0205_Init2:
         ret
 
 .removeBridge
-				ld      bc,classWallCreature
-				ld      de,classWallTalker
-				call    ChangeClass
+        ld      bc,classWallCreature
+        ld      de,classWallTalker
+        call    ChangeClass
         ld      bc,classStunnedWall
         call    DeleteObjectsOfClass
         ld      a,MAPBANK
@@ -143,12 +143,12 @@ L0205_Check:
 ;---------------------------------------------------------------------
         DW ((L0205_CheckFinished - L0205_Check) - 2)  ;size
 L0205_Check2:
-				call    SetSkipStackPos
+        call    SetSkipStackPos
         call    CheckSkip
 
         call    ((.animateWater-L0205_Check2)+levelCheckRAM)
 
-				VECTORTOSTATE ((.stateTable - L0205_Check2) + levelCheckRAM)
+        VECTORTOSTATE ((.stateTable - L0205_Check2) + levelCheckRAM)
         ret
 
 .stateTable
@@ -188,7 +188,7 @@ L0205_Check2:
         ld      de,((.afterDialog-L0205_Check2) + levelCheckRAM)
         call    SetDialogSkip
         DIALOGTOP l0205_idiot_gtx
-				WAITDIALOG STATE_TALK_WHAT
+        WAITDIALOG STATE_TALK_WHAT
         ret
 
 .what
@@ -197,7 +197,7 @@ L0205_Check2:
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
         DIALOGBOTTOM l0205_what_gtx
-				WAITDIALOG STATE_TALK_FORGIVE
+        WAITDIALOG STATE_TALK_FORGIVE
         ret
 
 .forgive
@@ -206,7 +206,7 @@ L0205_Check2:
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
         DIALOGTOP l0205_forgive_gtx
-				WAITDIALOG STATE_TALK_OKAY
+        WAITDIALOG STATE_TALK_OKAY
         ret
 
 .okay
@@ -215,7 +215,7 @@ L0205_Check2:
         ld      a,[dialogNPC_heroIndex]
         ld      c,a
         DIALOGBOTTOM l0205_okay_gtx
-				WAITDIALOG STATE_TALK_GOWEST
+        WAITDIALOG STATE_TALK_GOWEST
         ret
 
 .gowest
@@ -224,7 +224,7 @@ L0205_Check2:
         ld      a,[dialogNPC_speakerIndex]
         ld      c,a
         DIALOGTOP l0205_west_gtx
-				WAITDIALOG STATE_TALK_AFTER
+        WAITDIALOG STATE_TALK_AFTER
         ret
 
 .afterDialog
@@ -249,27 +249,27 @@ L0205_Check2:
         ret     nz
 
         ;animate water by cycling the tile mapping of class 7 from
-				;7-10 and class 22 from 22-25
+        ;7-10 and class 22 from 22-25
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,bgTileMap+WATER_INDEX
-				ld      a,[hl]
-				sub     WATER_INDEX
-				inc     a
-				and     %11
-				add     WATER_INDEX
-				ld      [hl],a
+        ld      hl,bgTileMap+WATER_INDEX
+        ld      a,[hl]
+        sub     WATER_INDEX
+        inc     a
+        and     %11
+        add     WATER_INDEX
+        ld      [hl],a
 
-				ld      hl,bgTileMap+DARKWATER_INDEX
-				ld      a,[hl]
-				sub     DARKWATER_INDEX
-				inc     a
-				and     %11
-				add     DARKWATER_INDEX
-				ld      [hl],a
+        ld      hl,bgTileMap+DARKWATER_INDEX
+        ld      a,[hl]
+        sub     DARKWATER_INDEX
+        inc     a
+        and     %11
+        add     DARKWATER_INDEX
+        ld      [hl],a
 
-				ret
+        ret
 
 .waitDialog
         STDWAITDIALOG

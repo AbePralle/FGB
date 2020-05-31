@@ -41,7 +41,7 @@ L0812_Init:
         DW ((L0812_InitFinished - L0812_Init2))  ;size
 L0812_Init2:
         ld      a,[bgTileMap + FIREINDEX]
-				ld      [levelVars + VAR_FIRE],a
+        ld      [levelVars + VAR_FIRE],a
         ret
 
 L0812_InitFinished:
@@ -52,16 +52,16 @@ L0812_Check:
         DW ((L0812_CheckFinished - L0812_Check2))  ;size
 L0812_Check2:
         call    ((.animateFire-L0812_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateFire
-				ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      hl,levelVars + VAR_FIRE
-				add     [hl]
-				ld      [bgTileMap + FIREINDEX],a
+        ldio    a,[updateTimer]
+        rrca
+        rrca
+        and     %11
+        ld      hl,levelVars + VAR_FIRE
+        add     [hl]
+        ld      [bgTileMap + FIREINDEX],a
         ret
 
 L0812_CheckFinished:

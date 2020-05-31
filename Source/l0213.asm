@@ -49,25 +49,25 @@ L0213_Init:
         DW ((L0213_InitFinished - L0213_Init2))  ;size
 L0213_Init2:
         ld      a,[bgTileMap+LIGHTINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         ld      a,[bgTileMap+STATICINDEX]  ;tile index of monitor
-				ld      [levelVars+VAR_STATIC],a
-				xor     a
-				ld      [levelVars+VAR_FACEON],a
+        ld      [levelVars+VAR_STATIC],a
+        xor     a
+        ld      [levelVars+VAR_FACEON],a
 
-			  ;have general gyro face west
-				ld      bc,classGeneralGyro
-				call    FindClassIndex
-				ld      c,a
-				call    GetFirst
-				ld      a,DIR_WEST
-				call    SetFacing
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ;have general gyro face west
+        ld      bc,classGeneralGyro
+        call    FindClassIndex
+        ld      c,a
+        call    GetFirst
+        ld      a,DIR_WEST
+        call    SetFacing
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
-				ld      bc,classGeneralGyro
-				ld      de,classDoNothing
-				call    ChangeClass
+        ld      bc,classGeneralGyro
+        ld      de,classDoNothing
+        call    ChangeClass
         ret
 
 L0213_InitFinished:
@@ -78,156 +78,156 @@ L0213_Check:
         DW ((L0213_CheckFinished - L0213_Check2))  ;size
 L0213_Check2:
         ;animate dice lights
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+LIGHTINDEX
-				call    ((.updateTwoLights - L0213_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+LIGHTINDEX
+        call    ((.updateTwoLights - L0213_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L0213_Check2) + levelCheckRAM)
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L0213_Check2) + levelCheckRAM)
 
-				;animate static
-				ld      a,[levelVars+VAR_STATIC]
-				ld      b,a
-				ldio    a,[updateTimer]
-				rrca
-				and     %00000010
-				add     b
-				ld      hl,bgTileMap+STATICINDEX
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
+        ;animate static
+        ld      a,[levelVars+VAR_STATIC]
+        ld      b,a
+        ldio    a,[updateTimer]
+        rrca
+        and     %00000010
+        add     b
+        ld      hl,bgTileMap+STATICINDEX
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
 
         ;----cycle monitor displays-----------------------------------
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				;pick a random location
-				ld      a,22
-				call    GetRandomNumZeroToN
+        ;pick a random location
+        ld      a,22
+        call    GetRandomNumZeroToN
 
-				;ld      a,31
-				;call    GetRandomNumMask
-				;cp      23
-				;jr      nc,.afterScreen
+        ;ld      a,31
+        ;call    GetRandomNumMask
+        ;cp      23
+        ;jr      nc,.afterScreen
 
-				sla     a
-				ld      d,0
-				ld      e,a
-				ld      hl,((.monitorLocations-L0213_Check2)+levelCheckRAM)
-				add     de
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        sla     a
+        ld      d,0
+        ld      e,a
+        ld      hl,((.monitorLocations-L0213_Check2)+levelCheckRAM)
+        add     de
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
-				;is this static?
-				ld      a,[hl]
-				cp      STATICINDEX
-				jr      z,.staticToFace
+        ;is this static?
+        ld      a,[hl]
+        cp      STATICINDEX
+        jr      z,.staticToFace
 
-				;is this the face?
-				ld      a,[hl]
-				cp      FACEINDEX
-				jr      z,.turnOffFace
+        ;is this the face?
+        ld      a,[hl]
+        cp      FACEINDEX
+        jr      z,.turnOffFace
 
-				;is the face on elsewhere?
-				ld      a,[levelVars+VAR_FACEON]
-				or      a
-				jr      nz,.afterScreen    ;face is on; skip
+        ;is the face on elsewhere?
+        ld      a,[levelVars+VAR_FACEON]
+        or      a
+        jr      nz,.afterScreen    ;face is on; skip
 
-				;turn this to static to become the face
-				ld      a,1
-				ld      [levelVars+VAR_FACEON],a
-				ld      a,STATICINDEX
-				jr      .pickedScreen
+        ;turn this to static to become the face
+        ld      a,1
+        ld      [levelVars+VAR_FACEON],a
+        ld      a,STATICINDEX
+        jr      .pickedScreen
 
 .turnOffFace
         xor     a
-				ld      [levelVars+VAR_FACEON],a
-				ld      a,MONITORINDEX   ;monitor
-				jr      .pickedScreen
+        ld      [levelVars+VAR_FACEON],a
+        ld      a,MONITORINDEX   ;monitor
+        jr      .pickedScreen
 
 .staticToFace
-				ld      a,FACEINDEX      ;face
+        ld      a,FACEINDEX      ;face
 .pickedScreen
         ld      [hl+],a
-				inc     a
-				ld      [hl+],a
-				inc     a
-				cp      STATICINDEX+2
-				jr      nz,.afterStaticCheck
-				sub     2
+        inc     a
+        ld      [hl+],a
+        inc     a
+        cp      STATICINDEX+2
+        jr      nz,.afterStaticCheck
+        sub     2
 .afterStaticCheck
-				ld      de,30     ;map pitch
-				add     hl,de
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
+        ld      de,30     ;map pitch
+        add     hl,de
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
 
 .afterScreen
         ;----Check to see if confronting General Gyro-----------------
-				ld      hl,hero0_data
-				call    ((.checkConfrontGyro - L0213_Check2) + levelCheckRAM)
-				ld      hl,hero1_data
-				call    ((.checkConfrontGyro - L0213_Check2) + levelCheckRAM)
+        ld      hl,hero0_data
+        call    ((.checkConfrontGyro - L0213_Check2) + levelCheckRAM)
+        ld      hl,hero1_data
+        call    ((.checkConfrontGyro - L0213_Check2) + levelCheckRAM)
         ret
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L0213_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L0213_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 .checkConfrontGyro
         inc     hl
-				ld      a,[hl-]
+        ld      a,[hl-]
         or      a    ;look at the hero class index I've been given
-				ret     z    ;not present if zero
+        ret     z    ;not present if zero
 
         ld      c,a        ;save class index
-				ld      a,[hl]     ;get my joy index
-				ld      [dialogJoyIndex],a       ;save that in case I talk
+        ld      a,[hl]     ;get my joy index
+        ld      [dialogJoyIndex],a       ;save that in case I talk
 
-				ld      de,HERODATA_TYPE
-				add     hl,de
-				ld      a,[hl]                   ;get my type
-				ld      [dialogSpeakerIndex],a   ;save that for talking too
+        ld      de,HERODATA_TYPE
+        add     hl,de
+        ld      a,[hl]                   ;get my type
+        ld      [dialogSpeakerIndex],a   ;save that for talking too
 
         ;get my object then my zone
-				call    GetFirst
-				call    GetCurZone
+        call    GetFirst
+        call    GetCurZone
 
-				cp      9       ;in same zone as Gyro?
-				ret     nz      ;all for naught
+        cp      9       ;in same zone as Gyro?
+        ret     nz      ;all for naught
 
-				ld      hl,$1302    ;next level
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				call    YankRemotePlayer
-				ld      a,1
-				ld      [timeToChangeLevel],a
-				ret
+        ld      hl,$1302    ;next level
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        call    YankRemotePlayer
+        ld      a,1
+        ld      [timeToChangeLevel],a
+        ret
 
 
 .monitorLocations

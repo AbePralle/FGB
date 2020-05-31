@@ -41,7 +41,7 @@ L1008_Init:
         DW ((L1008_InitFinished - L1008_Init2))  ;size
 L1008_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
 
         ld      a,BANK(fgbwar_gbm)
         ld      hl,fgbwar_gbm
@@ -60,12 +60,12 @@ L1008_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L1008_CheckFinished:
 PRINTT "1008 Script Sizes (Load/Init/Check) (of $500):  "

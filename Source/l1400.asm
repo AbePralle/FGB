@@ -147,7 +147,7 @@ L1400_Load2:
         ldio    [jiggleType],a    ;take-off jiggle
 
         ld      hl,musicEnabled  ;disable track 4
-				res     3,[hl]
+        res     3,[hl]
 
         ld      hl,((.engineSound1-L1400_Load2)+levelCheckRAM)
         call    PlaySound
@@ -183,7 +183,7 @@ L1400_Load2:
         call    ((.delayAdjustHorizon-L1400_Load2)+levelCheckRAM)
 
         ld      hl,musicEnabled  ;enable track 4
-				set     3,[hl]
+        set     3,[hl]
 
         ld      a,1
         call    ((.setupFadeFromSky-L1400_Load2)+levelCheckRAM)
@@ -196,8 +196,8 @@ L1400_Load2:
 
 .flying
         ld      a,BANK(cloud0_bg)
-				ld      hl,cloud0_bg
-				call    LoadCinemaBG
+        ld      hl,cloud0_bg
+        call    LoadCinemaBG
 
         ld      a,15
         call    ((.setupFadeToClouds-L1400_Load2)+levelCheckRAM)
@@ -221,7 +221,7 @@ L1400_Load2:
         ld       h,[hl]
         ld       l,a
         pop      af
-				call     LoadCinemaBG
+        call     LoadCinemaBG
         ;ld       a,1
         ;call     Delay
         call     ((.animateWave-L1400_Load2)+levelCheckRAM)
@@ -262,17 +262,17 @@ L1400_Load2:
         ld      l,[hl]
         ld      h,a
         pop     af
-				call    LoadCinemaBG
+        call    LoadCinemaBG
         ld      a,1
         call    Delay
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
         ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
         ld      a,1
-				call    FadeInit
+        call    FadeInit
         call    WaitFade
         ld      a,2
         call    Delay
@@ -289,15 +289,15 @@ L1400_Load2:
         ld      a,$11
         ldio    [scrollSpeed],a
 
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.afterRemoteAppx 
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.afterRemoteAppx 
 
 .addRemoteAppx
-				ld      a,LCHANGEAPPXMAP
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.addRemoteAppx      ;must repeat
+        ld      a,LCHANGEAPPXMAP
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.addRemoteAppx      ;must repeat
         ld      a,[appomattoxMapIndex]
         call    TransmitByte
 .afterRemoteAppx
@@ -307,7 +307,7 @@ L1400_Load2:
         call    SetDialogForward
 
         ld      hl,musicEnabled  ;disable track 4
-				res     3,[hl]
+        res     3,[hl]
        
         ld      hl,((.engineSound1-L1400_Load2)+levelCheckRAM)
         call    PlaySound
@@ -340,7 +340,7 @@ L1400_Load2:
         call    ((.delayAdjustHorizon-L1400_Load2)+levelCheckRAM)
 
         ld      hl,musicEnabled  ;enable track 4
-				set     3,[hl]
+        set     3,[hl]
 
         call    ((.powerDown-L1400_Load2)+levelCheckRAM)
 
@@ -358,16 +358,16 @@ L1400_Load2:
         call    Delay
 
         LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,EXIT_N
-				ld      [hl],a
+        ld      a,EXIT_N
+        ld      [hl],a
         ld      hl,$1300
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
-				ret
+        ld      a,1
+        ld      [timeToChangeLevel],a
+        ret
 
 .powerDown
         ;xor     a
@@ -474,15 +474,15 @@ L1400_Load2:
 .setupFadeFromSky
         push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
         ;set final palette bg7 to be bg7 color 0
         ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
         ld      hl,fadeFinalPalette+8*7
         ld      a,[hl+]
         ld      c,a
@@ -492,7 +492,7 @@ L1400_Load2:
         call    ((.setBG7-L1400_Load2)+levelCheckRAM)
 
         pop     af
-				call    FadeInit
+        call    FadeInit
         ret
 
 .setBG7
@@ -516,10 +516,10 @@ L1400_Load2:
         push    af
 
         ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
         ld      hl,levelVars+VAR_DESTZONE
         ld      a,[hl+]
@@ -530,7 +530,7 @@ L1400_Load2:
         ld      hl,fadeCurPalette+8*7
         call    ((.setBG7-L1400_Load2)+levelCheckRAM)
         pop     af
-				call    FadeInit
+        call    FadeInit
         pop     hl
         pop     de
         pop     bc
@@ -543,16 +543,16 @@ L1400_Load2:
 .setupFadeToClouds
         push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
         ;set final palette bg7 to be bg7 color 0
         ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
         pop     af
-				call    FadeInit
+        call    FadeInit
         ret
 
 .cloudFrames

@@ -51,7 +51,7 @@ L0505_Init:
         DW ((L0505_InitFinished - L0505_Init2))  ;size
 L0505_Init2:
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
 
         ldio    a,[mapState]
@@ -132,12 +132,12 @@ L0505_Check2:
         call    LinkTransmitMemoryLocation
 
         ld      hl,$1103
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         call    MakeNonIdle
         ld      a,STATE_AFTERWEDDING
@@ -150,30 +150,30 @@ L0505_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0505_Check2)+levelCheckRAM)
         call    ((.animateLight-L0505_Check2)+levelCheckRAM)
         call    ((.animateLight-L0505_Check2)+levelCheckRAM)
         call    ((.animateLight-L0505_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 
 L0505_CheckFinished:

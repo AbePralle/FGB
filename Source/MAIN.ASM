@@ -34,7 +34,7 @@ RST_38:        jp        Main
         DS        5
 
         ;jp        OnHBlank
-				jp        hblankVector
+        jp        hblankVector
         DS        5
 
         ;jp        irq_Timer
@@ -72,8 +72,8 @@ RST_38:        jp        Main
                         ;3 - ROM+MBC1+RAM+BATTERY
                         ;5 - ROM+MBC2
                         ;6 - ROM+MBC2+BATTERY
-												;$19 - ROM + MBC5
-												;$19 - ROM + MBC5 + RAM + battery
+                        ;$19 - ROM + MBC5
+                        ;$19 - ROM + MBC5 + RAM + battery
 
         DB        0        ;ROMSIZE
                         ;-------
@@ -105,7 +105,7 @@ Main::
         ; disable interrupts
         di
 
-				;kick CPU to 8 MHZ
+        ;kick CPU to 8 MHZ
         ld      a,$30
         ld      [$ff00],a
         ld      a,1
@@ -114,17 +114,17 @@ Main::
 
 Main8Mhz:
         ; we want a stack
-				di
+        di
         ld        hl,StackTop
         ld        sp,hl
 
         ; no interrupts to begin with
         xor     a
-				ldio    [$ff0f],a                 ;interrupt flags
-				ldio    [$ffff],a                 ;interrupt control
-				ei                                ;enable interrupts
+        ldio    [$ff0f],a                 ;interrupt flags
+        ldio    [$ffff],a                 ;interrupt control
+        ei                                ;enable interrupts
 
-				jp      UserMain     ;in home memory
+        jp      UserMain     ;in home memory
 
 ;---------------------------------------------------------------------
 SECTION "HomeTableSection",ROM0[$170]

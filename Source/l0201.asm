@@ -41,7 +41,7 @@ L0201_Init:
         DW ((L0201_InitFinished - L0201_Init2))  ;size
 L0201_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ret
 
 L0201_InitFinished:
@@ -56,12 +56,12 @@ L0201_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0201_CheckFinished:
 PRINTT "0201 Script Sizes (Load/Init/Check) (of $500):  "

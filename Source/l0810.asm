@@ -41,7 +41,7 @@ L0810_Init:
         DW ((L0810_InitFinished - L0810_Init2))  ;size
 L0810_Init2:
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
 
         ld      a,BANK(fgbwar_gbm)
         ld      hl,fgbwar_gbm
@@ -62,30 +62,30 @@ L0810_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0810_Check2)+levelCheckRAM)
         call    ((.animateLight-L0810_Check2)+levelCheckRAM)
         call    ((.animateLight-L0810_Check2)+levelCheckRAM)
         call    ((.animateLight-L0810_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 L0810_CheckFinished:
 PRINTT "0810 Script Sizes (Load/Init/Check) (of $500):  "

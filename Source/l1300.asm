@@ -56,16 +56,16 @@ INCBIN "..\\fgbeditor\\l1300_appomattox.lvl"
 L1300_Init:
         DW ((L1300_InitFinished - L1300_Init2))  ;size
 L1300_Init2:
-				ld      a,BANK(main_in_game_gbm)
-				ld      hl,main_in_game_gbm
-				call    InitMusic
+        ld      a,BANK(main_in_game_gbm)
+        ld      hl,main_in_game_gbm
+        call    InitMusic
 
         ld      hl,$1100
-				call    SetJoinMap
-				call    SetRespawnMap
+        call    SetJoinMap
+        call    SetRespawnMap
 
         ld      a,[bgTileMap+DICEINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_DICELIGHT],a
+        ld      [levelVars+VAR_DICELIGHT],a
 
         ld      a,0
         ld      [levelVars+VAR_HEROESUSED],a
@@ -215,8 +215,8 @@ L1300_Check2:
         ld      h,((fgTileMap>>8)&$ff)
         ld      [hl],$ff
         call    GetFirst
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
         pop     bc
         ret
 
@@ -246,8 +246,8 @@ L1300_Check2:
         ld      [hl],a
         ld      c,l
         call    GetFirst
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
         pop     bc
         ret
 
@@ -267,38 +267,38 @@ L1300_Check2:
 
 .animateDiceLights
         ;animate dice lights
-				ld      a,[levelVars+VAR_DICELIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_DICELIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+DICEINDEX
-				call    ((.updateTwoLights - L1300_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+DICEINDEX
+        call    ((.updateTwoLights - L1300_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L1300_Check2) + levelCheckRAM)
-				ret
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L1300_Check2) + levelCheckRAM)
+        ret
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L1300_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L1300_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 

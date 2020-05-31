@@ -42,7 +42,7 @@ L0509_Init:
         DW ((L0509_InitFinished - L0509_Init2))  ;size
 L0509_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ld      a,ENV_DIRT
         call    SetEnvEffect
         ret
@@ -59,12 +59,12 @@ L0509_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0509_CheckFinished:
 PRINTT "0509 Script Sizes (Load/Init/Check) (of $500):  "

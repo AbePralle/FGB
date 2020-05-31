@@ -58,505 +58,505 @@ L1100_Load:
         DW ((L1100_LoadFinished - L1100_Load)-2)  ;size
 L1100_Load2:
         ld      hl,$1100
-				call    SetJoinMap
-				ld      hl,EXITAPPOMATTOX
-				call    SetRespawnMap
+        call    SetJoinMap
+        ld      hl,EXITAPPOMATTOX
+        call    SetRespawnMap
 
-				ld      a,BANK(main_in_game_gbm)
-				ld      hl,main_in_game_gbm
-				call    InitMusic
+        ld      a,BANK(main_in_game_gbm)
+        ld      hl,main_in_game_gbm
+        call    InitMusic
 
 ;ld a,[heroesAvailable]
 ;or HERO_GRENADE_FLAG
 ;ld [heroesAvailable],a
         xor     a
-				ld      [scrollSprites],a
+        ld      [scrollSprites],a
 
-				ld      a,$44
-				ldio    [scrollSpeed],a
+        ld      a,$44
+        ldio    [scrollSpeed],a
 
-				ld      a,BANK(select_hero_bg)
-				ld      hl,select_hero_bg
-				call    LoadCinemaBG
+        ld      a,BANK(select_hero_bg)
+        ld      hl,select_hero_bg
+        call    LoadCinemaBG
 
-				xor     a
-				ld      [gamePalette+2],a
-				ld      [gamePalette+3],a
+        xor     a
+        ld      [gamePalette+2],a
+        ld      [gamePalette+3],a
 
         ;if my hero type is the same as both hero types (e.g. the other 
-				;hero's types) then pick an alternate hero (probably just
-				;joined game)
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      b,[hl]
-				ld      a,[hero0_type]
-				cp      b 
-				jr      nz,.myTypeOkay
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.myTypeOkay   ;no link
-				ld      a,[hero1_type]
-				cp      b
-				jr      nz,.myTypeOkay
+        ;hero's types) then pick an alternate hero (probably just
+        ;joined game)
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      b,[hl]
+        ld      a,[hero0_type]
+        cp      b 
+        jr      nz,.myTypeOkay
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.myTypeOkay   ;no link
+        ld      a,[hero1_type]
+        cp      b
+        jr      nz,.myTypeOkay
 
-				;change my type
-				cp      1
-				jr      z,.changeTypeTo2
-				ld      a,1
-				jr      .pickedANewType
+        ;change my type
+        cp      1
+        jr      z,.changeTypeTo2
+        ld      a,1
+        jr      .pickedANewType
 .changeTypeTo2
         ld      a,2
 .pickedANewType
         ld      [hl],a
 .myTypeOkay
         ;mark my hero as used
-				ld      b,[hl]
-				ld      a,[heroesUsed]
-				or      b
-				ld      [heroesUsed],a
-				call    UpdateRemoteHeroesUsed
+        ld      b,[hl]
+        ld      a,[heroesUsed]
+        or      b
+        ld      [heroesUsed],a
+        call    UpdateRemoteHeroesUsed
 
-				call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
-				ld      d,160
-				call    ScrollSpritesRight
+        call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
+        ld      d,160
+        call    ScrollSpritesRight
 
         ld      hl,((CharSelectOnHBlank-L1100_Load2)+levelCheckRAM)
-				call    InstallHBlankHandler
-				ld      a,1
-				call    SetupFadeFromStandard
-				ld      a,120
-				ld      [camera_i],a
+        call    InstallHBlankHandler
+        ld      a,1
+        call    SetupFadeFromStandard
+        ld      a,120
+        ld      [camera_i],a
 
-				ld      d,160
-				call    ScrollSpritesLeft
-				call    ((.scrollInFromRight-L1100_Load2)+levelCheckRAM)
+        ld      d,160
+        call    ScrollSpritesLeft
+        call    ((.scrollInFromRight-L1100_Load2)+levelCheckRAM)
 
 .waitInputLoop
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,[myJoy]
-				bit     JOY_RIGHT_BIT,a
-				jr      z,.checkLeft
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,[myJoy]
+        bit     JOY_RIGHT_BIT,a
+        jr      z,.checkLeft
 
-				call    ((.nextHeroRight-L1100_Load2)+levelCheckRAM)
-				jp      ((.waitContinue-L1100_Load2)+levelCheckRAM)
+        call    ((.nextHeroRight-L1100_Load2)+levelCheckRAM)
+        jp      ((.waitContinue-L1100_Load2)+levelCheckRAM)
 
 .checkLeft
-				bit     JOY_LEFT_BIT,a
-				jr      z,.checkExit
+        bit     JOY_LEFT_BIT,a
+        jr      z,.checkExit
 
-				call    ((.nextHeroLeft-L1100_Load2)+levelCheckRAM)
-				jr      .waitContinue
+        call    ((.nextHeroLeft-L1100_Load2)+levelCheckRAM)
+        jr      .waitContinue
 
 .checkExit
-				bit     JOY_A_BIT,a
-				jr      nz,.exit
-				bit     JOY_START_BIT,a
-				jr      z,.waitContinue
+        bit     JOY_A_BIT,a
+        jr      nz,.exit
+        bit     JOY_START_BIT,a
+        jr      z,.waitContinue
 
 .exit
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
-				cp      HERO_BA_FLAG
-				jr      nz,.exitCheckBS
-				ld      de,BA_CINDEX
-				jr      .exitGotHeroClass
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
+        cp      HERO_BA_FLAG
+        jr      nz,.exitCheckBS
+        ld      de,BA_CINDEX
+        jr      .exitGotHeroClass
 .exitCheckBS
         cp      HERO_BS_FLAG
-				jr      nz,.exitCheckHaiku
-				ld      de,BS_CINDEX
-				jr      .exitGotHeroClass
+        jr      nz,.exitCheckHaiku
+        ld      de,BS_CINDEX
+        jr      .exitGotHeroClass
 .exitCheckHaiku
         cp      HERO_HAIKU_FLAG
         jr      nz,.exitCheckGrenade
-				ld      de,HAIKU_CINDEX
-				jr      .exitGotHeroClass
+        ld      de,HAIKU_CINDEX
+        jr      .exitGotHeroClass
 .exitCheckGrenade
         ld      de,KGRENADE_CINDEX
 .exitGotHeroClass
         LDHL_CURHERODATA HERODATA_CLASS
-				ld      a,e
-				ld      [hl+],a
-				ld      a,d
-				ld      [hl+],a
+        ld      a,e
+        ld      [hl+],a
+        ld      a,d
+        ld      [hl+],a
         LDHL_CURHERODATA HERODATA_HEALTH
-				xor     a
-				ld      [hl],a
+        xor     a
+        ld      [hl],a
         LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,EXIT_D
-				ld      [hl],a
+        ld      a,EXIT_D
+        ld      [hl],a
         ld      hl,EXITAPPOMATTOX
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
-				call    ClearDialog
-				ld      hl,OnHBlank
-				call    InstallHBlankHandler
-				ld      a,1
-				call    SetupFadeToStandard
-				ld      a,1
-				call    Delay
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
+        call    ClearDialog
+        ld      hl,OnHBlank
+        call    InstallHBlankHandler
+        ld      a,1
+        call    SetupFadeToStandard
+        ld      a,1
+        call    Delay
         call    ResetSprites
-				ret
+        ret
 
 .waitContinue
-				ld      a,1
-				call    Delay
-				jp      ((.waitInputLoop-L1100_Load2)+levelCheckRAM)
-				ret
+        ld      a,1
+        call    Delay
+        jp      ((.waitInputLoop-L1100_Load2)+levelCheckRAM)
+        ret
 
 ;----Support Routines-------------------------------------------------
 .nextHeroRight
         ;wait until I can lock heroesUsed
         call    LockRemoteHeroesUsed
-				jr      nz,.heroesLockedRight
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				jr      .nextHeroRight
+        jr      nz,.heroesLockedRight
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        jr      .nextHeroRight
 
 .heroesLockedRight
         ;if no link set all to unused (fix used hero on broken link)
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      z,.unlockMyHeroRight   ;has link
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      z,.unlockMyHeroRight   ;has link
 
         ;mark all as unused
         xor     a
         ld      [heroesUsed],a
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
         jr      .pickNewRotateRight
 
 .unlockMyHeroRight
         ;mark cur hero as unused
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
-				push    af
-				xor     $ff
-				ld      hl,heroesUsed
-				and     [hl]
-				ld      [hl],a
-				pop     af
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
+        push    af
+        xor     $ff
+        ld      hl,heroesUsed
+        and     [hl]
+        ld      [hl],a
+        pop     af
 
 .pickNewRotateRight
-				;pick new by rotating right until matches available
-				ld      b,a
-				ld      a,[heroesUsed]
-				xor     $ff
-				ld      c,a
-				ld      a,[heroesAvailable]
-				and     c
-				ld      c,a
+        ;pick new by rotating right until matches available
+        ld      b,a
+        ld      a,[heroesUsed]
+        xor     $ff
+        ld      c,a
+        ld      a,[heroesAvailable]
+        and     c
+        ld      c,a
 .nextHeroLeftLoop
-				rrc     b
-				ld      a,c
-				or      b
-				cp      c
-				jr      nz,.nextHeroLeftLoop
+        rrc     b
+        ld      a,c
+        or      b
+        cp      c
+        jr      nz,.nextHeroLeftLoop
 
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      [hl],b     ;found new hero
-				ld      a,[heroesUsed]
-				or      b
-				ld      [heroesUsed],a
-				call    UpdateRemoteHeroesUsed
-				call    ((.scrollOutToLeft-L1100_Load2)+levelCheckRAM)
-				call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
-				call    ((.scrollInFromRight-L1100_Load2)+levelCheckRAM)
-				ret
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      [hl],b     ;found new hero
+        ld      a,[heroesUsed]
+        or      b
+        ld      [heroesUsed],a
+        call    UpdateRemoteHeroesUsed
+        call    ((.scrollOutToLeft-L1100_Load2)+levelCheckRAM)
+        call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
+        call    ((.scrollInFromRight-L1100_Load2)+levelCheckRAM)
+        ret
 
 .nextHeroLeft
         ;wait until I can lock heroesUsed
         call    LockRemoteHeroesUsed
-				jr      nz,.heroesLockedLeft
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				jr      .nextHeroLeft
+        jr      nz,.heroesLockedLeft
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        jr      .nextHeroLeft
 
 .heroesLockedLeft
         ;if no link set all to unused (fix used hero on broken link)
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      z,.unlockMyHeroLeft   ;has link
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      z,.unlockMyHeroLeft   ;has link
 
         ;mark all as unused
         xor     a
         ld      [heroesUsed],a
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
         jr      .pickNewRotateLeft
 
 .unlockMyHeroLeft
         ;mark cur hero as unused
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
-				push    af
-				xor     $ff
-				ld      hl,heroesUsed
-				and     [hl]
-				ld      [hl],a
-				pop     af
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
+        push    af
+        xor     $ff
+        ld      hl,heroesUsed
+        and     [hl]
+        ld      [hl],a
+        pop     af
 
 .pickNewRotateLeft
-				;pick new by rotating left until matches available
-				ld      b,a
-				ld      a,[heroesUsed]
-				xor     $ff
-				ld      c,a
-				ld      a,[heroesAvailable]
-				and     c
-				ld      c,a
+        ;pick new by rotating left until matches available
+        ld      b,a
+        ld      a,[heroesUsed]
+        xor     $ff
+        ld      c,a
+        ld      a,[heroesAvailable]
+        and     c
+        ld      c,a
 .nextHeroRightLoop
-				rlc     b
-				ld      a,c
-				or      b
-				cp      c
-				jr      nz,.nextHeroRightLoop
+        rlc     b
+        ld      a,c
+        or      b
+        cp      c
+        jr      nz,.nextHeroRightLoop
 
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      [hl],b     ;found new hero
-				ld      a,[heroesUsed]
-				or      b
-				ld      [heroesUsed],a
-				call    UpdateRemoteHeroesUsed
-				call    ((.scrollOutToRight-L1100_Load2)+levelCheckRAM)
-				call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
-				call    ((.scrollInFromLeft-L1100_Load2)+levelCheckRAM)
-				ret
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      [hl],b     ;found new hero
+        ld      a,[heroesUsed]
+        or      b
+        ld      [heroesUsed],a
+        call    UpdateRemoteHeroesUsed
+        call    ((.scrollOutToRight-L1100_Load2)+levelCheckRAM)
+        call    ((.loadCurHeroSprite-L1100_Load2)+levelCheckRAM)
+        call    ((.scrollInFromLeft-L1100_Load2)+levelCheckRAM)
+        ret
 
 .scrollInFromRight
         ;scroll sprites out of view to the right
-				ld      d,160
-				call    ScrollSpritesRight
-				ld      a,[specialFX]
-				and     FX_FADE
-				jr      nz,.afterInstallPaletteRight
-				call    InstallGamePalette
+        ld      d,160
+        call    ScrollSpritesRight
+        ld      a,[specialFX]
+        and     FX_FADE
+        jr      nz,.afterInstallPaletteRight
+        call    InstallGamePalette
 .afterInstallPaletteRight
-				call    GfxShowStandardTextBox
+        call    GfxShowStandardTextBox
 
-				;scroll sprites into view
-				ld      c,24
+        ;scroll sprites into view
+        ld      c,24
 .scrollInFromRightLoop
         ld      d,5
-				call    ScrollSpritesLeft
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				dec     c
-				jr      nz,.scrollInFromRightLoop
+        call    ScrollSpritesLeft
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        dec     c
+        jr      nz,.scrollInFromRightLoop
         ret
 
 .scrollInFromLeft
         ;scroll sprites out of view to the left
-				ld      d,80
-				call    ScrollSpritesLeft
-				ld      a,[specialFX]
-				and     FX_FADE
-				jr      nz,.afterInstallPaletteLeft
-				call    InstallGamePalette
+        ld      d,80
+        call    ScrollSpritesLeft
+        ld      a,[specialFX]
+        and     FX_FADE
+        jr      nz,.afterInstallPaletteLeft
+        call    InstallGamePalette
 .afterInstallPaletteLeft
-				call    GfxShowStandardTextBox
+        call    GfxShowStandardTextBox
 
-				;scroll sprites into view from left
-				ld      c,24
+        ;scroll sprites into view from left
+        ld      c,24
 .scrollInFromLeftLoop
         ld      d,5
-				call    ScrollSpritesRight
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				dec     c
-				jr      nz,.scrollInFromLeftLoop
+        call    ScrollSpritesRight
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        dec     c
+        jr      nz,.scrollInFromLeftLoop
         ret
 
 .scrollOutToRight
-				call    ClearDialog
+        call    ClearDialog
         ld      c,20
 .scrollOutToRightLoop
         ld      d,6
-				call    ScrollSpritesRight
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				dec     c
-				jr      nz,.scrollOutToRightLoop
-				call    ResetSprites
+        call    ScrollSpritesRight
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        dec     c
+        jr      nz,.scrollOutToRightLoop
+        call    ResetSprites
         ret
 
 .scrollOutToLeft
-				call    ClearDialog
+        call    ClearDialog
         ld      c,20
 .scrollOutToLeftLoop
         ld      d,6
-				call    ScrollSpritesLeft
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				dec     c
-				jr      nz,.scrollOutToLeftLoop
-				call    ResetSprites
+        call    ScrollSpritesLeft
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        dec     c
+        jr      nz,.scrollOutToLeftLoop
+        call    ResetSprites
         ret
 
 .scrollBG
         ld      a,[mapLeft]
-				cp      44
-				ret     nz
-				xor     a
-				ld      [mapLeft],a
-				ret
+        cp      44
+        ret     nz
+        xor     a
+        ld      [mapLeft],a
+        ret
         
 .loadCurHeroSprite
         xor     a
         ldio    [backBufferReady],a 
 
-				LDHL_CURHERODATA HERODATA_TYPE
-				ld      a,[hl]
-				cp      HERO_BA_FLAG
-				jr      nz,.loadBS
-				ld      a,BANK(select_ba_name_bg)
-				ld      hl,select_ba_name_bg
-				call    LoadCinemaTextBox
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				ld      a,BANK(select_ba_sp)
-				ld      hl,select_ba_sp
-				call    LoadCinemaSprite
-				ret
+        LDHL_CURHERODATA HERODATA_TYPE
+        ld      a,[hl]
+        cp      HERO_BA_FLAG
+        jr      nz,.loadBS
+        ld      a,BANK(select_ba_name_bg)
+        ld      hl,select_ba_name_bg
+        call    LoadCinemaTextBox
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        ld      a,BANK(select_ba_sp)
+        ld      hl,select_ba_sp
+        call    LoadCinemaSprite
+        ret
 
 .loadBS
-				cp      HERO_BS_FLAG
-				jr      nz,.loadHaiku
+        cp      HERO_BS_FLAG
+        jr      nz,.loadHaiku
 
-				ld      a,BANK(select_bs_name_bg)
-				ld      hl,select_bs_name_bg
-				call    LoadCinemaTextBox
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				ld      a,BANK(select_bs_sp)
-				ld      hl,select_bs_sp
-				call    LoadCinemaSprite
-				ret
+        ld      a,BANK(select_bs_name_bg)
+        ld      hl,select_bs_name_bg
+        call    LoadCinemaTextBox
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        ld      a,BANK(select_bs_sp)
+        ld      hl,select_bs_sp
+        call    LoadCinemaSprite
+        ret
 
 .loadHaiku
         cp      HERO_HAIKU_FLAG
         jr      nz,.loadGrenade
 
-				ld      a,BANK(select_haiku_name_bg)
-				ld      hl,select_haiku_name_bg
-				call    LoadCinemaTextBox
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				ld      a,BANK(select_haiku_sp)
-				ld      hl,select_haiku_sp
-				call    LoadCinemaSprite
-				ret
+        ld      a,BANK(select_haiku_name_bg)
+        ld      hl,select_haiku_name_bg
+        call    LoadCinemaTextBox
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        ld      a,BANK(select_haiku_sp)
+        ld      hl,select_haiku_sp
+        call    LoadCinemaSprite
+        ret
 
 .loadGrenade
-				ld      a,BANK(select_grenade_name_bg)
-				ld      hl,select_grenade_name_bg
-				call    LoadCinemaTextBox
-				call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				ld      a,BANK(select_grenade_sp)
-				ld      hl,select_grenade_sp
-				call    LoadCinemaSprite
+        ld      a,BANK(select_grenade_name_bg)
+        ld      hl,select_grenade_name_bg
+        call    LoadCinemaTextBox
+        call    ((.scrollBG-L1100_Load2)+levelCheckRAM)
+        ld      a,1
+        call    Delay
+        ld      a,BANK(select_grenade_sp)
+        ld      hl,select_grenade_sp
+        call    LoadCinemaSprite
         ret
 
 CharSelectOnHBlank:
         push    af
-				push    bc
-				push    hl
+        push    bc
+        push    hl
 
-				;rainbow sky
-				ld      c,$69
-				ldio    a,[$ff44]
+        ;rainbow sky
+        ld      c,$69
+        ldio    a,[$ff44]
 .checkRainbowSky
-				cp      70
-				jr      nc,.resetSkyTop
+        cp      70
+        jr      nc,.resetSkyTop
 
-				inc     a
+        inc     a
         rlca    ;times two (index to word array)
-				add     (((.rainbowSky-L1100_Load2)+levelCheckRAM)&$ff)
-				ld      l,a
-				ld      a,((((.rainbowSky-L1100_Load2)+levelCheckRAM)>>8)&$ff)
-				adc     0
-				ld      h,a
-				ld      a,%10000010
-				ldio    [$ff68],a
-				ld      a,[hl+]
-				ld      [c],a
-				ld      a,[hl+]
-				ld      [c],a
-				jr      .checkDialogOnOff
+        add     (((.rainbowSky-L1100_Load2)+levelCheckRAM)&$ff)
+        ld      l,a
+        ld      a,((((.rainbowSky-L1100_Load2)+levelCheckRAM)>>8)&$ff)
+        adc     0
+        ld      h,a
+        ld      a,%10000010
+        ldio    [$ff68],a
+        ld      a,[hl+]
+        ld      [c],a
+        ld      a,[hl+]
+        ld      [c],a
+        jr      .checkDialogOnOff
 
 .resetSkyTop
-				ld      a,%10000010
-				ld      [$ff68],a
-				xor     a
-				ld      [c],a
-				ld      [c],a
+        ld      a,%10000010
+        ld      [$ff68],a
+        xor     a
+        ld      [c],a
+        ld      [c],a
 
 .checkDialogOnOff
         ldio    a,[$ff41]           ;get stat register
-				bit     2,a                 ;equal to lyc?
-				jr      z,.done
+        bit     2,a                 ;equal to lyc?
+        jr      z,.done
 
 .continue
         ld      hl,hblankFlag
-				bit     0,[hl]              ;turning window on or off?
-				jr      nz,.turnOffWindow
+        bit     0,[hl]              ;turning window on or off?
+        jr      nz,.turnOffWindow
 
         ;turn on window
-				bit     1,[hl]              ;allowed to?
-				jr      nz,.turnOn
-				jr      .done
+        bit     1,[hl]              ;allowed to?
+        jr      nz,.turnOn
+        jr      .done
 .turnOn
         set     0,[hl]
-				ldio    a,[hblankWinOff]
-				ld      [$ff45],a           ;reset lyc to win off pos
-				ld      hl,$ff40            ;turn window on
-				set     5,[hl]
+        ldio    a,[hblankWinOff]
+        ld      [$ff45],a           ;reset lyc to win off pos
+        ld      hl,$ff40            ;turn window on
+        set     5,[hl]
 
-				;set background palette 0, color zero to black
-				ld      c,$68
-				ld      a,%10000000         ;specification
-				ld      [c],a
-				xor     a
-				inc     c
-				ld      [c],a
-				ld      [c],a
-				jr      .done
+        ;set background palette 0, color zero to black
+        ld      c,$68
+        ld      a,%10000000         ;specification
+        ld      [c],a
+        xor     a
+        inc     c
+        ld      [c],a
+        ld      [c],a
+        jr      .done
 
 .turnOffWindow
         res     0,[hl]
-				ldio    a,[hblankWinOn]
-				ld      [$ff45],a           ;reset lyc to win on pos
+        ldio    a,[hblankWinOn]
+        ld      [$ff45],a           ;reset lyc to win on pos
         ld      hl,$ff40            ;turn window off
-				res     5,[hl]
+        res     5,[hl]
 
-				;restore background palette 0, color zero
-				ld      a,%10000000         ;specification
-				ld      c,$68 
-				ld      hl,mapColor
-				ld      [c],a               ;ff68
-				ld      a,[hl+]             ;[mapColor]
-				inc     c
-				ld      [c],a               ;ff69
-				ld      a,[hl]              ;[mapColor+1]
-				ld      [c],a               ;ff69
+        ;restore background palette 0, color zero
+        ld      a,%10000000         ;specification
+        ld      c,$68 
+        ld      hl,mapColor
+        ld      [c],a               ;ff68
+        ld      a,[hl+]             ;[mapColor]
+        inc     c
+        ld      [c],a               ;ff69
+        ld      a,[hl]              ;[mapColor+1]
+        ld      [c],a               ;ff69
 
 .done
         pop     hl
-				pop     bc
-				pop     af
+        pop     bc
+        pop     af
         reti
 
 .rainbowSky
@@ -660,7 +660,7 @@ L1100_Check:
         DW ((L1100_CheckFinished - L1100_Check) - 2)  ;size
 L1100_Check2:
 L1100_CheckOffset EQU (levelCheckADDR - L1100_Check2)
-				ret
+        ret
 
 L1100_CheckFinished:
 

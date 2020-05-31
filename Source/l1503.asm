@@ -65,8 +65,8 @@ L1503_Load2:
 
 .flying
         ld      a,BANK(cloud0_bg)
-				ld      hl,cloud0_bg
-				call    LoadCinemaBG
+        ld      hl,cloud0_bg
+        call    LoadCinemaBG
         ld      a,1
         call    Delay
 
@@ -92,7 +92,7 @@ L1503_Load2:
         ld       h,[hl]
         ld       l,a
         pop      af
-				call     LoadCinemaBG
+        call     LoadCinemaBG
         ;ld       a,1
         ;call     Delay
         call    ((.animateWave-L1503_Load2)+levelCheckRAM)
@@ -125,17 +125,17 @@ L1503_Load2:
         ld      l,[hl]
         ld      h,a
         pop     af
-				call    LoadCinemaBG
+        call    LoadCinemaBG
         ld      a,1
         call    Delay
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
         ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
         ld      a,1
-				call    FadeInit
+        call    FadeInit
         call    WaitFade
         ld      a,2
         call    Delay
@@ -152,21 +152,21 @@ L1503_Load2:
         ld      a,$11
         ldio    [scrollSpeed],a
 
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.afterRemoteAppx 
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.afterRemoteAppx 
 
 .addRemoteAppx
-				ld      a,LCHANGEAPPXMAP
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.addRemoteAppx      ;must repeat
+        ld      a,LCHANGEAPPXMAP
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.addRemoteAppx      ;must repeat
         ld      a,[appomattoxMapIndex]
         call    TransmitByte
 .afterRemoteAppx
 
         ld      hl,musicEnabled  ;disable track 4
-				res     3,[hl]
+        res     3,[hl]
        
         ld      hl,((.engineSound1-L1503_Load2)+levelCheckRAM)
         call    PlaySound
@@ -199,7 +199,7 @@ L1503_Load2:
         ;call    ((.delayAdjustHorizon-L1503_Load2)+levelCheckRAM)
 
         ;ld      hl,musicEnabled  ;enable track 4
-				;set     3,[hl]
+        ;set     3,[hl]
 
         ;call    ((.powerDown-L1503_Load2)+levelCheckRAM)
 
@@ -210,100 +210,100 @@ L1503_Load2:
         call    ((.delay2-L1503_Load2)+levelCheckRAM)
         call    BlackoutPalette
         call    ClearDialog
-				call    ResetSprites
+        call    ResetSprites
         call    ((.delay2-L1503_Load2)+levelCheckRAM)
 
-				ld      a,BANK(landing_bg_bg)
-				ld      hl,landing_bg_bg
-				call    LoadCinemaBG
-				ld      a,BANK(landing_sprites_sp)
-				ld      hl,landing_sprites_sp
-				call    LoadCinemaSprite
+        ld      a,BANK(landing_bg_bg)
+        ld      hl,landing_bg_bg
+        call    LoadCinemaBG
+        ld      a,BANK(landing_sprites_sp)
+        ld      hl,landing_sprites_sp
+        call    LoadCinemaSprite
 
-				ld      d,16
-				call    ScrollSpritesRight
-				ld      d,48
-				call    ScrollSpritesUp
+        ld      d,16
+        call    ScrollSpritesRight
+        ld      d,48
+        call    ScrollSpritesUp
 
-				;set landing gear sprites and flame to off
-				ld      hl,spriteOAMBuffer+6
-				ld      c,8
-				xor     a
+        ;set landing gear sprites and flame to off
+        ld      hl,spriteOAMBuffer+6
+        ld      c,8
+        xor     a
 .init_landing_loop
-				ld      [hl+],a
-				inc     hl
-				inc     hl
-				inc     hl
-				dec     c
-				jr      nz,.init_landing_loop
+        ld      [hl+],a
+        inc     hl
+        inc     hl
+        inc     hl
+        dec     c
+        jr      nz,.init_landing_loop
 
         ld      de,((.ramp-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
 
         ;----------------animate descent of appomattox
 
-				;landing gear stowed
-				ld       a,1
-				call     SetupFadeFromBlack
+        ;landing gear stowed
+        ld       a,1
+        call     SetupFadeFromBlack
         ld       b,60
 .descent1
-				push     bc
-				ld       a,1
-				call     Delay
-				ld       d,1
+        push     bc
+        ld       a,1
+        call     Delay
+        ld       d,1
         call     ((.scrollAllSpritesDown-L1503_Load2)+levelCheckRAM)
-				pop      bc
+        pop      bc
 
-				dec      b
-				jr       nz,.descent1
+        dec      b
+        jr       nz,.descent1
 
-				;landing gear half-out
-				ld       hl,spriteOAMBuffer+(9*4)+2
-				ld       c,4
+        ;landing gear half-out
+        ld       hl,spriteOAMBuffer+(9*4)+2
+        ld       c,4
         ld       a,2
 .gear_half_loop
-				ld       [hl+],a   ;change tile index
-				inc      hl
-				inc      hl
-				inc      hl
-				add      2
-				dec      c
-				jr       nz,.gear_half_loop
+        ld       [hl+],a   ;change tile index
+        inc      hl
+        inc      hl
+        inc      hl
+        add      2
+        dec      c
+        jr       nz,.gear_half_loop
 
         ld       b,5
 .descent2
-				push     bc
+        push     bc
         call     ((.delay2-L1503_Load2)+levelCheckRAM)
-				ld       d,1
+        ld       d,1
         call     ((.scrollAllSpritesDown-L1503_Load2)+levelCheckRAM)
-				pop      bc
+        pop      bc
 
-				dec      b
-				jr       nz,.descent2
+        dec      b
+        jr       nz,.descent2
 
-				;landing gear full out
-				ld       hl,spriteOAMBuffer+(9*4)+2
-				ld       c,4
+        ;landing gear full out
+        ld       hl,spriteOAMBuffer+(9*4)+2
+        ld       c,4
         ld       a,10
 .gear_full_loop
-				ld       [hl+],a   ;change tile index
-				inc      hl
-				inc      hl
-				inc      hl
-				add      2
-				dec      c
-				jr       nz,.gear_full_loop
+        ld       [hl+],a   ;change tile index
+        inc      hl
+        inc      hl
+        inc      hl
+        add      2
+        dec      c
+        jr       nz,.gear_full_loop
 
         ld       b,20
 .descent3
-				push     bc
+        push     bc
         call     ((.delay2-L1503_Load2)+levelCheckRAM)
-				ld       d,1
+        ld       d,1
         call     ((.scrollAllSpritesDown-L1503_Load2)+levelCheckRAM)
-				pop      bc
+        pop      bc
 
-				dec      b
-				jr       nz,.descent3
+        dec      b
+        jr       nz,.descent3
 
         ;engine noise fade to off
         ld      hl,((.engineSound2-L1503_Load2)+levelCheckRAM)
@@ -311,15 +311,15 @@ L1503_Load2:
 
         ld      b,10
 .descent4
-				push     bc
-				ld       a,3
-				call     Delay
-				ld       d,1
+        push     bc
+        ld       a,3
+        call     Delay
+        ld       d,1
         call     ((.scrollAllSpritesDown-L1503_Load2)+levelCheckRAM)
-				pop      bc
+        pop      bc
 
-				dec      b
-				jr       nz,.descent4
+        dec      b
+        jr       nz,.descent4
 
         ld      a,30
         call    Delay
@@ -411,14 +411,14 @@ L1503_Load2:
         ld      [dialogBank],a
 
         ld      c,0
-				DIALOGBOTTOM lady_stay_gtx
+        DIALOGBOTTOM lady_stay_gtx
         ld      d,3
         LONGCALLNOARGS AnimateLadyFlowerRamp
 
 .nostuff
         call    ((.panToCaptain-L1503_Load2)+levelCheckRAM)
         ld      c,0
-				DIALOGBOTTOM captain_nostuff_gtx
+        DIALOGBOTTOM captain_nostuff_gtx
         ld      de,((.please-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,3
@@ -427,7 +427,7 @@ L1503_Load2:
 .please
         call    ((.panToLady-L1503_Load2)+levelCheckRAM)
         ld      c,0
-				DIALOGBOTTOM lady_please_gtx
+        DIALOGBOTTOM lady_please_gtx
         ld      de,((.nothanks-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,3
@@ -436,7 +436,7 @@ L1503_Load2:
 .nothanks
         call    ((.panToCaptain-L1503_Load2)+levelCheckRAM)
         ld      c,0
-				DIALOGBOTTOM captain_nothanks_gtx
+        DIALOGBOTTOM captain_nothanks_gtx
         ld      de,((.must-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,2
@@ -454,7 +454,7 @@ L1503_Load2:
         ;ld      a,15
         ;ldio    [jiggleDuration],a
         ld      c,0
-				DIALOGBOTTOM lady_must_gtx
+        DIALOGBOTTOM lady_must_gtx
         ld      de,((.no-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,2
@@ -463,7 +463,7 @@ L1503_Load2:
 .no
         call    ((.panToCaptain-L1503_Load2)+levelCheckRAM)
         ld      c,0
-				DIALOGBOTTOM captain_no_gtx
+        DIALOGBOTTOM captain_no_gtx
         ld      de,((.insist-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,2
@@ -474,7 +474,7 @@ L1503_Load2:
         ldio    [scrollSpeed],a
         call    ((.panToLady-L1503_Load2)+levelCheckRAM)
         ld      c,0
-				DIALOGBOTTOM lady_insist_gtx
+        DIALOGBOTTOM lady_insist_gtx
         ld      de,((.okay-L1503_Load2)+levelCheckRAM)
         call    SetDialogForward
         ld      d,2
@@ -488,16 +488,16 @@ L1503_Load2:
         call    ResetSprites
 
         LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,EXIT_N
-				ld      [hl],a
+        ld      a,EXIT_N
+        ld      [hl],a
         ld      hl,$1504
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,2
-				ld      [timeToChangeLevel],a
-				ret
+        ld      a,2
+        ld      [timeToChangeLevel],a
+        ret
 
 .panToCaptain
         ld      a,21
@@ -626,15 +626,15 @@ L1503_Load2:
 .setupFadeFromSky
         push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
         ;set final palette bg7 to be bg7 color 0
         ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
         ld      hl,fadeFinalPalette+8*7
         ld      a,$80
         ld      c,a
@@ -643,7 +643,7 @@ L1503_Load2:
         call    ((.setBG7-L1503_Load2)+levelCheckRAM)
 
         pop     af
-				call    FadeInit
+        call    FadeInit
         ret
 
 .setBG7
@@ -667,10 +667,10 @@ L1503_Load2:
         push    af
 
         ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
         ld      hl,levelVars+VAR_DESTZONE
         ld      a,[hl+]
@@ -681,7 +681,7 @@ L1503_Load2:
         ld      hl,fadeCurPalette+8*7
         call    ((.setBG7-L1503_Load2)+levelCheckRAM)
         pop     af
-				call    FadeInit
+        call    FadeInit
         pop     hl
         pop     de
         pop     bc
@@ -694,12 +694,12 @@ L1503_Load2:
 .setupFadeToClouds
         push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
         ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
         ;set all colors to be $7d80
         ld      hl,fadeCurPalette
@@ -713,7 +713,7 @@ L1503_Load2:
         jr      nz,.setAll7d80
 
         pop     af
-				call    FadeInit
+        call    FadeInit
         ret
 
 .cloudFrames
@@ -785,24 +785,24 @@ L1503_Load2:
 
 .scrollAllSpritesDown
         push     bc
-				push     de
-				push     hl
+        push     de
+        push     hl
 
-				ld       hl,spriteOAMBuffer
-				ld       c,35
+        ld       hl,spriteOAMBuffer
+        ld       c,35
 .scrollDownLoop
         ld       a,[hl]
-				add      d
+        add      d
         ld       [hl+],a
-				inc      hl
-				inc      hl
-				inc      hl
-				dec      c
-				jr       nz,.scrollDownLoop
+        inc      hl
+        inc      hl
+        inc      hl
+        dec      c
+        jr       nz,.scrollDownLoop
 
-				pop      hl
-				pop      de
-				pop      bc
+        pop      hl
+        pop      de
+        pop      bc
         ret
 
 .quickFromBlack

@@ -37,14 +37,14 @@ INCBIN "..\\fgbeditor\\L0401_pitch_black.lvl"
 L0401_Init:
         DW ((L0401_InitFinished - L0401_Init2))  ;size
 L0401_Init2:
-				ld      hl,((.blackPalette-L0401_Init2)+levelCheckRAM)
-				ld      de,gamePalette
-				call    CopyPalette32
-				ld      de,fadeFinalPalette
-				call    CopyPalette32
-				ld      de,fadeCurPalette
-				call    CopyPalette32
-				;call    InstallGamePalette
+        ld      hl,((.blackPalette-L0401_Init2)+levelCheckRAM)
+        ld      de,gamePalette
+        call    CopyPalette32
+        ld      de,fadeFinalPalette
+        call    CopyPalette32
+        ld      de,fadeCurPalette
+        call    CopyPalette32
+        ;call    InstallGamePalette
 
         ld      a,ENV_RAIN
         call    SetEnvEffect
@@ -70,46 +70,46 @@ L0401_Check:
         DW ((L0401_CheckFinished - L0401_Check2))  ;size
 L0401_Check2:
         ld      hl,((.heroToGrey-L0401_Check2)+levelCheckRAM)
-				xor     a
-				call    CheckEachHero
+        xor     a
+        call    CheckEachHero
 
         call    ((.lightening-L0401_Check2)+levelCheckRAM)
         ret
 
 .heroToGrey
         or      a
-				ret     z
+        ret     z
 
-				ld      c,a
-				call    GetFGAttributes
-				and     %11111000         ;palette to grey
-				call    SetFGAttributes
-				call    GetFirst
-				ld      b,METHOD_DRAW
-				call    CallMethod
-				ret
+        ld      c,a
+        call    GetFGAttributes
+        and     %11111000         ;palette to grey
+        call    SetFGAttributes
+        call    GetFirst
+        ld      b,METHOD_DRAW
+        call    CallMethod
+        ret
 
 .lightening
         ld      a,31
-				call    GetRandomNumMask
-				cp      31
-				jr      nz,.playThunderSound
+        call    GetRandomNumMask
+        cp      31
+        jr      nz,.playThunderSound
 
         ld      hl,((.lighteningPalette-L0401_Check2)+levelCheckRAM)
-				ld      de,fadeCurPalette
-				call    CopyPalette32
-				ld      a,7
-				call    GetRandomNumMask
-				add     8
-				call    FadeInit
-				ret
+        ld      de,fadeCurPalette
+        call    CopyPalette32
+        ld      a,7
+        call    GetRandomNumMask
+        add     8
+        call    FadeInit
+        ret
 
 .playThunderSound
         and     15
-			  ret     nz
+        ret     nz
 
         ld      hl,((.thunderSound-L0401_Check2)+levelCheckRAM)
-				call    PlaySound
+        call    PlaySound
         ret
 
 .thunderSound

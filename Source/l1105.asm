@@ -95,12 +95,12 @@ L1105_Load2:
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$1300
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 
@@ -217,12 +217,12 @@ L1105_Load2:
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$1300
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 

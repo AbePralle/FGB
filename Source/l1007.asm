@@ -41,7 +41,7 @@ L1007_Init:
         DW ((L1007_InitFinished - L1007_Init2))  ;size
 L1007_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ld      a,ENV_RAIN
         call    SetEnvEffect
 
@@ -62,12 +62,12 @@ L1007_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L1007_CheckFinished:
 PRINTT "1007 Script Sizes (Load/Init/Check) (of $500):  "

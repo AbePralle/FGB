@@ -42,13 +42,13 @@ L0007_Init:
 L0007_Init2:
         ;set crows to eat the trees and bushes
         ld      c,CROWINDEX
-				call    GetFirst
+        call    GetFirst
 .setCrowsFood
         ld      hl,EATRANGE
-				call    SetFoodIndexRange
-				call    GetNextObject
-				or      a
-				jr      nz,.setCrowsFood
+        call    SetFoodIndexRange
+        call    GetNextObject
+        or      a
+        jr      nz,.setCrowsFood
 
         ret
 

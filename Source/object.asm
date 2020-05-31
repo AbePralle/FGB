@@ -171,26 +171,26 @@ AddObjectsToObjList::
 PointerDEToIndex::
         push    de
         ld      a,d
-				and     %00001111
-				ld      d,a
-				ld      a,e
-				and     %11110000
-				or      d
-				swap    a
-				pop     de
-				ret
+        and     %00001111
+        ld      d,a
+        ld      a,e
+        and     %11110000
+        or      d
+        swap    a
+        pop     de
+        ret
 
 PointerHLToIndex::
         push    hl
         ld      a,h
-				and     %00001111
-				ld      h,a
-				ld      a,l
-				and     %11110000
-				or      h
-				swap    a
-				pop     hl
-				ret
+        and     %00001111
+        ld      h,a
+        ld      a,l
+        and     %11110000
+        or      h
+        swap    a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ResetList
@@ -210,14 +210,14 @@ ResetList::
         ld      [$ff00+$70],a
 
         ;Set object zero (which should never be accessed) to
-				;all-null to help ID infinite loops.
-				ld      hl,objects
-				ld      b,16
-				xor     a
+        ;all-null to help ID infinite loops.
+        ld      hl,objects
+        ld      b,16
+        xor     a
 .setObjNullLoop
-				ld      [hl+],a
-				dec     b
-				jr      nz,.setObjNullLoop
+        ld      [hl+],a
+        dec     b
+        jr      nz,.setObjNullLoop
 
         ;Clear all elements of headTable[] and tailTable[] to
         ;point to null.  tailTable[] follows headTable[] in memory so
@@ -239,24 +239,24 @@ ResetList::
         ld      a,1
         ld      [firstFreeObj],a
 
-				;255 objExists flags to zero
-				ld      a,OBJLISTBANK
-				ld      bc,255
-				ld      d,0
-				ld      hl,objExists+1
-				call    MemSet
+        ;255 objExists flags to zero
+        ld      a,OBJLISTBANK
+        ld      bc,255
+        ld      d,0
+        ld      hl,objExists+1
+        call    MemSet
 
-				;set objExists[0] to 1 to prevent it from being allocated
-				ld      a,1
-				ld      [objExists],a
+        ;set objExists[0] to 1 to prevent it from being allocated
+        ld      a,1
+        ld      [objExists],a
 
         ld      a,((objExists+1) & $ff)
-				ld      [iterateNext],a
-				ld      a,(((objExists+1)>>8) & $ff)
-				ld      [iterateNext+1],a
+        ld      [iterateNext],a
+        ld      a,(((objExists+1)>>8) & $ff)
+        ld      [iterateNext+1],a
 
-				ld      a,255
-				ld      [numFreeObjects],a
+        ld      a,255
+        ld      [numFreeObjects],a
 
         pop     hl
         pop     de
@@ -277,51 +277,51 @@ ClearFGBGFlags::
         push    hl
 
         ld      a,OBJLISTBANK
-				ld      bc,256
-				ld      d,0
-				ld      hl,bgAttributes
-				call    MemSet
+        ld      bc,256
+        ld      d,0
+        ld      hl,bgAttributes
+        call    MemSet
 
-				ld      a,OBJLISTBANK
-				ld      bc,256
-				ld      d,0
-				ld      hl,fgAttributes
-				call    MemSet
+        ld      a,OBJLISTBANK
+        ld      bc,256
+        ld      d,0
+        ld      hl,fgAttributes
+        call    MemSet
 
 IF 0
-				;set all bgAttribute flags to zero
-				ld      c,0
-				ld      hl,bgAttributes
-				xor     a
+        ;set all bgAttribute flags to zero
+        ld      c,0
+        ld      hl,bgAttributes
+        xor     a
 .bgAttrLoop
         ld      [hl+],a
-				dec     c
-				jr      nz,.bgAttrLoop
+        dec     c
+        jr      nz,.bgAttrLoop
 
-				;set all fgAttribute flags to zero
-				ld      c,0
-				ld      hl,fgAttributes
-				xor     a
+        ;set all fgAttribute flags to zero
+        ld      c,0
+        ld      hl,fgAttributes
+        xor     a
 .attrLoop
         ld      [hl+],a
-				dec     c
-				jr      nz,.attrLoop
+        dec     c
+        jr      nz,.attrLoop
 ENDC
 
-				ld      a,OBJLISTBANK
-				ld      bc,256
-				ld      d,0
-				ld      hl,associatedIndex
-				call    MemSet
+        ld      a,OBJLISTBANK
+        ld      bc,256
+        ld      d,0
+        ld      hl,associatedIndex
+        call    MemSet
 
-				ld      a,OBJLISTBANK
-				ld      bc,512
-				ld      d,0
-				ld      hl,classLookup
-				call    MemSet
+        ld      a,OBJLISTBANK
+        ld      bc,512
+        ld      d,0
+        ld      hl,classLookup
+        call    MemSet
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
         ret
 
@@ -367,8 +367,8 @@ CreateObject::
         push    bc             ;save class index for a bit
         ;newObj = firstFreeObj
         ;setup de to point to free node
-				ld      [curObjIndex],a
-				call    IndexToPointerDE ;de is now ptr to free node
+        ld      [curObjIndex],a
+        call    IndexToPointerDE ;de is now ptr to free node
 
         ;store location ptr (hl)
         ld      a,l
@@ -378,48 +378,48 @@ CreateObject::
         ld      [de],a    ;OBJ_JPOS
         dec     de
 
-				ld      hl,numFreeObjects
-				dec     [hl]
+        ld      hl,numFreeObjects
+        dec     [hl]
 
         ;firstFreeObj = (next free object index)
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				ld      a,[firstFreeObj]
-				ld      h,((objExists>>8) & $ff)
-				inc     a
-				jr      z,.foundNextFree   ;no free objects
-				ld      l,a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        ld      a,[firstFreeObj]
+        ld      h,((objExists>>8) & $ff)
+        inc     a
+        jr      z,.foundNextFree   ;no free objects
+        ld      l,a
 .lookAtNextObj
-				ld      a,[hl+]
-				or      a
-				jr      nz,.thisObjNotFree
+        ld      a,[hl+]
+        or      a
+        jr      nz,.thisObjNotFree
 
-				dec     hl
-				ld      a,l
-				jr      .foundNextFree
+        dec     hl
+        ld      a,l
+        jr      .foundNextFree
 
 .thisObjNotFree
         ld      a,l
-				or      a
-				jr      nz,.lookAtNextObj
-				;no free objects (1st is zero)
+        or      a
+        jr      nz,.lookAtNextObj
+        ;no free objects (1st is zero)
 
 .foundNextFree
-				ld      [firstFreeObj],a
+        ld      [firstFreeObj],a
 
         ;if(!headTable[c]){
-				ld      h,((headTable>>8) & $ff)
-				ld      l,c
+        ld      h,((headTable>>8) & $ff)
+        ld      l,c
         ld      a,[hl]         ;get object index
         or      a
         jr      nz,.headExists
 
 .noHead ;headTable[c] = curObjIndex
         ld      a,[curObjIndex]
-				ld      [hl],a
+        ld      [hl],a
 
         ;tailTable[c] = curObjIndex
-				ld      h,((tailTable>>8) & $ff)     ;hl is tailTable[c]
+        ld      h,((tailTable>>8) & $ff)     ;hl is tailTable[c]
         ld      [hl],a
 
         ;switch in object RAM
@@ -430,16 +430,16 @@ CreateObject::
 
 .headExists
         ;oldTail = tailTable[c]
-				ld      h,((tailTable>>8) & $ff)
+        ld      h,((tailTable>>8) & $ff)
         ld      a,[hl]         ;old tail index
-				push    de
-				call    IndexToPointerDE
-				ld      b,d
-				ld      c,e        ;bc = oldTail
-				pop     de
+        push    de
+        call    IndexToPointerDE
+        ld      b,d
+        ld      c,e        ;bc = oldTail
+        pop     de
 
         ;tailTable[c] = curObjIndex
-				ld      a,[curObjIndex]
+        ld      a,[curObjIndex]
         ld      [hl],a
 
         ;switch in object RAM
@@ -449,27 +449,27 @@ CreateObject::
         ;oldTail->nextItem = newObj
         ld      hl,OBJ_NEXT    ;offset to get to nextItem
         add     hl,bc          ;hl = &oldTail->nextItem
-				ld      a,[curObjIndex]
+        ld      a,[curObjIndex]
         ld      [hl],a         ;oldTail->nextItem = newObj
 
 .setNextToNull
         ;newObj->nextItem = null
         ld      hl,OBJ_NEXT    ;offset to get to nextItem low byte
-				add     hl,de           ;hl = &newObj->nextItem
+        add     hl,de           ;hl = &newObj->nextItem
         xor     a
         ld      [hl],a         ;newObj->nextItem = null
 
         ;objExists[objectIndex] = 1;
         ld      a,OBJLISTBANK
         ld      [$ff00+$70],a
-				call    GetObjectIndex    ;sets up hl
-				ld      a,1
-				ld      [hl],a
+        call    GetObjectIndex    ;sets up hl
+        ld      a,1
+        ld      [hl],a
 
-				;objClassLookup[objIndex] = classIndex
-				ld      h,((objClassLookup>>8) & $ff)
-				pop     bc                ;get class lookup in c
-				ld      [hl],c
+        ;objClassLookup[objIndex] = classIndex
+        ld      h,((objClassLookup>>8) & $ff)
+        pop     bc                ;get class lookup in c
+        ld      [hl],c
 
 .doneHL pop     hl
         ;de is return value
@@ -488,22 +488,22 @@ CreateObject::
 ;---------------------------------------------------------------------
 CreateInitAndDrawObject::
         push    bc
-				push    hl
+        push    hl
 
-				call    CreateObject
-				ld      a,d
-				or      a
-				jr      z,.done
+        call    CreateObject
+        ld      a,d
+        or      a
+        jr      z,.done
 
-				ld      b,METHOD_INIT
-				call    CallMethod
+        ld      b,METHOD_INIT
+        call    CallMethod
         ld      b,METHOD_DRAW
-				call    CallMethod
+        call    CallMethod
 
 .done
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -539,130 +539,130 @@ CreateInitAndDrawObject::
 ;---------------------------------------------------------------------
 DeleteObject::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      hl,numFreeObjects
-				inc     [hl]
+        ld      hl,numFreeObjects
+        inc     [hl]
 
         ;retrieve & save index of next object
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_NEXT
-				add     hl,de
-				ld      a,[hl]
-				ld      [nextObjIndex],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_NEXT
+        add     hl,de
+        ld      a,[hl]
+        ld      [nextObjIndex],a
 
         ;switch in objectList RAM
         ld      a,OBJLISTBANK
         ld      [$ff00+$70],a
 
-				;hl = &headTable[c]
-				ld      h,((headTable>>8) & $ff)
-				ld      l,c
+        ;hl = &headTable[c]
+        ld      h,((headTable>>8) & $ff)
+        ld      l,c
 
         ;c = object index to remove
-				call    PointerDEToIndex
-				ld      [curObjIndex],a
-				ld      c,a
-				;push    de          ;save original ptr to object
+        call    PointerDEToIndex
+        ld      [curObjIndex],a
+        ld      c,a
+        ;push    de          ;save original ptr to object
 
-				; prev = 0
-				; for(cur=headTable[c]; cur!=obj; cur=cur->nextItem){
-				;   prev = cur;
-				; }
+        ; prev = 0
+        ; for(cur=headTable[c]; cur!=obj; cur=cur->nextItem){
+        ;   prev = cur;
+        ; }
 
-				;b is prev index, a is cur index
-				ld      b,0         ; prev = 0;
-				ld      a,[hl]      ; cur=headTable[c]
-				push    hl          ; save headTable
-				push    hl          ; save headTable again
+        ;b is prev index, a is cur index
+        ld      b,0         ; prev = 0;
+        ld      a,[hl]      ; cur=headTable[c]
+        push    hl          ; save headTable
+        push    hl          ; save headTable again
 
-				push    af
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				pop     af
+        push    af
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        pop     af
 
         ;cur equal to desired?
 .findIt
-				cp      c
-				jr      z,.foundIt
+        cp      c
+        jr      z,.foundIt
 
-				;prev = cur
-				ld      b,a
+        ;prev = cur
+        ld      b,a
 
-				;cur=cur->nextItem
-				call    IndexToPointerHL
-				ld      de,OBJ_NEXT
-				add     hl,de
+        ;cur=cur->nextItem
+        call    IndexToPointerHL
+        ld      de,OBJ_NEXT
+        add     hl,de
 
-				ld      a,[hl]
-				jr      .findIt
+        ld      a,[hl]
+        jr      .findIt
 
 .foundIt
         pop     hl      ;retrieve headTable[c]
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ;check value of prev to determine if cur is head or not
-				ld      a,b
-				or      a
+        ld      a,b
+        or      a
 
-				;is head, set headTable[c] = cur->nextObj
-				jr      z,.afterCheckHead
+        ;is head, set headTable[c] = cur->nextObj
+        jr      z,.afterCheckHead
 
 .notHead
         ;prev->nextObj = cur->nextObj
-				call    IndexToPointerHL     ;'a' is prevObj
-				ld      de,OBJ_NEXT
-				add     hl,de
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        call    IndexToPointerHL     ;'a' is prevObj
+        ld      de,OBJ_NEXT
+        add     hl,de
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
 .afterCheckHead
-				ld      a,[nextObjIndex]
-				ld      [hl],a
+        ld      a,[nextObjIndex]
+        ld      [hl],a
 
         ;-------------------------check tail-----------------
-				; if(cur==tailTable[c]){
-				;   tailTable[c] = prev;
-				; }
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				pop     hl                         ;retrieve headTable[c]
-				ld      h,((tailTable>>8) & $ff)   ;make it tailTable[c]
+        ; if(cur==tailTable[c]){
+        ;   tailTable[c] = prev;
+        ; }
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        pop     hl                         ;retrieve headTable[c]
+        ld      h,((tailTable>>8) & $ff)   ;make it tailTable[c]
 
         ld      a,c                        ;c is cur (found) obj
-				cp      [hl]
-				jr      nz,.afterCheckTail
+        cp      [hl]
+        jr      nz,.afterCheckTail
 
-				ld      [hl],b    ;change tail = prev
+        ld      [hl],b    ;change tail = prev
 
 .afterCheckTail
         ;objExists[objIndex] = 0;
-				ld      h,((objExists>>8) & $ff)  ;hl = &objExists[objIndex]
-				ld      a,[curObjIndex]
-				ld      l,a
-				xor     a
-				ld      [hl],a
+        ld      h,((objExists>>8) & $ff)  ;hl = &objExists[objIndex]
+        ld      a,[curObjIndex]
+        ld      l,a
+        xor     a
+        ld      [hl],a
 
-				;firstFreeObj = min(firstFreeObj, curObjIndex)
-				ld      a,[firstFreeObj]
-				cp      l         ;compare to curObjIndex
-				jr      c,.afterSetFirstFree   ;no change
+        ;firstFreeObj = min(firstFreeObj, curObjIndex)
+        ld      a,[firstFreeObj]
+        cp      l         ;compare to curObjIndex
+        jr      c,.afterSetFirstFree   ;no change
 
-				ld      a,l
-				ld      [firstFreeObj],a
+        ld      a,l
+        ld      [firstFreeObj],a
 
 .afterSetFirstFree
 
-				;pop     de       ;retrieve original pointer to object
+        ;pop     de       ;retrieve original pointer to object
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      IterateAllLists
@@ -692,15 +692,15 @@ IterateAllLists::
         ld      [$ff00+$70],a
 
         ld      a,[hl+]          ;de = headTable[i]
-				or      a
-				jr      z,.afterIterate
+        or      a
+        jr      z,.afterIterate
 
-				call    IndexToPointerDE
+        call    IndexToPointerDE
         call    IterateList
 
 .afterIterate
         inc     c
-				jr      nz,.loop
+        jr      nz,.loop
 
         pop     hl
         pop     de
@@ -743,11 +743,11 @@ IterateList::
         ;save class index
         ld      a,c
         ld      [delTempL],a
-				ld      a,b
-				ld      [delTempH],a  ;and method type
+        ld      a,b
+        ld      [delTempH],a  ;and method type
 
         ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         ;convert offset into actual address of class method to call
         ld      a,b              ;save function offset
@@ -765,7 +765,7 @@ IterateList::
         ld      b,0              ;clear high byte of bc
         add     hl,bc            ;hl is now ptr to ptr to class method
 
-				call    GetMethodAddrFromPointer
+        call    GetMethodAddrFromPointer
 
 .loop   ;get ptr to next before calling method
         ld      a,OBJBANK        ;switch in object RAM
@@ -775,9 +775,9 @@ IterateList::
         ld      hl,OBJ_NEXT
         add     hl,de
         ld      a,[hl]
-				call    IndexToPointerHL
-				ld      b,h
-				ld      c,l
+        call    IndexToPointerHL
+        ld      b,h
+        ld      c,l
         pop     hl
         push    bc               ;save ptr to next on stack
 
@@ -789,44 +789,44 @@ IterateList::
 
         ;----call super methods
         push    bc
-				push    de
-				ld      a,[delTempH]   ;method index
-				cp      METHOD_INIT
-				jr      nz,.checkSuperDie
+        push    de
+        ld      a,[delTempH]   ;method index
+        cp      METHOD_INIT
+        jr      nz,.checkSuperDie
 
-				call    SuperInit
-				jr      .afterSuperDie
+        call    SuperInit
+        jr      .afterSuperDie
 
 .checkSuperDie
         cp      METHOD_DIE
-				jr      nz,.afterSuperDie
+        jr      nz,.afterSuperDie
 
-				call    SuperDie
+        call    SuperDie
 
 .afterSuperDie
         ld      a,b
-				cp      METHOD_CHECK
-				jr      nz,.afterCheckIdle
-				ld      a,[allIdle]
-				or      a
-				jr      z,.afterCheckIdle
-				;can't be explosion
-				pop     de
-				pop     bc
-				ld      a,c
-				cp      $ff
-				jr      z,.returnAddress
-				jr      .afterPopDEBC
+        cp      METHOD_CHECK
+        jr      nz,.afterCheckIdle
+        ld      a,[allIdle]
+        or      a
+        jr      z,.afterCheckIdle
+        ;can't be explosion
+        pop     de
+        pop     bc
+        ld      a,c
+        cp      $ff
+        jr      z,.returnAddress
+        jr      .afterPopDEBC
 .afterCheckIdle
 
         pop     de
-				pop     bc
+        pop     bc
 .afterPopDEBC
-				;---------
+        ;---------
 
-				push    hl
+        push    hl
         call    SetObjWidthHeight
-				pop     hl
+        pop     hl
         jp      hl                ;start class method (de is cur)
 .returnAddress
 
@@ -870,10 +870,10 @@ FindObject::
         ld      [$ff00+$70],a
 
         ;find byte index into headTable array
-				ld     h,((headTable>>8) & $ff)
-				ld     l,c
+        ld     h,((headTable>>8) & $ff)
+        ld     l,c
         ld     a,[hl]
-				call   IndexToPointerHL  ;hl is head of list
+        call   IndexToPointerHL  ;hl is head of list
 
         ld     bc,OBJ_NEXT-1     ;offset to add to hl during loop
 
@@ -906,7 +906,7 @@ FindObject::
 .continue
         add     hl,bc            ;add offset to get to nextItem
         ld      a,[hl]
-				call    IndexToPointerHL ;cur = cur->nextItem
+        call    IndexToPointerHL ;cur = cur->nextItem
         jr      .terminationTest
 
 .returnMatch
@@ -933,44 +933,44 @@ FindObject::
 CallMethod::
         ld      a,b
         cp      METHOD_CHECK
-				jr      nz,.afterCheckIdle
+        jr      nz,.afterCheckIdle
 
-				ld      a,[allIdle]
-				or      a
-				jr      z,.afterCheckIdle
-				;can't be explosion
-				ld      a,c
-				cp      $ff
-				ret     nz
+        ld      a,[allIdle]
+        or      a
+        jr      z,.afterCheckIdle
+        ;can't be explosion
+        ld      a,c
+        cp      $ff
+        ret     nz
 
 .afterCheckIdle
         push    bc
-				push    de
+        push    de
         push    hl
         ldio    a,[curObjWidthHeight]
         push    af
 
         call    SetObjWidthHeight
 
-				ld      a,b
-				cp      METHOD_INIT
-				jr      nz,.checkSuperDie
+        ld      a,b
+        cp      METHOD_INIT
+        jr      nz,.checkSuperDie
 
-				call    SuperInit
-				jr      .afterSuperDie
+        call    SuperInit
+        jr      .afterSuperDie
 
 .checkSuperDie
         cp      METHOD_DIE
-				jr      nz,.afterSuperDie
+        jr      nz,.afterSuperDie
 
-				call    SuperDie
+        call    SuperDie
 
 .afterSuperDie
         ;find the base address of class and add method offset
         ;get offset into classLookup
         ld      l,c
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
         xor     a
         sla     l
         rla
@@ -980,11 +980,11 @@ CallMethod::
         add     b                   ;add offset of method
         ld      h,[hl]
         ld      l,a                 ;hl is addr of class methods
-				ld      a,0
+        ld      a,0
         adc     h
         ld      h,a                 ;hl is addr of specific method
 
-				call    GetMethodAddrFromPointer
+        call    GetMethodAddrFromPointer
 
         ld      a,c                 ;store class index in A temporarily
         ld      bc,.returnAddress   ;save return address on stack
@@ -999,7 +999,7 @@ CallMethod::
         ldio    [curObjWidthHeight],a
         ld      a,h  ;restore return value
         pop     hl
-				pop     de
+        pop     de
         pop     bc
         ret
 
@@ -1013,17 +1013,17 @@ CallMethod::
 ;---------------------------------------------------------------------
 SetObjWidthHeight::
         ;set the tile width and height to either 1x1 or 2x2
-				ld      a,TILEINDEXBANK
-				ld      [$ff70],a
-				ld      h,((fgAttributes>>8) & $ff)
-				ld      l,c
-				ld      a,[hl]
-				rrca
-				swap    a
-				and     1
-				inc     a           ;one or two
-				ldio    [curObjWidthHeight],a
-				ret
+        ld      a,TILEINDEXBANK
+        ld      [$ff70],a
+        ld      h,((fgAttributes>>8) & $ff)
+        ld      l,c
+        ld      a,[hl]
+        rrca
+        swap    a
+        and     1
+        inc     a           ;one or two
+        ldio    [curObjWidthHeight],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetObjectIndex
@@ -1033,8 +1033,8 @@ SetObjWidthHeight::
 ;---------------------------------------------------------------------
 GetObjectIndex:
         call    PointerDEToIndex
-				ld      h,((objExists>>8) & $ff)
-				ld      l,a
+        ld      h,((objExists>>8) & $ff)
+        ld      l,a
         ret
 
 ;---------------------------------------------------------------------
@@ -1052,48 +1052,48 @@ GetObjectIndex:
 ;---------------------------------------------------------------------
 IterateMaxObjects::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ld      a,OBJLISTBANK
         ld      [$ff00+$70],a
 
         ld      a,[iterateNext]
-				ld      l,a
-				ld      a,[iterateNext+1]
-				ld      h,a
+        ld      l,a
+        ld      a,[iterateNext+1]
+        ld      h,a
 
 .outer  ld      e,0
 
 .inner  ld      a,[hl+]                ;pick up the next flag
 
         or      a                      ;non-zero?
-				jr      z,.continue
+        jr      z,.continue
 
-				;found an existing object
-				push    de
-				push    hl
+        ;found an existing object
+        push    de
+        push    hl
 
-				dec     hl   ;go back to where we found it
+        dec     hl   ;go back to where we found it
 
         ;convert objIndex hl into objAddress de
-				ld      a,l
-				call    IndexToPointerDE
+        ld      a,l
+        call    IndexToPointerDE
 
         ;get the class index
-				;hl = &objClassLookup[objIndex]
-				ld      h,((objClassLookup>>8) & $ff)
-				ld      a,[hl]                 ;what's the class index?
-				ld      h,c                    ;stow c for a sec
-				ld      c,a
+        ;hl = &objClassLookup[objIndex]
+        ld      h,((objClassLookup>>8) & $ff)
+        ld      a,[hl]                 ;what's the class index?
+        ld      h,c                    ;stow c for a sec
+        ld      c,a
 
-				call    CallMethod
+        call    CallMethod
 
-				ld      c,h                    ;retrieve c from storage
+        ld      c,h                    ;retrieve c from storage
 
-				pop     hl
+        pop     hl
         pop     de
-				dec     c                      ;used one of our max checks
+        dec     c                      ;used one of our max checks
 
         ld      a,OBJLISTBANK          ;be sure & point back to our
         ld      [$ff00+$70],a          ;list RAM
@@ -1101,33 +1101,33 @@ IterateMaxObjects::
 .continue
         ;wrap around hl
         ld      a,h                    ;is hl < objExists + 256?
-				cp      (((objExists>>8)&$ff)+1)
-				jr      c,.hlOkay
+        cp      (((objExists>>8)&$ff)+1)
+        jr      c,.hlOkay
 
-				ld      hl,objExists+1            ;wrap around to beginning
-				call    UpdateObjTimers           ;update timers
+        ld      hl,objExists+1            ;wrap around to beginning
+        call    UpdateObjTimers           ;update timers
 
 .hlOkay
         xor     a
-				cp      c
-				jr      z,.skipUnused          ;bust out if we've checked enough
+        cp      c
+        jr      z,.skipUnused          ;bust out if we've checked enough
 
-				dec     e
-				jr      nz,.inner
+        dec     e
+        jr      nz,.inner
 
 .skipUnused
 
 .done
         ;save current value of hl
         ld      a,l
-				ld      [iterateNext],a
-				ld      a,h
-				ld      [iterateNext+1],a
+        ld      [iterateNext],a
+        ld      a,h
+        ld      [iterateNext+1],a
 
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1140,30 +1140,30 @@ DeleteObjectsOfClass::
         push    de
         push    hl
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      e,1
-				ld      hl,classLookup+2
+        ld      hl,classLookup+2
 
 .loop   ld      a,[hl+]
         cp      c
-				jr      nz,.afterCheck
-				ld      a,[hl]
-				cp      b
-				jr      nz,.afterCheck
+        jr      nz,.afterCheck
+        ld      a,[hl]
+        cp      b
+        jr      nz,.afterCheck
 
-				ld      a,e
-				call    DeleteObjectsOfClassIndex
+        ld      a,e
+        call    DeleteObjectsOfClassIndex
 
 .afterCheck
         inc     hl
-				inc     e
-				jr      nz,.loop
+        inc     e
+        jr      nz,.loop
 
         pop     hl
         pop     de
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DeleteObjectsOfClassIndex
@@ -1173,32 +1173,32 @@ DeleteObjectsOfClass::
 ;---------------------------------------------------------------------
 DeleteObjectsOfClassIndex::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      c,a                     ;class index in c
+        ld      c,a                     ;class index in c
 
-				ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
+        ld      a,TILEINDEXBANK
+        ldio    [$ff70],a
 
         ld      h,((headTable>>8) & $ff)
-				ld      l,c
+        ld      l,c
 
 .loop   ld      a,[hl]                  ;get head object in de
         or      a
-				jr      z,.done
+        jr      z,.done
         call    IndexToPointerDE
 
-				ld      b,METHOD_DIE
-				call    IterateList
+        ld      b,METHOD_DIE
+        call    IterateList
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -1211,8 +1211,8 @@ DeleteObjectsOfClassIndex::
 ;---------------------------------------------------------------------
 GetFirst::
         call    GetHead
-				call    IndexToPointerDE
-				ret
+        call    IndexToPointerDE
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetNextObject
@@ -1224,10 +1224,10 @@ GetFirst::
 ;---------------------------------------------------------------------
 GetNextObject::
         call    GetNext
-				call    IndexToPointerDE
-				ld      a,d
-				or      a
-				ret
+        call    IndexToPointerDE
+        ld      a,d
+        or      a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetNext
@@ -1238,16 +1238,16 @@ GetNextObject::
 GetNext::
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				ld      hl,OBJ_NEXT
-				add     hl,de
-				ld      a,[hl]
+        ld      hl,OBJ_NEXT
+        add     hl,de
+        ld      a,[hl]
 
-				pop     hl
-				or      a
-				ret
+        pop     hl
+        or      a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetNext
@@ -1260,15 +1260,15 @@ SetNext::
         push    hl
         push    af
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				pop     af
+        ldio    [$ff70],a
+        pop     af
 
-				ld      hl,OBJ_NEXT
-				add     hl,de
-				ld      [hl],a
+        ld      hl,OBJ_NEXT
+        add     hl,de
+        ld      [hl],a
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetHead
@@ -1279,17 +1279,17 @@ SetNext::
 ;---------------------------------------------------------------------
 SetHead::
         push    hl
-				push    af
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				pop     af
+        push    af
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        pop     af
 
         ld      h,((headTable>>8) & $ff)
-				ld      l,c
+        ld      l,c
 
-				ld      [hl],a
-				pop     hl
-				ret
+        ld      [hl],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetHead
@@ -1299,15 +1299,15 @@ SetHead::
 ;---------------------------------------------------------------------
 GetHead::
         push    hl
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      h,((headTable>>8) & $ff)
-				ld      l,c
+        ld      l,c
 
         ld      a,[hl]                  ;get head object index
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetTail
@@ -1318,15 +1318,15 @@ GetHead::
 ;---------------------------------------------------------------------
 GetTail::
         push    hl
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      h,((tailTable>>8) & $ff)
-				ld      l,c
+        ld      l,c
 
         ld      a,[hl]                  ;get tail object index
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetTail
@@ -1337,17 +1337,17 @@ GetTail::
 ;---------------------------------------------------------------------
 SetTail::
         push    hl
-				push    af
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				pop     af
+        push    af
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        pop     af
 
         ld      h,((tailTable>>8) & $ff)
-				ld      l,c
+        ld      l,c
 
-				ld      [hl],a
-				pop     hl
-				ret
+        ld      [hl],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetNumObjects
@@ -1389,12 +1389,12 @@ GetNumObjects::
 GetAssociated::
         push    hl
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
-				ld      h,((associatedIndex>>8)&$ff)
-				ld      l,c
-				ld      a,[hl]
-				pop     hl
-				ret
+        ld      [$ff70],a
+        ld      h,((associatedIndex>>8)&$ff)
+        ld      l,c
+        ld      a,[hl]
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 SECTION "ObjListHome",ROM0
@@ -1415,70 +1415,70 @@ SECTION "ObjListHome",ROM0
 InitFOF::
         push    bc
         push    de
-				push    hl
+        push    hl
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
-				ld      c,0                ;loop 256 times
-				ld      hl,FOFTable
-				xor     a
+        ld      c,0                ;loop 256 times
+        ld      hl,FOFTable
+        xor     a
 
 .loop1  ld      [hl+],a
         dec     c
-				jr      nz,.loop1
+        jr      nz,.loop1
 
-				ld      hl,FOFTable+17
-				ld      c,15
-				ld      a,1
-				ld      de,16          ;offset
+        ld      hl,FOFTable+17
+        ld      c,15
+        ld      a,1
+        ld      de,16          ;offset
 
 .loop2  ld      [hl+],a
         add     hl,de
         dec     c
-				jr      nz,.loop2
+        jr      nz,.loop2
 
         ;set monster N to be friends with all but FFA
-				;row
-				ld      hl,FOFTable+30   ;row 2, second to last column
-				ld      c,15             ;set next 15 rows
+        ;row
+        ld      hl,FOFTable+30   ;row 2, second to last column
+        ld      c,15             ;set next 15 rows
 .loop30 ld      [hl],a
         add     hl,de
-				dec     c
-				jr      nz,.loop30
+        dec     c
+        jr      nz,.loop30
 
         ;column
-				ld      hl,FOFTable+(14*16)+1
-				ld      c,15
+        ld      hl,FOFTable+(14*16)+1
+        ld      c,15
 .loop40 ld      [hl+],a
         dec     c
-				jr      nz,.loop40
+        jr      nz,.loop40
 
         ;set monster N to be friends with all but FFA
-				;row
-				ld      hl,FOFTable+31   ;row 2, last column
-				ld      c,15             ;set next 15 rows
+        ;row
+        ld      hl,FOFTable+31   ;row 2, last column
+        ld      c,15             ;set next 15 rows
 .loop3  ld      [hl],a
         add     hl,de
-				dec     c
-				jr      nz,.loop3
+        dec     c
+        jr      nz,.loop3
 
         ;column
-				ld      hl,FOFTable+(15*16)+1
-				ld      c,15
+        ld      hl,FOFTable+(15*16)+1
+        ld      c,15
 .loop4  ld      [hl+],a
         dec     c
-				jr      nz,.loop4
+        jr      nz,.loop4
 
-				ld      a,1
-				ld      b,GROUP_HERO
-				ld      c,GROUP_MONSTERB
-				call    SetFOF
+        ld      a,1
+        ld      b,GROUP_HERO
+        ld      c,GROUP_MONSTERB
+        call    SetFOF
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetFOF
@@ -1490,30 +1490,30 @@ InitFOF::
 ; Description:  Sets an entry in the FOF table
 ;---------------------------------------------------------------------
 SetFOF::
-				push    hl
+        push    hl
 
         ;combine b and c in l
-				push    af
+        push    af
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      a,b
-				swap    a
-				or      c
-				ld      l,a
-				ld      h,((FOFTable>>8) & $ff)
-				pop     af
+        swap    a
+        or      c
+        ld      l,a
+        ld      h,((FOFTable>>8) & $ff)
+        pop     af
 
         ;set the one entry
-				ld      [hl],a
+        ld      [hl],a
 
-				;set the reverse entry
-				swap    l
-				ld      [hl],a
+        ;set the reverse entry
+        swap    l
+        ld      [hl],a
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1527,19 +1527,19 @@ SetFOF::
 GetFOF::
         push    hl
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ld      a,b
-				swap    a
-				or      c
-				ld      l,a
-				ld      h,((FOFTable>>8) & $ff)
+        swap    a
+        or      c
+        ld      l,a
+        ld      h,((FOFTable>>8) & $ff)
 
-				ld      a,[hl]
+        ld      a,[hl]
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      LinkRemakeLists
@@ -1563,118 +1563,118 @@ GetFOF::
 ;---------------------------------------------------------------------
 LinkRemakeLists::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				;initialize some values
-				xor     a
-				ld      [objTimerBase],a
-				ld      [objTimer60ths],a
-				ld      [heroTimerBase],a
-				ld      [heroTimer60ths],a
-				ld      [oamFindPos],a
-				ld      [baMoved],a
-				ld      [bsMoved],a
-				ld      de,objExists+1
-				ld      hl,iterateNext
-				ld      [hl],e
-				inc     hl
-				ld      [hl],d
+        ;initialize some values
+        xor     a
+        ld      [objTimerBase],a
+        ld      [objTimer60ths],a
+        ld      [heroTimerBase],a
+        ld      [heroTimer60ths],a
+        ld      [oamFindPos],a
+        ld      [baMoved],a
+        ld      [bsMoved],a
+        ld      de,objExists+1
+        ld      hl,iterateNext
+        ld      [hl],e
+        inc     hl
+        ld      [hl],d
 
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
         ;----remake tailTable-----------------------------------------
-				;first go through and zero out contents of tailTable
-				ld      hl,tailTable
-				ld      c,0            ;loop 256 times
-				xor     a
+        ;first go through and zero out contents of tailTable
+        ld      hl,tailTable
+        ld      c,0            ;loop 256 times
+        xor     a
 .zeroTailTable
         ld      [hl+],a
-				dec     c
-				jr      nz,.zeroTailTable
+        dec     c
+        jr      nz,.zeroTailTable
 
         ;start at the head of each list and follow each link until
-				;a null link is found.  That will be the tail.
-				ld      de,headTable
+        ;a null link is found.  That will be the tail.
+        ld      de,headTable
 .getNextListHead
-				ld      a,[de]
-				or      a              ;this linked list null?
-				jr      z,.afterMakeTail
+        ld      a,[de]
+        or      a              ;this linked list null?
+        jr      z,.afterMakeTail
 
         ld      b,a
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      a,b              ;index of object
-				ld      bc,OBJ_NEXT
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      a,b              ;index of object
+        ld      bc,OBJ_NEXT
 .followLink
-				call    IndexToPointerHL ;convert into object pointer
-				add     hl,bc            ;set HL to point to link
-				ld      a,[hl]           ;get link
-				or      a
-				jr      nz,.followLink
+        call    IndexToPointerHL ;convert into object pointer
+        add     hl,bc            ;set HL to point to link
+        ld      a,[hl]           ;get link
+        or      a
+        jr      nz,.followLink
 
-				;HL is the tail + OBJ_NEXT
-				;convert HL to obj index and use that to set up
-				;entry into tailTable
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				ld      a,l              ;align hl on 16-byte boundary
-				and     %11110000
-				ld      l,a
-				call    PointerHLToIndex
-				ld      d,((tailTable>>8) & $ff) ;de is &tailTable[class]
-				ld      [de],a
-				ld      d,((headTable>>8) & $ff) ;de is &headTable[class]
+        ;HL is the tail + OBJ_NEXT
+        ;convert HL to obj index and use that to set up
+        ;entry into tailTable
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        ld      a,l              ;align hl on 16-byte boundary
+        and     %11110000
+        ld      l,a
+        call    PointerHLToIndex
+        ld      d,((tailTable>>8) & $ff) ;de is &tailTable[class]
+        ld      [de],a
+        ld      d,((headTable>>8) & $ff) ;de is &headTable[class]
 
 .afterMakeTail
         inc     de
-				ld      a,e
-				or      a
-				jr      nz,.getNextListHead
+        ld      a,e
+        or      a
+        jr      nz,.getNextListHead
 
         xor     a
-				ldio    [vblankTimer],a
-				ldio    [updateTimer],a
+        ldio    [vblankTimer],a
+        ldio    [updateTimer],a
 
-				;count the number of free objects
-				ld      c,$ff
-				ld      hl,objExists+1
+        ;count the number of free objects
+        ld      c,$ff
+        ld      hl,objExists+1
 .countFree
-				ld      a,[hl+]
-				or      a
-				jr      z,.countContinue
+        ld      a,[hl+]
+        or      a
+        jr      z,.countContinue
         dec     c
 .countContinue
         ld      a,h
-				cp      $d5
-				jr      nz,.countFree
-				ld      a,c
-				ld      [numFreeObjects],a
+        cp      $d5
+        jr      nz,.countFree
+        ld      a,c
+        ld      [numFreeObjects],a
 
-				call    SetBGSpecialFlags
+        call    SetBGSpecialFlags
 
         ld      b,METHOD_DRAW
         call    IterateAllLists
 
-				call    ClearBackBuffer
+        call    ClearBackBuffer
 
         call    RestrictCameraToBounds
-				call    ScrollToCamera
+        call    ScrollToCamera
         call    DrawMapToBackBuffer
 
-				;turn on sound master control
-				ld      a,$80
-				ld      [$ff26],a
+        ;turn on sound master control
+        ld      a,$80
+        ld      [$ff26],a
 
-				ld      a,$ff
-				ld      [$ff24],a         ;full volume both channels
-				ld      [$ff25],a         ;all sounds to both channels
+        ld      a,$ff
+        ld      [$ff24],a         ;full volume both channels
+        ld      [$ff25],a         ;all sounds to both channels
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetClass
@@ -1685,13 +1685,13 @@ LinkRemakeLists::
 GetClass::
         push    hl
         ld      a,OBJLISTBANK
-				ldio    [$ff70],a
-				call    PointerDEToIndex
-				ld      h,((objClassLookup>>8) & $ff)
-				ld      l,a
-				ld      c,[hl]   ;obj class
-				pop     hl
-				ret
+        ldio    [$ff70],a
+        call    PointerDEToIndex
+        ld      h,((objClassLookup>>8) & $ff)
+        ld      l,a
+        ld      c,[hl]   ;obj class
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      InstanceOf
@@ -1702,22 +1702,22 @@ GetClass::
 ;---------------------------------------------------------------------
 InstanceOf::
         push    de
-				ld      d,h
-				ld      e,l
-				call    GetClassMethodTable
-				ld      a,d
-				cp      h
-				jr      nz,.false
-				ld      a,e
-				cp      l
-				jr      nz,.false
-				ld      a,1
-				pop     de
-				ret
+        ld      d,h
+        ld      e,l
+        call    GetClassMethodTable
+        ld      a,d
+        cp      h
+        jr      nz,.false
+        ld      a,e
+        cp      l
+        jr      nz,.false
+        ld      a,1
+        pop     de
+        ret
 .false
         pop     de
-				xor     a
-				ret
+        xor     a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetClassMethodTable
@@ -1727,21 +1727,21 @@ InstanceOf::
 ;---------------------------------------------------------------------
 GetClassMethodTable::
         ld      a,OBJLISTBANK
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
-				ld      h,0
-				ld      l,c
-				sla     l
-				rl      h
-				push    bc
-				ld      bc,classLookup
-				add     hl,bc
-				pop     bc
+        ld      h,0
+        ld      l,c
+        sla     l
+        rl      h
+        push    bc
+        ld      bc,classLookup
+        add     hl,bc
+        pop     bc
 
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				ret
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1752,11 +1752,11 @@ GetClassMethodTable::
 ;---------------------------------------------------------------------
 GetFGMapping::
         ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				ld      h,((fgTileMap>>8) & $ff)
-				ld      l,c
-				ld      a,[hl]
-				ret
+        ldio    [$ff70],a
+        ld      h,((fgTileMap>>8) & $ff)
+        ld      l,c
+        ld      a,[hl]
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetFGMapping
@@ -1768,12 +1768,12 @@ GetFGMapping::
 SetFGMapping::
         push    af
         ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      h,((fgTileMap>>8) & $ff)
-				ld      l,c
-				ld      [hl],a
-				ret
+        ldio    [$ff70],a
+        pop     af
+        ld      h,((fgTileMap>>8) & $ff)
+        ld      l,c
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetBGMapping
@@ -1783,11 +1783,11 @@ SetFGMapping::
 ;---------------------------------------------------------------------
 GetBGMapping::
         ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				ld      h,((bgTileMap>>8) & $ff)
-				ld      l,c
-				ld      a,[hl]
-				ret
+        ldio    [$ff70],a
+        ld      h,((bgTileMap>>8) & $ff)
+        ld      l,c
+        ld      a,[hl]
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetBGMapping
@@ -1799,12 +1799,12 @@ GetBGMapping::
 SetBGMapping::
         push    af
         ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      h,((bgTileMap>>8) & $ff)
-				ld      l,c
-				ld      [hl],a
-				ret
+        ldio    [$ff70],a
+        pop     af
+        ld      h,((bgTileMap>>8) & $ff)
+        ld      l,c
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CheckEachHero
@@ -1818,33 +1818,33 @@ SetBGMapping::
 CheckEachHero::
         push    af
 
-				ld      a,[hero0_index]
-				or      a
-				jr      z,.checkHero1
-				push    hl
-				ld      de,.returnPoint0
-				push    de ;return address
-				jp      hl
+        ld      a,[hero0_index]
+        or      a
+        jr      z,.checkHero1
+        push    hl
+        ld      de,.returnPoint0
+        push    de ;return address
+        jp      hl
 .returnPoint0
         pop     hl
-				or      a
-				jr      z,.checkHero1
+        or      a
+        jr      z,.checkHero1
 
-				;second is optional
-				pop     af
-				or      a
-				ret     nz     ;optional okay
+        ;second is optional
+        pop     af
+        or      a
+        ret     nz     ;optional okay
 
-				push    af
+        push    af
 .checkHero1
         pop     af
-				ld      a,[hero1_index]
-				or      a
-				ret     z
+        ld      a,[hero1_index]
+        or      a
+        ret     z
 
         ld      de,.returnAddress1
-				push    de
-				jp      hl   ;will return to my parent
+        push    de
+        jp      hl   ;will return to my parent
 .returnAddress1
         ret
 
@@ -1865,104 +1865,104 @@ CheckEachHero::
 ;---------------------------------------------------------------------
 RemoveHero::
         ld      a,c
-				or      a
-				ret     z
+        or      a
+        ret     z
 
-				push    bc
-				push    de
-				push    hl
+        push    bc
+        push    de
+        push    hl
 
-				call    GetFirst  ;get the hero object in de
-				call    GetHealth
-				or      a
-				jr      nz,.afterDeath
+        call    GetFirst  ;get the hero object in de
+        call    GetHealth
+        or      a
+        jr      nz,.afterDeath
 
 IF INFINITEHEALTH==0
-				;----dead, create an explosion----
-				call    GetFGAttributes
-				and     %111   ;isolate color
-				ld      [bulletColor],a
-				call    GetCurLocation
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				ld      b,16  ;initial frame
-				call    CreateExplosion
+        ;----dead, create an explosion----
+        call    GetFGAttributes
+        and     %111   ;isolate color
+        ld      [bulletColor],a
+        call    GetCurLocation
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        ld      b,16  ;initial frame
+        call    CreateExplosion
 ENDC
 
 .afterDeath
         ld      a,[hero0_index]
-				cp      c
-				jr      nz,.handleHero1
+        cp      c
+        jr      nz,.handleHero1
 
-				;----hero 0 (local)-----
-				call    GetPuffCount
-				ld      [hero0_puffCount],a
-				call    GetHealth
-				ld      [hero0_health],a
-				ld      b,a
-				ld      hl,hero0_data
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.removeRemote
-				jr      .removeLocal
+        ;----hero 0 (local)-----
+        call    GetPuffCount
+        ld      [hero0_puffCount],a
+        call    GetHealth
+        ld      [hero0_health],a
+        ld      b,a
+        ld      hl,hero0_data
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.removeRemote
+        jr      .removeLocal
 
 .handleHero1
-				;----hero 1 (remote)----
-				call    GetPuffCount
-				ld      [hero1_puffCount],a
-				call    GetHealth
-				ld      [hero1_health],a
-				ld      b,a
-				ld      hl,hero1_data
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.removeLocal
-				jr      .removeRemote
+        ;----hero 1 (remote)----
+        call    GetPuffCount
+        ld      [hero1_puffCount],a
+        call    GetHealth
+        ld      [hero1_health],a
+        ld      b,a
+        ld      hl,hero1_data
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.removeLocal
+        jr      .removeRemote
 
 .removeLocal
         push    bc
-				push    hl
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				xor     a
-				ld      [heroesPresent],a
-				pop     hl
-				pop     bc
+        push    hl
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        xor     a
+        ld      [heroesPresent],a
+        pop     hl
+        pop     bc
 
-				push    bc
-				push    de
-				push    hl
-				ld      de,classDoNothing
-				call    GetClassMethodTable
-				ld      b,h
-				ld      c,l
-				call    ChangeClass
-				pop     hl
-				pop     de
-				pop     bc
+        push    bc
+        push    de
+        push    hl
+        ld      de,classDoNothing
+        call    GetClassMethodTable
+        ld      b,h
+        ld      c,l
+        call    ChangeClass
+        pop     hl
+        pop     de
+        pop     bc
 
-				ld      a,b
-				or      a
-				jr      nz,.done        ;wasn't dying, just leaving
+        ld      a,b
+        or      a
+        jr      nz,.done        ;wasn't dying, just leaving
 
 IF INFINITEHEALTH==0
         ;pause for a second
-				ld      a,30
-				call    Delay
+        ld      a,30
+        call    Delay
 
         ;fade to black
         ;ld      a,30
         ;call    SetupFadeToBlack
         ;call    WaitFade
 
-				;----respawn at the appropriate map----
-				ld      de,HERODATA_ENTERDIR
-				add     hl,de
-				ld      a,EXIT_D
-				ld      [hl],a
+        ;----respawn at the appropriate map----
+        ld      de,HERODATA_ENTERDIR
+        add     hl,de
+        ld      a,EXIT_D
+        ld      [hl],a
 
         call    UpdateState
 
@@ -1972,17 +1972,17 @@ IF INFINITEHEALTH==0
         ld       a,h
         ld       [curLevelIndex+1],a
         ld       a,1
-				ld       [timeToChangeLevel],a
+        ld       [timeToChangeLevel],a
 ENDC
-				jr      .done
+        jr      .done
 
 .removeRemote
         call    RemoveRemoteHero
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -1998,43 +1998,43 @@ ENDC
 ;---------------------------------------------------------------------
 CallBGAction::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;ensure class IS a bg class
-				ld      d,a
-				ldio    a,[firstMonster]
-				ld      e,a
-				ld      a,c
-				or      a
-				jr      z,.returnAddress     ;null tile
-				cp      e
-				jr      nc,.returnAddress    ;is a monster (myself?)
-				ld      a,d
+        ld      d,a
+        ldio    a,[firstMonster]
+        ld      e,a
+        ld      a,c
+        or      a
+        jr      z,.returnAddress     ;null tile
+        cp      e
+        jr      nc,.returnAddress    ;is a monster (myself?)
+        ld      a,d
 
         ;save return address on stack
-				ld      de,.returnAddress
-				push    de
+        ld      de,.returnAddress
+        push    de
 
-				;get tile class in c
-				push    af
+        ;get tile class in c
+        push    af
 
         push    hl
-				call    GetClassMethodTable
-				ld      d,h
-				ld      e,l
-				pop     hl
-				pop     af
-				push    de          ;addr of method on stack
+        call    GetClassMethodTable
+        ld      d,h
+        ld      e,l
+        pop     hl
+        pop     af
+        push    de          ;addr of method on stack
 
-				ret                 ;call method
+        ret                 ;call method
 
 .returnAddress
-				pop     hl
-				pop     de
-				pop     bc
-				or      a
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        or      a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ChangeMyClass
@@ -2049,20 +2049,20 @@ CallBGAction::
 ;---------------------------------------------------------------------
 ChangeMyClassToAssociatedAndRedraw::
         call    GetAssociated
-				jp      ChangeMyClassAndRedraw
+        jp      ChangeMyClassAndRedraw
 
 ChangeMyClassAndRedraw::
         call    ChangeMyClass
-				ld      b,METHOD_DRAW
-				jp      CallMethod
+        ld      b,METHOD_DRAW
+        jp      CallMethod
 
 ChangeMyClass::
         push    af
-				call    RemoveObjectFromList
-				pop     af
-				ld      c,a
-				call    AddObjectToList
-				ret
+        call    RemoveObjectFromList
+        pop     af
+        ld      c,a
+        call    AddObjectToList
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      RemoveObjectFromList
@@ -2075,57 +2075,57 @@ ChangeMyClass::
 ;---------------------------------------------------------------------
 RemoveObjectFromList::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				call    PointerDEToIndex
-				ld      b,a
+        call    PointerDEToIndex
+        ld      b,a
 
-				;head of list?
-				call    GetHead
-				cp      b
-				jr      nz,.notHead
+        ;head of list?
+        call    GetHead
+        cp      b
+        jr      nz,.notHead
 
-				;make next item new head of list
-				call    IndexToPointerDE
-				call    GetNext
-				call    SetHead
-				jr      .done
+        ;make next item new head of list
+        call    IndexToPointerDE
+        call    GetNext
+        call    SetHead
+        jr      .done
 
 .notHead
 .search
         ;search through list for item that points to that to remove
-				call    IndexToPointerDE
-				call    GetNext
-				cp      b
-				jr      nz,.search
+        call    IndexToPointerDE
+        call    GetNext
+        cp      b
+        jr      nz,.search
 
 .foundPrevious
         ;set prev->next = prev->next->next
-				call    PointerDEToIndex
-				push    af                 ;save index of prev
-				ld      a,b                ;get searchObj
-				call    IndexToPointerDE
-				call    GetNext            ;searchObj->next
-				ld      b,a
-				pop     af
-				call    IndexToPointerDE   ;prev = searchObj->next
-				ld      a,b
-				call    SetNext
+        call    PointerDEToIndex
+        push    af                 ;save index of prev
+        ld      a,b                ;get searchObj
+        call    IndexToPointerDE
+        call    GetNext            ;searchObj->next
+        ld      b,a
+        pop     af
+        call    IndexToPointerDE   ;prev = searchObj->next
+        ld      a,b
+        call    SetNext
 
-				;if next is null then removed obj was tail.  Reset tail
-				;to prev
-				;ld      b,a   redundant; A already == B
-				or      a
-				jr      nz,.done
+        ;if next is null then removed obj was tail.  Reset tail
+        ;to prev
+        ;ld      b,a   redundant; A already == B
+        or      a
+        jr      nz,.done
 
-				call    PointerDEToIndex
-				call    SetTail
+        call    PointerDEToIndex
+        call    SetTail
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -2139,42 +2139,42 @@ RemoveObjectFromList::
 AddObjectToList::
         push    de
 
-				xor     a
-				call    SetNext   ;obj->next = null in all cases
+        xor     a
+        call    SetNext   ;obj->next = null in all cases
 
-				call    PointerDEToIndex
+        call    PointerDEToIndex
 
         push    af
 
-				;objClassLookup[objIndex] = classIndex
-				ld      d,((objClassLookup>>8) & $ff)
-				ld      e,a
-				ld      a,OBJLISTBANK
-				ldio    [$ff70],a
-				ld      a,c
-				ld      [de],a
+        ;objClassLookup[objIndex] = classIndex
+        ld      d,((objClassLookup>>8) & $ff)
+        ld      e,a
+        ld      a,OBJLISTBANK
+        ldio    [$ff70],a
+        ld      a,c
+        ld      [de],a
 
         ;head == null?
         call    GetHead
-				or      a
-				jr      nz,.addToTail
+        or      a
+        jr      nz,.addToTail
 
 .addToHead
         pop     af
-				call    SetHead
-				call    SetTail
-				pop     de
-				ret
+        call    SetHead
+        call    SetTail
+        pop     de
+        ret
 
 .addToTail
         call    GetTail
-				call    IndexToPointerDE
-				pop     af
+        call    IndexToPointerDE
+        pop     af
 
-				call    SetNext
-				call    SetTail
+        call    SetNext
+        call    SetTail
 
-				pop     de
+        pop     de
         ret
 
 ;---------------------------------------------------------------------
@@ -2185,14 +2185,14 @@ AddObjectToList::
 ;---------------------------------------------------------------------
 SetAssociated::
         push    hl
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
-				ld      h,((associatedIndex>>8)&$ff)
-				ld      l,c
-				ld      [hl],b
-				pop     hl
-				ret
+        ld      h,((associatedIndex>>8)&$ff)
+        ld      l,c
+        ld      [hl],b
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CountNumObjects
@@ -2201,28 +2201,28 @@ SetAssociated::
 ; Alters:       af
 ;---------------------------------------------------------------------
 CountNumObjects::
-				push    bc
+        push    bc
         push    de
 
-				ld      c,a
+        ld      c,a
 
         ld      b,0
-				call    GetFirst
-				or      a
-				jr      z,.done
+        call    GetFirst
+        or      a
+        jr      z,.done
 
-				inc     b
+        inc     b
 
 .loop   call    GetNextObject
         or      a
-				jr      z,.done
-				inc     b
-				jr      .loop
+        jr      z,.done
+        inc     b
+        jr      .loop
 
 .done   ld      a,b
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------

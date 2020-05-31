@@ -42,7 +42,7 @@ L0603_Init:
 L0603_Init2:
         ;store index of first (of 4) fire frames
         ld      a,[bgTileMap + FIRE_INDEX]
-				ld      [levelVars + VAR_FIRE],a
+        ld      [levelVars + VAR_FIRE],a
         ret
 
 L0603_InitFinished:
@@ -53,16 +53,16 @@ L0603_Check:
         DW ((L0603_CheckFinished - L0603_Check2))  ;size
 L0603_Check2:
         call    ((.animateFire-L0603_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateFire
-				ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      hl,levelVars + VAR_FIRE
-				add     [hl]
-				ld      [bgTileMap + FIRE_INDEX],a
+        ldio    a,[updateTimer]
+        rrca
+        rrca
+        and     %11
+        ld      hl,levelVars + VAR_FIRE
+        add     [hl]
+        ld      [bgTileMap + FIRE_INDEX],a
         ret
 
 L0603_CheckFinished:

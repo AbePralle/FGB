@@ -298,8 +298,8 @@ L1204_Load2:
         ld      a,BANK(willtheyland_bg)
         ld      hl,willtheyland_bg
         call    LoadCinemaTextBox
-				call    InstallGamePalette
-				call    GfxShowStandardTextBox
+        call    InstallGamePalette
+        call    GfxShowStandardTextBox
 
         ld      de,((.haveseenthelast-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -312,8 +312,8 @@ L1204_Load2:
         ld      a,BANK(haveseenthelast_bg)
         ld      hl,haveseenthelast_bg
         call    LoadCinemaTextBox
-				call    InstallGamePalette
-				call    GfxShowStandardTextBox
+        call    InstallGamePalette
+        call    GfxShowStandardTextBox
 
         ld      de,((.publish-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -326,8 +326,8 @@ L1204_Load2:
         ld      a,BANK(publish_bg)
         ld      hl,publish_bg
         call    LoadCinemaTextBox
-				call    InstallGamePalette
-				call    GfxShowStandardTextBox
+        call    InstallGamePalette
+        call    GfxShowStandardTextBox
 
         ld      de,((.tempEnd-L1204_Load2)+levelCheckRAM)
         call    SetDialogForward

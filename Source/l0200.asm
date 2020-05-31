@@ -44,9 +44,9 @@ L0200_Init:
         DW ((L0200_InitFinished - L0200_Init2))  ;size
 L0200_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ld      a,[bgTileMap + FIREINDEX]
-				ld      [levelVars + VAR_FIRE],a
+        ld      [levelVars + VAR_FIRE],a
         ret
 
 L0200_InitFinished:
@@ -62,21 +62,21 @@ L0200_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 .animateFire
-				ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      hl,levelVars + VAR_FIRE
-				add     [hl]
-				ld      [bgTileMap + FIREINDEX],a
+        ldio    a,[updateTimer]
+        rrca
+        rrca
+        and     %11
+        ld      hl,levelVars + VAR_FIRE
+        add     [hl]
+        ld      [bgTileMap + FIREINDEX],a
         ret
 
 L0200_CheckFinished:

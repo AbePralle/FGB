@@ -44,10 +44,10 @@ INCBIN "..\\fgbeditor\\l0410_outpost.lvl"
 L0410_Init:
         DW ((L0410_InitFinished - L0410_Init2))  ;size
 L0410_Init2:
-				ld      a,[bgTileMap+HFENCE_INDEX]
-				ld      [levelVars + VAR_HFENCE],a
-				ld      a,[bgTileMap+VFENCE_INDEX]
-				ld      [levelVars + VAR_VFENCE],a
+        ld      a,[bgTileMap+HFENCE_INDEX]
+        ld      [levelVars + VAR_HFENCE],a
+        ld      a,[bgTileMap+VFENCE_INDEX]
+        ld      [levelVars + VAR_VFENCE],a
 
         ld      bc,ITEM_CODE0410
         call    RemoveClearanceIfTaken
@@ -65,15 +65,15 @@ L0410_Check2:
 
 .animateFence
         ldio    a,[updateTimer]
-				rrca
-				and     3
-				ld      b,a
-				ld      hl,bgTileMap+HFENCE_INDEX
-				ld      a,[levelVars+VAR_HFENCE]
-				ld      d,a
+        rrca
+        and     3
+        ld      b,a
+        ld      hl,bgTileMap+HFENCE_INDEX
+        ld      a,[levelVars+VAR_HFENCE]
+        ld      d,a
         call    ((.animateFourFrames-L0410_Check2)+levelCheckRAM)
-				ld      a,[levelVars+VAR_VFENCE]
-				ld      d,a
+        ld      a,[levelVars+VAR_VFENCE]
+        ld      d,a
         jp      ((.animateFourFrames-L0410_Check2)+levelCheckRAM)
 
 .animateFourFrames
@@ -81,13 +81,13 @@ L0410_Check2:
 
 .animateFourFrames_loop
         ld      a,b
-				add     c
-				and     3
-				add     d
-				ld      [hl+],a
-				dec     c
-				jr      nz,.animateFourFrames_loop
-				ret
+        add     c
+        and     3
+        add     d
+        ld      [hl+],a
+        dec     c
+        jr      nz,.animateFourFrames_loop
+        ret
 
 L0410_CheckFinished:
 PRINTT "0410 Script Sizes (Load/Init/Check) (of $500):  "

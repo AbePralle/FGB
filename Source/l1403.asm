@@ -43,8 +43,8 @@ L1403_Load2:
         ld      a,4
         ld      [levelVars+VAR_SELSTAGE],a
 
-				ld      a,BANK(main_in_game_gbm)
-				ld      hl,main_in_game_gbm
+        ld      a,BANK(main_in_game_gbm)
+        ld      hl,main_in_game_gbm
         call    InitMusic
 
 ;----"Thank you"------------------------------------------------------
@@ -57,7 +57,7 @@ L1403_Load2:
         call    SetDialogSkip
 
         ld      c,0
-				DIALOGBOTTOM lady_saved_gtx
+        DIALOGBOTTOM lady_saved_gtx
 
         ld      d,3
         LONGCALLNOARGS AnimateLadyFlowerDistress
@@ -70,7 +70,7 @@ L1403_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_seeyou_gtx
+        DIALOGBOTTOM captain_seeyou_gtx
 
         call    ((.animateFlourDriving3-L1403_Load2)+levelCheckRAM)
 
@@ -82,7 +82,7 @@ L1403_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM lady_wait_gtx
+        DIALOGBOTTOM lady_wait_gtx
 
         ld      d,3
         LONGCALLNOARGS AnimateLadyFlowerDistress
@@ -95,7 +95,7 @@ L1403_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_holdout_gtx
+        DIALOGBOTTOM captain_holdout_gtx
 
         call    ((.animateFlourDriving4-L1403_Load2)+levelCheckRAM)
 
@@ -108,7 +108,7 @@ L1403_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM lady_no_gtx
+        DIALOGBOTTOM lady_no_gtx
 
         ld      d,3
         LONGCALLNOARGS AnimateLadyFlowerDistress
@@ -121,7 +121,7 @@ L1403_Load2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM captain_shuttle_gtx
+        DIALOGBOTTOM captain_shuttle_gtx
 
         call    ((.animateFlourDriving4-L1403_Load2)+levelCheckRAM)
 
@@ -145,68 +145,68 @@ L1403_Load2:
 ;----Approach Kiwi----------------------------------------------------
 .approachKiwi
         call    ((.quickToBlack-L1403_Load2)+levelCheckRAM)
-				ld      a,BANK(kiwi1_bg)
-				ld      hl,kiwi1_bg
-				call    LoadCinemaBG
+        ld      a,BANK(kiwi1_bg)
+        ld      hl,kiwi1_bg
+        call    LoadCinemaBG
 
-				ld      a,BANK(starfield_sprite_sp)
-				ld      hl,starfield_sprite_sp
-				call    LoadCinemaSprite
+        ld      a,BANK(starfield_sprite_sp)
+        ld      hl,starfield_sprite_sp
+        call    LoadCinemaSprite
         ld      a,1
         call    Delay
 
         ld      de,((.controlPanel-L1403_Load2)+levelCheckRAM)
         call    SetDialogForward
 
-				ld      a,16
-				call    SetupFadeFromBlack
-				call    WaitFade
+        ld      a,16
+        call    SetupFadeFromBlack
+        call    WaitFade
 
         ld      b,30
         call    (.animate_ship + (levelCheckRAM-L1403_Load2))
 
-				ld       a,16
-				call     SetupFadeToBlackBGOnly
+        ld       a,16
+        call     SetupFadeToBlackBGOnly
         ld       b,16
         call     (.animate_ship + (levelCheckRAM-L1403_Load2))
 
         ;kiwi 2
-				ld       a,BANK(kiwi2_bg)
-				ld       hl,kiwi2_bg
-				call     LoadCinemaBG
+        ld       a,BANK(kiwi2_bg)
+        ld       hl,kiwi2_bg
+        call     LoadCinemaBG
 
-				ld       a,16
-				call     SetupFadeFromBlackBGOnly
+        ld       a,16
+        call     SetupFadeFromBlackBGOnly
         ld       c,16
         call     ((.animate_ship-L1403_Load2)+levelCheckRAM)
 
         ld       b,30
         call     (.animate_ship + (levelCheckRAM-L1403_Load2))
 
-				ld       a,16
-				call     SetupFadeToBlackBGOnly
+        ld       a,16
+        call     SetupFadeToBlackBGOnly
         ld       b,16
         call     (.animate_ship + (levelCheckRAM-L1403_Load2))
 
         ;kiwi 3
-				ld       a,BANK(kiwi3_bg)
-				ld       hl,kiwi3_bg
-				call     LoadCinemaBG
+        ld       a,BANK(kiwi3_bg)
+        ld       hl,kiwi3_bg
+        call     LoadCinemaBG
 
-				ld       a,16
-				call     SetupFadeFromBlackBGOnly
+        ld       a,16
+        call     SetupFadeFromBlackBGOnly
 
         ld       b,30
         call     (.animate_ship + (levelCheckRAM-L1403_Load2))
 
-				ld      a,16
+        ld      a,16
         call    ((.setupFadeFromSky-L1403_Load2)+levelCheckRAM)
         ld      b,16
         call    (.animate_ship + (levelCheckRAM-L1403_Load2))
 
 .endCinema
 .controlPanel
-				ld      a,2
+        ld      a,2
         call    ((.setupFadeFromSky-L1403_Load2)+levelCheckRAM)
         call    WaitFade
 
@@ -214,8 +214,8 @@ L1403_Load2:
 
         ;----set up control panel window------------------------------
         ld      a,BANK(controlpanel_bg)
-				ld      hl,controlpanel_bg
-				call    LoadCinemaBG
+        ld      hl,controlpanel_bg
+        call    LoadCinemaBG
 
         ld      a,BANK(panelsprites_sp)
         ld      hl,panelsprites_sp
@@ -338,12 +338,12 @@ ENDC
         ld      [hl],a
 
         ld      hl,$1503
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,2
-				ld      [timeToChangeLevel],a
+        ld      a,2
+        ld      [timeToChangeLevel],a
 
         ret
 
@@ -492,65 +492,65 @@ ENDC
         push     bc
 .animate_loop
         push     bc
-				ld       a,1
-				call     Delay
-				pop      bc
+        ld       a,1
+        call     Delay
+        pop      bc
 
-				ld       a,b
-				and      %10   ;thrust on or off?
+        ld       a,b
+        and      %10   ;thrust on or off?
 
-				jr       nz,.animate_thruston
+        jr       nz,.animate_thruston
         call     (.routine_thrustoff + (levelCheckRAM-L1403_Load2))
-				jr       .animate_check_done
+        jr       .animate_check_done
 
 .animate_thruston
         call     (.routine_thruston + (levelCheckRAM-L1403_Load2))
 
 .animate_check_done
-				dec      b
-				jr       nz,.animate_loop
+        dec      b
+        jr       nz,.animate_loop
 
-				pop      bc
+        pop      bc
 
-				ret
+        ret
 
 .routine_thrustoff
-				;turn thrust off by setting sprites 0-5 to pattern 50
-				ld       hl,spriteOAMBuffer+2
-				ld       de,4
-				ld       a,50
-				ld       c,6
+        ;turn thrust off by setting sprites 0-5 to pattern 50
+        ld       hl,spriteOAMBuffer+2
+        ld       de,4
+        ld       a,50
+        ld       c,6
 .thrustOffLoop
-				ld       [hl],a
-				add      hl,de
-				dec      c
-				jr       nz,.thrustOffLoop
-				ret
+        ld       [hl],a
+        add      hl,de
+        dec      c
+        jr       nz,.thrustOffLoop
+        ret
 
 .routine_thruston
-				;turn thrust on by setting sprites 0-5 to patterns 0,2,4,6,8,10
-				ld       hl,spriteOAMBuffer+2
-				ld       de,4
-				xor      a
-				ld       c,6
+        ;turn thrust on by setting sprites 0-5 to patterns 0,2,4,6,8,10
+        ld       hl,spriteOAMBuffer+2
+        ld       de,4
+        xor      a
+        ld       c,6
 .thrustOnLoop
-				ld       [hl],a
-				inc      a
-				inc      a
-				add      hl,de
-				dec      c
-				jr       nz,.thrustOnLoop
-				ret
+        ld       [hl],a
+        inc      a
+        inc      a
+        add      hl,de
+        dec      c
+        jr       nz,.thrustOnLoop
+        ret
 
 .setupFadeFromSky
         push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
         ;ld      hl,gamePalette
-				;ld      de,fadeCurPalette
-				;call    FadeCommonCopyPalette
+        ;ld      de,fadeCurPalette
+        ;call    FadeCommonCopyPalette
 
         ;set all colors to be $7d80
         ld      hl,fadeFinalPalette
@@ -564,7 +564,7 @@ ENDC
         jr      nz,.setAll7d80
 
         pop     af
-				call    FadeInit
+        call    FadeInit
         ret
 
 .byte8

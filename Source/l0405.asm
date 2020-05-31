@@ -67,7 +67,7 @@ L0405_Init2:
         STDSETUPDIALOG
 
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
 
         ld      bc,classPansy
         ld      de,classActor2
@@ -216,12 +216,12 @@ L0405_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0405_CheckFinished:
 PRINTT "0405 Script Sizes (Load/Init/Check) (of $500):  "

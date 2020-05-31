@@ -42,12 +42,12 @@ L0704_Init:
         DW ((L0704_InitFinished - L0704_Init2))  ;size
 L0704_Init2:
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
 
-				;ld      a,BANK(main_in_game_gbm)
-				;ld      hl,main_in_game_gbm
-				;call    InitMusic
+        ;ld      a,BANK(main_in_game_gbm)
+        ;ld      hl,main_in_game_gbm
+        ;call    InitMusic
         ret
 
 L0704_InitFinished:
@@ -62,30 +62,30 @@ L0704_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0704_Check2)+levelCheckRAM)
         call    ((.animateLight-L0704_Check2)+levelCheckRAM)
         call    ((.animateLight-L0704_Check2)+levelCheckRAM)
         call    ((.animateLight-L0704_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 L0704_CheckFinished:
 PRINTT "0704 Script Sizes (Load/Init/Check) (of $500):  "

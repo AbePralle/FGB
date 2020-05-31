@@ -49,12 +49,12 @@ L0107_Load:
 L0107_Load2:
         call    ParseMap
 
-				;ld      a,BANK(arrows_bin)
-				;ld      hl,arrows_bin
-				;ld      c,5
-				;ld      de,$8300
-				;call    LoadSprites
-				ret
+        ;ld      a,BANK(arrows_bin)
+        ;ld      hl,arrows_bin
+        ;ld      c,5
+        ;ld      de,$8300
+        ;call    LoadSprites
+        ret
 
 L0107_LoadFinished:
 
@@ -125,7 +125,7 @@ L0107_Init2:
 ;ld a,STATE_NORMAL
 ;ldio [mapState],a
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
 
         ld      a,BANK(dialog)
@@ -138,18 +138,18 @@ L0107_Init2:
 
 .ready
         ;make pansies inactive?
-				ldio    a,[mapState]
-				cp      STATE_WAITGATE
-				jr      nc,.afterInactiveCheck
+        ldio    a,[mapState]
+        cp      STATE_WAITGATE
+        jr      nc,.afterInactiveCheck
 
         ld      bc,classPansy
-				ld      de,classDoNothing
-				call    ChangeClass
+        ld      de,classDoNothing
+        call    ChangeClass
 
 .afterInactiveCheck
         ldio    a,[mapState]
-				cp      STATE_NORMAL
-				jr      z,.removeTrees
+        cp      STATE_NORMAL
+        jr      z,.removeTrees
 
 .close
         call    (.closeGate +  (levelCheckRAM-L0107_Init2))
@@ -157,68 +157,68 @@ L0107_Init2:
 
 .removeTrees
         ;clear the bushes the appomattox shot out & the pansies
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				xor     a
-				ld      hl,$d109
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        xor     a
+        ld      hl,$d109
         ld      [hl],a
-				ld      hl,$d149
-				ld      [hl+],a
-				ld      [hl],a
-				ld      hl,$d189
-				ld      [hl+],a
-				ld      [hl],a
-				ld      hl,$d209
-				ld      [hl+],a
-				ld      [hl],a
-				ld      hl,$d249
-				ld      [hl],a
-				ld      hl,$d24a
-				ld      [hl],a
-				ld      hl,$d28a
-				ld      [hl],a
+        ld      hl,$d149
+        ld      [hl+],a
+        ld      [hl],a
+        ld      hl,$d189
+        ld      [hl+],a
+        ld      [hl],a
+        ld      hl,$d209
+        ld      [hl+],a
+        ld      [hl],a
+        ld      hl,$d249
+        ld      [hl],a
+        ld      hl,$d24a
+        ld      [hl],a
+        ld      hl,$d28a
+        ld      [hl],a
 
 .afterClose
         ldio    a,[mapState]
         cp      STATE_WAITRETURN
         jr      c,.afterDeletePansies
 
-				ld      bc,classPansy
-				call    DeleteObjectsOfClass
+        ld      bc,classPansy
+        call    DeleteObjectsOfClass
 
 .afterDeletePansies
         ;ldio    a,[mapState]
-				;cp      3
-				;jr      nz,.afterSetupArrow
+        ;cp      3
+        ;jr      nz,.afterSetupArrow
 
-				;ld      a,128
-				;ld      [metaSprite_x],a
-				;ld      a,120
-				;ld      [metaSprite_y],a
-				;ld      bc,$0202            ;2x2
-				;ld      de,$3105
-				;ld      hl,(arrowInfo + (levelCheckRAM-L0107_Check2))
-				;call    CreateMetaSprite
-				;ld      a,45  
-				;ldio    [mapState+1],a
+        ;ld      a,128
+        ;ld      [metaSprite_x],a
+        ;ld      a,120
+        ;ld      [metaSprite_y],a
+        ;ld      bc,$0202            ;2x2
+        ;ld      de,$3105
+        ;ld      hl,(arrowInfo + (levelCheckRAM-L0107_Check2))
+        ;call    CreateMetaSprite
+        ;ld      a,45  
+        ;ldio    [mapState+1],a
 
 ;.afterSetupArrow
         ret
 
 .closeGate
         ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
         ld      hl,$d049
-				ld      a,GATE_INDEX
-				ld      [hl+],a
-				inc     a
-				ld      [hl],a
-				ld      hl,$d089
-				inc     a
-				ld      [hl+],a
-				inc     a
-				ld      [hl],a
-				ret
+        ld      a,GATE_INDEX
+        ld      [hl+],a
+        inc     a
+        ld      [hl],a
+        ld      hl,$d089
+        inc     a
+        ld      [hl+],a
+        inc     a
+        ld      [hl],a
+        ret
 L0107_InitFinished:
 
 
@@ -350,25 +350,25 @@ L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
 
 .afterChallengeBSDialog
         ;set the pansies against each other
-				ld      a,FOF_ENEMY
-				ld      b,GROUP_MONSTERC
-				ld      c,GROUP_MONSTERC
-				call    SetFOF
+        ld      a,FOF_ENEMY
+        ld      b,GROUP_MONSTERC
+        ld      c,GROUP_MONSTERC
+        call    SetFOF
 
-				;randomize their fire delays so they won't all shoot at once
-				ld      a,YELLOW_INDEX
-				call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
-				ld      a,BLUE_INDEX
-				call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
-				ld      a,PURPLE_INDEX
-				call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
+        ;randomize their fire delays so they won't all shoot at once
+        ld      a,YELLOW_INDEX
+        call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
+        ld      a,BLUE_INDEX
+        call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
+        ld      a,PURPLE_INDEX
+        call    (.randomizeAttackDelay - L0107_Check2) + levelCheckRAM
 
 .afterBS
         call    ClearDialog
         call    ClearDialogSkipForward
-				ld      bc,classDoNothing ;pansies become active
-				ld      de,classPansy
-				call    ChangeClass
+        ld      bc,classDoNothing ;pansies become active
+        ld      de,classPansy
+        call    ChangeClass
         call    MakeNonIdle
 
         ld      a,1    ;return true
@@ -447,7 +447,7 @@ L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
         call    GetCurZone
         ld      a,[hl]
         and     $f0
-				cp      (EXIT_U << 4)
+        cp      (EXIT_U << 4)
         jr      z,.atAppx
 
         xor     a
@@ -455,18 +455,18 @@ L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
 
 .atAppx
         ;dialog
-				ld      a,10           ;move camera over appomattox
-				ld      [camera_i],a
-				ld      a,12
-				ld      [camera_j],a
+        ld      a,10           ;move camera over appomattox
+        ld      [camera_i],a
+        ld      a,12
+        ld      [camera_j],a
 
         ld      a,1
         ld      [heroesIdle],a
 
         push    bc
         ld      bc,classPansy   ;pansies inactive
-				ld      de,classDoNothing
-				call    ChangeClass
+        ld      de,classDoNothing
+        call    ChangeClass
         pop     bc
 
         ld      a,STATE_NORMAL
@@ -513,9 +513,9 @@ L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
         call    ClearDialog
         call    ClearDialogSkipForward
 
-				ld      bc,classDoNothing ;pansies become active
-				ld      de,classPansy
-				call    ChangeClass
+        ld      bc,classDoNothing ;pansies become active
+        ld      de,classPansy
+        call    ChangeClass
 
         call    MakeNonIdle
 
@@ -526,92 +526,92 @@ L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
         ret
 
 .blowOpenGate
-				ld      c,LASER_INDEX
+        ld      c,LASER_INDEX
 
-				ld      b,7
+        ld      b,7
 .laserLoop
-				ld      a,%00001000          ;blue palette, heading north
-				ld      [methodParamL],a
-				ld      hl,$d2ca             ;location
-				call    CreateInitAndDrawObject     ;make a laser
-				ld      hl,bigLaserSound
-				call    PlaySound
+        ld      a,%00001000          ;blue palette, heading north
+        ld      [methodParamL],a
+        ld      hl,$d2ca             ;location
+        call    CreateInitAndDrawObject     ;make a laser
+        ld      hl,bigLaserSound
+        call    PlaySound
 
-				push    bc
-				ld      b,2
-				ld      a,16
-				call    SetupFadeFromSaturated
-				pop     bc
+        push    bc
+        ld      b,2
+        ld      a,16
+        call    SetupFadeFromSaturated
+        pop     bc
 
-				ld      a,5  ;15
-				call    Delay
-				ld      a,%00001000          ;blue palette, heading north
-				ld      [methodParamL],a
-				ld      hl,$d2c9             ;location
-				call    CreateInitAndDrawObject     ;make a laser
-				ld      hl,bigLaserSound
-				call    PlaySound
+        ld      a,5  ;15
+        call    Delay
+        ld      a,%00001000          ;blue palette, heading north
+        ld      [methodParamL],a
+        ld      hl,$d2c9             ;location
+        call    CreateInitAndDrawObject     ;make a laser
+        ld      hl,bigLaserSound
+        call    PlaySound
 
-				push    bc
-				ld      b,2
-				ld      a,16
-				call    SetupFadeFromSaturated
-				pop     bc
+        push    bc
+        ld      b,2
+        ld      a,16
+        call    SetupFadeFromSaturated
+        pop     bc
 
-				ld      a,6
-				call    Delay
-				dec     b
-				jr      nz,.laserLoop
+        ld      a,6
+        call    Delay
+        dec     b
+        jr      nz,.laserLoop
 
         ;ld      a,5   ;15
-				;call    Delay
+        ;call    Delay
 
-				ld      b,16
-				ld      a,28
-				call    SetupFadeFromSaturated
+        ld      b,16
+        ld      a,28
+        call    SetupFadeFromSaturated
 
         ld      a,30
-				call    Delay
+        call    Delay
         ret
 
 .randomizeAttackDelay
         ld      c,a
-				call    GetFirst
+        call    GetFirst
 .randomizeLoop
         or      a
-				ret     z
-				ld      a,5
+        ret     z
+        ld      a,5
         call    GetRandomNumZeroToN
-				call    SetAttackDelay
-				call    GetNextObject
-				jr      .randomizeLoop
+        call    SetAttackDelay
+        call    GetNextObject
+        jr      .randomizeLoop
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0107_Check2)+levelCheckRAM)
         call    ((.animateLight-L0107_Check2)+levelCheckRAM)
         call    ((.animateLight-L0107_Check2)+levelCheckRAM)
         call    ((.animateLight-L0107_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 L0107_CheckFinished:
 

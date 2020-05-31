@@ -113,14 +113,14 @@ L1401_Load2:
         ld      a,1
         ld      [musicRegisters+0],a
 
-				ld      a,BANK(takeoff_gbm)
-				ld      hl,takeoff_gbm
-				call    InitMusic
+        ld      a,BANK(takeoff_gbm)
+        ld      hl,takeoff_gbm
+        call    InitMusic
 
         ;----set up control panel window------------------------------
         ld      a,BANK(controlpanel_bg)
-				ld      hl,controlpanel_bg
-				call    LoadCinemaBG
+        ld      hl,controlpanel_bg
+        call    LoadCinemaBG
 
         ld      a,BANK(panelsprites_sp)
         ld      hl,panelsprites_sp
@@ -178,7 +178,7 @@ L1401_Load2:
 
         ld      a,[appomattoxMapIndex]
         call    ((.getLandingInfo-L1401_Load2)+levelCheckRAM)
-				call    LoadCinemaBG
+        call    LoadCinemaBG
 
         ld      a,18
         ld      [camera_j],a
@@ -284,26 +284,26 @@ ENDC
         inc     hl
         ld      [hl],a
 
-				ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.afterRemoteAppx 
+        ld      a,[amLinkMaster]
+        bit     7,a
+        jr      nz,.afterRemoteAppx 
 
 .removeRemoteAppx
-				ld      a,LCHANGEAPPXMAP
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.removeRemoteAppx      ;must repeat
+        ld      a,LCHANGEAPPXMAP
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.removeRemoteAppx      ;must repeat
         xor     a
         call    TransmitByte
 .afterRemoteAppx
 
         ld      hl,$1400
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,2
-				ld      [timeToChangeLevel],a
+        ld      a,2
+        ld      [timeToChangeLevel],a
         ret
 
 .animateWave
@@ -619,15 +619,15 @@ ENDC
 .backToAppx
         ;return to appomattox
         LDHL_CURHERODATA HERODATA_ENTERDIR
-				ld      a,EXIT_N
-				ld      [hl],a
+        ld      a,EXIT_N
+        ld      [hl],a
         ld      hl,$1300
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ld      a,15
         call    SetupFadeToStandard
@@ -826,8 +826,8 @@ ENDC
 
 .noKey
         ld      a,BANK(nokey_bg)
-				ld      hl,nokey_bg
-				call    LoadCinemaBG
+        ld      hl,nokey_bg
+        call    LoadCinemaBG
 
         ld      a,15
         call    SetupFadeFromStandard
@@ -852,12 +852,12 @@ ENDC
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$1300
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 

@@ -43,25 +43,25 @@ L0114_Init:
         DW ((L0114_InitFinished - L0114_Init2))  ;size
 L0114_Init2:
         ld      a,BANK(moon_base_haiku_gbm)
-				ld      hl,moon_base_haiku_gbm
-				call    InitMusic
+        ld      hl,moon_base_haiku_gbm
+        call    InitMusic
 
         ;set default game palette to be bright green
         ld      hl,((.greenBright-L0114_Init2)+levelCheckRAM)
-				ld      de,gamePalette
-				call    CopyPalette32
-				ld      de,gamePalette+64
-				call    CopyPalette32
-				ld      de,fadeCurPalette+64
-				call    CopyPalette32
-				ld      de,fadeFinalPalette+64
-				call    CopyPalette32
+        ld      de,gamePalette
+        call    CopyPalette32
+        ld      de,gamePalette+64
+        call    CopyPalette32
+        ld      de,fadeCurPalette+64
+        call    CopyPalette32
+        ld      de,fadeFinalPalette+64
+        call    CopyPalette32
 
-				xor     a
-				ld      [levelVars + VAR_PREVZONE],a
+        xor     a
+        ld      [levelVars + VAR_PREVZONE],a
 
         ld      a,[bgTileMap+LIGHTINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         ret
 
 .greenBright
@@ -82,78 +82,78 @@ L0114_Check:
         DW ((L0114_CheckFinished - L0114_Check2))  ;size
 L0114_Check2:
         ;animate dice lights
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      b,a
 
-				;slow red lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
-				ld      hl,bgTileMap+LIGHTINDEX
-				ld      [hl+],a
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
-				ld      [hl+],a
+        ;slow red lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
+        ld      hl,bgTileMap+LIGHTINDEX
+        ld      [hl+],a
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
+        ld      [hl+],a
 
         ;get my hero zone
-				ld      a,[levelVars + VAR_PREVZONE]
-				ld      b,a
-				ld      h,((hero0_data>>8) & $ff)
-				ld      a,[curHeroAddressL]
-				add     HERODATA_INDEX
-				ld      l,a
-				ld      c,[hl]
-				call    GetFirst    ;sets up de
-				call    GetCurZone
+        ld      a,[levelVars + VAR_PREVZONE]
+        ld      b,a
+        ld      h,((hero0_data>>8) & $ff)
+        ld      a,[curHeroAddressL]
+        add     HERODATA_INDEX
+        ld      l,a
+        ld      c,[hl]
+        call    GetFirst    ;sets up de
+        call    GetCurZone
 
-				;get random number before branching
-				push    af
-				ld      a,%111
-				call    GetRandomNumMask
-				ld      h,a
-				pop     af
+        ;get random number before branching
+        push    af
+        ld      a,%111
+        call    GetRandomNumMask
+        ld      h,a
+        pop     af
 
-				cp      4
-				jr      nc,.darkZone
+        cp      4
+        jr      nc,.darkZone
 
 .lightZone
         ;1/8 chance of resetting to brighter palette
-				xor     a
-				ld      [levelVars + VAR_PREVZONE],a
+        xor     a
+        ld      [levelVars + VAR_PREVZONE],a
 
-				ld      a,h           ;the random number
-				or      a
-				jr      nz,.sameZone
+        ld      a,h           ;the random number
+        or      a
+        jr      nz,.sameZone
 
         ld      hl,((.greenDark-L0114_Check2)+levelCheckRAM)
-				ld      de,fadeFinalPalette
-				call    CopyPalette32
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    CopyPalette32
-				ld      a,32
-				ld      [fadeRange],a
+        ld      de,fadeFinalPalette
+        call    CopyPalette32
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    CopyPalette32
+        ld      a,32
+        ld      [fadeRange],a
 
         ld      a,16
-				call    FadeInit
-				jr      .sameZone
+        call    FadeInit
+        jr      .sameZone
 
 .darkZone
-				cp      b   ;in a different zone than last time?
-				jr      z,.sameZone
+        cp      b   ;in a different zone than last time?
+        jr      z,.sameZone
 
-				ld      [levelVars + VAR_PREVZONE],a ;yep
-				;set palette to be black except for red color
+        ld      [levelVars + VAR_PREVZONE],a ;yep
+        ;set palette to be black except for red color
         ld      hl,((.greenBlack-L0114_Check2)+levelCheckRAM)
-				ld      de,fadeFinalPalette
-				call    CopyPalette32
-				ld      a,32
-				ld      [fadeRange],a
+        ld      de,fadeFinalPalette
+        call    CopyPalette32
+        ld      a,32
+        ld      [fadeRange],a
         ld      a,40
-				call    FadeInit
+        call    FadeInit
 
 .sameZone
 

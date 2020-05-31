@@ -55,24 +55,24 @@ L1010_Init:
         DW ((L1010_InitFinished - L1010_Init2))  ;size
 L1010_Init2:
         ;make gun turret friendly
-				ld     bc,classTurret
-				call   FindClassIndex
-				ld     c,a
-				call   GetFirst
-				ld     a,GROUP_HERO
-				call   SetGroup
-				call   GetNextObject
-				ld     a,GROUP_HERO
-				call   SetGroup
+        ld     bc,classTurret
+        call   FindClassIndex
+        ld     c,a
+        call   GetFirst
+        ld     a,GROUP_HERO
+        call   SetGroup
+        call   GetNextObject
+        ld     a,GROUP_HERO
+        call   SetGroup
 
         ld      a,[bgTileMap+DICEINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_DICELIGHT],a
+        ld      [levelVars+VAR_DICELIGHT],a
 
         STDSETUPDIALOG
 
         ld      hl,$1100
-				call    SetJoinMap
-				call    SetRespawnMap
+        call    SetJoinMap
+        call    SetRespawnMap
 
         ;already have King Grenade?
         xor     a
@@ -177,38 +177,38 @@ L1010_Check2:
 
 .animateDiceLights
         ;animate dice lights
-				ld      a,[levelVars+VAR_DICELIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_DICELIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+DICEINDEX
-				call    ((.updateTwoLights - L1010_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+DICEINDEX
+        call    ((.updateTwoLights - L1010_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L1010_Check2) + levelCheckRAM)
-				ret
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L1010_Check2) + levelCheckRAM)
+        ret
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L1010_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L1010_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 L1010_CheckFinished:

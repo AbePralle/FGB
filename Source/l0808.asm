@@ -43,10 +43,10 @@ INCBIN "..\\fgbeditor\\l0808_warcamp.lvl"
 L0808_Init:
         DW ((L0808_InitFinished - L0808_Init2))  ;size
 L0808_Init2:
-				ld      a,[bgTileMap+HFENCE_INDEX]
-				ld      [levelVars + VAR_HFENCE],a
-				ld      a,[bgTileMap+VFENCE_INDEX]
-				ld      [levelVars + VAR_VFENCE],a
+        ld      a,[bgTileMap+HFENCE_INDEX]
+        ld      [levelVars + VAR_HFENCE],a
+        ld      a,[bgTileMap+VFENCE_INDEX]
+        ld      [levelVars + VAR_VFENCE],a
 
         ld      a,BANK(fgbwar_gbm)
         ld      hl,fgbwar_gbm
@@ -66,15 +66,15 @@ L0808_Check2:
 
 .animateFence
         ldio    a,[updateTimer]
-				rrca
-				and     3
-				ld      b,a
-				ld      hl,bgTileMap+HFENCE_INDEX
-				ld      a,[levelVars+VAR_HFENCE]
-				ld      d,a
+        rrca
+        and     3
+        ld      b,a
+        ld      hl,bgTileMap+HFENCE_INDEX
+        ld      a,[levelVars+VAR_HFENCE]
+        ld      d,a
         call    ((.animateFourFrames-L0808_Check2)+levelCheckRAM)
-				ld      a,[levelVars+VAR_VFENCE]
-				ld      d,a
+        ld      a,[levelVars+VAR_VFENCE]
+        ld      d,a
         jp      ((.animateFourFrames-L0808_Check2)+levelCheckRAM)
 
 .animateFourFrames
@@ -82,13 +82,13 @@ L0808_Check2:
 
 .animateFourFrames_loop
         ld      a,b
-				add     c
-				and     3
-				add     d
-				ld      [hl+],a
-				dec     c
-				jr      nz,.animateFourFrames_loop
-				ret
+        add     c
+        and     3
+        add     d
+        ld      [hl+],a
+        dec     c
+        jr      nz,.animateFourFrames_loop
+        ret
 
 L0808_CheckFinished:
 PRINTT "0808 Script Sizes (Load/Init/Check) (of $500):  "

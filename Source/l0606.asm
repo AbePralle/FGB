@@ -41,7 +41,7 @@ L0606_Init:
         DW ((L0606_InitFinished - L0606_Init2))  ;size
 L0606_Init2:
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
         ret
 
@@ -57,30 +57,30 @@ L0606_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0606_Check2)+levelCheckRAM)
         call    ((.animateLight-L0606_Check2)+levelCheckRAM)
         call    ((.animateLight-L0606_Check2)+levelCheckRAM)
         call    ((.animateLight-L0606_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 L0606_CheckFinished:
 PRINTT "0606 Script Sizes (Load/Init/Check) (of $500):  "

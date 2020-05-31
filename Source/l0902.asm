@@ -42,7 +42,7 @@ L0902_Init:
 L0902_Init2:
         call    UseAlternatePalette
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
         LONGCALLNOARGS AddAppomattoxIfPresent
         ld      a,ENV_SNOW
         call    SetEnvEffect
@@ -63,30 +63,30 @@ L0902_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L0902_Check2)+levelCheckRAM)
         call    ((.animateLight-L0902_Check2)+levelCheckRAM)
         call    ((.animateLight-L0902_Check2)+levelCheckRAM)
         call    ((.animateLight-L0902_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 L0902_CheckFinished:
 PRINTT "0902 Script Sizes (Load/Init/Check) (of $500):  "

@@ -42,13 +42,13 @@ L0403_Init2:
         call    HasInventoryItem
         jr      nz,.hasMask
 
-				ld      hl,HOffsetOnHBlank
-				call    InstallHBlankHandler
+        ld      hl,HOffsetOnHBlank
+        call    InstallHBlankHandler
 .hasMask
 
         ;ld      a,BANK(shroom_gbm)
-				;ld      hl,shroom_gbm
-				;call    InitMusic
+        ;ld      hl,shroom_gbm
+        ;call    InitMusic
         ret
 
 L0403_InitFinished:
@@ -67,30 +67,30 @@ L0403_Check2:
         ret     nz
 
         ;fill the horizontalOffset table with values from the sine table
-				ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				ldio    a,[updateTimer]
-				and     63
-				ld      e,a
-				ld      d,0
-				ld      hl,((.sineTable-L0403_Check2)+levelCheckRAM)
-				add     hl,de
-				ld      de,horizontalOffset
-				ld      c,144
+        ld      a,TILEINDEXBANK
+        ldio    [$ff70],a
+        ldio    a,[updateTimer]
+        and     63
+        ld      e,a
+        ld      d,0
+        ld      hl,((.sineTable-L0403_Check2)+levelCheckRAM)
+        add     hl,de
+        ld      de,horizontalOffset
+        ld      c,144
 .updateLoop
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.updateLoop
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.updateLoop
 
-				ld      a,[horizontalOffset]
-				ld      [lineZeroHorizontalOffset],a
+        ld      a,[horizontalOffset]
+        ld      [lineZeroHorizontalOffset],a
 
-				ld      hl,hblankFlag
-				set     2,[hl]
+        ld      hl,hblankFlag
+        set     2,[hl]
 
-				ret
+        ret
 
 .sineTable   ;sixteen 16-byte sine waves, values between 0 and 24
 REPT 16

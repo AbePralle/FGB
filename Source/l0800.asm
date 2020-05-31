@@ -44,9 +44,9 @@ L0800_Init:
 L0800_Init2:
         call    UseAlternatePalette
         ld      a,[bgTileMap + WATERINDEX1]
-				ld      [levelVars + VAR_WATER1],a
+        ld      [levelVars + VAR_WATER1],a
         ld      a,[bgTileMap + WATERINDEX2]
-				ld      [levelVars + VAR_WATER2],a
+        ld      [levelVars + VAR_WATER2],a
         ld      a,ENV_SNOW
         call    SetEnvEffect
 
@@ -68,20 +68,20 @@ L0800_Check2:
 
 .animateWater1
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER1
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX1],a
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER1
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX1],a
         ret
 
 .animateWater2
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER2
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX2],a
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER2
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX2],a
         ret
 
 L0800_CheckFinished:

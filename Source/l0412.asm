@@ -80,9 +80,9 @@ L0412_Init2:
         ld      a,STATE_TALK_FIXED
         ldio    [mapState],a
 .stateSet
-				ld      bc,classWallCreature
-				ld      de,classWallTalker
-				call    ChangeClass
+        ld      bc,classWallCreature
+        ld      de,classWallTalker
+        call    ChangeClass
         ret
 
 L0412_InitFinished:

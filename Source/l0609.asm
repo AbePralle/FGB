@@ -41,7 +41,7 @@ L0609_Init:
         DW ((L0609_InitFinished - L0609_Init2))  ;size
 L0609_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ret
 
 L0609_InitFinished:
@@ -56,12 +56,12 @@ L0609_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0609_CheckFinished:
 PRINTT "0609 Script Sizes (Load/Init/Check) (of $500):  "

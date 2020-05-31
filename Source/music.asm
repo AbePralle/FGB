@@ -23,16 +23,16 @@ SECTION "MusicHome",ROM0
 ;---------------------------------------------------------------------
 IsCurMusic::
         push    bc
-				ld      b,a
-				ld      a,[musicBank]
-				cp      b
-				jr      nz,.different
-				ld      a,[musicAddress]
-				cp      l
-				jr      nz,.different
-				ld      a,[musicAddress+1]
-				cp      h
-				jr      nz,.different
+        ld      b,a
+        ld      a,[musicBank]
+        cp      b
+        jr      nz,.different
+        ld      a,[musicAddress]
+        cp      l
+        jr      nz,.different
+        ld      a,[musicAddress+1]
+        cp      h
+        jr      nz,.different
 
 .same
         pop     bc
@@ -55,47 +55,47 @@ IsCurMusic::
 ;---------------------------------------------------------------------
 InitMusic::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
-				ld      b,a
-				ld      a,[musicBank]
-				cp      b
-				jr      nz,.newMusic
-				ld      a,[musicAddress]
-				cp      l
-				jr      nz,.newMusic
-				ld      a,[musicAddress+1]
-				cp      h
-				jr      nz,.newMusic
-				pop     af
-				jp      .done     ;currently playing this one
+        push    af
+        ld      b,a
+        ld      a,[musicBank]
+        cp      b
+        jr      nz,.newMusic
+        ld      a,[musicAddress]
+        cp      l
+        jr      nz,.newMusic
+        ld      a,[musicAddress+1]
+        cp      h
+        jr      nz,.newMusic
+        pop     af
+        jp      .done     ;currently playing this one
 
 .newMusic
-				pop     af
+        pop     af
         di
-				ld      [musicBank],a
-				xor     a
-				ld      [musicEnabled],a
-				ei
+        ld      [musicBank],a
+        xor     a
+        ld      [musicEnabled],a
+        ei
 
-				ld      a,l
-				ld      [musicAddress],a
-				ld      a,h
-				ld      [musicAddress+1],a
+        ld      a,l
+        ld      [musicAddress],a
+        ld      a,h
+        ld      [musicAddress+1],a
 
-				PUSHROM
-				ld      a,[musicBank]
-				call    SetActiveROM
+        PUSHROM
+        ld      a,[musicBank]
+        call    SetActiveROM
 
         ;parse header
-				inc     hl         ;skip version
-				ld      a,[hl+]    ;notes per second
-				ld      [musicNoteCountdownInit],a
-				ld      [musicNoteCountdown],a
-				ld      de,6
-				add     hl,de
+        inc     hl         ;skip version
+        ld      a,[hl+]    ;notes per second
+        ld      [musicNoteCountdownInit],a
+        ld      [musicNoteCountdown],a
+        ld      de,6
+        add     hl,de
 
         ld      bc,musicTrack1Pos
         call    .getTrackOffset
@@ -107,34 +107,34 @@ InitMusic::
         call    .getTrackOffset
 
         ld      a,BANK(instrumentDefaults)
-				call    SetActiveROM
+        call    SetActiveROM
 
         ld      c,33
-				ld      de,musicInstrument1
-				ld      hl,instrumentDefaults
+        ld      de,musicInstrument1
+        ld      hl,instrumentDefaults
 .copyDefaultInstruments
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.copyDefaultInstruments
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.copyDefaultInstruments
 
         ;actually set default instruments
-				ld      hl,musicInstrument1
-				ld      de,$ff10
-				ld      bc,4
-				xor     a
-				call    MemCopy
-				ld      hl,musicInstrument2
-				ld      de,$ff16
-				ld      bc,3
-				call    MemCopy
-				ld      hl,musicInstrument3
-				ld      de,$ff31
-				call    MemCopy
-				ld      hl,musicInstrument4
-				ld      de,$ff20
-				call    MemCopy
+        ld      hl,musicInstrument1
+        ld      de,$ff10
+        ld      bc,4
+        xor     a
+        call    MemCopy
+        ld      hl,musicInstrument2
+        ld      de,$ff16
+        ld      bc,3
+        call    MemCopy
+        ld      hl,musicInstrument3
+        ld      de,$ff31
+        call    MemCopy
+        ld      hl,musicInstrument4
+        ld      de,$ff20
+        call    MemCopy
 
         ;disable sound
         xor     a
@@ -156,58 +156,58 @@ InitMusic::
         ldio    [$ff24],a   ;volume
         ldio    [$ff25],a   ;sound output terminals
 
-				;ld      a,[musicInstrument1]
-				;ldio    [$ff10],a
-				;ld      a,[musicInstrument1+1]
-				;ldio    [$ff11],a
-				;ld      a,[musicInstrument2]
-				;ldio    [$ff16],a
-				;ld      a,[musicInstrument2]
-				;ldio    [$ff16],a
+        ;ld      a,[musicInstrument1]
+        ;ldio    [$ff10],a
+        ;ld      a,[musicInstrument1+1]
+        ;ldio    [$ff11],a
+        ;ld      a,[musicInstrument2]
+        ;ldio    [$ff16],a
+        ;ld      a,[musicInstrument2]
+        ;ldio    [$ff16],a
 
-				;setup waveform data
-				ld      de,$ff30
-				ld      hl,musicWaveform
-				ld      bc,16
+        ;setup waveform data
+        ld      de,$ff30
+        ld      hl,musicWaveform
+        ld      bc,16
         call    MemCopy
         xor     a
 
         POPROM
 
-				;initialize music stacks
-				ld      a,32
-				ld      hl,musicStackL1
-				ld      [hl+],a
-				ld      a,64
-				ld      [hl+],a
-				ld      a,96
-				ld      [hl+],a
-				ld      a,128
-				ld      [hl+],a
+        ;initialize music stacks
+        ld      a,32
+        ld      hl,musicStackL1
+        ld      [hl+],a
+        ld      a,64
+        ld      [hl+],a
+        ld      a,96
+        ld      [hl+],a
+        ld      a,128
+        ld      [hl+],a
 
 .done
-				ld      a,%11111
-				ldio    [musicEnabled],a
+        ld      a,%11111
+        ldio    [musicEnabled],a
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 .getTrackOffset
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl+]
-				ld      d,a
-				push    hl
-				add     hl,de
-				ld      a,l
-				ld      [bc],a
-				inc     bc
-				ld      a,h
-				ld      [bc],a
-				pop     hl
-				ret
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl+]
+        ld      d,a
+        push    hl
+        add     hl,de
+        ld      a,l
+        ld      [bc],a
+        inc     bc
+        ld      a,h
+        ld      [bc],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      StopMusic
@@ -230,309 +230,309 @@ StopMusic::
 ;---------------------------------------------------------------------
 PlayMusic::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;save the current RAM bank in use
-				ldio    a,[$ff70]
-				push    af
+        ldio    a,[$ff70]
+        push    af
 
-				ld      a,MUSICBANK
-				ldio    [$ff70],a
+        ld      a,MUSICBANK
+        ldio    [$ff70],a
 
         PUSHROM
         ld      hl,musicBank
-				ld      a,[hl+] 
-				call    SetActiveROM
-				ld      a,[hl+]          ;countdown init
-				ld      [hl+],a          ;reset cur countdown
+        ld      a,[hl+] 
+        call    SetActiveROM
+        ld      a,[hl+]          ;countdown init
+        ld      [hl+],a          ;reset cur countdown
 
-				;decrement sound effect override counters
-				push    hl
-				xor     a
-				ld      hl,musicOverride1
-				cp      [hl]
-				jr      z,.skipOverride1
-				dec     [hl]
-.skipOverride1
-				inc     hl
+        ;decrement sound effect override counters
+        push    hl
+        xor     a
+        ld      hl,musicOverride1
         cp      [hl]
-				jr      z,.skipOverride4
-				dec     [hl]
+        jr      z,.skipOverride1
+        dec     [hl]
+.skipOverride1
+        inc     hl
+        cp      [hl]
+        jr      z,.skipOverride4
+        dec     [hl]
 .skipOverride4
         pop     hl
 
-				ld      a,[musicStackL1]
-				ld      [curTrackStackL],a
-				call    .playTrack
-				ld      a,[curTrackStackL]
-				ld      [musicStackL1],a
+        ld      a,[musicStackL1]
+        ld      [curTrackStackL],a
+        call    .playTrack
+        ld      a,[curTrackStackL]
+        ld      [musicStackL1],a
 
 .playTrack2
-				ld      a,[musicStackL2]
-				ld      [curTrackStackL],a
-				call    .playTrack
-				ld      a,[curTrackStackL]
-				ld      [musicStackL2],a
+        ld      a,[musicStackL2]
+        ld      [curTrackStackL],a
+        call    .playTrack
+        ld      a,[curTrackStackL]
+        ld      [musicStackL2],a
 
 .playTrack3
-				ld      a,[musicStackL3]
-				ld      [curTrackStackL],a
-				call    .playTrack
-				ld      a,[curTrackStackL]
-				ld      [musicStackL3],a
+        ld      a,[musicStackL3]
+        ld      [curTrackStackL],a
+        call    .playTrack
+        ld      a,[curTrackStackL]
+        ld      [musicStackL3],a
 
 .playTrack4
-				ld      a,[musicStackL4]
-				ld      [curTrackStackL],a
-				call    .playTrack
-				ld      a,[curTrackStackL]
-				ld      [musicStackL4],a
+        ld      a,[musicStackL4]
+        ld      [curTrackStackL],a
+        call    .playTrack
+        ld      a,[curTrackStackL]
+        ld      [musicStackL4],a
 
 .afterPlayTrack4
-				POPROM
+        POPROM
 
-				;restore RAM bank
-				pop     af
-				ldio    [$ff70],a
+        ;restore RAM bank
+        pop     af
+        ldio    [$ff70],a
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 .playTrack
         ;hl - address of pc for current track
-				push    hl
-				ld      a,[hl+]   ;set the pc
-				ld      e,a
-				ld      a,[hl+]
-				ld      d,a
+        push    hl
+        ld      a,[hl+]   ;set the pc
+        ld      e,a
+        ld      a,[hl+]
+        ld      d,a
 ;ld a,d
 ;cp $ff
 ;jr nz,.okay
 ;ld b,b
 ;.okay
-				call    ExecuteByteCode
-				pop     hl
+        call    ExecuteByteCode
+        pop     hl
 
-				;save new pc for this track
-				ld      a,e
-				ld      [hl+],a
-				ld      a,d
-				ld      [hl+],a
-				ret
+        ;save new pc for this track
+        ld      a,e
+        ld      [hl+],a
+        ld      a,d
+        ld      [hl+],a
+        ret
 
 ExecuteByteCode:
-				ld      a,[de]    ;get a bytecode
-				inc     de
-				or      a         ;nop?
-				ret     z
+        ld      a,[de]    ;get a bytecode
+        inc     de
+        or      a         ;nop?
+        ret     z
 
-				ld      b,a
-				and     $f0
-				jr      nz,.check1xTo8x
+        ld      b,a
+        and     $f0
+        jr      nz,.check1xTo8x
 
         ld      a,b
-				bit     3,a
-				jr      nz,.check08To0f
+        bit     3,a
+        jr      nz,.check08To0f
 
-				cp      2
-				jp      z,.return
-				cp      4
-				jp      z,.note1
-				cp      5
-				jp      z,.note2
-				cp      6
-				jp      z,.note3
-				cp      7
-				jp      z,.note4
+        cp      2
+        jp      z,.return
+        cp      4
+        jp      z,.note1
+        cp      5
+        jp      z,.note2
+        cp      6
+        jp      z,.note3
+        cp      7
+        jp      z,.note4
 .error02To07 jr .error02To07
 
 .check08To0f
-				cp      8
-				jp      z,.hold1 
-				cp      9
-				jp      z,.hold2
-				cp      $0a
-				jp      z,.hold3
-				cp      $0b
-				jp      z,.hold4
-				cp      $0c
-				jp      z,.instr1
-				cp      $0d
-				jp      z,.instr2
-				cp      $0e
-				jp      z,.instr3
-				cp      $0f
-				jp      z,.instr4
+        cp      8
+        jp      z,.hold1 
+        cp      9
+        jp      z,.hold2
+        cp      $0a
+        jp      z,.hold3
+        cp      $0b
+        jp      z,.hold4
+        cp      $0c
+        jp      z,.instr1
+        cp      $0d
+        jp      z,.instr2
+        cp      $0e
+        jp      z,.instr3
+        cp      $0f
+        jp      z,.instr4
 .error08To0f jr .error08To0f
 
 .check1xTo8x
-				cp      $10
-				jp      z,.setDec
-				cp      $20
-				jp      z,.setReg
-				cp      $30
-				jp      z,.decReg
-				cp      $40
-				jp      z,.cmpDec
-				cp      $50
-				jp      z,.cmpReg
-				cp      $60
-				jp      z,.jump
-				cp      $70
-				jp      z,.call
-				cp      $80
-				jp      z,.repeat
+        cp      $10
+        jp      z,.setDec
+        cp      $20
+        jp      z,.setReg
+        cp      $30
+        jp      z,.decReg
+        cp      $40
+        jp      z,.cmpDec
+        cp      $50
+        jp      z,.cmpReg
+        cp      $60
+        jp      z,.jump
+        cp      $70
+        jp      z,.call
+        cp      $80
+        jp      z,.repeat
 .error1xTo8x jr .error1xTo8x
 
 .return
         ;pop return address off the current stack & execute another
-				;command
+        ;command
         ld      h,((musicStack>>8)&$ff)
-				ld      a,[curTrackStackL]
-				ld      l,a
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl+]
-				ld      d,a
-				ld      a,l
-				ld      [curTrackStackL],a
-				jp      ExecuteByteCode
+        ld      a,[curTrackStackL]
+        ld      l,a
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl+]
+        ld      d,a
+        ld      a,l
+        ld      [curTrackStackL],a
+        jp      ExecuteByteCode
 
 .hold1
         ld      a,[de]
-				inc     de
-				ld      [musicInstrument1+2],a
-				jr      .note1
+        inc     de
+        ld      [musicInstrument1+2],a
+        jr      .note1
 
 .hold2  ld      a,[de]
         inc     de
-				ld      [musicInstrument2+1],a
-				jr      .note2
+        ld      [musicInstrument2+1],a
+        jr      .note2
 
 .hold3  ld      a,[de]
         inc     de
-				ld      [musicInstrument3],a
-				jr      .note3
+        ld      [musicInstrument3],a
+        jr      .note3
 
 .hold4  ld      a,[de]
         inc     de
-				ld      [musicInstrument4+1],a
-				jr      .note4
+        ld      [musicInstrument4+1],a
+        jr      .note4
 
 .note1
         ld      hl,musicInstrument1+3
-				call    .noteCommon
+        call    .noteCommon
 .repeat1
         ldio    a,[musicEnabled]
-				and     %00001
-				ret     z
-				ld      hl,musicInstrument1
-				jp      PlaySoundChannel1
+        and     %00001
+        ret     z
+        ld      hl,musicInstrument1
+        jp      PlaySoundChannel1
 
 .note2
         ld      hl,musicInstrument2+2
-				call    .noteCommon
+        call    .noteCommon
 .repeat2
         ldio    a,[musicEnabled]
-				and     %00010
-				ret     z
-				ld      hl,musicInstrument2
-				jp      PlaySoundChannel2
+        and     %00010
+        ret     z
+        ld      hl,musicInstrument2
+        jp      PlaySoundChannel2
 
 .note3
         ld      hl,musicInstrument3+2
-				call    .noteCommon
+        call    .noteCommon
 .repeat3
         ldio    a,[musicEnabled]
-				and     %00100
-				ret     z
-				ld      hl,musicInstrument3
-				jp      PlaySoundChannel3
+        and     %00100
+        ret     z
+        ld      hl,musicInstrument3
+        jp      PlaySoundChannel3
 
 .note4
         ld      hl,musicInstrument4
-				call    .noteCommon
-				call    .noteCommon
+        call    .noteCommon
+        call    .noteCommon
 .repeat4
         ldio    a,[musicEnabled]
-				and     %01000
-				ret     z
-				ld      hl,musicInstrument4
-				jp      PlaySoundChannel4
+        and     %01000
+        ret     z
+        ld      hl,musicInstrument4
+        jp      PlaySoundChannel4
 
 .noteCommon
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        inc     de
+        ld      [hl+],a
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ret
+        inc     de
+        ld      [hl+],a
+        ret
 
 .instr1
         ld      hl,musicInstrument1
-				ld      c,3
-				jp     .instrCommon
+        ld      c,3
+        jp     .instrCommon
 
 .instr2
         ld      hl,musicInstrument2
-				ld      c,2
-				jp     .instrCommon
+        ld      c,2
+        jp     .instrCommon
 
 .instr3
         ld      hl,musicInstrument3
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
         ld      hl,musicWaveform
-				ld      c,16
-				jp     .instrCommon
+        ld      c,16
+        jp     .instrCommon
 
 .instr4
         ld      hl,musicInstrument4
-				ld      c,4
-				jp     .instrCommon
+        ld      c,4
+        jp     .instrCommon
 
 .instrCommon
         ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				dec     c
-				jr      nz,.instrCommon
-				jp      ExecuteByteCode
+        inc     de
+        ld      [hl+],a
+        dec     c
+        jr      nz,.instrCommon
+        jp      ExecuteByteCode
 
 .setDec
 ld b,b
         ld      a,b
         call    .setHLToReg
-				ld      a,[de]
-				inc     de
-				ld      [hl],a
-				jp      ExecuteByteCode
+        ld      a,[de]
+        inc     de
+        ld      [hl],a
+        jp      ExecuteByteCode
 
 .setReg
 ld b,b
-				ld      a,[de]
-				inc     de
+        ld      a,[de]
+        inc     de
         call    .setHLToReg
-				ld      c,[hl]
+        ld      c,[hl]
         ld      a,b
         call    .setHLToReg
-				ld      [hl],a
-				jp      ExecuteByteCode
+        ld      [hl],a
+        jp      ExecuteByteCode
 
 .decReg
         ;ld      a,b
         ;call    .setHLToReg
-				;dec     [hl]
-				;TODO
-				jp      ExecuteByteCode
+        ;dec     [hl]
+        ;TODO
+        jp      ExecuteByteCode
 
 .cmpDec
         ld      b,a     ;which register?
@@ -548,7 +548,7 @@ ld b,b
 .cmpReg
         ;TODO
         inc     de
-				jp      ExecuteByteCode
+        jp      ExecuteByteCode
 
 .nonZeroResult
         ld      a,0
@@ -561,19 +561,19 @@ ld b,b
         ret
 
 .setHLToReg
-				and     $0f
-				add     (musicRegisters & $ff)
-				ld      h,((musicRegisters>>8) & $ff)
-				ld      l,a
-				ret
+        and     $0f
+        add     (musicRegisters & $ff)
+        ld      h,((musicRegisters>>8) & $ff)
+        ld      l,a
+        ret
 
 .jump   
         ld      a,[de]    ;hl = offset to new address
-				inc     de
-				ld      l,a
-				ld      a,[de]
-				inc     de
-				ld      h,a
+        inc     de
+        ld      l,a
+        ld      a,[de]
+        inc     de
+        ld      h,a
 
         ld      a,b
         and     $7
@@ -586,37 +586,37 @@ ld b,b
         jr      z,.afterJump    ;not eq
 
 .jumpAlways
-				add     hl,de
-				ld      d,h
-				ld      e,l
+        add     hl,de
+        ld      d,h
+        ld      e,l
 .afterJump
-				jp      ExecuteByteCode
+        jp      ExecuteByteCode
 
 .call   ;save return address on current music stack
         ld      h,((musicStack>>8)&$ff)
-				ld      a,[curTrackStackL]
-				sub     2
-				ld      [curTrackStackL],a
-				ld      l,a
-				ld      a,e
-				add     2
-				ld      [hl+],a
-				ld      a,d
-				adc     0
-				ld      [hl-],a
+        ld      a,[curTrackStackL]
+        sub     2
+        ld      [curTrackStackL],a
+        ld      l,a
+        ld      a,e
+        add     2
+        ld      [hl+],a
+        ld      a,d
+        adc     0
+        ld      [hl-],a
         ld      b,6     ;cc=jump always
-				jr      .jump
+        jr      .jump
 
 .repeat
         ld      a,b
-				and     $0f
-			  jp      z,.repeat1
-				cp      1
-			  jp      z,.repeat2
-				cp      2
-			  jp      z,.repeat3
-				cp      3
-			  jp      z,.repeat4
+        and     $0f
+        jp      z,.repeat1
+        cp      1
+        jp      z,.repeat2
+        cp      2
+        jp      z,.repeat3
+        cp      3
+        jp      z,.repeat4
 .error8x jr .error8x
 
 

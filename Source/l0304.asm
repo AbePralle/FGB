@@ -69,64 +69,64 @@ L0304_Init2:
         call    HasInventoryItem
         jr      nz,.hasMask
 
-				ld      hl,HOffsetOnHBlank
-				call    InstallHBlankHandler
+        ld      hl,HOffsetOnHBlank
+        call    InstallHBlankHandler
 .hasMask
 
         ;ld      a,BANK(shroom_gbm)
-				;ld      hl,shroom_gbm
-				;call    InitMusic
+        ;ld      hl,shroom_gbm
+        ;call    InitMusic
 
         ;set the pansies to be friendly and to eat the shrooms
-				ld      c,PANSYINDEX1
-				call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
-				ld      c,PANSYINDEX2
-				call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
-				ld      c,PANSYINDEX3
-				call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
+        ld      c,PANSYINDEX1
+        call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
+        ld      c,PANSYINDEX2
+        call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
+        ld      c,PANSYINDEX3
+        call    ((.makeFriendly-L0304_Init2)+levelCheckRAM)
 
-				ld      bc,classPansy
-				ld      de,classHippiePansy
-				call    ChangeClass
+        ld      bc,classPansy
+        ld      de,classHippiePansy
+        call    ChangeClass
 
-				;remove the shrooms blocking the exit if level solved already
-				ldio    a,[mapState]
-				cp      STATE_SOLVED_INIT
-				ret     nz
+        ;remove the shrooms blocking the exit if level solved already
+        ldio    a,[mapState]
+        cp      STATE_SOLVED_INIT
+        ret     nz
 
-				ld      hl,$d1dd
-				call    ((.remove2x2-L0304_Init2)+levelCheckRAM)
+        ld      hl,$d1dd
+        call    ((.remove2x2-L0304_Init2)+levelCheckRAM)
 
-				ld      hl,$d23d
-				call    ((.remove2x2-L0304_Init2)+levelCheckRAM)
+        ld      hl,$d23d
+        call    ((.remove2x2-L0304_Init2)+levelCheckRAM)
         ret
 
 .makeFriendly
-				call    GetFirst
-				or      a
-				ret     z
+        call    GetFirst
+        or      a
+        ret     z
 
 .continue
-				ld      a,GROUP_MONSTERB
-				call    SetGroup
-				ld      hl,((HIGHSHROOMINDEX<<8) | LOWSHROOMINDEX)
-				call    SetActorDestLoc
-				call    GetNextObject
-				or      a
-				jr      nz,.continue
-				ret
+        ld      a,GROUP_MONSTERB
+        call    SetGroup
+        ld      hl,((HIGHSHROOMINDEX<<8) | LOWSHROOMINDEX)
+        call    SetActorDestLoc
+        call    GetNextObject
+        or      a
+        jr      nz,.continue
+        ret
 
 .remove2x2
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl+],a
-				ld      [hl-],a
-				ld      de,MAPPITCH
-				add     hl,de
-				ld      [hl+],a
-				ld      [hl],a
-				ret
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl+],a
+        ld      [hl-],a
+        ld      de,MAPPITCH
+        add     hl,de
+        ld      [hl+],a
+        ld      [hl],a
+        ret
 
 .resetStateTable
         DB STATE_NORMAL_INIT,STATE_NORMAL_INIT,STATE_NORMAL_INIT
@@ -155,7 +155,7 @@ L0304_Check2:
 
         ld      a,1
         ld      hl,((.checkSolved-L0304_Check2)+levelCheckRAM)
-				call    CheckEachHero
+        call    CheckEachHero
         ret
 
 .initialUpdate
@@ -186,22 +186,22 @@ L0304_Check2:
 
 .checkSolved
         or      a
-				ret     z
+        ret     z
 
         ld      c,a
-				call    GetFirst        ;get my hero object
-				call    GetCurZone
-				cp      2
-				jr      z,.inZone2
-				xor     a   ;return false
-				ret 
+        call    GetFirst        ;get my hero object
+        call    GetCurZone
+        cp      2
+        jr      z,.inZone2
+        xor     a   ;return false
+        ret 
 
 .inZone2
-				;in zone 2, level solved
-				ld      a,STATE_SOLVED
-				ldio    [mapState],a
-				ld      a,1  ;return true
-				ret
+        ;in zone 2, level solved
+        ld      a,STATE_SOLVED
+        ldio    [mapState],a
+        ld      a,1  ;return true
+        ret
 
 .updateWave
         ld      bc,ITEM_SPOREMASK
@@ -209,30 +209,30 @@ L0304_Check2:
         ret     nz
 
         ;fill the horizontalOffset table with values from the sine table
-				ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				ldio    a,[updateTimer]
-				and     63
-				ld      e,a
-				ld      d,0
-				ld      hl,((.sineTable-L0304_Check2)+levelCheckRAM)
-				add     hl,de
-				ld      de,horizontalOffset
-				ld      c,144
+        ld      a,TILEINDEXBANK
+        ldio    [$ff70],a
+        ldio    a,[updateTimer]
+        and     63
+        ld      e,a
+        ld      d,0
+        ld      hl,((.sineTable-L0304_Check2)+levelCheckRAM)
+        add     hl,de
+        ld      de,horizontalOffset
+        ld      c,144
 .updateLoop
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.updateLoop
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.updateLoop
 
-				ld      a,[horizontalOffset]
-				ld      [lineZeroHorizontalOffset],a
+        ld      a,[horizontalOffset]
+        ld      [lineZeroHorizontalOffset],a
 
-				ld      hl,hblankFlag
-				set     2,[hl]
+        ld      hl,hblankFlag
+        set     2,[hl]
 
-				ret
+        ret
 
 .sineTable   ;four 64-byte sine waves, values between 0 and 7
 REPT 4

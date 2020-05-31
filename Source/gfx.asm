@@ -22,33 +22,33 @@ SECTION        "Graphics",ROM0
 ;---------------------------------------------------------------------
 InitGfx::
         push bc
-				push de
-				push hl
+        push de
+        push hl
 
         ;set up game state
-				ld      a,$ff
-				ld      [amLinkMaster],a
-				xor     a
-				ld      [lastLinkAction],a
-				ld      [amChangingMap],a
-				ld      [heroesPresent],a
+        ld      a,$ff
+        ld      [amLinkMaster],a
+        xor     a
+        ld      [lastLinkAction],a
+        ld      [amChangingMap],a
+        ld      [heroesPresent],a
 
-				ld      a,(hero0_data & $ff)
-				ld      [curHeroAddressL],a
+        ld      a,(hero0_data & $ff)
+        ld      [curHeroAddressL],a
 
-				ld      a,(HERO_BA_FLAG | HERO_BS_FLAG | HERO_HAIKU_FLAG)
-				ld      [heroesAvailable],a
+        ld      a,(HERO_BA_FLAG | HERO_BS_FLAG | HERO_HAIKU_FLAG)
+        ld      [heroesAvailable],a
 
-				xor     a
-				ld      [heroesUsed],a
-				ld      [randomLoc],a
-				ldio    [musicEnabled],a
-				ld      [musicBank],a
-				ld      [musicAddress],a
-				ld      [musicAddress+1],a
-				ld      [heroesLocked],a
-				ld      [hero0_puffCount],a
-				ld      [hero1_puffCount],a
+        xor     a
+        ld      [heroesUsed],a
+        ld      [randomLoc],a
+        ldio    [musicEnabled],a
+        ld      [musicBank],a
+        ld      [musicAddress],a
+        ld      [musicAddress+1],a
+        ld      [heroesLocked],a
+        ld      [hero0_puffCount],a
+        ld      [hero1_puffCount],a
         ld      [inLoadMethod],a
 
         ld      c,16
@@ -64,14 +64,14 @@ InitGfx::
 ;ld [inventory+1],a
 
         xor     a
-				ld      [musicOverride1],a
-				ld      [musicOverride4],a
+        ld      [musicOverride1],a
+        ld      [musicOverride4],a
 
-				ld      a,64
-				ld      [fadeRange],a
+        ld      a,64
+        ld      [fadeRange],a
 
-				ld      a,APPOMATTOXMAPINDEX
-				ld      [appomattoxMapIndex],a
+        ld      a,APPOMATTOXMAPINDEX
+        ld      [appomattoxMapIndex],a
 
         ld      a,BANK(init_flightCodes)
         call    SetActiveROM
@@ -81,14 +81,14 @@ InitGfx::
         ld      hl,init_flightCodes
         call    MemCopy
 
-				xor     a
-				ldio    [dmaLoad],a
-				ld      [displayType],a
+        xor     a
+        ldio    [dmaLoad],a
+        ld      [displayType],a
 
-				ld      a,1
-				ldio    [curROMBank],a
+        ld      a,1
+        ldio    [curROMBank],a
 
-				call    DisplayOff
+        call    DisplayOff
         call    SetupSpriteHandler
 
         ;sound off
@@ -102,53 +102,53 @@ InitGfx::
         ldio    [$ff1c],a
         ldio    [$ff21],a
 
-				;turn on sound master control
-				ld      a,$80
-				ldio    [$ff26],a
-				ld      a,$ff
-				ldio    [$ff24],a         ;full volume both channels
-				ldio    [$ff25],a         ;all sounds to both channels
+        ;turn on sound master control
+        ld      a,$80
+        ldio    [$ff26],a
+        ld      a,$ff
+        ldio    [$ff24],a         ;full volume both channels
+        ldio    [$ff25],a         ;all sounds to both channels
 
-				;setup vector to hblank
-				ld      a,$c3
-				ld      [hblankVector],a     ;opcode of jp
-				ld      hl,OnHBlank
-				ld      a,l
-				ld      [hblankVector+1],a
-				ld      a,h
-				ld      [hblankVector+2],a
+        ;setup vector to hblank
+        ld      a,$c3
+        ld      [hblankVector],a     ;opcode of jp
+        ld      hl,OnHBlank
+        ld      a,l
+        ld      [hblankVector+1],a
+        ld      a,h
+        ld      [hblankVector+2],a
 
-				;enable VBlank interrupts
-				ld      a,[$ffff]
-				or      1
-				ld      [$ffff],a
+        ;enable VBlank interrupts
+        ld      a,[$ffff]
+        or      1
+        ld      [$ffff],a
 
         ;turn LCD on 
-				ld      a,%11000011
+        ld      a,%11000011
         ld      [$ff40], a       ;lcdc control
 
-				;clear all level states to zero
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-				ld      c,0       ;loop 256 times
-				ld      hl,levelState
-				xor     a
+        ;clear all level states to zero
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        ld      c,0       ;loop 256 times
+        ld      hl,levelState
+        xor     a
 .clearStateLoop
-				ld      [hl+],a
-				dec     c
-				jr      nz,.clearStateLoop
+        ld      [hl+],a
+        dec     c
+        jr      nz,.clearStateLoop
 
         ld      a,1  ;fade from white the first time
         ld      [standardFadeColor],a
 
-				;enable interrupts
-				ei
+        ;enable interrupts
+        ei
 
 
 .done
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -166,42 +166,42 @@ InitGfx::
 ;---------------------------------------------------------------------
 VMemCopy::
         push    bc
-				push    de
-				push    hl
-				push    af
+        push    de
+        push    hl
+        push    af
 
-				;test if screen is on 
-				ldio    a,[$ff40]
-				and     %10000000
-				jr      nz,.screenIsOn
+        ;test if screen is on 
+        ldio    a,[$ff40]
+        and     %10000000
+        jr      nz,.screenIsOn
 
 .screenIsOff
-				pop     af
-				ldio    [$ff4f],a    ;switch VRAM bank
+        pop     af
+        ldio    [$ff4f],a    ;switch VRAM bank
 
 .setLoop
-				ld      b,16
+        ld      b,16
 .bytesLoop
         ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     b
-				jr      nz,.bytesLoop
+        ld      [de],a
+        inc     de
+        dec     b
+        jr      nz,.bytesLoop
 
-				dec     c
-				jr      nz,.setLoop
-				jr      .done
+        dec     c
+        jr      nz,.setLoop
+        jr      .done
 
 .screenIsOn     ;copy using DMA
         pop     af
-				call    InitDMALoad
-				call    WaitDMALoad
+        call    InitDMALoad
+        call    WaitDMALoad
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      MemSet
@@ -215,24 +215,24 @@ VMemCopy::
 ;---------------------------------------------------------------------
 MemSet::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
 .loop   ld      a,d
         ld      [hl+],a
-				dec     bc
-				xor     a
-				cp      b
-				jr      nz,.loop
-				cp      c
-				jr      nz,.loop
+        dec     bc
+        xor     a
+        cp      b
+        jr      nz,.loop
+        cp      c
+        jr      nz,.loop
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      MemCopy
@@ -255,18 +255,18 @@ MemCopy::
 
 .copy   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				xor     a
-				dec     bc
-				cp      b
-				jr      nz,.copy
-				cp      c
-				jr      nz,.copy
+        inc     de
+        xor     a
+        dec     bc
+        cp      b
+        jr      nz,.copy
+        cp      c
+        jr      nz,.copy
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -285,47 +285,47 @@ MemCopy::
 ;---------------------------------------------------------------------
 InitDMALoad::
         or      a
-				jr      nz,.prepBank1
+        jr      nz,.prepBank1
 
 .prepBank0
         ld      a,l
-				ld      [dmaLoadSrc0],a
+        ld      [dmaLoadSrc0],a
         ld      a,h
-				ld      [dmaLoadSrc0+1],a
+        ld      [dmaLoadSrc0+1],a
 
         ld      a,e
-				ld      [dmaLoadDest0],a
+        ld      [dmaLoadDest0],a
         ld      a,d
-				ld      [dmaLoadDest0+1],a
+        ld      [dmaLoadDest0+1],a
 
         ld      a,c
-				dec     a
-				ld      [dmaLoadLen0],a
+        dec     a
+        ld      [dmaLoadLen0],a
 
-				ldio    a,[dmaLoad]
-				or      1
-				ldio    [dmaLoad],a
-				ret
+        ldio    a,[dmaLoad]
+        or      1
+        ldio    [dmaLoad],a
+        ret
 
 .prepBank1
         ld      a,l
-				ld      [dmaLoadSrc1],a
+        ld      [dmaLoadSrc1],a
         ld      a,h
-				ld      [dmaLoadSrc1+1],a
+        ld      [dmaLoadSrc1+1],a
 
         ld      a,e
-				ld      [dmaLoadDest1],a
+        ld      [dmaLoadDest1],a
         ld      a,d
-				ld      [dmaLoadDest1+1],a
+        ld      [dmaLoadDest1+1],a
 
         ld      a,c
-				dec     a
-				ld      [dmaLoadLen1],a
+        dec     a
+        ld      [dmaLoadLen1],a
 
-				ldio    a,[dmaLoad]
-				or      2
-				ldio    [dmaLoad],a
-				ret
+        ldio    a,[dmaLoad]
+        or      2
+        ldio    [dmaLoad],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      WaitDMALoad
@@ -337,14 +337,14 @@ WaitDMALoad::
         push    hl
 .wait
         ldio    a,[dmaLoad]
-				and     %11
-				jr      nz,.wait
+        and     %11
+        jr      nz,.wait
 
         call    GetInput
         pop     hl
         pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DMALoad
@@ -357,8 +357,8 @@ WaitDMALoad::
 ;---------------------------------------------------------------------
 DMALoad::
         call    InitDMALoad
-				call    WaitDMALoad
-				ret
+        call    WaitDMALoad
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DisplayOff   
@@ -368,29 +368,29 @@ DMALoad::
 ;---------------------------------------------------------------------
 DisplayOff::
         ;skip if the display is off already
-				ld      a,[$ff40]
-				and     %10000000
-				ret     z
+        ld      a,[$ff40]
+        and     %10000000
+        ret     z
 
         ;turn display off
         ld      a,[$ffff]            ;get interrupts enabled
-				push    af                   ;save original value
-				and     %11111110            ;turn off vblank interrupt
-				ld      [$ffff],a            ;"interrupt THIS!"
+        push    af                   ;save original value
+        and     %11111110            ;turn off vblank interrupt
+        ld      [$ffff],a            ;"interrupt THIS!"
 .wait   ld      a,[$ff44]            ;get line being drawn
         cp      144                  ;wait until line is >= 144
-				jr      c,.wait
-				ld      a,[$ff40]            ;LCDC register
-				and     %01111111            ;turn off screen
-				ld      [$ff40],a
-				pop     af                   ;retrieve original interrupt settings
-				ld      [$ffff],a
-				
+        jr      c,.wait
+        ld      a,[$ff40]            ;LCDC register
+        and     %01111111            ;turn off screen
+        ld      [$ff40],a
+        pop     af                   ;retrieve original interrupt settings
+        ld      [$ffff],a
+        
 .waitVRAM
-				ld      a,[$ff41]            ;STAT register
-				and     %00000010            ;bit 1 needs to be zero to access VRAM
-				jr      nz,.waitVRAM
-				ret
+        ld      a,[$ff41]            ;STAT register
+        and     %00000010            ;bit 1 needs to be zero to access VRAM
+        jr      nz,.waitVRAM
+        ret
 
 ;---------------------------------------------------------------------
 ; Subroutine:   LoadNextLevel
@@ -400,29 +400,29 @@ DisplayOff::
 ;               based on arguments stored in memory
 ;---------------------------------------------------------------------
 LoadNextLevel::
-				push    bc
-				push    de
-				push    hl
+        push    bc
+        push    de
+        push    hl
 
 .reload
-				ld      a,1
-				ld      [amChangingMap],a
+        ld      a,1
+        ld      [amChangingMap],a
 
         ;xor     a
         ;ld      [timeToChangeLevel],a
 
-				;save old level's level state
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-				ld      a,[curLevelStateIndex]
-				ld      l,a
-				ld      h,((levelState>>8) & $ff)
-				ldio    a,[mapState]
+        ;save old level's level state
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        ld      a,[curLevelStateIndex]
+        ld      l,a
+        ld      h,((levelState>>8) & $ff)
+        ldio    a,[mapState]
         or      a
         jr      nz,.stateNotZero
         ld      a,1
 .stateNotZero
-				ld      [hl],a
+        ld      [hl],a
 
         ;clear joystick input
         xor     a
@@ -431,10 +431,10 @@ LoadNextLevel::
         ldio    [jiggleDuration],a
         ld      [jiggleType],a       ;normal jiggle
 
-				call    PrepLevel
-				ld      a,[timeToChangeLevel]
-				or      a
-				jr      nz,.reload
+        call    PrepLevel
+        ld      a,[timeToChangeLevel]
+        or      a
+        jr      nz,.reload
 
         ;set interrupt controller flag so the interrupt will happen
         ld      a,[$ffff]         ;interrupt enable control register
@@ -447,18 +447,18 @@ LoadNextLevel::
         ;call    IterateAllLists
 
         ;initialize some values
-				xor     a
+        xor     a
         ldio    [backBufferReady],a
 
         xor     a
-				ld      [amChangingMap],a
+        ld      [amChangingMap],a
 
         ei                        ;enable interrupts
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PrepLevel
@@ -466,15 +466,15 @@ LoadNextLevel::
 ;---------------------------------------------------------------------
 PrepLevel::
         push bc
-				push de
-				push hl
+        push de
+        push hl
 
         ;reset some stuff
         xor     a
-				ld      [levelCheckSkip],a
-				ld      [levelCheckSkip+1],a
-				ld      [levelCheckSkip+2],a
-				ld      [levelCheckSkip+3],a
+        ld      [levelCheckSkip],a
+        ld      [levelCheckSkip+1],a
+        ld      [levelCheckSkip+2],a
+        ld      [levelCheckSkip+3],a
         ld      a,MAX_PER_TURN
         ld      [iterateNumObjects],a
 
@@ -484,9 +484,9 @@ PrepLevel::
         cp      2           ;2=skip init & load in next
         jp      z,.loadMap
 
-				;restore default vector to hblank
-				ld      hl,OnHBlank
-				call    InstallHBlankHandler
+        ;restore default vector to hblank
+        ld      hl,OnHBlank
+        call    InstallHBlankHandler
 
         xor     a
         ldh     [$ff43], a        ;set screen offsets to 0
@@ -494,88 +494,88 @@ PrepLevel::
 
         xor     a
         ldh     [$ff4a], a        ;set window offsets to 7,0
-				ld      a,7
+        ld      a,7
         ldh     [$ff4b], a 
 
-				xor     a
-				ld      [specialFX],a
-				ld      [paletteBufferReady],a
-				ld      [mapColor],a
-				ld      [mapColor+1],a
-				ld      [bgAttributes],a
-				ld      [bgTileMap],a
-				ld      [checkInputInMainLoop],a
-				ld      [dialogJoyIndex],a
-				ld      [heroJoyIndex],a
-				ld      [hero0_index],a
-				ld      [hero1_index],a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
-				ld      [mapDialogClassIndex],a
-				ld      [dialogSettings],a    ;no border, no press B
-				ld      [amShowingDialog],a
-				ld      [objTimerBase],a
-				ld      [objTimer60ths],a
-				ld      [heroTimerBase],a
-				ld      [heroTimerBase],a
-				ld      [lineZeroHorizontalOffset],a
-				ld      [samplePlaying],a
-				ld      [guardAlarm],a
+        xor     a
+        ld      [specialFX],a
+        ld      [paletteBufferReady],a
+        ld      [mapColor],a
+        ld      [mapColor+1],a
+        ld      [bgAttributes],a
+        ld      [bgTileMap],a
+        ld      [checkInputInMainLoop],a
+        ld      [dialogJoyIndex],a
+        ld      [heroJoyIndex],a
+        ld      [hero0_index],a
+        ld      [hero1_index],a
+        ld      [heroesIdle],a
+        ld      [allIdle],a
+        ld      [mapDialogClassIndex],a
+        ld      [dialogSettings],a    ;no border, no press B
+        ld      [amShowingDialog],a
+        ld      [objTimerBase],a
+        ld      [objTimer60ths],a
+        ld      [heroTimerBase],a
+        ld      [heroTimerBase],a
+        ld      [lineZeroHorizontalOffset],a
+        ld      [samplePlaying],a
+        ld      [guardAlarm],a
         ld      [dialogNPC_speakerIndex],a
         ld      [dialogNPC_heroIndex],a
         ld      [dialogBalloonClassIndex],a
         ld      [envEffectType],a
 
-				;clear the horizontal offsets
-				ld      bc,144
-				ld      d,0
-				ld      hl,horizontalOffset
-				ld      a,TILEINDEXBANK
-				call    MemSet
+        ;clear the horizontal offsets
+        ld      bc,144
+        ld      d,0
+        ld      hl,horizontalOffset
+        ld      a,TILEINDEXBANK
+        call    MemSet
 
-				ld      a,1
-				ld      [canJoinMap],a
+        ld      a,1
+        ld      [canJoinMap],a
 
-				ld      de,0
-				call    SetDialogSkip
-				call    SetDialogForward
+        ld      de,0
+        call    SetDialogSkip
+        call    SetDialogForward
 
         ;---------------------------
         xor     a
-				;turn all sounds off
-				ldio    [$ff12],a   ;sound 1 envelope
-				ldio    [$ff17],a   ;sound 2 envelope
-				ldio    [$ff1a],a   ;sound 3 output
-				ldio    [$ff21],a   ;sound 4 envelope
+        ;turn all sounds off
+        ldio    [$ff12],a   ;sound 1 envelope
+        ldio    [$ff17],a   ;sound 2 envelope
+        ldio    [$ff1a],a   ;sound 3 output
+        ldio    [$ff21],a   ;sound 4 envelope
 
-				ld      a,$ff
-				ld      [$ff24],a         ;full volume both channels
+        ld      a,$ff
+        ld      [$ff24],a         ;full volume both channels
         ;---------------------------
 
-				ld      a,$ff
-				ld      [dialogSpeakerIndex],a
+        ld      a,$ff
+        ld      [dialogSpeakerIndex],a
 
-				;ld      a,$21   ;fast=2, slow=1
-				;ld      a,$22   ;fast=2, slow=2
-				ld      a,$42
-				ldio    [scrollSpeed],a
+        ;ld      a,$21   ;fast=2, slow=1
+        ;ld      a,$22   ;fast=2, slow=2
+        ld      a,$42
+        ldio    [scrollSpeed],a
 
-				;set up each entry of bgTileMap to be its own index for a
-				;speed trick in the map redraw
-				ld      c,0
-				ld      hl,bgTileMap
-				xor     a
+        ;set up each entry of bgTileMap to be its own index for a
+        ;speed trick in the map redraw
+        ld      c,0
+        ld      hl,bgTileMap
+        xor     a
 .initBGTileMap
         ld      [hl+],a
-				inc     a
-				dec     c
-				jr      nz,.initBGTileMap
+        inc     a
+        dec     c
+        jr      nz,.initBGTileMap
 
         ld      a,%00100111      ;background palette colors
-				ld      [$ff47],a
+        ld      [$ff47],a
 
-				ld      a,1
-				ld      [scrollSprites],a
+        ld      a,1
+        ld      [scrollSprites],a
 
         call    LoadGraphics
 
@@ -589,74 +589,74 @@ PrepLevel::
         ld      a,BANK(BGTiles1024)
         call    SetActiveROM
         ld      a,1
-			  ;xor     a
-				ld      c,9            ;#characters
-				ld      de,$8f60
-				ld      hl,BGTiles1024+$3f70
-				call    VMemCopy
+        ;xor     a
+        ld      c,9            ;#characters
+        ld      de,$8f60
+        ld      hl,BGTiles1024+$3f70
+        call    VMemCopy
 
         call    LoadFont
 
-			  ld      a,1
-				ld      c,1              ;1 character
-				ld      de,$8ff0
-				ld      hl,blankTileData
-				call    VMemCopy
+        ld      a,1
+        ld      c,1              ;1 character
+        ld      de,$8ff0
+        ld      hl,blankTileData
+        call    VMemCopy
 
         ;set up hblank interrupt
         ld      a,143
-				ld      [$ff45],a         ;set lyc
-				xor     a
-				ld      [hblankFlag],a    ;don't show dialog window
-				ld      a,[$ff0f]         ;clear LCDC interrupt flag
-				and     %11111101
-				ld      [$ff0f],a
+        ld      [$ff45],a         ;set lyc
+        xor     a
+        ld      [hblankFlag],a    ;don't show dialog window
+        ld      a,[$ff0f]         ;clear LCDC interrupt flag
+        and     %11111101
+        ld      [$ff0f],a
 
         ld      a,119
-				ldio    [hblankWinOn],a
-				ld      a,143
-				ldio    [hblankWinOff],a
+        ldio    [hblankWinOn],a
+        ld      a,143
+        ldio    [hblankWinOff],a
 
         ld      a,%00001100       ;setup stat for lyc = ly
-				ld      [$ff41],a
+        ld      [$ff41],a
 
-				ld      a,[$ffff]         ;enable hblank interrupt
-				or      %00000010
-				ld      [$ffff],a
+        ld      a,[$ffff]         ;enable hblank interrupt
+        or      %00000010
+        ld      [$ffff],a
 
         ld      a,$98
-				ld      [backBufferDestHighByte],a
+        ld      [backBufferDestHighByte],a
 
-				call    ResetSprites
+        call    ResetSprites
 
 .loadMap
         ; load in a map
-				ld      a,BANK(ResetList)
-				call    SetActiveROM
-				call    ResetList
-				call    ClearFGBGFlags
+        ld      a,BANK(ResetList)
+        call    SetActiveROM
+        call    ResetList
+        call    ClearFGBGFlags
 
-				ld      hl,curLevelIndex
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				call    LoadMap
+        ld      hl,curLevelIndex
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        call    LoadMap
 
 .done
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
 
 LoadFont::
         ;load in font into $8c80 (tiles 200-253)
         ld      a,BANK(fontData)
         call    SetActiveROM
-			  xor     a
-				ld      c,62             ;# characters
-				ld      de,$8c00
-				ld      hl,fontData
-				jp      VMemCopy
+        xor     a
+        ld      c,62             ;# characters
+        ld      de,$8c00
+        ld      hl,fontData
+        jp      VMemCopy
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupSpriteHandler
@@ -704,28 +704,28 @@ SetupCommonColor::
         push    hl
 
         ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
         ld      a,b
 
         ld      h,((gamePalette>>8) & $ff)
-				and     %00000110                       ;color # * 2
-				add     (gamePalette & $ff)
-				ld      l,a
+        and     %00000110                       ;color # * 2
+        add     (gamePalette & $ff)
+        ld      l,a
 
-				ld      a,b
+        ld      a,b
 
         ld      c,16
 
 .loop   
         ld      a,e              ;Get low byte of color
-				ld      [hl+],a          ;store it in game palette
+        ld      [hl+],a          ;store it in game palette
 
         ld      a,d              ;Get high byte of color
-				ld      [hl+],a          ;store in game palette
+        ld      [hl+],a          ;store in game palette
 
         ld      a,l              ;skip next 3 colors in game palette
-				add     6
-				ld      l,a
+        add     6
+        ld      l,a
 
         dec     c
         jr      nz,.loop
@@ -746,11 +746,11 @@ SetupGamePalettes:
         push    hl
 
         ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      a,%10000000  ;color specs
-				ld      [$ff68],a
-				ld      [$ff6a],a
+        ld      a,%10000000  ;color specs
+        ld      [$ff68],a
+        ld      [$ff6a],a
 
         ld      bc,$0000     ;standard fade color
         ld      hl,standardFadeColor
@@ -763,43 +763,43 @@ SetupGamePalettes:
 
 .fadeColorSet
         ld      hl,.stdPaletteData
-				ld      de,gamePalette
-				ld      a,32     ;set up 64 bytes (32 colors)
-				
+        ld      de,gamePalette
+        ld      a,32     ;set up 64 bytes (32 colors)
+        
 
 .loop   push    af
         ld      a,[hl+]
-				ld      [de],a       ;copy of palette
-				inc     de
+        ld      [de],a       ;copy of palette
+        inc     de
         ld      a,[hl+]
-				ld      [de],a 
-				inc     de
+        ld      [de],a 
+        inc     de
 
-				ld      a,c
+        ld      a,c
         ld      [$ff69],a    ;bg palette
         ld      [$ff6b],a    ;fg palette
 
-				ld      a,b
+        ld      a,b
         ld      [$ff69],a    ;bg palette
         ld      [$ff6b],a    ;fg palette
 
         pop     af
-				dec     a
-				jr      nz,.loop
+        dec     a
+        jr      nz,.loop
 
 ;repeat for FG colors
         ld      hl,.stdPaletteData
-				ld      c,32     ;set up 64 bytes (32 colors)
+        ld      c,32     ;set up 64 bytes (32 colors)
 
 .loopFG ld      a,[hl+]
-				ld      [de],a       ;copy of palette
-				inc     de
+        ld      [de],a       ;copy of palette
+        inc     de
         ld      a,[hl+]
-				ld      [de],a 
-				inc     de
+        ld      [de],a 
+        inc     de
 
-				dec     c
-				jr      nz,.loopFG
+        dec     c
+        jr      nz,.loopFG
 
         pop     hl
         pop     de
@@ -824,34 +824,34 @@ SetupGamePalettes:
 ; Returns:      de/hl  - pointer $d010-$dff0 to object
 ;---------------------------------------------------------------------
 IndexToPointerDE::
-				swap    a
-				jr      z,.null
+        swap    a
+        jr      z,.null
         ld      e,a
-				and     %00001111
-				add     $d0
-				ld      d,a
-				ld      a,e
-				and     %11110000
-				ld      e,a
-				ret
+        and     %00001111
+        add     $d0
+        ld      d,a
+        ld      a,e
+        and     %11110000
+        ld      e,a
+        ret
 .null
         ld      de,0
-				ret
+        ret
 
 IndexToPointerHL::
-				swap    a
-				jr      z,.null
+        swap    a
+        jr      z,.null
         ld      l,a
-				and     %00001111
-				add     $d0
-				ld      h,a
-				ld      a,l
-				and     %11110000
-				ld      l,a
-				ret
+        and     %00001111
+        add     $d0
+        ld      h,a
+        ld      a,l
+        and     %11110000
+        ld      l,a
+        ret
 .null
         ld      hl,0
-				ret
+        ret
 
 
 SECTION "TileCopyRoutines",ROM0
@@ -862,18 +862,18 @@ SECTION "TileCopyRoutines",ROM0
 ;---------------------------------------------------------------------
 AddHL16::
         ld      a,l
-				add     16
-				ld      l,a
-				ret     nc
-				inc     h
-				ret
+        add     16
+        ld      l,a
+        ret     nc
+        inc     h
+        ret
 AddDE16::
         ld      a,e
-				add     16
-				ld      e,a
-				ret     nc
-				inc     d
-				ret
+        add     16
+        ld      e,a
+        ret     nc
+        inc     d
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     TileIndexLToAddressHL
@@ -895,10 +895,10 @@ TileIndexLToAddressHL:
         sla     l
         rla
         or      $90              ;add base addr of $9000
-				cp      $98              ;>=$9800?
-				jr      c,.allSet
+        cp      $98              ;>=$9800?
+        jr      c,.allSet
 
-				sub     $10              ;signed #'s means >$9800 should be $8800+
+        sub     $10              ;signed #'s means >$9800 should be $8800+
 
 .allSet
         ld      h,a              ;a into h; hl is now $9000+/-offset
@@ -920,10 +920,10 @@ TileIndexEToAddressDE:
         sla     e
         rla
         or      $90              ;add base addr of $9000
-				cp      $98
-				jr      c,.allSet
+        cp      $98
+        jr      c,.allSet
 
-				sub     $10
+        sub     $10
 
 .allSet
         ld      d,a              ;a into d; de is now $9000+/-offset
@@ -946,7 +946,7 @@ TileCopyRotateCCW:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ;Set up outer loop
         ld      a,8               ;outer loop 8 times
@@ -1010,7 +1010,7 @@ TileCopy:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ld      c,16            ;loop 16 times
 .loop   ld      a,[de]          ;get a byte
@@ -1031,7 +1031,7 @@ TileCopyShiftLeft:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ld      c,16            ;loop 16 times
 .loop   ld      a,[de]          ;get a byte
@@ -1054,7 +1054,7 @@ TileCopyShiftRight:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ld      c,16            ;loop 16 times
 .loop   ld      a,[de]          ;get a byte
@@ -1077,14 +1077,14 @@ TileCopyShiftLeftOverlay:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ld      c,16            ;loop 16 times
 .loop   ld      a,[de]          ;get a byte
         inc     de
         swap    a               ;flip nibbles
         and     $f0             ;clear out lower four bits
-				or      [hl]            ;combine with dest
+        or      [hl]            ;combine with dest
         ld      [hl+],a
         dec     c
         jr      nz,.loop
@@ -1102,14 +1102,14 @@ TileCopyShiftRightOverlay:
         push    hl
 
         ;Get tile addresses
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ld      c,16            ;loop 16 times
 .loop   ld      a,[de]          ;get a byte
         inc     de
         swap    a               ;flip nibbles
         and     $0f             ;clear out upper four bits
-				or      [hl]            ;combine with dest
+        or      [hl]            ;combine with dest
         ld      [hl+],a
         dec     c
         jr      nz,.loop
@@ -1122,35 +1122,35 @@ TileCopyShiftRightOverlay:
 
 TileCopyIndicesToAddresses:
         push    bc
-				ld      c,4
+        ld      c,4
         ld      h,0
         ld      d,0
 .loop
         sla     l
-				rl      h
+        rl      h
         sla     e
-				rl      d
-				dec     c
-				jr      nz,.loop
-				pop     bc
-				ld      a,((backBuffer>>8) & $ff)
-				add     a,h
-				ld      h,a
-				ld      a,((backBuffer>>8) & $ff)
-				add     a,d
-				ld      d,a
-				ret
+        rl      d
+        dec     c
+        jr      nz,.loop
+        pop     bc
+        ld      a,((backBuffer>>8) & $ff)
+        add     a,h
+        ld      h,a
+        ld      a,((backBuffer>>8) & $ff)
+        add     a,d
+        ld      d,a
+        ret
 
 TileCopyShiftUp:
         push    bc
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
-				ld      a,e     ;source += 8
-				add     8
-				ld      e,a
+        ld      a,e     ;source += 8
+        add     8
+        ld      e,a
 
         ld      c,8             ;loop 8 times
 .loop   ld      a,[de]          ;get a byte
@@ -1160,12 +1160,12 @@ TileCopyShiftUp:
         jr      nz,.loop
 
         ;clear 4 rows (8 bytes)
-				ld      c,8
-				xor     a
+        ld      c,8
+        xor     a
 .clear
         ld      [hl+],a
-				dec     c
-				jr      nz,.clear
+        dec     c
+        jr      nz,.clear
 
         pop     hl
         pop     de
@@ -1177,15 +1177,15 @@ TileCopyShiftDown:
         push    de
         push    hl
 
-				call    TileCopyIndicesToAddresses
+        call    TileCopyIndicesToAddresses
 
         ;clear 4 rows (8 bytes)
-				ld      c,8
-				xor     a
+        ld      c,8
+        xor     a
 .clear
         ld      [hl+],a
-				dec     c
-				jr      nz,.clear
+        dec     c
+        jr      nz,.clear
 
         ld      c,8             ;loop 8 times
 .loop   ld      a,[de]          ;get a byte
@@ -1210,96 +1210,96 @@ TileCopyShiftDown:
 ;---------------------------------------------------------------------
 DuplicateTilesToSpriteMem:
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,a          ;tiles remaining
+        ld      b,a          ;tiles remaining
 
-				;de = $8000 + c*16
-				ld      a,c
-				swap    a
-				and     %00001111
-				add     $80
-				ld      d,a
+        ;de = $8000 + c*16
+        ld      a,c
+        swap    a
+        and     %00001111
+        add     $80
+        ld      d,a
 
-				ld      a,c       
-				swap    a
-				and     %11110000
-				ld      e,a
+        ld      a,c       
+        swap    a
+        and     %11110000
+        ld      e,a
 
-				;hl = $c000
-				ld      hl,backBuffer
+        ;hl = $c000
+        ld      hl,backBuffer
 
 .next_tile
-				;tiles 128-255 are in VRAM shared between sprites and tiles
-				;and do not need to be copied.
-				ld      a,c
-				cp      128
-				jr      nc,.after_copy
+        ;tiles 128-255 are in VRAM shared between sprites and tiles
+        ;and do not need to be copied.
+        ld      a,c
+        cp      128
+        jr      nc,.after_copy
 
-				push    bc
-				ld      c,1        ;1*16 bytes
-				ld      a,1        ;VRAM bank 1
-				call    VMemCopy
-				pop     bc
+        push    bc
+        ld      c,1        ;1*16 bytes
+        ld      a,1        ;VRAM bank 1
+        call    VMemCopy
+        pop     bc
 
 .after_copy
         ;de+=16, hl+=16
-				call    AddHL16
-				call    AddDE16
+        call    AddHL16
+        call    AddDE16
 
         ;tileNum++, tilesRemaining--
         inc     c
-				dec     b
-				jr      nz,.next_tile
+        dec     b
+        jr      nz,.next_tile
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 IF 0
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,a
-				ld      l,c
-				call    TileIndexLToAddressHL
+        ld      b,a
+        ld      l,c
+        call    TileIndexLToAddressHL
 
 .next_tile
         ld      a,h
-				cp      $90
-				jr      c,.no_copy_necessary
+        cp      $90
+        jr      c,.no_copy_necessary
 
         ;dest addr = source addr - $1000
         ld      a,h
-				sub     $10
-				ld      d,a
-				ld      e,l
+        sub     $10
+        ld      d,a
+        ld      e,l
 
         ;source addr
         ld      hl,$c000
-				ld      c,16
+        ld      c,16
 
 .copy   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.copy
-				jr      .after_copy
+        inc     de
+        dec     c
+        jr      nz,.copy
+        jr      .after_copy
 
 .no_copy_necessary
         ld      de,16
-				add     hl,de
+        add     hl,de
 
 .after_copy
         dec     b
-				jr      nz,.next_tile
+        jr      nz,.next_tile
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 ENDC
 
@@ -1329,38 +1329,38 @@ GenerateFacings::
 
         ld      c,a           ;starting index
 
-				ldio    a,[curObjWidthHeight]   ;retrieve flags
-				bit     BIT_2X2,a
-				jr      z,.generate1x1
-				jp      .generate2x2
+        ldio    a,[curObjWidthHeight]   ;retrieve flags
+        bit     BIT_2X2,a
+        jr      z,.generate1x1
+        jp      .generate2x2
 
 .generate1x1
-				ld      a,[curObjWidthHeight] ;attribute flags
-				bit     BIT_NOROTATE,a
-				jr      nz,.createNonRotatedSprites
+        ld      a,[curObjWidthHeight] ;attribute flags
+        bit     BIT_NOROTATE,a
+        jr      nz,.createNonRotatedSprites
 
 .createRotatedSprites
-				;create non-split frames for sprites
-				ld      e,0           ;source index
-				ld      l,2           ;dest index
-				call    TileCopyRotateCCW
-				inc     e
-				inc     l
-				call    TileCopyRotateCCW
+        ;create non-split frames for sprites
+        ld      e,0           ;source index
+        ld      l,2           ;dest index
+        call    TileCopyRotateCCW
+        inc     e
+        inc     l
+        call    TileCopyRotateCCW
         jr      .copyTilesToSpriteMem
 
 .createNonRotatedSprites
-				;create non-split frames for sprites
-				ld      e,0           ;source index
-				ld      l,2           ;dest index
-				call    TileCopy
-				inc     e
-				inc     l
-				call    TileCopy
+        ;create non-split frames for sprites
+        ld      e,0           ;source index
+        ld      l,2           ;dest index
+        call    TileCopy
+        inc     e
+        inc     l
+        call    TileCopy
 
 .copyTilesToSpriteMem
-				ld      a,4
-				call    DuplicateTilesToSpriteMem
+        ld      a,4
+        call    DuplicateTilesToSpriteMem
 
         ;East-facing frames
         ld      e,0           ;source index in e
@@ -1372,9 +1372,9 @@ GenerateFacings::
         inc     l
         call    TileCopyShiftLeft
 
-				ld      a,[curObjWidthHeight] ;attribute flags
-				bit     BIT_NOROTATE,a
-				jr      nz,.copyNorthNoRotate
+        ld      a,[curObjWidthHeight] ;attribute flags
+        bit     BIT_NOROTATE,a
+        jr      nz,.copyNorthNoRotate
 
         ;North facings
         ld      l,0           ;dest is +0 (North)
@@ -1387,58 +1387,58 @@ GenerateFacings::
         inc     e
         dec     l
         call    TileCopyRotateCCW
-				jr      .copyBufferToVMem
+        jr      .copyBufferToVMem
 
 .copyNorthNoRotate
         ld      e,1
-				ld      l,6
-				call    TileCopy
-				ld      e,6
-				ld      l,1
-				call    TileCopyShiftDown
-				inc     l
-				call    TileCopyShiftUp
+        ld      l,6
+        call    TileCopy
+        ld      e,6
+        ld      l,1
+        call    TileCopyShiftDown
+        inc     l
+        call    TileCopyShiftUp
 
 .copyBufferToVMem
-				;Copy 6 tiles beginning at $c000+ to $9000+(c*16).  
-				;Next location after $97f0 is $8800.
-				ld      a,c
-				cp      122         ;122+6 < 128
-				jr      c,.copySet  ;to $9000+
+        ;Copy 6 tiles beginning at $c000+ to $9000+(c*16).  
+        ;Next location after $97f0 is $8800.
+        ld      a,c
+        cp      122         ;122+6 < 128
+        jr      c,.copySet  ;to $9000+
 
-				cp      128
-				jr      nc,.copySet ;to $8800+
+        cp      128
+        jr      nc,.copySet ;to $8800+
 
 .copyOneByOne   ;split across different banks
         ld      e,c
-				call    TileIndexEToAddressDE   ;destination
-				ld      hl,$c000                ;source
+        call    TileIndexEToAddressDE   ;destination
+        ld      hl,$c000                ;source
 
-				ld      b,6           ;tiles to copy
-				ld      c,1           ;copy 16 bytes at a time
+        ld      b,6           ;tiles to copy
+        ld      c,1           ;copy 16 bytes at a time
 
 .nextTile
         ld      a,1           ;VRAM Bank 1
-				call    VMemCopy
-				call    AddDE16
-				call    AddHL16
-				ld      a,d
-				cp      $98
-				jr      nz,.destPtrOkay
-				ld      d,$88
+        call    VMemCopy
+        call    AddDE16
+        call    AddHL16
+        ld      a,d
+        cp      $98
+        jr      nz,.destPtrOkay
+        ld      d,$88
 .destPtrOkay
         dec     b
-				jr      nz,.nextTile
-				jp      .done
+        jr      nz,.nextTile
+        jp      .done
 
 .copySet
         ld      e,a
-				call    TileIndexEToAddressDE
-				ld      hl,$c000
-				ld      c,6                ;6*16
-				ld      a,1
-				call    VMemCopy
-				jp      .done
+        call    TileIndexEToAddressDE
+        ld      hl,$c000
+        ld      c,6                ;6*16
+        ld      a,1
+        call    VMemCopy
+        jp      .done
 
 .generate2x2
         ;East-facing 2x2
@@ -1460,91 +1460,91 @@ GenerateFacings::
         call    TileCopyShiftRight
         inc     l
         call    TileCopyShiftLeft
-				inc     e
-				call    TileCopyShiftRightOverlay
-				inc     l
-				call    TileCopyShiftLeft
+        inc     e
+        call    TileCopyShiftRightOverlay
+        inc     l
+        call    TileCopyShiftLeft
 
         inc     e
         inc     l
         call    TileCopyShiftRight
         inc     l
         call    TileCopyShiftLeft
-				inc     e
-				call    TileCopyShiftRightOverlay
-				inc     l
-				call    TileCopyShiftLeft
+        inc     e
+        call    TileCopyShiftRightOverlay
+        inc     l
+        call    TileCopyShiftLeft
 
-				ld      e,10
-				ld      l,2
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,0
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,3
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,1
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,8
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,6
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,4
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,9
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,7
-				call    TileCopyRotateCCW
-				inc     e
-				ld      l,5
-				call    TileCopyRotateCCW
+        ld      e,10
+        ld      l,2
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,0
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,3
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,1
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,8
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,6
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,4
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,9
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,7
+        call    TileCopyRotateCCW
+        inc     e
+        ld      l,5
+        call    TileCopyRotateCCW
 
-				;Copy 20 tiles beginning at $c000+ to $9000+(c*16).  
-				;Next location after $97f0 is $8800.
-				ld      a,c
-				cp      108         ;108+20 < 128
-				jr      c,.copySet20  ;to $9000+
+        ;Copy 20 tiles beginning at $c000+ to $9000+(c*16).  
+        ;Next location after $97f0 is $8800.
+        ld      a,c
+        cp      108         ;108+20 < 128
+        jr      c,.copySet20  ;to $9000+
 
-				cp      128
-				jr      nc,.copySet20 ;to $8800+
+        cp      128
+        jr      nc,.copySet20 ;to $8800+
 
 .copyOneByOne20   ;split across different banks
         ld      e,c
-				call    TileIndexEToAddressDE   ;destination
-				ld      hl,$c000                ;source
+        call    TileIndexEToAddressDE   ;destination
+        ld      hl,$c000                ;source
 
-				ld      b,20          ;tiles to copy
-				ld      c,1           ;copy 16 bytes at a time
+        ld      b,20          ;tiles to copy
+        ld      c,1           ;copy 16 bytes at a time
 
 .nextTile20
         ld      a,1           ;VRAM Bank 1
-				call    VMemCopy
-				call    AddDE16
-				call    AddHL16
-				ld      a,d
-				cp      $98
-				jr      nz,.destPtrOkay20
-				ld      d,$88
+        call    VMemCopy
+        call    AddDE16
+        call    AddHL16
+        ld      a,d
+        cp      $98
+        jr      nz,.destPtrOkay20
+        ld      d,$88
 .destPtrOkay20
         dec     b
-				jr      nz,.nextTile20
-				jr      .done
+        jr      nz,.nextTile20
+        jr      .done
 
 .copySet20
         ld      e,a
-				call    TileIndexEToAddressDE
-				ld      hl,$c000
-				ld      c,20               ;20*16
-				ld      a,1
-				call    VMemCopy
-				jp      .done
+        call    TileIndexEToAddressDE
+        ld      hl,$c000
+        ld      c,20               ;20*16
+        ld      a,1
+        call    VMemCopy
+        jp      .done
 
 .done
         pop     hl
@@ -1559,55 +1559,55 @@ SECTION "Graphics",ROM0
 ; Arguments:   
 ;---------------------------------------------------------------------
 LoadGraphics:
-				ld      a,BANK(BGTiles)
-				call    SetActiveROM
+        ld      a,BANK(BGTiles)
+        call    SetActiveROM
 
         ;switch to vram bank 1
-				ld      a,1
-				;ld      [$ff4f],a
+        ld      a,1
+        ;ld      [$ff4f],a
         call    .loadBlank
 
         ;switch to vram bank 0
-				xor     a
-				;ld      [$ff4f],a
+        xor     a
+        ;ld      [$ff4f],a
         call    .loadBlank
 
-				;load 86 explosion sprites
-				ld      a,MAP0ROM
-				call    SetActiveROM
+        ;load 86 explosion sprites
+        ld      a,MAP0ROM
+        call    SetActiveROM
         xor     a
-				ld      c,86    ;#sprites
-				ld      de,$8000
-				ld      hl,explosionSprites
-				call    VMemCopy
+        ld      c,86    ;#sprites
+        ld      de,$8000
+        ld      hl,explosionSprites
+        call    VMemCopy
 
 IF 0
-				;load 80 explosion sprites
-				ld      a,MAP0ROM
-				call    SetActiveROM
-				ld      hl,explosionSprites
-				ld      de,$8000
-				ld      b,80                ;# sprites
+        ;load 80 explosion sprites
+        ld      a,MAP0ROM
+        call    SetActiveROM
+        ld      hl,explosionSprites
+        ld      de,$8000
+        ld      b,80                ;# sprites
 .outer  ld      c,16                ;16 bytes each
 .inner  ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.inner
-				dec     b
-				jr      nz,.outer
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.inner
+        dec     b
+        jr      nz,.outer
 ENDC
 
-				ret
+        ret
 
 .loadBlank
         ;load a blank tile to tile 0 of VRAM bank "a"
         ;xor     a
-				ld      c,1   ;1 tile
-				ld      de,$9000
-				ld      hl,BGTiles     ;1st tile is blank
-				call    VMemCopy
-				ret
+        ld      c,1   ;1 tile
+        ld      de,$9000
+        ld      hl,BGTiles     ;1st tile is blank
+        call    VMemCopy
+        ret
 
 IF 0
         ld      hl,blankTile       ;address to get graphics from
@@ -1615,10 +1615,10 @@ IF 0
         ld      c,  1 * 16         ;copy 1 tile of 16 bytes
 .loop   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.loop
-				ret
+        inc     de
+        dec     c
+        jr      nz,.loop
+        ret
 ENDC
 
 ;---------------------------------------------------------------------
@@ -1634,29 +1634,29 @@ ENDC
 ;---------------------------------------------------------------------
 LoadSprites::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				call    SetActiveROM
-				xor     a            ;VRAM bank 0
-				ld      [$ff4f],a
+        call    SetActiveROM
+        xor     a            ;VRAM bank 0
+        ld      [$ff4f],a
 
 .outer  ld      b,16         ;copy 16 bytes
 .inner  ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     b
-				jr      nz,.inner
-				dec     c
-				jr      nz,.outer
+        inc     de
+        dec     b
+        jr      nz,.inner
+        dec     c
+        jr      nz,.outer
 
-				ld      a,CLASSROM
-				call    SetActiveROM
+        ld      a,CLASSROM
+        call    SetActiveROM
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1665,10 +1665,10 @@ LoadSprites::
 ;---------------------------------------------------------------------
 PrepareForInitialMapDraw::
         call    AdjustCameraToHero
-				call    RestrictCameraToBounds
+        call    RestrictCameraToBounds
 
         ld      hl,mapLeft
-				ld      a,[desiredMapLeft]
+        ld      a,[desiredMapLeft]
         ld      [hl+],a                ;mapLeft
         add     20
         ld      [hl+],a                ;mapRight
@@ -1676,7 +1676,7 @@ PrepareForInitialMapDraw::
         ld      [hl+],a                ;mapRightPlusOne
 
         ld      a,[desiredMapTop]
-				ld      [hl+],a                ;mapTop
+        ld      [hl+],a                ;mapTop
         add     18
         ld      [hl+],a                ;mapBottom
         inc     a
@@ -1726,265 +1726,265 @@ PrepareForInitialMapDraw::
 ;---------------------------------------------------------------------
 AdjustCameraToHero::
         ld      a,[displayType]
-				or      a
-				jr      z,.mapType
+        or      a
+        jr      z,.mapType
 
-				;cinema type
-				xor     a
-				ld      [camera_i],a
-				ld      [camera_j],a
-				ret
+        ;cinema type
+        xor     a
+        ld      [camera_i],a
+        ld      [camera_j],a
+        ret
 
 .mapType
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ld      a,OBJBANK           ;Get Location of hero
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         ;hl = &heroX_object
-				LDHL_CURHERODATA HERODATA_OBJ
+        LDHL_CURHERODATA HERODATA_OBJ
 
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl]
-				ld      d,a
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl]
+        ld      d,a
 
-				ld      a,[de]
-				ld      l,a
-				ld      [tempL],a
-				inc     de
-				ld      a,[de]
-				ld      h,a
-				ld      [tempH],a
+        ld      a,[de]
+        ld      l,a
+        ld      [tempL],a
+        inc     de
+        ld      a,[de]
+        ld      h,a
+        ld      [tempH],a
 
-				call    ConvertLocHLToXY    ;convert to x,y indices
-				ld      a,h
-				ld      [camera_i],a
-				ld      a,l
-				ld      [camera_j],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ldio    a,[firstMonster]
-				ld      c,a                 ;c class of first monster
+        call    ConvertLocHLToXY    ;convert to x,y indices
+        ld      a,h
+        ld      [camera_i],a
+        ld      a,l
+        ld      [camera_j],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ldio    a,[firstMonster]
+        ld      c,a                 ;c class of first monster
 
-				;find nearest wall to the north of location
-				ld      a,[tempL]           ;hl will track location
-				ld      l,a
-				ld      a,[tempH]
-				ld      h,a
-				ld      b,0                 ;b will track north offset
-				ld      d,$ff               ;de = -pitch
-				ld      a,[mapPitch]
-				cpl
-				add     1
-				ld      e,a                 
-				push    hl
+        ;find nearest wall to the north of location
+        ld      a,[tempL]           ;hl will track location
+        ld      l,a
+        ld      a,[tempH]
+        ld      h,a
+        ld      b,0                 ;b will track north offset
+        ld      d,$ff               ;de = -pitch
+        ld      a,[mapPitch]
+        cpl
+        add     1
+        ld      e,a                 
+        push    hl
 
-.nloop	add     hl,de
+.nloop  add     hl,de
         inc     b
         ld      a,[hl]
-				or      a
-				jr      z,.nloop            ;nothing at all here
-				cp      c                   ;found something, check if monster
-				jr      nc,.nloop           ;don't count monsters 
-				call    GetBGAttributes
-				and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				jr      nz,.nloop
+        or      a
+        jr      z,.nloop            ;nothing at all here
+        cp      c                   ;found something, check if monster
+        jr      nc,.nloop           ;don't count monsters 
+        call    GetBGAttributes
+        and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        jr      nz,.nloop
 
-				;b is tile distance of closest wall to the north
-				pop     hl                  ;retrieve original location
-				push    bc                  ;save north count b
-				ld      b,0                 ;b counts clear tiles to south
-				ld      d,0                 ;de is offset to go south
-				ld      a,[mapPitch]
-				ld      e,a
-				push    hl                  ;push original location again
+        ;b is tile distance of closest wall to the north
+        pop     hl                  ;retrieve original location
+        push    bc                  ;save north count b
+        ld      b,0                 ;b counts clear tiles to south
+        ld      d,0                 ;de is offset to go south
+        ld      a,[mapPitch]
+        ld      e,a
+        push    hl                  ;push original location again
 
 .sloop  add     hl,de
         inc     b
-				ld      a,[hl]
-				or      a
-				jr      z,.sloop
-				cp      c
-				jr      nc,.sloop
-				call    GetBGAttributes
-				and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				jr      nz,.sloop
+        ld      a,[hl]
+        or      a
+        jr      z,.sloop
+        cp      c
+        jr      nc,.sloop
+        call    GetBGAttributes
+        and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        jr      nz,.sloop
 
-				;now b is distance of closest wall to south
-				pop     hl                  ;retrieve original location
-				ld      a,b
-				pop     bc                  ;retrieve north distance
-				ld      c,a                 ;b=north, c=south dist
+        ;now b is distance of closest wall to south
+        pop     hl                  ;retrieve original location
+        ld      a,b
+        pop     bc                  ;retrieve north distance
+        ld      c,a                 ;b=north, c=south dist
 
         ;---------------Scroll Camera South---------------------------
-				;while(s_dist >= 10 && n_dist<8){
-				;  move camera to south;
-			  ;	 south dist--;
-				;  north dist++;
-				;}
+        ;while(s_dist >= 10 && n_dist<8){
+        ;  move camera to south;
+        ;   south dist--;
+        ;  north dist++;
+        ;}
 .cam_south_loop
-				ld      a,c                 ;s_dist >= 10?
-				cp      10
-				jr      c,.cam_south_loopDone
+        ld      a,c                 ;s_dist >= 10?
+        cp      10
+        jr      c,.cam_south_loopDone
 
-				ld      a,b
-				cp      7
-				jr      nc,.cam_south_loopDone     ;n_dist < 8?
+        ld      a,b
+        cp      7
+        jr      nc,.cam_south_loopDone     ;n_dist < 8?
 
         call    .moveCameraSouth
-				jr      .cam_south_loop
+        jr      .cam_south_loop
 
 .cam_south_loopDone
 
         ;---------------Scroll Camera North---------------------------
-				;while(n_dist >= 9 && s_dist<9){
-				;  move camera to north;
-			  ;	 south dist++;
-				;  north dist--;
-				;}
+        ;while(n_dist >= 9 && s_dist<9){
+        ;  move camera to north;
+        ;   south dist++;
+        ;  north dist--;
+        ;}
 .cam_north_loop
-				ld      a,b                 ;n_dist >= 9?
-				cp      9
-				jr      c,.cam_north_loopDone
+        ld      a,b                 ;n_dist >= 9?
+        cp      9
+        jr      c,.cam_north_loopDone
 
-				ld      a,c
-				cp      9
-				jr      nc,.cam_north_loopDone     ;s_dist < 9?
+        ld      a,c
+        cp      9
+        jr      nc,.cam_north_loopDone     ;s_dist < 9?
 
         call    .moveCameraNorth
-				jr      .cam_north_loop
+        jr      .cam_north_loop
 
 .cam_north_loopDone
         ld      a,c                 ;save distances for later use
-				ld      [distToWall_S],a
-				ld      a,b
-				ld      [distToWall_N],a
+        ld      [distToWall_S],a
+        ld      a,b
+        ld      [distToWall_N],a
 
         ;----------------------------
-				; Handle east/west scrolling
-				;----------------------------
-				ld      b,0                 ;b counts clear tiles to west
-				ld      d,h                 ;save hl in de
-				ld      e,l
-				ldio    a,[firstMonster]
-				ld      c,a
-				dec     hl
+        ; Handle east/west scrolling
+        ;----------------------------
+        ld      b,0                 ;b counts clear tiles to west
+        ld      d,h                 ;save hl in de
+        ld      e,l
+        ldio    a,[firstMonster]
+        ld      c,a
+        dec     hl
 
 .wloop  inc     b
-				ld      a,[hl-]             ;get location
-				or      a
-				jr      z,.wloop            ;loop if empty
-				cp      c
-				jr      nc,.wloop           ;loop if monster
-				call    GetBGAttributes
-				and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				jr      nz,.wloop
+        ld      a,[hl-]             ;get location
+        or      a
+        jr      z,.wloop            ;loop if empty
+        cp      c
+        jr      nc,.wloop           ;loop if monster
+        call    GetBGAttributes
+        and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        jr      nz,.wloop
 
-				;now b is distance of closest wall to west
-				ld      h,d                 ;set hl back to original location
-				ld      l,e 
-				ld      d,b                 ;store west distance in d
-				ld      b,0
-				inc     hl
+        ;now b is distance of closest wall to west
+        ld      h,d                 ;set hl back to original location
+        ld      l,e 
+        ld      d,b                 ;store west distance in d
+        ld      b,0
+        inc     hl
 
 .eloop  inc     b
-				ld      a,[hl+]             ;get location
-				or      a
-				jr      z,.eloop            ;loop if empty
-				cp      c
-				jr      nc,.eloop           ;loop if monster
-				call    GetBGAttributes
-				and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				jr      nz,.eloop
+        ld      a,[hl+]             ;get location
+        or      a
+        jr      z,.eloop            ;loop if empty
+        cp      c
+        jr      nc,.eloop           ;loop if monster
+        call    GetBGAttributes
+        and     (BG_FLAG_WALKOVER|BG_FLAG_SHOOTOVER)
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        jr      nz,.eloop
 
-				;now b is distance of closest wall to east
-				ld      c,b                 ;b=west, c=east dist
-				ld      b,d
+        ;now b is distance of closest wall to east
+        ld      c,b                 ;b=west, c=east dist
+        ld      b,d
 
         ;---------------Scroll Camera East----------------------------
-				;while(e_dist >= 11 && w_dist<9){
-				;  move camera to east;
-			  ;	 east dist--;
-				;  west dist++;
-				;}
+        ;while(e_dist >= 11 && w_dist<9){
+        ;  move camera to east;
+        ;   east dist--;
+        ;  west dist++;
+        ;}
 .cam_east_loop
-				ld      a,c                 ;e_dist >= 11?
-				cp      11
-				jr      c,.cam_east_loopDone
+        ld      a,c                 ;e_dist >= 11?
+        cp      11
+        jr      c,.cam_east_loopDone
 
-				ld      a,b
-				cp      9
-				jr      nc,.cam_east_loopDone     ;w_dist < 10?
+        ld      a,b
+        cp      9
+        jr      nc,.cam_east_loopDone     ;w_dist < 10?
 
-				ld      a,[camera_i]
-				inc     a
-				ld      [camera_i],a
-				dec     c
-				inc     b
-				jr      .cam_east_loop
+        ld      a,[camera_i]
+        inc     a
+        ld      [camera_i],a
+        dec     c
+        inc     b
+        jr      .cam_east_loop
 
 .cam_east_loopDone
 
         ;---------------Scroll Camera West----------------------------
-				;while(w_dist >= 10 && e_dist<10){
-				;  move camera to west;
-			  ;	 east dist++;
-				;  west dist--;
-				;}
+        ;while(w_dist >= 10 && e_dist<10){
+        ;  move camera to west;
+        ;   east dist++;
+        ;  west dist--;
+        ;}
 .cam_west_loop
-				ld      a,b                 ;w_dist >= 10?
-				cp      10
-				jr      c,.cam_west_loopDone
+        ld      a,b                 ;w_dist >= 10?
+        cp      10
+        jr      c,.cam_west_loopDone
 
-				ld      a,c
-				cp      9
-				jr      nc,.cam_west_loopDone     ;e_dist < 10?
+        ld      a,c
+        cp      9
+        jr      nc,.cam_west_loopDone     ;e_dist < 10?
 
-				ld      a,[camera_i]
-				dec     a
-				ld      [camera_i],a
-				inc     c
-				dec     b
-				jr      .cam_west_loop
+        ld      a,[camera_i]
+        dec     a
+        ld      [camera_i],a
+        inc     c
+        dec     b
+        jr      .cam_west_loop
 
 .cam_west_loopDone
         ld      a,c                 ;save distances for later use
-				ld      [distToWall_E],a
-				ld      a,b
-				ld      [distToWall_W],a
+        ld      [distToWall_E],a
+        ld      a,b
+        ld      [distToWall_W],a
 
 .done
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
 
 .moveCameraSouth
-				ld      a,[camera_j]
-				inc     a
-				ld      [camera_j],a
-				dec     c
-				inc     b
-				ret
+        ld      a,[camera_j]
+        inc     a
+        ld      [camera_j],a
+        dec     c
+        inc     b
+        ret
 
 .moveCameraNorth
-				ld      a,[camera_j]
-				dec     a
-				ld      [camera_j],a
-				inc     c
-				dec     b
-				ret
+        ld      a,[camera_j]
+        dec     a
+        ld      [camera_j],a
+        inc     c
+        dec     b
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GentleCameraAdjust
@@ -1994,92 +1994,92 @@ AdjustCameraToHero::
 ;---------------------------------------------------------------------
 GentleCameraAdjust::
         ld      a,[displayType]
-				or      a
-				ret     nz    ;done if cinema display type
+        or      a
+        ret     nz    ;done if cinema display type
 
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;save previous camera i,j
         ld      a,[camera_i]
-				ld      b,a
-				ld      a,[camera_j]
-				ld      c,a
-				push    bc
+        ld      b,a
+        ld      a,[camera_j]
+        ld      c,a
+        push    bc
 
         call    AdjustCameraToHero
 
-				pop     bc            ;retrieve old camera coords
-				ld      a,[camera_i]
-				cp      b
-				jr      z,.checkCamera_j   ;new_i==old_i, don't bother
-				jr      c,.new_i_lt_old_i
+        pop     bc            ;retrieve old camera coords
+        ld      a,[camera_i]
+        cp      b
+        jr      z,.checkCamera_j   ;new_i==old_i, don't bother
+        jr      c,.new_i_lt_old_i
 
-				;new i > old i
-				sub     b                   ;d = new_i - old_i
-				ld      d,a 
-				ld      a,[distToWall_E]    ;a = dist_E + offset
-				add     d
-				cp      11
-				jr      c,.useOldCamera_i   ;only good if east dist < 11
-				jr      .checkCamera_j
+        ;new i > old i
+        sub     b                   ;d = new_i - old_i
+        ld      d,a 
+        ld      a,[distToWall_E]    ;a = dist_E + offset
+        add     d
+        cp      11
+        jr      c,.useOldCamera_i   ;only good if east dist < 11
+        jr      .checkCamera_j
 
 .new_i_lt_old_i
         ;new i < old i
-				sub     b                   ;d = old_i - new_i
-				cpl
-				inc     a
-				ld      d,a
+        sub     b                   ;d = old_i - new_i
+        cpl
+        inc     a
+        ld      d,a
 
-				ld      a,[distToWall_W]
-				add     d
-				cp      9
-				jr      c,.useOldCamera_i   ;only good if west dist < 10
-				jr      .checkCamera_j
+        ld      a,[distToWall_W]
+        add     d
+        cp      9
+        jr      c,.useOldCamera_i   ;only good if west dist < 10
+        jr      .checkCamera_j
 
 .useOldCamera_i
-				;we can use the old camera pos and be less jerky
-				ld      a,b
-				ld      [camera_i],a
+        ;we can use the old camera pos and be less jerky
+        ld      a,b
+        ld      [camera_i],a
 
 .checkCamera_j
-				ld      a,[camera_j]
-				cp      c
-				jr      z,.done             ;new_j==old_j, don't bother
-				jr      c,.new_j_lt_old_j
+        ld      a,[camera_j]
+        cp      c
+        jr      z,.done             ;new_j==old_j, don't bother
+        jr      c,.new_j_lt_old_j
 
-				;new j > old j
-				sub     c                   ;d = new_j - old_j
-				ld      d,a 
-				ld      a,[distToWall_S]    ;a = dist_S + offset
-				add     d
-				cp      10
-				jr      c,.useOldCamera_j   ;only good if south dist < 10
-				jr      .done
+        ;new j > old j
+        sub     c                   ;d = new_j - old_j
+        ld      d,a 
+        ld      a,[distToWall_S]    ;a = dist_S + offset
+        add     d
+        cp      10
+        jr      c,.useOldCamera_j   ;only good if south dist < 10
+        jr      .done
 
 .new_j_lt_old_j
         ;new j < old j
-				sub     c                   ;d = old_j - new_j
-				cpl
-				inc     a
-				ld      d,a
+        sub     c                   ;d = old_j - new_j
+        cpl
+        inc     a
+        ld      d,a
 
-				ld      a,[distToWall_N]
-				add     d
-				cp      9
-				jr      c,.useOldCamera_j   ;only good if north dist < 9
-				jr      .done
+        ld      a,[distToWall_N]
+        add     d
+        cp      9
+        jr      c,.useOldCamera_j   ;only good if north dist < 9
+        jr      .done
 
 .useOldCamera_j
-				;we can use the old camera pos and be less jerky
-				ld      a,c
-				ld      [camera_j],a
+        ;we can use the old camera pos and be less jerky
+        ld      a,c
+        ld      [camera_j],a
 
 .done
         pop     hl
         pop     de
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -2088,93 +2088,93 @@ GentleCameraAdjust::
 ;---------------------------------------------------------------------
 RestrictCameraToBounds::
         ld      a,[displayType]
-				or      a
-				jr      nz,.cinemaType
+        or      a
+        jr      nz,.cinemaType
 
         push    hl
 
         ;set map left/right based on camera_i
-				ld      a,[camera_i]
-				sub     9
-				jr      z,.left_le_0
-				jr      nc,.left_gt_0
+        ld      a,[camera_i]
+        sub     9
+        jr      z,.left_le_0
+        jr      nc,.left_gt_0
 
 .left_le_0
-				ld      a,1                ;set to 1 if < 1
+        ld      a,1                ;set to 1 if < 1
 
 .left_gt_0
         ld      hl,mapMaxLeft
         cp      [hl]
-				jr      z,.left_le_max
-				jr      c,.left_le_max
+        jr      z,.left_le_max
+        jr      c,.left_le_max
 
-				ld      a,[hl]             ;left = maxLeft
+        ld      a,[hl]             ;left = maxLeft
 
 .left_le_max
         ld      [desiredMapLeft],a
 
-				;now see about top/bottom boundaries using camera_j
-				ld      a,[camera_j]
-				sub     8
-				jr      z,.top_le_0
-				jr      nc,.top_gt_0
+        ;now see about top/bottom boundaries using camera_j
+        ld      a,[camera_j]
+        sub     8
+        jr      z,.top_le_0
+        jr      nc,.top_gt_0
 
 .top_le_0
-				ld      a,1                ;set to one if less than one
+        ld      a,1                ;set to one if less than one
 
 .top_gt_0
         ld      hl,mapMaxTop
         cp      [hl]
-				jr      z,.top_le_max
-				jr      c,.top_le_max
+        jr      z,.top_le_max
+        jr      c,.top_le_max
 
-				ld      a,[hl]             ;top = maxTop
+        ld      a,[hl]             ;top = maxTop
 
 .top_le_max
         ld      [desiredMapTop],a
 
         pop     hl
-				ret
+        ret
 
 .cinemaType
         push    hl
 
         ;set map left/right based on camera_i
-				ld      a,[camera_i]
-				sub     9
-				jr      z,.left_ge_0
-				jr      nc,.left_ge_0
+        ld      a,[camera_i]
+        sub     9
+        jr      z,.left_ge_0
+        jr      nc,.left_ge_0
 
 .left_lt_0
-				xor     a                  ;set to 0 if < 0
+        xor     a                  ;set to 0 if < 0
 
 .left_ge_0
         ld      hl,mapMaxLeft
         cp      [hl]
-				jr      z,.left_le_max2
-				jr      c,.left_le_max2
+        jr      z,.left_le_max2
+        jr      c,.left_le_max2
 
-				ld      a,[hl]             ;left = maxLeft
+        ld      a,[hl]             ;left = maxLeft
 
 .left_le_max2
         ld      [desiredMapLeft],a
 
-				;now see about top/bottom boundaries using camera_j
-				ld      a,[camera_j]
-				sub     8
-				jr      z,.top_ge_0
-				jr      nc,.top_ge_0
+        ;now see about top/bottom boundaries using camera_j
+        ld      a,[camera_j]
+        sub     8
+        jr      z,.top_ge_0
+        jr      nc,.top_ge_0
 
 .top_lt_0
-				xor     a                  ;set to zero if less than zero
+        xor     a                  ;set to zero if less than zero
 
 .top_ge_0
         ld      hl,mapMaxTop
         cp      [hl]
-				jr      z,.top_le_max2
-				jr      c,.top_le_max2
+        jr      z,.top_le_max2
+        jr      c,.top_le_max2
 
-				ld      a,[hl]             ;top = maxTop
+        ld      a,[hl]             ;top = maxTop
 
 .top_le_max2
         ld      [desiredMapTop],a
@@ -2192,72 +2192,72 @@ RestrictCameraToBounds::
 ;---------------------------------------------------------------------
 ScrollToCamera::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;calculate tiles different in x & store in d
-				ld      a,[mapLeft]
-				ld      b,a
-				ld      a,[desiredMapLeft]
-				sub     b
-				jr      nc,.gotPositiveXDiff
-				cpl
-				inc     a
+        ld      a,[mapLeft]
+        ld      b,a
+        ld      a,[desiredMapLeft]
+        sub     b
+        jr      nc,.gotPositiveXDiff
+        cpl
+        inc     a
 .gotPositiveXDiff
         ld      d,a
 
         ;calculate tiles different in y & store in e
-				ld      a,[mapTop]
-				ld      b,a
-				ld      a,[desiredMapTop]
-				sub     b
-				jr      nc,.gotPositiveYDiff
-				cpl
-				inc     a
+        ld      a,[mapTop]
+        ld      b,a
+        ld      a,[desiredMapTop]
+        sub     b
+        jr      nc,.gotPositiveYDiff
+        cpl
+        inc     a
 .gotPositiveYDiff
         ld      e,a
 
         ;setup d,e with x-pixel step-size and max value
         push    de
-				ld      a,d
-				cp      FAST_SCROLL_THRESHOLD
-				jr      c,.setupXForSlow
-				ld      a,[scrollAccelState_x]
-				or      a
-				jr      z,.setupXForSlow
+        ld      a,d
+        cp      FAST_SCROLL_THRESHOLD
+        jr      c,.setupXForSlow
+        ld      a,[scrollAccelState_x]
+        or      a
+        jr      z,.setupXForSlow
 
         ;get fast scroll speed in 9
-				ldio    a,[scrollSpeed]
-				swap    a
-				and     $0f
-				ld      d,a
-				;ld      a,8
-				;sub     d
-				;ld      e,a
-				;ld      d,4
-				;ld      e,4
+        ldio    a,[scrollSpeed]
+        swap    a
+        and     $0f
+        ld      d,a
+        ;ld      a,8
+        ;sub     d
+        ;ld      e,a
+        ;ld      d,4
+        ;ld      e,4
 
         ;ld      a,[desiredPixelOffset_x]  ;make sure its a multiple of 4
-				;and     %00000100
+        ;and     %00000100
         ;ld      [desiredPixelOffset_x],a
 
-				jr      .checkLeft
+        jr      .checkLeft
 .setupXForSlow
         ;get slow scroll speed in d
-				ldio    a,[scrollSpeed]
-				and     $0f
-				ld      d,a
+        ldio    a,[scrollSpeed]
+        and     $0f
+        ld      d,a
 
 .checkLeft
         ;make sure current pixel offset is an even multiple of the speed
-				;offset &= ~(speed - 1)
+        ;offset &= ~(speed - 1)
         ;off     mask   off  dec  cpl
-				;1 - and %111  0001 0000 1111
-				;2 - and %110  0010 0001 1110
-				;4 - and %100  0100 0011 1100
-				;8 - and %000  1000 0111 1000
-				ld      a,d
-				dec     a
+        ;1 - and %111  0001 0000 1111
+        ;2 - and %110  0010 0001 1110
+        ;4 - and %100  0100 0011 1100
+        ;8 - and %000  1000 0111 1000
+        ld      a,d
+        dec     a
 
         ;first scroll sprites right by value to be masked off 
         ld      e,a
@@ -2269,152 +2269,152 @@ ScrollToCamera::
         call    ScrollSpritesRight
         pop     de
         ld      a,e
-				cpl   
-				and     %00000111
-				ld      e,a
-				ld      a,[hl]
-				and     e
-				ld      [hl],a
-				ld      a,8
-				sub     d
-				ld      e,a
+        cpl   
+        and     %00000111
+        ld      e,a
+        ld      a,[hl]
+        and     e
+        ld      [hl],a
+        ld      a,8
+        sub     d
+        ld      e,a
 
 
         ;ld      a,[desiredPixelOffset_x]  ;make sure its a multiple of 4
-				;and     %00000100
+        ;and     %00000100
         ;ld      [desiredPixelOffset_x],a
 
-				ld      a,[mapLeft]
-				ld      b,a
-				ld      a,[desiredMapLeft]
-				cp      b
-				jr      z,.checkPixelOffset
+        ld      a,[mapLeft]
+        ld      b,a
+        ld      a,[desiredMapLeft]
+        cp      b
+        jr      z,.checkPixelOffset
 
-				jr      c,.desired_lt_current
-				jr      .desired_gt_current
+        jr      c,.desired_lt_current
+        jr      .desired_gt_current
 
 .checkPixelOffset
         ld      a,[desiredPixelOffset_x]
-				or      a
-				jr      z,.x_offsetOkay
+        or      a
+        jr      z,.x_offsetOkay
 
         push    af
-				ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollRight1
-				call    ScrollSpritesRight
+        ld      a,[scrollSprites]
+        or      a
+        jr      z,.afterScrollRight1
+        call    ScrollSpritesRight
 .afterScrollRight1
-				pop     af
-				jr      .scrollPixelsLeft
+        pop     af
+        jr      .scrollPixelsLeft
 
 .x_offsetOkay
-				;reset accelleration if no scroll
-				xor     a
-				ld      [scrollAccelState_x],a
+        ;reset accelleration if no scroll
+        xor     a
+        ld      [scrollAccelState_x],a
 
-				jr      .leftRightAdjustDone
+        jr      .leftRightAdjustDone
 
 .desired_gt_current
-				;desired is > current
-				ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollSpritesLeft1
-				call    ScrollSpritesLeft
+        ;desired is > current
+        ld      a,[scrollSprites]
+        or      a
+        jr      z,.afterScrollSpritesLeft1
+        call    ScrollSpritesLeft
 .afterScrollSpritesLeft1
-				ld      a,[desiredPixelOffset_x]
-				cp      e
-				jr      nc,.atMaxLeftPixelOffset
+        ld      a,[desiredPixelOffset_x]
+        cp      e
+        jr      nc,.atMaxLeftPixelOffset
 
-				add     d
-				ld      [desiredPixelOffset_x],a
-				jr      .leftRightAdjustDone
+        add     d
+        ld      [desiredPixelOffset_x],a
+        jr      .leftRightAdjustDone
 
 .atMaxLeftPixelOffset
         ld      hl,scrollAccelState_x
-				inc     [hl]
+        inc     [hl]
         xor     a
-				ld      [desiredPixelOffset_x],a
-				ld      a,b
-				inc     a
-				jr      .recalcMapLeftRight
+        ld      [desiredPixelOffset_x],a
+        ld      a,b
+        inc     a
+        jr      .recalcMapLeftRight
 
 .desired_lt_current
         ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollSpritesRight2
+        or      a
+        jr      z,.afterScrollSpritesRight2
         call    ScrollSpritesRight
 .afterScrollSpritesRight2
         ld      a,[desiredPixelOffset_x]
-				or      a
-				jr      z,.atMinLeftPixelOffset
+        or      a
+        jr      z,.atMinLeftPixelOffset
 
 .scrollPixelsLeft
-				sub     d
-				ld      [desiredPixelOffset_x],a
+        sub     d
+        ld      [desiredPixelOffset_x],a
 
-				or      a
-				jr      nz,.leftRightAdjustDone
+        or      a
+        jr      nz,.leftRightAdjustDone
         ld      hl,scrollAccelState_x
-				inc     [hl]
+        inc     [hl]
 
-				jr      .leftRightAdjustDone
+        jr      .leftRightAdjustDone
 
 .atMinLeftPixelOffset
         ld      a,e
-				ld      [desiredPixelOffset_x],a
-				ld      a,b
-				dec     a
+        ld      [desiredPixelOffset_x],a
+        ld      a,b
+        dec     a
 
 .recalcMapLeftRight
         ld      hl,mapLeft
-				ld      [hl+],a     ;mapLeft, mapRight, mapRight+1
-				add     20
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
+        ld      [hl+],a     ;mapLeft, mapRight, mapRight+1
+        add     20
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
 
 .leftRightAdjustDone
         ;setup d,e with y-pixel step-size and max value
-				pop     de
-				ld      a,e
-				cp      FAST_SCROLL_THRESHOLD
-				jr      c,.setupYForSlow
-				or      a
-				jr      z,.setupYForSlow
+        pop     de
+        ld      a,e
+        cp      FAST_SCROLL_THRESHOLD
+        jr      c,.setupYForSlow
+        or      a
+        jr      z,.setupYForSlow
 
-				ldio    a,[scrollSpeed]
-				swap    a
-				and     $0f
-				ld      d,a
-				ld      a,8
-				sub     d
-				ld      e,a
-				;ld      d,4
-				;ld      e,4
+        ldio    a,[scrollSpeed]
+        swap    a
+        and     $0f
+        ld      d,a
+        ld      a,8
+        sub     d
+        ld      e,a
+        ;ld      d,4
+        ;ld      e,4
         ;ld      a,[desiredPixelOffset_y]  ;make sure its a multiple of 4
-				;and     %00000100
+        ;and     %00000100
         ;ld      [desiredPixelOffset_y],a
-				jr      .checkTop
+        jr      .checkTop
 .setupYForSlow
-				ldio    a,[scrollSpeed]
-				and     $0f
-				ld      d,a
-				ld      a,8
-				sub     d
-				ld      e,a
-				;ld      d,2
-				;ld      e,6
+        ldio    a,[scrollSpeed]
+        and     $0f
+        ld      d,a
+        ld      a,8
+        sub     d
+        ld      e,a
+        ;ld      d,2
+        ;ld      e,6
 
 .checkTop
         ;make sure current pixel offset is an even multiple of the speed
-				;offset &= ~(speed - 1)
-				;1 - and %111  0001 0000 1111
-				;2 - and %110  0010 0001 1110
-				;4 - and %100  0100 0011 1100
-				;8 - and %000  1000 0111 1000
+        ;offset &= ~(speed - 1)
+        ;1 - and %111  0001 0000 1111
+        ;2 - and %110  0010 0001 1110
+        ;4 - and %100  0100 0011 1100
+        ;8 - and %000  1000 0111 1000
 
-				ld      a,d
-				dec     a
+        ld      a,d
+        dec     a
 
         ;first scroll sprites down by value to be masked off to snap
         ;them to the new grid
@@ -2428,109 +2428,109 @@ ScrollToCamera::
         pop     de
         ld      a,e
 
-				cpl  
-				and     %00000111
-				ld      e,a
-				ld      a,[hl]
-				and     e
-				ld      [hl],a
-				ld      a,8
-				sub     d
-				ld      e,a
+        cpl  
+        and     %00000111
+        ld      e,a
+        ld      a,[hl]
+        and     e
+        ld      [hl],a
+        ld      a,8
+        sub     d
+        ld      e,a
 
-				ld      a,[mapTop]
-				ld      b,a
-				ld      a,[desiredMapTop]
-				cp      b
-				jr      z,.checkPixelOffsetTB
-				jr      c,.desired_tb_lt_current
-				jr      .desired_tb_gt_current
+        ld      a,[mapTop]
+        ld      b,a
+        ld      a,[desiredMapTop]
+        cp      b
+        jr      z,.checkPixelOffsetTB
+        jr      c,.desired_tb_lt_current
+        jr      .desired_tb_gt_current
 
 .checkPixelOffsetTB
         ld      a,[desiredPixelOffset_y]
-				or      a
-				jr      z,.y_offsetOkay
+        or      a
+        jr      z,.y_offsetOkay
 
         push    af
-				ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollSpritesDown1
-				call    ScrollSpritesDown
+        ld      a,[scrollSprites]
+        or      a
+        jr      z,.afterScrollSpritesDown1
+        call    ScrollSpritesDown
 .afterScrollSpritesDown1
-				pop     af
-				jr      .scrollPixelsUp
+        pop     af
+        jr      .scrollPixelsUp
 
 .y_offsetOkay
-				;reset accelleration if no scroll
-				xor     a
-				ld      [scrollAccelState_y],a
+        ;reset accelleration if no scroll
+        xor     a
+        ld      [scrollAccelState_y],a
 
-				jr      .topBottomAdjustDone
+        jr      .topBottomAdjustDone
 
 .desired_tb_gt_current
-				;desired is > current
-				ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollSpritesUp1
-				call    ScrollSpritesUp
+        ;desired is > current
+        ld      a,[scrollSprites]
+        or      a
+        jr      z,.afterScrollSpritesUp1
+        call    ScrollSpritesUp
 .afterScrollSpritesUp1
-				ld      a,[desiredPixelOffset_y]
-				cp      e
-				jr      nc,.atMaxTopPixelOffset
+        ld      a,[desiredPixelOffset_y]
+        cp      e
+        jr      nc,.atMaxTopPixelOffset
 
-				add     d
-				ld      [desiredPixelOffset_y],a
-				jr      .topBottomAdjustDone
+        add     d
+        ld      [desiredPixelOffset_y],a
+        jr      .topBottomAdjustDone
 
 .atMaxTopPixelOffset
         ld      hl,scrollAccelState_y
-				inc     [hl]
+        inc     [hl]
 
         xor     a
-				ld      [desiredPixelOffset_y],a
-				ld      a,b
-				inc     a
-				jr      .recalcMapTopBottom
+        ld      [desiredPixelOffset_y],a
+        ld      a,b
+        inc     a
+        jr      .recalcMapTopBottom
 
 .desired_tb_lt_current
         ld      a,[scrollSprites]
-				or      a
-				jr      z,.afterScrollSpritesDown2
+        or      a
+        jr      z,.afterScrollSpritesDown2
         call    ScrollSpritesDown
 .afterScrollSpritesDown2
         ld      a,[desiredPixelOffset_y]
-				or      a
-				jr      z,.atMinTopPixelOffset
+        or      a
+        jr      z,.atMinTopPixelOffset
 
 .scrollPixelsUp
-				sub     d
-				ld      [desiredPixelOffset_y],a
+        sub     d
+        ld      [desiredPixelOffset_y],a
 
-				or      a
-				jr      nz,.topBottomAdjustDone
+        or      a
+        jr      nz,.topBottomAdjustDone
         ld      hl,scrollAccelState_y
-				inc     [hl]
+        inc     [hl]
 
-				jr      .topBottomAdjustDone
+        jr      .topBottomAdjustDone
 
 .atMinTopPixelOffset
         ld      a,e
-				ld      [desiredPixelOffset_y],a
-				ld      a,b
-				dec     a
+        ld      [desiredPixelOffset_y],a
+        ld      a,b
+        dec     a
 
 .recalcMapTopBottom
         ld      hl,mapTop
-				ld      [hl+],a     ;mapTop, mapBottom, mapBottom+1
-				add     18
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
+        ld      [hl+],a     ;mapTop, mapBottom, mapBottom+1
+        add     18
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
 
 .topBottomAdjustDone
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -2549,10 +2549,10 @@ ScrollSpritesLeft::
         push    de
         push    hl
 
-				xor     a
-				sub     d
-				ld      d,a
-				jr      ScrollSpritesLRCommon
+        xor     a
+        sub     d
+        ld      d,a
+        jr      ScrollSpritesLRCommon
 
 ScrollSpritesRight::
         push    af
@@ -2561,29 +2561,29 @@ ScrollSpritesRight::
         push    hl
 
 ScrollSpritesLRCommon:
-				ld      hl,spriteOAMBuffer
-				ld      bc,3
-				ld      e,40
+        ld      hl,spriteOAMBuffer
+        ld      bc,3
+        ld      e,40
 
 .loop   ld      a,[hl+]
-				or      a
-				jr      z,.afterChange         ;sprite inactive
+        or      a
+        jr      z,.afterChange         ;sprite inactive
 
-				ld      a,[hl]
-				add     d
-				ld      [hl],a
+        ld      a,[hl]
+        add     d
+        ld      [hl],a
 
 .afterChange
         add     hl,bc
-				dec     e
-				jr      nz,.loop
+        dec     e
+        jr      nz,.loop
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ScrollSpritesUp::
         push    af
@@ -2591,10 +2591,10 @@ ScrollSpritesUp::
         push    de
         push    hl
 
-				xor     a
-				sub     d
-				ld      d,a
-				jr      ScrollSpritesUDCommon
+        xor     a
+        sub     d
+        ld      d,a
+        jr      ScrollSpritesUDCommon
 
 ScrollSpritesDown::
         push    af
@@ -2603,28 +2603,28 @@ ScrollSpritesDown::
         push    hl
 
 ScrollSpritesUDCommon:
-				ld      hl,spriteOAMBuffer
-				ld      bc,4
-				ld      e,40
+        ld      hl,spriteOAMBuffer
+        ld      bc,4
+        ld      e,40
 
 .loop   ld      a,[hl]
-				or      a
-				jr      z,.afterChange         ;sprite inactive
+        or      a
+        jr      z,.afterChange         ;sprite inactive
 
-				add     d
-				ld      [hl],a
+        add     d
+        ld      [hl],a
 
 .afterChange
         add     hl,bc
-				dec     e
-				jr      nz,.loop
+        dec     e
+        jr      nz,.loop
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DrawMapToBackBuffer
@@ -2633,10 +2633,10 @@ ScrollSpritesUDCommon:
 ;---------------------------------------------------------------------
 DrawMapToBackBuffer::
         ld      a,[displayType]
-				or      a
-				jr      z,.mapType
+        or      a
+        jr      z,.mapType
 
-				jp      DrawCinemaToBackBuffer
+        jp      DrawCinemaToBackBuffer
 
 .mapType
         push    bc
@@ -2650,61 +2650,61 @@ DrawMapToBackBuffer::
         push    hl
 
 ;----copy 21 bg tiles into backBuffer/attributeBuffer
-				;save starting point, copy tile pattern numbers
-				push    de
-				push    hl
+        ;save starting point, copy tile pattern numbers
+        push    de
+        push    hl
 
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ld      b,((bgTileMap>>8) & $ff)
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ld      b,((bgTileMap>>8) & $ff)
 
         call    .copy7BGTiles
         call    .copy7BGTiles
         call    .copy7BGTiles
 
         ;start over copying attributes
-				pop     hl
-				pop     de
-				push    de
-				push    hl
+        pop     hl
+        pop     de
+        push    de
+        push    hl
 
-				ld      a,h       ;backBuffer -> attributeBuffer
-				add     3
-				ld      h,a
-				ld      b,((bgAttributes>>8) & $ff)
+        ld      a,h       ;backBuffer -> attributeBuffer
+        add     3
+        ld      h,a
+        ld      b,((bgAttributes>>8) & $ff)
         call    .copy7BGAttributes
         call    .copy7BGAttributes
         call    .copy7BGAttributes
 
         ;back to start again
-				pop     hl
-				pop     de
-				push    de
-				push    hl
+        pop     hl
+        pop     de
+        push    de
+        push    hl
 
-			  ;recopy FG tiles from shadow buffers
-				ld      a,TILESHADOWBANK
-				ld      [$ff70],a
-				
-				ldio    a,[firstMonster]
-				ld      b,a
+        ;recopy FG tiles from shadow buffers
+        ld      a,TILESHADOWBANK
+        ld      [$ff70],a
+        
+        ldio    a,[firstMonster]
+        ld      b,a
 
-				call    .copy7FGTiles
-				call    .copy7FGTiles
-				call    .copy7FGTiles
+        call    .copy7FGTiles
+        call    .copy7FGTiles
+        call    .copy7FGTiles
 
-				pop     hl
-				pop     de
-				
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ld      a,h
-				add     3
-				ld      h,a
+        pop     hl
+        pop     de
+        
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ld      a,h
+        add     3
+        ld      h,a
 
-				call    .copy7FGAttributes
-				call    .copy7FGAttributes
-				call    .copy7FGAttributes
+        call    .copy7FGAttributes
+        call    .copy7FGAttributes
+        call    .copy7FGAttributes
 
         ;row done
 
@@ -2712,157 +2712,157 @@ DrawMapToBackBuffer::
 IF 0
 
         ;copy tile patterns & attributes for any BG tiles to ---------
-				;tile & attribute shadow buffers
+        ;tile & attribute shadow buffers
 
         ;save starting point
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				;use hl for map source / shadow buffer dest
-				ld      h,d
-				ld      l,e
+        ;use hl for map source / shadow buffer dest
+        ld      h,d
+        ld      l,e
 
         ;setup loop
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      c,21
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      c,21
 
 .copyBGTiles
-				ld      a,[hl]
-				cp      b
-				jr      c,.isBGTile
-				inc     hl
-				dec     c
-				jr      nz,.copyBGTiles
-				jr      .copyBGTilesDone
+        ld      a,[hl]
+        cp      b
+        jr      c,.isBGTile
+        inc     hl
+        dec     c
+        jr      nz,.copyBGTiles
+        jr      .copyBGTilesDone
 
 .isBGTile
         ld      d,((bgTileMap>>8) & $ff)
-				ld      e,a
-				ld      a,TILESHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]
-				ld      [hl],a
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
+        ld      e,a
+        ld      a,TILESHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]
+        ld      [hl],a
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
         ld      d,((bgAttributes>>8) & $ff)
-				ld      a,[de]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				dec     c
-				jr      nz,.copyBGTiles
+        ld      a,[de]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        dec     c
+        jr      nz,.copyBGTiles
 
 .copyBGTilesDone
-				;retrieve starting point & save again
-				pop     hl
-				pop     de
-				push    de
-				push    hl
+        ;retrieve starting point & save again
+        pop     hl
+        pop     de
+        push    de
+        push    hl
 
-				;copy set of 21 bytes from TILESHADOWBANK to backBuffer
-				ld      a,TILESHADOWBANK
-				ld      [$ff70],a
-				call    .copy21
+        ;copy set of 21 bytes from TILESHADOWBANK to backBuffer
+        ld      a,TILESHADOWBANK
+        ld      [$ff70],a
+        call    .copy21
 
-				;retrieve starting point
-				pop     hl
-				pop     de
+        ;retrieve starting point
+        pop     hl
+        pop     de
 
-				;copy set of 21 bytes from ATTRSHADOWBANK to backBuffer
-				ld      a,h
-				add     3
-				ld      h,a
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				call    .copy21
+        ;copy set of 21 bytes from ATTRSHADOWBANK to backBuffer
+        ld      a,h
+        add     3
+        ld      h,a
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        call    .copy21
 
 ENDC
-				;row done
+        ;row done
 ;----end old code 3---------------------------------------------------
 
 
 ;------begin old code 2-----------------------------------------------
 IF 0
-				;copy tile pattern numbers from map/buffer to backBuffer
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        ;copy tile pattern numbers from map/buffer to backBuffer
+        ld      a,MAPBANK
+        ld      [$ff70],a
         ldio    a,[firstMonster]  ;get index of first fg class
         ld      b,a
-				ld      c,21
-				push    de
-				push    hl
+        ld      c,21
+        push    de
+        push    hl
 
 .copyTileNumbers
-				ld      a,[de]         ;next class number from map
-				cp      b
-				jr      nc,.isFGTile
+        ld      a,[de]         ;next class number from map
+        cp      b
+        jr      nc,.isFGTile
 
         ;lookup tile used for background
         push    bc
-				ld      b,((bgTileMap>>8) & $ff)
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				inc     de
-				pop     bc
+        ld      b,((bgTileMap>>8) & $ff)
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        inc     de
+        pop     bc
 
-				dec     c
-				jr      nz,.copyTileNumbers
-				jr      .setupCopyAttributes
+        dec     c
+        jr      nz,.copyTileNumbers
+        jr      .setupCopyAttributes
 
 .isFGTile
         ;lookup class number in tile shadow buffer
-				;push    bc
-				ld      a,TILESHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				dec     c
-				jr      nz,.copyTileNumbers
+        ;push    bc
+        ld      a,TILESHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        dec     c
+        jr      nz,.copyTileNumbers
 
 .setupCopyAttributes
         pop     hl     ;go back to start of line
         pop     de
-				ld      a,h    ;copy to attributeBuffer
-				add     3
-				ld      h,a
-				ld      c,21   ;loop 21 times
+        ld      a,h    ;copy to attributeBuffer
+        add     3
+        ld      h,a
+        ld      c,21   ;loop 21 times
 
 .copyAttributes
-				ld      a,[de]         ;next class number from map
-				cp      b
-				jr      nc,.isFGAttribute
+        ld      a,[de]         ;next class number from map
+        cp      b
+        jr      nc,.isFGAttribute
 
-				;BG Attribute
-				push    bc
-				ld      b,((bgAttributes>>8) & $ff)
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				inc     de
-				pop     bc
-				dec     c
-				jr      nz,.copyAttributes
-				jr      .rowDone
+        ;BG Attribute
+        push    bc
+        ld      b,((bgAttributes>>8) & $ff)
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        inc     de
+        pop     bc
+        dec     c
+        jr      nz,.copyAttributes
+        jr      .rowDone
 
 .isFGAttribute
         ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]
-				ld      [hl+],a
-				inc     de
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				dec     c
-				jr      nz,.copyAttributes
+        ld      [$ff70],a
+        ld      a,[de]
+        ld      [hl+],a
+        inc     de
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        dec     c
+        jr      nz,.copyAttributes
 
 .rowDone
 ENDC
@@ -2905,7 +2905,7 @@ IF 0
         ;ld      [$ff70],a
         ld      b,((bgAttributes>>8)&$ff)
         ld      a,[bc]         ;attributes for this tile
-				and     %00000111      ;get palette only
+        and     %00000111      ;get palette only
         ldio    [temp],a       ;store for later
         ld      b,((bgTileMap>>8)&$ff)  ;get ptr to tile to draw in bc
         ld      a,[bc]         ;get tile to draw
@@ -2955,11 +2955,11 @@ ENDC
 .deNoCarry
 
         ;loop the outer loop again?
-				pop     bc
+        pop     bc
         dec     b
         jr      nz,.outer
 
-				call    PostDrawCommon
+        call    PostDrawCommon
 
 .done   ;map is drawn, bitch
         ld      a,MAPBANK       ;set RAM bank to the map bank
@@ -2971,301 +2971,301 @@ ENDC
         ret
 
 .copy7BGTiles
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				ld      [hl+],a
-				ret
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        ld      [hl+],a
+        ret
 
 .copy7BGAttributes
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				ld      a,[bc]
-				and     %00000111
-				ld      [hl+],a
-				ret
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        ld      a,[bc]
+        and     %00000111
+        ld      [hl+],a
+        ret
 
 .copy7FGTiles
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster0
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster0
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster0
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster1
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster1
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster1
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster2
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster2
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster2
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster3
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster3
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster3
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster4
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster4
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster4
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster5
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster5
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster5
-				inc     hl
-				inc     de
-				ld      a,[hl]
-				cp      b
-				jr      c,.notMonster6
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
+        inc     hl
+        inc     de
+        ld      a,[hl]
+        cp      b
+        jr      c,.notMonster6
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
 .notMonster6
-				inc     hl
-				inc     de
-				ret
+        inc     hl
+        inc     de
+        ret
 
 .copy7FGAttributes
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster0
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster0
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster0
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster1
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster1
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster1
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster2
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster2
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster2
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster3
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster3
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster3
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster4
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster4
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster4
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster5
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster5
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster5
-				inc     hl
-				inc     de
-				ld      a,[de]
-				cp      b
-				jr      c,.fgNotMonster6
-				ld      a,ATTRSHADOWBANK
-				ld      [$ff70],a
-				ld      a,[de]             ;get monster tile
-				ld      [hl],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        inc     hl
+        inc     de
+        ld      a,[de]
+        cp      b
+        jr      c,.fgNotMonster6
+        ld      a,ATTRSHADOWBANK
+        ld      [$ff70],a
+        ld      a,[de]             ;get monster tile
+        ld      [hl],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 .fgNotMonster6
-				inc     hl
-				inc     de
-				ret
+        inc     hl
+        inc     de
+        ret
 
 IF 0
 ;loop unrolled for max speed
 .copy21
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ld      a,[de]
-				inc     de
-				ld      [hl+],a
-				ret
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ld      a,[de]
+        inc     de
+        ld      [hl+],a
+        ret
 ENDC
 
 SetupDrawCommon:
@@ -3292,15 +3292,15 @@ SetupDrawCommon:
         ld      e,a            ;de is now (j*pitch) + i
         ld      hl,map         ;add in base address of map
         add     hl,de
-				ld      d,h
-				ld      e,l
+        ld      d,h
+        ld      e,l
 
         ;get memory address of backBuffer in hl
         ld      hl,backBuffer
 
         ;start looping
         ld      b,19           ;times to loop vertically
-				ret
+        ret
 
 PostDrawCommon:
         ;if the map is scrolled as far as possible right and/or down we
@@ -3341,7 +3341,7 @@ PostDrawCommon:
         jr      nz,.hloop
 
 .done
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -3355,7 +3355,7 @@ DrawCinemaToBackBuffer::
         push    de
         push    hl
 
-				call    SetupDrawCommon
+        call    SetupDrawCommon
 
 .outer  push    de             ;save starting ptr to dest (hl) and source (de)
         push    hl
@@ -3430,37 +3430,37 @@ DrawCinemaToBackBuffer::
 ShowTitle::
         push    bc
 
-				ld      a,[de]               ;length of text
-				inc     de
-				ld      c,a
-				ld      hl,spriteOAMBuffer+3
+        ld      a,[de]               ;length of text
+        inc     de
+        ld      c,a
+        ld      hl,spriteOAMBuffer+3
 
 .loop
         xor     a                    ;sprite attributes
-				ld      [hl-],a              
-				ld      a,[de]               ;letter
-				inc     de
-				ld      [hl-],a
-				ld      a,16                 ;calculate x coordinate
-				sub     c
-				sla     a                    ;times 8 for pixels
-				sla     a
-				sla     a
-				ld      [hl-],a              ;y coordinate
-				ld      a,80 
-				ld      [hl],a
-				ld      a,l                  ;add 7 to hl
-				add     7
-				ld      l,a
-				ld      a,h
-				adc     0
-				ld      h,a
+        ld      [hl-],a              
+        ld      a,[de]               ;letter
+        inc     de
+        ld      [hl-],a
+        ld      a,16                 ;calculate x coordinate
+        sub     c
+        sla     a                    ;times 8 for pixels
+        sla     a
+        sla     a
+        ld      [hl-],a              ;y coordinate
+        ld      a,80 
+        ld      [hl],a
+        ld      a,l                  ;add 7 to hl
+        add     7
+        ld      l,a
+        ld      a,h
+        adc     0
+        ld      h,a
 
-				dec     c
-				jr      nz,.loop
+        dec     c
+        jr      nz,.loop
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     SetSpeakerToFirstHero
@@ -3473,36 +3473,36 @@ ShowTitle::
 ;               some dialog parameters based on who it is.
 ;---------------------------------------------------------------------
 SetSpeakerToFirstHero::
-				push    de
+        push    de
         push    hl
-				xor     a
+        xor     a
         ld      hl,hero0_index
-				call    .setParameters
-				or      a
-				jr      nz,.done
+        call    .setParameters
+        or      a
+        jr      nz,.done
 
         ld      a,1
-				ld      hl,hero1_index
-				call    .setParameters
+        ld      hl,hero1_index
+        call    .setParameters
 
 .done
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         ret
 
 .setParameters
         ld      [dialogJoyIndex],a
         ld      a,[hl-]        ;get hero index
-				or      a              ;non-zero?
-				ret     z              ;not present
+        or      a              ;non-zero?
+        ret     z              ;not present
 
         ld      c,a            ;class index
-				ld      de,HERODATA_TYPE
-				add     hl,de
-				ld      a,[hl]
-				ld      [dialogSpeakerIndex],a   ;flag indicating speaker
-				ld      a,1            ;operation successful
-				ret
+        ld      de,HERODATA_TYPE
+        add     hl,de
+        ld      a,[hl]
+        ld      [dialogSpeakerIndex],a   ;flag indicating speaker
+        ld      a,1            ;operation successful
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     SetSpeakerFromHeroIndex
@@ -3513,35 +3513,35 @@ SetSpeakerToFirstHero::
 ; Description:  
 ;---------------------------------------------------------------------
 SetSpeakerFromHeroIndex::
-				push    de
+        push    de
         push    hl
 
-				ld      hl,hero0_index
-				ld      a,[hl-]
-				cp      c
-				ld      a,0
-				jr      nz,.setHero1
+        ld      hl,hero0_index
+        ld      a,[hl-]
+        cp      c
+        ld      a,0
+        jr      nz,.setHero1
 
-				call    .setParameters
-				jr      .done
+        call    .setParameters
+        jr      .done
 
 .setHero1
-				ld      a,1
-				ld      hl,hero1_data
-				call    .setParameters
+        ld      a,1
+        ld      hl,hero1_data
+        call    .setParameters
 
 .done
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         ret
 
 .setParameters
         ld      [dialogJoyIndex],a
-				ld      de,HERODATA_TYPE
-				add     hl,de
-				ld      a,[hl]
-				ld      [dialogSpeakerIndex],a   ;flag indicating speaker
-				ret
+        ld      de,HERODATA_TYPE
+        add     hl,de
+        ld      a,[hl]
+        ld      [dialogSpeakerIndex],a   ;flag indicating speaker
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -3549,7 +3549,7 @@ SetSpeakerFromHeroIndex::
 ;---------------------------------------------------------------------
 SetPressBDialog:
         ld      a,DLG_BORDER | DLG_PRESSB
-				ld      [dialogSettings],a
+        ld      [dialogSettings],a
         ret
 
 ;---------------------------------------------------------------------
@@ -3559,18 +3559,18 @@ SetPressBDialog:
 ; Alters:       af,hl
 ;---------------------------------------------------------------------
 SetDialogJoy::
-				ld      a,[displayType]
-				cp      1
-				jr      z,.cinemaType
-				ld      a,[canJoinMap]
-				cp      2                  ;asynchronous join?
-				jr      z,.cinemaType 
+        ld      a,[displayType]
+        cp      1
+        jr      z,.cinemaType
+        ld      a,[canJoinMap]
+        cp      2                  ;asynchronous join?
+        jr      z,.cinemaType 
 
-				ld      hl,curInput0
-				ld      a,[dialogJoyIndex]
-				or      a
+        ld      hl,curInput0
+        ld      a,[dialogJoyIndex]
+        or      a
         ret     z
-				inc     hl
+        inc     hl
         ret 
 
 .cinemaType
@@ -3591,51 +3591,51 @@ CheckDialogContinue::
 
         call    SetDialogJoy
 
-				ld      a,[dialogSettings]
-				and     DLG_WAITRELEASE
-				jr      nz,.waitRelease
+        ld      a,[dialogSettings]
+        and     DLG_WAITRELEASE
+        jr      nz,.waitRelease
 
         ld      a,[hl]
         and     JOY_B
-				jr      z,.returnFalse
+        jr      z,.returnFalse
 
-				ld      hl,dialogSettings
-				set     DLG_WAITRELEASE_BIT,[hl]
-				jr      .returnFalse
+        ld      hl,dialogSettings
+        set     DLG_WAITRELEASE_BIT,[hl]
+        jr      .returnFalse
 
 .waitRelease
         ld      a,[hl]
-				and     JOY_B
-				jr      nz,.returnFalse
+        and     JOY_B
+        jr      nz,.returnFalse
 
-				ld      hl,dialogSettings
-				res     DLG_WAITRELEASE_BIT,[hl]
+        ld      hl,dialogSettings
+        res     DLG_WAITRELEASE_BIT,[hl]
 
-				bit     DLG_CLEARSKIP_BIT,[hl]
-				jr      z,.afterClearSkip
+        bit     DLG_CLEARSKIP_BIT,[hl]
+        jr      z,.afterClearSkip
 
-				res     DLG_CLEARSKIP_BIT,[hl]
+        res     DLG_CLEARSKIP_BIT,[hl]
         push    hl
-				ld      de,0
-				call    SetDialogSkip
-				pop     hl
+        ld      de,0
+        call    SetDialogSkip
+        pop     hl
 
 .afterClearSkip
-				bit     DLG_NOCLEAR_BIT,[hl]
-				res     DLG_NOCLEAR_BIT,[hl]
-				jr      nz,.returnTrue
+        bit     DLG_NOCLEAR_BIT,[hl]
+        res     DLG_NOCLEAR_BIT,[hl]
+        jr      nz,.returnTrue
 
-				call    ClearDialog
+        call    ClearDialog
 
 .returnTrue
         ld      a,1
-				jr      .done
+        jr      .done
 
         
 .returnFalse
         xor     a
 .done
-				pop     hl
+        pop     hl
         ret
 
 ;---------------------------------------------------------------------
@@ -3680,206 +3680,206 @@ ShowDialogAtTop::
         ld      a,[dialogBank]
         push    af
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				call    ChooseFromDialogAlternates
+        call    ChooseFromDialogAlternates
 
-				ld      b,0            ;lines to skip at top
-				call    ShowDialogCommon
-				call    ShowDialogAtTopCommon
-				call    ShowDialogWait
+        ld      b,0            ;lines to skip at top
+        call    ShowDialogCommon
+        call    ShowDialogAtTopCommon
+        call    ShowDialogWait
 
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ShowDialogAtTopNoWait::
         ld      a,[dialogBank]
         push    af
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				call    ChooseFromDialogAlternates
+        call    ChooseFromDialogAlternates
 
-				ld      b,0            ;lines to skip at top
-				call    ShowDialogCommon
-				call    ShowDialogAtTopCommon
+        ld      b,0            ;lines to skip at top
+        call    ShowDialogCommon
+        call    ShowDialogAtTopCommon
 
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ShowDialogAtTopCommon::
-				call    DrawDialogBorderAtBottom
-				call    GfxBlitBackBufferToWindow
+        call    DrawDialogBorderAtBottom
+        call    GfxBlitBackBufferToWindow
 
         xor     a
         ldh     [$ff4a], a     ;set window y position
 
-				ld      a,[de]         ;number of lines
-				rlca                   ;times 8 = pixels for window
-				rlca
-				rlca
-				add     7 
-				ld      [hblankWinOff],a
-
-				ld      a,143
-				ld      [hblankWinOn],a
-
-				ld      a,[hblankFlag]
-				bit     1,a
-				jr      nz,.afterSetLYC
+        ld      a,[de]         ;number of lines
+        rlca                   ;times 8 = pixels for window
+        rlca
+        rlca
+        add     7 
+        ld      [hblankWinOff],a
 
         ld      a,143
-				ld      [$ff45],a            ;lyc
-				ld      a,[hblankFlag]
+        ld      [hblankWinOn],a
+
+        ld      a,[hblankFlag]
+        bit     1,a
+        jr      nz,.afterSetLYC
+
+        ld      a,143
+        ld      [$ff45],a            ;lyc
+        ld      a,[hblankFlag]
 
 .afterSetLYC
-				or      %10               ;allow window to show
-				ld      [hblankFlag],a
+        or      %10               ;allow window to show
+        ld      [hblankFlag],a
 
-				ld      a,OBJROM
-				call    SetActiveROM
-				ret
+        ld      a,OBJROM
+        call    SetActiveROM
+        ret
 
 ShowDialogAtBottom::
         ld      a,[dialogBank]
-				push    af
-				push    bc
-				push    de
-				push    hl
+        push    af
+        push    bc
+        push    de
+        push    hl
 
-				call    ChooseFromDialogAlternates
+        call    ChooseFromDialogAlternates
 
-				ld      b,1            ;lines to skip at top
-				call    ShowDialogCommon
-				call    ShowDialogAtBottomCommon
-				call    ShowDialogWait
+        ld      b,1            ;lines to skip at top
+        call    ShowDialogCommon
+        call    ShowDialogAtBottomCommon
+        call    ShowDialogWait
 
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ShowDialogAtBottomNoWait::
         ld      a,[dialogBank]
-				push    af
-				push    bc
-				push    de
-				push    hl
+        push    af
+        push    bc
+        push    de
+        push    hl
 
-				call    ChooseFromDialogAlternates
+        call    ChooseFromDialogAlternates
 
-				ld      b,1            ;lines to skip at top
-				call    ShowDialogCommon
-				call    ShowDialogAtBottomCommon
+        ld      b,1            ;lines to skip at top
+        call    ShowDialogCommon
+        call    ShowDialogAtBottomCommon
 
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ShowDialogAtBottomCommon::
-				call    DrawDialogBorderAtTop
-				call    GfxBlitBackBufferToWindow
+        call    DrawDialogBorderAtTop
+        call    GfxBlitBackBufferToWindow
 
-				ld      a,143
-				ld      [hblankWinOff],a
+        ld      a,143
+        ld      [hblankWinOff],a
 
         ;set window y pos.  Req'd for actual GBC, not emulator
         ld      a,[de]         ;# lines
-				cpl
-				add     1+17           ;(max lines) - (text lines+1)
-				rlca
-				rlca
-				rlca                   ;times 8
+        cpl
+        add     1+17           ;(max lines) - (text lines+1)
+        rlca
+        rlca
+        rlca                   ;times 8
         ldh     [$ff4a], a     ;set window y position
 
-				ld      a,[de]         ;number of lines
-				rlca                   ;times 8 = pixels for window
-				rlca
-				rlca
-				add     8
-				cpl                    ;make negative (+1), subtract from 143
-	 			add     144            ;+1 2's compl, +143
-				ld      [hblankWinOn],a
+        ld      a,[de]         ;number of lines
+        rlca                   ;times 8 = pixels for window
+        rlca
+        rlca
+        add     8
+        cpl                    ;make negative (+1), subtract from 143
+         add     144            ;+1 2's compl, +143
+        ld      [hblankWinOn],a
 
-				ld      a,[hblankFlag]
-				bit     1,a
-				jr      nz,.afterSetLYC
+        ld      a,[hblankFlag]
+        bit     1,a
+        jr      nz,.afterSetLYC
 
         ld      a,[hblankWinOn]
-				ld      [$ff45],a            ;lyc
-				ld      a,[hblankFlag]
+        ld      [$ff45],a            ;lyc
+        ld      a,[hblankFlag]
 
 .afterSetLYC
-				or      %10               ;allow window to show
-				ld      [hblankFlag],a
+        or      %10               ;allow window to show
+        ld      [hblankFlag],a
 
-				ld      a,OBJROM
-				call    SetActiveROM
-				ret
+        ld      a,OBJROM
+        call    SetActiveROM
+        ret
 
 ClearDialog::
         push    af
-				xor     a
-				ld      [amShowingDialog],a
+        xor     a
+        ld      [amShowingDialog],a
 
         ld      a,[hblankFlag]   ;turn off dialog box and window
-				and     %11111101
-				ld      [hblankFlag],a
-				call    VWait
+        and     %11111101
+        ld      [hblankFlag],a
+        call    VWait
         ;call    InstallGamePalette
         ld      a,1
         ldio    [paletteBufferReady],a
-				call    VWait
-				pop     af
-				ret
+        call    VWait
+        pop     af
+        ret
 
 ShowDialogWait::
         ;change both heroes to idle
         ld      a,[heroesIdle]
         push    af
-				ld      a,1
-				ld      [heroesIdle],a
+        ld      a,1
+        ld      [heroesIdle],a
 
-				call    .waitInputZero
+        call    .waitInputZero
 
 .wait
         call    UpdateObjects
-				call    RedrawMap
+        call    RedrawMap
         call    CheckDialogContinue
         or      a
         jr      z,.wait
 
-				;call    .waitInput
-				;call    .waitInputZero
+        ;call    .waitInput
+        ;call    .waitInputZero
 
         pop     af
-				ld      [heroesIdle],a
+        ld      [heroesIdle],a
 
-				ret
-				
+        ret
+        
 .waitInputZero
 DialogWaitInputZero::
         call    UpdateObjects
-				call    RedrawMap
-				ld      h,((curInput0>>8) & $ff)
-				ld      a,[dialogJoyIndex]
-				add     (curInput0 & $ff)
-				ld      l,a
-				ld      a,[hl]
-				and     %11110000
-				jr      nz,DialogWaitInputZero
-				ret
+        call    RedrawMap
+        ld      h,((curInput0>>8) & $ff)
+        ld      a,[dialogJoyIndex]
+        add     (curInput0 & $ff)
+        ld      l,a
+        ld      a,[hl]
+        and     %11110000
+        jr      nz,DialogWaitInputZero
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -3899,28 +3899,28 @@ DialogWaitInputZero::
 ;---------------------------------------------------------------------
 ShowDialogCommon::
         push    de
-				push    bc            ;save class index of speaking character
+        push    bc            ;save class index of speaking character
 
-				call    SetActiveROM
+        call    SetActiveROM
 
-				ld      a,1
-				ld      [amShowingDialog],a
+        ld      a,1
+        ld      [amShowingDialog],a
 
-				;wait until the backbuffer is blitted
+        ;wait until the backbuffer is blitted
 .waitBackBuffer
-				ldio    a,[backBufferReady]
-				or      a
-				jr      z,.canMessWithBackBuffer
+        ldio    a,[backBufferReady]
+        or      a
+        jr      z,.canMessWithBackBuffer
 
-				call    VWait
-				jr      .waitBackBuffer
+        call    VWait
+        jr      .waitBackBuffer
 
 .canMessWithBackBuffer
-				;clear the backbuffer and attribute buffer for given #lines
-				ld      a,[de]        ;b = number of lines + 1
-				add     1
-				ld      b,a
-				ld      hl,backBuffer
+        ;clear the backbuffer and attribute buffer for given #lines
+        ld      a,[de]        ;b = number of lines + 1
+        add     1
+        ld      b,a
+        ld      hl,backBuffer
         
 .clearLines
         call    ClearGTXLine
@@ -3930,53 +3930,53 @@ ShowDialogCommon::
         pop     bc
         dec     b
         jr      nz,.clearLines
-				;xor     a
+        ;xor     a
 ;.outer1 ld      c,32
 ;.inner1 ld      [hl+],a
         ;dec     c
-				;jr      nz,.inner1
-				;dec     b
-				;jr      nz,.outer1
+        ;jr      nz,.inner1
+        ;dec     b
+        ;jr      nz,.outer1
 
-				;ld      a,[de]        ;b = number of lines + 1
-				;add     1
-				;ld      b,a
-				;ld      hl,attributeBuffer
-				;xor     a
+        ;ld      a,[de]        ;b = number of lines + 1
+        ;add     1
+        ;ld      b,a
+        ;ld      hl,attributeBuffer
+        ;xor     a
 ;.outer2 ld      c,32
 ;.inner2 ld      [hl+],a
         ;dec     c
-				;jr      nz,.inner2
-				;dec     b
-				;jr      nz,.outer2
+        ;jr      nz,.inner2
+        ;dec     b
+        ;jr      nz,.outer2
 
         ;adjust hl down a line?
-				pop     bc
-				push    bc
-				ld      hl,backBuffer
-				bit     0,b
-				jr      z,.hlOkay
-			  ld      bc,32
-				add     hl,bc
+        pop     bc
+        push    bc
+        ld      hl,backBuffer
+        bit     0,b
+        jr      z,.hlOkay
+        ld      bc,32
+        add     hl,bc
 .hlOkay
 
         ;for each line of text...
-				ld      a,[de]        ;b = number of lines
-				inc     de
-				ld      b,a
+        ld      a,[de]        ;b = number of lines
+        inc     de
+        ld      b,a
 
 .line
         call    WriteGTXLine
 
-				;go to next line
-				dec     b
-				jr      nz,.line
+        ;go to next line
+        dec     b
+        jr      nz,.line
 
-				;retrieve class index of speaking character and
-				;blit that tile to the top-left corner of the buffer
-				pop     bc
-				call    DrawTileToTLCorner
-				;call    GfxBlitBackBufferToWindow
+        ;retrieve class index of speaking character and
+        ;blit that tile to the top-left corner of the buffer
+        pop     bc
+        call    DrawTileToTLCorner
+        ;call    GfxBlitBackBufferToWindow
         pop     de
         ret
 
@@ -4022,247 +4022,247 @@ ClearGTXLine::
 WriteGTXLine::
         ;advance hl spaces required to center text
         push    bc
-				ld      b,0
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				add     hl,bc
+        ld      b,0
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        add     hl,bc
 
-				;get the char count for this line
-				ld      a,[de]
-				inc     de
-				ld      c,a
-				or      a
-				jr      z,.afterLoop
+        ;get the char count for this line
+        ld      a,[de]
+        inc     de
+        ld      c,a
+        or      a
+        jr      z,.afterLoop
 
-				;copy the characters to the buffer
+        ;copy the characters to the buffer
 .loop   ld      a,[de]
         inc     de
-				ld      [hl+],a
-				dec     c
-				jr      nz,.loop
+        ld      [hl+],a
+        dec     c
+        jr      nz,.loop
 
 .afterLoop
-				;advance hl to next line
-				ld      a,l
-				and     ~31
-				add     32
-				ld      l,a
-				ld      a,0
-				adc     h
-				ld      h,a
+        ;advance hl to next line
+        ld      a,l
+        and     ~31
+        add     32
+        ld      l,a
+        ld      a,0
+        adc     h
+        ld      h,a
 
-				pop     bc
+        pop     bc
         ret
 
 
 GfxBlitBackBufferToWindow::
         ;xor     a
-				;ld      c,38     ;38*16 = 608
-				;ld      de,$9c00  ;dest = window map memory
-				;ld      hl,$c000  ;source
-				;call    VMemCopy
-				;ret
+        ;ld      c,38     ;38*16 = 608
+        ;ld      de,$9c00  ;dest = window map memory
+        ;ld      hl,$c000  ;source
+        ;call    VMemCopy
+        ;ret
         
-				ld      a,$9c            ;copy to window map memory
-				ldio    [backBufferDestHighByte],a
-				ld      a,1
-				ldio    [backBufferReady],a
+        ld      a,$9c            ;copy to window map memory
+        ldio    [backBufferDestHighByte],a
+        ld      a,1
+        ldio    [backBufferReady],a
 .vwait  call    VWait
-				ldio    a,[backBufferReady]  ;wait until buffer is copied
-				or      a
-				jr      nz,.vwait
-				ld      a,$98            ;go back to copying to bg map memory
-				ldio    [backBufferDestHighByte],a
-				ret
+        ldio    a,[backBufferReady]  ;wait until buffer is copied
+        or      a
+        jr      nz,.vwait
+        ld      a,$98            ;go back to copying to bg map memory
+        ldio    [backBufferDestHighByte],a
+        ret
 
 GfxShowStandardTextBox::
         ;set interrupt to turn window off at bottom of screen
-				ld      a,143
-				ld      [hblankWinOff],a
+        ld      a,143
+        ld      [hblankWinOff],a
 
         ;set window y pos.  Req'd for actual GBC, not emulator
         ld      a,96
         ldh     [$ff4a], a     ;set window y position
-				ld      [hblankWinOn],a
+        ld      [hblankWinOn],a
 
-				ld      a,[hblankFlag]
-				bit     1,a
-				jr      nz,.afterSetLYC
+        ld      a,[hblankFlag]
+        bit     1,a
+        jr      nz,.afterSetLYC
 
         ld      a,[hblankWinOn]
-				ld      [$ff45],a            ;lyc
-				ld      a,[hblankFlag]
+        ld      [$ff45],a            ;lyc
+        ld      a,[hblankFlag]
 
 .afterSetLYC
-				or      %10               ;allow window to show
-				ld      [hblankFlag],a
+        or      %10               ;allow window to show
+        ld      [hblankFlag],a
         ret
 
 DrawDialogBorderAtTop:
         push    hl
         ld      hl,$c000   ;9c00
-				call    DrawDialogBorder
-				pop     hl
-				ret
+        call    DrawDialogBorder
+        pop     hl
+        ret
 
 DrawDialogBorderAtBottom:
         push    de
         push    hl
         ld      hl,$c000   ;9c00
-				ld      a,[de]     ;num lines
-				ld      d,a
-				xor     a
-				srl     d
-				rra
-				srl     d
-				rra
-				srl     d
-				rra
-				ld      e,a
-				add     hl,de
-				call    DrawDialogBorder
-				pop     hl
-				pop     de
-				ret
+        ld      a,[de]     ;num lines
+        ld      d,a
+        xor     a
+        srl     d
+        rra
+        srl     d
+        rra
+        srl     d
+        rra
+        ld      e,a
+        add     hl,de
+        call    DrawDialogBorder
+        pop     hl
+        pop     de
+        ret
 
 DrawDialogBorder:
         push    bc
         push    hl
 
         ld      a,[dialogSettings]
-				and     DLG_BORDER
-				jr      z,.done
+        and     DLG_BORDER
+        jr      z,.done
 
         ;draw border at edge
-				push    hl
+        push    hl
 
-				;xor     a
-				;ldio    [$ff4f],a   ;VRAM bank
+        ;xor     a
+        ;ldio    [$ff4f],a   ;VRAM bank
 
-			  ld      c,20
-				ld      a,252
+        ld      c,20
+        ld      a,252
 .drawBorder
         ld      [hl+],a
-				dec     c
-				jr      nz,.drawBorder
+        dec     c
+        jr      nz,.drawBorder
 
-				dec     hl
-				ld      a,[dialogSettings]
-				and     DLG_PRESSB
-				jr      z,.clearBG
+        dec     hl
+        ld      a,[dialogSettings]
+        and     DLG_PRESSB
+        jr      z,.clearBG
 
-				ld      [hl],253
+        ld      [hl],253
 
 .clearBG
         pop     hl
 
         ;clear bg attributes
-				ld      bc,$300
-				add     hl,bc
+        ld      bc,$300
+        add     hl,bc
 
-				;ld      a,1
-				;ldio    [$ff4f],a   ;VRAM bank
+        ;ld      a,1
+        ;ldio    [$ff4f],a   ;VRAM bank
 
-			  ld      c,20
-				xor     a
+        ld      c,20
+        xor     a
 .clearBGLoop
         ld      [hl+],a
-				dec     c
-				jr      nz,.clearBGLoop
+        dec     c
+        jr      nz,.clearBGLoop
 
 .done
-				pop     hl
-				pop     bc
+        pop     hl
+        pop     bc
         ret
 
 DrawTileToTLCorner:    ;class index in c, 1 line down in b
 .drawTile
         ld      hl,backBuffer
-				bit     0,b
-				jr      z,.hlOkay
-				ld      l,32
+        bit     0,b
+        jr      z,.hlOkay
+        ld      l,32
 .hlOkay
         ld      a,c
-				or      a
-				jr      z,.useNullTile  ;use null tile
+        or      a
+        jr      z,.useNullTile  ;use null tile
 
-				ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      a,TILEINDEXBANK
+        ld      [$ff70],a
 
-				ld      b,((fgAttributes>>8) & $ff)
-				ld      a,[bc]
-				bit     5,a    ;2x2 monster?
-				jr      nz,.speaker2x2
+        ld      b,((fgAttributes>>8) & $ff)
+        ld      a,[bc]
+        bit     5,a    ;2x2 monster?
+        jr      nz,.speaker2x2
 
         and     %00000111
-				or      %00001000        ;coming from bank 1
-				ld      h,((attributeBuffer>>8) & $ff)
-				ld      [hl],a
+        or      %00001000        ;coming from bank 1
+        ld      h,((attributeBuffer>>8) & $ff)
+        ld      [hl],a
 
-				ld      h,((backBuffer>>8) & $ff)
-				ld      b,((fgTileMap>>8) & $ff)
-				ld      a,[bc]           ;a is tile to draw
-				add     3                ;get right-facing
-				ld      [hl],a
+        ld      h,((backBuffer>>8) & $ff)
+        ld      b,((fgTileMap>>8) & $ff)
+        ld      a,[bc]           ;a is tile to draw
+        add     3                ;get right-facing
+        ld      [hl],a
 
-				ret
+        ret
 
 .speaker2x2
         and     %00000111        ;color
-				or      %00001000        ;coming from bank 1
-				push    hl
-				push    hl
-				ld      h,((attributeBuffer>>8) & $ff)
-				ld      [hl+],a
-				ld      [hl+],a
-				push    de
-				ld      de,30
-				add     hl,de
-				pop     de
-				ld      [hl+],a
-				ld      [hl-],a
+        or      %00001000        ;coming from bank 1
+        push    hl
+        push    hl
+        ld      h,((attributeBuffer>>8) & $ff)
+        ld      [hl+],a
+        ld      [hl+],a
+        push    de
+        ld      de,30
+        add     hl,de
+        pop     de
+        ld      [hl+],a
+        ld      [hl-],a
 
-				ld      h,((backBuffer>>8) & $ff)
-				ld      b,((fgTileMap>>8) & $ff)
-				ld      a,[bc]           ;a is tile to draw
-				add     12               ;get right-facing
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
-				pop     hl
-				sub     3
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
-				pop     hl
+        ld      h,((backBuffer>>8) & $ff)
+        ld      b,((fgTileMap>>8) & $ff)
+        ld      a,[bc]           ;a is tile to draw
+        add     12               ;get right-facing
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
+        pop     hl
+        sub     3
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
+        pop     hl
 
-				;kludge for two-color BRAINIAC
-				ld      a,[dialogSettings]
-				bit     DLG_BRAINIAC_BIT,a
-				ret     z
+        ;kludge for two-color BRAINIAC
+        ld      a,[dialogSettings]
+        bit     DLG_BRAINIAC_BIT,a
+        ret     z
 
         res     DLG_BRAINIAC_BIT,a
-				ld      [dialogSettings],a
-				ld      h,((attributeBuffer>>8) & $ff)
-				inc     hl
-				ld      a,8+3   ;green color from bank 1
-				ld      [hl],a
-				push    de
-				ld      de,32
-				add     hl,de
-				pop     de
-				ld      [hl+],a
+        ld      [dialogSettings],a
+        ld      h,((attributeBuffer>>8) & $ff)
+        inc     hl
+        ld      a,8+3   ;green color from bank 1
+        ld      [hl],a
+        push    de
+        ld      de,32
+        add     hl,de
+        pop     de
+        ld      [hl+],a
 
-				ret
+        ret
 
 
 .useNullTile
-				xor     a
-				ld      [hl],a
-				ld      h,((attributeBuffer>>8) & $ff)
-				ld      [hl],a
-				ret
+        xor     a
+        ld      [hl],a
+        ld      h,((attributeBuffer>>8) & $ff)
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ChooseFromDialogAlternates
@@ -4288,32 +4288,32 @@ ChooseFromDialogAlternates:
         ld      h,d
         ld      l,e
 
-				ld      a,[dialogSpeakerIndex]
-				ld      c,a
+        ld      a,[dialogSpeakerIndex]
+        ld      c,a
 
 .attemptMatch
-				ld      a,[hl+]   ;mask
-				and     c
-				jr      nz,.foundMatch
+        ld      a,[hl+]   ;mask
+        and     c
+        jr      nz,.foundMatch
 
-				inc     hl        ;skip offset to look at next mask
-				inc     hl
-				jr      .attemptMatch
+        inc     hl        ;skip offset to look at next mask
+        inc     hl
+        jr      .attemptMatch
 
 .foundMatch
         ld      a,[hl+]   ;retrieve offset to start of gtx proper
-				ld      e,a
+        ld      e,a
         ld      a,[hl+]
-				ld      d,a
-				add     hl,de
+        ld      d,a
+        add     hl,de
 
-				ld      d,h
-				ld      e,l
+        ld      d,h
+        ld      e,l
 
-				pop     hl
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     bc
+        pop     af
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CheckSkip
@@ -4328,35 +4328,35 @@ ChooseFromDialogAlternates:
 CheckSkip::
         push    hl
 
-				ld      a,[displayType]
-				cp      1
-				jr      z,.cinemaType
-				ld      a,[canJoinMap]   ;asynchronous join?
-				cp      2
-				jr      z,.cinemaType
+        ld      a,[displayType]
+        cp      1
+        jr      z,.cinemaType
+        ld      a,[canJoinMap]   ;asynchronous join?
+        cp      2
+        jr      z,.cinemaType
 
-				ld      hl,curInput0
+        ld      hl,curInput0
         ld      a,[dialogJoyIndex]   ;0 or 1
-				add     l
-				ld      l,a
-				jr      .afterSetJoy
+        add     l
+        ld      l,a
+        jr      .afterSetJoy
 
 .cinemaType
-				ld      hl,myJoy
+        ld      hl,myJoy
 
 .afterSetJoy
-				ld      a,[hl]               ;get the input
-				and     JOY_START
-				jr      nz,.startPressed
+        ld      a,[hl]               ;get the input
+        and     JOY_START
+        jr      nz,.startPressed
 
-				ld      a,[hl]
-				and     JOY_B
-				jr      z,.done     ;no buttons pushed
+        ld      a,[hl]
+        and     JOY_B
+        jr      z,.done     ;no buttons pushed
 
 .abPressed
         push    hl
         ld      hl,levelCheckSkip    ;fast forward address
-				jr      .restore
+        jr      .restore
         
 .startPressed
         push    hl
@@ -4364,52 +4364,52 @@ CheckSkip::
 
 .restore 
         ld      a,[hl]
-				or      a
-				jr      nz,.addressOkay
-				inc     hl
+        or      a
+        jr      nz,.addressOkay
+        inc     hl
         ld      a,[hl-]
-				or      a
-				jr      nz,.addressOkay
+        or      a
+        jr      nz,.addressOkay
 
-				pop     hl
-				jr      .done
+        pop     hl
+        jr      .done
 
 .addressOkay
         ;make the class/object ROM the current
-				ld      a,OBJROM
-				call    SetActiveROM
-				xor     a
+        ld      a,OBJROM
+        call    SetActiveROM
+        xor     a
         ld      e,[hl]
-				ld      [hl],a
-				inc     hl
-				ld      d,[hl]
-				ld      [hl],a
-				pop     hl
-				cp      d
-				jr      nz,.addrOkay
-				cp      e
-				jr      z,.done   ;null address
+        ld      [hl],a
+        inc     hl
+        ld      d,[hl]
+        ld      [hl],a
+        pop     hl
+        cp      d
+        jr      nz,.addrOkay
+        cp      e
+        jr      z,.done   ;null address
 
 .addrOkay
-				ld      a,$f0
-				call    WaitInputZero
+        ld      a,$f0
+        call    WaitInputZero
 
-				;reset all one-shot dialog options
-				ld      hl,dialogSettings
-				res     DLG_BRAINIAC_BIT,[hl]
-				res     DLG_NOCLEAR_BIT,[hl]
-				res     DLG_CLEARSKIP_BIT,[hl]
+        ;reset all one-shot dialog options
+        ld      hl,dialogSettings
+        res     DLG_BRAINIAC_BIT,[hl]
+        res     DLG_NOCLEAR_BIT,[hl]
+        res     DLG_CLEARSKIP_BIT,[hl]
 
-				;restore stack pointer
-				ld      a,[levelCheckStackPos]
-				ld      l,a
-				ld      a,[levelCheckStackPos+1]
-				ld      h,a
-				ld      sp,hl
+        ;restore stack pointer
+        ld      a,[levelCheckStackPos]
+        ld      l,a
+        ld      a,[levelCheckStackPos+1]
+        ld      h,a
+        ld      sp,hl
 
-				;push return address on stack and go there
-				push    de
-				ret
+        ;push return address on stack and go there
+        push    de
+        ret
 
 .done
         pop     hl
@@ -4426,19 +4426,19 @@ CheckSkip::
 ;---------------------------------------------------------------------
 Delay::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
 
 .delay  push    af
         call    UpdateObjects
-				call    RedrawMap
+        call    RedrawMap
 
-				call    CheckSkip
+        call    CheckSkip
 .keepGoing
-				pop     af
+        pop     af
         dec     a
-				jr      nz,.delay
+        jr      nz,.delay
 
 .waitBlit
         ldio    a,[backBufferReady]
@@ -4464,10 +4464,10 @@ Delay::
         jp      AfterLoadLevelMethod
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetRandomNumZeroToN
@@ -4477,68 +4477,68 @@ Delay::
 ;---------------------------------------------------------------------
 GetRandomNumZeroToN::
         or      a
-				ret     z
+        ret     z
 
         push    bc
-				push    hl
+        push    hl
 
         inc     a
-				jr      z,.handleFF
-				ld      b,a        ;b is N
+        jr      z,.handleFF
+        ld      b,a        ;b is N
 
-				PUSHROM
-				ld      a,BANK(randomTable)
-				call    SetActiveROM
+        PUSHROM
+        ld      a,BANK(randomTable)
+        call    SetActiveROM
 
-				ld      hl,randomLoc
-				inc     [hl]
-				ld      l,[hl]
-				ld      h,((randomTable>>8) & $ff)
+        ld      hl,randomLoc
+        inc     [hl]
+        ld      l,[hl]
+        ld      h,((randomTable>>8) & $ff)
 
-				ld      a,[hl]
-				bit     7,b
-				jr      nz,.loop     ;N+1>=128
+        ld      a,[hl]
+        bit     7,b
+        jr      nz,.loop     ;N+1>=128
 
         ;divide raw number by two until it's less than limit*2
-				ld      c,b
-				sla     c            ;c = (limit * 2) + 1
-				inc     c
+        ld      c,b
+        sla     c            ;c = (limit * 2) + 1
+        inc     c
 .fastReduce
         cp      c            ;a < limit*2 + 1?
-				jr      c,.loop      ;yes, go to slower precision work
-				srl     a            ;a/=2
-				jr      .fastReduce
+        jr      c,.loop      ;yes, go to slower precision work
+        srl     a            ;a/=2
+        jr      .fastReduce
 
 .loop   cp      b            ;subtract N while r > N
-				jr      c,.done
-				sub     b
-				jr      .loop
+        jr      c,.done
+        sub     b
+        jr      .loop
 
 .done
         ld      b,a
         POPROM
-				ld      a,b
-				pop     hl
-				pop     bc
-				ret
+        ld      a,b
+        pop     hl
+        pop     bc
+        ret
 
 .handleFF
-				PUSHROM
-				ld      a,BANK(randomTable)
-				call    SetActiveROM
+        PUSHROM
+        ld      a,BANK(randomTable)
+        call    SetActiveROM
 
-				ld      hl,randomLoc
-				inc     [hl]
-				ld      l,[hl]
-				ld      h,((randomTable>>8) & $ff)
+        ld      hl,randomLoc
+        inc     [hl]
+        ld      l,[hl]
+        ld      h,((randomTable>>8) & $ff)
 
-				ld      a,[hl]
+        ld      a,[hl]
         ld      b,a
         POPROM
-				ld      a,b
-				pop     hl
-				pop     bc
-				ret
+        ld      a,b
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetRandomNumMask
@@ -4548,29 +4548,29 @@ GetRandomNumZeroToN::
 ;---------------------------------------------------------------------
 GetRandomNumMask::
         push    bc
-				push    hl
+        push    hl
 
-				ld      b,a          ;b is bitmask 
+        ld      b,a          ;b is bitmask 
 
-				PUSHROM
-				ld      a,BANK(randomTable)
-				call    SetActiveROM
+        PUSHROM
+        ld      a,BANK(randomTable)
+        call    SetActiveROM
 
-				ld      hl,randomLoc
-				inc     [hl]
-				ld      l,[hl]
-				ld      h,((randomTable>>8) & $ff)
+        ld      hl,randomLoc
+        inc     [hl]
+        ld      l,[hl]
+        ld      h,((randomTable>>8) & $ff)
 
-				ld      a,[hl]
-				and     b
+        ld      a,[hl]
+        and     b
 
 .done
         ld      b,a
         POPROM
         ld      a,b
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeFromWhite
@@ -4579,76 +4579,76 @@ GetRandomNumMask::
 ;---------------------------------------------------------------------
 SetupFadeFromWhite::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set cur palette to be all white
-				ld      hl,fadeCurPalette
-				call    FadeCommonSetPaletteToWhite
+        ;set cur palette to be all white
+        ld      hl,fadeCurPalette
+        call    FadeCommonSetPaletteToWhite
 
-				;set final palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ;set final palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 FadeCommonSetPaletteToWhite::
-				ld      c,64
+        ld      c,64
 .loop   
         ld      a,$ff
         ld      [hl+],a
-				ld      a,$7f
-				ld      [hl+],a
-				dec     c
-				jr      nz,.loop
-				ret
+        ld      a,$7f
+        ld      [hl+],a
+        dec     c
+        jr      nz,.loop
+        ret
 
 CopyPalette64::
 FadeCommonCopyPalette::
         push    bc
         push    de
-				push    hl
-				ld      a,FADEBANK
-				ld      [$ff70],a
-				ld      c,128
+        push    hl
+        ld      a,FADEBANK
+        ld      [$ff70],a
+        ld      c,128
 .loop   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.loop
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        inc     de
+        dec     c
+        jr      nz,.loop
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 CopyPalette32::
         push    bc
         push    de
-				push    hl
-				ld      a,FADEBANK
-				ld      [$ff70],a
-				ld      c,64
+        push    hl
+        ld      a,FADEBANK
+        ld      [$ff70],a
+        ld      c,64
 .loop   ld      a,[hl+]
         ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.loop
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        inc     de
+        dec     c
+        jr      nz,.loop
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      InstallGamePalette
@@ -4659,20 +4659,20 @@ CopyPalette32::
 ;---------------------------------------------------------------------
 InstallGamePalette::
         push    hl
-				push    de
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      a,1
-				ldio    [paletteBufferReady],a
+        push    de
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      a,1
+        ldio    [paletteBufferReady],a
 .wait
         ldio    a,[paletteBufferReady]  ;wait for vblank to install it
         or      a
         jr      nz,.wait
 
-				pop     de
-				pop     hl
-				ret
+        pop     de
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeToWhite
@@ -4681,30 +4681,30 @@ InstallGamePalette::
 ;---------------------------------------------------------------------
 SetupFadeToWhite::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set final palette to be all white
-				ld      hl,fadeFinalPalette
-				call    FadeCommonSetPaletteToWhite
+        ;set final palette to be all white
+        ld      hl,fadeFinalPalette
+        call    FadeCommonSetPaletteToWhite
 
-				;set cur palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ;set cur palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeFromBlack
@@ -4714,30 +4714,30 @@ SetupFadeToWhite::
 SetupFadeFromStandard::
 SetupFadeFromBlack::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set cur palette to be all white
-				ld      hl,fadeCurPalette
-				call    FadeCommonSetPaletteToBlack
+        ;set cur palette to be all white
+        ld      hl,fadeCurPalette
+        call    FadeCommonSetPaletteToBlack
 
-				;set final palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ;set final palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeToBlack
@@ -4747,40 +4747,40 @@ SetupFadeFromBlack::
 SetupFadeToStandard::
 SetupFadeToBlack::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set final palette to be all black
-				ld      hl,fadeFinalPalette
-				call    FadeCommonSetPaletteToBlack
+        ;set final palette to be all black
+        ld      hl,fadeFinalPalette
+        call    FadeCommonSetPaletteToBlack
 
-				;set cur palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ;set cur palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 FadeCommonSetPaletteToBlack::
-				ld      c,64
-				xor     a
+        ld      c,64
+        xor     a
 .loop   
         ld      [hl+],a
-				ld      [hl+],a
-				dec     c
-				jr      nz,.loop
-				ret
+        ld      [hl+],a
+        dec     c
+        jr      nz,.loop
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeFromBlackBGOnly
@@ -4789,37 +4789,37 @@ FadeCommonSetPaletteToBlack::
 ;---------------------------------------------------------------------
 SetupFadeFromBlackBGOnly::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				;set cur palette to be all black
-				ld      hl,fadeCurPalette
-				call    FadeCommonSetPaletteToBlackBGOnly
+        ;set cur palette to be all black
+        ld      hl,fadeCurPalette
+        call    FadeCommonSetPaletteToBlackBGOnly
 
-				;set final palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ;set final palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
-				ld      a,32
-				ld      [fadeRange],a
+        ld      a,32
+        ld      [fadeRange],a
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      BlackoutPalette
@@ -4832,22 +4832,22 @@ BlackoutPalette::
         push    de
         push    hl
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				ld      hl,fadeFinalPalette
-				call    FadeCommonSetPaletteToBlack
+        ld      hl,fadeFinalPalette
+        call    FadeCommonSetPaletteToBlack
 
-				ld      hl,fadeCurPalette
-				call    FadeCommonSetPaletteToBlack
+        ld      hl,fadeCurPalette
+        call    FadeCommonSetPaletteToBlack
 
         ;turn off any existing fade
-				ld      hl,specialFX
+        ld      hl,specialFX
         res     0,[hl]        ;reset fade bit
 
-				;install the current palette on the next VBlank
-				ld      a,1
-				ldio    [paletteBufferReady],a
+        ;install the current palette on the next VBlank
+        ld      a,1
+        ldio    [paletteBufferReady],a
 .wait
         ldio    a,[paletteBufferReady]  ;wait for vblank to install it
         or      a
@@ -4865,47 +4865,47 @@ BlackoutPalette::
 ;---------------------------------------------------------------------
 SetupFadeToBlackBGOnly::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
-				;set final palette BG Colors to be all black
-				ld      hl,fadeFinalPalette
-				call    FadeCommonSetPaletteToBlackBGOnly
+        ;set final palette BG Colors to be all black
+        ld      hl,fadeFinalPalette
+        call    FadeCommonSetPaletteToBlackBGOnly
 
-				;set cur palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ;set cur palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				ld      a,32
-				ld      [fadeRange],a
+        ld      a,32
+        ld      [fadeRange],a
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 FadeCommonSetPaletteToBlackBGOnly::
-				ld      c,32
-				xor     a
+        ld      c,32
+        xor     a
 .loop   
         ld      [hl+],a
-				ld      [hl+],a
-				dec     c
-				jr      nz,.loop
-				ret
+        ld      [hl+],a
+        dec     c
+        jr      nz,.loop
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeFromSaturated
@@ -4915,66 +4915,66 @@ FadeCommonSetPaletteToBlackBGOnly::
 ;---------------------------------------------------------------------
 SetupFadeFromSaturated::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;copy game palette to starting palette and ending palette
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ;copy game palette to starting palette and ending palette
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				ld      l,b    ;saturation
+        ld      l,b    ;saturation
 
-				;add saturation to each color
-				ld      h,64
+        ;add saturation to each color
+        ld      h,64
 .setup  call    FadeCommonGetColor
         dec     de
         dec     de
-				call    GetRedComponent
-				call    .saturate
-				call    SetRedComponent
-				call    GetGreenComponent
-				call    .saturate
-				call    SetGreenComponent
-				call    GetBlueComponent
-				call    .saturate
-				call    SetBlueComponent
+        call    GetRedComponent
+        call    .saturate
+        call    SetRedComponent
+        call    GetGreenComponent
+        call    .saturate
+        call    SetGreenComponent
+        call    GetBlueComponent
+        call    .saturate
+        call    SetBlueComponent
 
-				;save color
-				ld      a,c
-				ld      [de],a
-				inc     de
-				ld      a,b
-				ld      [de],a
-				inc     de
+        ;save color
+        ld      a,c
+        ld      [de],a
+        inc     de
+        ld      a,b
+        ld      [de],a
+        inc     de
 
-				dec     h
-				jr      nz,.setup
+        dec     h
+        jr      nz,.setup
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 .saturate
         add     l
-				bit     7,l
-				jr      nz,.satneg
-				cp      32           ;over the limit?
-				ret     c
+        bit     7,l
+        jr      nz,.satneg
+        cp      32           ;over the limit?
+        ret     c
 
-				ld      a,$1f
-				ret
+        ld      a,$1f
+        ret
 
 .satneg
         xor     a
@@ -4987,26 +4987,26 @@ SetupFadeFromSaturated::
 ;---------------------------------------------------------------------
 SetupFadeToGamePalette::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set final palette to be current game palette 
-				ld      hl,gamePalette
-				ld      de,fadeFinalPalette
-				call    FadeCommonCopyPalette
+        ;set final palette to be current game palette 
+        ld      hl,gamePalette
+        ld      de,fadeFinalPalette
+        call    FadeCommonCopyPalette
 
-				pop     af
-				call    FadeInit
+        pop     af
+        call    FadeInit
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetupFadeToHalfbrite
@@ -5015,53 +5015,53 @@ SetupFadeToGamePalette::
 ;---------------------------------------------------------------------
 SetupFadeToHalfbrite::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				push    af
+        push    af
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;set final palette to be halfbrite game palette 
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
+        ;set final palette to be halfbrite game palette 
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
         ld      c,64
 .copyHalfbrite
         push    bc
-				ld      a,[hl+]
-				ld      c,a
-				ld      a,[hl-]
-				ld      b,a
-				call    GetRedComponent
-				srl     a
-				call    SetRedComponent
-				call    GetGreenComponent
-				srl     a
-				call    SetGreenComponent
-				call    GetBlueComponent
-				srl     a
-				call    SetBlueComponent
-				ld      a,c
-				ld      [hl+],a
-				ld      a,b
-				ld      [hl+],a
-				pop     bc
-				dec     c
-				jr      nz,.copyHalfbrite
-
-				;set cur palette to be copy of current game palette
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-
-				pop     af
-				call    FadeInit
-
-				pop     hl
-				pop     de
+        ld      a,[hl+]
+        ld      c,a
+        ld      a,[hl-]
+        ld      b,a
+        call    GetRedComponent
+        srl     a
+        call    SetRedComponent
+        call    GetGreenComponent
+        srl     a
+        call    SetGreenComponent
+        call    GetBlueComponent
+        srl     a
+        call    SetBlueComponent
+        ld      a,c
+        ld      [hl+],a
+        ld      a,b
+        ld      [hl+],a
         pop     bc
-				ret
+        dec     c
+        jr      nz,.copyHalfbrite
+
+        ;set cur palette to be copy of current game palette
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+
+        pop     af
+        call    FadeInit
+
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      FadeCommonGetColor
@@ -5071,12 +5071,12 @@ SetupFadeToHalfbrite::
 ;---------------------------------------------------------------------
 FadeCommonGetColor:
         ld      a,[de]
-				inc     de
-				ld      c,a
+        inc     de
+        ld      c,a
         ld      a,[de]
-				inc     de
-				ld      b,a
-				ret
+        inc     de
+        ld      b,a
+        ret
   
 ;---------------------------------------------------------------------
 ; Routine:      FadeInit      
@@ -5091,92 +5091,92 @@ FadeCommonGetColor:
 ;---------------------------------------------------------------------
 FadeInit::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      [fadeSteps],a
-				ld      [fadeStepsToGo],a
+        ld      [fadeSteps],a
+        ld      [fadeStepsToGo],a
 
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				;for each color component, difference is (c2-c1) 
-				;subtract each element of fadeCurPalette from fadeFinalPalette
-				;and store separate RGB offsets in fadeDelta.
-				;fadeCurPalette RGB elements in fadeCurRGB.
+        ;for each color component, difference is (c2-c1) 
+        ;subtract each element of fadeCurPalette from fadeFinalPalette
+        ;and store separate RGB offsets in fadeDelta.
+        ;fadeCurPalette RGB elements in fadeCurRGB.
 
-				;clear out fadeError and fadeDelta
+        ;clear out fadeError and fadeDelta
         ld      hl,fadeError
-				ld      de,fadeDelta
-				ld      c,192
-				xor     a
+        ld      de,fadeDelta
+        ld      c,192
+        xor     a
 .clearError
         ld      [hl+],a
-				ld      [de],a
-				inc     de
-				dec     c
-				jr      nz,.clearError
+        ld      [de],a
+        inc     de
+        dec     c
+        jr      nz,.clearError
 
         ;begin by storing each color component of each color in 
-				;fadeCurPalette into fadeDelta
-				ld      a,64
-				ld      hl,fadeDelta
-				ld      de,fadeCurPalette
+        ;fadeCurPalette into fadeDelta
+        ld      a,64
+        ld      hl,fadeDelta
+        ld      de,fadeCurPalette
 
 .copyCurToDelta
         push    af
-				call    FadeCommonGetColor
-				call    GetRedComponent
-				ld      [hl+],a
-				call    GetGreenComponent
-				ld      [hl+],a
-				call    GetBlueComponent
-				ld      [hl+],a
-				pop     af
-				dec     a
-				jr      nz,.copyCurToDelta
+        call    FadeCommonGetColor
+        call    GetRedComponent
+        ld      [hl+],a
+        call    GetGreenComponent
+        ld      [hl+],a
+        call    GetBlueComponent
+        ld      [hl+],a
+        pop     af
+        dec     a
+        jr      nz,.copyCurToDelta
 
-				;copy fadeDelta[192] to fadeCurRGB[192].
-				;ld      hl,fadeDelta
-				;ld      de,fadeCurRGB
-				;ld      c,192
+        ;copy fadeDelta[192] to fadeCurRGB[192].
+        ;ld      hl,fadeDelta
+        ;ld      de,fadeCurRGB
+        ;ld      c,192
 ;.copyToCurRGB
         ;ld      a,[hl+]
-				;ld      [de],a
-				;inc     de
-				;dec     c
-				;jr      nz,.copyToCurRGB
+        ;ld      [de],a
+        ;inc     de
+        ;dec     c
+        ;jr      nz,.copyToCurRGB
 
-				;fadeDelta[...] = fadeFinalPalette[...] - fadeDelta[...]
-				ld      a,64
-				ld      hl,fadeDelta
-				ld      de,fadeFinalPalette
+        ;fadeDelta[...] = fadeFinalPalette[...] - fadeDelta[...]
+        ld      a,64
+        ld      hl,fadeDelta
+        ld      de,fadeFinalPalette
 
 .findStep
         push    af
-				call    FadeCommonGetColor
-				call    GetRedComponent
-				sub     [hl]
-				ld      [hl+],a
-				call    GetGreenComponent
-				sub     [hl]
-				ld      [hl+],a
-				call    GetBlueComponent
-				sub     [hl]
-				ld      [hl+],a
-				pop     af
-				dec     a
-				jr      nz,.findStep
+        call    FadeCommonGetColor
+        call    GetRedComponent
+        sub     [hl]
+        ld      [hl+],a
+        call    GetGreenComponent
+        sub     [hl]
+        ld      [hl+],a
+        call    GetBlueComponent
+        sub     [hl]
+        ld      [hl+],a
+        pop     af
+        dec     a
+        jr      nz,.findStep
 
 
-				;indicate we've got a fade goin on
-				ld      a,FX_FADE
-				ld      [specialFX],a
+        ;indicate we've got a fade goin on
+        ld      a,FX_FADE
+        ld      [specialFX],a
 
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -5196,200 +5196,200 @@ FadeStep::
         or      a
         jr      nz,.waitReady
 
-				;loop 64 times, adding the fade delta for each component
-				;to the error.  If error >= 32:
-			  ;  error -= 32;
-				;  increment component;
-				;Then flag the newly created palette to be displayed
-				ld      a,FADEBANK
-				ld      [$ff70],a
+        ;loop 64 times, adding the fade delta for each component
+        ;to the error.  If error >= 32:
+        ;  error -= 32;
+        ;  increment component;
+        ;Then flag the newly created palette to be displayed
+        ld      a,FADEBANK
+        ld      [$ff70],a
 
-				ld      a,[fadeStepsToGo]
-				dec     a
-				ld      [fadeStepsToGo],a
-				jr      z,.lastFade
+        ld      a,[fadeStepsToGo]
+        dec     a
+        ld      [fadeStepsToGo],a
+        jr      z,.lastFade
 
-				;ld      c,64
-				;ld      hl,fadeError
-				;ld      de,fadeCurRGB
+        ;ld      c,64
+        ;ld      hl,fadeError
+        ;ld      de,fadeCurRGB
 ;
 ;.fadeInner
         ;ld      a,[de]     ;red component
         ;call    .addDeltaToError
-				;ld      [de],a
-				;inc     de
+        ;ld      [de],a
+        ;inc     de
 ;
         ;ld      a,[de]     ;green component
         ;call    .addDeltaToError
-				;ld      [de],a
-				;inc     de
+        ;ld      [de],a
+        ;inc     de
 
         ;ld      a,[de]     ;blue component
         ;call    .addDeltaToError
-				;ld      [de],a
-				;inc     de
-				;;dec     c
-				;jr      nz,.fadeInner
+        ;ld      [de],a
+        ;inc     de
+        ;;dec     c
+        ;jr      nz,.fadeInner
 
         ;copy RGB palette to 15-bit palette
-				;ld      a,64
-				;ld      bc,0
-				;ld      hl,fadeCurRGB
-				;ld      de,fadeCurPalette
+        ;ld      a,64
+        ;ld      bc,0
+        ;ld      hl,fadeCurRGB
+        ;ld      de,fadeCurPalette
 ;.RGBtoCur
         ;push    af
         ;ld      a,[hl+]
-				;call    SetRedComponent
+        ;call    SetRedComponent
         ;ld      a,[hl+]
-				;call    SetGreenComponent
+        ;call    SetGreenComponent
         ;ld      a,[hl+]
-				;call    SetBlueComponent
-				;ld      a,c
-				;ld      [de],a
-				;inc     de
-				;ld      a,b
-				;ld      [de],a
-				;inc     de
-				;pop     af
-				;dec     a
-				;jr      nz,.RGBtoCur
+        ;call    SetBlueComponent
+        ;ld      a,c
+        ;ld      [de],a
+        ;inc     de
+        ;ld      a,b
+        ;ld      [de],a
+        ;inc     de
+        ;pop     af
+        ;dec     a
+        ;jr      nz,.RGBtoCur
 
 
-				ld      a,[fadeRange]
-				ld      hl,fadeError
-				ld      de,fadeCurPalette
+        ld      a,[fadeRange]
+        ld      hl,fadeError
+        ld      de,fadeCurPalette
 
 .fadeInner
         push    af
 
-				;get current color in bc, though keep de where it was
-				call    FadeCommonGetColor
-				dec     de
-				dec     de
+        ;get current color in bc, though keep de where it was
+        call    FadeCommonGetColor
+        dec     de
+        dec     de
 
-				call    GetRedComponent
+        call    GetRedComponent
         call    .addDeltaToError
-				call    SetRedComponent       ;store component
+        call    SetRedComponent       ;store component
 
-				call    GetGreenComponent
+        call    GetGreenComponent
         call    .addDeltaToError
-				call    SetGreenComponent     ;store component
+        call    SetGreenComponent     ;store component
 
-				call    GetBlueComponent
+        call    GetBlueComponent
         call    .addDeltaToError
-				call    SetBlueComponent      ;store component
+        call    SetBlueComponent      ;store component
 
-				;store back in cur table
-				ld      a,c
-				ld      [de],a
-				inc     de
-				ld      a,b
-				ld      [de],a
-				inc     de
+        ;store back in cur table
+        ld      a,c
+        ld      [de],a
+        inc     de
+        ld      a,b
+        ld      [de],a
+        inc     de
 
-				pop     af
-				dec     a
-				jr      nz,.fadeInner
+        pop     af
+        dec     a
+        jr      nz,.fadeInner
 
 .install
         ;make mapColor the current color 0
-				ld      de,mapColor
-				ld      hl,fadeCurPalette
-				ld      a,[hl+]
-				ld      [de],a
-				inc     de
-				ld      a,[hl+]
-				ld      [de],a
+        ld      de,mapColor
+        ld      hl,fadeCurPalette
+        ld      a,[hl+]
+        ld      [de],a
+        inc     de
+        ld      a,[hl+]
+        ld      [de],a
 
-				;install the current palette on the next VBlank
-				ld      a,1
-				ldio    [paletteBufferReady],a
+        ;install the current palette on the next VBlank
+        ld      a,1
+        ldio    [paletteBufferReady],a
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 
 .lastFade
-				;finally copy actual palette
-				ld      hl,fadeFinalPalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
+        ;finally copy actual palette
+        ld      hl,fadeFinalPalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
 
-				ld      a,64
-				ld      [fadeRange],a
+        ld      a,64
+        ld      [fadeRange],a
 
-				xor     a
-				ld      [specialFX],a
-				jr      .install
+        xor     a
+        ld      [specialFX],a
+        jr      .install
 
 .addDeltaToError
         ;accepts:  a - color value
-				;returns:  a - new color value
-				push    bc
-				push    af
+        ;returns:  a - new color value
+        push    bc
+        push    af
 
-				ld      a,[fadeSteps]
-				ld      b,a
-				cpl
-				add     1
-				ld      c,a
+        ld      a,[fadeSteps]
+        ld      b,a
+        cpl
+        add     1
+        ld      c,a
 
-				push    hl
-				push    de
-				ld      de,$ff40         ;-192
-				add     hl,de
-				pop     de
+        push    hl
+        push    de
+        ld      de,$ff40         ;-192
+        add     hl,de
+        pop     de
 
-				ld      a,[hl]
-				pop     hl
+        ld      a,[hl]
+        pop     hl
 
-				bit     7,a             ;negative?
-				jr      nz,.negative
+        bit     7,a             ;negative?
+        jr      nz,.negative
 
 .positive
         add     a,[hl]
-				cp      b
-				jr      c,.done
+        cp      b
+        jr      c,.done
 
-				;>=32
-				ld      c,0
+        ;>=32
+        ld      c,0
 .while_pos_ge_32
-				sub     b 
-				inc     c
-				cp      b
-				jr      nc,.while_pos_ge_32
+        sub     b 
+        inc     c
+        cp      b
+        jr      nc,.while_pos_ge_32
 
-				ld      [hl+],a
-				pop     af
-				add     c
-				pop     bc
-				ret
+        ld      [hl+],a
+        pop     af
+        add     c
+        pop     bc
+        ret
 
 .negative
         add     a,[hl]
-				cp      c
-				jr      nc,.done
+        cp      c
+        jr      nc,.done
 
-				;<= -32
-				ld      b,0
+        ;<= -32
+        ld      b,0
 .while_neg_le_n32
-				sub     c
-				inc     b
-				cp      c
-				jr      c,.while_neg_le_n32
-				ld      [hl+],a
-				pop     af
-				sub     b
-				pop     bc
-				ret
+        sub     c
+        inc     b
+        cp      c
+        jr      c,.while_neg_le_n32
+        ld      [hl+],a
+        pop     af
+        sub     b
+        pop     bc
+        ret
 
 .done
-				ld      [hl+],a
-				pop     af
-				pop     bc
-				ret
+        ld      [hl+],a
+        pop     af
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetColor0AllPalettes
@@ -5399,22 +5399,22 @@ FadeStep::
 ;---------------------------------------------------------------------
 SetColor0AllPalettes::
         push    de
-				push    hl
+        push    hl
 
-				ld      d,16
+        ld      d,16
 .loop   ld      a,c
         ld      [hl+],a
-				ld      a,b
-				ld      [hl+],a
-				ld      a,l
-				add     6
-				ld      l,a
-				dec     d
-				jr      nz,.loop
+        ld      a,b
+        ld      [hl+],a
+        ld      a,l
+        add     6
+        ld      l,a
+        dec     d
+        jr      nz,.loop
 
-				pop     hl
-				pop     de
-				ret
+        pop     hl
+        pop     de
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -5425,27 +5425,27 @@ SetColor0AllPalettes::
 ;---------------------------------------------------------------------
 SetColors123AllPalettes::
         push    de
-				push    hl
+        push    hl
 
-				ld      d,16
+        ld      d,16
 .loop   
         inc     hl
-				inc     hl
-				ld      e,3
+        inc     hl
+        ld      e,3
 .inner
         ld      a,c
         ld      [hl+],a
-				ld      a,b
-				ld      [hl+],a
-				dec     e
-				jr      nz,.inner
+        ld      a,b
+        ld      [hl+],a
+        dec     e
+        jr      nz,.inner
 
-				dec     d
-				jr      nz,.loop
+        dec     d
+        jr      nz,.loop
 
-				pop     hl
-				pop     de
-				ret
+        pop     hl
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      LighteningOut
@@ -5457,40 +5457,40 @@ LighteningOut::
         push    hl
 
         ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         ;white background
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      hl,fadeCurPalette
-				ld      bc,$7fff
-				call    SetColor0AllPalettes
-				ld      a,128
-				ldio    [paletteBufferReady],a
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      hl,fadeCurPalette
+        ld      bc,$7fff
+        call    SetColor0AllPalettes
+        ld      a,128
+        ldio    [paletteBufferReady],a
 
         ld      c,3
         call    .pause
 
-				ld      bc,0
-				ld      hl,fadeCurPalette
-				call    SetColors123AllPalettes
+        ld      bc,0
+        ld      hl,fadeCurPalette
+        call    SetColors123AllPalettes
 
-				ld      a,128
-				ldio    [paletteBufferReady],a
+        ld      a,128
+        ldio    [paletteBufferReady],a
 
         ld      c,7
-				call    .pause
-				
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        call    .pause
+        
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .pause  call    VWait
         dec     c
-				jr      nz,.pause
-				ret
+        jr      nz,.pause
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      LighteningIn
@@ -5502,54 +5502,54 @@ LighteningIn::
         push    hl
 
         ld      a,FADEBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         ;black fg on white background
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      hl,fadeCurPalette
-				ld      bc,$7fff
-				call    SetColor0AllPalettes
-				ld      bc,0
-				call    SetColors123AllPalettes
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      hl,fadeCurPalette
+        ld      bc,$7fff
+        call    SetColor0AllPalettes
+        ld      bc,0
+        call    SetColors123AllPalettes
 
-				ld      a,128
-				ldio    [paletteBufferReady],a
+        ld      a,128
+        ldio    [paletteBufferReady],a
 
         ld      c,7
-				call    .pause
+        call    .pause
 
         ;normal fg on white background
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      hl,fadeCurPalette
-				ld      bc,$7fff
-				call    SetColor0AllPalettes
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      hl,fadeCurPalette
+        ld      bc,$7fff
+        call    SetColor0AllPalettes
 
-				ld      a,128
-				ldio    [paletteBufferReady],a
+        ld      a,128
+        ldio    [paletteBufferReady],a
 
         ld      c,3
-				call    .pause
+        call    .pause
 
         ;normal
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    FadeCommonCopyPalette
-				ld      a,128
-				ldio    [paletteBufferReady],a
-				
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    FadeCommonCopyPalette
+        ld      a,128
+        ldio    [paletteBufferReady],a
+        
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .pause  call    VWait
         dec     c
-				jr      nz,.pause
-				ret
+        jr      nz,.pause
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     GetRedComponent 
@@ -5565,95 +5565,95 @@ LighteningIn::
 ;---------------------------------------------------------------------
 GetRedComponent::
         ld      a,c
-				and     %00011111
-				ret
+        and     %00011111
+        ret
 
 GetGreenComponent::
         push    de
-				ld      a,b
+        ld      a,b
 IF 1
-				ld      e,c
-				sla     e
-				rla
-				sla     e
-				rla
-				sla     e
-				rla
-				and     %00011111
-				pop     de
-				ret
+        ld      e,c
+        sla     e
+        rla
+        sla     e
+        rla
+        sla     e
+        rla
+        and     %00011111
+        pop     de
+        ret
 ENDC
 
 IF 0
-				ld      e,c
-				sla     e
-				rl      d
-				sla     e
-				rl      d
-				sla     e
-				rl      d
-				ld      a,d
-				and     %00011111
-				pop     de
-				ret
+        ld      e,c
+        sla     e
+        rl      d
+        sla     e
+        rl      d
+        sla     e
+        rl      d
+        ld      a,d
+        and     %00011111
+        pop     de
+        ret
 ENDC
 
 GetBlueComponent::
         ld      a,b
-				rrca
-				rrca
-				and     %00011111
-				ret
+        rrca
+        rrca
+        and     %00011111
+        ret
 
 SetRedComponent::
         push    af
         ld      a,c
-				and     %11100000
-				ld      c,a
-				pop     af
-				or      c
-				ld      c,a
-				ret
+        and     %11100000
+        ld      c,a
+        pop     af
+        or      c
+        ld      c,a
+        ret
 
 SetGreenComponent::
         push    de
-				ld      d,a
-				rrca
-				rrca
-				rrca
-				and     %00000011
-				ld      e,a
+        ld      d,a
+        rrca
+        rrca
+        rrca
+        and     %00000011
+        ld      e,a
 
         ld      a,b
-				and     %01111100
-				or      e
-				ld      b,a
+        and     %01111100
+        or      e
+        ld      b,a
 
-				ld      a,d
-				swap    a
-				rlca
-				and     %11100000
-				ld      d,a
+        ld      a,d
+        swap    a
+        rlca
+        and     %11100000
+        ld      d,a
 
-				ld      a,c
-				and     %00011111
-				or      d
-				ld      c,a
+        ld      a,c
+        and     %00011111
+        or      d
+        ld      c,a
 
-				pop     de
-				ret
+        pop     de
+        ret
 
 SetBlueComponent::
         push    af
-				ld      a,b
-				and     %00000011
-				ld      b,a
-				pop     af
-				rlca
-				rlca
-				or      b
-				ld      b,a
-				ret
+        ld      a,b
+        and     %00000011
+        ld      b,a
+        pop     af
+        rlca
+        rlca
+        or      b
+        ld      b,a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PlaySound
@@ -5664,30 +5664,30 @@ SetBlueComponent::
 ;---------------------------------------------------------------------
 PlaySound::
         ld      a,[hl+]
-				cp      1
-				jr      nz,.check2
+        cp      1
+        jr      nz,.check2
 
-				xor     a
-				ld      [musicOverride1],a
-				call    PlaySoundChannel1
-				ld      a,3
-				ld      [musicOverride1],a
-				ret
+        xor     a
+        ld      [musicOverride1],a
+        call    PlaySoundChannel1
+        ld      a,3
+        ld      [musicOverride1],a
+        ret
 .check2
         cp      2
-				jr      nz,.check4
-				call    PlaySoundChannel2
-				ret
+        jr      nz,.check4
+        call    PlaySoundChannel2
+        ret
 .check4
-				cp      4
-				jr      nz,.done
+        cp      4
+        jr      nz,.done
 
-				xor     a
-				ld      [musicOverride4],a
-				call    PlaySoundChannel4
-				ld      a,3
-				ld      [musicOverride4],a
-				ret
+        xor     a
+        ld      [musicOverride4],a
+        call    PlaySoundChannel4
+        ld      a,3
+        ld      [musicOverride4],a
+        ret
 
 .done
         ret
@@ -5700,21 +5700,21 @@ PlaySound::
 ;---------------------------------------------------------------------
 PlaySoundChannel1::
         ld      a,[musicOverride1]
-				or      a
-				ret     nz
-				
+        or      a
+        ret     nz
+        
 .playSound
         ld      a,[hl+]
-				ldio    [$ff10],a
+        ldio    [$ff10],a
         ld      a,[hl+]
-				ldio    [$ff11],a
+        ldio    [$ff11],a
         ld      a,[hl+]
-				ldio    [$ff12],a
+        ldio    [$ff12],a
         ld      a,[hl+]
-				ldio    [$ff13],a
+        ldio    [$ff13],a
         ld      a,[hl+]
-				ldio    [$ff14],a
-				ret
+        ldio    [$ff14],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PlaySoundChannel2
@@ -5724,14 +5724,14 @@ PlaySoundChannel1::
 ;---------------------------------------------------------------------
 PlaySoundChannel2::
         ld      a,[hl+]
-				ldio    [$ff16],a
+        ldio    [$ff16],a
         ld      a,[hl+]
-				ldio    [$ff17],a
+        ldio    [$ff17],a
         ld      a,[hl+]
-				ldio    [$ff18],a
+        ldio    [$ff18],a
         ld      a,[hl+]
-				ldio    [$ff19],a
-				ret
+        ldio    [$ff19],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PlaySoundChannel3
@@ -5740,16 +5740,16 @@ PlaySoundChannel2::
 ;---------------------------------------------------------------------
 PlaySoundChannel3::
         ld      a,$80
-				ldio    [$ff1a],a
+        ldio    [$ff1a],a
         ld      a,[hl+]
-				ldio    [$ff1b],a
+        ldio    [$ff1b],a
         ld      a,[hl+]
-				ldio    [$ff1c],a
+        ldio    [$ff1c],a
         ld      a,[hl+]
-				ldio    [$ff1d],a
+        ldio    [$ff1d],a
         ld      a,[hl+]
-				ldio    [$ff1e],a
-				ret
+        ldio    [$ff1e],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PlaySoundChannel4
@@ -5759,19 +5759,19 @@ PlaySoundChannel3::
 ;---------------------------------------------------------------------
 PlaySoundChannel4::
         ld      a,[musicOverride4]
-				or      a
-				ret     nz
-				
+        or      a
+        ret     nz
+        
 .playSound
         ld      a,[hl+]
-				ldio    [$ff20],a
+        ldio    [$ff20],a
         ld      a,[hl+]
-				ldio    [$ff21],a
+        ldio    [$ff21],a
         ld      a,[hl+]
-				ldio    [$ff22],a
+        ldio    [$ff22],a
         ld      a,[hl+]
-				ldio    [$ff23],a
-				ret
+        ldio    [$ff23],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      WaitInput
@@ -5780,25 +5780,25 @@ PlaySoundChannel4::
 ;---------------------------------------------------------------------
 WaitInput::
         push    bc
-				push    de
-				ld      b,a
+        push    de
+        ld      b,a
 .wait
         push    bc
-				push    hl
+        push    hl
         call    UpdateObjects
-				call    RedrawMap
-				pop     hl
-				pop     bc
-				ld      h,((curJoy0>>8) & $ff)
-				ld      a,[dialogJoyIndex]
-				add     (curJoy0 & $ff)
-				ld      l,a
-				ld      a,[hl]
-				and     b
-				jr      z,.wait
-				pop     de
-				pop     bc
-				ret
+        call    RedrawMap
+        pop     hl
+        pop     bc
+        ld      h,((curJoy0>>8) & $ff)
+        ld      a,[dialogJoyIndex]
+        add     (curJoy0 & $ff)
+        ld      l,a
+        ld      a,[hl]
+        and     b
+        jr      z,.wait
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      WaitInputZero
@@ -5808,21 +5808,21 @@ WaitInput::
 ;---------------------------------------------------------------------
 WaitInputZero::
         push    bc
-				push    de
-				ld      b,a
+        push    de
+        ld      b,a
 .wait
         push    bc
-				push    hl
+        push    hl
         call    UpdateObjects
-				call    RedrawMap
-				pop     hl
-				pop     bc
-				ld      a,[hl]
-				and     b
-				jr      nz,.wait
-				pop     de
-				pop     bc
-				ret
+        call    RedrawMap
+        pop     hl
+        pop     bc
+        ld      a,[hl]
+        and     b
+        jr      nz,.wait
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -5835,19 +5835,19 @@ WaitInputZero::
 ;---------------------------------------------------------------------
 WaitInputClick::
         push    bc
-				push    hl
+        push    hl
 
-				ld      b,a
-				ld      hl,myJoy
-				call    WaitInputZero
-				ld      a,b
-				call    WaitInput
-				ld      a,b
-				call    WaitInputZero
+        ld      b,a
+        ld      hl,myJoy
+        call    WaitInputZero
+        ld      a,b
+        call    WaitInput
+        ld      a,b
+        call    WaitInputZero
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ResetSprites
@@ -5858,39 +5858,39 @@ WaitInputClick::
 ;---------------------------------------------------------------------
 ResetSprites::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				;clear sprites used table
+        ;clear sprites used table
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,spritesUsed
-				xor     a
-				ld      c,40
+        ld      hl,spritesUsed
+        xor     a
+        ld      c,40
 .clr2   ld      [hl+],a
         dec     c
-				jr      nz,.clr2
+        jr      nz,.clr2
 
-				;clear sprites
-				ld      hl,spriteOAMBuffer
-				ld      c,40
-				ld      de,3
+        ;clear sprites
+        ld      hl,spriteOAMBuffer
+        ld      c,40
+        ld      de,3
 .clr3
-				ld      [hl+],a
-				add     hl,de
-				dec     c
-				jr      nz,.clr3
+        ld      [hl+],a
+        add     hl,de
+        dec     c
+        jr      nz,.clr3
 
         xor     a
-				ld      [oamFindPos],a
-				ld      a,40
-				ld      [numFreeSprites],a
+        ld      [oamFindPos],a
+        ld      a,40
+        ld      [numFreeSprites],a
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -5903,56 +5903,56 @@ ResetSprites::
 ;---------------------------------------------------------------------
 AllocateSprite::
         ;any free sprites?
-				ld      a,[numFreeSprites]
-				or      a
-				jr      nz,.freeSpriteExists
+        ld      a,[numFreeSprites]
+        or      a
+        jr      nz,.freeSpriteExists
 
-				ld      a,$ff
-				ret
+        ld      a,$ff
+        ret
 
 .freeSpriteExists
         push    bc 
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				dec     a
-				ld      [numFreeSprites],a
+        dec     a
+        ld      [numFreeSprites],a
 
-				;we know there's at least one free sprite so start at
-				;the the search position (which is guaranteed to be
-				;<= pos of first free) and loop till we find it
+        ;we know there's at least one free sprite so start at
+        ;the the search position (which is guaranteed to be
+        ;<= pos of first free) and loop till we find it
 
-				ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      a,TILEINDEXBANK
+        ld      [$ff70],a
 
-				ld      h,((spritesUsed>>8)&$ff)
-				ld      a,[oamFindPos]
-				ld      l,a
+        ld      h,((spritesUsed>>8)&$ff)
+        ld      a,[oamFindPos]
+        ld      l,a
 
 .loop   ld      a,[hl+]       ;get sprite used flag
         or      a
-				jr      nz,.loop      ;not free
+        jr      nz,.loop      ;not free
 
 .foundSprite
         dec     hl
         ld      a,1           ;mark sprite as used
-				ld      [hl],a 
+        ld      [hl],a 
 
         ld      a,l           ;return loptr in a
-				inc     a
+        inc     a
         ld      [oamFindPos],a
 
-				ld      a,l
+        ld      a,l
 
-				;change 1-byte offset to 4-byte offset (loPtr)
-				rlca                  ;times 2
-				rlca                  ;times 2 again
+        ;change 1-byte offset to 4-byte offset (loPtr)
+        rlca                  ;times 2
+        rlca                  ;times 2 again
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      FreeSprite        
@@ -5965,41 +5965,41 @@ AllocateSprite::
 ;---------------------------------------------------------------------
 FreeSprite::
         ;if loptr is $ff then don't bother
-				cp      $ff
-				ret     z
+        cp      $ff
+        ret     z
 
         push    hl
 
-				ld      l,a
-				ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      l,a
+        ld      h,((spriteOAMBuffer>>8) & $ff)
 
-				xor     a
-				ld      [hl],a     ;ypos to zero
+        xor     a
+        ld      [hl],a     ;ypos to zero
 
-				ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      a,TILEINDEXBANK
+        ld      [$ff70],a
 
-				rrc     l          ;convert loptr to sprite index
-				rrc     l
-				ld      h,((spritesUsed>>8) & $ff)
+        rrc     l          ;convert loptr to sprite index
+        rrc     l
+        ld      h,((spritesUsed>>8) & $ff)
 
-				xor     a
-				ld      [hl],a     ;clear sprite used flag
+        xor     a
+        ld      [hl],a     ;clear sprite used flag
 
         ;set find pos to be mininum
-				ld      a,[oamFindPos]
-				cp      l
-				jr      c,.findPosIsMin
+        ld      a,[oamFindPos]
+        cp      l
+        jr      c,.findPosIsMin
 
-				ld      a,l
-				ld      [oamFindPos],a
+        ld      a,l
+        ld      [oamFindPos],a
 
 .findPosIsMin
         ;add one to # of free sprites
-				ld      hl,numFreeSprites
-				inc     [hl]
+        ld      hl,numFreeSprites
+        inc     [hl]
 
-				pop     hl
+        pop     hl
         ret
 
 ;---------------------------------------------------------------------
@@ -6016,68 +6016,68 @@ FreeSprite::
 ;---------------------------------------------------------------------
 CreateMetaSprite::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      a,[metaSprite_x]
-				ld      [metaSprite_first_x],a
+        ld      a,[metaSprite_x]
+        ld      [metaSprite_first_x],a
 
         ;calculate width times height
-				push    bc
-				xor     a
+        push    bc
+        xor     a
 .calcTotalSize
         add     a,b
-				dec     c
-				jr      nz,.calcTotalSize
-				pop     bc
+        dec     c
+        jr      nz,.calcTotalSize
+        pop     bc
 
-				;store total sprites used in metaSpriteInfo
-				ld      [hl+],a
+        ;store total sprites used in metaSpriteInfo
+        ld      [hl+],a
 
-				;go through and allocate each sprite, set it up, and store its
-				;loptr in the metaSpriteInfo
-				push    bc
+        ;go through and allocate each sprite, set it up, and store its
+        ;loptr in the metaSpriteInfo
+        push    bc
 .height pop     af     ;setup width from original value
         push    af
-				ld      b,a
-				ld      a,[metaSprite_first_x]
-				ld      [metaSprite_x],a
+        ld      b,a
+        ld      a,[metaSprite_first_x]
+        ld      [metaSprite_x],a
 
 .width  call    AllocateSprite
         ld      [hl+],a    ;save loptr
 
         ;set up sprite
-				push    hl
-				ld      l,a
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				ld      a,[metaSprite_y]
-				ld      [hl+],a
-				ld      a,[metaSprite_x]
-				ld      [hl+],a
-				add     8
-				ld      [metaSprite_x],a
-				ld      a,d              ;pattern number
-				ld      [hl+],a
-				inc     d
-				ld      [hl],e           ;attributes
-				pop     hl
+        push    hl
+        ld      l,a
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      a,[metaSprite_y]
+        ld      [hl+],a
+        ld      a,[metaSprite_x]
+        ld      [hl+],a
+        add     8
+        ld      [metaSprite_x],a
+        ld      a,d              ;pattern number
+        ld      [hl+],a
+        inc     d
+        ld      [hl],e           ;attributes
+        pop     hl
 
-				dec     b
-				jr      nz,.width
+        dec     b
+        jr      nz,.width
 
-				ld      a,[metaSprite_y]
-				add     8
-				ld      [metaSprite_y],a
-				dec     c
-				jr      nz,.height
+        ld      a,[metaSprite_y]
+        add     8
+        ld      [metaSprite_y],a
+        dec     c
+        jr      nz,.height
 
 .done
         pop     bc
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CreateMetaSpriteUsingMask
@@ -6095,79 +6095,79 @@ CreateMetaSprite::
 ;---------------------------------------------------------------------
 CreateMetaSpriteUsingMask::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      a,[metaSprite_x]
-				ld      [metaSprite_first_x],a
+        ld      a,[metaSprite_x]
+        ld      [metaSprite_first_x],a
 
         ;calculate width times height
-				push    bc
-				xor     a
+        push    bc
+        xor     a
 .calcTotalSize
         add     a,b
-				dec     c
-				jr      nz,.calcTotalSize
-				pop     bc
+        dec     c
+        jr      nz,.calcTotalSize
+        pop     bc
 
-				;store total sprites used in metaSpriteInfo
-				ld      [hl+],a
+        ;store total sprites used in metaSpriteInfo
+        ld      [hl+],a
 
-				;go through and allocate each sprite marked with non-zero, 
-				;set it up, and store its loptr in the metaSpriteInfo
-				push    bc
+        ;go through and allocate each sprite marked with non-zero, 
+        ;set it up, and store its loptr in the metaSpriteInfo
+        push    bc
 .height pop     af     ;setup width from original value
         push    af
-				ld      b,a
-				ld      a,[metaSprite_first_x]
-				ld      [metaSprite_x],a
+        ld      b,a
+        ld      a,[metaSprite_first_x]
+        ld      [metaSprite_x],a
 
 .width  ld      a,[hl]     ;load flag from destination
         or      a
-				ld      a,$ff
-				jr      z,.afterAllocate
+        ld      a,$ff
+        jr      z,.afterAllocate
         call    AllocateSprite
 
 .afterAllocate
         ld      [hl+],a    ;save loptr
 
-				cp      $ff
-				jr      z,.afterSetup
+        cp      $ff
+        jr      z,.afterSetup
 
         ;set up sprite
-				push    hl
-				ld      l,a
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				ld      a,[metaSprite_y]
-				ld      [hl+],a
-				ld      a,[metaSprite_x]
-				ld      [hl+],a
-				ld      a,d              ;pattern number
-				ld      [hl+],a
-				ld      [hl],e           ;attributes
-				pop     hl
+        push    hl
+        ld      l,a
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      a,[metaSprite_y]
+        ld      [hl+],a
+        ld      a,[metaSprite_x]
+        ld      [hl+],a
+        ld      a,d              ;pattern number
+        ld      [hl+],a
+        ld      [hl],e           ;attributes
+        pop     hl
 
 .afterSetup
         ld      a,[metaSprite_x]
-				add     8
+        add     8
         ld      [metaSprite_x],a
-				inc     d
-				dec     b
-				jr      nz,.width
+        inc     d
+        dec     b
+        jr      nz,.width
 
-				ld      a,[metaSprite_y]
-				add     8
-				ld      [metaSprite_y],a
-				dec     c
-				jr      nz,.height
+        ld      a,[metaSprite_y]
+        add     8
+        ld      [metaSprite_y],a
+        dec     c
+        jr      nz,.height
 
 .done
         pop     bc
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ScrollMetaSprite          
@@ -6179,27 +6179,27 @@ CreateMetaSpriteUsingMask::
 ScrollMetaSprite::
         push    de
 
-				ld      a,[hl+]   ;number of sprites
+        ld      a,[hl+]   ;number of sprites
 .loop
         push    af
-				ld      a,[hl+]   ;loptr to sprite
-				ld      e,a
-				ld      d,((spriteOAMBuffer>>8) & $ff)
+        ld      a,[hl+]   ;loptr to sprite
+        ld      e,a
+        ld      d,((spriteOAMBuffer>>8) & $ff)
 
-				ld      a,[de]    ;get the y position
-				add     c         ;add y offset
-				ld      [de],a
-				inc     de
-				ld      a,[de]    ;get the x position
-				add     b         ;add x offset
-				ld      [de],a
-				inc     de
+        ld      a,[de]    ;get the y position
+        add     c         ;add y offset
+        ld      [de],a
+        inc     de
+        ld      a,[de]    ;get the x position
+        add     b         ;add x offset
+        ld      [de],a
+        inc     de
 
-				pop     af
-				dec     a
-				jr      nz,.loop
-				pop     de
-				ret
+        pop     af
+        dec     a
+        jr      nz,.loop
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetMetaSpritePos          
@@ -6215,23 +6215,23 @@ SetMetaSpritePos::
         push    hl
 
         inc     hl     ;go to y pos of first sprite
-				ld      l,[hl]
-				ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      l,[hl]
+        ld      h,((spriteOAMBuffer>>8) & $ff)
 
-				ld      a,c    ;desired y pos
-				sub     [hl] 
-				ld      c,a    ;becomes offset to scroll
+        ld      a,c    ;desired y pos
+        sub     [hl] 
+        ld      c,a    ;becomes offset to scroll
 
-				inc     hl
-				ld      a,b
-				sub     [hl]
-				ld      b,a    ;becomes offset to scroll
+        inc     hl
+        ld      a,b
+        sub     [hl]
+        ld      b,a    ;becomes offset to scroll
 
-				pop     hl
+        pop     hl
 
-				call    ScrollMetaSprite
+        call    ScrollMetaSprite
 
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -6242,20 +6242,20 @@ SetMetaSpritePos::
 ;---------------------------------------------------------------------
 FreeMetaSprite::
         push    bc
-				push    hl
+        push    hl
 
         ld      a,[hl+]     ;number of sprites
-				ld      c,a
+        ld      c,a
 
 .freeASprite
         ld      a,[hl+]     ;get loptr
-				call    FreeSprite
-				dec     c
-				jr      nz,.freeASprite
+        call    FreeSprite
+        dec     c
+        jr      nz,.freeASprite
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -6276,172 +6276,172 @@ FreeMetaSprite::
 ;---------------------------------------------------------------------
 CreateBigExplosion::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				;limit the number of sprites according to the system's
-				;resources
-				ld      a,[numFreeSprites]
-				cp      d
-				jr      nc,.numSpritesOkay
-				ld      d,a
+        ;limit the number of sprites according to the system's
+        ;resources
+        ld      a,[numFreeSprites]
+        cp      d
+        jr      nc,.numSpritesOkay
+        ld      d,a
 .numSpritesOkay
         or      a
-				jr      nz,.continue
-				jp      .done
+        jr      nz,.continue
+        jp      .done
 .continue
-				call    ConvertLocHLToXY
-				ld      a,[bulletColor]
+        call    ConvertLocHLToXY
+        ld      a,[bulletColor]
 
 .loop   ;limit myself to smaller explosions if I have less than 4
         ;sprites left
-				push    af
-				push    hl
+        push    af
+        push    hl
 
-				ld      a,d
-				cp      4
-				jr      nc,.afterLimitToSmaller
-				res     2,e    ;remove larger fr possible explosions flags
-				ld      a,e
-				or      a
-				jr      nz,.afterLimitToSmaller
-				ld      d,1
-				jr      .afterCreateExplosion
+        ld      a,d
+        cp      4
+        jr      nc,.afterLimitToSmaller
+        res     2,e    ;remove larger fr possible explosions flags
+        ld      a,e
+        or      a
+        jr      nz,.afterLimitToSmaller
+        ld      d,1
+        jr      .afterCreateExplosion
 .afterLimitToSmaller
         
-				;select random tile position within area
+        ;select random tile position within area
 
-				;width
-				ld      a,b   
-				dec     a
-				call    GetRandomNumZeroToN
-				add     h
-				ld      h,a
+        ;width
+        ld      a,b   
+        dec     a
+        call    GetRandomNumZeroToN
+        add     h
+        ld      h,a
 
         ;height
-				ld      a,c
-				dec     a
-				call    GetRandomNumZeroToN
-				add     l
-				ld      l,a
+        ld      a,c
+        dec     a
+        call    GetRandomNumZeroToN
+        add     l
+        ld      l,a
 
-				call    ConvertXYToLocHL
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
+        call    ConvertXYToLocHL
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
 
-				;choose random explosion
-				ld      a,e
-				call    GetRandomNumMask
-				bit     2,a
-				jr      z,.checkType1
+        ;choose random explosion
+        ld      a,e
+        call    GetRandomNumMask
+        bit     2,a
+        jr      z,.checkType1
 
 .isType2
         bit     2,e   ;this type allowed?
-				jr      z,.isType0
+        jr      z,.isType0
         ;type two - big 2x2 explosion
-				ld      a,6
-				ld      [bulletColor],a
+        ld      a,6
+        ld      [bulletColor],a
 
         push    bc
         ld      b,32
         call    .create2x2Frame
-				inc     hl
+        inc     hl
         call    .create2x2Frame
-				push    de
-				ld      d,0
-				ld      a,[mapPitch]
-				ld      e,a
-				add     hl,de
-				pop     de
-				dec     hl
+        push    de
+        ld      d,0
+        ld      a,[mapPitch]
+        ld      e,a
+        add     hl,de
+        pop     de
+        dec     hl
         call    .create2x2Frame
-				inc     hl
+        inc     hl
         call    .create2x2Frame
-				pop     bc
+        pop     bc
 
-				dec     d
-				dec     d
-				dec     d
-				jr      .afterCreateExplosion
+        dec     d
+        dec     d
+        dec     d
+        jr      .afterCreateExplosion
 
 .checkType1
         bit     1,a
-				jr      z,.isType0
+        jr      z,.isType0
 
 .isType1
         bit     1,e   ;this type allowed?
-				jr      z,.isType2
-				;type one - shrapnel
-				ld      a,64
-				jr      .determinedFrame
+        jr      z,.isType2
+        ;type one - shrapnel
+        ld      a,64
+        jr      .determinedFrame
 
 .isType0  ;default
         bit     0,e   ;this type allowed?
-				jr      z,.isType1
-				;type zero - small round explosion
-				ld      a,5
-				ld      [bulletColor],a
-				ld      a,16
+        jr      z,.isType1
+        ;type zero - small round explosion
+        ld      a,5
+        ld      [bulletColor],a
+        ld      a,16
 
 .determinedFrame
         push    bc
         ld      b,a
-				call    CreateExplosion
-				call    .offsetSprite
-				pop     bc
+        call    CreateExplosion
+        call    .offsetSprite
+        pop     bc
 
 .afterCreateExplosion
-				pop     hl
+        pop     hl
 .beforeRestoreColor
-				pop     af
-				ld      [bulletColor],a
+        pop     af
+        ld      [bulletColor],a
 
-				dec     d
-				jr      z,.done
-				jp      .loop
+        dec     d
+        jr      z,.done
+        jp      .loop
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 .offsetSprite
         or      a
-				ret     z
-				push    de
+        ret     z
+        push    de
         push    hl
-				call    IndexToPointerHL  ;get ptr to explosion class
+        call    IndexToPointerHL  ;get ptr to explosion class
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      de,OBJ_SPRITELO
-				add     hl,de
-				ld      l,[hl]
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				ld      a,%111
-				call    GetRandomNumMask
-				add     [hl]
-				ld      [hl+],a
-				ld      a,%111
-				call    GetRandomNumMask
-				add     [hl]
-				ld      [hl],a
-				pop     hl
-				pop     de
-				ret
+        ldio    [$ff70],a
+        ld      de,OBJ_SPRITELO
+        add     hl,de
+        ld      l,[hl]
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      a,%111
+        call    GetRandomNumMask
+        add     [hl]
+        ld      [hl+],a
+        ld      a,%111
+        call    GetRandomNumMask
+        add     [hl]
+        ld      [hl],a
+        pop     hl
+        pop     de
+        ret
 
 .create2x2Frame
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				call    CreateExplosion
-				ld      a,b
-				add     8
-				ld      b,a
-				ret
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        call    CreateExplosion
+        ld      a,b
+        add     8
+        ld      b,a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      BlitMap
@@ -6459,60 +6459,60 @@ BlitMap::
         push    hl
 
         push    hl
-				ld      h,d
-				ld      l,e
+        ld      h,d
+        ld      l,e
         call    ConvertXYToLocHL
-				ld      d,h
-				ld      e,l
-				pop     hl
+        ld      d,h
+        ld      e,l
+        pop     hl
         call    ConvertXYToLocHL
         ld      a,MAPBANK
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
 .blitMapOuter
         push    bc
-				push    de
-				push    hl
-				ldio    a,[firstMonster]
-				ld      c,a
+        push    de
+        push    hl
+        ldio    a,[firstMonster]
+        ld      c,a
         
 .blitMapInner
         ld      a,[de]
-				cp      c       ;< first monster?
-				jr      nc,.blitSkip
+        cp      c       ;< first monster?
+        jr      nc,.blitSkip
 
-				ld      a,[hl]
-				ld      [de],a
+        ld      a,[hl]
+        ld      [de],a
 .blitSkip
         inc     hl
-				inc     de
-				dec     b
-				jr      nz,.blitMapInner
+        inc     de
+        dec     b
+        jr      nz,.blitMapInner
 
         pop     hl
-				pop     de
+        pop     de
         push    hl
-				ld      a,[mapPitch]
-				ld      h,0
-				ld      l,a
-				add     hl,de
-				ld      d,h
-				ld      e,l
-				pop     hl
-				ld      a,[mapPitch]
-				ld      b,0
-				ld      c,a
-				add     hl,bc
+        ld      a,[mapPitch]
+        ld      h,0
+        ld      l,a
+        add     hl,de
+        ld      d,h
+        ld      e,l
+        pop     hl
+        ld      a,[mapPitch]
+        ld      b,0
+        ld      c,a
+        add     hl,bc
 
-				pop     bc
-				dec     c
-				jr      nz,.blitMapOuter
+        pop     bc
+        dec     c
+        jr      nz,.blitMapOuter
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ConvertLocHLToXY
@@ -6525,24 +6525,24 @@ BlitMap::
 ConvertLocHLToXY::
         ld      a,[mapPitchMinusOne]
         and     l   
-				push    af          ;push a (x index) on stack
+        push    af          ;push a (x index) on stack
 
         ld      a,h         ;subtract $D000 from hl by adding $3000
-				add     $30 
-				ld      h,a
-				ld      a,[mapPitchMinusOneComplement]  ;times to left-shift
+        add     $30 
+        ld      h,a
+        ld      a,[mapPitchMinusOneComplement]  ;times to left-shift
 .shift  rlca                      ;shift a bit left out of a
         jr      nc,.shiftDone     ;hl<<=1 if bits left in a
-				sla     l
-				rl      h
-				jr      .shift
-				
+        sla     l
+        rl      h
+        jr      .shift
+        
 .shiftDone
         ld      l,h
-				pop     af
-				ld      h,a               ;h = x index, l = y index
+        pop     af
+        ld      h,a               ;h = x index, l = y index
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ConvertXYToLocHL
@@ -6559,22 +6559,22 @@ ConvertXYToLocHL::
 
         ;multiply y*pitch
         ld      a,[mapPitchMinusOneComplement]
-				ld      d,l
+        ld      d,l
         ld      e,0
 
 .shift  rlca        ;if bits left in A then keep shifting
         jr      nc,.shiftDone
-				srl     d
-				rr      e
-				jr      .shift
+        srl     d
+        rr      e
+        jr      .shift
 
 .shiftDone
-				ld      l,h         ;add x + $d000
-				ld      h,$d0
-				add     hl,de
+        ld      l,h         ;add x + $d000
+        ld      h,$d0
+        add     hl,de
 
-				pop     de
-				ret
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      LCheckGetVectorToState
@@ -6585,16 +6585,16 @@ ConvertXYToLocHL::
 ;---------------------------------------------------------------------
 LCheckGetVectorToState::
         push    de
-				ldio    a,[mapState]
-				ld      d,0
-				ld      e,a
-				sla     e
-				rl      d
-				add     hl,de
-				pop     de
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ldio    a,[mapState]
+        ld      d,0
+        ld      e,a
+        sla     e
+        rl      d
+        add     hl,de
+        pop     de
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
         ret
 
 ;---------------------------------------------------------------------
@@ -6607,16 +6607,16 @@ LCheckGetVectorToState::
 ;               settings
 ;---------------------------------------------------------------------
 SaveIdle::
-				ld      a,[heroesIdle]
-				rlca
-				ld      hl,allIdle
-				or      [hl]
-				ld      [dialogIdleSettings],a
+        ld      a,[heroesIdle]
+        rlca
+        ld      hl,allIdle
+        or      [hl]
+        ld      [dialogIdleSettings],a
 
-				ld      a,1
-				ld      [heroesIdle],a
-				ld      [allIdle],a
-				ret
+        ld      a,1
+        ld      [heroesIdle],a
+        ld      [allIdle],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      RestoreIdle
@@ -6628,13 +6628,13 @@ SaveIdle::
 ;---------------------------------------------------------------------
 RestoreIdle::
         ld      a,[dialogIdleSettings]
-				push    af
-				and     1
-				ld      [allIdle],a
-				pop     af
-				srl     a
-				ld      [heroesIdle],a
-				ret
+        push    af
+        and     1
+        ld      [allIdle],a
+        pop     af
+        srl     a
+        ld      [heroesIdle],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      MakeIdle
@@ -6645,9 +6645,9 @@ RestoreIdle::
 ;---------------------------------------------------------------------
 MakeIdle::
         ld      a,1
-				ld      [heroesIdle],a
-				ld      [allIdle],a
-				ret
+        ld      [heroesIdle],a
+        ld      [allIdle],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      MakeNonIdle
@@ -6658,9 +6658,9 @@ MakeIdle::
 ;---------------------------------------------------------------------
 MakeNonIdle::
         xor     a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
-				ret
+        ld      [heroesIdle],a
+        ld      [allIdle],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      UseAlternatePalette
@@ -6672,39 +6672,39 @@ MakeNonIdle::
 ;---------------------------------------------------------------------
 UseAlternatePalette::
         push    bc
-				push    hl
+        push    hl
 
         ld      a,FADEBANK
-				ldio    [$ff70],a
-				
-				ld      c,16
-				ld      hl,gamePalette+2
+        ldio    [$ff70],a
+        
+        ld      c,16
+        ld      hl,gamePalette+2
 .loop   call    .halve
-				call    .halve
-				inc     hl
-				inc     hl
-				inc     hl
-				inc     hl
-				dec     c
-				jr      nz,.loop
+        call    .halve
+        inc     hl
+        inc     hl
+        inc     hl
+        inc     hl
+        dec     c
+        jr      nz,.loop
 
-				pop     hl
-				pop     bc
+        pop     hl
+        pop     bc
         ret
 
 .halve
         ld      a,[hl+]     ;color[i]>>=1;
         ld      b,a
-				ld      a,[hl]
-				rrca
-				rr      b
-				and     %00111101
-				ld      [hl-],a
-				ld      a,b
-				and     %11101111
-				ld      [hl+],a
-				inc     hl
-				ret
+        ld      a,[hl]
+        rrca
+        rr      b
+        and     %00111101
+        ld      [hl-],a
+        ld      a,b
+        and     %11101111
+        ld      [hl+],a
+        inc     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetMyHero
@@ -6715,18 +6715,18 @@ UseAlternatePalette::
 ;---------------------------------------------------------------------
 GetMyHero::
         ld      a,[amLinkMaster]
-				cp      0
-				jr      z,.getHero1
+        cp      0
+        jr      z,.getHero1
 
-				;get hero zero if link master
-				ld      a,[hero0_index]
-				ld      hl,hero0_data
-				ret
+        ;get hero zero if link master
+        ld      a,[hero0_index]
+        ld      hl,hero0_data
+        ret
 
 .getHero1
         ld      a,[hero1_index]
-				ld      hl,hero1_data
-				ret
+        ld      hl,hero1_data
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetBGAttributes  
@@ -6740,13 +6740,13 @@ GetMyHero::
 ;---------------------------------------------------------------------
 GetBGAttributes::
         push    hl
-				ld      l,a
+        ld      l,a
         ld      h,((bgAttributes>>8) & $ff)
         ld      a,TILEINDEXBANK
         ldio    [$ff70],a
         ld      a,[hl]
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      UpdateDialogBalloons

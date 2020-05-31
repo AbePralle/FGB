@@ -117,16 +117,16 @@ L1512_Check2:
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$0612
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
 
         ld      a,EXIT_U
         call    YankRemotePlayer
 
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 
@@ -136,9 +136,9 @@ L1512_Check2:
         ld      bc,$0303
         ld      de,$1407
         push    hl
-				call    CreateBigExplosion
-				ld      hl,bigExplosionSound
-				call    PlaySound
+        call    CreateBigExplosion
+        ld      hl,bigExplosionSound
+        call    PlaySound
         ld      a,15
         ldio    [jiggleDuration],a
         pop     hl
@@ -177,11 +177,11 @@ L1512_Check2:
 
 .animateFence
         ldio    a,[updateTimer]
-				rrca
-				and     3
-				ld      b,a
-				ld      hl,bgTileMap+VFENCE_INDEX
-				ld      d,VFENCE_INDEX
+        rrca
+        and     3
+        ld      b,a
+        ld      hl,bgTileMap+VFENCE_INDEX
+        ld      d,VFENCE_INDEX
         call    ((.animateFourFrames-L1512_Check2)+levelCheckRAM)
         ret
 
@@ -190,13 +190,13 @@ L1512_Check2:
 
 .animateFourFrames_loop
         ld      a,b
-				add     c
-				and     3
-				add     d
-				ld      [hl+],a
-				dec     c
-				jr      nz,.animateFourFrames_loop
-				ret
+        add     c
+        and     3
+        add     d
+        ld      [hl+],a
+        dec     c
+        jr      nz,.animateFourFrames_loop
+        ret
 
 
 L1512_CheckFinished:

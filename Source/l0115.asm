@@ -132,70 +132,70 @@ L0115_Init:
 L0115_Init2:
         call    SetPressBDialog
         ld      a,BANK(dialog)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
-				ld      a,BANK(bs_gbm)
-				ld      hl,bs_gbm
-				call    InitMusic
+        ld      a,BANK(bs_gbm)
+        ld      hl,bs_gbm
+        call    InitMusic
 
         xor     a
-				ld      [levelVars + VAR_MONITOR_WARNING],a
-				ld      [levelVars + VAR_COSTUME_DIALOG],a
-				ld      [levelVars + VAR_HANGIN_DIALOG],a
+        ld      [levelVars + VAR_MONITOR_WARNING],a
+        ld      [levelVars + VAR_COSTUME_DIALOG],a
+        ld      [levelVars + VAR_HANGIN_DIALOG],a
 
         ;save BS's current tile for later
-				call    SetSpeakerToFirstHero
-				call    GetFGMapping
-				ld      [levelVars+VAR_BS_TILE],a
+        call    SetSpeakerToFirstHero
+        call    GetFGMapping
+        ld      [levelVars+VAR_BS_TILE],a
 
-				ld      a,20
-				ld      [levelVars + VAR_NUMMONITORS],a
+        ld      a,20
+        ld      [levelVars + VAR_NUMMONITORS],a
 
         xor     a
-				ld      c,20
-				ld      hl,levelVars + VAR_MONITORS
+        ld      c,20
+        ld      hl,levelVars + VAR_MONITORS
 .clearMonitors
         ld      [hl+],a
-				dec     c
-				jr      nz,.clearMonitors
+        dec     c
+        jr      nz,.clearMonitors
         
 
-				;ld      a,$ff
-				;ld      [levelVars + VAR_BS_TILE],a
+        ;ld      a,$ff
+        ;ld      [levelVars + VAR_BS_TILE],a
 
         ld      a,[bgTileMap+STATICINDEX]
-				ld      [levelVars+VAR_STATIC],a
+        ld      [levelVars+VAR_STATIC],a
 
         ld      a,TILEINDEXBANK
         ldio    [$ff70],a
         ld      a,[fgTileMap+GRUNTINDEX]
-				ld      [levelVars+VAR_GRUNT_TILE],a
+        ld      [levelVars+VAR_GRUNT_TILE],a
 
-				ldio    a,[mapState]
-				cp      STATE_NORMAL
-				ret     nz
+        ldio    a,[mapState]
+        cp      STATE_NORMAL
+        ret     nz
 
         ;open doors
-				;open the security door
-				;ld      a,MAPBANK
-				;ldio    [$ff70],a
-				;xor     a
-				;ld      hl,$d189
-				;ld      [hl+],a
-				;ld      [hl],a
+        ;open the security door
+        ;ld      a,MAPBANK
+        ;ldio    [$ff70],a
+        ;xor     a
+        ;ld      hl,$d189
+        ;ld      [hl+],a
+        ;ld      [hl],a
 
-				;open the outer door
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      hl,$d049
-				ld      [hl+],a
-				ld      [hl],a
+        ;open the outer door
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      hl,$d049
+        ld      [hl+],a
+        ld      [hl],a
 
-				;mark certain dialogs as having happened
-				ld      a,1
-				ld      [levelVars + VAR_COSTUME_DIALOG],a
-				ld      [levelVars + VAR_HANGIN_DIALOG],a
+        ;mark certain dialogs as having happened
+        ld      a,1
+        ld      [levelVars + VAR_COSTUME_DIALOG],a
+        ld      [levelVars + VAR_HANGIN_DIALOG],a
 
         ret
 
@@ -206,15 +206,15 @@ L0115_InitFinished:
 L0115_Check:
         DW ((L0115_CheckFinished - L0115_Check2))  ;size
 L0115_Check2:
-				call    SetSkipStackPos
-				call    CheckSkip
+        call    SetSkipStackPos
+        call    CheckSkip
         call    ((.animateStatic-L0115_Check2)+levelCheckRAM)
         call    ((.checkBSAttack-L0115_Check2)+levelCheckRAM)
         call    ((.checkPaintRoom-L0115_Check2)+levelCheckRAM)
         call    ((.checkHangin-L0115_Check2)+levelCheckRAM)
         call    ((.adjustCameraInMonitorRoom-L0115_Check2)+levelCheckRAM)
         call    ((.checkMonitorWarn-L0115_Check2)+levelCheckRAM)
-				VECTORTOSTATE ((.stateTable-L0115_Check2)+levelCheckRAM)
+        VECTORTOSTATE ((.stateTable-L0115_Check2)+levelCheckRAM)
 
 .stateTable
         DW      ((.checkDetect1-L0115_Check2)+levelCheckRAM)
@@ -240,346 +240,346 @@ L0115_Check2:
         jp      CheckEachHero
 
 .checkDetect1_hero
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      DETECTZONE
-				ld      a,0
-				ret     nz
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      DETECTZONE
+        ld      a,0
+        ret     nz
 
-				ld      a,c
-				ld      [levelVars + VAR_SPEAKINGHERO],a
-				call    SetSpeakerFromHeroIndex
+        ld      a,c
+        ld      [levelVars + VAR_SPEAKINGHERO],a
+        call    SetSpeakerFromHeroIndex
 
-				call    MakeIdle
+        call    MakeIdle
 
         ld      hl,$d85d
         call    ((.monitorToStatic-L0115_Check2)+levelCheckRAM)
 
         ld      c,8
 .waitStatic
-				ld      de,((.skipDetect - L0115_Check2) + levelCheckRAM)
-				call    SetDialogSkip
+        ld      de,((.skipDetect - L0115_Check2) + levelCheckRAM)
+        call    SetDialogSkip
 
-				ld      a,1
-				call    Delay
+        ld      a,1
+        call    Delay
         call    ((.animateStatic-L0115_Check2)+levelCheckRAM)
-				ld      a,1
-				call    Delay
-				dec     c
-				jr      nz,.waitStatic
+        ld      a,1
+        call    Delay
+        dec     c
+        jr      nz,.waitStatic
 
         ld      hl,$d85d
         call    ((.monitorToBRAINIAC-L0115_Check2)+levelCheckRAM)
         call    ((.setupBRAINIAC-L0115_Check2)+levelCheckRAM)
         DIALOGTOP brainiac_detectIntruder_gtx
-				WAITDIALOG STATE_DETECT2
-				ld      a,1
-				ret
+        WAITDIALOG STATE_DETECT2
+        ld      a,1
+        ret
 
 .checkDetect2
         ld      a,[levelVars + VAR_SPEAKINGHERO]
-				ld      c,a
+        ld      c,a
         DIALOGBOTTOM bs_segashuating_gtx
-				WAITDIALOG STATE_DETECT3
+        WAITDIALOG STATE_DETECT3
         ret
 
 .checkDetect3
         call    ((.setupBRAINIAC-L0115_Check2)+levelCheckRAM)
         DIALOGTOP brainiac_bringIt_gtx
-				call    MakeNonIdle
-				WAITDIALOG STATE_MONITOR1
+        call    MakeNonIdle
+        WAITDIALOG STATE_MONITOR1
         ret
 
 .checkPaintRoom
         ldio    a,[mapState]
-				cp      STATE_PRESTO
-				ret     z
+        cp      STATE_PRESTO
+        ret     z
 
         xor     a
         ld      hl,((.checkPaintRoom_hero-L0115_Check2)+levelCheckRAM)
         jp      CheckEachHero
 
 .checkPaintRoom_hero
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      PAINTZONE
-				ld      a,0
-				ret     nz
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      PAINTZONE
+        ld      a,0
+        ret     nz
 
-				;only if hero's attack delay is zero
-				call    GetAttackDelay
-				or      a
-				ld      a,0
-				ret     nz
+        ;only if hero's attack delay is zero
+        call    GetAttackDelay
+        or      a
+        ld      a,0
+        ret     nz
 
-				;possible for costume?
+        ;possible for costume?
         ld      a,[levelVars + VAR_GRUNT_TILE]
-				inc     a
-				ret     z    ;returns if $ff (no tile)
+        inc     a
+        ret     z    ;returns if $ff (no tile)
 
         ;already talked about costume?
-				ld      a,c
-				ld      [levelVars + VAR_COSTUME_HERO],a
+        ld      a,c
+        ld      [levelVars + VAR_COSTUME_HERO],a
         ld      a,[levelVars + VAR_COSTUME_DIALOG]
-				or      a
-				jr      nz,.checkPresto
+        or      a
+        jr      nz,.checkPresto
 
-				call    SetSpeakerFromHeroIndex
+        call    SetSpeakerFromHeroIndex
 
-				ld      de,((.skipCostume-L0115_Check2)+levelCheckRAM)
-				call    SetDialogSkip
+        ld      de,((.skipCostume-L0115_Check2)+levelCheckRAM)
+        call    SetDialogSkip
 
         call    MakeIdle
-				DIALOGBOTTOM bs_idea_gtx
-				WAITDIALOGNOCLEAR STATE_PRESTO
+        DIALOGBOTTOM bs_idea_gtx
+        WAITDIALOGNOCLEAR STATE_PRESTO
 
         ld      a,1
         ret
 
 .checkPresto
-				call    ((.useCostume-L0115_Check2)+levelCheckRAM)
+        call    ((.useCostume-L0115_Check2)+levelCheckRAM)
 
         ld      a,[levelVars + VAR_COSTUME_DIALOG]
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
-				ld      a,[levelVars + VAR_COSTUME_HERO]
-				ld      c,a
-				call    SetSpeakerFromHeroIndex
+        ld      a,[levelVars + VAR_COSTUME_HERO]
+        ld      c,a
+        call    SetSpeakerFromHeroIndex
 
         call    ((.clearSkipAfterDialog-L0115_Check2)+levelCheckRAM)
-				DIALOGBOTTOM bs_presto_gtx
-				call    MakeNonIdle
-				WAITDIALOG STATE_MONITOR1
-				ld      a,1
+        DIALOGBOTTOM bs_presto_gtx
+        call    MakeNonIdle
+        WAITDIALOG STATE_MONITOR1
+        ld      a,1
         ld      [levelVars + VAR_COSTUME_DIALOG],a
         ret
 
 .checkHangin
         ld      a,[levelVars + VAR_HANGIN_DIALOG]
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
-				;jr      z,.okayToHang
-				;ld      a,STATE_MONITOR1
-				;ldio    [mapState],a
-				;ret
+        ;jr      z,.okayToHang
+        ;ld      a,STATE_MONITOR1
+        ;ldio    [mapState],a
+        ;ret
 ;.okayToHang
         ld      a,1
         ld      hl,((.checkHangin_hero-L0115_Check2)+levelCheckRAM)
-				jp      CheckEachHero
+        jp      CheckEachHero
 
 .checkHangin_hero
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      HANGINZONE1
-				jr      z,.checkCostume
-				cp      HANGINZONE2
-				ld      a,0
-				ret     nz
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      HANGINZONE1
+        jr      z,.checkCostume
+        cp      HANGINZONE2
+        ld      a,0
+        ret     nz
 
 .checkCostume
         call    SetSpeakerFromHeroIndex
         ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
+        ldio    [$ff70],a
         ld      h,((fgTileMap>>8) & $ff)
-				ld      l,c
-				ld      a,[levelVars + VAR_GRUNT_TILE]
-				cp      [hl]
-				ld      a,0
-				ret     nz   ;not in costume!
+        ld      l,c
+        ld      a,[levelVars + VAR_GRUNT_TILE]
+        cp      [hl]
+        ld      a,0
+        ret     nz   ;not in costume!
 
-				;make sure there's some grunts to talk to
-				push    bc
-				push    de
-				ld      c,GRUNTINDEX
-				call    GetFirst
-				pop     de
-				pop     bc
-				or      a
-				ret     z     ;no grunts
+        ;make sure there's some grunts to talk to
+        push    bc
+        push    de
+        ld      c,GRUNTINDEX
+        call    GetFirst
+        pop     de
+        pop     bc
+        or      a
+        ret     z     ;no grunts
 
         ld      a,1
-				ld      [levelVars + VAR_HANGIN_DIALOG],a
-				ld      de,((.skipHangin-L0115_Check2)+levelCheckRAM)
-				call    SetDialogSkip
-				call    MakeIdle
+        ld      [levelVars + VAR_HANGIN_DIALOG],a
+        ld      de,((.skipHangin-L0115_Check2)+levelCheckRAM)
+        call    SetDialogSkip
+        call    MakeIdle
         ld      a,c
-				ld      [levelVars + VAR_SPEAKINGHERO],a
-				call    SetSpeakerFromHeroIndex
-				DIALOGBOTTOM bs_hangin1_gtx
-				WAITDIALOG STATE_HANGIN2
-				ld      a,1
+        ld      [levelVars + VAR_SPEAKINGHERO],a
+        call    SetSpeakerFromHeroIndex
+        DIALOGBOTTOM bs_hangin1_gtx
+        WAITDIALOG STATE_HANGIN2
+        ld      a,1
         ret
 
 .checkHangin2
         ld      c,GRUNTINDEX
-				DIALOGTOP  grunt_hangin2_gtx
-				WAITDIALOG STATE_HANGIN3
+        DIALOGTOP  grunt_hangin2_gtx
+        WAITDIALOG STATE_HANGIN3
         ret
 
 .checkHangin3
         ld      a,[levelVars + VAR_SPEAKINGHERO]
-				ld      c,a
-				call    SetSpeakerFromHeroIndex
-				DIALOGBOTTOM bs_hangin3_gtx
-				WAITDIALOG STATE_HANGIN4
+        ld      c,a
+        call    SetSpeakerFromHeroIndex
+        DIALOGBOTTOM bs_hangin3_gtx
+        WAITDIALOG STATE_HANGIN4
         ret
 
 .checkHangin4
         ld      c,GRUNTINDEX
-				DIALOGTOP  grunt_hangin4_gtx
-				WAITDIALOG STATE_HANGIN5
+        DIALOGTOP  grunt_hangin4_gtx
+        WAITDIALOG STATE_HANGIN5
         ret
 
 .checkHangin5
         call    ((.clearSkipAfterDialog-L0115_Check2)+levelCheckRAM)
-				call    MakeNonIdle
+        call    MakeNonIdle
         ld      a,[levelVars + VAR_SPEAKINGHERO]
-				ld      c,a
-				call    SetSpeakerFromHeroIndex
-				DIALOGBOTTOM bs_hangin5_gtx
-				WAITDIALOG STATE_MONITOR1
+        ld      c,a
+        call    SetSpeakerFromHeroIndex
+        DIALOGBOTTOM bs_hangin5_gtx
+        WAITDIALOG STATE_MONITOR1
         ret
 
 .checkMonitor1
         ld      a,1
         ld      hl,((.checkMonitor1_hero-L0115_Check2)+levelCheckRAM)
-				jp      CheckEachHero
+        jp      CheckEachHero
 
 .checkMonitor1_hero
         or      a
-				ret     z
+        ret     z
 
-				ld      c,a
-				;hero in costume?
-				call    GetFGMapping
-				ld      hl,levelVars + VAR_GRUNT_TILE
-				cp      [hl]
-				ld      a,0
-				ret     nz            ;not yet!
+        ld      c,a
+        ;hero in costume?
+        call    GetFGMapping
+        ld      hl,levelVars + VAR_GRUNT_TILE
+        cp      [hl]
+        ld      a,0
+        ret     nz            ;not yet!
 
-				call    GetFirst
-				call    GetCurZone
-				cp      MONITORZONE
-				ld      a,0
-				ret     nz
+        call    GetFirst
+        call    GetCurZone
+        cp      MONITORZONE
+        ld      a,0
+        ret     nz
 
         call    SetSpeakerFromHeroIndex
-				call    MakeIdle
+        call    MakeIdle
         ld      a,1   ;make sure the warning won't happen
         ld      [levelVars + VAR_MONITOR_WARNING],a
         ld      c,GUARDINDEX
-				DIALOGTOP  monitor_openDoor_gtx
-				WAITDIALOG STATE_WAIT_ALLBRAINIAC
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        DIALOGTOP  monitor_openDoor_gtx
+        WAITDIALOG STATE_WAIT_ALLBRAINIAC
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				;open the outer door
-				xor     a
-				ld      hl,$d049
-				ld      [hl+],a
-				ld      [hl],a
+        ;open the outer door
+        xor     a
+        ld      hl,$d049
+        ld      [hl+],a
+        ld      [hl],a
 
-				ld      de,((.skipMonitor-L0115_Check2)+levelCheckRAM)
-				call    SetDialogSkip
+        ld      de,((.skipMonitor-L0115_Check2)+levelCheckRAM)
+        call    SetDialogSkip
 
-				ld      a,1
+        ld      a,1
         ret
 
 .checkWaitAllBRAINIAC
         ld      a,[levelVars + VAR_NUMMONITORS]
-				or      a
-				jr      z,.brainiacTalks
+        or      a
+        jr      z,.brainiacTalks
 
-				;animate monitors from normal to static to BRAINIAC
-				dec     a                     ;pick a monitor at random
-				call    GetRandomNumZeroToN
-				inc     a
-				ld      c,a
-				ld      de,0
-				ld      hl,levelVars + VAR_MONITORS
+        ;animate monitors from normal to static to BRAINIAC
+        dec     a                     ;pick a monitor at random
+        call    GetRandomNumZeroToN
+        inc     a
+        ld      c,a
+        ld      de,0
+        ld      hl,levelVars + VAR_MONITORS
 
-				;find monitor state data
+        ;find monitor state data
 .findActiveMonitor
         ld      a,[hl+]
-				inc     e
-				cp      5
-				jr      nc,.findActiveMonitor  ;skip if this one finished
-				dec     c
-				jr      nz,.findActiveMonitor
-				dec     hl
-				dec     e
-				inc     [hl]
-				inc     a
-				ld      c,a          ;save monitor state
-				sla     e            ;de *= 2   (offset)
-				rl      d
-				ld      hl,((.monitorLocations-L0115_Check2)+levelCheckRAM)
-				add     hl,de        ;hl = monitor location table
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a          ;hl is monitor location
-				ld      a,c
-				cp      5
-				jr      nc,.changeToFace
+        inc     e
+        cp      5
+        jr      nc,.findActiveMonitor  ;skip if this one finished
+        dec     c
+        jr      nz,.findActiveMonitor
+        dec     hl
+        dec     e
+        inc     [hl]
+        inc     a
+        ld      c,a          ;save monitor state
+        sla     e            ;de *= 2   (offset)
+        rl      d
+        ld      hl,((.monitorLocations-L0115_Check2)+levelCheckRAM)
+        add     hl,de        ;hl = monitor location table
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a          ;hl is monitor location
+        ld      a,c
+        cp      5
+        jr      nc,.changeToFace
 
-				;change to static
-				call    ((.monitorToStatic-L0115_Check2)+levelCheckRAM)
-				ret
+        ;change to static
+        call    ((.monitorToStatic-L0115_Check2)+levelCheckRAM)
+        ret
 
 .changeToFace
-				call    ((.monitorToBRAINIAC-L0115_Check2)+levelCheckRAM)
-				ld      hl,levelVars + VAR_NUMMONITORS
-				dec     [hl]
-				ret
+        call    ((.monitorToBRAINIAC-L0115_Check2)+levelCheckRAM)
+        ld      hl,levelVars + VAR_NUMMONITORS
+        dec     [hl]
+        ret
 
 .brainiacTalks
         call    ((.setupBRAINIAC-L0115_Check2)+levelCheckRAM)
-				DIALOGTOP  brainiac_wait_gtx
-				WAITDIALOG STATE_MONITOR2
+        DIALOGTOP  brainiac_wait_gtx
+        WAITDIALOG STATE_MONITOR2
         ret
 
 .resetHero
         or      a
-				ret     z
-				ld      c,a
-				call    GetFirst
-				ld      a,10
-				call    SetAttackDelay
-				ld      b,METHOD_DRAW
-				call    CallMethod
-				ret
+        ret     z
+        ld      c,a
+        call    GetFirst
+        ld      a,10
+        call    SetAttackDelay
+        ld      b,METHOD_DRAW
+        call    CallMethod
+        ret
 
 .checkMonitor2
         call    ((.openSecurityDoor-L0115_Check2)+levelCheckRAM)
 
         ld         c,GUARDINDEX
-				DIALOGTOP  monitor_sorry_gtx
-				WAITDIALOGNOCLEAR STATE_MONITOR3
+        DIALOGTOP  monitor_sorry_gtx
+        WAITDIALOGNOCLEAR STATE_MONITOR3
         ret
 
 .checkMonitor3
         call    ((.setupBRAINIAC-L0115_Check2)+levelCheckRAM)
-				DIALOGTOP  brainiac_justClose_gtx
-				WAITDIALOGNOCLEAR STATE_MONITOR4
+        DIALOGTOP  brainiac_justClose_gtx
+        WAITDIALOGNOCLEAR STATE_MONITOR4
         ret
 
 .checkMonitor4
         ld         c,GUARDINDEX
-				DIALOGTOP  monitor_oneSecond_gtx
-				WAITDIALOGNOCLEAR STATE_MONITOR5
+        DIALOGTOP  monitor_oneSecond_gtx
+        WAITDIALOGNOCLEAR STATE_MONITOR5
         ret
 
 .checkMonitor5
         call    ((.setupBRAINIAC-L0115_Check2)+levelCheckRAM)
-				set     DLG_CLEARSKIP_BIT,[hl]
-				DIALOGTOP  brainiac_idiotz_gtx
-				call       MakeNonIdle
-				WAITDIALOG STATE_NORMAL
+        set     DLG_CLEARSKIP_BIT,[hl]
+        DIALOGTOP  brainiac_idiotz_gtx
+        call       MakeNonIdle
+        WAITDIALOG STATE_NORMAL
         ret
 
 .checkNormal
@@ -587,78 +587,78 @@ L0115_Check2:
 
 .checkWaitDialog
         STDWAITDIALOG
-				ret
+        ret
 
 ;----support routines-------------------------------------------------
 .clearSkipAfterDialog
         ld      hl,dialogSettings
-				set     DLG_CLEARSKIP_BIT,[hl]
-				ret
+        set     DLG_CLEARSKIP_BIT,[hl]
+        ret
 
 .skipDetect
         call    ClearDialog
-				call    MakeNonIdle
+        call    MakeNonIdle
         ld      hl,$d85d
         call    ((.monitorToBRAINIAC-L0115_Check2)+levelCheckRAM)
-				ld      a,STATE_MONITOR1
-				ldio    [mapState],a
-				ld      a,1
-				ret
+        ld      a,STATE_MONITOR1
+        ldio    [mapState],a
+        ld      a,1
+        ret
 
 .useCostume
-				ld      a,[levelVars + VAR_COSTUME_HERO]
-				ld      c,a
-				ld      a,[levelVars + VAR_GRUNT_TILE] ;use the grunt's tile
-				call    SetFGMapping
+        ld      a,[levelVars + VAR_COSTUME_HERO]
+        ld      c,a
+        ld      a,[levelVars + VAR_GRUNT_TILE] ;use the grunt's tile
+        call    SetFGMapping
 
-				call    GetFirst
-				ld      a,0
-				call    SetAttackDelay
-				ld      b,METHOD_DRAW
-				call    CallMethod
-				ld      a,GROUP_MONSTERA    ;hero is one of the boys now
-				call    SetGroup
-				ret
+        call    GetFirst
+        ld      a,0
+        call    SetAttackDelay
+        ld      b,METHOD_DRAW
+        call    CallMethod
+        ld      a,GROUP_MONSTERA    ;hero is one of the boys now
+        call    SetGroup
+        ret
 
 .skipCostume
         call    ClearDialog
-				call    MakeNonIdle
+        call    MakeNonIdle
         call    ((.useCostume-L0115_Check2)+levelCheckRAM)
-				ld      a,1
+        ld      a,1
         ld      [levelVars + VAR_COSTUME_DIALOG],a
-				ld      a,STATE_MONITOR1
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_MONITOR1
+        ldio    [mapState],a
+        ret
 
 .skipHangin
         call    ClearDialog
-				call    MakeNonIdle
-				ld      a,STATE_MONITOR1
-				ldio    [mapState],a
-				ret
+        call    MakeNonIdle
+        ld      a,STATE_MONITOR1
+        ldio    [mapState],a
+        ret
 
 .skipMonitor
         call    ClearDialog
-				call    MakeNonIdle
-				ld      a,STATE_NORMAL
-				ldio    [mapState],a
+        call    MakeNonIdle
+        ld      a,STATE_NORMAL
+        ldio    [mapState],a
 
         call    ((.openSecurityDoor-L0115_Check2)+levelCheckRAM)
-				
-				;set all monitors to brainiac
-				ld      c,20
-				ld      hl,((.monitorLocations-L0115_Check2)+levelCheckRAM)
+        
+        ;set all monitors to brainiac
+        ld      c,20
+        ld      hl,((.monitorLocations-L0115_Check2)+levelCheckRAM)
 .setAllMonitorsLoop
-				ld      a,[hl+]
+        ld      a,[hl+]
         push    hl
-				ld      h,[hl]
-				ld      l,a
+        ld      h,[hl]
+        ld      l,a
         call    ((.monitorToBRAINIAC-L0115_Check2)+levelCheckRAM)
-				pop     hl
-				inc     hl
-				dec     c
-				jr      nz,.setAllMonitorsLoop
-				ret
+        pop     hl
+        inc     hl
+        dec     c
+        jr      nz,.setAllMonitorsLoop
+        ret
 
 .openSecurityDoor
         ld      a,[hero0_index]
@@ -667,68 +667,68 @@ L0115_Check2:
         call    ((.resetHero-L0115_Check2)+levelCheckRAM)
         call    ((.checkBSAttack-L0115_Check2)+levelCheckRAM)
 
-				;open the security door
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      hl,$d189
-				ld      [hl+],a
-				ld      [hl],a
+        ;open the security door
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      hl,$d189
+        ld      [hl+],a
+        ld      [hl],a
 
-				;ld      a,$ff
-				;ld      [levelVars + VAR_GRUNT_TILE],a  ;no more changing
+        ;ld      a,$ff
+        ;ld      [levelVars + VAR_GRUNT_TILE],a  ;no more changing
 
-				ret
+        ret
 
 .setupBRAINIAC
-				ld      hl,dialogSettings
+        ld      hl,dialogSettings
         set     DLG_BRAINIAC_BIT,[hl]
         ld      c,BRAINIACINDEX
-				ret
+        ret
 
 .checkMonitorWarn
         ld      a,[levelVars + VAR_MONITOR_WARNING]
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
         ld      a,1
         ld      hl,((.checkMonitorWarn_hero-L0115_Check2)+levelCheckRAM)
-				jp      CheckEachHero
+        jp      CheckEachHero
 
 .checkMonitorWarn_hero
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      MONITORZONE
-				ld      a,0
-				ret     nz
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      MONITORZONE
+        ld      a,0
+        ret     nz
 
         ;no warning if I'm in crouton disguise
-				call    GetFGMapping
-				ld      hl,levelVars + VAR_GRUNT_TILE
-				cp      [hl]
-				ld      a,0
-				ret     z 
+        call    GetFGMapping
+        ld      hl,levelVars + VAR_GRUNT_TILE
+        cp      [hl]
+        ld      a,0
+        ret     z 
 
         ld      a,1
         ld      [levelVars + VAR_MONITOR_WARNING],a
 
         ld      de,((.skipMonitorWarn-L0115_Check2)+levelCheckRAM)
-				call    SetDialogSkip
+        call    SetDialogSkip
 
         call    ((.clearSkipAfterDialog-L0115_Check2)+levelCheckRAM)
-				ld      c,GUARDINDEX
-				DIALOGTOP monitor_onlyCroutons_gtx
-				WAITDIALOG STATE_MONITOR1
-				ld      a,1
-				ret
+        ld      c,GUARDINDEX
+        DIALOGTOP monitor_onlyCroutons_gtx
+        WAITDIALOG STATE_MONITOR1
+        ld      a,1
+        ret
 
 .skipMonitorWarn
         call    ClearDialog
-				call    MakeNonIdle
+        call    MakeNonIdle
         ld      a,STATE_MONITOR1
-				ldio    [mapState],a
-				ret
+        ldio    [mapState],a
+        ret
 
 .monitorLocations
         DW      $d082
@@ -753,102 +753,102 @@ L0115_Check2:
         DW      $d310    ;20 total (does not include entrance)
 
 .adjustCameraInMonitorRoom
-				call    GetMyHero
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      7
-				jr      z,.adjustCamera
-				cp      9
-				ret     nz
+        call    GetMyHero
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      7
+        jr      z,.adjustCamera
+        cp      9
+        ret     nz
 .adjustCamera
-				ld      a,1
-				ld      [camera_i],a
-				ld      [camera_j],a
-				ret
+        ld      a,1
+        ld      [camera_i],a
+        ld      [camera_j],a
+        ret
 
 .monitorToStatic
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;push    hl
-				;ld      hl,((.staticSound-L0115_Check2)+levelCheckRAM)
-				;call    PlaySound
-				;pop     hl
+        ;ld      hl,((.staticSound-L0115_Check2)+levelCheckRAM)
+        ;call    PlaySound
+        ;pop     hl
 
-				ld      de,$2901
+        ld      de,$2901
         jr      .monitorCommon
 
 .monitorToBRAINIAC
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      de,$2903
+        ld      de,$2903
 
 .monitorCommon
         call    ConvertLocHLToXY
-				push    de
+        push    de
         push    hl
-				pop     de
-				pop     hl
-				ld      bc,$0202
-				call    BlitMap
+        pop     de
+        pop     hl
+        ld      bc,$0202
+        call    BlitMap
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .animateStatic
-				ld      a,[levelVars+VAR_STATIC]
-				ld      b,a
-				ldio    a,[updateTimer]
-				rrca
-				and     %00000010
-				add     b
-				ld      hl,bgTileMap+STATICINDEX
-				ld      [hl+],a
-				inc     a
-				ld      [hl+],a
-				ret
+        ld      a,[levelVars+VAR_STATIC]
+        ld      b,a
+        ldio    a,[updateTimer]
+        rrca
+        and     %00000010
+        add     b
+        ld      hl,bgTileMap+STATICINDEX
+        ld      [hl+],a
+        inc     a
+        ld      [hl+],a
+        ret
 
 .checkBSAttack
         ;sets BS's group back to hero and get rid of his disguise 
-				;if he attacks
-				ld      a,[hero0_index]
-				call    ((.groupToHero-L0115_Check2)+levelCheckRAM)
+        ;if he attacks
+        ld      a,[hero0_index]
+        call    ((.groupToHero-L0115_Check2)+levelCheckRAM)
         ld      a,[hero1_index]
-				call    ((.groupToHero-L0115_Check2)+levelCheckRAM)
-				ret
+        call    ((.groupToHero-L0115_Check2)+levelCheckRAM)
+        ret
 
 .groupToHero
         or      a
-				ret     z
+        ret     z
 
-				ld      c,a
-				call    GetFirst
-				call    GetAttackDelay
-				or      a
-				ret     z
+        ld      c,a
+        call    GetFirst
+        call    GetAttackDelay
+        or      a
+        ret     z
 
         ;have a copy of BS's original tile?
-				ld      a,[levelVars + VAR_BS_TILE]
-				cp      $ff
-				ret     z
+        ld      a,[levelVars + VAR_BS_TILE]
+        cp      $ff
+        ret     z
 
        
-				ld      a,[levelVars + VAR_BS_TILE]
-				call    SetFGMapping
+        ld      a,[levelVars + VAR_BS_TILE]
+        call    SetFGMapping
 
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
-				ld      a,GROUP_HERO
-				call    SetGroup
-				ld      a,TILEINDEXBANK
-				ret
+        ld      a,GROUP_HERO
+        call    SetGroup
+        ld      a,TILEINDEXBANK
+        ret
 
 ;.staticSound
         ;DB      4,$00,$f0,$20,$c0

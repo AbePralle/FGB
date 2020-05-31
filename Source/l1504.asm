@@ -57,7 +57,7 @@ L1504_Load2:
         xor     a
         ld      [scrollSprites],a
         ld      a,BANK(captain_okay_gtx)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
         call    LoadFont
 
@@ -106,7 +106,7 @@ L1504_Load2:
         DIALOGBOTTOM captain_okay_gtx
 
         ld      d,2
-				LONGCALLNOARGS AnimateCaptainGunpoint
+        LONGCALLNOARGS AnimateCaptainGunpoint
 
 .endCinema
         call    ClearDialog
@@ -126,13 +126,13 @@ L1504_Load2:
 
 .showGunForSure
         ld      hl,spriteOAMBuffer + 1
-				ld      a,[hl]    ;negative of first sprite x pos + 8
+        ld      a,[hl]    ;negative of first sprite x pos + 8
         cpl
         add     9
-				ld      d,a
-				call    ScrollSpritesRight   ;is amount to scroll sprites
+        ld      d,a
+        call    ScrollSpritesRight   ;is amount to scroll sprites
 
-				ret
+        ret
 
 L1504_LoadFinished:
 ;---------------------------------------------------------------------
@@ -148,24 +148,24 @@ L1504_Init:
         DW ((L1504_InitFinished - L1504_Init2))  ;size
 L1504_Init2:
         ld      a,0
-				ld      hl,((.heroInvisible - L1504_Init2) + levelCheckRAM)
+        ld      hl,((.heroInvisible - L1504_Init2) + levelCheckRAM)
         call    CheckEachHero
 
         ld      a,1
         ld      [heroesIdle],a
 
         ld      a,[bgTileMap+LIGHTINDEX]
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
 
         ld      c,CAPTAIN_INDEX
         call    GetFirst
-				ld      hl,$d04A
-				call    SetActorDestLoc
+        ld      hl,$d04A
+        call    SetActorDestLoc
 
         ld      c,LADY_INDEX
         call    GetFirst
-				ld      hl,$d04A
-				call    SetActorDestLoc
+        ld      hl,$d04A
+        call    SetActorDestLoc
 
         ld      a,16
         ld      [mapLeft],a
@@ -176,13 +176,13 @@ L1504_Init2:
 
 .heroInvisible
         or      a
-				ret     z
+        ret     z
         ld      c,a
         call    GetFirst
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				ret
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        ret
 
 L1504_InitFinished:
 ;---------------------------------------------------------------------
@@ -254,7 +254,7 @@ L1504_Check2:
         call    SetDialogForward
 
         ld      c,0
-				DIALOGBOTTOM ba_goneawhile_gtx
+        DIALOGBOTTOM ba_goneawhile_gtx
 
         ld      d,3
         LONGCALLNOARGS AnimateBA
@@ -270,12 +270,12 @@ L1504_Check2:
         ;call    WaitFade
 
         ld      hl,$1100
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
         ret
 
@@ -294,8 +294,8 @@ L1504_Check2:
         ld      b,METHOD_DIE
         call    CallMethod
 
-				ld      hl,disappearSound
-				call    PlaySound
+        ld      hl,disappearSound
+        call    PlaySound
 
         ld      hl,mapState    ;at exit, mapState++
         inc     [hl]
@@ -307,7 +307,7 @@ L1504_Check2:
         ld      bc,$0202    ;blit the closed gate
         ld      de,$0901
         ld      hl,$2409
-				call    BlitMap
+        call    BlitMap
 
         ld      a,5
         call    Delay
@@ -318,30 +318,30 @@ L1504_Check2:
 
 .animateLandingLights
         ldio    a,[updateTimer]
-				rrca
-				rrca
-				and     %11
-				ld      b,a
+        rrca
+        rrca
+        and     %11
+        ld      b,a
 
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      c,a
-				ld      d,0
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      c,a
+        ld      d,0
 
-				ld      hl,bgTileMap+LIGHTINDEX
+        ld      hl,bgTileMap+LIGHTINDEX
         call    ((.animateLight-L1504_Check2)+levelCheckRAM)
         call    ((.animateLight-L1504_Check2)+levelCheckRAM)
         call    ((.animateLight-L1504_Check2)+levelCheckRAM)
         call    ((.animateLight-L1504_Check2)+levelCheckRAM)
-				ret
+        ret
 
 .animateLight
-				ld      a,d
-				add     b
-				and     %11
-				add     c
-				ld      [hl+],a
-				inc     d
-				ret
+        ld      a,d
+        add     b
+        and     %11
+        add     c
+        ld      [hl+],a
+        inc     d
+        ret
 
 
 L1504_CheckFinished:

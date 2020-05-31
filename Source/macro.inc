@@ -1,4 +1,4 @@
-;PADNOCARRY:	MACRO
+;PADNOCARRY:  MACRO
             ;;if low byte of addr is > max addr for space required
             ;;add pad bytes to bring low byte to 0
             ;IF ((\1 & $ff) > ((-\2) & $ff))
@@ -14,23 +14,23 @@ ENDM
 PREPLONGCALL:  MACRO
         ld      hl,\1
         push    hl              ;push return addr
-				ldio    a,[curROMBank]  ;push current ROM bank
-				push    af
+        ldio    a,[curROMBank]  ;push current ROM bank
+        push    af
 ENDM
 
 LONGCALL: MACRO
         add     sp,-4           ;leave a blank spot
-				push    af              ;save parameter af
-				push    de              ;save parameter de
-				ld      a,BANK(\1)
-				ld      de,\1
-				jp      LongCall
+        push    af              ;save parameter af
+        push    de              ;save parameter de
+        ld      a,BANK(\1)
+        ld      de,\1
+        jp      LongCall
 ENDM
 
 LONGCALLNOARGS: MACRO
-				ld      a,BANK(\1)
-				ld      hl,\1
-				call    LongCallNoArgs
+        ld      a,BANK(\1)
+        ld      hl,\1
+        call    LongCallNoArgs
 ENDM
 
 DEBUGTITLE: MACRO
@@ -78,57 +78,57 @@ ENDM
 
 LDHL_CURHERODATA: MACRO
         ld      h,((hero0_data>>8) & $ff)
-				ld      a,[curHeroAddressL]
-				add     \1
-				ld      l,a
+        ld      a,[curHeroAddressL]
+        add     \1
+        ld      l,a
 ENDM
 
 PUSHROM: MACRO
         ld      a,[curROMBank]
-				push    af
+        push    af
 ENDM
 
 POPROM: MACRO
         pop     af
-				call    SetActiveROM
+        call    SetActiveROM
 ENDM
 
 VECTORTOSTATE: MACRO
         ld      hl,\1
-				call    LCheckGetVectorToState
-				jp      hl
+        call    LCheckGetVectorToState
+        jp      hl
 ENDM
 
 DIALOGTOP: MACRO
         ld      de,\1
-				call    ShowDialogAtTopNoWait
+        call    ShowDialogAtTopNoWait
 ENDM
 
 DIALOGBOTTOM: MACRO
         ld      de,\1
-				call    ShowDialogAtBottomNoWait
+        call    ShowDialogAtBottomNoWait
 
 ENDM
 
 WAITDIALOG: MACRO
         ld      hl,((\1 << 8) | STATE_WAIT_DIALOG)
-				call    StdWaitDialog
+        call    StdWaitDialog
 ENDM
 
 WAITDIALOGNOCLEAR: MACRO
         ld      hl,((\1 << 8) | STATE_WAIT_DIALOG)
-				call    StdWaitDialogNoClear
+        call    StdWaitDialogNoClear
 ENDM
 
 STDWAITDIALOG: MACRO
-				call    CheckDialogContinue
-				or      a
-				ret     z
+        call    CheckDialogContinue
+        or      a
+        ret     z
 
         call    RestoreIdle
-				ld      hl,mapState+1
-				ld      a,[hl-]
-				ld      [hl],a
+        ld      hl,mapState+1
+        ld      a,[hl-]
+        ld      [hl],a
 ENDM
 
 COLOR: MACRO

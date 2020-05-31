@@ -16,19 +16,10 @@ endAugment
 routine rogo_fix
   forEach (file in File.listing("Source/**"))
     local content = File.load_as_string( file )
-    if (content.contains("IMPORT"))
+    local fixed = content.replacing( "\t", "  " )
+    if (fixed != content)
       println file
-      local fixed = StringBuilder( content.count )
-      forEach (line in LineReader(content))
-        if (not line.contains("IMPORT")) fixed.println( line )
-      endForEach
-      File.save( file, fixed->String )
-    else
-      local fixed = content.replacing( "\r", "" )
-      if (fixed != content)
-        println file
-        File.save( file, fixed )
-      endIf
+      File.save( file, fixed )
     endIf
   endForEach
 endRoutine

@@ -73,28 +73,28 @@ L0214_Init:
 L0214_Init2:
         call    SetPressBDialog
         ld      a,BANK(dialog)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
         ld      a,[bgTileMap+LIGHTINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_LIGHT],a
+        ld      [levelVars+VAR_LIGHT],a
 
         ld      a,[bgTileMap+FLASHERINDEX]  ;tile index of first light
-				ld      [levelVars+VAR_FLASHER],a
+        ld      [levelVars+VAR_FLASHER],a
 
-				ld      bc,classCroutonDoctor
-				ld      de,classGuard
-				call    ChangeClass
+        ld      bc,classCroutonDoctor
+        ld      de,classGuard
+        call    ChangeClass
 
         ;dest dest to unreachable so Skippy will pace around
-				ld      c,SKIPPYINDEX
-				call    GetFirst
-				ld      hl,$d1ef
-				call    SetActorDestLoc
+        ld      c,SKIPPYINDEX
+        call    GetFirst
+        ld      hl,$d1ef
+        call    SetActorDestLoc
 
-				xor     a
-				ld      [guardAlarm],a
-				ldio    [mapState],a
-				ld      [levelVars + VAR_PRISONOPEN],a
+        xor     a
+        ld      [guardAlarm],a
+        ldio    [mapState],a
+        ld      [levelVars + VAR_PRISONOPEN],a
 
         ret
 
@@ -105,426 +105,426 @@ L0214_InitFinished:
 L0214_Check:
         DW ((L0214_CheckFinished - L0214_Check2))  ;size
 L0214_Check2:
-				call    ((.animateLights - L0214_Check2) + levelCheckRAM)
-				call    ((.moveGuards - L0214_Check2) + levelCheckRAM)
-				call    ((.checkOpenPrison - L0214_Check2) + levelCheckRAM)
+        call    ((.animateLights - L0214_Check2) + levelCheckRAM)
+        call    ((.moveGuards - L0214_Check2) + levelCheckRAM)
+        call    ((.checkOpenPrison - L0214_Check2) + levelCheckRAM)
 
-				ldio    a,[mapState]
-				cp      STATE_NORMAL
-				jr      nz,.checkInitialDraw
+        ldio    a,[mapState]
+        cp      STATE_NORMAL
+        jr      nz,.checkInitialDraw
 
-				call    ((.checkNearSkippy - L0214_Check2) + levelCheckRAM)
-				call    ((.addGoblins - L0214_Check2) + levelCheckRAM)
+        call    ((.checkNearSkippy - L0214_Check2) + levelCheckRAM)
+        call    ((.addGoblins - L0214_Check2) + levelCheckRAM)
 
-				ret
+        ret
 
 .checkInitialDraw
-				cp      STATE_INITIALDRAW
-				jr      nz,.checkAlarmOff
+        cp      STATE_INITIALDRAW
+        jr      nz,.checkAlarmOff
 
-				ld      a,STATE_ENTER
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_ENTER
+        ldio    [mapState],a
+        ret
 
 .checkAlarmOff
         cp      STATE_ALARMOFF
-				jr      nz,.checkDialogWait
+        jr      nz,.checkDialogWait
 
-				call    ((.checkNearSkippy - L0214_Check2) + levelCheckRAM)
+        call    ((.checkNearSkippy - L0214_Check2) + levelCheckRAM)
         ;fade the palette if alarm just tripped
-				ld      a,[guardAlarm]
-				or      a
-				ret     z
+        ld      a,[guardAlarm]
+        or      a
+        ret     z
 
-				ld      a,BANK(alarm_gbm)
-				ld      hl,alarm_gbm
-				call    InitMusic
+        ld      a,BANK(alarm_gbm)
+        ld      hl,alarm_gbm
+        call    InitMusic
 
-				ld      hl,gamePalette
-				ld      de,fadeCurPalette
-				call    CopyPalette64
-				ld      hl,((.darkRedPalette - L0214_Check2) + levelCheckRAM)
-				ld      de,fadeFinalPalette
-				call    CopyPalette32
-				ld      de,fadeFinalPalette+64
-				call    CopyPalette32
-				ld      a,16
-				call    FadeInit
-				ld      de,gamePalette
-				call    CopyPalette32
-				ld      de,gamePalette+64
-				call    CopyPalette32
+        ld      hl,gamePalette
+        ld      de,fadeCurPalette
+        call    CopyPalette64
+        ld      hl,((.darkRedPalette - L0214_Check2) + levelCheckRAM)
+        ld      de,fadeFinalPalette
+        call    CopyPalette32
+        ld      de,fadeFinalPalette+64
+        call    CopyPalette32
+        ld      a,16
+        call    FadeInit
+        ld      de,gamePalette
+        call    CopyPalette32
+        ld      de,gamePalette+64
+        call    CopyPalette32
 
         ;remove door
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      hl,$d023
-				xor     a
-				ld      [hl+],a
-				ld      [hl+],a
-				ld      hl,$d242
-				ld      [hl+],a
-				ld      [hl+],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      hl,$d023
+        xor     a
+        ld      [hl+],a
+        ld      [hl+],a
+        ld      hl,$d242
+        ld      [hl+],a
+        ld      [hl+],a
 
-				ld      a,STATE_NORMAL
-				;ldio    [mapState+1],a
-				;ld      a,STATE_DIALOG_WAIT
-				ldio    [mapState],a
+        ld      a,STATE_NORMAL
+        ;ldio    [mapState+1],a
+        ;ld      a,STATE_DIALOG_WAIT
+        ldio    [mapState],a
 
         ret
 
 .checkDialogWait
         cp      STATE_DIALOG_WAIT
-				jr      nz,.checkNextLevel
+        jr      nz,.checkNextLevel
 
-				call    CheckDialogContinue
-				or      a
-				ret     z
+        call    CheckDialogContinue
+        or      a
+        ret     z
 
         call    RestoreIdle
 
-				ld      bc,classDoNothing
-				ld      de,classCroutonGoblin
-				call    ChangeClass
-				ld      bc,classDoNothing2
-				ld      de,classGuard
-				call    ChangeClass
+        ld      bc,classDoNothing
+        ld      de,classCroutonGoblin
+        call    ChangeClass
+        ld      bc,classDoNothing2
+        ld      de,classGuard
+        call    ChangeClass
 
-				ldio    a,[mapState+1]
-				ldio    [mapState],a
-				ret
+        ldio    a,[mapState+1]
+        ldio    [mapState],a
+        ret
 
 .checkNextLevel
         cp      STATE_NEXTLEVEL
-				jr      nz,.checkEnter
+        jr      nz,.checkEnter
 
         ld      hl,$0314
-				ld      a,h
-				ld      [curLevelIndex+1],a
-				ld      a,l
-				ld      [curLevelIndex],a
-				ld      a,EXIT_D
-				call    YankRemotePlayer
-				ld      a,EXIT_D
-				ld      [hero0_enterLevelFacing],a
-				ld      [hero1_enterLevelFacing],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
-				ret
+        ld      a,h
+        ld      [curLevelIndex+1],a
+        ld      a,l
+        ld      [curLevelIndex],a
+        ld      a,EXIT_D
+        call    YankRemotePlayer
+        ld      a,EXIT_D
+        ld      [hero0_enterLevelFacing],a
+        ld      [hero1_enterLevelFacing],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
+        ret
 
 .checkEnter
         cp      STATE_ENTER
-				jr      nz,.checkClues
+        jr      nz,.checkClues
 
         ;ld      a,1
-				;ld      [heroesIdle],a
+        ;ld      [heroesIdle],a
         ;call    SetSpeakerToFirstHero
         ;ld      a,BANK(haiku_enterPrison_gtx)
-				;ld      de,haiku_enterPrison_gtx
-				;call    ShowDialogAtBottomNoWait
-				;ld      a,STATE_CLUES
-				;ldio    [mapState+1],a
-				;ld      a,STATE_DIALOG_WAIT
-				;ldio    [mapState],a
+        ;ld      de,haiku_enterPrison_gtx
+        ;call    ShowDialogAtBottomNoWait
+        ;ld      a,STATE_CLUES
+        ;ldio    [mapState+1],a
+        ;ld      a,STATE_DIALOG_WAIT
+        ;ldio    [mapState],a
 
         xor     a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
+        ld      [heroesIdle],a
+        ld      [allIdle],a
         call    SetSpeakerToFirstHero
-				DIALOGBOTTOM haiku_enterPrison_gtx
-				WAITDIALOG   STATE_CLUES
+        DIALOGBOTTOM haiku_enterPrison_gtx
+        WAITDIALOG   STATE_CLUES
         ret
 
 .checkClues
         cp      STATE_CLUES
-				jr      nz,.checkLeave
+        jr      nz,.checkLeave
 
         xor     a
-				ld      [heroesIdle],a
-				ld      [allIdle],a
+        ld      [heroesIdle],a
+        ld      [allIdle],a
         ld         c,SKIPPYINDEX
-				DIALOGTOP  skippy_clues_gtx
-				WAITDIALOG STATE_ALARMOFF
-				ret
+        DIALOGTOP  skippy_clues_gtx
+        WAITDIALOG STATE_ALARMOFF
+        ret
 
 .checkLeave
-				call    ((.addGoblins - L0214_Check2) + levelCheckRAM)
+        call    ((.addGoblins - L0214_Check2) + levelCheckRAM)
         ret
 
 ;----support routines-------------------------------------------------
 
 .addGoblins
         ;normal state
-				;add goblins
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      hl,$d023
-				ld      a,[hl]
-				or      a
-				jr      nz,.afterAddGoblin1
+        ;add goblins
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      hl,$d023
+        ld      a,[hl]
+        or      a
+        jr      nz,.afterAddGoblin1
 
-				ld      c,GOBLININDEX
-				call    CreateInitAndDrawObject
+        ld      c,GOBLININDEX
+        call    CreateInitAndDrawObject
 
 .afterAddGoblin1
-				ld      hl,$d242
-				ld      a,[hl]
-				or      a
-				jr      nz,.afterAddGoblin2
+        ld      hl,$d242
+        ld      a,[hl]
+        or      a
+        jr      nz,.afterAddGoblin2
 
-				ld      c,GOBLININDEX
-				call    CreateInitAndDrawObject
+        ld      c,GOBLININDEX
+        call    CreateInitAndDrawObject
 
 .afterAddGoblin2
         ret
 
 .checkOpenPrison
         ld      a,[levelVars + VAR_PRISONOPEN]
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
         ld      a,[hero0_index]
-				call    ((.checkHeroOpen - L0214_Check2) + levelCheckRAM)
+        call    ((.checkHeroOpen - L0214_Check2) + levelCheckRAM)
         ld      a,[hero1_index]
-				call    ((.checkHeroOpen - L0214_Check2) + levelCheckRAM)
-				ret
+        call    ((.checkHeroOpen - L0214_Check2) + levelCheckRAM)
+        ret
 
 .checkHeroOpen
         or      a
-				ret     z
+        ret     z
 
         ld      c,a
-				ld      [dialogSpeakerIndex],a
-				call    GetFirst
-				call    GetCurLocation
-				ld      a,h
-				cp      $d1
-				ret     nz
-				ld      a,l
-				cp      $ca
-				ret     nz
+        ld      [dialogSpeakerIndex],a
+        call    GetFirst
+        call    GetCurLocation
+        ld      a,h
+        cp      $d1
+        ret     nz
+        ld      a,l
+        cp      $ca
+        ret     nz
 
-				;open bars
-				ld      a,1
-				ld      [levelVars + VAR_PRISONOPEN],a
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      hl,$d1cc
-				call    ((.clearBars - L0214_Check2) + levelCheckRAM)
-				ld      hl,$d1ec
-				call    ((.clearBars - L0214_Check2) + levelCheckRAM)
-				ld      hl,((.openBarsSound - L0214_Check2) + levelCheckRAM)
-				call    PlaySound
-				ld      c,SKIPPYINDEX
-				call    GetFirst
-				ld      hl,$d1ef
-				call    SetActorDestLoc
-				ret
+        ;open bars
+        ld      a,1
+        ld      [levelVars + VAR_PRISONOPEN],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      hl,$d1cc
+        call    ((.clearBars - L0214_Check2) + levelCheckRAM)
+        ld      hl,$d1ec
+        call    ((.clearBars - L0214_Check2) + levelCheckRAM)
+        ld      hl,((.openBarsSound - L0214_Check2) + levelCheckRAM)
+        call    PlaySound
+        ld      c,SKIPPYINDEX
+        call    GetFirst
+        ld      hl,$d1ef
+        call    SetActorDestLoc
+        ret
 
 .openBarsSound
   DB 4,$00,$f4,$4f,$80
 
 .clearBars
-				ld      c,8
+        ld      c,8
         xor     a
 .clearBarsLoop
-				ld      [hl+],a
-				dec     c
-				jr      nz,.clearBarsLoop
-				ret
+        ld      [hl+],a
+        dec     c
+        jr      nz,.clearBarsLoop
+        ret
 
 .checkNearSkippy
         ld      a,[hero0_index]
-				call    ((.checkHeroNearSkippy - L0214_Check2) + levelCheckRAM)
+        call    ((.checkHeroNearSkippy - L0214_Check2) + levelCheckRAM)
         ld      a,[hero1_index]
-				call    ((.checkHeroNearSkippy - L0214_Check2) + levelCheckRAM)
-				ret
+        call    ((.checkHeroNearSkippy - L0214_Check2) + levelCheckRAM)
+        ret
 
 .checkHeroNearSkippy
         or      a
-				ret     z
+        ret     z
 
-				ld      c,a
-				call    GetFirst
-				call    GetCurZone
-				cp      3
-				ret     nz
+        ld      c,a
+        call    GetFirst
+        call    GetCurZone
+        cp      3
+        ret     nz
 
         call    SetSpeakerFromHeroIndex
         ld      a,[guardAlarm]
-				or      a
-				jr      nz,.alarmIsOn
+        or      a
+        jr      nz,.alarmIsOn
 
         ld      a,1
-				ld      [heroesIdle],a
-				ld      bc,classCroutonGoblin
-				ld      de,classDoNothing
-				call    ChangeClass
-				ld      bc,classGuard
-				ld      de,classDoNothing2
-				call    ChangeClass
+        ld      [heroesIdle],a
+        ld      bc,classCroutonGoblin
+        ld      de,classDoNothing
+        call    ChangeClass
+        ld      bc,classGuard
+        ld      de,classDoNothing2
+        call    ChangeClass
         ld      a,BANK(skippy_letsGo_gtx)
-				ld      de,skippy_letsGo_gtx
-				ld      c,SKIPPYINDEX
-				call    ShowDialogAtTopNoWait
+        ld      de,skippy_letsGo_gtx
+        ld      c,SKIPPYINDEX
+        call    ShowDialogAtTopNoWait
 
-				ld      a,STATE_NEXTLEVEL
-				ldio    [mapState+1],a
-				ld      a,STATE_DIALOG_WAIT
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_NEXTLEVEL
+        ldio    [mapState+1],a
+        ld      a,STATE_DIALOG_WAIT
+        ldio    [mapState],a
+        ret
 
 .alarmIsOn
         ld      a,1
-				ld      [heroesIdle],a
-				ld      bc,classCroutonGoblin
-				ld      de,classDoNothing
-				call    ChangeClass
-				ld      bc,classGuard
-				ld      de,classDoNothing2
-				call    ChangeClass
+        ld      [heroesIdle],a
+        ld      bc,classCroutonGoblin
+        ld      de,classDoNothing
+        call    ChangeClass
+        ld      bc,classGuard
+        ld      de,classDoNothing2
+        call    ChangeClass
         ld      a,BANK(skippy_holdOn_gtx)
-				ld      de,skippy_holdOn_gtx
-				ld      c,SKIPPYINDEX
-				call    ShowDialogAtTopNoWait
+        ld      de,skippy_holdOn_gtx
+        ld      c,SKIPPYINDEX
+        call    ShowDialogAtTopNoWait
 
-				ld      a,STATE_LEAVE
-				ldio    [mapState+1],a
-				ld      a,STATE_DIALOG_WAIT
-				ldio    [mapState],a
-				ret
+        ld      a,STATE_LEAVE
+        ldio    [mapState+1],a
+        ld      a,STATE_DIALOG_WAIT
+        ldio    [mapState],a
+        ret
 
 .animateLights
 
         ;animate dice lights
-				ld      a,[levelVars+VAR_LIGHT]
-				ld      b,a
+        ld      a,[levelVars+VAR_LIGHT]
+        ld      b,a
 
-				;slow lights
-				ldio    a,[updateTimer]
-				swap    a
-				and     %00000011
-				add     b
+        ;slow lights
+        ldio    a,[updateTimer]
+        swap    a
+        and     %00000011
+        add     b
 
-				ld      hl,bgTileMap+LIGHTINDEX
-				call    ((.updateTwoLights - L0214_Check2) + levelCheckRAM)
+        ld      hl,bgTileMap+LIGHTINDEX
+        call    ((.updateTwoLights - L0214_Check2) + levelCheckRAM)
 
         ;fast lights
-				ldio    a,[updateTimer]
-				swap    a
-				rlca
-				and     %00000011
-				add     b
-				call    ((.updateTwoLights - L0214_Check2) + levelCheckRAM)
+        ldio    a,[updateTimer]
+        swap    a
+        rlca
+        and     %00000011
+        add     b
+        call    ((.updateTwoLights - L0214_Check2) + levelCheckRAM)
 
-				;flasher
-				ld      a,[guardAlarm]
-				or      a
-				jr      z,.afterAnimateFlasher
+        ;flasher
+        ld      a,[guardAlarm]
+        or      a
+        jr      z,.afterAnimateFlasher
 
         ld      hl,levelVars+VAR_FLASHER
-				ldio    a,[updateTimer]
-				rrca
-				rrca
-				push    af
-				and     %11
-				add     [hl]
-				ld      [bgTileMap+FLASHERINDEX],a
-				pop     af
-				and     %100
-				jr      z,.afterAnimateFlasher
-				ld      hl,((.klaxonSound - L0214_Check2) + levelCheckRAM)
-				call    PlaySound
+        ldio    a,[updateTimer]
+        rrca
+        rrca
+        push    af
+        and     %11
+        add     [hl]
+        ld      [bgTileMap+FLASHERINDEX],a
+        pop     af
+        and     %100
+        jr      z,.afterAnimateFlasher
+        ld      hl,((.klaxonSound - L0214_Check2) + levelCheckRAM)
+        call    PlaySound
 .afterAnimateFlasher
         ret
 
 .moveGuards
         ;----move guards----------------------------------------------
-				ld      c,GUARDINDEX
-				call    GetFirst
-				or      a
-				jr      z,.afterMoveGuards
+        ld      c,GUARDINDEX
+        call    GetFirst
+        or      a
+        jr      z,.afterMoveGuards
 
 .moveGuard
         call    IsActorAtDest
-				or      a
-				jr      z,.nextGuard
-				call    GetCurLocation
-				push    bc
-				push    de
-				ld      d,h   ;save location
-				ld      e,l
-				ld      hl,((.patrolTable-L0214_Check2)+levelCheckRAM)
-				ld      c,14  ;14 chances to find cur location
+        or      a
+        jr      z,.nextGuard
+        call    GetCurLocation
+        push    bc
+        push    de
+        ld      d,h   ;save location
+        ld      e,l
+        ld      hl,((.patrolTable-L0214_Check2)+levelCheckRAM)
+        ld      c,14  ;14 chances to find cur location
 
 .tryNextLocation
-				ld      a,[hl+]
-				cp      e
-				jr      nz,.notTheOne
-				ld      a,[hl]
-				cp      d
-				jr      nz,.notTheOne
+        ld      a,[hl+]
+        cp      e
+        jr      nz,.notTheOne
+        ld      a,[hl]
+        cp      d
+        jr      nz,.notTheOne
 
-				;found it
-				pop     de
-				pop     bc
-				inc     hl
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				call    SetActorDestLoc
-				jr      .nextGuard
+        ;found it
+        pop     de
+        pop     bc
+        inc     hl
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        call    SetActorDestLoc
+        jr      .nextGuard
 
 .notTheOne
         inc     hl
         inc     hl
         inc     hl
-				dec     c
-				jr      nz,.tryNextLocation
-				pop     de
-				pop     bc
+        dec     c
+        jr      nz,.tryNextLocation
+        pop     de
+        pop     bc
 
 .nextGuard
         call    GetNextObject
-				or      a
-				jr      nz,.moveGuard
+        or      a
+        jr      nz,.moveGuard
 
 .afterMoveGuards
-				ret
+        ret
 
 .patrolTable
         DW      $d042,$d046
         DW      $d046,$d0a6
-				DW      $d0a6,$d0a2
-				DW      $d0a2,$d042
+        DW      $d0a6,$d0a2
+        DW      $d0a2,$d042
 
-				DW      $d0eb,$d16b
-				DW      $d16b,$d0eb
-				
-				DW      $d0f1,$d171
-				DW      $d171,$d0f1
+        DW      $d0eb,$d16b
+        DW      $d16b,$d0eb
+        
+        DW      $d0f1,$d171
+        DW      $d171,$d0f1
 
-				DW      $d166,$d126
-				DW      $d126,$d166
+        DW      $d166,$d126
+        DW      $d126,$d166
 
-				DW      $d204,$d202
-				DW      $d202,$d204
+        DW      $d204,$d202
+        DW      $d202,$d204
 
-				DW      $d206,$d208
-				DW      $d208,$d206
-				;14 total
+        DW      $d206,$d208
+        DW      $d208,$d206
+        ;14 total
 
 .updateTwoLights
-				ld      [hl+],a
-				call    ((.incCount4 - L0214_Check2) + levelCheckRAM)
-				ld      [hl+],a
+        ld      [hl+],a
+        call    ((.incCount4 - L0214_Check2) + levelCheckRAM)
+        ld      [hl+],a
         ret
 
 .incCount4
-				sub     b
-				inc     a
-				and     %00000011
-				add     b
+        sub     b
+        inc     a
+        and     %00000011
+        add     b
         ret
 
 .darkRedPalette

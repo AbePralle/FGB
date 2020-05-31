@@ -51,158 +51,158 @@ L1202_Load2:
 .afterSkippyShuttle
 
         ld      a,BANK(dialog)
-				ld      [dialogBank],a
+        ld      [dialogBank],a
 
         ;ldio    a,[mapState]
-				;or      a
-				;jr      nz,.afterState0
+        ;or      a
+        ;jr      nz,.afterState0
 
         ;ld      a,BANK(moon_base_ba_gbm)
-				;ld      hl,moon_base_ba_gbm
-				;call    InitMusic
+        ;ld      hl,moon_base_ba_gbm
+        ;call    InitMusic
 
 .afterState0
-				ld      a,BANK(triumphBIG_bg)
-				ld      hl,triumphBIG_bg
-				call    LoadCinemaBG
+        ld      a,BANK(triumphBIG_bg)
+        ld      hl,triumphBIG_bg
+        call    LoadCinemaBG
 
-				ld      a,BANK(dropship_tiny_sp)
-				ld      hl,dropship_tiny_sp
-				call    LoadCinemaSprite
-
-        ld      a,1
-        call    Delay
-
-				ld      a,BANK(nar_skippyshuttle_bg)
-				ld      hl,nar_skippyshuttle_bg
-				call    LoadCinemaTextBox
+        ld      a,BANK(dropship_tiny_sp)
+        ld      hl,dropship_tiny_sp
+        call    LoadCinemaSprite
 
         ld      a,1
         call    Delay
 
-				ld      d,72
-				call    ScrollSpritesRight
-				ld      d,74
-				call    ScrollSpritesDown
+        ld      a,BANK(nar_skippyshuttle_bg)
+        ld      hl,nar_skippyshuttle_bg
+        call    LoadCinemaTextBox
+
+        ld      a,1
+        call    Delay
+
+        ld      d,72
+        call    ScrollSpritesRight
+        ld      d,74
+        call    ScrollSpritesDown
 
         ld      b,%10000000
-				call    ((.setSpritePriority-L1202_Load2)+levelCheckRAM)
+        call    ((.setSpritePriority-L1202_Load2)+levelCheckRAM)
 
         ld      a,1
         call    Delay
 
-				ld      a,16
-				call    SetupFadeFromStandard
-				call    WaitFade
+        ld      a,16
+        call    SetupFadeFromStandard
+        call    WaitFade
 
         ldio    a,[mapState]
         cp      STATE_SKIPPYSHUTTLE
-				jr      nc,.describe_skippy
+        jr      nc,.describe_skippy
 
-				ld      a,BANK(blank_gtx)
-				ld      c,0
-				ld      de,blank_gtx
-				call    ShowDialogAtBottomNoWait
-				jr      .afterSetupTextBox
+        ld      a,BANK(blank_gtx)
+        ld      c,0
+        ld      de,blank_gtx
+        call    ShowDialogAtBottomNoWait
+        jr      .afterSetupTextBox
 
 .describe_skippy
-				call    GfxShowStandardTextBox
+        call    GfxShowStandardTextBox
 
 .afterSetupTextBox
         ld      a,1
-				call    Delay
+        call    Delay
 
         ;blit the full image from the offscreen buffer now that the
-				;bottom is obscured by the text box
-				ld      bc,$1424
-				ld      de,$0000
-				ld      hl,$1400
-				call    CinemaBlitRect
+        ;bottom is obscured by the text box
+        ld      bc,$1424
+        ld      de,$0000
+        ld      hl,$1400
+        call    CinemaBlitRect
 
-				ld      a,$22
-				ldio    [scrollSpeed],a
+        ld      a,$22
+        ldio    [scrollSpeed],a
 
         ;start the screen scrolling down
-				ld      a,28
-				ld      [camera_j],a
+        ld      a,28
+        ld      [camera_j],a
 
 .afterShowSkippyShuttle
 
-				ld      de,((.endCinema - L1202_Load2) + levelCheckRAM)
-				call    SetDialogSkip
-				ld      de,((.endCinema - L1202_Load2) + levelCheckRAM)
-				call    SetDialogForward
+        ld      de,((.endCinema - L1202_Load2) + levelCheckRAM)
+        call    SetDialogSkip
+        ld      de,((.endCinema - L1202_Load2) + levelCheckRAM)
+        call    SetDialogForward
 
-				ld      c,80 + 144
+        ld      c,80 + 144
 .scrollDropshipLoop
         ld      d,1
-				call    ScrollSpritesDown
+        call    ScrollSpritesDown
         ld      a,1
-				call    Delay
-				ld      a,c
+        call    Delay
+        ld      a,c
 
-				cp      80
-				jr      nz,.stillScrolling
-				ldio    a,[mapState]
-        cp      STATE_SKIPPYSHUTTLE
-				jr      nc,.stillScrolling
-				call    ClearDialog
-.stillScrolling
-
-				dec     c
-				jr      nz,.scrollDropshipLoop
-
-.endCinema
-				ld      hl,$0013
-				ld      de,$0013   ;respawn map
+        cp      80
+        jr      nz,.stillScrolling
         ldio    a,[mapState]
         cp      STATE_SKIPPYSHUTTLE
-				jr      nz,.afterChooseNextLevel
+        jr      nc,.stillScrolling
+        call    ClearDialog
+.stillScrolling
 
-				ld      hl,$0215
-				ld      de,$0014   ;respawn map
+        dec     c
+        jr      nz,.scrollDropshipLoop
+
+.endCinema
+        ld      hl,$0013
+        ld      de,$0013   ;respawn map
+        ldio    a,[mapState]
+        cp      STATE_SKIPPYSHUTTLE
+        jr      nz,.afterChooseNextLevel
+
+        ld      hl,$0215
+        ld      de,$0014   ;respawn map
 .afterChooseNextLevel
 
         call    ClearDialog
 
-				ld      a,e
+        ld      a,e
         ld      [respawnMap],a
-				ld      a,d
+        ld      a,d
         ld      [respawnMap+1],a
 
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,EXIT_D
-				ld      [hero0_enterLevelFacing],a
-				ld      [hero1_enterLevelFacing],a
+        ld      a,EXIT_D
+        ld      [hero0_enterLevelFacing],a
+        ld      [hero1_enterLevelFacing],a
         cp      STATE_SKIPPYSHUTTLE
-				ldio    [mapState],a
+        ldio    [mapState],a
 
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
-				ld      a,16
-				call    SetupFadeToStandard
-				call    WaitFade
+        ld      a,16
+        call    SetupFadeToStandard
+        call    WaitFade
 
         ret
 
 .setSpritePriority
-				;set the priority flag for the first 8 sprites
-				ld      hl,spriteOAMBuffer+3
-				ld      de,4
-				ld      c,8
+        ;set the priority flag for the first 8 sprites
+        ld      hl,spriteOAMBuffer+3
+        ld      de,4
+        ld      c,8
 .setPriorityLoop
         ld      a,[hl]
-				and     %01111111
-				or      b
-				ld      [hl],a
-				add     hl,de
-				dec     c
-				jr      nz,.setPriorityLoop
-				ret
+        and     %01111111
+        or      b
+        ld      [hl],a
+        add     hl,de
+        dec     c
+        jr      nz,.setPriorityLoop
+        ret
 
 L1202_LoadFinished:
 ;---------------------------------------------------------------------

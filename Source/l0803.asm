@@ -41,7 +41,7 @@ L0803_Init:
         DW ((L0803_InitFinished - L0803_Init2))  ;size
 L0803_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
         ret
 
 L0803_InitFinished:
@@ -56,12 +56,12 @@ L0803_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0803_CheckFinished:
 PRINTT "0803 Script Sizes (Load/Init/Check) (of $500):  "

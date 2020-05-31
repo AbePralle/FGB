@@ -29,98 +29,98 @@ EXTCLK EQU $82
 UserMain::
         call    InitGfx
 
-				;set up initial location + hero
-				;initial level 0009 (demo intro)
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-				xor     a
-				ld      [curLevelStateIndex],a
+        ;set up initial location + hero
+        ;initial level 0009 (demo intro)
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        xor     a
+        ld      [curLevelStateIndex],a
 
-				xor     a
-				ldio    [mapState],a
-				ldio    [mapState+1],a
+        xor     a
+        ldio    [mapState],a
+        ldio    [mapState+1],a
 
-				;initial level index
-				ld      a,((INITIALMAP>>8) & $ff)
-				ld      [curLevelIndex+1],a
-				ld      a,(INITIALMAP & $ff)
-				ld      [curLevelIndex],a
+        ;initial level index
+        ld      a,((INITIALMAP>>8) & $ff)
+        ld      [curLevelIndex+1],a
+        ld      a,(INITIALMAP & $ff)
+        ld      [curLevelIndex],a
 
-				ld      hl,$1102
-				call    SetJoinMap
-				call    SetRespawnMap
+        ld      hl,$1102
+        call    SetJoinMap
+        call    SetRespawnMap
 
         ld      a,[heroesUsed]
-				or      INITTYPE0
-				ld      [heroesUsed],a
+        or      INITTYPE0
+        ld      [heroesUsed],a
 
         ;hero 0 initial setup
-				ld      a,(INITHERO0 & $ff)
-				ld      [hero0_class],a
-				ld      a,((INITHERO0>>8)&$ff)
-				ld      [hero0_class+1],a
-				ld      a,(INITLOC0 & $ff)
-				ld      [hero0_enterLevelLocation],a
-				ld      a,((INITLOC0>>8) & $ff)
-				ld      [hero0_enterLevelLocation+1],a
-				ld      a,INITEXIT0
-				ld      [hero0_enterLevelFacing],a
-				ld      a,INITTYPE0
-				ld      [hero0_type],a
-				xor     a
-				ld      [hero0_health],a
+        ld      a,(INITHERO0 & $ff)
+        ld      [hero0_class],a
+        ld      a,((INITHERO0>>8)&$ff)
+        ld      [hero0_class+1],a
+        ld      a,(INITLOC0 & $ff)
+        ld      [hero0_enterLevelLocation],a
+        ld      a,((INITLOC0>>8) & $ff)
+        ld      [hero0_enterLevelLocation+1],a
+        ld      a,INITEXIT0
+        ld      [hero0_enterLevelFacing],a
+        ld      a,INITTYPE0
+        ld      [hero0_type],a
+        xor     a
+        ld      [hero0_health],a
 
         ;hero 1 initial setup
-				ld      a,(INITHERO1 & $ff)
-				ld      [hero1_class],a
-				ld      a,((INITHERO1>>8)&$ff)
-				ld      [hero1_class+1],a
-				ld      a,(INITLOC1 & $ff)
-				ld      [hero1_enterLevelLocation],a
-				ld      a,((INITLOC1>>8) & $ff)
-				ld      [hero1_enterLevelLocation+1],a
-				ld      a,INITEXIT1
-				ld      [hero1_enterLevelFacing],a
-				ld      a,INITTYPE1
-				ld      [hero1_type],a
-				xor     a
-				ld      [hero1_health],a
+        ld      a,(INITHERO1 & $ff)
+        ld      [hero1_class],a
+        ld      a,((INITHERO1>>8)&$ff)
+        ld      [hero1_class+1],a
+        ld      a,(INITLOC1 & $ff)
+        ld      [hero1_enterLevelLocation],a
+        ld      a,((INITLOC1>>8) & $ff)
+        ld      [hero1_enterLevelLocation+1],a
+        ld      a,INITEXIT1
+        ld      [hero1_enterLevelFacing],a
+        ld      a,INITTYPE1
+        ld      [hero1_type],a
+        xor     a
+        ld      [hero1_health],a
 
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
-				jr      .loadNextLevel
+        jr      .loadNextLevel
 
 .game   ld      a,[timeToChangeLevel]
         or      a
-				jr      z,.continue
+        jr      z,.continue
 
         ;switch levels
         ld      b,METHOD_DIE
-				call    IterateAllLists
-				ld      a,15
-				call    SetupFadeToBlack
-				call    WaitFade
+        call    IterateAllLists
+        ld      a,15
+        call    SetupFadeToBlack
+        call    WaitFade
 
 .loadNextLevel
-				call    LoadNextLevel
+        call    LoadNextLevel
         call    UpdateObjects
         call    GentleCameraAdjust
-				call    levelCheckRAM
-				call    RedrawMap
-				ld      a,15
-				call    SetupFadeFromBlack
-				call    WaitFade
-				;call    LighteningIn
+        call    levelCheckRAM
+        call    RedrawMap
+        ld      a,15
+        call    SetupFadeFromBlack
+        call    WaitFade
+        ;call    LighteningIn
 
 .continue
         call    MainLoopUpdateObjects
         call    GentleCameraAdjust
 
-				call    levelCheckRAM
+        call    levelCheckRAM
 .afterLevelCheck
-				call    RedrawMap
-				jr      .game
+        call    RedrawMap
+        jr      .game
 
 ;---------------------------------------------------------------------
 ; Routine:      SetActiveROM
@@ -133,8 +133,8 @@ UserMain::
 ;---------------------------------------------------------------------
 SetActiveROM::
         ldio    [curROMBank],a
-				ld      [$2100],a
-				ret
+        ld      [$2100],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      LongCall
@@ -153,31 +153,31 @@ SetActiveROM::
 ;---------------------------------------------------------------------
 LongCall::
         ldio    [curROMBank],a   ;switch to ROM containing routine
-				ld      [$2100],a
+        ld      [$2100],a
 
         push    hl
-				ld      hl,[sp+6]        ;point hl to empty spot in stack
-				ld      [hl],e
-				inc     hl
-				ld      [hl],d           ;save addr of method
-				inc     hl
-				ld      de,.returnAddress
-				ld      [hl],e           ;save return addr of method
-				inc     hl
-				ld      [hl],d
-				pop     hl
-				pop     de
-				pop     af
-				ret                      ;call method
+        ld      hl,[sp+6]        ;point hl to empty spot in stack
+        ld      [hl],e
+        inc     hl
+        ld      [hl],d           ;save addr of method
+        inc     hl
+        ld      de,.returnAddress
+        ld      [hl],e           ;save return addr of method
+        inc     hl
+        ld      [hl],d
+        pop     hl
+        pop     de
+        pop     af
+        ret                      ;call method
 
 .returnAddress
-				ld      [longCallTempA],a
-				pop     af               ;get old ROM bank
-				ldio    [curROMBank],a
-				ld      [$2100],a
-				ld      a,[longCallTempA]
+        ld      [longCallTempA],a
+        pop     af               ;get old ROM bank
+        ldio    [curROMBank],a
+        ld      [$2100],a
+        ld      a,[longCallTempA]
 
-				ret                      ;return from this routine
+        ret                      ;return from this routine
 
 ;---------------------------------------------------------------------
 ; Routine:      LongCallNoArgs
@@ -192,40 +192,40 @@ LongCall::
 LongCallNoArgs::
         push    bc
 
-				ld      b,a
-				ld      a,[curROMBank]
-				push    af                   ;save old bank
+        ld      b,a
+        ld      a,[curROMBank]
+        push    af                   ;save old bank
 
-				ld      a,b
-				ld      [curROMBank],a       ;swap in new bank
-				ld      [$2100],a
+        ld      a,b
+        ld      [curROMBank],a       ;swap in new bank
+        ld      [$2100],a
 
-				ld      bc,.returnAddress
-				push    bc
+        ld      bc,.returnAddress
+        push    bc
 
-				jp      hl
+        jp      hl
 .returnAddress
 
         pop     af                   ;retrieve old bank & swap it in
-				ld      [curROMBank],a
-				ld      [$2100],a
+        ld      [curROMBank],a
+        ld      [$2100],a
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 WaitFade::
         call    FadeStep
 
         ;took out distorts synchronization
-				;send a null control byte
-				;ld      a,LNULL
-				;call    ExchangeByte
-				;call    HandleRemoteInput
+        ;send a null control byte
+        ;ld      a,LNULL
+        ;call    ExchangeByte
+        ;call    HandleRemoteInput
 
         call    CheckSkip
-				ld      a,[specialFX]
-				and     FX_FADE
-				jr      nz,WaitFade
+        ld      a,[specialFX]
+        and     FX_FADE
+        jr      nz,WaitFade
 
         ;allow last palette to install
 .waitInstall
@@ -233,7 +233,7 @@ WaitFade::
         or      a
         jr      nz,.waitInstall
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CheckSpecialFX
@@ -242,11 +242,11 @@ WaitFade::
 ;---------------------------------------------------------------------
 CheckSpecialFX:
         ld      a,[specialFX]
-				and     FX_FADE
-				jr      z,.done
+        and     FX_FADE
+        jr      z,.done
 
-				call    FadeStep
-				ret
+        call    FadeStep
+        ret
 
 .done
         ret
@@ -258,17 +258,17 @@ CheckSpecialFX:
 ;---------------------------------------------------------------------
 UpdateObjTimers::
         ld      a,[objTimerBase]
-				inc     a
+        inc     a
         ld      [objTimerBase],a
 
-				;put 2 LSB bits in 4:3
-				rlca
-				rlca
-				rlca
-				and     %00011000
-				ld      [objTimer60ths],a
+        ;put 2 LSB bits in 4:3
+        rlca
+        rlca
+        rlca
+        and     %00011000
+        ld      [objTimer60ths],a
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Subroutine:   UpdateHeroTimers
@@ -277,17 +277,17 @@ UpdateObjTimers::
 ;---------------------------------------------------------------------
 UpdateHeroTimers:
         ld      a,[heroTimerBase]
-				inc     a
+        inc     a
         ld      [heroTimerBase],a
 
-				;put 2 LSB bits in 4:3
-				rlca
-				rlca
-				rlca
-				and     %00011000
-				ld      [heroTimer60ths],a
+        ;put 2 LSB bits in 4:3
+        rlca
+        rlca
+        rlca
+        and     %00011000
+        ld      [heroTimer60ths],a
 
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -326,27 +326,27 @@ OnVBlank::
         ld      a,[$ff00+$4f]
         push    af
 
-				;update timers
-				ld      hl,vblankTimer
-				inc     [hl]
+        ;update timers
+        ld      hl,vblankTimer
+        inc     [hl]
 
         ;is the backBuffer ready for DMA blit to screen?
         ldio    a,[backBufferReady]
         or      a
         jr      z,.checkDMALoad      ;wasn't ready
 
-				ld      a,[displayType]
-				or      a
-				jr      nz,.afterVblankCheck  ;cinema type
+        ld      a,[displayType]
+        or      a
+        jr      nz,.afterVblankCheck  ;cinema type
 
-				ldio    a,[vblankTimer]
-				ld      hl,vblankTemp
-				sub     [hl]
-				ldio    [vblanksPerUpdate],a
+        ldio    a,[vblankTimer]
+        ld      hl,vblankTemp
+        sub     [hl]
+        ldio    [vblanksPerUpdate],a
 
-				;update no faster than 1-frame-every-so-many-blanks clocks
-				cp      MIN_VBLANKS
-				jr      c,.checkDMALoad   ;too soon to update
+        ;update no faster than 1-frame-every-so-many-blanks clocks
+        cp      MIN_VBLANKS
+        jr      c,.checkDMALoad   ;too soon to update
 
 ;MUST SYNCHRONIZE WITH REMOTE TO DYNAMICALLY CHANGE THIS
         ;jr      z,.rightOn        ;exactly right
@@ -359,12 +359,12 @@ OnVBlank::
         ;dec     [hl]
 
 .rightOn
-				ldio a,[vblankTimer]  ;save time of this screen update
-				ldio [vblankTemp],a
+        ldio a,[vblankTimer]  ;save time of this screen update
+        ldio [vblankTemp],a
 
 .afterVblankCheck
-				ld      hl,updateTimer
-				inc     [hl]
+        ld      hl,updateTimer
+        inc     [hl]
 
         xor     a
         ldio    [backBufferReady],a  ;signal we've blitted backbuffer
@@ -411,22 +411,22 @@ OnVBlank::
         ld      [curPixelOffset_x],a
         ld      a,[desiredPixelOffset_y]
         ld      [curPixelOffset_y],a
-				jr      .scroll
+        jr      .scroll
 
 .checkDMALoad
         ldio    a,[dmaLoad]
-				or      a
-				jr      z,.scroll
+        or      a
+        jr      z,.scroll
 
 .checkLoadBank0
         bit     0,a
-				jr      z,.checkLoadBank1
+        jr      z,.checkLoadBank1
 
 .loadBank0
         res     0,a
-				ldio    [dmaLoad],a       ;indicate we've loaded it
+        ldio    [dmaLoad],a       ;indicate we've loaded it
         xor     a
-				ld      [$ff4f],a
+        ld      [$ff4f],a
 
         ;Initiate DMA transfer to bank 0 VRAM
         ld      a,[dmaLoadSrc0+1]
@@ -442,14 +442,14 @@ OnVBlank::
 
 .checkLoadBank1
         ldio    a,[dmaLoad]
-				bit     1,a
-				jr      z,.scroll
+        bit     1,a
+        jr      z,.scroll
 
 .loadBank1
         res     1,a
-				ldio    [dmaLoad],a       ;indicate we've loaded it
+        ldio    [dmaLoad],a       ;indicate we've loaded it
         ld      a,1
-				ld      [$ff4f],a
+        ld      [$ff4f],a
 
         ;Initiate DMA transfer to bank 1 VRAM
         ld      a,[dmaLoadSrc1+1]
@@ -485,8 +485,8 @@ OnVBlank::
         ld      [jiggleLoc],a
         ld      b,a             ;store random value in b
         and     %00000111       ;random x offset
-				ldio    [baseHorizontalOffset],a
-				add     [hl]            ;add lineZeroHorizontalOffset
+        ldio    [baseHorizontalOffset],a
+        add     [hl]            ;add lineZeroHorizontalOffset
         ldio    [$ff43],a
         swap    b
         ld      a,%00000111     ;random y offset
@@ -518,61 +518,61 @@ OnVBlank::
 
 .useNormalScreenOffsets
         ld      a,[curPixelOffset_x]
-				ldio    [baseHorizontalOffset],a
-				add     [hl]            ;add lineZeroHorizontalOffset
+        ldio    [baseHorizontalOffset],a
+        add     [hl]            ;add lineZeroHorizontalOffset
         ldio    [$ff43],a
         ld      a,[curPixelOffset_y]
         ldio    [$ff42],a
 
         ;new palette to copy?
-				ldio    a,[paletteBufferReady]
-				or      a
-				jr      z,.afterPaletteCopy
+        ldio    a,[paletteBufferReady]
+        or      a
+        jr      z,.afterPaletteCopy
 
-				ld      c,16    ;c is count
-				ld      hl,fadeCurPalette
-				ld      a,%10000000
-				ld      [$ff68],a
-				ld      [$ff6a],a
+        ld      c,16    ;c is count
+        ld      hl,fadeCurPalette
+        ld      a,%10000000
+        ld      [$ff68],a
+        ld      [$ff6a],a
 .paletteCopyBG
         ld      a,[hl+]     ;copy sets of 4 bytes to avoid minute but
-				ld      [$ff69],a   ;killer delays decrementing the counter
+        ld      [$ff69],a   ;killer delays decrementing the counter
         ld      a,[hl+]
-				ld      [$ff69],a
+        ld      [$ff69],a
         ld      a,[hl+]
-				ld      [$ff69],a
+        ld      [$ff69],a
         ld      a,[hl+]
-				ld      [$ff69],a
+        ld      [$ff69],a
         dec     c
-				jr      nz,.paletteCopyBG
+        jr      nz,.paletteCopyBG
 
-				ld      c,16    ;c is count
+        ld      c,16    ;c is count
 .paletteCopyFG
         ld      a,[hl+]
-				ld      [$ff6b],a
+        ld      [$ff6b],a
         ld      a,[hl+]
-				ld      [$ff6b],a
+        ld      [$ff6b],a
         ld      a,[hl+]
-				ld      [$ff6b],a
+        ld      [$ff6b],a
         ld      a,[hl+]
-				ld      [$ff6b],a
+        ld      [$ff6b],a
         dec     c
-				jr      nz,.paletteCopyFG
+        jr      nz,.paletteCopyFG
 
-				xor     a
-				ldio    [paletteBufferReady],a
+        xor     a
+        ldio    [paletteBufferReady],a
 
 .afterPaletteCopy
 
 .done
         ;update music
-				ldio    a,[musicEnabled]
-				and     %10000
-				jr      z,.doneMusic
+        ldio    a,[musicEnabled]
+        and     %10000
+        jr      z,.doneMusic
 
-				ld      hl,musicNoteCountdown
-				dec     [hl]
-				call    z,PlayMusic
+        ld      hl,musicNoteCountdown
+        dec     [hl]
+        call    z,PlayMusic
 
 .doneMusic
         ;restore VRAM bank that was in use
@@ -592,145 +592,145 @@ OnVBlank::
 ;---------------------------------------------------------------------
 OnHBlank::
         push    af
-				push    bc
-				push    hl
+        push    bc
+        push    hl
 
 OnHBlank_afterPush:
         ldio    a,[$ff41]           ;get stat register
-				bit     2,a                 ;equal to lyc?
+        bit     2,a                 ;equal to lyc?
         jp      z,FinishHBlankPlayingSample
 
 .continue
         ld      hl,hblankFlag
-				bit     0,[hl]              ;turning window on or off?
-				jr      nz,OnHBlank_turnOffWindow
+        bit     0,[hl]              ;turning window on or off?
+        jr      nz,OnHBlank_turnOffWindow
 
         ;turn on window
-				bit     1,[hl]              ;allowed to?
-				jr      nz,.turnOn
+        bit     1,[hl]              ;allowed to?
+        jr      nz,.turnOn
         jp      z,FinishHBlankPlayingSample
 .turnOn
         set     0,[hl]
-				ldio    a,[hblankWinOff]
-				ld      [$ff45],a           ;reset lyc to win off pos
-				ld      hl,$ff40            ;turn window on
-				set     5,[hl]
+        ldio    a,[hblankWinOff]
+        ld      [$ff45],a           ;reset lyc to win off pos
+        ld      hl,$ff40            ;turn window on
+        set     5,[hl]
 
 OnHBlank_SetBGColorBlack:
-				;set background palette 0, color zero to black
+        ;set background palette 0, color zero to black
         ld      b,0
-				ld      c,$68
+        ld      c,$68
         ld      hl,$ff69
-				ld      a,%10000000         ;specification 0
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      a,%10000000         ;specification 0
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
-				;ld      a,%10000110         ;white
-				;ld      [c],a
-				;ld      [hl],h
-				;ld      [hl],h
+        ;ld      a,%10000110         ;white
+        ;ld      [c],a
+        ;ld      [hl],h
+        ;ld      [hl],h
 
         ld      a,%10001000         ;palette 1
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10010000         ;palette 2
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10011000         ;palette 3
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10100000         ;palette 4
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10101000         ;palette 5
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10110000         ;palette 6
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         ld      a,%10111000         ;palette 7
-				ld      [c],a
-				ld      [hl],b
-				ld      [hl],b
+        ld      [c],a
+        ld      [hl],b
+        ld      [hl],b
 
         jp      FinishHBlankPlayingSample
 
 OnHBlank_turnOffWindow:
         res     0,[hl]
-				ldio    a,[hblankWinOn]
-				ld      [$ff45],a           ;reset lyc to win on pos
+        ldio    a,[hblankWinOn]
+        ld      [$ff45],a           ;reset lyc to win on pos
         ld      hl,$ff40            ;turn window off
-				res     5,[hl]
+        res     5,[hl]
 
-				;restore background palette 0, color zero
+        ;restore background palette 0, color zero
         push    de
-				ld      c,$68
-				ld      hl,mapColor
+        ld      c,$68
+        ld      hl,mapColor
         ld      a,[hl+]
         ld      d,[hl]
         ld      e,a
         ld      hl,$ff69
 
 HBlankSetBGColorCDEHL_DEPushed:
-				ld      a,%10000000         ;specification 0
-				ld      [c],a
+        ld      a,%10000000         ;specification 0
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10001000         ;specification 1
-				ld      [c],a
+        ld      a,%10001000         ;specification 1
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10010000         ;specification 2
-				ld      [c],a
+        ld      a,%10010000         ;specification 2
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10011000         ;specification 3
-				ld      [c],a
+        ld      a,%10011000         ;specification 3
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10100000         ;specification 4
-				ld      [c],a
+        ld      a,%10100000         ;specification 4
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10101000         ;specification 5
-				ld      [c],a
+        ld      a,%10101000         ;specification 5
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10110000         ;specification 6
-				ld      [c],a
+        ld      a,%10110000         ;specification 6
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				ld      a,%10111000         ;specification 7
-				ld      [c],a
+        ld      a,%10111000         ;specification 7
+        ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
-				;ld      a,%10000110         ;white
-				;ld      [c],a
+        ;ld      a,%10000110         ;white
+        ;ld      [c],a
         ;ld      a,[fadeCurPalette+6]
-				;ld      [hl],a
+        ;ld      [hl],a
         ;ld      a,[fadeCurPalette+7]
-				;ld      [hl],a
+        ;ld      [hl],a
 
         pop     de
 
@@ -743,36 +743,36 @@ HBlankSetBGColorCDEHL_DEPushed:
 ;---------------------------------------------------------------------
 CinemaOnHBlank::
         push    af
-				push    bc
-				push    hl
+        push    bc
+        push    hl
 
         ldio    a,[$ff41]           ;get stat register
-				bit     2,a                 ;equal to lyc?
+        bit     2,a                 ;equal to lyc?
         jp      z,FinishHBlankPlayingSample
 
 .continue
         ld      hl,hblankFlag
-				bit     0,[hl]              ;turning window on or off?
-				jr      nz,.turnOff
+        bit     0,[hl]              ;turning window on or off?
+        jr      nz,.turnOff
 
         ;turn on window
-				bit     1,[hl]              ;allowed to?
-				jr      nz,.turnOn
+        bit     1,[hl]              ;allowed to?
+        jr      nz,.turnOn
         jp      z,FinishHBlankPlayingSample
 .turnOn
         set     0,[hl]
-				ldio    a,[hblankWinOff]
-				ld      [$ff45],a           ;reset lyc to win off pos
-				ld      hl,$ff40            ;turn window on
-				set     5,[hl]
+        ldio    a,[hblankWinOff]
+        ld      [$ff45],a           ;reset lyc to win off pos
+        ld      hl,$ff40            ;turn window on
+        set     5,[hl]
         jp      FinishHBlankPlayingSample
 
 .turnOff
         res     0,[hl]
-				ldio    a,[hblankWinOn]
-				ld      [$ff45],a           ;reset lyc to win on pos
+        ldio    a,[hblankWinOn]
+        ld      [$ff45],a           ;reset lyc to win on pos
         ld      hl,$ff40            ;turn window off
-				res     5,[hl]
+        res     5,[hl]
 
 .done
         jp      FinishHBlankPlayingSample
@@ -784,29 +784,29 @@ CinemaOnHBlank::
 ;---------------------------------------------------------------------
 HOffsetOnHBlank::
         push    af
-				push    bc
-				push    hl
+        push    bc
+        push    hl
 
-				;save current RAM bank
-				ldio    a,[$ff70]
-				push    af
+        ;save current RAM bank
+        ldio    a,[$ff70]
+        push    af
 
-				ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				;add to the horizontal offset for next line
-				ld      c,$44        ;get $ff44
-				ld      a,[c]        ;ypos of refresh (index to array)
-				dec     c            ;c=$43 ($ff43)
-				inc     a
-				ld      l,a
-				ld      h,((horizontalOffset>>8)&$ff)
-				ldio    a,[baseHorizontalOffset]
-				add     [hl]
-				ld      [c],a        ;xpos of screen
+        ld      a,TILEINDEXBANK
+        ldio    [$ff70],a
+        ;add to the horizontal offset for next line
+        ld      c,$44        ;get $ff44
+        ld      a,[c]        ;ypos of refresh (index to array)
+        dec     c            ;c=$43 ($ff43)
+        inc     a
+        ld      l,a
+        ld      h,((horizontalOffset>>8)&$ff)
+        ldio    a,[baseHorizontalOffset]
+        add     [hl]
+        ld      [c],a        ;xpos of screen
 
 .afterAdjustOffsets
         pop     af
-				ldio    [$ff70],a
+        ldio    [$ff70],a
         jp      OnHBlank_afterPush
 
 ;---------------------------------------------------------------------
@@ -817,8 +817,8 @@ HOffsetOnHBlank::
 ;---------------------------------------------------------------------
 SeasonsOnHBlank::
         push    af
-				push    bc
-				push    hl
+        push    bc
+        push    hl
 
         ld      a,[amShowingDialog]
         or      a
@@ -830,16 +830,16 @@ SeasonsOnHBlank::
         ;jr      nz,.seasonsWindow
 
 .normal
-				ldio    a,[$ff44]        ;ypos
-			  cp      143
-				jr      z,.toWhite
-				cp      39
+        ldio    a,[$ff44]        ;ypos
+        cp      143
+        jr      z,.toWhite
+        cp      39
         jp      nz,.seasonsWindow
 
 .toBrown
         push    de
-				ld      c,$68
-				ld      hl,fadeCurPalette+62
+        ld      c,$68
+        ld      hl,fadeCurPalette+62
         ld      a,[hl+]
         ld      d,[hl]
         ld      e,a
@@ -848,8 +848,8 @@ SeasonsOnHBlank::
 
 .toWhite
         push    de
-				ld      c,$68
-				ld      hl,mapColor
+        ld      c,$68
+        ld      hl,mapColor
         ld      a,[hl+]
         ld      d,[hl]
         ld      e,a
@@ -858,33 +858,33 @@ SeasonsOnHBlank::
 
 .seasonsWindow
         ldio    a,[$ff41]           ;get stat register
-				bit     2,a                 ;equal to lyc?
+        bit     2,a                 ;equal to lyc?
         jp      z,FinishHBlankPlayingSample
 
 .continue
         ld      hl,hblankFlag
-				bit     0,[hl]              ;turning window on or off?
-				jr      nz,.turnOff
+        bit     0,[hl]              ;turning window on or off?
+        jr      nz,.turnOff
 
         ;turn on window
-				bit     1,[hl]              ;allowed to?
+        bit     1,[hl]              ;allowed to?
         jr      z,.toBrown
-				;jr      nz,.turnOn
+        ;jr      nz,.turnOn
         ;jp      FinishHBlankPlayingSample
 .turnOn
         set     0,[hl]
-				ldio    a,[hblankWinOff]
-				ld      [$ff45],a           ;reset lyc to win off pos
-				ld      hl,$ff40            ;turn window on
-				set     5,[hl]
+        ldio    a,[hblankWinOff]
+        ld      [$ff45],a           ;reset lyc to win off pos
+        ld      hl,$ff40            ;turn window on
+        set     5,[hl]
         jp      OnHBlank_SetBGColorBlack
 
 .turnOff
         res     0,[hl]
-				ldio    a,[hblankWinOn]
-				ld      [$ff45],a           ;reset lyc to win on pos
+        ldio    a,[hblankWinOn]
+        ld      [$ff45],a           ;reset lyc to win on pos
         ld      hl,$ff40            ;turn window off
-				res     5,[hl]
+        res     5,[hl]
 
         jr      .toBrown
 
@@ -897,14 +897,14 @@ SeasonsOnHBlank::
 GetInput::
         LONGCALLNOARGS HandleInput
 
-				;if the heroes are idle then set both inputs to zero
-				ld      a,[heroesIdle]
-				or      a
-				ret     z
+        ;if the heroes are idle then set both inputs to zero
+        ld      a,[heroesIdle]
+        or      a
+        ret     z
 
-				xor     a
-				ld      [curJoy0],a
-				ld      [curJoy1],a
+        xor     a
+        ld      [curJoy0],a
+        ld      [curJoy1],a
 
         ret
 
@@ -944,20 +944,20 @@ CheckPause:
         or      a
         jr      nz,.done
 
-				ld      a,[displayType]
-				or      a
+        ld      a,[displayType]
+        or      a
         jr      nz,.done
 
-				ld      a,[amChangingMap]
-				or      a
+        ld      a,[amChangingMap]
+        or      a
         jr      nz,.done
 
-				ld      a,[heroesIdle]
-				or      a
+        ld      a,[heroesIdle]
+        or      a
         jr      nz,.done
 
         ;(show as dialog)
-				ld      a,[dialogSettings]
+        ld      a,[dialogSettings]
         push    af
         call    SetPressBDialog
         call    SaveIdle
@@ -969,16 +969,16 @@ CheckPause:
         ld      hl,GeneratePauseMessage
         call    LongCallNoArgs
 
-				ld      a,1
-				ld      [amShowingDialog],a
+        ld      a,1
+        ld      [amShowingDialog],a
         ld      de,backBuffer+63
 
         call    ShowDialogAtTopCommon
-				call    DialogWaitInputZero
+        call    DialogWaitInputZero
 
 .wait
         call    UpdateObjects
-				call    RedrawMap
+        call    RedrawMap
         call    SetDialogJoy
         bit     JOY_SELECT_BIT,[hl]
         jr      nz,.selectPressed
@@ -1026,12 +1026,12 @@ CheckPause:
 ;---------------------------------------------------------------------
 MainLoopUpdateObjects:
         call    VWait             ;wait for a vertical blank
-				ld      a,1
-				ld      [checkInputInMainLoop],a
+        ld      a,1
+        ld      [checkInputInMainLoop],a
         call    GetInput
         call    CheckPause
-				xor     a
-				ld      [checkInputInMainLoop],a
+        xor     a
+        ld      [checkInputInMainLoop],a
         jr      .doneWithInput
 
 .vwait  call    VWait             ;wait for a vertical blank
@@ -1043,7 +1043,7 @@ MainLoopUpdateObjects:
         ldio    a,[backBufferReady]
         or      a
         jp      nz,.vwait
-				jr      UpdateObjectsCommon
+        jr      UpdateObjectsCommon
 
 UpdateObjects::
         call    VWait             ;wait for a vertical blank
@@ -1060,9 +1060,9 @@ UpdateObjects::
         jp      nz,.vwait
 
 UpdateObjectsCommon:
-				ld      a,[displayType]
-				or      a
-				ret     nz              ;done if cinema type
+        ld      a,[displayType]
+        or      a
+        ret     nz              ;done if cinema type
 
         ;check each object
         ld      b,METHOD_CHECK
@@ -1071,38 +1071,38 @@ UpdateObjectsCommon:
         call    IterateMaxObjects
 
         ;update the timers that hero/hero bullets base moves off of
-				call    UpdateHeroTimers
+        call    UpdateHeroTimers
 
-				;make sure we check the hero & hero's bullets each time
-				ld      hl,hero0_index
-				call    .checkHeroObjects
-				ld      hl,hero1_index
-				call    .checkHeroObjects
+        ;make sure we check the hero & hero's bullets each time
+        ld      hl,hero0_index
+        call    .checkHeroObjects
+        ld      hl,hero1_index
+        call    .checkHeroObjects
 
-				ret
+        ret
 
 .checkHeroObjects
-				ld      a,[hl+]                ;heroX_index
-				or      a
-				ret     z                      ;this hero doesn't exist
+        ld      a,[hl+]                ;heroX_index
+        or      a
+        ret     z                      ;this hero doesn't exist
 
-				ld      c,a
+        ld      c,a
         call    GetFirst
-				ld      b,METHOD_CHECK
-				;ld      e,[hl]                 ;heroX_objectL
-				;inc     hl
-				;ld      d,[hl]                 ;heroX_objectH
-				;inc     hl
-				call    CallMethod
+        ld      b,METHOD_CHECK
+        ;ld      e,[hl]                 ;heroX_objectL
+        ;inc     hl
+        ;ld      d,[hl]                 ;heroX_objectH
+        ;inc     hl
+        call    CallMethod
 
-				inc     hl
-				inc     hl
+        inc     hl
+        inc     hl
 
-				ld      a,[hl]                 ;heroX_bulletIndex
-				ld      c,a
-				call    GetFirst
-				call    IterateList
-				ret
+        ld      a,[hl]                 ;heroX_bulletIndex
+        ld      c,a
+        call    GetFirst
+        call    IterateList
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      RedrawMap
@@ -1110,7 +1110,7 @@ UpdateObjectsCommon:
 ;---------------------------------------------------------------------
 RedrawMap::
         call    RestrictCameraToBounds
-				call    ScrollToCamera
+        call    ScrollToCamera
 
         call    DrawMapToBackBuffer
         call    UpdateEnvEffect
@@ -1118,7 +1118,7 @@ RedrawMap::
         ld      a,1
         ldio    [backBufferReady],a  ;signal we're ready for DMA
 
-				ret
+        ret
 
 
 
@@ -1130,16 +1130,16 @@ RedrawMap::
 ; Alters:       af
 ;---------------------------------------------------------------------
 HandleRemoteInput::
-				bit     7,a            ;test bit 7
-				ret     z              ;got the BCB
+        bit     7,a            ;test bit 7
+        ret     z              ;got the BCB
 
-				;handle the link command code we received.
-				call    HandleLCC
+        ;handle the link command code we received.
+        call    HandleLCC
 
         ;indicate we need to try exchanging our control bytes again
-				ld      a,1
-				or      a              ;don't set zero flag
-				ret
+        ld      a,1
+        or      a              ;don't set zero flag
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      HandleLCC
@@ -1153,83 +1153,83 @@ HandleLCC:
         jr      nz,.checkLGETMAPINDEX
 
         ;LGETGAMESTATE
-				LONGCALLNOARGS TransmitGameState
-				ret
+        LONGCALLNOARGS TransmitGameState
+        ret
 
 .checkLGETMAPINDEX
         cp      LGETMAPINDEX
         jr      nz,.checkLUPDATESTATE
 
         ;LGETMAPINDEX
-				ld      a,[displayType]
-				or      a
-				jr      nz,.returnDifferentMapCode  ;cinema type
-				ld      a,[amChangingMap]
-				or      a
-				jr      nz,.returnWaitCode
-				ld      a,[canJoinMap]
-				;or      a
-				;jr      z,.returnWaitCode
-				cp      2
-				jr      z,.returnDifferentMapCode   ;do this map independently
+        ld      a,[displayType]
+        or      a
+        jr      nz,.returnDifferentMapCode  ;cinema type
+        ld      a,[amChangingMap]
+        or      a
+        jr      nz,.returnWaitCode
+        ld      a,[canJoinMap]
+        ;or      a
+        ;jr      z,.returnWaitCode
+        cp      2
+        jr      z,.returnDifferentMapCode   ;do this map independently
 
-				ld      a,[curLevelStateIndex]
-				jr      .returnMapIndex
+        ld      a,[curLevelStateIndex]
+        jr      .returnMapIndex
 .returnWaitCode
         ld      a,$ff
-				jr      .returnMapIndex
+        jr      .returnMapIndex
 .returnDifferentMapCode
         ld      a,$fe
 .returnMapIndex
-				call    TransmitByte
-				ret
+        call    TransmitByte
+        ret
 
 .checkLUPDATESTATE
         cp      LUPDATESTATE
         jr      nz,.checkLUPDATEHERO
 
         ;LUPDATESTATE
-				push    hl
-				ld      a,LEVELSTATEBANK
-				ld      [$ff70],a
-				call    ReceiveByte
-				ld      h,((levelState>>8) & $ff)
-				ld      l,a
-				call    ReceiveByte
-				ld      [hl],a
-				pop     hl
+        push    hl
+        ld      a,LEVELSTATEBANK
+        ld      [$ff70],a
+        call    ReceiveByte
+        ld      h,((levelState>>8) & $ff)
+        ld      l,a
+        call    ReceiveByte
+        ld      [hl],a
+        pop     hl
 
-				ret
+        ret
 
 .checkLUPDATEHERO
         cp      LUPDATEHERO
         jr      nz,.checkLYANKPLAYER
 
         ;LUPDATEHERO
-				call    ReceiveByte
-				ld      [heroesUsed],a
-				ret
+        call    ReceiveByte
+        ld      [heroesUsed],a
+        ret
 
 .checkLYANKPLAYER
         cp      LYANKPLAYER
         jr      nz,.checkLRESYNCHRONIZE
 
         ;LYANKPLAYER
-				;get exit direction
-			  call    ReceiveByte
-				ld      [hero0_enterLevelFacing],a
+        ;get exit direction
+        call    ReceiveByte
+        ld      [hero0_enterLevelFacing],a
 
-				;get new map coordinates
+        ;get new map coordinates
         push    bc
         push    af
-			  call    ReceiveByte
+        call    ReceiveByte
         ld      c,a
-			  call    ReceiveByte
+        call    ReceiveByte
         ld      b,a
-				ld      a,[hero0_enterLevelFacing]
+        ld      a,[hero0_enterLevelFacing]
         and     7
-				ld      [hero0_enterLevelFacing],a
-				ld      [hero1_enterLevelFacing],a
+        ld      [hero0_enterLevelFacing],a
+        ld      [hero1_enterLevelFacing],a
         pop     af
         cp      8
         jr      nc,.changeMap
@@ -1243,99 +1243,99 @@ HandleLCC:
 
 .changeMap
         ld      a,c
-				ld      [curLevelIndex],a    ;map index lobyte
+        ld      [curLevelIndex],a    ;map index lobyte
         ld      a,b
-				ld      [curLevelIndex+1],a    ;map index lobyte
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      [curLevelIndex+1],a    ;map index lobyte
+        ld      a,1
+        ld      [timeToChangeLevel],a
 
 .noChangeMap ;already on this map
         pop     bc
-				ret
+        ret
 
 .checkLRESYNCHRONIZE
         cp      LRESYNCHRONIZE
         jr      nz,.checkLGETRANDOMSEED
 
-				LONGCALLNOARGS GuestContinueSynchronization
-				ret
+        LONGCALLNOARGS GuestContinueSynchronization
+        ret
 
 .checkLGETRANDOMSEED
         cp      LGETRANDOMSEED
         jr      nz,.checkLTERMINATE
 
-				ldio    a,[randomLoc]
-				call    TransmitByte
-				ret
+        ldio    a,[randomLoc]
+        call    TransmitByte
+        ret
 
 .checkLTERMINATE
         cp      LTERMINATE
         jr      nz,.checkLSYNCHRONIZE
 
-				ld      a,[amLinkMaster]
-				cp      1
-				jr      z,.terminateMaster
+        ld      a,[amLinkMaster]
+        cp      1
+        jr      z,.terminateMaster
 
-				;terminate slave
-				rst     $00
+        ;terminate slave
+        rst     $00
 .terminateMaster
         ld      a,$fe
         ld      [amLinkMaster],a
-				ret
+        ret
 
 .checkLSYNCHRONIZE
         cp      LSYNCHRONIZE
         jr      nz,.checkLLOCKHEROES
 
         ;LSYNCHRONIZE
-				;am I ready to synchronize?
-				ld      a,[checkInputInMainLoop]
-				or      a
-				jr      z,.notReadyToSync
-				ld      a,[amShowingDialog]
-				or      a
-				jr      nz,.readyIfCinema
-				ld      a,[canJoinMap]
-				or      a
-				jr      z,.notReadyToSync
-				jr      .readyToSynchronize
+        ;am I ready to synchronize?
+        ld      a,[checkInputInMainLoop]
+        or      a
+        jr      z,.notReadyToSync
+        ld      a,[amShowingDialog]
+        or      a
+        jr      nz,.readyIfCinema
+        ld      a,[canJoinMap]
+        or      a
+        jr      z,.notReadyToSync
+        jr      .readyToSynchronize
 
 .readyIfCinema
-				ld      a,[displayType]
-				or      a
-				jr      nz,.readyToSynchronize
+        ld      a,[displayType]
+        or      a
+        jr      nz,.readyToSynchronize
 
-				;not ready
+        ;not ready
 .notReadyToSync
-				ld      a,LSYNCHWAIT
-				call    TransmitByte
-				ret
+        ld      a,LSYNCHWAIT
+        call    TransmitByte
+        ret
 
 .readyToSynchronize
         ld      a,LSYNCHREADY
-				call    TransmitByte
-				LONGCALLNOARGS HostSynchronize
-				ret
+        call    TransmitByte
+        LONGCALLNOARGS HostSynchronize
+        ret
 
 .checkLLOCKHEROES
         cp      LLOCKHEROES
-				jr      nz,.checkLNOLINK
+        jr      nz,.checkLNOLINK
 
         call    ReceiveByte      ;receive lock or unlock from remote
-				ld      [heroesLocked],a
-				ret
+        ld      [heroesLocked],a
+        ret
 
 .checkLNOLINK
         cp      LNOLINK
-				jr      nz,.checkLLINKTEST
+        jr      nz,.checkLLINKTEST
         ret
 
 .checkLLINKTEST
         cp      LLINKTEST
-				jr      nz,.checkLCHANGEAPPXMAP
+        jr      nz,.checkLCHANGEAPPXMAP
 
         LONGCALLNOARGS LinkTest
-				ret
+        ret
 
 .checkLCHANGEAPPXMAP
         cp      LCHANGEAPPXMAP
@@ -1350,9 +1350,9 @@ HandleLCC:
 
         push    bc
         call    ReceiveByte      ;get bc (inventory item)
-				ld      c,a
+        ld      c,a
         call    ReceiveByte
-				ld      b,a
+        ld      b,a
 
         ;duplicate code also in map.asm
         push    hl
@@ -1370,9 +1370,9 @@ HandleLCC:
         ;duplicate code also in map.asm
         push    bc
         call    ReceiveByte      ;get bc (inventory item)
-				ld      c,a
+        ld      c,a
         call    ReceiveByte
-				ld      b,a
+        ld      b,a
 
         ;duplicate code also in map.asm
         push    hl
@@ -1416,25 +1416,25 @@ HandleLCC:
 ;               cable.
 ;---------------------------------------------------------------------
 LLTransmitByte:
-				di      ;be sure we're not interrupted
-				ldio    [$ff01],a   ;store the data to transfer
-				ld      a,INTCLK
-				ldio    [$ff02],a   ;let's do it
+        di      ;be sure we're not interrupted
+        ldio    [$ff01],a   ;store the data to transfer
+        ld      a,INTCLK
+        ldio    [$ff02],a   ;let's do it
 .waitForCompletion
         ldio    a,[$ff02]                       ;12
-				and     $80                             ; 8
-				jr      nz,.waitForCompletion           ; 8
+        and     $80                             ; 8
+        jr      nz,.waitForCompletion           ; 8
 
-				;go into slave mode to await next byte
-				ld      a,EXTCLK                        ; 8
-				ldio    [$ff02],a                       ;12  TOTAL = 48
+        ;go into slave mode to await next byte
+        ld      a,EXTCLK                        ; 8
+        ldio    [$ff02],a                       ;12  TOTAL = 48
 
         ;clear pending interrupts
         xor     a
-				ei
-				ld      [$ff0f],a
+        ei
+        ld      [$ff0f],a
 
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     LLReceiveByte
@@ -1451,88 +1451,88 @@ LLTransmitByte:
 ;---------------------------------------------------------------------
 LLReceiveByte:
         push    bc
-				push    de
+        push    de
 
-				ld      de,$0C00   ;abort timer counts down $C00 * 256 times
-				ld      c,0        ;(about 1.25 sec per $100)
+        ld      de,$0C00   ;abort timer counts down $C00 * 256 times
+        ld      c,0        ;(about 1.25 sec per $100)
 .waitForCompletion
         ldio    a,[$ff02]
-				and     $80
-				jr      z,.gotValue
+        and     $80
+        jr      z,.gotValue
 
-				;update our abort timer
-				dec     c
-				jr      nz,.waitForCompletion
+        ;update our abort timer
+        dec     c
+        jr      nz,.waitForCompletion
 
-				dec     de
-				xor     a
-				cp      d
-				jr      nz,.waitForCompletion
-				cp      e
-				jr      nz,.waitForCompletion
-				jr      .linkLost
+        dec     de
+        xor     a
+        cp      d
+        jr      nz,.waitForCompletion
+        cp      e
+        jr      nz,.waitForCompletion
+        jr      .linkLost
 
 .gotValue
-				ldio    a,[$ff01]   ;return the value we received
+        ldio    a,[$ff01]   ;return the value we received
 
         ;kill some time before we let ourselves change to master
-				;to give the current master time to change to slave
-				push    af
+        ;to give the current master time to change to slave
+        push    af
 .killOuter
-				ld      a,6
+        ld      a,6
 .killTime
-				dec     a               ; 4
-				jr      nz,.killTime    ; 4/8  TOTAL = 8, *6=48
-				pop     af
-				jr      .done
+        dec     a               ; 4
+        jr      nz,.killTime    ; 4/8  TOTAL = 8, *6=48
+        pop     af
+        jr      .done
 
 .linkLost
         ld      a,[amLinkMaster]
-				or      a
-				jr      z,.amSlave
+        or      a
+        jr      z,.amSlave
 
-				cp      1
-				jr      z,.amMaster
+        cp      1
+        jr      z,.amMaster
 
-				;link already lost, restore stack & jump to bail-out address
-				;if not 0
-				ld      a,[linkBailOut]     ;get bail-out address
-				ld      e,a
-				ld      a,[linkBailOut+1]
-				ld      d,a
-				xor     a
-				cp      d
-				jr      nz,.bail
-				cp      e
-				jr      nz,.bail
+        ;link already lost, restore stack & jump to bail-out address
+        ;if not 0
+        ld      a,[linkBailOut]     ;get bail-out address
+        ld      e,a
+        ld      a,[linkBailOut+1]
+        ld      d,a
+        xor     a
+        cp      d
+        jr      nz,.bail
+        cp      e
+        jr      nz,.bail
 
-				;null bail address; just quit
-				jr      .done
+        ;null bail address; just quit
+        jr      .done
 
 .bail
         ;restore the stack before jumping to the bail address
-				ld      a,[linkBailOut+2]
-				ld      l,a
-				ld      a,[linkBailOut+3]
-				ld      h,a
-				ld      sp,hl
-				push    de
-				ret
+        ld      a,[linkBailOut+2]
+        ld      l,a
+        ld      a,[linkBailOut+3]
+        ld      h,a
+        ld      sp,hl
+        push    de
+        ret
 
 .amMaster
-				ld      a,$fe
-				ld      [amLinkMaster],a
+        ld      a,$fe
+        ld      [amLinkMaster],a
 
         call    RemoveRemoteHero
-				jr      .done
+        jr      .done
 
 .amSlave
         rst     $00             ;restart the game
 
 .done
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1544,26 +1544,26 @@ LLReceiveByte:
 ;---------------------------------------------------------------------
 TransmitByte::
         push    bc
-				ld      b,a
+        ld      b,a
 
-				;If I was the last one to transmit, receive a byte as an
-				;acknowledgement.
-				ld      a,[lastLinkAction]
-				or      a
-				jr      z,.afterOrientStream
+        ;If I was the last one to transmit, receive a byte as an
+        ;acknowledgement.
+        ld      a,[lastLinkAction]
+        or      a
+        jr      z,.afterOrientStream
 
-				call    LLReceiveByte
+        call    LLReceiveByte
 
 .afterOrientStream
         ld      a,1          ;our action this time is to transmit
-				ld      [lastLinkAction],a
+        ld      [lastLinkAction],a
 
         ld      a,b
-				call    LLTransmitByte
+        call    LLTransmitByte
 
 .done
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1575,20 +1575,20 @@ TransmitByte::
 ;---------------------------------------------------------------------
 ReceiveByte::
         ;If necessary we'll transmit a value to avoid receiving twice
-				;in a row.
-				ld      a,[lastLinkAction]
-				or      a
-				jr      nz,.afterOrientStream
+        ;in a row.
+        ld      a,[lastLinkAction]
+        or      a
+        jr      nz,.afterOrientStream
 
-				ld      a,1
-				call    LLTransmitByte
+        ld      a,1
+        call    LLTransmitByte
 
 .afterOrientStream
         xor     a   ;our action this time is to receive
-				ld      [lastLinkAction],a
+        ld      [lastLinkAction],a
 
-				call    LLReceiveByte
-				ret
+        call    LLReceiveByte
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -1602,28 +1602,28 @@ ReceiveByte::
 ;---------------------------------------------------------------------
 ExchangeByte::
         push    bc
-				ld      b,a
+        ld      b,a
 
         ld      a,[amLinkMaster]
-				or      a
-				jr      z,.slaveExchange
+        or      a
+        jr      z,.slaveExchange
 
-				;masterExchange
-				ld      a,b
-				call    TransmitByte
-				call    ReceiveByte
-				jr      .done
+        ;masterExchange
+        ld      a,b
+        call    TransmitByte
+        call    ReceiveByte
+        jr      .done
 
 .slaveExchange
         call    ReceiveByte
-				ld      c,a
-				ld      a,b
-				call    TransmitByte
-				ld      a,c
+        ld      c,a
+        ld      a,b
+        call    TransmitByte
+        ld      a,c
 
 .done
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      TransmitData
@@ -1635,22 +1635,22 @@ ExchangeByte::
 ;---------------------------------------------------------------------
 TransmitData::
         push    bc
-				push    hl
+        push    hl
 
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
 .loop   ld      a,[hl+]
         call    TransmitByte
-				dec     bc
-				xor     a
-				cp      b
-				jr      nz,.loop
-				cp      c
-				jr      nz,.loop
+        dec     bc
+        xor     a
+        cp      b
+        jr      nz,.loop
+        cp      c
+        jr      nz,.loop
 
         pop     hl
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ReceiveData
@@ -1662,22 +1662,22 @@ TransmitData::
 ;---------------------------------------------------------------------
 ReceiveData::
         push    bc
-				push    hl
+        push    hl
 
-				ldio    [$ff70],a     ;change RAM bank
+        ldio    [$ff70],a     ;change RAM bank
 
 .loop   call    ReceiveByte
-				ld      [hl+],a
-				dec     bc
-				xor     a
-				cp      b
-				jr      nz,.loop
-				cp      c
-				jr      nz,.loop
+        ld      [hl+],a
+        dec     bc
+        xor     a
+        cp      b
+        jr      nz,.loop
+        cp      c
+        jr      nz,.loop
 
         pop     hl
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      TransmitCompressedData
@@ -1693,56 +1693,56 @@ ReceiveData::
 ;---------------------------------------------------------------------
 TransmitCompressedData::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
-				;divide len by 8  (>>3)
-				srl     b
-				rr      c
-				srl     b
-				rr      c
-				srl     b
-				rr      c
+        ;divide len by 8  (>>3)
+        srl     b
+        rr      c
+        srl     b
+        rr      c
+        srl     b
+        rr      c
 
         push    bc            ;save length
 
         ;----Compress the data into backBuffer------------------------
-				ld      de,backBuffer ;compression buffer
+        ld      de,backBuffer ;compression buffer
 .nextByte
         push    de            ;push destination
         ld      de,8          ;d is compressed (0), e is times to loop
 
 .nextBit
         ld      a,[hl+]       ;get the next byte
-				rrca                  ;shift out bit[0] into the carry flag
-				rl      d             ;rotate onto right side of result
-				dec     e
-				jr      nz,.nextBit
+        rrca                  ;shift out bit[0] into the carry flag
+        rl      d             ;rotate onto right side of result
+        dec     e
+        jr      nz,.nextBit
 
-				ld      a,d           ;a has compressed byte
-				pop     de            ;pop destination
-				ld      [de],a        ;store the compressed byte
-				inc     de
+        ld      a,d           ;a has compressed byte
+        pop     de            ;pop destination
+        ld      [de],a        ;store the compressed byte
+        inc     de
 
         dec     bc
-			  xor     a
-				cp      b
-				jr      nz,.nextByte
-				cp      c
-				jr      nz,.nextByte
+        xor     a
+        cp      b
+        jr      nz,.nextByte
+        cp      c
+        jr      nz,.nextByte
 
-				pop     bc   ;done with compression, retrieve len
+        pop     bc   ;done with compression, retrieve len
 
-				ld      hl,backBuffer  ;transmit the compressed data
-				xor     a
-				call    TransmitData
+        ld      hl,backBuffer  ;transmit the compressed data
+        xor     a
+        call    TransmitData
 
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ReceiveCompressedData
@@ -1756,58 +1756,58 @@ TransmitCompressedData::
 ;---------------------------------------------------------------------
 ReceiveCompressedData::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         push    af            ;save original RAM bank
-				push    hl            ;save original dest
+        push    hl            ;save original dest
 
-				;----Calculate numBytes/8 (>>3)-------------------------------
-				srl     b
-				rr      c
-				srl     b
-				rr      c
-				srl     b
-				rr      c
+        ;----Calculate numBytes/8 (>>3)-------------------------------
+        srl     b
+        rr      c
+        srl     b
+        rr      c
+        srl     b
+        rr      c
 
-				ld      hl,backBuffer  ;receive the compressed data
-				xor     a
-				call    ReceiveData
+        ld      hl,backBuffer  ;receive the compressed data
+        xor     a
+        call    ReceiveData
 
         pop     hl             ;retrieve original dest
-				pop     af             ;retrieve original RAM bank
-				ldio    [$ff70],a
+        pop     af             ;retrieve original RAM bank
+        ldio    [$ff70],a
 
         ;----Decompress the data into the destination buffer----------
-				ld      de,backBuffer ;decompression buffer
+        ld      de,backBuffer ;decompression buffer
 .nextByte
-				ld      a,[de]        ;get a byte from the buffer
-				inc     de
+        ld      a,[de]        ;get a byte from the buffer
+        inc     de
         push    de            ;push source
-				ld      d,a           ;store compressed byte in d
+        ld      d,a           ;store compressed byte in d
         ld      e,8           ;e is times to loop
 
 .nextBit
         xor     a
         rl      d             ;get a bit off left side of compressed
-				rla                   ;shift onto right side of uncompressed
-				ld      [hl+],a       ;store in final destination
-				dec     e
-				jr      nz,.nextBit
+        rla                   ;shift onto right side of uncompressed
+        ld      [hl+],a       ;store in final destination
+        dec     e
+        jr      nz,.nextBit
 
-				pop     de            ;pop source
+        pop     de            ;pop source
 
         dec     bc
-			  xor     a
-				cp      b
-				jr      nz,.nextByte
-				cp      c
-				jr      nz,.nextByte
+        xor     a
+        cp      b
+        jr      nz,.nextByte
+        cp      c
+        jr      nz,.nextByte
 
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CheckSimultaneousLCC
@@ -1823,26 +1823,26 @@ ReceiveCompressedData::
 ;---------------------------------------------------------------------
 CheckSimultaneousLCC::
         bit     7,a           ;see if we got a LCC or a BCB.
-				ret     z             ;Got a BCB, everything's cool.
+        ret     z             ;Got a BCB, everything's cool.
 
-				;Got a LCC.  If I'm the Master then the other machine must
-				;yield to me so everything's still cool.
-				push    af
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.amSlave
-				pop     af
-				xor     a
-				ret
+        ;Got a LCC.  If I'm the Master then the other machine must
+        ;yield to me so everything's still cool.
+        push    af
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.amSlave
+        pop     af
+        xor     a
+        ret
 
 .amSlave
         ;I must yield to the Master.  Handle his request and then
-				;return a value indicating I must repeat my own request.
-				pop     af
-				call    HandleLCC
-				ld      a,1
-				or      a
-				ret
+        ;return a value indicating I must repeat my own request.
+        pop     af
+        call    HandleLCC
+        ld      a,1
+        or      a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      YankRemotePlayer
@@ -1864,40 +1864,40 @@ YankRemotePlayer::
         pop     af
 
         ;verify link established
-				push    hl
-				ld      hl,amLinkMaster
-				bit     7,[hl]
-				pop     hl
-				ret     nz
+        push    hl
+        ld      hl,amLinkMaster
+        bit     7,[hl]
+        pop     hl
+        ret     nz
 
         push    af
-				push    hl
-				ld      a,2    ;two additional things on stack
-				ld      hl,.linkBailAddress
-				call    SetLinkBailOutAddress
+        push    hl
+        ld      a,2    ;two additional things on stack
+        ld      hl,.linkBailAddress
+        call    SetLinkBailOutAddress
 
-				pop     hl
+        pop     hl
 
 .sendYank
-				ld      a,LYANKPLAYER
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.sendYank
-				pop     af
+        ld      a,LYANKPLAYER
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.sendYank
+        pop     af
 
-				;remote machine is listening; send map coords
-				call    TransmitByte   ;exit dir
-				ld      a,l
-				call    TransmitByte
-				ld      a,h
-				call    TransmitByte
+        ;remote machine is listening; send map coords
+        call    TransmitByte   ;exit dir
+        ld      a,l
+        call    TransmitByte
+        ld      a,h
+        call    TransmitByte
 .linkBailAddress
         push    hl
         ld      hl,0
-				xor     a
-				call    SetLinkBailOutAddress
-				pop     hl
-				ret
+        xor     a
+        call    SetLinkBailOutAddress
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      RemoveRemoteHero
@@ -1910,71 +1910,71 @@ YankRemotePlayer::
 RemoveRemoteHero::
         push    bc
         push    de
-				push    hl
+        push    hl
 
-				;determine which is the remote hero
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.amSlave
+        ;determine which is the remote hero
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.amSlave
 
 .amMaster
         ld      hl,hero1_index
-				jr      .determinedRemoteHero
+        jr      .determinedRemoteHero
 
 .amSlave
         ld      hl,hero0_index
 
 .determinedRemoteHero
-				;remove remote hero from map if present
-				ld      a,[hl]          ;heroX_index
-				or      a
-				jr      z,.done         ;not here
+        ;remove remote hero from map if present
+        ld      a,[hl]          ;heroX_index
+        or      a
+        jr      z,.done         ;not here
 
-				;save the current ROM & switch in the object ROM
-				ldio    a,[curROMBank]
-				push    af
-				ld      a,CLASSROM
-				call    SetActiveROM
+        ;save the current ROM & switch in the object ROM
+        ldio    a,[curROMBank]
+        push    af
+        ld      a,CLASSROM
+        call    SetActiveROM
 
         ;----remove this one's heroesPresent flag----
-				ld      a,[hl]          ;heroX_index
-				push    af
+        ld      a,[hl]          ;heroX_index
+        push    af
 
-				ld       a,l
-				and      16
+        ld       a,l
+        and      16
 IF HERODATASIZE!=16
 fix this
 ENDC
-				swap     a              ;a is now 1 or 0
-				add      1              ;now 2 or 1
-				xor      $ff            ;now ~2 or ~1
-				ld       b,a
-				ld       a,[heroesPresent]
-				and      b
-				ld       [heroesPresent],a
+        swap     a              ;a is now 1 or 0
+        add      1              ;now 2 or 1
+        xor      $ff            ;now ~2 or ~1
+        ld       b,a
+        ld       a,[heroesPresent]
+        and      b
+        ld       [heroesPresent],a
 
-				;push    hl
-				;ld      de,(HERODATA_TYPE - HERODATA_INDEX)
-				;add     hl,de
-				;ld      a,[hl]          ;heroX_type
-				;xor     $ff
-				;ld      b,a
-				;ld      a,[heroesPresent]
-				;and     b
-				;ld      [heroesPresent],a
-				;pop     hl
-				xor     a
-				ld      [hl],a          ;heroX_index
-				pop     af
+        ;push    hl
+        ;ld      de,(HERODATA_TYPE - HERODATA_INDEX)
+        ;add     hl,de
+        ;ld      a,[hl]          ;heroX_type
+        ;xor     $ff
+        ;ld      b,a
+        ;ld      a,[heroesPresent]
+        ;and     b
+        ;ld      [heroesPresent],a
+        ;pop     hl
+        xor     a
+        ld      [hl],a          ;heroX_index
+        pop     af
 
         ld      c,a
-				call    GetFirst
-				ld      b,METHOD_DIE
-				call    CallMethod
+        call    GetFirst
+        ld      b,METHOD_DIE
+        call    CallMethod
 
         ;restore the old ROM
-				pop     af
-				call    SetActiveROM
+        pop     af
+        call    SetActiveROM
 
 .done
         pop     hl
@@ -1992,67 +1992,67 @@ ENDC
 ;---------------------------------------------------------------------
 DebugMesg::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ldio    a,[$ff40]
-				and     %10000000
-				jr      z,.done
+        ldio    a,[$ff40]
+        and     %10000000
+        jr      z,.done
 
         ld      d,h
         ld      e,l
         xor     a
 
-				;-------Show Dialog At Top-------------------
+        ;-------Show Dialog At Top-------------------
         push    af
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,0            ;lines to skip at top
-				ld      a,[curROMBank]
-				call    ShowDialogCommon
+        ld      b,0            ;lines to skip at top
+        ld      a,[curROMBank]
+        call    ShowDialogCommon
 
         xor     a
         ldh     [$ff4a], a     ;set window y position
 
-				ld      a,[de]         ;number of lines
-				rlca                   ;times 8 = pixels for window
-				rlca
-				rlca
-				add     7
-				ld      [hblankWinOff],a
-
-				ld      a,143
-				ld      [hblankWinOn],a
-
-				ld      a,[hblankFlag]
-				bit     1,a
-				jr      nz,.afterSetLYC
+        ld      a,[de]         ;number of lines
+        rlca                   ;times 8 = pixels for window
+        rlca
+        rlca
+        add     7
+        ld      [hblankWinOff],a
 
         ld      a,143
-				ld      [$ff45],a            ;lyc
-				ld      a,[hblankFlag]
+        ld      [hblankWinOn],a
+
+        ld      a,[hblankFlag]
+        bit     1,a
+        jr      nz,.afterSetLYC
+
+        ld      a,143
+        ld      [$ff45],a            ;lyc
+        ld      a,[hblankFlag]
 
 .afterSetLYC
-				or      %10               ;allow window to show
-				ld      [hblankFlag],a
+        or      %10               ;allow window to show
+        ld      [hblankFlag],a
 
         pop     hl
         pop     de
         pop     bc
         pop     af
-				;-------Show Dialog At Top-------------------
+        ;-------Show Dialog At Top-------------------
 
-				ld      bc,16384
-				call    TimerDelay
-	      call    ClearDialog
+        ld      bc,16384
+        call    TimerDelay
+        call    ClearDialog
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DebugVal
@@ -2065,14 +2065,14 @@ DebugMesg::
 DebugVal::
         push    af
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,a    ;save byte
+        ld      b,a    ;save byte
 
-				ldio    a,[$ff40]
-				and     %10000000
-				jr      z,.done
+        ldio    a,[$ff40]
+        and     %10000000
+        jr      z,.done
 
         ld      hl,$c200
         ld      [hl],1
@@ -2094,57 +2094,57 @@ DebugVal::
         ld      de,$c200
         xor     a
 
-				;-------Show Dialog At Top-------------------
+        ;-------Show Dialog At Top-------------------
         push    af
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,0            ;lines to skip at top
-				ld      a,[curROMBank]
-				call    ShowDialogCommon
+        ld      b,0            ;lines to skip at top
+        ld      a,[curROMBank]
+        call    ShowDialogCommon
 
         xor     a
         ldh     [$ff4a], a     ;set window y position
 
-				ld      a,[de]         ;number of lines
-				rlca                   ;times 8 = pixels for window
-				rlca
-				rlca
-				add     7
-				ld      [hblankWinOff],a
-
-				ld      a,143
-				ld      [hblankWinOn],a
-
-				ld      a,[hblankFlag]
-				bit     1,a
-				jr      nz,.afterSetLYC
+        ld      a,[de]         ;number of lines
+        rlca                   ;times 8 = pixels for window
+        rlca
+        rlca
+        add     7
+        ld      [hblankWinOff],a
 
         ld      a,143
-				ld      [$ff45],a            ;lyc
-				ld      a,[hblankFlag]
+        ld      [hblankWinOn],a
+
+        ld      a,[hblankFlag]
+        bit     1,a
+        jr      nz,.afterSetLYC
+
+        ld      a,143
+        ld      [$ff45],a            ;lyc
+        ld      a,[hblankFlag]
 
 .afterSetLYC
-				or      %10               ;allow window to show
-				ld      [hblankFlag],a
+        or      %10               ;allow window to show
+        ld      [hblankFlag],a
 
         pop     hl
         pop     de
         pop     bc
         pop     af
-				;-------Show Dialog At Top-------------------
+        ;-------Show Dialog At Top-------------------
 
-				ld      bc,8192    ;16384
-				call    TimerDelay
-	      call    ClearDialog
+        ld      bc,8192    ;16384
+        call    TimerDelay
+        call    ClearDialog
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				pop     af
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        pop     af
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      TimerDelay
@@ -2153,30 +2153,30 @@ DebugVal::
 ;---------------------------------------------------------------------
 TimerDelay::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      hl,$ff04
-				ld      d,0          ;prev value of time
-				ld      [hl],0
+        ld      hl,$ff04
+        ld      d,0          ;prev value of time
+        ld      [hl],0
 .wait
         ld      a,[hl]
-				ld      e,a
-				xor     d            ;equal to prev value?
-				jr      z,.wait
+        ld      e,a
+        xor     d            ;equal to prev value?
+        jr      z,.wait
 
-				ld      d,e
-				dec     bc
-				xor     a
-				cp      b
-				jr      nz,.wait
-				cp      c
-				jr      nz,.wait
+        ld      d,e
+        dec     bc
+        xor     a
+        cp      b
+        jr      nz,.wait
+        cp      c
+        jr      nz,.wait
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -2191,33 +2191,33 @@ TimerDelay::
 ;---------------------------------------------------------------------
 SetDialogSkip::
         push    hl
-				ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
-				ld      a,e
-				ld      [levelCheckSkip+2],a     ;set skip forward addr
-				ld      a,d
-				ld      [levelCheckSkip+3],a
-				jr      SetDialogCommon
+        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      a,e
+        ld      [levelCheckSkip+2],a     ;set skip forward addr
+        ld      a,d
+        ld      [levelCheckSkip+3],a
+        jr      SetDialogCommon
 
 SetDialogForward::
         push    hl
-				ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
-				ld      a,e                      ;set fast forward addr
-				ld      [levelCheckSkip],a
-				ld      a,d
-				ld      [levelCheckSkip+1],a
-				jr      SetDialogCommon
+        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      a,e                      ;set fast forward addr
+        ld      [levelCheckSkip],a
+        ld      a,d
+        ld      [levelCheckSkip+1],a
+        jr      SetDialogCommon
 
 SetSkipStackPos::
         push    hl
-				ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
 
 SetDialogCommon:
-				ld      a,l
-				ld      [levelCheckStackPos],a
-				ld      a,h
-				ld      [levelCheckStackPos+1],a
-				pop     hl
-				ret
+        ld      a,l
+        ld      [levelCheckStackPos],a
+        ld      a,h
+        ld      [levelCheckStackPos+1],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ClearDialogSkipForward
@@ -2248,10 +2248,10 @@ ClearSkipForward::
 ;---------------------------------------------------------------------
 SetRespawnMap::
         ld      a,l
-				ld      [respawnMap],a
-				ld      a,h
-				ld      [respawnMap+1],a
-				ret
+        ld      [respawnMap],a
+        ld      a,h
+        ld      [respawnMap+1],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetJoinMap
@@ -2261,10 +2261,10 @@ SetRespawnMap::
 ;---------------------------------------------------------------------
 SetJoinMap::
         ld      a,l
-				ld      [joinMap],a
-				ld      a,h
-				ld      [joinMap+1],a
-				ret
+        ld      [joinMap],a
+        ld      a,h
+        ld      [joinMap+1],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetLinkBailOutAddress
@@ -2277,73 +2277,73 @@ SetJoinMap::
 ;---------------------------------------------------------------------
 SetLinkBailOutAddress::
         push    hl
-				push    af
-				;save bail out address
+        push    af
+        ;save bail out address
         ld      a,l
-				ld      [linkBailOut],a
-				ld      a,h
-				ld      [linkBailOut+1],a
+        ld      [linkBailOut],a
+        ld      a,h
+        ld      [linkBailOut+1],a
 
-				;save stack pointer (plus a*2 + 6 for things pushed on stack)
-				ld      hl,[sp+6]
-				pop     af
-				or      a
-				jr      z,.afterAdjustStackPointer
+        ;save stack pointer (plus a*2 + 6 for things pushed on stack)
+        ld      hl,[sp+6]
+        pop     af
+        or      a
+        jr      z,.afterAdjustStackPointer
 
 .adjustStackPointer
-				inc     hl
-				inc     hl
-				dec     a
-				jr      nz,.adjustStackPointer
+        inc     hl
+        inc     hl
+        dec     a
+        jr      nz,.adjustStackPointer
 
 .afterAdjustStackPointer
         ld      a,l
-				ld      [linkBailOut+2],a
-				ld      a,h
-				ld      [linkBailOut+3],a
+        ld      [linkBailOut+2],a
+        ld      a,h
+        ld      [linkBailOut+3],a
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 
 ;---------------------------------------------------------------------
 ; Routine:      RemoveSpriteObjectsFromMap
 ;---------------------------------------------------------------------
 RemoveSpriteObjectsFromMap:
-				;----remove all objects from the map--------------------------
-				ld      a,OBJLISTBANK
-				ldio    [$ff70],a
-				ld      hl,objExists+1
+        ;----remove all objects from the map--------------------------
+        ld      a,OBJLISTBANK
+        ldio    [$ff70],a
+        ld      hl,objExists+1
 .removeObjectsLoop
-				push    hl
+        push    hl
         ld      a,[hl]
-				or      a
-				jr      z,.removeObjects_continue
-				ld      a,l
-				call    IndexToPointerDE
-				ld      a,[numClasses]
-				ld      b,a
-				inc     b
-				ld      h,((objClassLookup>>8) & $ff)
-				ld      a,[hl]
-				cp      b             ;this obj a regular creature?
-				jr      nc,.removeObjects_continue
+        or      a
+        jr      z,.removeObjects_continue
+        ld      a,l
+        call    IndexToPointerDE
+        ld      a,[numClasses]
+        ld      b,a
+        inc     b
+        ld      h,((objClassLookup>>8) & $ff)
+        ld      a,[hl]
+        cp      b             ;this obj a regular creature?
+        jr      nc,.removeObjects_continue
 
-				call    GetFacing
-				bit     7,a           ;sprite?
-				jr      z,.restoreObjListBank   ;no
-				ld      c,a
-				call    RemoveFromMap
+        call    GetFacing
+        bit     7,a           ;sprite?
+        jr      z,.restoreObjListBank   ;no
+        ld      c,a
+        call    RemoveFromMap
 .restoreObjListBank
-				ld      a,OBJLISTBANK
-				ldio    [$ff70],a
+        ld      a,OBJLISTBANK
+        ldio    [$ff70],a
 .removeObjects_continue
         pop     hl
         inc     hl
-				ld      a,h
-				cp      ((objExists>>8) & $ff) + 1
-				jr      nz,.removeObjectsLoop
-				ret
+        ld      a,h
+        cp      ((objExists>>8) & $ff) + 1
+        jr      nz,.removeObjectsLoop
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetMethodAddrFromPointer
@@ -2354,14 +2354,14 @@ RemoveSpriteObjectsFromMap:
 GetMethodAddrFromPointer::
         PUSHROM
         ld      a,BANK(classTable)
-				call    SetActiveROM
+        call    SetActiveROM
 
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
-				POPROM
-				ret
+        POPROM
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      InstallHBlankHandler
@@ -2371,11 +2371,11 @@ GetMethodAddrFromPointer::
 ;---------------------------------------------------------------------
 InstallHBlankHandler::
         di
-				ld      a,l
-				ld      [hblankVector+1],a   ;+0 is opcode "jp"
-				ld      a,h
-				ld      [hblankVector+2],a
-				ei
+        ld      a,l
+        ld      [hblankVector+1],a   ;+0 is opcode "jp"
+        ld      a,h
+        ld      [hblankVector+2],a
+        ei
         ret
 
 ;---------------------------------------------------------------------
@@ -2389,26 +2389,26 @@ InstallHBlankHandler::
 ;---------------------------------------------------------------------
 LockRemoteHeroesUsed::
         ld      a,[amLinkMaster]
-				bit     7,a
-				jr      nz,.lockOkay
+        bit     7,a
+        jr      nz,.lockOkay
 
 .sendLock
-				ld      a,[heroesLocked]
-				or      a
-				jr      nz,.returnFailure
-				ld      a,LLOCKHEROES
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.sendLock
+        ld      a,[heroesLocked]
+        or      a
+        jr      nz,.returnFailure
+        ld      a,LLOCKHEROES
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.sendLock
 
-				ld      a,1  ;send "locked" to remote
-				call    TransmitByte
+        ld      a,1  ;send "locked" to remote
+        call    TransmitByte
 
 .lockOkay
         ld      a,1
-				ld      [heroesLocked],a
-				or      a
-				ret
+        ld      [heroesLocked],a
+        or      a
+        ret
 
 .returnFailure
         xor     a
@@ -2424,36 +2424,36 @@ LockRemoteHeroesUsed::
 ;---------------------------------------------------------------------
 UpdateRemoteHeroesUsed::
         ld      a,[amLinkMaster]
-				bit     7,a
-				jr      z,.updateHeroesUsed
+        bit     7,a
+        jr      z,.updateHeroesUsed
 
-				;no link, free lock
-				xor     a
-				ld      [heroesLocked],a
-				ret
+        ;no link, free lock
+        xor     a
+        ld      [heroesLocked],a
+        ret
 
 .updateHeroesUsed
         ld      a,LUPDATEHERO
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.updateHeroesUsed      ;must repeat
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.updateHeroesUsed      ;must repeat
 
         ld      a,[heroesUsed]
-				call    TransmitByte
+        call    TransmitByte
 
-				ld      a,[heroesLocked]
-				or      a
-				ret     z  ;not locked don't bother
+        ld      a,[heroesLocked]
+        or      a
+        ret     z  ;not locked don't bother
 
 .sendLock
-				ld      a,LLOCKHEROES
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.sendLock
+        ld      a,LLOCKHEROES
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.sendLock
 
-				xor     a              ;send "unlocked" to remote
-				ld      [heroesLocked],a
-				call    TransmitByte
+        xor     a              ;send "unlocked" to remote
+        ld      [heroesLocked],a
+        call    TransmitByte
 
         ret
 
@@ -2465,100 +2465,100 @@ UpdateRemoteHeroesUsed::
 ; Description:
 ;---------------------------------------------------------------------
 PlaySample::
-				;start sample playing
-				di
-				ldio    [sampleBank],a
-				xor     a
-				ldio    [samplePlaying],a
-				ei
+        ;start sample playing
+        di
+        ldio    [sampleBank],a
+        xor     a
+        ldio    [samplePlaying],a
+        ei
 
-				ld      a,l
-				ldio    [sampleAddress],a
-				ld      a,h
-				ldio    [sampleAddress+1],a
-				ld      a,$0f
-				ldio    [sampleMask],a
-				ld      a,$86
-				ldio    [$ff1a],a    ;sound 3 enable
-				ld      hl,$ff26
-				set     2,[hl]
-				ld      a,1
-				ldio    [samplePlaying],a
-				ret
+        ld      a,l
+        ldio    [sampleAddress],a
+        ld      a,h
+        ldio    [sampleAddress+1],a
+        ld      a,$0f
+        ldio    [sampleMask],a
+        ld      a,$86
+        ldio    [$ff1a],a    ;sound 3 enable
+        ld      hl,$ff26
+        set     2,[hl]
+        ld      a,1
+        ldio    [samplePlaying],a
+        ret
 
 ;---------------------------------------------------------------------
 ;  FinishHBlankPlayingSample
 ;---------------------------------------------------------------------
 FinishHBlankPlayingSample::
-				ldio    a,[samplePlaying]
-				or      a
-				jr      z,.done
+        ldio    a,[samplePlaying]
+        or      a
+        jr      z,.done
 
 .nextSample
         ld      hl,sampleAddress
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 .loadNextSample
         ldio    a,[sampleBank]
-				ld      [$2100],a
-				ldio    a,[sampleMask]
-				xor     $ff
-				ldio    [sampleMask],a
-				cp      $0f
-				jr      nz,.getLeftNibble
+        ld      [$2100],a
+        ldio    a,[sampleMask]
+        xor     $ff
+        ldio    [sampleMask],a
+        cp      $0f
+        jr      nz,.getLeftNibble
 
 .getRightNibble
-				and     a,[hl]
-				inc     hl
-				jr      .normalData ;will never be special code
+        and     a,[hl]
+        inc     hl
+        jr      .normalData ;will never be special code
 
 .getLeftNibble
-				and     a,[hl]      ;next sample byte
+        and     a,[hl]      ;next sample byte
 
 .checkForSpecialCodes
-				cp      $80
-				jr      nz,.normalData
+        cp      $80
+        jr      nz,.normalData
 
-				;code indicating termination or link follows
-				inc     hl
+        ;code indicating termination or link follows
+        inc     hl
         ld      a,[hl+]
-				or      a
-				jr      nz,.link
+        or      a
+        jr      nz,.link
 
-				ld      [samplePlaying],a
-				ld      a,$ff
-				ld      [$ff24],a         ;full volume both channels
-				jr      .restoreBank
+        ld      [samplePlaying],a
+        ld      a,$ff
+        ld      [$ff24],a         ;full volume both channels
+        jr      .restoreBank
 
 .link   ld      a,[hl+]
         ld      [sampleBank],a
         ld      a,[hl+]
         ld      h,[hl]
-				ld      l,a
-				jr      .loadNextSample
+        ld      l,a
+        jr      .loadNextSample
 
 .normalData
         ld      b,a
-				swap    a
-				or      b
-				or      $88
-				ldio    [$ff24],a        ;sound enabled/volume
+        swap    a
+        or      b
+        or      $88
+        ldio    [$ff24],a        ;sound enabled/volume
 
 .saveNewAddress
-				ld      a,l
-				ldio    [sampleAddress],a
-				ld      a,h
-				ldio    [sampleAddress+1],a
+        ld      a,l
+        ldio    [sampleAddress],a
+        ld      a,h
+        ldio    [sampleAddress+1],a
 
 .restoreBank
         ldio    a,[curROMBank]
-				ld      [$2100],a
+        ld      [$2100],a
 
 .done
-				pop     hl
-				pop     bc
-				pop     af
+        pop     hl
+        pop     bc
+        pop     af
         reti
 
 ;---------------------------------------------------------------------
@@ -2642,11 +2642,11 @@ FindFirstBGLoc::
         ld      a,MAPBANK
         ld      [$ff70],a
 
-				;setup de with first out-of-bounds index
-				ld      a,[mapTotalSize]
-				ld      e,a
-				ld      a,[mapTotalSize+1]
-				ld      d,a
+        ;setup de with first out-of-bounds index
+        ld      a,[mapTotalSize]
+        ld      e,a
+        ld      a,[mapTotalSize+1]
+        ld      d,a
 
         ld      hl,map
 .lookForFirst
@@ -2690,14 +2690,14 @@ LinkTransmitMemoryLocation::
         ld      b,a
 
         ld      a,[amLinkMaster]
-				bit     7,a
+        bit     7,a
         jr      nz,.done    ;not linked
 
 .requestTransmit
         ld      a,LUPDATEMEMORY
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.requestTransmit
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.requestTransmit
 
         ld      a,b
         ldio    [$ff70],a
@@ -2784,136 +2784,136 @@ HandleInput:
         ld      a,$30         ;deselect P14 and P15
         ldio    [$ff00],a
 
-				;--if no link, attempt link connection ----------------------
-				ld      a,[amLinkMaster]
-				cp      $ff
-				jr      z,.afterLinkAttempt    ;l1101 attempts link as slave
-				cp      $fe                    ;attempt link as master?
-				jr      nz,.afterLinkAttempt
+        ;--if no link, attempt link connection ----------------------
+        ld      a,[amLinkMaster]
+        cp      $ff
+        jr      z,.afterLinkAttempt    ;l1101 attempts link as slave
+        cp      $fe                    ;attempt link as master?
+        jr      nz,.afterLinkAttempt
 
 .attemptLinkAsMaster
         ld      a,$55
-				ldio    [$ff01],a     ;exchange data = $55
-				ld      a,INTCLK      ;ready to xchg, use my clock
-				ldio    [$ff02],a
+        ldio    [$ff01],a     ;exchange data = $55
+        ld      a,INTCLK      ;ready to xchg, use my clock
+        ldio    [$ff02],a
 
 .waitMasterLinkAttempt
         ldio    a,[$ff02]
-				and     $80
-				jr      nz,.waitMasterLinkAttempt
+        and     $80
+        jr      nz,.waitMasterLinkAttempt
 
         ;see what we got
-				ldio    a,[$ff01]
-				cp      $aa
-				jr      nz,.afterLinkAttempt
+        ldio    a,[$ff01]
+        cp      $aa
+        jr      nz,.afterLinkAttempt
 
-				;found a Slave!  That means I'm the Master!
-				ld      a,EXTCLK    ;switch to receive mode
-				ldio    [$ff02],a
-				ld      a,1
-				ld      [amLinkMaster],a
-				ld      [lastLinkAction],a
+        ;found a Slave!  That means I'm the Master!
+        ld      a,EXTCLK    ;switch to receive mode
+        ldio    [$ff02],a
+        ld      a,1
+        ld      [amLinkMaster],a
+        ld      [lastLinkAction],a
 
 .afterLinkAttempt
         ld      a,[amLinkMaster]
-				bit     7,a
-				jr      z,.amLinked
+        bit     7,a
+        jr      z,.amLinked
 
-				;no link, convert curInput->curJoy0.
-				ld      a,[curInput0]
-				call    ConvertInput
-				ld      [curInput0],a
+        ;no link, convert curInput->curJoy0.
+        ld      a,[curInput0]
+        call    ConvertInput
+        ld      [curInput0],a
         ld      [curJoy0],a
-				ld      [myJoy],a
-				xor     a
-				ld      [curJoy1],a
-				ld      [curInput1],a
-				ret
+        ld      [myJoy],a
+        xor     a
+        ld      [curJoy1],a
+        ld      [curInput1],a
+        ret
 
 .amLinked
 
 IF 0
         ;----every second or so, get the remote machine's
         ;----random seed and make sure it matches ours.
-				;----Resynchronize the machines if not
-			  ld      a,[amLinkMaster]
-				cp      1
-				jr      nz,.exchangeBCB    ;only master can initiate
+        ;----Resynchronize the machines if not
+        ld      a,[amLinkMaster]
+        cp      1
+        jr      nz,.exchangeBCB    ;only master can initiate
 
-				ld      a,[updateTimer]    ;not time yet
-				and     31
-				cp      31
-				jr      nz,.exchangeBCB
+        ld      a,[updateTimer]    ;not time yet
+        and     31
+        cp      31
+        jr      nz,.exchangeBCB
 
-				;don't do it if can't join map
-				ld      a,[canJoinMap]
-				or      a
-				jr      z,.exchangeBCB
+        ;don't do it if can't join map
+        ld      a,[canJoinMap]
+        or      a
+        jr      z,.exchangeBCB
 
 .getRandomSeed
-				ld      a,LGETRANDOMSEED       ;send the request
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.getRandomSeed      ;must repeat
+        ld      a,LGETRANDOMSEED       ;send the request
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.getRandomSeed      ;must repeat
 
-				;get the actual seed
-				call    ReceiveByte
-			  ld      b,a
-				ld      a,[randomLoc]
-				cp      b                           ;got same in return?
-				jr      z,.exchangeBCB              ;continue if yes
+        ;get the actual seed
+        call    ReceiveByte
+        ld      b,a
+        ld      a,[randomLoc]
+        cp      b                           ;got same in return?
+        jr      z,.exchangeBCB              ;continue if yes
 
-				;on same map?
-				ld      a,[heroesPresent]
-				cp      %11
-				jr      nz,.exchangeBCB             ;not on same map
+        ;on same map?
+        ld      a,[heroesPresent]
+        cp      %11
+        jr      nz,.exchangeBCB             ;not on same map
 
 .resynchronize
-				;resynchronize machines
-				ld      a,LRESYNCHRONIZE
-				call    ExchangeByte
-				call    CheckSimultaneousLCC
-				jr      nz,.resynchronize
-				LONGCALLNOARGS HostResynchronize
+        ;resynchronize machines
+        ld      a,LRESYNCHRONIZE
+        call    ExchangeByte
+        call    CheckSimultaneousLCC
+        jr      nz,.resynchronize
+        LONGCALLNOARGS HostResynchronize
 ENDC
 
 .exchangeBCB
         ;----exchange Button Control Bytes with remote machine--------
-				ld      a,[curInput0]
-				call    EncodeInput
-				call    ExchangeByte
-				call    HandleRemoteInput
-				jr      nz,.exchangeBCB    ;must repeat
+        ld      a,[curInput0]
+        call    EncodeInput
+        call    ExchangeByte
+        call    HandleRemoteInput
+        jr      nz,.exchangeBCB    ;must repeat
 
         ;--Decode Button Control Bytes--------------------------------
-				push    af            ;save remoteInput
+        push    af            ;save remoteInput
         ld      a,[amLinkMaster]
         or      a
-				jr      z,.amLinkSlave
+        jr      z,.amLinkSlave
 
-				;I am the master.  curInput0->curJoy0, remoteInput->curJoy1
-				pop     af            ;retrieve remoteInput
-				call    DecodeInput
-				ld      [curInput1],a
-				ld      [curJoy1],a
-				ld      a,[curInput0]
-				call    ConvertInput
-				ld      [curInput0],a
-				ld      [curJoy0],a
-				ld      [myJoy],a
-				ret
+        ;I am the master.  curInput0->curJoy0, remoteInput->curJoy1
+        pop     af            ;retrieve remoteInput
+        call    DecodeInput
+        ld      [curInput1],a
+        ld      [curJoy1],a
+        ld      a,[curInput0]
+        call    ConvertInput
+        ld      [curInput0],a
+        ld      [curJoy0],a
+        ld      [myJoy],a
+        ret
 
 .amLinkSlave
-				ld      a,[curInput0]
-				call    ConvertInput
-				ld      [curInput1],a
-				ld      [curJoy1],a
-				ld      [myJoy],a
+        ld      a,[curInput0]
+        call    ConvertInput
+        ld      [curInput1],a
+        ld      [curJoy1],a
+        ld      [myJoy],a
 
-				pop     af            ;retrieve remoteInput
-				call    DecodeInput
-				ld      [curInput0],a
-				ld      [curJoy0],a
+        pop     af            ;retrieve remoteInput
+        call    DecodeInput
+        ld      [curInput0],a
+        ld      [curJoy0],a
         ret
 
 ;---------------------------------------------------------------------
@@ -2930,14 +2930,14 @@ ConvertInput:
         push    bc
 
         ld      b,a                ;save original
-				and     %00110000          ;has A/B info?
-				ld      a,b                ;restore original
-				jr      z,.done            ;if no AB info then conv. complete
-				and     %00111111          ;has AB info; clear out start/sel
+        and     %00110000          ;has A/B info?
+        ld      a,b                ;restore original
+        jr      z,.done            ;if no AB info then conv. complete
+        and     %00111111          ;has AB info; clear out start/sel
 
 .done
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      EncodeInput
@@ -2954,22 +2954,22 @@ EncodeInput:
         push    bc
         push    hl
 
-				ld      b,a         ;save original
-				and     %00001111
-				ld      c,a         ;save D-PAD
+        ld      b,a         ;save original
+        and     %00001111
+        ld      c,a         ;save D-PAD
 
-				ld      h,((encodeControlByteTable>>8) & $ff)
-				ld      a,b
-				swap    a
-				and     %00001111
-				add     (encodeControlByteTable & $ff)
-				ld      l,a
+        ld      h,((encodeControlByteTable>>8) & $ff)
+        ld      a,b
+        swap    a
+        and     %00001111
+        add     (encodeControlByteTable & $ff)
+        ld      l,a
 
-				ld      a,[hl]      ;get encoded buttons
-				or      c           ;combine with D-PAD
+        ld      a,[hl]      ;get encoded buttons
+        or      c           ;combine with D-PAD
 
-				pop     hl
-				pop     bc
+        pop     hl
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -2982,22 +2982,22 @@ DecodeInput:
         push    bc
         push    hl
 
-				ld      b,a         ;save original
-				and     %00001111
-				ld      c,a         ;save D-PAD
+        ld      b,a         ;save original
+        and     %00001111
+        ld      c,a         ;save D-PAD
 
-				ld      h,((decodeControlByteTable>>8) & $ff)
-				ld      a,b
-				swap    a
-				and     %00000111
-				add     (decodeControlByteTable & $ff)
-				ld      l,a
+        ld      h,((decodeControlByteTable>>8) & $ff)
+        ld      a,b
+        swap    a
+        and     %00000111
+        add     (decodeControlByteTable & $ff)
+        ld      l,a
 
-				ld      a,[hl]      ;get decoded buttons
-				or      c           ;combine with D-PAD
+        ld      a,[hl]      ;get decoded buttons
+        or      c           ;combine with D-PAD
 
-				pop     hl
-				pop     bc
+        pop     hl
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
@@ -3011,54 +3011,54 @@ DecodeInput:
 ;---------------------------------------------------------------------
 TransmitGameState:
         push    bc
-				push    hl
+        push    hl
 
-				ld      hl,.linkBailAddress
-				xor     a
-				call    SetLinkBailOutAddress
+        ld      hl,.linkBailAddress
+        xor     a
+        call    SetLinkBailOutAddress
 
         ld      hl,gameState
-				ld      bc,5
-				xor     a            ;RAM bank doesn't matter
-				call    TransmitData
+        ld      bc,5
+        xor     a            ;RAM bank doesn't matter
+        call    TransmitData
 
         ld      hl,levelState
-				ld      bc,256
-				ld      a,LEVELSTATEBANK
-				call    TransmitData
+        ld      bc,256
+        ld      a,LEVELSTATEBANK
+        call    TransmitData
 
         ld      hl,inventory
-				ld      bc,16
+        ld      bc,16
         xor     a
-				call    TransmitData
+        call    TransmitData
 
         ld      hl,flightCode
-				ld      bc,256
-				ld      a,FLIGHTCODEBANK
-				call    TransmitData
+        ld      bc,256
+        ld      a,FLIGHTCODEBANK
+        call    TransmitData
 
-				ld      hl,hero0_data
-				ld      bc,HERODATASIZE * 2
-				xor     a
-				call    TransmitData
+        ld      hl,hero0_data
+        ld      bc,HERODATASIZE * 2
+        xor     a
+        call    TransmitData
 
         ld      a,[appomattoxMapIndex]
         call    TransmitByte
 
-				;send the joinMap
-				ld      a,[joinMap]
-				call    TransmitByte
-				ld      a,[joinMap+1]
-				call    TransmitByte
+        ;send the joinMap
+        ld      a,[joinMap]
+        call    TransmitByte
+        ld      a,[joinMap+1]
+        call    TransmitByte
 
 .linkBailAddress
         ld      hl,0
-				xor     a
-				call    SetLinkBailOutAddress
+        xor     a
+        call    SetLinkBailOutAddress
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      HostSynchronize
@@ -3069,90 +3069,90 @@ TransmitGameState:
 ;---------------------------------------------------------------------
 HostResynchronize:
         push    bc
-				push    hl
-				jr      HostSynchronizeCommon
+        push    hl
+        jr      HostSynchronizeCommon
 
 HostSynchronize:
         push    bc
         push    hl
 
-				ld      hl,.nogo
-				xor     a
-				call    SetLinkBailOutAddress
+        ld      hl,.nogo
+        xor     a
+        call    SetLinkBailOutAddress
 
         ld      a,1                ;make sure it's looking at 1x1
         ldio    [curObjWidthHeight],a
-				call    ReceiveByte        ;guest's requested exit direction
-				ld      hl,$0101           ;start looking at (1,1)
-				call    FindExitLocation
+        call    ReceiveByte        ;guest's requested exit direction
+        ld      hl,$0101           ;start looking at (1,1)
+        call    FindExitLocation
         xor     a                  ;didn't find it if $0000
-				cp      h
-				jr      nz,.goAhead
-				cp      l
-				jr      nz,.goAhead
+        cp      h
+        jr      nz,.goAhead
+        cp      l
+        jr      nz,.goAhead
 
-				;nogo
-				xor     a
-				call    TransmitByte
+        ;nogo
+        xor     a
+        call    TransmitByte
 .nogo
         ld      hl,0
-				xor     a
-				call    SetLinkBailOutAddress
+        xor     a
+        call    SetLinkBailOutAddress
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 .goAhead
-				call    ConvertLocHLToXY
+        call    ConvertLocHLToXY
         ld      a,1
-				call    TransmitByte
+        call    TransmitByte
 
         ldio    a,[mapState]       ;level state
-				call    TransmitByte
+        call    TransmitByte
         ldio    a,[mapState+1]
-				call    TransmitByte
+        call    TransmitByte
 
-				;make sure backbuffer doesn't redraw during hero loading
-				xor     a
-				ldio    [backBufferReady],a
+        ;make sure backbuffer doesn't redraw during hero loading
+        xor     a
+        ldio    [backBufferReady],a
 
         ;activate heroes 0 and 1
-				ld      a,[hero0_index]
-				or      a
-				jr      nz,.hero0_active
+        ld      a,[hero0_index]
+        or      a
+        jr      nz,.hero0_active
 
-				ld      a,1
-				ld      [hero0_index],a
+        ld      a,1
+        ld      [hero0_index],a
 
 .hero0_active
-				ld      a,[hero1_index]
-				or      a
-				jr      nz,.hero1_active
+        ld      a,[hero1_index]
+        or      a
+        jr      nz,.hero1_active
 
-				ld      a,1
-				ld      [hero1_index],a
+        ld      a,1
+        ld      [hero1_index],a
 .hero1_active
         call    HostExchangeHeroData
 
-				;set hero 1 to joystick 1
-				push    hl
-				ld      a,[hero1_type]
-				ld      hl,heroJoyIndex
-				or      [hl]
-				ld      [hl],a
-				pop     hl
+        ;set hero 1 to joystick 1
+        push    hl
+        ld      a,[hero1_type]
+        ld      hl,heroJoyIndex
+        or      [hl]
+        ld      [hl],a
+        pop     hl
 
         inc     hl
-				ld      b,h
-				ld      c,l
-				PREPLONGCALL .afterSetupHero
-				LONGCALL PrepSetupHeroBC   ;bc is correct hero data
+        ld      b,h
+        ld      c,l
+        PREPLONGCALL .afterSetupHero
+        LONGCALL PrepSetupHeroBC   ;bc is correct hero data
 .afterSetupHero
 
 HostSynchronizeCommon:
         xor     a
-				ld      [backBufferReady],a
+        ld      [backBufferReady],a
 
         ;wait on ready signal from guest
 .waitReady
@@ -3161,202 +3161,202 @@ HostSynchronizeCommon:
         jr      nz,.waitReady
 
         ;send all my hero data     ;re-send all my hero data
-				ld      hl,hero0_data
-				ld      bc,HERODATASIZE*2
-				xor     a
-				call    TransmitData
+        ld      hl,hero0_data
+        ld      bc,HERODATASIZE*2
+        xor     a
+        call    TransmitData
 
         ld      a,[randomLoc]      ;current random value/seed
-				call    TransmitByte
+        call    TransmitByte
 
-				ld      a,[heroesIdle]
-				call    TransmitByte
+        ld      a,[heroesIdle]
+        call    TransmitByte
 
         LONGCALLNOARGS RemoveSpriteObjectsFromMap
 
-				;----transmit map---------------------------------------------
-				ld      hl,map
-				ld      bc,4096
-				ld      a,MAPBANK
-				call    TransmitData
+        ;----transmit map---------------------------------------------
+        ld      hl,map
+        ld      bc,4096
+        ld      a,MAPBANK
+        call    TransmitData
 
-				;fadeCurPalette
-				ld      hl,fadeCurPalette
-				ld      bc,128
-				xor     a
-				call    TransmitData
+        ;fadeCurPalette
+        ld      hl,fadeCurPalette
+        ld      bc,128
+        xor     a
+        call    TransmitData
 
-				;gamePalette
-				ld      hl,gamePalette
-				ld      bc,128
-				ld      a,FADEBANK
-				call    TransmitData
+        ;gamePalette
+        ld      hl,gamePalette
+        ld      bc,128
+        ld      a,FADEBANK
+        call    TransmitData
 
-				;first 16 bytes of level check RAM
-				ld      hl,levelCheckRAM
+        ;first 16 bytes of level check RAM
+        ld      hl,levelCheckRAM
         ld      bc,16
-				xor     a
-				call    TransmitData
+        xor     a
+        call    TransmitData
 
-				;spriteOAMdata
-				ld      hl,spriteOAMBuffer
+        ;spriteOAMdata
+        ld      hl,spriteOAMBuffer
         ld      bc,160
-				xor     a
-				call    TransmitData
+        xor     a
+        call    TransmitData
 
-				ld      hl,headTable    ;headTable - linked list head
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    TransmitData
+        ld      hl,headTable    ;headTable - linked list head
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    TransmitData
 
-				ld      hl,objExists     ;objExists, FOF table
-				ld      bc,512
-				ld      a,OBJLISTBANK
-				call    TransmitCompressedData
+        ld      hl,objExists     ;objExists, FOF table
+        ld      bc,512
+        ld      a,OBJLISTBANK
+        call    TransmitCompressedData
 
         ld      a,[numClasses]
-				call    TransmitByte
+        call    TransmitByte
 
-				;bc = numClasses times two + 2
+        ;bc = numClasses times two + 2
         ld      a,[numClasses]
-				ld      b,0
-				ld      c,a
-				sla     c
-				rl      b
+        ld      b,0
+        ld      c,a
+        sla     c
+        rl      b
         inc     bc
         inc     bc
 
-				ld      hl,classLookup   ;objExists, FOF table
-				;ld      bc,512  numClasses * 2
-				ld      a,OBJLISTBANK
-				call    TransmitData
+        ld      hl,classLookup   ;objExists, FOF table
+        ;ld      bc,512  numClasses * 2
+        ld      a,OBJLISTBANK
+        call    TransmitData
 
-				ld      hl,fgTileMap
-				ld      a,[numClasses]
-				ld      b,0
-				ld      c,a
-				ld      a,OBJLISTBANK
-				call    TransmitData
+        ld      hl,fgTileMap
+        ld      a,[numClasses]
+        ld      b,0
+        ld      c,a
+        ld      a,OBJLISTBANK
+        call    TransmitData
 
-				ld      hl,objClassLookup   ;class indices for each obj
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    TransmitData
+        ld      hl,objClassLookup   ;class indices for each obj
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    TransmitData
 
-				ld      hl,associatedIndex
-				ld      bc,256
-				ld      a,OBJLISTBANK
-				call    TransmitData
+        ld      hl,associatedIndex
+        ld      bc,256
+        ld      a,OBJLISTBANK
+        call    TransmitData
 
-				ld      hl,spritesUsed
-				ld      bc,40
-				ld      a,OBJLISTBANK
-				call    TransmitCompressedData
+        ld      hl,spritesUsed
+        ld      bc,40
+        ld      a,OBJLISTBANK
+        call    TransmitCompressedData
 
-				;---------------transmit used objects-------------------------
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
-				ld      de,objExists+1
+        ;---------------transmit used objects-------------------------
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
+        ld      de,objExists+1
 .transmitUsedObject
         ld      a,[de]            ;is this object used?
-				or      a
-				jr      z,.afterTransmitUsedObject  ;not used
+        or      a
+        jr      z,.afterTransmitUsedObject  ;not used
 
         PREPLONGCALL .afterCvtToPtr
         ld      a,e               ;get object index
-				LONGCALL IndexToPointerHL ;cvt to ptr
+        LONGCALL IndexToPointerHL ;cvt to ptr
 .afterCvtToPtr
-				ld      bc,16
-				ld      a,OBJBANK
-				call    TransmitData
-				ld      a,OBJLISTBANK
-				ld      [$ff70],a
+        ld      bc,16
+        ld      a,OBJBANK
+        call    TransmitData
+        ld      a,OBJLISTBANK
+        ld      [$ff70],a
 
 .afterTransmitUsedObject
-				inc     de
-				ld      a,e
-				or      a
-				jr      nz,.transmitUsedObject
+        inc     de
+        ld      a,e
+        or      a
+        jr      nz,.transmitUsedObject
 
-				ld      a,[numFreeSprites]
-				call    TransmitByte
+        ld      a,[numFreeSprites]
+        call    TransmitByte
 
-				ld      a,[firstFreeObj]
-				call    TransmitByte
+        ld      a,[firstFreeObj]
+        call    TransmitByte
 
-				ld      a,[randomLoc]
-				call    TransmitByte
+        ld      a,[randomLoc]
+        call    TransmitByte
 
-				ld      a,[guardAlarm]
-				call    TransmitByte
+        ld      a,[guardAlarm]
+        call    TransmitByte
 
-				;ld      a,[dialogBank]
-				;call    TransmitByte
+        ;ld      a,[dialogBank]
+        ;call    TransmitByte
 
-				ld      a,[respawnMap]
-				call    TransmitByte
-				ld      a,[respawnMap+1]
-				call    TransmitByte
+        ld      a,[respawnMap]
+        call    TransmitByte
+        ld      a,[respawnMap+1]
+        call    TransmitByte
 
         ldio    a,[mapState]       ;level state
-				call    TransmitByte
+        call    TransmitByte
         ldio    a,[mapState+1]
-				call    TransmitByte
+        call    TransmitByte
 
         ld      hl,levelVars
-				ld      bc,64
-				xor     a            ;RAM bank doesn't matter
-				call    TransmitData
+        ld      bc,64
+        xor     a            ;RAM bank doesn't matter
+        call    TransmitData
 
         ld      hl,musicBank
-				ld      bc,64
-				xor     a            ;RAM bank doesn't matter
-				call    TransmitData
+        ld      bc,64
+        xor     a            ;RAM bank doesn't matter
+        call    TransmitData
 
         ld      hl,musicStack
-				ld      bc,128
-				ld      a,MUSICBANK
-				call    TransmitData
+        ld      bc,128
+        ld      a,MUSICBANK
+        call    TransmitData
 
-				ldio    a,[musicEnabled]
-				call    TransmitByte
+        ldio    a,[musicEnabled]
+        call    TransmitByte
 
-				LONGCALLNOARGS LinkRemakeLists
+        LONGCALLNOARGS LinkRemakeLists
 
 .done
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 HostExchangeHeroData:
         ;send out my hero data
-				ld      a,[amLinkMaster]
-				or      a
-				jr      z,.slave_sendHero1_recvHero0
+        ld      a,[amLinkMaster]
+        or      a
+        jr      z,.slave_sendHero1_recvHero0
 
 .master_sendHero0_recvHero1
         ld      hl,hero1_data
-				push    hl
-				ld      hl,hero0_data
+        push    hl
+        ld      hl,hero0_data
         jr      .setHeroSequence
 
 .slave_sendHero1_recvHero0
         ld      hl,hero0_data
-				push    hl
-				ld      hl,hero1_data
+        push    hl
+        ld      hl,hero1_data
 
 .setHeroSequence
         ;send my hero data
         ld      bc,HERODATASIZE
-				xor     a
-				call    TransmitData
+        xor     a
+        call    TransmitData
 
         ;get remote hero data
-				pop     hl
-				xor     a
-				call    ReceiveData
+        pop     hl
+        xor     a
+        call    ReceiveData
 
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -3371,79 +3371,79 @@ HostExchangeHeroData:
 ;               or 0 for not equal.
 ;---------------------------------------------------------------------
 LinkTest:
-				push    bc
-				push    de
-				push    hl
+        push    bc
+        push    de
+        push    hl
 
         di
-				;fill $d000-$cfff with repeating pattern $00-$ff
-				ld      a,1
-				ld      [$ff70],a
+        ;fill $d000-$cfff with repeating pattern $00-$ff
+        ld      a,1
+        ld      [$ff70],a
 
-				ld      hl,$d000
-				xor     a
+        ld      hl,$d000
+        xor     a
 .fill
         ld      [hl+],a
-				inc     a
-				jr      nz,.fill
-				ld      a,h
-				cp      $e0
-				ld      a,0       ;avoid setting z flag here
-				jr      nz,.fill
+        inc     a
+        jr      nz,.fill
+        ld      a,h
+        cp      $e0
+        ld      a,0       ;avoid setting z flag here
+        jr      nz,.fill
 
         ld      a,4
 .transfer32k
-				push    af
+        push    af
         ld      a,1
         ld      bc,$1000
-				ld      hl,$d000
-				call    TransmitData
+        ld      hl,$d000
+        call    TransmitData
 
         ld      a,1
-				call    ReceiveData
-				pop     af
-				dec     a
-				jr      nz,.transfer32k
+        call    ReceiveData
+        pop     af
+        dec     a
+        jr      nz,.transfer32k
 
-				;compare received data to original pattern
-				ld      b,0          ;comparing to $00
-				ld      hl,$d000
+        ;compare received data to original pattern
+        ld      b,0          ;comparing to $00
+        ld      hl,$d000
 .compare
         ld      a,[hl+]
-				cp      b
-				jr      nz,.notEqual
-				inc     b
-				ld      a,h
-				cp      $e0
-				jr      nz,.compare
+        cp      b
+        jr      nz,.notEqual
+        inc     b
+        ld      a,h
+        cp      $e0
+        jr      nz,.compare
 
 .equal
         xor     a
-				ldio    [$ff0f],a
-				ei
+        ldio    [$ff0f],a
+        ei
         ld      a,1
-				call    DebugVal
+        call    DebugVal
         jr      .infi
 
 .notEqual
         xor     a
-				ldio    [$ff0f],a
-				ei
-				xor     a
-				call    DebugVal
+        ldio    [$ff0f],a
+        ei
+        xor     a
+        call    DebugVal
 
-				dec     hl
-				ld      a,h
-				call    DebugVal
-				ld      a,l
-				call    DebugVal
+        dec     hl
+        ld      a,h
+        call    DebugVal
+        ld      a,l
+        call    DebugVal
 di
 .infi   jr      .infi
 
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GeneratePauseMessage
@@ -3456,14 +3456,14 @@ GeneratePauseMessage:
         ld      a,[dialogBank]
         push    af
 
-				;wait until the backbuffer is blitted
+        ;wait until the backbuffer is blitted
 .waitBackBuffer
-				ldio    a,[backBufferReady]
-				or      a
-				jr      z,.canMessWithBackBuffer
+        ldio    a,[backBufferReady]
+        or      a
+        jr      z,.canMessWithBackBuffer
 
-				call    VWait
-				jr      .waitBackBuffer
+        call    VWait
+        jr      .waitBackBuffer
 
 .canMessWithBackBuffer
         ;generate gtx at backbuffer+$800
@@ -4534,11 +4534,11 @@ FindFirstLight:
         ld      a,MAPBANK
         ld      [$ff70],a
 
-				;setup de with first out-of-bounds index
-				;ld      a,[mapTotalSize]
-				;ld      e,a
-				;ld      a,[mapTotalSize+1]
-				;ld      d,a
+        ;setup de with first out-of-bounds index
+        ;ld      a,[mapTotalSize]
+        ;ld      e,a
+        ;ld      a,[mapTotalSize+1]
+        ;ld      d,a
 
         ld      hl,map
 .lookForFirstLight

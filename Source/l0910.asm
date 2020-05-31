@@ -39,24 +39,24 @@ L0910_Init:
         DW ((L0910_InitFinished - L0910_Init2))  ;size
 L0910_Init2:
         ;make gun turrets friendly
-				ld     bc,classTurret
-				call   FindClassIndex
-				ld     c,a
-				call   GetFirst
+        ld     bc,classTurret
+        call   FindClassIndex
+        ld     c,a
+        call   GetFirst
 
-				ld     b,5
+        ld     b,5
 .setNext
-				call   ((.setGroup-L0910_Init2)+levelCheckRAM)
-				dec    b
-				jr     nz,.setNext
+        call   ((.setGroup-L0910_Init2)+levelCheckRAM)
+        dec    b
+        jr     nz,.setNext
 
         ret
 
 .setGroup
-				ld     a,GROUP_HERO
-				call   SetGroup
-				call   GetNextObject
-				ret
+        ld     a,GROUP_HERO
+        call   SetGroup
+        call   GetNextObject
+        ret
 
 L0910_InitFinished:
 ;---------------------------------------------------------------------

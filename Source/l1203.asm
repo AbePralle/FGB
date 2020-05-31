@@ -115,7 +115,7 @@ L1203_Load2:
 
 .heyGuys
         ld      c,0
-				DIALOGBOTTOM flour_heyguys_gtx
+        DIALOGBOTTOM flour_heyguys_gtx
 
         ld      de,((.fewMinutesLater-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -140,14 +140,14 @@ L1203_Load2:
 .bsExplain
         call    ((.quickToBlack-L1203_Load2)+levelCheckRAM)
 
-				ld      a,BANK(bs_bg)
-				ld      hl,bs_bg
+        ld      a,BANK(bs_bg)
+        ld      hl,bs_bg
         call    LoadCinemaBG
 
         call    ((.quickFromBlack-L1203_Load2)+levelCheckRAM)
 
         ld      c,0
-				DIALOGBOTTOM bs_explain_gtx
+        DIALOGBOTTOM bs_explain_gtx
 
         ld      de,((.bsExplain2-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -159,7 +159,7 @@ L1203_Load2:
         call    ClearDialog
 
         ld      c,0
-				DIALOGBOTTOM bs_explain2_gtx
+        DIALOGBOTTOM bs_explain2_gtx
 
         ld      de,((.captainInterrupt-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -170,14 +170,14 @@ L1203_Load2:
 .captainInterrupt
         call    ((.quickToBlack-L1203_Load2)+levelCheckRAM)
 
-				ld      a,BANK(flour_bg)
-				ld      hl,flour_bg
+        ld      a,BANK(flour_bg)
+        ld      hl,flour_bg
         call    LoadCinemaBG
 
         call    ((.quickFromBlack-L1203_Load2)+levelCheckRAM)
 
         ld      c,0
-				DIALOGBOTTOM captain_interrupt_gtx
+        DIALOGBOTTOM captain_interrupt_gtx
 
         ld      de,((.captainTellYouWhat-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -188,7 +188,7 @@ L1203_Load2:
 .captainTellYouWhat
         call    ClearDialog
         ld      c,0
-				DIALOGBOTTOM captain_tellyouwhat_gtx
+        DIALOGBOTTOM captain_tellyouwhat_gtx
 
         ld      de,((.captainKey-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -199,7 +199,7 @@ L1203_Load2:
 .captainKey
         call    ClearDialog
         ld      c,0
-				DIALOGBOTTOM captain_key_gtx
+        DIALOGBOTTOM captain_key_gtx
 
         ld      de,((.captainDoSomething-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -210,7 +210,7 @@ L1203_Load2:
 .captainDoSomething
         call    ClearDialog
         ld      c,0
-				DIALOGBOTTOM captain_dosomething_gtx
+        DIALOGBOTTOM captain_dosomething_gtx
 
         ld      de,((.captainCamp-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -221,7 +221,7 @@ L1203_Load2:
 .captainCamp
         call    ClearDialog
         ld      c,0
-				DIALOGBOTTOM captain_camp_gtx
+        DIALOGBOTTOM captain_camp_gtx
 
         ld      de,((.backAtAppx-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -232,8 +232,8 @@ L1203_Load2:
 .backAtAppx
         call    ((.quickToBlack-L1203_Load2)+levelCheckRAM)
 
-				ld      a,BANK(bs_driving_bg)
-				ld      hl,bs_driving_bg
+        ld      a,BANK(bs_driving_bg)
+        ld      hl,bs_driving_bg
         call    LoadCinemaBG
 
         call    ((.quickFromBlack-L1203_Load2)+levelCheckRAM)
@@ -254,7 +254,7 @@ L1203_Load2:
         call    Delay
 
         ld      c,0
-				DIALOGBOTTOM bs_driving_gtx
+        DIALOGBOTTOM bs_driving_gtx
 
         ld      de,((.bsPalace-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -266,7 +266,7 @@ L1203_Load2:
         call    ClearDialog
 
         ld      c,0
-				DIALOGBOTTOM bs_palace_gtx
+        DIALOGBOTTOM bs_palace_gtx
 
         ld      de,((.endCinema-L1203_Load2)+levelCheckRAM)
         call    SetDialogForward
@@ -280,32 +280,32 @@ L1203_Load2:
         ;call    ((.quickToBlack-L1203_Load2)+levelCheckRAM)
 
         ld      hl,2056  ;bs
-				ld      a,l
-				ld      [hero0_class],a
-				ld      a,h
-				ld      [hero0_class+1],a
-				ld      a,HERO_BS_FLAG
-				ld      [hero0_type],a
+        ld      a,l
+        ld      [hero0_class],a
+        ld      a,h
+        ld      [hero0_class+1],a
+        ld      a,HERO_BS_FLAG
+        ld      [hero0_type],a
 
         ld      hl,2058   ;haiku
-				ld      a,l
-				ld      [hero1_class],a
-				ld      a,h
-				ld      [hero1_class+1],a
-				ld      a,HERO_HAIKU_FLAG
-				ld      [hero1_type],a
+        ld      a,l
+        ld      [hero1_class],a
+        ld      a,h
+        ld      [hero1_class+1],a
+        ld      a,HERO_HAIKU_FLAG
+        ld      [hero1_type],a
 
         ld      a,EXIT_N
         ld      [hero0_enterLevelFacing],a
         ld      [hero1_enterLevelFacing],a
 
         ld      hl,$1100
-				ld      a,l
+        ld      a,l
         ld      [curLevelIndex],a
-				ld      a,h
+        ld      a,h
         ld      [curLevelIndex+1],a
-				ld      a,1
-				ld      [timeToChangeLevel],a
+        ld      a,1
+        ld      [timeToChangeLevel],a
         ret
 
 .quickToBlack

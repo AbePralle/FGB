@@ -41,7 +41,7 @@ L0710_Init:
         DW ((L0710_InitFinished - L0710_Init2))  ;size
 L0710_Init2:
         ld      a,[bgTileMap + WATERINDEX]
-				ld      [levelVars + VAR_WATER],a
+        ld      [levelVars + VAR_WATER],a
 
         ld      a,BANK(main_in_game_gbm)
         ld      hl,main_in_game_gbm
@@ -60,12 +60,12 @@ L0710_Check2:
 
 .animateWater
         ldio    a,[updateTimer]
-				swap    a
-				and     %11
-				ld      hl,levelVars + VAR_WATER
-				add     [hl]
-				ld      [bgTileMap + WATERINDEX],a
-				ret
+        swap    a
+        and     %11
+        ld      hl,levelVars + VAR_WATER
+        add     [hl]
+        ld      [bgTileMap + WATERINDEX],a
+        ret
 
 L0710_CheckFinished:
 PRINTT "0710 Script Sizes (Load/Init/Check) (of $500):  "
