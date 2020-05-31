@@ -3948,18 +3948,18 @@ DW      BANK(L1515_Contents),L1515_Contents  ;255
 SECTION "BGTileSection",ROMX[$4000],BANK[BGTILEROM1]
 BGTiles::
 DB     0,0,0,0, 0,0,0,0, 0,0,0,0,0,0,0,0  ;blank tile zero
-INCBIN "bgTiles1-256.bin"
-INCBIN "bgTiles257-512.bin"
-INCBIN "bgTiles513-768.bin"
-INCBIN "bgTiles769-979.bin"
+INCBIN "Data/Tiles/bgTiles1-256.bin"
+INCBIN "Data/Tiles/bgTiles257-512.bin"
+INCBIN "Data/Tiles/bgTiles513-768.bin"
+INCBIN "Data/Tiles/bgTiles769-979.bin"
 
 SECTION "BGTileSection2",ROMX[$4000],BANK[BGTILEROM2]
 BGTiles1024::
 DB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-INCBIN "bgTiles1024-1279.bin"
-INCBIN "bgTiles1280-1535.bin"
-INCBIN "bgTiles1536-1791.bin"
-INCBIN "bgTiles1792-2047.bin"
+INCBIN "Data/Tiles/bgTiles1024-1279.bin"
+INCBIN "Data/Tiles/bgTiles1280-1535.bin"
+INCBIN "Data/Tiles/bgTiles1536-1791.bin"
+INCBIN "Data/Tiles/bgTiles1792-2047.bin"
 
 ;DS     16*((1024-256)-1)       ;pad tiles
 
@@ -4086,8 +4086,8 @@ bg_colorTable::  ;defines a byte for the tile attribute (color) for each class
 
 SECTION "FGTileSection",ROMX[$4800]
 FGTiles:
-INCBIN "fgTiles2048-2302.bin"  ;monsta tiles
-INCBIN "fgTiles2304-2559.bin"  ;monsta tiles
+INCBIN "Data/Tiles/fgTiles2048-2302.bin"  ;monsta tiles
+INCBIN "Data/Tiles/fgTiles2304-2559.bin"  ;monsta tiles
 
 
 fg_colorTable::  ;defines a byte for the tile attribute (color) for each class

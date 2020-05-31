@@ -637,73 +637,73 @@ DB $dd,$dd,$dd,$dd,$dd,$dd,$dd,$dd
 DB $00,$00,$00,$00,$00,$00,$00,$00
 
 alarm_gbm::
-  INCBIN "music\\alarm.gbm.bin"
+  INCBIN "Data/Music/alarm.gbm.bin"
 
 intro_cinema_gbm::
-  INCBIN "music\\intro_cinema.gbm.bin"
+  INCBIN "Data/Music/intro_cinema.gbm.bin"
 
 bs_gbm::
-  INCBIN "music\\jazzy.gbm.bin"
+  INCBIN "Data/Music/jazzy.gbm.bin"
 
 lady_flower_gbm::
-  INCBIN "music\\lady_flower.gbm.bin"
+  INCBIN "Data/Music/lady_flower.gbm.bin"
 
 main_in_game_gbm::
-  INCBIN "music\\main_in_game.gbm.bin"
+  INCBIN "Data/Music/main_in_game.gbm.bin"
 
 haiku_gbm::
-  INCBIN "music\\maybe_haiku.gbm.bin"
+  INCBIN "Data/Music/maybe_haiku.gbm.bin"
 
 ;---------------------------------------------------------------------
 SECTION "MusicData2",ROMX
 ;---------------------------------------------------------------------
 
 moon_base_ba_gbm::
-  INCBIN "music\\moon_base_ba.gbm.bin"
+  INCBIN "Data/Music/moon_base_ba.gbm.bin"
 
 moon_base_haiku_gbm::
-  INCBIN "music\\moon_base_haiku.gbm.bin"
+  INCBIN "Data/Music/moon_base_haiku.gbm.bin"
 
 ;shroom_gbm::
-  ;INCBIN "music\\shroom.gbm.bin"
+  ;INCBIN "Data/Music/shroom.gbm.bin"
 
 cowboy_gbm::
-  INCBIN "music\\cowboy.gbm.bin"
+  INCBIN "Data/Music/cowboy.gbm.bin"
 
 frosty_gbm::
-  INCBIN "music\\frosty.gbm.bin"
+  INCBIN "Data/Music/frosty.gbm.bin"
 
 fgbwar_gbm::
-  INCBIN "music\\fgbwar.gbm.bin"
+  INCBIN "Data/Music/fgbwar.gbm.bin"
 
 wedding_gbm::
-  INCBIN "music\\wedding.gbm.bin"
+  INCBIN "Data/Music/wedding.gbm.bin"
 
 takeoff_gbm::
-  INCBIN "music\\takeoff.gbm.bin"
+  INCBIN "Data/Music/takeoff.gbm.bin"
 
 ;---------------------------------------------------------------------
 SECTION "MusicData3",ROMX
 ;---------------------------------------------------------------------
 
 spaceish_gbm::
-  INCBIN "music\\spaceish.gbm.bin"
+  INCBIN "Data/Music/spaceish.gbm.bin"
 
 beehive_gbm::
-  INCBIN "music\\beehive.gbm.bin"
+  INCBIN "Data/Music/beehive.gbm.bin"
 
 hoedown_gbm::
-  INCBIN "music\\hoedown.gbm.bin"
+  INCBIN "Data/Music/hoedown.gbm.bin"
 
 death_gbm::
-  INCBIN "music\\death.gbm.bin"
+  INCBIN "Data/Music/death.gbm.bin"
 
 ;---------------------------------------------------------------------
 SECTION "MusicData4",ROMX
 ;---------------------------------------------------------------------
 jungle_gbm::
-  INCBIN "music\\jungle.gbm.bin"
+  INCBIN "Data/Music/jungle.gbm.bin"
 
 mysterious_gbm::
-  INCBIN "music\\mysterious.gbm.bin"
+  INCBIN "Data/Music/mysterious.gbm.bin"
 
