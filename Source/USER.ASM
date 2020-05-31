@@ -156,7 +156,7 @@ LongCall::
         ld      [$2100],a
 
         push    hl
-        ld      hl,[sp+6]        ;point hl to empty spot in stack
+        ld      hl,sp+6          ;point hl to empty spot in stack
         ld      [hl],e
         inc     hl
         ld      [hl],d           ;save addr of method
@@ -2191,7 +2191,7 @@ TimerDelay::
 ;---------------------------------------------------------------------
 SetDialogSkip::
         push    hl
-        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      hl,sp+4     ;stack ptr pos once returned from this fn
         ld      a,e
         ld      [levelCheckSkip+2],a     ;set skip forward addr
         ld      a,d
@@ -2200,7 +2200,7 @@ SetDialogSkip::
 
 SetDialogForward::
         push    hl
-        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      hl,sp+4     ;stack ptr pos once returned from this fn
         ld      a,e                      ;set fast forward addr
         ld      [levelCheckSkip],a
         ld      a,d
@@ -2209,7 +2209,7 @@ SetDialogForward::
 
 SetSkipStackPos::
         push    hl
-        ld      hl,[sp+4]   ;stack ptr pos once returned from this fn
+        ld      hl,sp+4     ;stack ptr pos once returned from this fn
 
 SetDialogCommon:
         ld      a,l
@@ -2285,7 +2285,7 @@ SetLinkBailOutAddress::
         ld      [linkBailOut+1],a
 
         ;save stack pointer (plus a*2 + 6 for things pushed on stack)
-        ld      hl,[sp+6]
+        ld      hl,sp+6
         pop     af
         or      a
         jr      z,.afterAdjustStackPointer
@@ -3508,7 +3508,7 @@ GeneratePauseMessage:
         ;write map coordinates
         add     sp,-24  ;create temporary buffer on stack
         push    hl
-        ld      hl,[sp+2]
+        ld      hl,sp+2
         ld      d,h
         ld      e,l
         ld      [hl],16  ;spaces to center
