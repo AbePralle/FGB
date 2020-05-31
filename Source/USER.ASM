@@ -23,7 +23,7 @@ EXTCLK EQU $82
         SECTION        "User",ROM0
 
 ;---------------------------------------------------------------------
-; Subroutine:   UserMain 
+; Subroutine:   UserMain
 ; Description:  Sets up game then goes into main loop
 ;---------------------------------------------------------------------
 UserMain::
@@ -40,7 +40,7 @@ UserMain::
 				ldio    [mapState],a
 				ldio    [mapState+1],a
 
-				;initial level index 
+				;initial level index
 				ld      a,((INITIALMAP>>8) & $ff)
 				ld      [curLevelIndex+1],a
 				ld      a,(INITIALMAP & $ff)
@@ -99,7 +99,7 @@ UserMain::
         ld      b,METHOD_DIE
 				call    IterateAllLists
 				ld      a,15
-				call    SetupFadeToBlack 
+				call    SetupFadeToBlack
 				call    WaitFade
 
 .loadNextLevel
@@ -109,7 +109,7 @@ UserMain::
 				call    levelCheckRAM
 				call    RedrawMap
 				ld      a,15
-				call    SetupFadeFromBlack 
+				call    SetupFadeFromBlack
 				call    WaitFade
 				;call    LighteningIn
 
@@ -128,7 +128,7 @@ UserMain::
 ; Returns:      Nothing.
 ; Alters:       af
 ; Description:  Switches to a new ROM bank by writing the new bank
-;               number to [$2100].  Also saves the bank in 
+;               number to [$2100].  Also saves the bank in
 ;               [curROMBank].
 ;---------------------------------------------------------------------
 SetActiveROM::
@@ -149,7 +149,7 @@ SetActiveROM::
 ;               de - address of routine
 ; Returns:      Whatever routine normally returns (excluding F).
 ; Alters:       af, hl
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 LongCall::
         ldio    [curROMBank],a   ;switch to ROM containing routine
@@ -186,7 +186,7 @@ LongCall::
 ; Returns:      Nothing.
 ; Alters:       af
 ; Description:  Quick & dirty long call (handles bank swapping)
-;               for routines that don't require arguments or return 
+;               for routines that don't require arguments or return
 ;               values.
 ;---------------------------------------------------------------------
 LongCallNoArgs::
@@ -198,12 +198,12 @@ LongCallNoArgs::
 
 				ld      a,b
 				ld      [curROMBank],a       ;swap in new bank
-				ld      [$2100],a 
+				ld      [$2100],a
 
 				ld      bc,.returnAddress
 				push    bc
 
-				jp      [hl]
+				jp      hl
 .returnAddress
 
         pop     af                   ;retrieve old bank & swap it in
@@ -232,11 +232,11 @@ WaitFade::
         ldio    a,[paletteBufferReady]  ;wait for vblank
         or      a
         jr      nz,.waitInstall
-        
+
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      CheckSpecialFX  
+; Routine:      CheckSpecialFX
 ; Alters:       af
 ; Description:  Performs any special effects upkeep
 ;---------------------------------------------------------------------
@@ -250,7 +250,7 @@ CheckSpecialFX:
 
 .done
         ret
-       
+
 ;---------------------------------------------------------------------
 ; Subroutine:   UpdateObjTimers
 ; Alters:       af
@@ -291,7 +291,7 @@ UpdateHeroTimers:
 
 
 ;---------------------------------------------------------------------
-; Subroutine:   VWait    
+; Subroutine:   VWait
 ; Description:  Waits until a vertical blank occurs and then returns
 ;---------------------------------------------------------------------
 VWait::
@@ -313,7 +313,7 @@ VWait::
 ; Description:  Called every vertical blank.  Sets "vblankFlag" to
 ;               1 to indicate a vertical blank has occurred
 ;---------------------------------------------------------------------
-OnVBlank::      
+OnVBlank::
         push    af   ;save all registers on stack
         push    bc
         push    de
@@ -343,7 +343,7 @@ OnVBlank::
 				ld      hl,vblankTemp
 				sub     [hl]
 				ldio    [vblanksPerUpdate],a
-				
+
 				;update no faster than 1-frame-every-so-many-blanks clocks
 				cp      MIN_VBLANKS
 				jr      c,.checkDMALoad   ;too soon to update
@@ -389,7 +389,7 @@ OnVBlank::
         ld      [$ff00+$54],a     ;low byte of dest
         ld      a,37              ;copy (37+1)*16 = 608 bytes
         ld      [$ff00+$55],a     ;store length to start DMA
-        
+
         ;set VRAM bank to 1 (tile attributes)
         ld      a,1
         ld      [$ff00+$4f],a
@@ -417,7 +417,7 @@ OnVBlank::
         ldio    a,[dmaLoad]
 				or      a
 				jr      z,.scroll
-				
+
 .checkLoadBank0
         bit     0,a
 				jr      z,.checkLoadBank1
@@ -479,7 +479,7 @@ OnVBlank::
         jr      nz,.takeoffJiggle
 
 .normalJiggle
-        ;pick a "random value" 
+        ;pick a "random value"
         ld      a,[jiggleLoc]
         add     17
         ld      [jiggleLoc],a
@@ -686,42 +686,42 @@ OnHBlank_turnOffWindow:
 
 HBlankSetBGColorCDEHL_DEPushed:
 				ld      a,%10000000         ;specification 0
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10001000         ;specification 1
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10010000         ;specification 2
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10011000         ;specification 3
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10100000         ;specification 4
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10101000         ;specification 5
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10110000         ;specification 6
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
 				ld      a,%10111000         ;specification 7
-				ld      [c],a    
+				ld      [c],a
         ld      [hl],e
         ld      [hl],d
 
@@ -788,7 +788,7 @@ HOffsetOnHBlank::
 				push    hl
 
 				;save current RAM bank
-				ldio    a,[$ff70]    
+				ldio    a,[$ff70]
 				push    af
 
 				ld      a,TILEINDEXBANK
@@ -811,7 +811,7 @@ HOffsetOnHBlank::
 
 ;---------------------------------------------------------------------
 ; Subroutine:   SeasonsOnHBlank
-; Description:  Called after every line is drawn.  Sets color 0 (all 
+; Description:  Called after every line is drawn.  Sets color 0 (all
 ;               bg palettes) to white on line 143 and to brown ($888)
 ;               on line 39.
 ;---------------------------------------------------------------------
@@ -890,7 +890,7 @@ SeasonsOnHBlank::
 
 ;---------------------------------------------------------------------
 ; Routine:      GetInput
-; Description:  Swaps in the link code bank, passes the work along to 
+; Description:  Swaps in the link code bank, passes the work along to
 ;               HandleInput, and swaps in the object bank before
 ;               ending.
 ;---------------------------------------------------------------------
@@ -964,9 +964,9 @@ CheckPause:
 
         ld      de,.afterPause
         call    SetDialogSkip
-        
+
         ld      a,BANK(GeneratePauseMessage)
-        ld      hl,GeneratePauseMessage 
+        ld      hl,GeneratePauseMessage
         call    LongCallNoArgs
 
 				ld      a,1
@@ -1066,7 +1066,7 @@ UpdateObjectsCommon:
 
         ;check each object
         ld      b,METHOD_CHECK
-        ld      a,[iterateNumObjects] 
+        ld      a,[iterateNumObjects]
         ld      c,a
         call    IterateMaxObjects
 
@@ -1105,7 +1105,7 @@ UpdateObjectsCommon:
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      RedrawMap    
+; Routine:      RedrawMap
 ; Description:  Redraws the map for the next vblank
 ;---------------------------------------------------------------------
 RedrawMap::
@@ -1328,7 +1328,7 @@ HandleLCC:
 .checkLNOLINK
         cp      LNOLINK
 				jr      nz,.checkLLINKTEST
-        ret 
+        ret
 
 .checkLLINKTEST
         cp      LLINKTEST
@@ -1344,7 +1344,7 @@ HandleLCC:
         LONGCALLNOARGS NewAppxLocation
         ret
 
-.checkLADDINVITEM   
+.checkLADDINVITEM
         cp      LADDINVITEM
         jr      nz,.checkLREMINVITEM
 
@@ -1363,7 +1363,7 @@ HandleLCC:
         pop     bc
         ret
 
-.checkLREMINVITEM    
+.checkLREMINVITEM
         cp      LREMINVITEM
         jr      nz,.checkLUPDATEMEMORY
 
@@ -1385,7 +1385,7 @@ HandleLCC:
         pop     bc
         ret
 
-.checkLUPDATEMEMORY    
+.checkLUPDATEMEMORY
         cp      LUPDATEMEMORY
         jr      nz,.unknown
 
@@ -1412,7 +1412,7 @@ HandleLCC:
 ; Alters:       af
 ; Note:         DON'T CALL THIS DIRECTLY.  It should only be called
 ;               via TransmitByte and ReceiveByte.
-; Description:  Low-level routine to transmit a byte via the link 
+; Description:  Low-level routine to transmit a byte via the link
 ;               cable.
 ;---------------------------------------------------------------------
 LLTransmitByte:
@@ -1443,7 +1443,7 @@ LLTransmitByte:
 ; Alters:       af
 ; Note:         DON'T CALL THIS DIRECTLY.  It should only be called
 ;               via TransmitByte and ReceiveByte.
-; Description:  Low-level routine to receive a byte via the link 
+; Description:  Low-level routine to receive a byte via the link
 ;               cable.  If no signal within nine seconds aborts link
 ;               connection and:
 ;                 Master - continues game as slaveless master ($fe).
@@ -1494,9 +1494,9 @@ LLReceiveByte:
 				cp      1
 				jr      z,.amMaster
 
-				;link already lost, restore stack & jump to bail-out address 
+				;link already lost, restore stack & jump to bail-out address
 				;if not 0
-				ld      a,[linkBailOut]     ;get bail-out address 
+				ld      a,[linkBailOut]     ;get bail-out address
 				ld      e,a
 				ld      a,[linkBailOut+1]
 				ld      d,a
@@ -1598,7 +1598,7 @@ ReceiveByte::
 ; Alters:       af
 ; Description:  Uses value of [amLinkMaster] (Master should be $01 and
 ;               Slave should be $00) to determine sequencing of
-;               TransmitByte and ReceiveByte.  
+;               TransmitByte and ReceiveByte.
 ;---------------------------------------------------------------------
 ExchangeByte::
         push    bc
@@ -1848,7 +1848,7 @@ CheckSimultaneousLCC::
 ; Routine:      YankRemotePlayer
 ; Arguments:    a  - exit to set to  (>7 means &7 and don't check
 ;                    to see if you're on the map)
-;                   
+;
 ;               hl - map to set to in BCD (e.g. $0205)
 ; Returns:      Nothing.
 ; Alters:       af
@@ -1983,11 +1983,11 @@ ENDC
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      DebugMesg  
+; Routine:      DebugMesg
 ; Argument:     hl - pointer to a gtx structure
 ; Returns:      Nothing.
 ; Alters:       af
-; Description:  Displays the given gtx string in a window for a 
+; Description:  Displays the given gtx string in a window for a
 ;               brief period.
 ;---------------------------------------------------------------------
 DebugMesg::
@@ -2020,7 +2020,7 @@ DebugMesg::
 				rlca                   ;times 8 = pixels for window
 				rlca
 				rlca
-				add     7 
+				add     7
 				ld      [hblankWinOff],a
 
 				ld      a,143
@@ -2043,7 +2043,7 @@ DebugMesg::
         pop     bc
         pop     af
 				;-------Show Dialog At Top-------------------
-				
+
 				ld      bc,16384
 				call    TimerDelay
 	      call    ClearDialog
@@ -2055,7 +2055,7 @@ DebugMesg::
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      DebugVal  
+; Routine:      DebugVal
 ; Argument:     a - byte to show as a hex value
 ; Returns:      Nothing.
 ; Alters:       Nothing.
@@ -2111,7 +2111,7 @@ DebugVal::
 				rlca                   ;times 8 = pixels for window
 				rlca
 				rlca
-				add     7 
+				add     7
 				ld      [hblankWinOff],a
 
 				ld      a,143
@@ -2134,7 +2134,7 @@ DebugVal::
         pop     bc
         pop     af
 				;-------Show Dialog At Top-------------------
-				
+
 				ld      bc,8192    ;16384
 				call    TimerDelay
 	      call    ClearDialog
@@ -2182,10 +2182,10 @@ TimerDelay::
 ;---------------------------------------------------------------------
 ; Routine:      SetDialogSkip
 ;               SetDialogForward
-; Arguments:    de - position to skip or fast forward to 
+; Arguments:    de - position to skip or fast forward to
 ; Alters:       af
 ; Description:  Saves the stack pointer (minus the space that this
-;               function call is taking up) and sets the go-to 
+;               function call is taking up) and sets the go-to
 ;               address for fast forwarding (any button pressed)
 ;               or skipping (start button pressed).
 ;---------------------------------------------------------------------
@@ -2462,7 +2462,7 @@ UpdateRemoteHeroesUsed::
 ; Arguments:    a  - bank of sample
 ;               hl - start address of sample
 ; Alters:       af,hl
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 PlaySample::
 				;start sample playing
@@ -2478,7 +2478,7 @@ PlaySample::
 				ldio    [sampleAddress+1],a
 				ld      a,$0f
 				ldio    [sampleMask],a
-				ld      a,$86 
+				ld      a,$86
 				ldio    [$ff1a],a    ;sound 3 enable
 				ld      hl,$ff26
 				set     2,[hl]
@@ -2518,8 +2518,8 @@ FinishHBlankPlayingSample::
 
 .checkForSpecialCodes
 				cp      $80
-				jr      nz,.normalData 
-				
+				jr      nz,.normalData
+
 				;code indicating termination or link follows
 				inc     hl
         ld      a,[hl+]
@@ -2680,8 +2680,8 @@ FindFirstBGLoc::
 
 ;---------------------------------------------------------------------
 ; Routine:      LinkTransmitMemoryLocation
-; Arguments:    a  - RAM bank 
-;               hl - memory location to transmit to the remote 
+; Arguments:    a  - RAM bank
+;               hl - memory location to transmit to the remote
 ;                    GameBoy
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -2748,13 +2748,13 @@ linkCode:
 ;               connection.
 ;
 ;               If no link:
-;                 Convert curInput0->Joy1 (result will be same as 
+;                 Convert curInput0->Joy1 (result will be same as
 ;                 encoding then decoding curInput).
 ;
 ;               If link connection established:
-;                 Exchange Control Byte with linked machine.  If 
-;                 Command Code gotten in return, perform requested 
-;                 action and then repeat attempt to exchange control 
+;                 Exchange Control Byte with linked machine.  If
+;                 Command Code gotten in return, perform requested
+;                 action and then repeat attempt to exchange control
 ;                 byte.
 ;
 ;                 If Master:  curInput0->Joy1, remoteInput->Joy2
@@ -2858,7 +2858,7 @@ IF 0
 
 				;get the actual seed
 				call    ReceiveByte
-			  ld      b,a																			 
+			  ld      b,a
 				ld      a,[randomLoc]
 				cp      b                           ;got same in return?
 				jr      z,.exchangeBCB              ;continue if yes
@@ -2921,7 +2921,7 @@ ENDC
 ; Argument:     a - uncoded button control byte
 ; Returns:      a - converted BCB, same as calling Encode then
 ;                   Decode but quicker
-; Description:  To simulate uncoded->encoded->decoded, forces buttons 
+; Description:  To simulate uncoded->encoded->decoded, forces buttons
 ;               7:4 to have A/B or Start/Select info but not both
 ;               (A/B has priority).
 ; Alters:       af
@@ -3212,14 +3212,14 @@ HostSynchronizeCommon:
 				ld      hl,objExists     ;objExists, FOF table
 				ld      bc,512
 				ld      a,OBJLISTBANK
-				call    TransmitCompressedData 
+				call    TransmitCompressedData
 
         ld      a,[numClasses]
 				call    TransmitByte
 
 				;bc = numClasses times two + 2
         ld      a,[numClasses]
-				ld      b,0  
+				ld      b,0
 				ld      c,a
 				sla     c
 				rl      b
@@ -3229,7 +3229,7 @@ HostSynchronizeCommon:
 				ld      hl,classLookup   ;objExists, FOF table
 				;ld      bc,512  numClasses * 2
 				ld      a,OBJLISTBANK
-				call    TransmitData 
+				call    TransmitData
 
 				ld      hl,fgTileMap
 				ld      a,[numClasses]
@@ -3251,7 +3251,7 @@ HostSynchronizeCommon:
 				ld      hl,spritesUsed
 				ld      bc,40
 				ld      a,OBJLISTBANK
-				call    TransmitCompressedData 
+				call    TransmitCompressedData
 
 				;---------------transmit used objects-------------------------
 				ld      a,OBJLISTBANK
@@ -3450,7 +3450,7 @@ di
 ; Arguments:    none
 ; Returns:      none
 ; Alters:       all
-; Description:  Creates appropriate Pause Message 
+; Description:  Creates appropriate Pause Message
 ;---------------------------------------------------------------------
 GeneratePauseMessage:
         ld      a,[dialogBank]
@@ -3566,7 +3566,7 @@ GeneratePauseMessage:
         inc     c
 .afterWriteCoords
         add     sp,24     ;free up temporary stack space
-        
+
         ;write inventory
         call    GetFirstInventoryIndex
         cp      $ff
@@ -3640,7 +3640,7 @@ GeneratePauseMessage:
         push    hl
         ld      de,3
 
-        ld      b,a 
+        ld      b,a
         ld      a,FLIGHTCODEBANK
         ldio    [$ff70],a
         ld      hl,flightCode
@@ -3712,7 +3712,7 @@ blankLine:
 ;               hl - pointer to dest
 ; Returns:      none
 ; Alters:       all
-; Description:  First byte at [de] is number of bytes to copy from 
+; Description:  First byte at [de] is number of bytes to copy from
 ;               [de] to [hl].  Must be >= 1!
 ;---------------------------------------------------------------------
 CopyMessageDEToHL:
@@ -4289,19 +4289,19 @@ item001_Name:
   ITEMSTRING 254,"SPOREoMASK"
 item002_Name:
   ;ITEMSTRING 250,"CODE0400"
-  DB 0,0   
+  DB 0,0
 item003_Name:
   ;ITEMSTRING 250,"CODE0900"
-  DB 0,0   
+  DB 0,0
 item004_Name:
   ;ITEMSTRING 250,"CODE1002"
-  DB 0,0   
+  DB 0,0
 item005_Name:
   ;ITEMSTRING 250,"CODE1006"
-  DB 0,0   
+  DB 0,0
 item006_Name:
   ;ITEMSTRING 250,"CODE0410"
-  DB 0,0   
+  DB 0,0
 item007_Name:
   ITEMSTRING 249,"BAToJUICE"
 item008_Name:
@@ -4320,7 +4320,7 @@ item014_Name:
   DB 0,0    ;BA High Impact Bullets
 item015_Name:
   ;ITEMSTRING 250,"CODE0307"
-  DB 0,0   
+  DB 0,0
 item016_Name:
   ITEMSTRING 250,"ALPHAoCLEARANCE"
 item017_Name:
@@ -4343,7 +4343,7 @@ SECTION        "MiscSection",ROMX
 ; Arguments:    None.
 ; Returns:      none
 ; Alters:       af
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 NewAppxLocation:
         push    bc
@@ -4417,7 +4417,7 @@ NewAppxLocation:
         ld      a,[appomattoxMapIndex]
         or      a
         jr      nz,.landing
-        
+
 .takingOff
         ;link down exit to $4040 (+0 +0)
         ld      hl,mapExitLinks+EXIT_D*2
@@ -4455,7 +4455,7 @@ NewAppxLocation:
         ld      a,$ff
         ld      [levelVars+6],a    ;VAR_SELSTAGE in $1401
 
-.done 
+.done
         pop     hl
         pop     de
         pop     bc
@@ -4706,7 +4706,7 @@ ld bc,$0020
 ld a,7
 call MemSet
 
-ld d,0 
+ld d,0
 ld hl,$d020
 ld bc,$0fe0
 ld a,7

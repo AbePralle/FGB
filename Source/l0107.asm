@@ -26,9 +26,9 @@ STATE_WAITRETURN       EQU 5
 ;referenced in l1401 lz_brokenwall_bg
 STATE_NORMAL           EQU 6
 
-GLOBAL bigLaserSound
-GLOBAL disappearSound
-GLOBAL closeGateSound
+EXPORT bigLaserSound
+EXPORT disappearSound
+EXPORT closeGateSound
 
 
 ;---------------------------------------------------------------------

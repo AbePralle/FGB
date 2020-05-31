@@ -96,7 +96,7 @@ ENDM
 VECTORTOSTATE: MACRO
         ld      hl,\1
 				call    LCheckGetVectorToState
-				jp      [hl]
+				jp      hl
 ENDM
 
 DIALOGTOP: MACRO

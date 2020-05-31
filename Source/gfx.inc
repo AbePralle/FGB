@@ -1,2 +1,2 @@
-GLOBAL select_hero_bg
+EXPORT select_hero_bg
 

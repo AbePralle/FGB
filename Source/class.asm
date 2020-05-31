@@ -80,124 +80,124 @@ GRENADE_MAX_HEALTH EQU 30
 SECTION "ClassTableSection",ROMX
 classTable::    ;starts with ptr to FIRSTOBJTILE
   ;BG classes
-	REPT 27          ;0-26
-	DW classGenericBG
-	ENDR
+  REPT 27          ;0-26
+  DW classGenericBG
+  ENDR
 
   DW classAppomattoxBG  ;27
 
-	REPT 78       ;28-105
-	DW classGenericBG
-	ENDR
+  REPT 78       ;28-105
+  DW classGenericBG
+  ENDR
 
   DW classShiftPlusOneBG  ;106 destructable pumpkin
   DW classShiftPlusOneBG  ;107 destructable pumpkin
   DW classShiftPlusOneBG  ;108 destructable pumpkin
-	DW classDestructableBG  ;109 destructable pumpkin
+  DW classDestructableBG  ;109 destructable pumpkin
 
-	DW classGenericBG       ;110 blue thingy
+  DW classGenericBG       ;110 blue thingy
 
-	REPT 9         ;111-119 purple destructable
-	DW classChangeTo120BG
-	ENDR
+  REPT 9         ;111-119 purple destructable
+  DW classChangeTo120BG
+  ENDR
 
   DW classShiftPlusOneBG  ;120 purple destroy stage 1
   DW classShiftPlusOneBG  ;121 purple destroy stage 2
-	DW classDestructableBG  ;122 purple destroy stage 3
-	DW classSplitterBG      ;123 four-way shot splitter
+  DW classDestructableBG  ;122 purple destroy stage 3
+  DW classSplitterBG      ;123 four-way shot splitter
 
   REPT 133       ;124-256
-	DW classGenericBG
+  DW classGenericBG
   ENDR
 
   REPT 46        ;257-302
-	DW classHiveBG
+  DW classHiveBG
   ENDR
 
   REPT 588       ;303-890
-	DW classGenericBG
+  DW classGenericBG
   ENDR
 
-	DW classNoExplosionBG    ;891 grey door
+  DW classNoExplosionBG    ;891 grey door
 
   REPT 181      ;892-1072
-	DW classGenericBG
+  DW classGenericBG
   ENDR
 
   DW classLandingLightsBG   ;1073
 
   REPT 328      ;1074-1401
-	DW classGenericBG
+  DW classGenericBG
   ENDR
 
-	DW classChangeToBigSpiderBG       ;TL corner big spider weed
-	DW classAdjoinWestBG              ;big spider weed
-	DW classAdjoinNorthBG             ;big spider weed
-	DW classAdjoinNorthBG             ;big spider weed
-	DW classChangeToLittleSpiderBG    ;small spider weed
+  DW classChangeToBigSpiderBG       ;TL corner big spider weed
+  DW classAdjoinWestBG              ;big spider weed
+  DW classAdjoinNorthBG             ;big spider weed
+  DW classAdjoinNorthBG             ;big spider weed
+  DW classChangeToLittleSpiderBG    ;small spider weed
 
   REPT 57        ;1407-1463
-	DW classGenericBG
+  DW classGenericBG
   ENDR
 
-	;1464-1475 destructable shrooms
-	REPT 12
-	DW classDestructableBG
-	ENDR
+  ;1464-1475 destructable shrooms
+  REPT 12
+  DW classDestructableBG
+  ENDR
 
-	DW classNoExplosionBG    ;wall tile
+  DW classNoExplosionBG    ;wall tile
 
   ;1477-1493
-	REPT 17
-	DW classGenericBG
-	ENDR
+  REPT 17
+  DW classGenericBG
+  ENDR
 
-	;1494-1511 Destructable foliage
-	REPT 18
-	DW classDestructableBG
-	ENDR
+  ;1494-1511 Destructable foliage
+  REPT 18
+  DW classDestructableBG
+  ENDR
 
-	DW classEdibleCheeseBG   ;1512 edible cheese
-	DW classCheeseBG         ;1513 cheese
-	DW classCheeseBG         ;1514 cheese
-	DW classCheeseBG         ;1515 cheese
-	DW classCheeseBG         ;1516 cheese
-	DW classCheeseBG         ;1517 cheese
-	DW classCheeseBG         ;1518 cheese
-	DW classCheeseBG         ;1519 cheese
-	DW classCheeseBG         ;1520 cheese
-	DW classCheeseBG         ;1521 cheese
-	DW classCheeseBG         ;1522 cheese
-	DW classCheeseBG         ;1523 cheese
-	DW classCheeseBG         ;1524 cheese
-	DW classCheeseBG         ;1525 cheese
-	DW classCheeseBG         ;1526 cheese
-	DW classCheeseBG         ;1527 cheese
-	DW classCheeseBG         ;1528 cheese
-	DW classCheeseBG         ;1529 cheese
-	DW classCheeseBG         ;1530 cheese
-	DW classCheeseBG         ;1531 cheese
-	DW classCheeseBG         ;1532 cheese
-	DW classInvisibleWallBG  ;1533 Invisible Wall
+  DW classEdibleCheeseBG   ;1512 edible cheese
+  DW classCheeseBG         ;1513 cheese
+  DW classCheeseBG         ;1514 cheese
+  DW classCheeseBG         ;1515 cheese
+  DW classCheeseBG         ;1516 cheese
+  DW classCheeseBG         ;1517 cheese
+  DW classCheeseBG         ;1518 cheese
+  DW classCheeseBG         ;1519 cheese
+  DW classCheeseBG         ;1520 cheese
+  DW classCheeseBG         ;1521 cheese
+  DW classCheeseBG         ;1522 cheese
+  DW classCheeseBG         ;1523 cheese
+  DW classCheeseBG         ;1524 cheese
+  DW classCheeseBG         ;1525 cheese
+  DW classCheeseBG         ;1526 cheese
+  DW classCheeseBG         ;1527 cheese
+  DW classCheeseBG         ;1528 cheese
+  DW classCheeseBG         ;1529 cheese
+  DW classCheeseBG         ;1530 cheese
+  DW classCheeseBG         ;1531 cheese
+  DW classCheeseBG         ;1532 cheese
+  DW classInvisibleWallBG  ;1533 Invisible Wall
 
-	DW classPorkBG           ;1534 Bacon
-	DW classPorkBG           ;1535 Ham
-	DW classPorkBG           ;1536 Sausage
-	DW classFriedEggBG       ;1537 Fried Egg
-	DW classDrumstickBG      ;1538 Drumstick
+  DW classPorkBG           ;1534 Bacon
+  DW classPorkBG           ;1535 Ham
+  DW classPorkBG           ;1536 Sausage
+  DW classFriedEggBG       ;1537 Fried Egg
+  DW classDrumstickBG      ;1538 Drumstick
 
   ;1539-1571
-	REPT 33
-	DW classGenericBG 
-	ENDR
+  REPT 33
+  DW classGenericBG
+  ENDR
 
   DW classHermitCrabShellBG  ;1572 Hermit Crab Shell
-	DW classBananaBG         ;1573 Banana
+  DW classBananaBG         ;1573 Banana
 
-	;1574-1642
-	REPT 69
-	DW classGenericBG 
-	ENDR
+  ;1574-1642
+  REPT 69
+  DW classGenericBG
+  ENDR
 
   DW classGeneratorBG  ;1643
   DW classGeneratorBG
@@ -209,769 +209,769 @@ classTable::    ;starts with ptr to FIRSTOBJTILE
   DW classGeneratorBG
   DW classGeneratorBG  ;1651
 
-	DW classSlugTrailBG   ;1652 slug trail
+  DW classSlugTrailBG   ;1652 slug trail
 
   ;1653-1854
-	REPT 202
-	DW classGenericBG 
-	ENDR
+  REPT 202
+  DW classGenericBG
+  ENDR
 
   ;1855-1874
-	DW classDestructableBG
-	DW classDestructableBG
-	DW classDestructableBG
-	DW classDestructableBG
-	DW classDestructableAdjoinRightBG
-	DW classDestructableAdjoinLeftBG
-	DW classDestructableAdjoinRightBG
-	DW classDestructableAdjoinLeftBG
-	DW classDestructableAdjoinRightBG
-	DW classDestructableAdjoinLeftBG
-	DW classDestructableAdjoinRightBG
-	DW classDestructableAdjoinLeftBG
-	DW classDestructableAdjoinBottomBG
-	DW classDestructableAdjoinTopBG
-	DW classDestructableAdjoinBottomBG
-	DW classDestructableAdjoinTopBG
-	DW classDestructableAdjoinBottomBG
-	DW classDestructableAdjoinTopBG
-	DW classDestructableAdjoinBottomBG
-	DW classDestructableAdjoinTopBG
+  DW classDestructableBG
+  DW classDestructableBG
+  DW classDestructableBG
+  DW classDestructableBG
+  DW classDestructableAdjoinRightBG
+  DW classDestructableAdjoinLeftBG
+  DW classDestructableAdjoinRightBG
+  DW classDestructableAdjoinLeftBG
+  DW classDestructableAdjoinRightBG
+  DW classDestructableAdjoinLeftBG
+  DW classDestructableAdjoinRightBG
+  DW classDestructableAdjoinLeftBG
+  DW classDestructableAdjoinBottomBG
+  DW classDestructableAdjoinTopBG
+  DW classDestructableAdjoinBottomBG
+  DW classDestructableAdjoinTopBG
+  DW classDestructableAdjoinBottomBG
+  DW classDestructableAdjoinTopBG
+  DW classDestructableAdjoinBottomBG
+  DW classDestructableAdjoinTopBG
 
   ;1875-2042
-	REPT 168
-	DW classGenericBG 
-	ENDR
+  REPT 168
+  DW classGenericBG
+  ENDR
 
   DW classClearanceBG
 
   ;2044-2047
-	REPT 4
-	DW classGenericBG 
-	ENDR
+  REPT 4
+  DW classGenericBG
+  ENDR
 
   ;FG classes
 
-  ;pansies o+0, +2, +4 
-	REPT 3
+  ;pansies o+0, +2, +4
+  REPT 3
   DW classPansy,0
-	ENDR
+  ENDR
 
-	DW classBAPlayer,0        ;BA +6
-	DW classBSPlayer,0        ;BS +8
+  DW classBAPlayer,0        ;BA +6
+  DW classBSPlayer,0        ;BS +8
 
-	DW classHaikuPlayer, 0    ;+10 Haiku 
+  DW classHaikuPlayer, 0    ;+10 Haiku
 
-	DW classGrenade, 0        ;+12 Grenade
-	DW classGeneric           ;+14 old Stunned Wall Creature (unused)
-	DW classVacuum, 0         ;+15 vacuum
-	DW classSlug, 0           ;+17 Slug
-	DW classWallCreature, 0   ;+19 Wall Creature
-	DW classSmallBeeHive      ;+21 small bee hive
+  DW classGrenade, 0        ;+12 Grenade
+  DW classGeneric           ;+14 old Stunned Wall Creature (unused)
+  DW classVacuum, 0         ;+15 vacuum
+  DW classSlug, 0           ;+17 Slug
+  DW classWallCreature, 0   ;+19 Wall Creature
+  DW classSmallBeeHive      ;+21 small bee hive
 
-	DW classBee, 0            ;+22 bee
+  DW classBee, 0            ;+22 bee
 
-	DW classGeneric               ;+24  yinyang
-	DW classGeneric, 0            ;+25  yin
-	DW classGeneric, 0            ;+27  yang
-	DW classScaredie, 0           ;+29  scaredie
-	DW classChomper, 0            ;+31  big mouth (chomper)
-	DW classReciprocator, 0       ;+33  purple energy dude lo power
-	DW classReciprocatorPowerup,0 ;+35  purple dude hi power
-	DW classTri, 0                ;+37  yellow thing
-	DW classTriling, 0            ;+39  small yellow thing
-	DW classTree                  ;+41  tree
-	DW classBush                  ;+42  bush
-	DW classNeedle,0              ;+43  needle thing
-	DW classBat, 0                ;+45  bat
-	DW classBurrower,0            ;+47  burrower
-	DW classBurrowerDirt,0        ;+49  burrower dirt mound
-	DW classDandelion             ;+51  dandelion
-	DW classDandelionPuff,0       ;+52  dandelion puff 
-	DW classGeneric,0,0,0,0,0,0,0 ;+54  King Grenade
-	DW classMouse, 0              ;+62  mouse
-	DW classPenguin, 0            ;+64  penguin
-	DW classBIOS,0                ;+66  BIOS soldier
-	DW classGeneric,0,0,0         ;+68  king snake
-	DW classCroutonHulk,0,0,0,0,0,0,0 ;+72  crouton hulk
-	DW classCroutonGrunt, 0       ;+80  crouton grunt
+  DW classGeneric               ;+24  yinyang
+  DW classGeneric, 0            ;+25  yin
+  DW classGeneric, 0            ;+27  yang
+  DW classScaredie, 0           ;+29  scaredie
+  DW classChomper, 0            ;+31  big mouth (chomper)
+  DW classReciprocator, 0       ;+33  purple energy dude lo power
+  DW classReciprocatorPowerup,0 ;+35  purple dude hi power
+  DW classTri, 0                ;+37  yellow thing
+  DW classTriling, 0            ;+39  small yellow thing
+  DW classTree                  ;+41  tree
+  DW classBush                  ;+42  bush
+  DW classNeedle,0              ;+43  needle thing
+  DW classBat, 0                ;+45  bat
+  DW classBurrower,0            ;+47  burrower
+  DW classBurrowerDirt,0        ;+49  burrower dirt mound
+  DW classDandelion             ;+51  dandelion
+  DW classDandelionPuff,0       ;+52  dandelion puff
+  DW classGeneric,0,0,0,0,0,0,0 ;+54  King Grenade
+  DW classMouse, 0              ;+62  mouse
+  DW classPenguin, 0            ;+64  penguin
+  DW classBIOS,0                ;+66  BIOS soldier
+  DW classGeneric,0,0,0         ;+68  king snake
+  DW classCroutonHulk,0,0,0,0,0,0,0 ;+72  crouton hulk
+  DW classCroutonGrunt, 0       ;+80  crouton grunt
 
-	;BA Bullet +82
-	DW classBABullet, 0
+  ;BA Bullet +82
+  DW classBABullet, 0
 
-	;Pansy Bullet +84
-	DW classPansyBullet, 0
+  ;Pansy Bullet +84
+  DW classPansyBullet, 0
 
-	;Big Long Laser +86
-	DW classBigLongLaser, 0
+  ;Big Long Laser +86
+  DW classBigLongLaser, 0
 
-	DW classLadyFlower, 0         ;Lady Flower    +88
+  DW classLadyFlower, 0         ;Lady Flower    +88
 ;DW classBSPlayer,0        ;BS +8
-	DW classCaptainFlour, 0       ;Captain Flour  +90
-	DW classBigBeeHive, 0, 0, 0   ;+92   big bee hive
-	DW classSheep, 0              ;+96   sheep
-	DW classChicken, 0            ;+98   chicken
-	DW classPurpleWisp, 0         ;+100  wisp
-	DW classQuatrain,0            ;+102  quatrain
-	DW classWolf, 0               ;+104  ice wolf
-	DW classSnake, 0              ;+106  snake
-	DW classNeanderthal, 0        ;+108  neanderthal
-	DW classGeneric,0,0,0,0,0,0,0 ;+110  genie
-	DW classCrow,0                ;+118  crow
-	DW classScarecrow,0,0,0,0,0,0,0 ;+120  scarecrow
-	DW classTalker, 0             ;+128  hermit
-	DW classTalker, 0             ;+130  grey hermit
-	DW classGeneric, 0             ;+132  red villager
-	DW classGeneric, 0             ;+134  blue villager
-	DW classAlligator,0,0,0,0,0,0,0 ;+136  alligator
-	DW classScorpion, 0           ;+144  scorpion
-	DW classBow,0                 ;+146  archer
-	DW classCowboy, 0             ;+148  blue villager
-	DW classCowboy, 0             ;+150  brown villager
-	DW classCroutonDoctor, 0      ;+152  doctor crouton / guard
-	DW classCroutonBullet, 0      ;+154  crouton bullet
-	DW classCroutonWizard, 0      ;+156  wizard crouton
-	DW classWizardBullet, 0       ;+158  spiral wizard bullet
-	DW classGeneric, 0            ;+160  mud?
-	DW classArrowBullet, 0        ;+162  arrow bullet
-	DW classRocketBullet, 0       ;+164  rocket bullet
-	DW classCowboyBullet, 0       ;+166  yellow bolt bullet
-	DW classGeneric, 0            ;+168  purple sparkley bullet
-	DW classBSBullet, 0           ;+170  bs bullet
-	DW classCroutonGoblin, 0      ;+172  goblin crouton           
-	DW classGeneralGyro,0,0,0,0,0,0,0 ;+174  General Gyro
-	DW classCroutonArtillery,0,0,0,0,0,0,0 ;+182  artillery tank crouton
-	DW classGeneric,0,0,0,0,0,0,0 ;+190  stabbing tank crouton
-	DW classMajorSkippy,0,0,0,0,0,0,0 ;+198  Major Skippy
-	DW classBAPlayer,0            ;+206  RA
-	DW classBSPlayer,0            ;+208  CS
-	DW classBigSpider,0,0,0,0,0,0,0 ;+210  Big Spider
-	DW classLittleSpider,0        ;+218  Little Spider
-	DW classTeleportCube,0,0,0    ;+220  Teleport Field
+  DW classCaptainFlour, 0       ;Captain Flour  +90
+  DW classBigBeeHive, 0, 0, 0   ;+92   big bee hive
+  DW classSheep, 0              ;+96   sheep
+  DW classChicken, 0            ;+98   chicken
+  DW classPurpleWisp, 0         ;+100  wisp
+  DW classQuatrain,0            ;+102  quatrain
+  DW classWolf, 0               ;+104  ice wolf
+  DW classSnake, 0              ;+106  snake
+  DW classNeanderthal, 0        ;+108  neanderthal
+  DW classGeneric,0,0,0,0,0,0,0 ;+110  genie
+  DW classCrow,0                ;+118  crow
+  DW classScarecrow,0,0,0,0,0,0,0 ;+120  scarecrow
+  DW classTalker, 0             ;+128  hermit
+  DW classTalker, 0             ;+130  grey hermit
+  DW classGeneric, 0             ;+132  red villager
+  DW classGeneric, 0             ;+134  blue villager
+  DW classAlligator,0,0,0,0,0,0,0 ;+136  alligator
+  DW classScorpion, 0           ;+144  scorpion
+  DW classBow,0                 ;+146  archer
+  DW classCowboy, 0             ;+148  blue villager
+  DW classCowboy, 0             ;+150  brown villager
+  DW classCroutonDoctor, 0      ;+152  doctor crouton / guard
+  DW classCroutonBullet, 0      ;+154  crouton bullet
+  DW classCroutonWizard, 0      ;+156  wizard crouton
+  DW classWizardBullet, 0       ;+158  spiral wizard bullet
+  DW classGeneric, 0            ;+160  mud?
+  DW classArrowBullet, 0        ;+162  arrow bullet
+  DW classRocketBullet, 0       ;+164  rocket bullet
+  DW classCowboyBullet, 0       ;+166  yellow bolt bullet
+  DW classGeneric, 0            ;+168  purple sparkley bullet
+  DW classBSBullet, 0           ;+170  bs bullet
+  DW classCroutonGoblin, 0      ;+172  goblin crouton
+  DW classGeneralGyro,0,0,0,0,0,0,0 ;+174  General Gyro
+  DW classCroutonArtillery,0,0,0,0,0,0,0 ;+182  artillery tank crouton
+  DW classGeneric,0,0,0,0,0,0,0 ;+190  stabbing tank crouton
+  DW classMajorSkippy,0,0,0,0,0,0,0 ;+198  Major Skippy
+  DW classBAPlayer,0            ;+206  RA
+  DW classBSPlayer,0            ;+208  CS
+  DW classBigSpider,0,0,0,0,0,0,0 ;+210  Big Spider
+  DW classLittleSpider,0        ;+218  Little Spider
+  DW classTeleportCube,0,0,0    ;+220  Teleport Field
   DW classTeleportCube2,0,0,0   ;+224  Teleport Field
-	DW classDandelionGuard,0      ;+228  Dandelion guard
-	DW classB12Soldier,0          ;+230  Purple Soldier
-	DW classB12Soldier,0          ;+232  Grey Soldier
-	DW classB12Soldier,0          ;+234  Yellow Soldier
-	DW classGeneric,0             ;+236  Orange Specialist
-	DW classGeneric,0             ;+238  Grey Specialist
-	DW classGeneric,0             ;+240  Green Specialist
-	DW classActor,0               ;+242  Red Ninja (Iambic)
-	DW classHaikuPlayer,0         ;+244  Purple Ninja (Free Verse)
-	DW classB12SoldierBullet,0    ;+246  B12 Soldier Bullet
-	DW classGeneric               ;+248  bomb thing
-	DW classGeneric,0,0,0         ;+249  BRAINIAC
-	DW classTreeBullet,0          ;+253  Tree and bush bullet
-	DW 0                          ;+255  pad
-	DW classStunnedWall,0         ;+256  Stunned wall creature
-	DW classInvisibleBat,0        ;+258  Invisible Bat
-	DW classSlime,0               ;+260  Small slime
+  DW classDandelionGuard,0      ;+228  Dandelion guard
+  DW classB12Soldier,0          ;+230  Purple Soldier
+  DW classB12Soldier,0          ;+232  Grey Soldier
+  DW classB12Soldier,0          ;+234  Yellow Soldier
+  DW classGeneric,0             ;+236  Orange Specialist
+  DW classGeneric,0             ;+238  Grey Specialist
+  DW classGeneric,0             ;+240  Green Specialist
+  DW classActor,0               ;+242  Red Ninja (Iambic)
+  DW classHaikuPlayer,0         ;+244  Purple Ninja (Free Verse)
+  DW classB12SoldierBullet,0    ;+246  B12 Soldier Bullet
+  DW classGeneric               ;+248  bomb thing
+  DW classGeneric,0,0,0         ;+249  BRAINIAC
+  DW classTreeBullet,0          ;+253  Tree and bush bullet
+  DW 0                          ;+255  pad
+  DW classStunnedWall,0         ;+256  Stunned wall creature
+  DW classInvisibleBat,0        ;+258  Invisible Bat
+  DW classSlime,0               ;+260  Small slime
 
-	DW classYellowWisp,0          ;+262  Yellow wisp
-	DW classGeneric               ;+264  Immobile armor
-	DW classGeneric,0             ;+265  Suit of armor
-	DW classMonkey,0              ;+267  Brown Monkey
-	DW classBananaBullet,0        ;+269  Bananna bullet
-	DW classDuke,0,0,0,0,0,0,0    ;+271  Duke the one-armed orangutan
-	DW classGeneric,0             ;+279  leprechaun
-	DW classPig,0                 ;+281  pig
-	DW classEgg                   ;+283  egg
-	DW classBlower,0              ;+284  Crouton Blower
-	DW classSleepingMonkey        ;+286  Sleeping Monkey
-	DW classBell,0,0,0            ;+287  Bell
-	DW classRingingBell,0,0,0     ;+291  Ringing Bell
-	DW classBananaTree,0,0,0      ;+295  Banana Tree
-	DW classHermitNoShell,0       ;+299  Hermit Crab, no shell
-	DW classHermitInShell,0       ;+301  Hermit Crab inside shell
-	DW classSwampThang,0,0,0,0,0,0,0  ;+303  Swamp Thang
-	DW classCrab,0                    ;+311  Red Crab
-	DW classCrabBurrowing             ;+313  Red Crab Burrowing
-	DW classUberMouse,0,0,0,0,0,0,0   ;+314  Uber Mouse
-	DW classTurret,0,0,0              ;+322  Turret
-	DW classCroutonKing,0,0,0,0,0,0,0 ;+326  Turret Bullet
-	DW classTurretBullet,0            ;+334  Turret Bullet
-	DW classActor,0                   ;+336  Fake BA
-	DW classActor,0                   ;+338  Fake BS
-	DW classActor,0                   ;+340  Fake Haiku
-	DW classGrenadePlayer,0,0,0,0,0,0,0    ;+342  Fake King Grenade
-	DW classHeroLady,0                ;+350  Hero Lady Flower
-	DW classHeroFlour,0               ;+352  Hero Captain Flour
-	DW classGeneric,0                 ;+354  Disco Dancer
-	DW classActor,0,0,0               ;+356  Lying Head single 2x2 frame
-	DW classActor2x2,0,0,0,0,0,0,0    ;+360  Thaddius Pencilbody
-	DW classActor,0                   ;+368  Blue Skull
-	DW classActor2x2,0,0,0,0,0,0,0    ;+370  Santa
-	DW classActor2x2,0,0,0,0,0,0,0    ;+378  Queen Bee
-	DW classActor2x2,0,0,0,0,0,0,0    ;+386  Rocking Horse
-	DW classActor,0                   ;+394  Candy Cane
-	DW classActor,0                   ;+396  Doll
-	DW classActor2x2,0,0,0,0,0,0,0    ;+398  Reindeer
-	DW classFlourBullet,0             ;+406  Captain Flour Bullet
-	DW classLadyBullet,0              ;+408  Hero Lady Flower Bullet
-	;DW classLadyBullet,0              ;+410  Hero Lady Flower Bullet
-	;DW classLadyBullet,0              ;+412  Hero Lady Flower Bullet
-	;DW classLadyBullet,0              ;+414  Hero Lady Flower Bullet
+  DW classYellowWisp,0          ;+262  Yellow wisp
+  DW classGeneric               ;+264  Immobile armor
+  DW classGeneric,0             ;+265  Suit of armor
+  DW classMonkey,0              ;+267  Brown Monkey
+  DW classBananaBullet,0        ;+269  Bananna bullet
+  DW classDuke,0,0,0,0,0,0,0    ;+271  Duke the one-armed orangutan
+  DW classGeneric,0             ;+279  leprechaun
+  DW classPig,0                 ;+281  pig
+  DW classEgg                   ;+283  egg
+  DW classBlower,0              ;+284  Crouton Blower
+  DW classSleepingMonkey        ;+286  Sleeping Monkey
+  DW classBell,0,0,0            ;+287  Bell
+  DW classRingingBell,0,0,0     ;+291  Ringing Bell
+  DW classBananaTree,0,0,0      ;+295  Banana Tree
+  DW classHermitNoShell,0       ;+299  Hermit Crab, no shell
+  DW classHermitInShell,0       ;+301  Hermit Crab inside shell
+  DW classSwampThang,0,0,0,0,0,0,0  ;+303  Swamp Thang
+  DW classCrab,0                    ;+311  Red Crab
+  DW classCrabBurrowing             ;+313  Red Crab Burrowing
+  DW classUberMouse,0,0,0,0,0,0,0   ;+314  Uber Mouse
+  DW classTurret,0,0,0              ;+322  Turret
+  DW classCroutonKing,0,0,0,0,0,0,0 ;+326  Turret Bullet
+  DW classTurretBullet,0            ;+334  Turret Bullet
+  DW classActor,0                   ;+336  Fake BA
+  DW classActor,0                   ;+338  Fake BS
+  DW classActor,0                   ;+340  Fake Haiku
+  DW classGrenadePlayer,0,0,0,0,0,0,0    ;+342  Fake King Grenade
+  DW classHeroLady,0                ;+350  Hero Lady Flower
+  DW classHeroFlour,0               ;+352  Hero Captain Flour
+  DW classGeneric,0                 ;+354  Disco Dancer
+  DW classActor,0,0,0               ;+356  Lying Head single 2x2 frame
+  DW classActor2x2,0,0,0,0,0,0,0    ;+360  Thaddius Pencilbody
+  DW classActor,0                   ;+368  Blue Skull
+  DW classActor2x2,0,0,0,0,0,0,0    ;+370  Santa
+  DW classActor2x2,0,0,0,0,0,0,0    ;+378  Queen Bee
+  DW classActor2x2,0,0,0,0,0,0,0    ;+386  Rocking Horse
+  DW classActor,0                   ;+394  Candy Cane
+  DW classActor,0                   ;+396  Doll
+  DW classActor2x2,0,0,0,0,0,0,0    ;+398  Reindeer
+  DW classFlourBullet,0             ;+406  Captain Flour Bullet
+  DW classLadyBullet,0              ;+408  Hero Lady Flower Bullet
+  ;DW classLadyBullet,0              ;+410  Hero Lady Flower Bullet
+  ;DW classLadyBullet,0              ;+412  Hero Lady Flower Bullet
+  ;DW classLadyBullet,0              ;+414  Hero Lady Flower Bullet
 
 classDoNothing::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DoNothingCheck       ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDoNothing2::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DoNothingCheck       ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDoNothing3::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DoNothingCheck       ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHeroIdle::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  IdleCantDieCheck     ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classGeneric::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GenericCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTalker::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TalkerCheck          ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classActor::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classActor2::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classGuard::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GuardCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classActorSpeed1::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorSpeed1Check     ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classActor2x2::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classPansy::
         DW  PansyInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  PansyCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHippiePansy::
         DW  PansyInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  HippiePansyCheck     ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classPansyBullet::
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  StdBulletCheck       ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBAPlayer::
         DW  BAInit
-				DW  StandardRedraw
-				DW  BAPlayerCheck
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StandardRedraw
+        DW  BAPlayerCheck
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBAPlayerSpace::
         DW  BAInit
-				DW  StandardRedraw
-				DW  BAPlayerCheckSpace
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StandardRedraw
+        DW  BAPlayerCheckSpace
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBSPlayer::
         DW  BSInit               ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BSPlayerCheck        ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBSPlayerSpace::
         DW  BSInit               ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BSPlayerCheckSpace   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHaikuPlayer::
         DW  HaikuInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  HaikuPlayerCheck     ;vector for check method
-				DW  HaikuTakeDamage      ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  HaikuTakeDamage      ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHaikuPlayerSpace::
         DW  HaikuInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  HaikuPlayerCheckSpace ;vector for check method
-				DW  HaikuTakeDamage      ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  HaikuTakeDamage      ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHeroLady::
         DW  LadyInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  LadyPlayerCheck      ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHeroFlour::
         DW  FlourInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  FlourPlayerCheck     ;vector for check method
-				;DW  HaikuTakeDamage      ;vector for take damage method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        ;DW  HaikuTakeDamage      ;vector for take damage method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classFlourBullet::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  FlourBulletCheck     ;vector for check method
-				DW  HaikuTakeDamage      ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  HaikuTakeDamage      ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classLadyBullet::
         DW  LadyBulletInit       ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  LadyBulletCheck      ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classGrenadePlayer::
         DW  GrenadePlayerInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GrenadePlayerCheck   ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBSActor::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBee:
         DW  BeeInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BeeCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classStunnedWall::
         DW  StunnedWallInit      ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  StunnedWallCheck     ;vector for check method
-				DW  WallTakeDamage       ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  WallTakeDamage       ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classGrenade:
         DW  GrenadeInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GrenadeCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classVacuum:
         DW  VacuumInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  VacuumCheck          ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSlug:
         DW  SlugInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SlugCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classWallCreature::
         DW  WallCreatureInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  WallCreatureCheck    ;vector for check method
-				DW  WallTakeDamage       ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  WallTakeDamage       ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classWallTalker::
         DW  WallCreatureInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TalkerCheck          ;vector for check method
-				DW  WallTakeDamage       ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  WallTakeDamage       ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSmallBeeHive:
         DW  SmallBeeHiveInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SmallBeeHiveCheck    ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classScaredie:
         DW  ScardieInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ScardieCheck         ;vector for check method
-				DW  ScardieTakeDamage    ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  ScardieTakeDamage    ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classChomper::
         DW  ChomperInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ChomperCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classReciprocator:
         DW  ReciprocatorInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ReciprocatorCheck    ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classReciprocatorPowerup:
         DW  ReciprocatorInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ReciprocatorPowerupCheck ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTri:
         DW  TriInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TriCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTriling:
         DW  TrilingInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TrilingCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTree::
         DW  TreeInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TreeCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTreeTalker::
         DW  TreeInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TreeTalkerCheck      ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBush:
         DW  BushInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BushCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classNeedle:
         DW  NeedleInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  NeedleCheck          ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBat:
         DW  BatInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BatCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBurrower:
         DW  BurrowerInit         ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BurrowerCheck        ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBurrowerDirt:
         DW  BurrowerDirtInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BurrowerDirtCheck    ;vector for check method
-				DW  TakeZeroDamage       ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  TakeZeroDamage       ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDandelion::
         DW  DandelionInit        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DandelionCheck       ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDandelionPuff:
         DW  DandelionPuffInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DandelionPuffCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBABullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  BASuperFastBulletCheck
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBigLongLaser::
         DW  StdBulletInit        ;vector for init method
         DW  StreamRedraw         ;vector for redraw method
         DW  StreamCheck          ;vector for check method
-				DW  DoNothing            ;vector for take damage method
-				DW  StreamDie            ;vector for die method
+        DW  DoNothing            ;vector for take damage method
+        DW  StreamDie            ;vector for die method
 
 classExplosion::
         DW  ExplosionInit        ;vector for init method
         DW  ExplosionRedraw      ;vector for redraw method
         DW  ExplosionCheck       ;vector for check method
-				DW  ExplosionCheck       ;vector for take damage method
-				DW  ExplosionDie         ;vector for die method
+        DW  ExplosionCheck       ;vector for take damage method
+        DW  ExplosionDie         ;vector for die method
 
 classLadyFlower::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCaptainFlour::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classMouse::
         DW  MouseInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  MouseCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classPenguin::
         DW  PenguinInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  PenguinCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBIOS::
         DW  BIOSInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BIOSCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonHulk::
         DW  CroutonHulkInit      ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonHulkCheck     ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonGrunt::
         DW  CroutonGruntInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonGruntCheck    ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBigBeeHive:
         DW  BigBeeHiveInit       ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BigBeeHiveCheck      ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSheep:
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SheepCheck           ;vector for check method
-				DW  CowboyTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  CowboyTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classChicken::
         DW  ChickenInit          ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ChickenCheck         ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classPurpleWisp::
         DW  WispInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  WispCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classQuatrain::
         DW  QuatrainInit         ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  QuatrainCheck        ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classWolf::
         DW  WolfInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  WolfCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSnake::
         DW  SnakeInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SnakeCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classNeanderthal::
         DW  NeanderthalInit      ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  NeanderthalCheck     ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCrow::
         DW  CrowInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CrowCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classScarecrow::
         DW  ScarecrowInit        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ScarecrowCheck       ;vector for check method
-				DW  ScarecrowTakeDamage  ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  ScarecrowTakeDamage  ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classAlligator:
         DW  AlligatorInit        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  AlligatorCheck       ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classWolfSheep::
         DW  WolfSheepInit        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  WolfSheepCheck       ;vector for check method
-				DW  WolfSheepTakeDamage  ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  WolfSheepTakeDamage  ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classScorpion:
         DW  ScorpionInit         ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ScorpionCheck        ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBow:
         DW  BowInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BowCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCowboy::
         DW  CowboyInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CowboyCheck          ;vector for check method
-				DW  CowboyTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  CowboyTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classAngryCowboy::
         DW  CowboyInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  AngryCowboyCheck     ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCowboyTalker::
         DW  CowboyInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TalkerCheck          ;vector for check method
-				DW  CowboyTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  CowboyTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonDoctor::
         DW  CroutonDoctorInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonDoctorCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  StdBulletCheck       ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonWizard::
         DW  CroutonWizardInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonWizardCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classWizardBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  WizardBulletCheck    ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBSBullet:
         DW  StdBulletInit        ;vector for init method
@@ -982,274 +982,274 @@ ELSE
         ;DW  HeroBulletCheck      ;vector for check method
         DW  HeroSuperFastBulletCheck
 ENDC
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classArrowBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  StdBulletCheck       ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classRocketBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  ExplodingBulletCheck ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCowboyBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  SuperFastBulletCheck ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonGoblin::
         DW  CroutonGoblinInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonGoblinCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classGeneralGyro::
         DW  GeneralGyroInit      ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonArtillery::
         DW  CroutonArtilleryInit ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CroutonArtilleryCheck;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classMajorSkippy::
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  ActorCheck           ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTeleportCube::
         DW  TeleportCubeInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TeleportCubeCheck    ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTeleportCube2::
         DW  TeleportCubeInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TeleportCubeCheck2   ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDandelionGuard::
         DW  DandelionGuardInit   ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DandelionGuardCheck  ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classB12Soldier::
         DW  B12SoldierInit       ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  B12SoldierCheck      ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classB12SoldierBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  StdBulletCheck       ;vector for check method
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBigSpider:
         DW  BigSpiderInit        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BigSpiderCheck       ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classLittleSpider:
         DW  LittleSpiderInit     ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  LittleSpiderCheck    ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTreeBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  SuperFastBulletCheck
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBushBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
-        DW  StdBulletCheck      
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdBulletCheck
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classInvisibleBat:
         DW  BatInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  InvisibleBatCheck    ;vector for check method
-				DW  InvisibleBatTakeDamage ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  InvisibleBatTakeDamage ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSlime::
         DW  SlimeInit            ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SlimeCheck           ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classYellowWisp::
         DW  WispInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  WispCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classMonkey::
         DW  MonkeyInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  MonkeyCheck          ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBananaBullet:
         DW  YellowBulletInit     ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  SuperFastBulletCheck
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classDuke:
         DW  DukeInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DukeCheck            ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classPig:
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  PigCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classEgg::
         DW  EggInit              ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  EggCheck             ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBlower:
         DW  BlowerInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BlowerCheck          ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSleepingMonkey:
         DW  SleepingMonkeyInit   ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  SleepingMonkeyCheck  ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBell:
         DW  BellInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DoNothingCheck       ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classRingingBell:
         DW  BellInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  DoNothingCheck       ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classBananaTree:
         DW  BananaTreeInit       ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  BananaTreeCheck      ;vector for check method
-				DW  BananaTreeTakeDamage ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BananaTreeTakeDamage ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHermitNoShell:
         DW  HermitNoShellInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  HermitNoShellCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classHermitInShell:
         DW  HermitNoShellInit    ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  HermitInShellCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classSwampThang:
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GenericCheck         ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCrab:
         DW  CrabInit             ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  CrabCheck            ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCrabBurrowing:
         DW  CrabBurrowingInit    ;vector for init method
         DW  DoNothing            ;vector for redraw method
         DW  CrabBurrowingCheck   ;vector for check method
-				DW  StdTakeDamage        ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage        ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classUberMouse:
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  UberMouseCheck       ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classTurret::
         DW  TurretInit           ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  TurretCheck          ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 classCroutonKing:
         DW  InitTwoHealth        ;vector for init method
         DW  StandardRedraw       ;vector for redraw method
         DW  GenericCheck         ;vector for check method
-				DW  StdTakeDamage2x2     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  StdTakeDamage2x2     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
-classTurretBullet
+classTurretBullet:
         DW  StdBulletInit        ;vector for init method
         DW  StdBulletRedraw      ;vector for redraw method
         DW  SuperSuperFastBulletCheck
-				DW  BulletTakeDamage     ;vector for take damage method
-				DW  StandardDie          ;vector for die method
+        DW  BulletTakeDamage     ;vector for take damage method
+        DW  StandardDie          ;vector for die method
 
 SECTION "ClassesSection",ROMX,BANK[CLASSROM]
 
@@ -1272,39 +1272,39 @@ classInvisibleWallBG::
 
 classChangeTo120BG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				ld      bc,classShiftPlusOneBG
-				call    FindClassIndex
+        ld      bc,classShiftPlusOneBG
+        call    FindClassIndex
 
         push    af
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				pop     af
+        ldio    [$ff70],a
+        pop     af
 
-				ld      [hl],a
-				ret
+        ld      [hl],a
+        ret
 
 classShiftPlusOneBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				inc     a
-				ld      [hl],a
-				ret
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        inc     a
+        ld      [hl],a
+        ret
 
 classGeneratorBG:
 classDestructableBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;remove myself from the map 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      [hl],0
+        ;remove myself from the map
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      [hl],0
 
         ld      hl,levelVars+15
         inc     [hl]
@@ -1312,14 +1312,14 @@ classDestructableBG:
 
 classDestructableAdjoinRightBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;remove myself & neighbor from the map 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ;remove myself & neighbor from the map
+        ld      a,MAPBANK
+        ldio    [$ff70],a
         xor     a
-				ld      [hl+],a
-				ld      [hl],a
+        ld      [hl+],a
+        ld      [hl],a
         inc     a
 
         ld      hl,levelVars+15
@@ -1328,14 +1328,14 @@ classDestructableAdjoinRightBG:
 
 classDestructableAdjoinLeftBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;remove myself & neighbor from the map 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ;remove myself & neighbor from the map
+        ld      a,MAPBANK
+        ldio    [$ff70],a
         xor     a
-				ld      [hl-],a
-				ld      [hl],a
+        ld      [hl-],a
+        ld      [hl],a
         inc     a
 
         ld      hl,levelVars+15
@@ -1344,19 +1344,19 @@ classDestructableAdjoinLeftBG:
 
 classDestructableAdjoinBottomBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;remove myself & neighbor from the map 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      [hl],0
+        ;remove myself & neighbor from the map
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      [hl],0
         ld      a,[mapPitch]
         add     l
         ld      l,a
         ld      a,h
         adc     0
         ld      h,a
-				ld      [hl],0
+        ld      [hl],0
 
         ld      hl,levelVars+15
         inc     [hl]
@@ -1364,19 +1364,19 @@ classDestructableAdjoinBottomBG:
 
 classDestructableAdjoinTopBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;remove myself & upper neighbor from the map 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      [hl],0
+        ;remove myself & upper neighbor from the map
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      [hl],0
         ld      a,[mapOffsetNorth]
         add     l
         ld      l,a
         ld      a,[mapOffsetNorth+1]
         adc     h
         ld      h,a
-				ld      [hl],0
+        ld      [hl],0
 
         ld      hl,levelVars+15
         inc     [hl]
@@ -1385,142 +1385,142 @@ classDestructableAdjoinTopBG:
 
 classSplitterBG:
         cp      BGACTION_HIT
-				jr      nz,.done
+        jr      nz,.done
 
-				;get class of bullet
-				ld      a,[bulletClassIndex]
-				ld      c,a
+        ;get class of bullet
+        ld      a,[bulletClassIndex]
+        ld      c,a
 
-				call    GetFGAttributes
-				and     FLAG_ISBULLET
-				ret     z
+        call    GetFGAttributes
+        and     FLAG_ISBULLET
+        ret     z
 
-				ld      a,[bulletDirection]
-				ld      b,a
-				ld      [fireBulletDirection],a
+        ld      a,[bulletDirection]
+        ld      b,a
+        ld      [fireBulletDirection],a
 
         ;create a bullet continuing in the same direction
-				call    CreateBulletOfClass
+        call    CreateBulletOfClass
 
-				;and 90 CW
-				ld      a,b
-				inc     a
-				and     %11
-				ld      [fireBulletDirection],a
-				call    CreateBulletOfClass
+        ;and 90 CW
+        ld      a,b
+        inc     a
+        and     %11
+        ld      [fireBulletDirection],a
+        call    CreateBulletOfClass
 
-				;and 90 CCW
-				ld      a,b
-				dec     a
-				and     %11
-				ld      [fireBulletDirection],a
-				call    CreateBulletOfClass
+        ;and 90 CCW
+        ld      a,b
+        dec     a
+        and     %11
+        ld      [fireBulletDirection],a
+        call    CreateBulletOfClass
 
 .done
         xor     a    ;no explosion
-				ret
+        ret
 
 classNoExplosionBG:
         xor     a
-				ret
+        ret
 
 classChangeToBigSpiderBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
         ;I'm corner of 2x2 tile; remove tile
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl+],a
-				ld      [hl-],a
-				push    hl
-				ld      a,[mapPitch]
-				add     l
-				ld      l,a
-				ld      a,h
-				adc     0
-				ld      h,a
-				ld      [hl+],a
-				ld      [hl-],a
-				pop     hl
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl+],a
+        ld      [hl-],a
+        push    hl
+        ld      a,[mapPitch]
+        add     l
+        ld      l,a
+        ld      a,h
+        adc     0
+        ld      h,a
+        ld      [hl+],a
+        ld      [hl-],a
+        pop     hl
 
-				;create a big spider here
-				ld      bc,classBigSpider
-				call    FindClassIndex
-				ret     z
-				ld      c,a
-				jp      CreateInitAndDrawObject
+        ;create a big spider here
+        ld      bc,classBigSpider
+        call    FindClassIndex
+        ret     z
+        ld      c,a
+        jp      CreateInitAndDrawObject
 
 classAdjoinWestBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;pass the buck to the west
-				ld      a,MAPBANK       
-				ldio    [$ff70],a
-				dec     hl
-				ld      c,[hl]
-				ld      a,BGACTION_HIT
-				jp      CallBGAction
+        ;pass the buck to the west
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        dec     hl
+        ld      c,[hl]
+        ld      a,BGACTION_HIT
+        jp      CallBGAction
 
 classAdjoinNorthBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;pass the buck to the north
-				ld      a,MAPBANK       
-				ldio    [$ff70],a
-				ld      a,[mapOffsetNorth]
-				ld      e,a
-				ld      d,$ff
-				add     hl,de
-				ld      c,[hl]
-				ld      a,BGACTION_HIT
-				jp      CallBGAction
+        ;pass the buck to the north
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[mapOffsetNorth]
+        ld      e,a
+        ld      d,$ff
+        add     hl,de
+        ld      c,[hl]
+        ld      a,BGACTION_HIT
+        jp      CallBGAction
 
 classChangeToLittleSpiderBG:
         cp      BGACTION_HIT
-				ret     nz
+        ret     nz
 
-				;create a little spider right here
-				ld      a,MAPBANK       
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl],a
+        ;create a little spider right here
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl],a
 
-				ld      bc,classLittleSpider
-				call    FindClassIndex
-				ret     z
-				ld      c,a
-				jp      CreateInitAndDrawObject
+        ld      bc,classLittleSpider
+        call    FindClassIndex
+        ret     z
+        ld      c,a
+        jp      CreateInitAndDrawObject
 
 classHiveBG:
-				call    FindEmptyLocationAround1x1Loc
-				or      a
-				ret     z
+        call    FindEmptyLocationAround1x1Loc
+        or      a
+        ret     z
 
         ;create an adjacent bee when the wall is shot
-				ld      bc,classBee
-				call    FindClassIndex
-				ret     z
-				ld      c,a
-				jp      CreateInitAndDrawObject
+        ld      bc,classBee
+        call    FindClassIndex
+        ret     z
+        ld      c,a
+        jp      CreateInitAndDrawObject
 
 classCheeseBG:
-				call    FindEmptyLocationAround1x1Loc
-				or      a
-				ret     z
+        call    FindEmptyLocationAround1x1Loc
+        or      a
+        ret     z
 
-				ld      bc,classEdibleCheeseBG
-				call    FindClassIndex
-				push    af
+        ld      bc,classEdibleCheeseBG
+        call    FindClassIndex
+        push    af
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      [hl],a
+        ldio    [$ff70],a
+        pop     af
+        ld      [hl],a
 
-				jp      ResetMyBGSpecialFlags
+        jp      ResetMyBGSpecialFlags
 
 classHermitCrabShellBG:
         ret
@@ -1542,84 +1542,84 @@ classBananaBG:
 
 HealthPlusOneBG:
         cp      BGACTION_MOVEOVER
-				ret     nz
+        ret     nz
 
         ldio    a,[firstMonster]
-				ld      b,a
+        ld      b,a
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
+        ldio    [$ff70],a
+        ld      a,[hl]
         call    EnsureTileIsHead
-				cp      b
-				ret     c                 ;not a monster
+        cp      b
+        ret     c                 ;not a monster
 
-				ld      c,a
-				call    GetFGAttributes
-				and     FLAG_ISBULLET
-				ret     nz                ;want monster not bullet
+        ld      c,a
+        call    GetFGAttributes
+        and     FLAG_ISBULLET
+        ret     nz                ;want monster not bullet
 
-				;clear out tile shadow bank at this loc 
-				;(egg->nothing under creature)
-				call    ClearBGUnderSprite
+        ;clear out tile shadow bank at this loc
+        ;(egg->nothing under creature)
+        call    ClearBGUnderSprite
 
         call    GetObjectOnBG
         ;ld      a,MAPBANK
-				;ldio    [$ff70],a
-				;ld      a,[hl]
-				;call    EnsureTileIsHead
-				;ld      d,h
-				;ld      e,l
-				;call    FindObject        ;get that monster
-				call    GetHealth         ;increase its health
-				cp      63
-				ret     nc
-				inc     a
-				call    SetHealth
-				ld      a,BANK(eat_gbw)
-				ld      hl,eat_gbw
-				jp      PlaySample
+        ;ldio    [$ff70],a
+        ;ld      a,[hl]
+        ;call    EnsureTileIsHead
+        ;ld      d,h
+        ;ld      e,l
+        ;call    FindObject        ;get that monster
+        call    GetHealth         ;increase its health
+        cp      63
+        ret     nc
+        inc     a
+        call    SetHealth
+        ld      a,BANK(eat_gbw)
+        ld      hl,eat_gbw
+        jp      PlaySample
 
 classSlugTrailBG:
         cp      BGACTION_MOVEOVER
-				ret     nz
+        ret     nz
 
-				push    hl
+        push    hl
         call    GetObjectOnBG
-				pop     hl
-				call    GetFGAttributes
-				and     FLAG_ISBULLET
-				ret     nz
-				call    ClearBGUnderSprite
-				ld      a,30
-				jp      SetMoveDelay
+        pop     hl
+        call    GetFGAttributes
+        and     FLAG_ISBULLET
+        ret     nz
+        call    ClearBGUnderSprite
+        ld      a,30
+        jp      SetMoveDelay
 
 GetObjectOnBG:
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    EnsureTileIsHead
-				ld      c,a
-				ld      d,h
-				ld      e,l
-				jp      FindObject        ;get that monster
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    EnsureTileIsHead
+        ld      c,a
+        ld      d,h
+        ld      e,l
+        jp      FindObject        ;get that monster
 
 ClearBGUnderSprite:
-				ld      a,TILESHADOWBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl],a
-				ret
+        ld      a,TILESHADOWBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl],a
+        ret
 
 classClearanceBG:
         cp      BGACTION_MOVEOVER
-				ret     nz
-        
-				push    hl
+        ret     nz
+
+        push    hl
         call    GetObjectOnBG
-				pop     hl
+        pop     hl
         call    IsHero
         ret     z
-				call    ClearBGUnderSprite
+        call    ClearBGUnderSprite
 
         ;add appropriate code to inventory
         ld      hl,mapToCodeIndexTable
@@ -1699,7 +1699,7 @@ RemoveClearanceIfTaken::
         xor     a
         ld      [hl],a
         ret
- 
+
 
 
 ;---------------------------------------------------------------------
@@ -1713,57 +1713,57 @@ SuperInit::
         ldio    [$ff70],a
 
         ld      hl,OBJ_FRAME
-				add     hl,de
+        add     hl,de
 
-				xor     a
-				ld      [hl+],a           ;frame
-				ld      a,1
-				ld      [hl+],a           ;move countdown
-				xor     a
-				ld      [hl+],a           ;limit
-				ld      [hl+],a           ;health
-				ld      [hl+],a           ;
-				ld      [hl+],a           ;
-				ld      [hl+],a           ;state
-				ld      [hl+],a           ;group
-				ld      [hl+],a           ;destl
-				ld      [hl+],a           ;desth
+        xor     a
+        ld      [hl+],a           ;frame
+        ld      a,1
+        ld      [hl+],a           ;move countdown
+        xor     a
+        ld      [hl+],a           ;limit
+        ld      [hl+],a           ;health
+        ld      [hl+],a           ;
+        ld      [hl+],a           ;
+        ld      [hl+],a           ;state
+        ld      [hl+],a           ;group
+        ld      [hl+],a           ;destl
+        ld      [hl+],a           ;desth
 
-				ld      a,$ff
-				ld      [hl+],a           ;spritelo
+        ld      a,$ff
+        ld      [hl+],a           ;spritelo
 
-				xor     a
-				ld      [hl+],a           ;13
-				ld      [hl+],a           ;14
-				;leave NEXTL alone
+        xor     a
+        ld      [hl+],a           ;13
+        ld      [hl+],a           ;14
+        ;leave NEXTL alone
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 SuperDie::
         push    hl
-				xor     a
-				call    SetHealth
-				jr      SuperDieFreeSprite
+        xor     a
+        call    SetHealth
+        jr      SuperDieFreeSprite
 FreeSpriteLoPtr:
         push    hl
 SuperDieFreeSprite:
         call    GetSpriteLo
-				call    FreeSprite
-				ld      a,$ff
-				call    SetSpriteLo
-				pop     hl
-				ret
+        call    FreeSprite
+        ld      a,$ff
+        call    SetSpriteLo
+        pop     hl
+        ret
 
 InitTwoHealth:
         ld      hl,.initTwoHealthTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 
 .initTwoHealthTable
         DB      4                ;initial facing
         DB      2                ;health (max)
-				DB      GROUP_MONSTERN   ;group friends with everyone
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERN   ;group friends with everyone
+        DB      0                ;has bullet
 
 DoNothing:
         ret
@@ -1792,24 +1792,24 @@ StandardChooseColor:
         push    hl
 
 StandardRedrawAfterPush:
-				;white if dandelion puffs on me
-				call    GetPuffCount
-				or      a
-				jr      z,.noPuffs
+        ;white if dandelion puffs on me
+        call    GetPuffCount
+        or      a
+        jr      z,.noPuffs
 
-				ld      b,0
-				jr      StandardDraw
+        ld      b,0
+        jr      StandardDraw
 
 .noPuffs
-				call    GetFGAttributes
-				and     %111
-				ld      b,a
+        call    GetFGAttributes
+        and     %111
+        ld      b,a
 
         ;falling through from above
 StandardDraw:
         ;bc, de, hl already pushed in chooseColor
-				ld      a,c
-				ld      [curObjIndex],a
+        ld      a,c
+        ld      [curObjIndex],a
 
         ld      a,OBJBANK      ;select object RAM
         ldio    [$ff70],a
@@ -1823,25 +1823,25 @@ StandardDraw:
         ld      [methodParamH],a
 
         ;get frame (facing + animation)
-				;check isSprite flag
-				ld      a,[de]
-				bit     7,a
-				jr      z,.drawTileBased
+        ;check isSprite flag
+        ld      a,[de]
+        bit     7,a
+        jr      z,.drawTileBased
 
-				jp      .drawSpriteBased
+        jp      .drawSpriteBased
 
 .drawTileBased
-				and     %111                       ;mask off facing stuff
+        and     %111                       ;mask off facing stuff
         push    af                         ;save frame for later
         ld      d,0
         ld      e,a                        ;done with original de
 
         ;get attributes of tile
         ld      hl,.attributeLookup
-				ld      a,[fgFlags]
-				bit     BIT_NOROTATE,a
-				jr      z,.afterLoadAttributeLookup
-				ld      hl,.attributeLookup+8
+        ld      a,[fgFlags]
+        bit     BIT_NOROTATE,a
+        jr      z,.afterLoadAttributeLookup
+        ld      hl,.attributeLookup+8
 .afterLoadAttributeLookup
         add     hl,de                      ;hl is &attributeLookup[frame]
 
@@ -1854,10 +1854,10 @@ StandardDraw:
 
         ;add 16+(is2x2*16) to attributeLookup to get tile offset Lookup
         ld      e,16
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      nz,.eHasCorrectValue
-				ld      e,32
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      nz,.eHasCorrectValue
+        ld      e,32
 .eHasCorrectValue
         add     hl,de                      ;[hl] is tile offset
 
@@ -1879,11 +1879,11 @@ StandardDraw:
         ld      a,[methodParamH]
         ld      h,a
 
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      nz,.draw1x1tileBased
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      nz,.draw1x1tileBased
 
-				jp      Draw2x2tileBased
+        jp      Draw2x2tileBased
 
 .draw1x1tileBased
         ;use frame to determine how many tiles to spread this across
@@ -1928,14 +1928,14 @@ StandardDraw:
         ld      e,a
         add     hl,de
         pop     de
-				ld      e,CLASS_ADJOIN_N
+        ld      e,CLASS_ADJOIN_N
         ;tile plus one or minus one for frame modifier
         bit     1,d
         jr      z,.NSIncrement
-				;handle NOROTATE
-				ld      a,[fgFlags]
-				bit     BIT_NOROTATE,a
-				jr      nz,.NSIncrement
+        ;handle NOROTATE
+        ld      a,[fgFlags]
+        bit     BIT_NOROTATE,a
+        jr      nz,.NSIncrement
         dec     c
         jr      .NSDone
 .NSIncrement
@@ -1947,7 +1947,7 @@ StandardDraw:
 .drawSingleTile
         call    .drawAtHL
         jr      .done
- 
+
 .drawAtHL
         ld      a,MAPBANK         ;select map RAM
         ldio    [$ff70],a
@@ -1967,188 +1967,188 @@ StandardDraw:
         ret
 
 .drawSpriteBased
-				push    bc
+        push    bc
         push    af             ;save frame
         dec     de
         dec     de
-				call    GetCurLocation
+        call    GetCurLocation
 
-				;copy map underneath current to tile & attribute shadow buffers
-				call    .copyMapToShadowBuffers
-				pop     af             ;get frame back
+        ;copy map underneath current to tile & attribute shadow buffers
+        call    .copyMapToShadowBuffers
+        pop     af             ;get frame back
 
-				bit     2,a             ;split?
-				jr      z,.updateSprite ;done copying tile stuff
-				
-				bit     0,a             ;n/s or e/w?
-				jr      z,.spriteNS
+        bit     2,a             ;split?
+        jr      z,.updateSprite ;done copying tile stuff
 
-				;e/w split
-				inc     hl
-				call    .copyMapToShadowBuffers
-				jr      .updateSprite
+        bit     0,a             ;n/s or e/w?
+        jr      z,.spriteNS
+
+        ;e/w split
+        inc     hl
+        call    .copyMapToShadowBuffers
+        jr      .updateSprite
 
 .spriteNS
-				;n/s split
-				push    de                     ;retrieve vertical offset
-				ld      d,0
-				ld      a,[mapPitch]
-				ld      e,a
-				add     hl,de
-				pop     de
+        ;n/s split
+        push    de                     ;retrieve vertical offset
+        ld      d,0
+        ld      a,[mapPitch]
+        ld      e,a
+        add     hl,de
+        pop     de
 
-				call    .copyMapToShadowBuffers
+        call    .copyMapToShadowBuffers
 
 .updateSprite
         pop     bc
 
         push    bc
-				ld      a,[curObjIndex]
-				ld      c,a
+        ld      a,[curObjIndex]
+        ld      c,a
         ;draw the object's id to the map buffer
-				call    GetFacing
-				ld      b,a
-				call    GetCurLocation
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      [hl],c     ;head of obj
-				ld      a,b
-				and     %00000101
-				cp      %00000101  ;E/W split
-				jr      nz,.checkNS_Split
-				inc     hl
-				ld      [hl],CLASS_ADJOIN_W
-				jr      .doneDrawID
+        call    GetFacing
+        ld      b,a
+        call    GetCurLocation
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      [hl],c     ;head of obj
+        ld      a,b
+        and     %00000101
+        cp      %00000101  ;E/W split
+        jr      nz,.checkNS_Split
+        inc     hl
+        ld      [hl],CLASS_ADJOIN_W
+        jr      .doneDrawID
 .checkNS_Split
         ld      a,b
-				and     %00000100
-				jr      z,.doneDrawID
-				;N/S split
-				ld      a,[mapOffsetSouth]
-				add     l
-				ld      l,a
-				ld      a,[mapOffsetSouth+1]
-				adc     h
-				ld      h,a
-				ld      [hl],CLASS_ADJOIN_N
+        and     %00000100
+        jr      z,.doneDrawID
+        ;N/S split
+        ld      a,[mapOffsetSouth]
+        add     l
+        ld      l,a
+        ld      a,[mapOffsetSouth+1]
+        adc     h
+        ld      h,a
+        ld      [hl],CLASS_ADJOIN_N
 .doneDrawID
-				pop     bc
+        pop     bc
 
-				call    GetCurLocation
-				ld      a,TILESHADOWBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				or      a
-				jr      z,.afterCallMoveOverBG
+        call    GetCurLocation
+        ld      a,TILESHADOWBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        or      a
+        jr      z,.afterCallMoveOverBG
 
         push    bc
-				ld      c,a
-				ld      a,BGACTION_MOVEOVER
-				call    CallBGAction
-				pop     bc
+        ld      c,a
+        ld      a,BGACTION_MOVEOVER
+        call    CallBGAction
+        pop     bc
 
 .afterCallMoveOverBG
         ;attempt to allocate sprite if we don't have one
-				call    GetSpriteLo
-				cp      $ff
-				jr      nz,.haveSprite
+        call    GetSpriteLo
+        cp      $ff
+        jr      nz,.haveSprite
 
         ;see if the sprite will show up onscreen
-				call    GetCurLocation
-				call    ConvertLocHLToSpriteCoords
-				;ld      a,l
-			  ;or      a
-				;jr      z,.spdone       ;won't show up anyways
+        call    GetCurLocation
+        call    ConvertLocHLToSpriteCoords
+        ;ld      a,l
+        ;or      a
+        ;jr      z,.spdone       ;won't show up anyways
 
-				call    AllocateSprite
-				cp      $ff
-				jr      z,.spdone       ;no sprite for you
-				call    SetSpriteLo
+        call    AllocateSprite
+        cp      $ff
+        jr      z,.spdone       ;no sprite for you
+        call    SetSpriteLo
 
 .coordsOkay
         ;initialize the sprite's position
-				push    af
-				push    de
-				ld      e,a
-				ld      d,((spriteOAMBuffer>>8) & $ff)
-				ld      a,l
-				ld      [de],a
-				inc     de
-				ld      a,h
-				ld      [de],a
-				pop     de
-				pop     af
+        push    af
+        push    de
+        ld      e,a
+        ld      d,((spriteOAMBuffer>>8) & $ff)
+        ld      a,l
+        ld      [de],a
+        inc     de
+        ld      a,h
+        ld      [de],a
+        pop     de
+        pop     af
 
         ;if split bit is set scoot in one direction or another
-				push    bc
-				push    af
-				call    GetFacing
-				bit     2,a
-				jr      z,.afterScoot
+        push    bc
+        push    af
+        call    GetFacing
+        bit     2,a
+        jr      z,.afterScoot
 
         bit     0,a          ;N/S or E/W?
-				jr      nz,.scootEW
+        jr      nz,.scootEW
 
-				;scoot down for N/S split
-				ld      b,%00000010
-				jr      .doSplit
+        ;scoot down for N/S split
+        ld      b,%00000010
+        jr      .doSplit
 
 .scootEW  ;scoot right for E/W split
         ld      b,%00000001
 
 .doSplit
-				pop     af
-				push    af
-				call    ScootSprite
+        pop     af
+        push    af
+        call    ScootSprite
 
 .afterScoot
         pop     af
-				pop     bc
+        pop     bc
 
 .haveSprite     ;set up the sprite to reflect the current facing
         push    bc
 
         call    GetSpritePtrInHL
-				inc     hl
-				inc     hl
+        inc     hl
+        inc     hl
         call    GetFGTileMapping
-				ld      c,a
+        ld      c,a
 
         call    GetFacing
-				bit     0,a
-				jr      nz,.facingEastWest
+        bit     0,a
+        jr      nz,.facingEastWest
 
-				;facing north/south
-				inc     c
-				inc     c
-				bit     1,a
-				jr      z,.checkAnim    ;facing north no flip
+        ;facing north/south
+        inc     c
+        inc     c
+        bit     1,a
+        jr      z,.checkAnim    ;facing north no flip
 
-				;facing south
-				set     6,b             ;flip tile vertically
-				jr      .checkAnim
+        ;facing south
+        set     6,b             ;flip tile vertically
+        jr      .checkAnim
 
 .facingEastWest
         bit     1,a             ;facing east or west?
-				jr      z,.checkAnim    ;facing east, no flip
-				
-				set     5,b             ;facing west, flip horizontally
+        jr      z,.checkAnim    ;facing east, no flip
+
+        set     5,b             ;facing west, flip horizontally
 
 .checkAnim
         bit     2,a             ;check split bit
-				jr      z,.baseAnimOkay
+        jr      z,.baseAnimOkay
 
-				inc     c
+        inc     c
 
 .baseAnimOkay
         ld      a,c             ;tile number
-				ld      [hl+],a
+        ld      [hl+],a
 
-				ld      a,b
-				or      %00001000       ;attributes
-				ld      [hl],a
-				
-				pop     bc
+        ld      a,b
+        or      %00001000       ;attributes
+        ld      [hl],a
+
+        pop     bc
 
         ;clear vflip bit if NOROTATE flag set
         call    GetFGAttributes
@@ -2165,23 +2165,23 @@ StandardDraw:
 .copyMapToShadowBuffers
         ;assumes hl points to location
         ld      a,MAPBANK
-				ldio    [$ff70],a
+        ldio    [$ff70],a
 
-				ld      a,[hl]            ;get map tile
+        ld      a,[hl]            ;get map tile
 
-				;get bg attributes of this map tile
-				ld      c,a
-				ld      b,((bgAttributes>>8) & $ff)
-				ld      a,TILEINDEXBANK
-				ldio    [$ff70],a
-				ld      a,[bc]
+        ;get bg attributes of this map tile
+        ld      c,a
+        ld      b,((bgAttributes>>8) & $ff)
+        ld      a,TILEINDEXBANK
+        ldio    [$ff70],a
+        ld      a,[bc]
 
-				;clear off all but the palette
-				and     %00000111
-				ld      b,a
-				call    .drawShadowAtHL
+        ;clear off all but the palette
+        and     %00000111
+        ld      b,a
+        call    .drawShadowAtHL
 
-				ret
+        ret
 
 .attributeLookup
   DB %00001000,%00001000,%01001000,%00101000  ;1x1 normal
@@ -2190,7 +2190,7 @@ StandardDraw:
   DB %00001000,%00001000,%00001000,%00101000
 .tileOffsetLookup
   DB  0, 3, 0, 3, 1, 4, 2, 5    ;1x1 creature n,e,s,w,nsp,esp,ssp,wsp
-	DB  0, 3, 0, 3, 1, 4, 1, 5    ;1x1 no rotate
+  DB  0, 3, 0, 3, 1, 4, 1, 5    ;1x1 no rotate
   DB  0,10, 2,11, 4,14, 8,16    ;2x2 creature
   DB  0,10, 2,11, 4,14, 8,16    ;2x2 creature
 
@@ -2201,155 +2201,155 @@ Draw2x2tileBased:
         ;and in what direction
         bit     2,d                 ;d is frame
         jr      nz,.decideWhichSplit
-				jp      .drawNonSplit
+        jp      .drawNonSplit
 .decideWhichSplit
         bit     0,d
         jr      z,.drawNorthToSouthSplit
 
 .drawEastToWestSplit
         bit     1,d
-				jr      nz,.drawSplitFacingWest
+        jr      nz,.drawSplitFacingWest
 
 .drawSplitFacingEast
         push    hl
-				call    .drawHeadOfEWSplit
+        call    .drawHeadOfEWSplit
         call    .drawSplitE_PatternAndAttrNumbers
-				ld      a,c
-				add     3
-				ld      c,a
+        ld      a,c
+        add     3
+        ld      c,a
 
-				;move hl to start of next row
-				pop     hl
-				call    HLToNextRow
+        ;move hl to start of next row
+        pop     hl
+        call    HLToNextRow
 
-				;repeat for row 2
-				call    .drawSecondRowOfEWSplit
+        ;repeat for row 2
+        call    .drawSecondRowOfEWSplit
         call    .drawSplitE_PatternAndAttrNumbers
-				jp      .done
+        jp      .done
 
 .drawSplitFacingWest
         push    hl
-				call    .drawHeadOfEWSplit
+        call    .drawHeadOfEWSplit
         call    .drawSplitW_PatternAndAttrNumbers
-				ld      a,c
-				add     3
-				ld      c,a
+        ld      a,c
+        add     3
+        ld      c,a
 
-				;move hl to start of next row
-				pop     hl
-				call    HLToNextRow
+        ;move hl to start of next row
+        pop     hl
+        call    HLToNextRow
 
-				;repeat for row 2
-				call    .drawSecondRowOfEWSplit
+        ;repeat for row 2
+        call    .drawSecondRowOfEWSplit
         call    .drawSplitW_PatternAndAttrNumbers
-				jp      .done
+        jp      .done
 
 .drawNorthToSouthSplit
         bit     1,d
-				jr      nz,.drawSplitFacingSouth
+        jr      nz,.drawSplitFacingSouth
 
 .drawSplitFacingNorth
         push    hl
-				call    .drawHeadOfNSSplit
+        call    .drawHeadOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				inc     c
-				inc     c
+        inc     c
+        inc     c
 
-				;move hl to start of next row
-				pop     hl
-				call    HLToNextRow
+        ;move hl to start of next row
+        pop     hl
+        call    HLToNextRow
 
-				;repeat for row 2 & 3
-				push    hl
-				call    .drawSecondRowOfNSSplit
+        ;repeat for row 2 & 3
+        push    hl
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				inc     c
-				inc     c
-				pop     hl
-				call    HLToNextRow
-				call    .drawSecondRowOfNSSplit
+        inc     c
+        inc     c
+        pop     hl
+        call    HLToNextRow
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				jp      .done
+        jp      .done
 
 .drawSplitFacingSouth
         push    hl
-				call    .drawHeadOfNSSplit
+        call    .drawHeadOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				dec     c
-				dec     c
+        dec     c
+        dec     c
 
-				;move hl to start of next row
-				pop     hl
-				call    HLToNextRow
+        ;move hl to start of next row
+        pop     hl
+        call    HLToNextRow
 
-				;repeat for row 2 & 3
-				push    hl
-				call    .drawSecondRowOfNSSplit
+        ;repeat for row 2 & 3
+        push    hl
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				dec     c
-				dec     c
-				pop     hl
-				call    HLToNextRow
-				call    .drawSecondRowOfNSSplit
+        dec     c
+        dec     c
+        pop     hl
+        call    HLToNextRow
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				jr      .done
+        jr      .done
 
 .drawNonSplit
         bit     1,d
-				jr      z,.drawNonSplitNorE
+        jr      z,.drawNonSplitNorE
 
-				bit     0,d
-				jr      nz,.drawNonSplitW
+        bit     0,d
+        jr      nz,.drawNonSplitW
 
 .drawNonSplitS
         push    hl
-				call    .drawHeadOfNSSplit
+        call    .drawHeadOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				dec     c
-				dec     c
+        dec     c
+        dec     c
 
-				;move hl to start of next row
-				pop     hl
-				call    HLToNextRow
+        ;move hl to start of next row
+        pop     hl
+        call    HLToNextRow
 
-				;repeat for next row
-				call    .drawSecondRowOfNSSplit
+        ;repeat for next row
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				jr      .done
+        jr      .done
 
 .drawNonSplitW
         push    hl
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,e
-				ld      [hl+],a
-				ld      a,CLASS_ADJOIN_W
-				ld      [hl-],a
+        ldio    [$ff70],a
+        ld      a,e
+        ld      [hl+],a
+        ld      a,CLASS_ADJOIN_W
+        ld      [hl-],a
 
         call    .drawWPatternAndAttributeNumbers
-				inc     c
-				inc     c
+        inc     c
+        inc     c
 
-				pop     hl
-				call    HLToNextRow
+        pop     hl
+        call    HLToNextRow
 
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,CLASS_ADJOIN_N
-				ld      [hl+],a
-				ld      [hl-],a
+        ldio    [$ff70],a
+        ld      a,CLASS_ADJOIN_N
+        ld      [hl+],a
+        ld      [hl-],a
         call    .drawWPatternAndAttributeNumbers
-				jr      .done
+        jr      .done
 
 .drawNonSplitNorE
         push    hl
-				call    .drawHeadOfNSSplit
+        call    .drawHeadOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
-				inc     c
-				inc     c
-				pop     hl
-				call    HLToNextRow
-				call    .drawSecondRowOfNSSplit
+        inc     c
+        inc     c
+        pop     hl
+        call    HLToNextRow
+        call    .drawSecondRowOfNSSplit
         call    .drawSplitNS_PatternAndAttrNumbers
 
 .done   pop     hl
@@ -2363,60 +2363,60 @@ Draw2x2tileBased:
         ld      a,e
         ld      [hl+],a           ;draw class index
         ld      a,CLASS_ADJOIN_W
-				ld      [hl+],a
-				ld      [hl-],a
-				dec     hl
-				ret
+        ld      [hl+],a
+        ld      [hl-],a
+        dec     hl
+        ret
 
 .drawSecondRowOfEWSplit
         ld      a,MAPBANK         ;select map RAM
         ldio    [$ff70],a
         ld      a,CLASS_ADJOIN_N
-				ld      [hl+],a
-				ld      [hl+],a
-				ld      [hl-],a
-				dec     hl
-				ret
+        ld      [hl+],a
+        ld      [hl+],a
+        ld      [hl-],a
+        dec     hl
+        ret
 
 .drawSplitE_PatternAndAttrNumbers
-				;draw pattern numbers to tile shadow bank
+        ;draw pattern numbers to tile shadow bank
         ld      a,TILESHADOWBANK  ;select tile shadow RAM
         ldio    [$ff70],a
         ld      a,c
         ld      [hl+],a           ;draw tile to tile shadow RAM
-				inc     a
+        inc     a
         ld      [hl+],a
-				inc     a
-				ld      [hl],a
+        inc     a
+        ld      [hl],a
 
         ;draw colors to attr shadow bank
         ld      a,ATTRSHADOWBANK  ;select attribute shadow RAM
         ldio    [$ff70],a
         ld      a,b
         ld      [hl-],a           ;draw attribute to attribute shadow RAM
-        ld      [hl-],a 
-        ld      [hl],a 
-				ret
+        ld      [hl-],a
+        ld      [hl],a
+        ret
 
 .drawSplitW_PatternAndAttrNumbers
-				;draw pattern numbers to tile shadow bank
+        ;draw pattern numbers to tile shadow bank
         ld      a,TILESHADOWBANK  ;select tile shadow RAM
         ldio    [$ff70],a
         ld      a,c
         ld      [hl+],a           ;draw tile to tile shadow RAM
-				dec     a
+        dec     a
         ld      [hl+],a
-				dec     a
-				ld      [hl],a
+        dec     a
+        ld      [hl],a
 
         ;draw colors to attr shadow bank
         ld      a,ATTRSHADOWBANK  ;select attribute shadow RAM
         ldio    [$ff70],a
         ld      a,b
         ld      [hl-],a           ;draw attribute to attribute shadow RAM
-        ld      [hl-],a 
-        ld      [hl],a 
-				ret
+        ld      [hl-],a
+        ld      [hl],a
+        ret
 
 .drawHeadOfNSSplit
         ld      a,MAPBANK         ;select map RAM
@@ -2424,68 +2424,68 @@ Draw2x2tileBased:
         ld      a,e
         ld      [hl+],a           ;draw class index
         ld      a,CLASS_ADJOIN_W
-				ld      [hl-],a
-				ret
+        ld      [hl-],a
+        ret
 
 .drawSecondRowOfNSSplit
         ld      a,MAPBANK         ;select map RAM
         ldio    [$ff70],a
         ld      a,CLASS_ADJOIN_N
-				ld      [hl+],a
-				ld      [hl-],a
-				ret
+        ld      [hl+],a
+        ld      [hl-],a
+        ret
 
 .drawSplitNS_PatternAndAttrNumbers
-				;draw pattern numbers to tile shadow bank
+        ;draw pattern numbers to tile shadow bank
         ld      a,TILESHADOWBANK  ;select tile shadow RAM
         ldio    [$ff70],a
         ld      a,c
         ld      [hl+],a           ;draw tile to tile shadow RAM
-				inc     a
-				ld      [hl],a
+        inc     a
+        ld      [hl],a
 
         ;draw colors to attr shadow bank
         ld      a,ATTRSHADOWBANK  ;select attribute shadow RAM
         ldio    [$ff70],a
         ld      a,b
         ld      [hl-],a           ;draw attribute to attribute shadow RAM
-        ld      [hl],a 
-				ret
+        ld      [hl],a
+        ret
 
 .drawWPatternAndAttributeNumbers
-				ld      a,TILESHADOWBANK
-				ldio    [$ff70],a
-				ld      a,c
-				ld      [hl+],a
-				dec     a
-				ld      [hl],a
+        ld      a,TILESHADOWBANK
+        ldio    [$ff70],a
+        ld      a,c
+        ld      [hl+],a
+        dec     a
+        ld      [hl],a
 
-				ld      a,ATTRSHADOWBANK
-				ldio    [$ff70],a
-				ld      a,b
-				ld      [hl-],a
-				ld      [hl],a
-				ret
+        ld      a,ATTRSHADOWBANK
+        ldio    [$ff70],a
+        ld      a,b
+        ld      [hl-],a
+        ld      [hl],a
+        ret
 
 HLToNextRow:
-				push    de
-				ld      d,0
-				ld      a,[mapPitch]
-				ld      e,a
-				add     hl,de
-				pop     de
-				ret
+        push    de
+        ld      d,0
+        ld      a,[mapPitch]
+        ld      e,a
+        add     hl,de
+        pop     de
+        ret
 
 GenericCheck:
         ld      hl,.genericCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .genericCheckTable
-				DB      5      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      nullSound
-				DB      10     ;fire delay
+        DB      5      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      nullSound
+        DB      10     ;fire delay
         DW      StdVectorToState
 
 IF 0
@@ -2493,25 +2493,25 @@ IF 0
         ;push    de
         ;push    hl
 
-				;am I dead?
-				call    GetHealth
-				or      a
-				jr      nz,.checkTimeToMove
-				call    StandardDie
-				jr      .done
+        ;am I dead?
+        call    GetHealth
+        or      a
+        jr      nz,.checkTimeToMove
+        call    StandardDie
+        jr      .done
 
 .checkTimeToMove
-				;time to move?
-				ld      a,5  ;2 
-				call    TestMove
-				or      a
-				jr      z,.skipMove       ;timer lsb==frame lsb, don't move yet
+        ;time to move?
+        ld      a,5  ;2
+        call    TestMove
+        or      a
+        jr      z,.skipMove       ;timer lsb==frame lsb, don't move yet
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StdVectorToState
-				or      a
-				jr      z,.skipMove
+        or      a
+        jr      z,.skipMove
         ;call    GetRandomMovement
         ;ld      b,2      ;everyone move this way
         call    StandardValidateMoveAndRedraw
@@ -2529,19 +2529,19 @@ TalkerCheckAfterSetupHL:
         ld      a,c
         ld      [dialogBalloonClassIndex],a
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
         push    hl
         call    StdCheckTalk
         pop     hl
-				ret     z
-				call    StdMove
-				ret
+        ret     z
+        call    StdMove
+        ret
 
 
 talkerCheckTable:
-				DB      5      ;move delay
+        DB      5      ;move delay
         DW      StdVectorToState
 
 
@@ -2551,7 +2551,7 @@ GetRandomMovement:
 
         ;pick a "random value" ((counter+=17))
         ld      a,%00001111
-				call    GetRandomNumMask
+        call    GetRandomNumMask
 
         ;ldio    a,[randomLoc]
         ;add     17
@@ -2584,10 +2584,10 @@ GetRandomMovement:
 ;               de - "this"
 ; Returns:      b  - modified move direction
 ; Alters:       a, b, hl
-; Description:  Adjusts move direction stored in b so that it is legal.  
-;               A creature can always turn 180 around, but otherwise 
-;               this means that it will travel forward if it is split 
-;               between two tiles or if there is a wall in the desired 
+; Description:  Adjusts move direction stored in b so that it is legal.
+;               A creature can always turn 180 around, but otherwise
+;               this means that it will travel forward if it is split
+;               between two tiles or if there is a wall in the desired
 ;               direction.
 ;---------------------------------------------------------------------
 EnforceLegalMove:
@@ -2612,7 +2612,7 @@ EnforceLegalMove:
 
         ret                      ;allow move in reverse direction
 
-.splitMF     
+.splitMF
         ;force the wee bairn to move forward
         ld      a,h
         and     %00000011
@@ -2656,55 +2656,55 @@ jr .moveAnywhere
         ld      l,a              ;hl IS offset
 
         ;don't examine my tail in the process; multiply offset
-				;by two if 2x2 and facing east or south
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      nz,.afterModifyOffset
+        ;by two if 2x2 and facing east or south
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      nz,.afterModifyOffset
 
-				ld      a,b
-				and     %00000011
-				cp      %01         ;east
-				jr      z,.offsetTimesTwo
-				cp      %10         ;south
-				jr      nz,.afterModifyOffset
+        ld      a,b
+        and     %00000011
+        cp      %01         ;east
+        jr      z,.offsetTimesTwo
+        cp      %10         ;south
+        jr      nz,.afterModifyOffset
 
 .offsetTimesTwo
-				sla     l    ;hl<<=1   (same as *2)
-				rl      h
+        sla     l    ;hl<<=1   (same as *2)
+        rl      h
 
 .afterModifyOffset
         add     hl,de            ;hl is &location in desired dir
-				ldio    a,[firstMonster] ;d = firstMonster
-				ld      d,a
+        ldio    a,[firstMonster] ;d = firstMonster
+        ld      d,a
         ld      a,[hl]           ;what's there?
         or      a
         jr      z,.moveAnywhere  ;nothing there
-				cp      d
-				jr      nc,.moveAnywhere 
-				
-				;wall there, move forward unless special flag says okay
-				push    af
-				ld      a,ZONEBANK
-				ldio    [$ff70],a
-				pop     af
-				bit     7,[hl]       ;marked as special somehow?
-				jr      z,.moveForwardIfNotBlocked  ;nope
+        cp      d
+        jr      nc,.moveAnywhere
 
-				call    GetBGAttributes
-				bit     BG_BIT_ATTACKABLE,a
-				jr      nz,.moveAnywhere
+        ;wall there, move forward unless special flag says okay
+        push    af
+        ld      a,ZONEBANK
+        ldio    [$ff70],a
+        pop     af
+        bit     7,[hl]       ;marked as special somehow?
+        jr      z,.moveForwardIfNotBlocked  ;nope
 
-				bit     BG_BIT_WALKOVER,a
-				jr      z,.moveForwardIfNotBlocked
+        call    GetBGAttributes
+        bit     BG_BIT_ATTACKABLE,a
+        jr      nz,.moveAnywhere
 
-				ldio    a,[curObjWidthHeight]
-				cp      1
-				jr      z,.moveAnywhere              ;can walk over
-				jr      .moveForwardIfNotBlocked
+        bit     BG_BIT_WALKOVER,a
+        jr      z,.moveForwardIfNotBlocked
 
-        ;nuttin there or a monster to face, let the creature move in 
-				;whatever direction it wants, bless its little heart (direction 
-				;B is fine)
+        ldio    a,[curObjWidthHeight]
+        cp      1
+        jr      z,.moveAnywhere              ;can walk over
+        jr      .moveForwardIfNotBlocked
+
+        ;nuttin there or a monster to face, let the creature move in
+        ;whatever direction it wants, bless its little heart (direction
+        ;B is fine)
 .moveAnywhere
         pop     hl
         pop     de
@@ -2715,16 +2715,16 @@ jr .moveAnywhere
         pop     de
         ld      l,b
         ld      a,h
-				and     %00000011
-				ld      b,a
-				push    hl
-				ld      a,1
-				call    CheckDestEmpty
-				pop     hl
-				or      a
-				jr      nz,.done
-				ld      b,l              ;allow turn anywhere if blocked ahead
-				ret
+        and     %00000011
+        ld      b,a
+        push    hl
+        ld      a,1
+        call    CheckDestEmpty
+        pop     hl
+        or      a
+        jr      nz,.done
+        ld      b,l              ;allow turn anywhere if blocked ahead
+        ret
 
 
 .moveForward
@@ -2736,7 +2736,7 @@ jr .moveAnywhere
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      ScootSprite             
+; Routine:      ScootSprite
 ; Arguments:    a  - loptr to sprite
 ;               b  - desired move direction
 ; Alters:       af
@@ -2744,53 +2744,53 @@ jr .moveAnywhere
 ;               direction.
 ;---------------------------------------------------------------------
 ScootSprite:
-				cp      $ff
-				ret     z
+        cp      $ff
+        ret     z
 
         push    hl
 
-				ld      l,a
-				ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      l,a
+        ld      h,((spriteOAMBuffer>>8) & $ff)
 
-				bit     0,b     ;test direction of travel
-				jr      nz,.eastWest
+        bit     0,b     ;test direction of travel
+        jr      nz,.eastWest
 
         ld      a,[hl]
-				bit     1,b
-				jr      nz,.south
+        bit     1,b
+        jr      nz,.south
 
-				;north
-				sub     4
-				ld      [hl],a
-				jr      .afterUpdateSpritePos
+        ;north
+        sub     4
+        ld      [hl],a
+        jr      .afterUpdateSpritePos
 
 .south
         add     4
-				ld      [hl],a
-				jr      .afterUpdateSpritePos
+        ld      [hl],a
+        jr      .afterUpdateSpritePos
 
 .eastWest
         inc     hl
-				ld      a,[hl]
-				bit     1,b
-				jr      nz,.west
+        ld      a,[hl]
+        bit     1,b
+        jr      nz,.west
 
-				;east
-				add     4
-				ld      [hl],a
-				jr      .afterUpdateSpritePos
+        ;east
+        add     4
+        ld      [hl],a
+        jr      .afterUpdateSpritePos
 
 .west
         sub     4
-				ld      [hl],a
+        ld      [hl],a
 
 .afterUpdateSpritePos
         pop     hl
-				ret
-        
+        ret
+
 
 ;---------------------------------------------------------------------
-; Routine:      Move             
+; Routine:      Move
 ; Arguments:    b  - desired move direction
 ;               c  - class index
 ;               de - "this"
@@ -2823,14 +2823,14 @@ ScootSprite:
 ;                   into the map.
 
 ;               If [bgFlags] contains either BG_FLAG_WALKOVER or
-;               BG_FLAG_SHOOTOVER then 
+;               BG_FLAG_SHOOTOVER then
 ;---------------------------------------------------------------------
 Move:
         push    bc
 
         ;save current zone to see if it changes when we move
-				call    GetCurZone
-				ld      [oldZone],a
+        call    GetCurZone
+        ld      [oldZone],a
 
         ;get current direction in c
         ld      a,OBJBANK      ;select object RAM
@@ -2851,16 +2851,16 @@ Move:
         or      b              ;combined with new direction
         ld      [hl],a         ;and that's our new frame!
 
-				;have to remove from map if we're a sprite
-				call    GetFacing
-				bit     7,a
-				jr      z,.doneTurn
+        ;have to remove from map if we're a sprite
+        call    GetFacing
+        bit     7,a
+        jr      z,.doneTurn
 
         call    RemoveFromMap
 
 .doneTurn
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 .sameDirection
         call    RemoveFromMap  ;gonna be drawin again real soon, Baby!
@@ -2875,7 +2875,7 @@ Move:
 
         ;facing west?
         ld      a,c
-				and     %00000111
+        and     %00000111
         cp      %00000111
         jr      nz,.checkSplitFacingNorth
 
@@ -2894,7 +2894,7 @@ Move:
         ;if we're not split and we're heading East or South then again
         ;we just toggle the split bit as our move
         ld      a,c
-				and     %00000111
+        and     %00000111
         cp      %00000001              ;facing East?
         jr      z,.noMoveToggleSplit
         cp      %00000010              ;facing South?
@@ -2920,7 +2920,7 @@ Move:
         ld      a,[hl+]
         ld      h,[hl]
         ld      l,a              ;hl IS offset
-        add     hl,de 
+        add     hl,de
         ld      d,h
         ld      e,l
 
@@ -2936,7 +2936,7 @@ Move:
         ld      [hl+],a
         ld      a,d
         ld      [hl-],a
-        
+
         ;restore de
         ld      d,h
         ld      e,l
@@ -2945,61 +2945,61 @@ Move:
 
 .stowNewFrame
         ;if IsSprite bit off, check to see if we want to turn
-				;it on
-				bit     7,c
-				jr      nz,.spriteBitIsOn
+        ;it on
+        bit     7,c
+        jr      nz,.spriteBitIsOn
 
-				ld      a,[bgFlags]
-				and     BG_FLAG_SPECIAL
-				jr      z,.reallyStowNewFrame
+        ld      a,[bgFlags]
+        and     BG_FLAG_SPECIAL
+        jr      z,.reallyStowNewFrame
 
         set     7,c                  ;turn sprite flag on
-				;call    AllocateSprite
-				;call    StoreSpriteLo
-				jr      .reallyStowNewFrame
+        ;call    AllocateSprite
+        ;call    StoreSpriteLo
+        jr      .reallyStowNewFrame
 
 .spriteBitIsOn
         ;can we turn it off?
-				bit     2,c                        ;is frame bit zero?
-				jr      nz,.updateSpritePos        ;no, leave it on
+        bit     2,c                        ;is frame bit zero?
+        jr      nz,.updateSpritePos        ;no, leave it on
 
-				;maybe turn it off; see what we're over
-				push    hl
-				call    GetCurLocation
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ld      a,[hl]
-				push    af
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				pop     af
-				pop     hl
+        ;maybe turn it off; see what we're over
+        push    hl
+        call    GetCurLocation
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ld      a,[hl]
+        push    af
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        pop     af
+        pop     hl
 
-				or      a
-				jr      nz,.updateSpritePos        ;leave it on
+        or      a
+        jr      nz,.updateSpritePos        ;leave it on
 
-				res     7,c                        ;turn it off
-				call    FreeSpriteLoPtr
-				jr      .reallyStowNewFrame
+        res     7,c                        ;turn it off
+        call    FreeSpriteLoPtr
+        jr      .reallyStowNewFrame
 
 .updateSpritePos
         ;since the sprite has been on let's scoot the sprite 4
-				;pixels in the direction we've moved
+        ;pixels in the direction we've moved
 
-				call    GetSpriteLo
-				call    ScootSprite
+        call    GetSpriteLo
+        call    ScootSprite
 
 .reallyStowNewFrame
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
         ld      a,c            ;new frame
         ld      [hl],a
 
-				;if oldZone != curZone then set curPathPos to zero
-				call    GetCurZone
-				ld      hl,oldZone
-				cp      [hl]
-				jr      z,.done
+        ;if oldZone != curZone then set curPathPos to zero
+        call    GetCurZone
+        ld      hl,oldZone
+        cp      [hl]
+        jr      z,.done
 
         call    ResetCurPathPos
 
@@ -3008,7 +3008,7 @@ Move:
 
 ;---------------------------------------------------------------------
 ; Routine:      RemoveFromMap
-; Arguments:    c  - current frame 
+; Arguments:    c  - current frame
 ;               de - "this"
 ; Returns:      Nothing
 ; Alters:       af
@@ -3023,15 +3023,15 @@ RemoveFromMap::
         call    GetCurLocation
 
         ;is object currently a sprite?
-				bit     7,c
-				jr      nz,.clearSprite
+        bit     7,c
+        jr      nz,.clearSprite
 
         ld      a,MAPBANK      ;select map RAM
         ldio    [$ff70],a
 
         ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.clear2x2tiles
+        cp      2
+        jr      z,.clear2x2tiles
 
         ;clear out this location
         xor     a
@@ -3056,7 +3056,7 @@ RemoveFromMap::
         ld      e,a
         add     hl,de
         ld      [hl],d        ;clear 'em all
-				jr      .done
+        jr      .done
 
 .clearSprite
         call    .getTilePreviouslyHere
@@ -3070,8 +3070,8 @@ RemoveFromMap::
         jr      z,.spriteSplitNS
 
         ;split E/W
-				inc     hl
-				call    .getTilePreviouslyHere
+        inc     hl
+        call    .getTilePreviouslyHere
         jr      .done
 
 .spriteSplitNS
@@ -3080,57 +3080,57 @@ RemoveFromMap::
         ld      a,[mapPitch]
         ld      e,a
         add     hl,de
-				call    .getTilePreviouslyHere
+        call    .getTilePreviouslyHere
 
 .done   pop     hl
         pop     de
-				pop     bc
+        pop     bc
         ret
 
 .getTilePreviouslyHere
-        ld      a,TILESHADOWBANK                     
+        ld      a,TILESHADOWBANK
         ld      [$ff70],a
 
         ld      b,[hl]
 
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 
-				ld      [hl],b
+        ld      [hl],b
 
-				ret
+        ret
 
 .clear2x2tiles
         push    hl
         call    .clear2x2row
-				pop     hl
-				call    HLToNextRow
-				push    hl
+        pop     hl
+        call    HLToNextRow
+        push    hl
         call    .clear2x2row
-				pop     hl
-				ld      a,c
-				and     %00000101
-				cp      %00000100
-				jr      nz,.done2x2
-				call    HLToNextRow
+        pop     hl
+        ld      a,c
+        and     %00000101
+        cp      %00000100
+        jr      nz,.done2x2
+        call    HLToNextRow
         call    .clear2x2row
 
 .done2x2
         pop     hl
         pop     de
-				pop     bc
+        pop     bc
         ret
 
 .clear2x2row
         xor     a
-				ld      [hl+],a
-				ld      [hl+],a
-				ld      a,c
-				and     %00000101
-				xor     %00000101
-				ret     nz
-				ld      [hl+],a
-				ret
+        ld      [hl+],a
+        ld      [hl+],a
+        ld      a,c
+        and     %00000101
+        xor     %00000101
+        ret     nz
+        ld      [hl+],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CheckDestEmpty
@@ -3146,8 +3146,8 @@ RemoveFromMap::
 CheckDestEmpty:
         ld      [temp],a
 
-				xor     a
-				ld      [bgFlags],a
+        xor     a
+        ld      [bgFlags],a
 
         ld      a,OBJBANK      ;select object RAM
         ldio    [$ff70],a
@@ -3163,13 +3163,13 @@ CheckDestEmpty:
 
         ;and don't bother if direction of travel is not equal to
         ;current facing (just turning)
-				ld      a,[temp]
-				or      a
-				jr      z,.check
-				ld      a,[hl]
+        ld      a,[temp]
+        or      a
+        jr      z,.check
+        ld      a,[hl]
 
-				and     %00000011
-				cp      b
+        and     %00000011
+        cp      b
         jr      z,.check
         ld      a,1            ;set return value A to non-zero
         ret
@@ -3191,32 +3191,32 @@ CheckDestEmpty:
         call    GetMapOffset
 
         ;don't examine my tail in the process; multiply offset
-				;by two if 2x2 and facing east or south
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      nz,.afterModifyOffset
+        ;by two if 2x2 and facing east or south
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      nz,.afterModifyOffset
 
-				ld      a,b
-				and     %00000011
-				cp      %01         ;east
-				jr      z,.offsetTimesTwo
-				cp      %10         ;south
-				jr      nz,.afterModifyOffset
+        ld      a,b
+        and     %00000011
+        cp      %01         ;east
+        jr      z,.offsetTimesTwo
+        cp      %10         ;south
+        jr      nz,.afterModifyOffset
 
 .offsetTimesTwo
-				sla     l    ;hl<<=1   (same as *2)
-				rl      h
+        sla     l    ;hl<<=1   (same as *2)
+        rl      h
 
 .afterModifyOffset
         add     hl,de            ;hl is ptr to new location
 
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.check2x2
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      z,.check2x2
 
         ;check 1x1
         ld      a,[hl]           ;contents of dest into a
-				call    .checkCanMoveOver
+        call    .checkCanMoveOver
         pop     hl
         pop     de
         ret
@@ -3224,23 +3224,23 @@ CheckDestEmpty:
 .check2x2
         ;check first adjacent tile
         ld      a,[hl]
-				call    .checkCanMoveOver
-				or      a
-				jr      z,.done   ;blocked on first, no use checking second
+        call    .checkCanMoveOver
+        or      a
+        jr      z,.done   ;blocked on first, no use checking second
 
-				;first clear; check second adj tile
-				ld      a,b
-				and     1    ;now 0=n/s, 1=e/w
-				add     1    ;now check adj in e for original n/s, s for e/w
-				call    AdvanceLocHLInDirection
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    .checkCanMoveOver
+        ;first clear; check second adj tile
+        ld      a,b
+        and     1    ;now 0=n/s, 1=e/w
+        add     1    ;now check adj in e for original n/s, s for e/w
+        call    AdvanceLocHLInDirection
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    .checkCanMoveOver
 
 .done   pop     hl
         pop     de
-				ret
+        ret
 
 .checkCanMoveOver
         or      a                ;zero?
@@ -3250,26 +3250,26 @@ CheckDestEmpty:
 
 .checkSpecialFlags
         ld      e,a
-				ldio    a,[firstMonster]
-				cp      e
-				jr      z,.false         ;is a monster
-				jr      c,.false         ;is a monster
+        ldio    a,[firstMonster]
+        cp      e
+        jr      z,.false         ;is a monster
+        jr      c,.false         ;is a monster
 
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
-				ld      d,((bgAttributes>>8) & $ff)
-				ld      a,[de]
-				ld      [bgFlags],a
-				and     BG_FLAG_WALKOVER
-				jr      z,.false
+        ld      [$ff70],a
+        ld      d,((bgAttributes>>8) & $ff)
+        ld      a,[de]
+        ld      [bgFlags],a
+        and     BG_FLAG_WALKOVER
+        jr      z,.false
 
-				ldio    a,[curObjWidthHeight]
-				cp      1
-				jr      nz,.false
+        ldio    a,[curObjWidthHeight]
+        cp      1
+        jr      nz,.false
 
-				;return true
-				ld      a,1
-				ret
+        ;return true
+        ld      a,1
+        ret
 
 .false  xor     a                ;return false
         ret
@@ -3289,7 +3289,7 @@ GetMapOffset:
         ld      a,[hl+]
         ld      h,[hl]
         ld      l,a              ;hl IS offset
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     TestMove
@@ -3299,182 +3299,182 @@ GetMapOffset:
 ; Returns:      a  - time to move
 ;               !a - don't move
 ; Alters:       a,hl
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 TestMove:
         push    af
         call    PointToSpecialFlags
-				bit     OBJBIT_THROWN,[hl]
-				jr      nz,TestMoveThrown
-				pop     af
+        bit     OBJBIT_THROWN,[hl]
+        jr      nz,TestMoveThrown
+        pop     af
 
 TestMoveNoCheckSpecial:
         push    bc
-				ld      c,a
+        ld      c,a
 
-				ld      a,[objTimer60ths]    ;get timer
-				and     %00011000         ;get rid of other bits
-				ld      b,a
-				ld      hl,OBJ_FRAME      ;offset of frame variable
-				add     hl,de
-				xor     a,[hl]            ;xor timer4:3 w/frame4:3, hl=&move
+        ld      a,[objTimer60ths]    ;get timer
+        and     %00011000         ;get rid of other bits
+        ld      b,a
+        ld      hl,OBJ_FRAME      ;offset of frame variable
+        add     hl,de
+        xor     a,[hl]            ;xor timer4:3 w/frame4:3, hl=&move
 
-				push    af
-				ld      a,[hl]            ;current state
-				and     %11100111         ;mask off area for timer
-				or      b                 ;store bits from current timer
-				ld      [hl],a
-				pop     af
-				and     %00011000         ;get rid of other bits
+        push    af
+        ld      a,[hl]            ;current state
+        and     %11100111         ;mask off area for timer
+        or      b                 ;store bits from current timer
+        ld      [hl],a
+        pop     af
+        and     %00011000         ;get rid of other bits
         jr      z,.skipMove       ;already moved this turn
 
         push    bc
-				inc     hl
+        inc     hl
 
-				dec     [hl]
+        dec     [hl]
 
-				jr      z,.timeToMove
+        jr      z,.timeToMove
 
         ;no move but save modified timer
-				pop     bc
-				pop     bc
-				xor     a
-				ret
+        pop     bc
+        pop     bc
+        xor     a
+        ret
 
 .timeToMove
         ;time to move!
-				push    hl
-				ld      hl,OBJ_DESTZONE   ;point to # puffs
-				add     hl,de
-				ld      a,[hl]
-				and     %1111
-				pop     hl
-				add     a,c               ;reset move counter (add #puffs)
+        push    hl
+        ld      hl,OBJ_DESTZONE   ;point to # puffs
+        add     hl,de
+        ld      a,[hl]
+        and     %1111
+        pop     hl
+        add     a,c               ;reset move counter (add #puffs)
 
-				;or      b
-				ld      [hl-],a
+        ;or      b
+        ld      [hl-],a
 
-				pop     bc 
+        pop     bc
 
-				ld      a,1               ;return true/able to move
+        ld      a,1               ;return true/able to move
 
 .skipMove
         pop     bc
-				ret
+        ret
 
 HeroTestMove:
         push    af
         call    PointToSpecialFlags
-				bit     OBJBIT_THROWN,[hl]
-				jr      nz,TestMoveThrown
-				pop     af
+        bit     OBJBIT_THROWN,[hl]
+        jr      nz,TestMoveThrown
+        pop     af
 
         push    bc
-				ld      c,a
+        ld      c,a
 
         ld      a,OBJBANK       ;select object RAM
         ldio    [$ff70],a
 
-				ld      a,[heroTimer60ths]    ;get timer
-				and     %00011000         ;get rid of other bits
-				ld      b,a
-				ld      hl,OBJ_FRAME      ;offset of frame variable
-				add     hl,de
-				xor     a,[hl]            ;xor timer4:3 w/frame4:3, hl=&move
-				push    af
-				ld      a,[hl]            ;current state
-				and     %11100111         ;mask off area for timer
-				or      b                 ;store bits from current timer
-				ld      [hl],a
-				pop     af
-				and     %00011000         ;get rid of other bits
+        ld      a,[heroTimer60ths]    ;get timer
+        and     %00011000         ;get rid of other bits
+        ld      b,a
+        ld      hl,OBJ_FRAME      ;offset of frame variable
+        add     hl,de
+        xor     a,[hl]            ;xor timer4:3 w/frame4:3, hl=&move
+        push    af
+        ld      a,[hl]            ;current state
+        and     %11100111         ;mask off area for timer
+        or      b                 ;store bits from current timer
+        ld      [hl],a
+        pop     af
+        and     %00011000         ;get rid of other bits
         jr      z,.skipMove       ;already moved this turn
 
         push    bc
-				inc     hl
+        inc     hl
 
-				dec     [hl]
+        dec     [hl]
 
-				jr      z,.timeToMove
+        jr      z,.timeToMove
 
         ;no move but save modified timer
-				pop     bc
-				pop     bc
-				xor     a
-				ret
+        pop     bc
+        pop     bc
+        xor     a
+        ret
 
 .timeToMove
         ;time to move!
-				push    hl
-				ld      hl,OBJ_DESTZONE   ;point to # puffs
-				add     hl,de
-				ld      a,[hl]
-				and     %1111
-				pop     hl
-				add     a,c               ;reset move counter (add #puffs)
+        push    hl
+        ld      hl,OBJ_DESTZONE   ;point to # puffs
+        add     hl,de
+        ld      a,[hl]
+        and     %1111
+        pop     hl
+        add     a,c               ;reset move counter (add #puffs)
 
-				ld      [hl-],a
-				pop     bc 
+        ld      [hl-],a
+        pop     bc
 
-				ld      a,1               ;return true/able to move
+        ld      a,1               ;return true/able to move
 
 .skipMove
         pop     bc
-				ret
+        ret
 
 TestMoveThrown:
         ;move one in current facing and return "unable to move"
         pop     af
-				ld      a,1
-				call    TestMoveNoCheckSpecial
-				or      a
-				ret     z
+        ld      a,1
+        call    TestMoveNoCheckSpecial
+        or      a
+        ret     z
 
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,4
-				call    GetLocInFront
-				or      a
-				jr      z,.emptyAhead
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,4
+        call    GetLocInFront
+        or      a
+        jr      z,.emptyAhead
 
-				cp      b
-				jr      nc,.stop
+        cp      b
+        jr      nc,.stop
 
-				ld      a,[bgFlags]
-				bit     BG_BIT_WALKOVER,a
-				jr      z,.stop
+        ld      a,[bgFlags]
+        bit     BG_BIT_WALKOVER,a
+        jr      z,.stop
 
-				ldio    a,[curObjWidthHeight]
-				cp      1
-				jr      z,.emptyAhead
+        ldio    a,[curObjWidthHeight]
+        cp      1
+        jr      z,.emptyAhead
 
 .stop   call    PointToSpecialFlags
-				res     OBJBIT_THROWN,[hl]
+        res     OBJBIT_THROWN,[hl]
         ld      a,[hero0_index]
         cp      c
         jr      z,.heroJiggle
         ld      a,[hero1_index]
         cp      c
         jr      z,.heroJiggle
-				xor     a
-				ret
+        xor     a
+        ret
 
 .heroJiggle
-				ld      a,5
-				ldio    [jiggleDuration],a
+        ld      a,5
+        ldio    [jiggleDuration],a
         xor     a
         ret
 
 .emptyAhead
         call    GetCurLocation
         push    hl
-				call    GetFacing
+        call    GetFacing
         and     %111
         ld      b,a
         push    bc
-				and     %11
-				ld      b,a
-				call    StandardValidateMoveAndRedraw
+        and     %11
+        ld      b,a
+        call    StandardValidateMoveAndRedraw
         pop     bc
         pop     hl
 
@@ -3509,58 +3509,58 @@ TestMoveThrown:
 ;---------------------------------------------------------------------
 VectorToStateCommonInit:
         call    GetState
-				rlca
-				and     %01111110
-				ret
+        rlca
+        and     %01111110
+        ret
 
 StdVectorToState:
-				call    VectorToStateCommonInit
-				add     (stdStateTable & $ff)
-				ld      l,a
-				ld      h,((stdStateTable>>8) & $ff)
+        call    VectorToStateCommonInit
+        add     (stdStateTable & $ff)
+        ld      l,a
+        ld      h,((stdStateTable>>8) & $ff)
 VectorToStateCommon:
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				jp      [hl]
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        jp      hl
 
 EatVectorToState:
-				call    VectorToStateCommonInit
-				add     (eatStateTable & $ff)
-				ld      l,a
-				ld      h,((eatStateTable>>8) & $ff)
-				jr      VectorToStateCommon
+        call    VectorToStateCommonInit
+        add     (eatStateTable & $ff)
+        ld      l,a
+        ld      h,((eatStateTable>>8) & $ff)
+        jr      VectorToStateCommon
 
 TrackEnemyVectorToState:
-				call    VectorToStateCommonInit
-				add     (trackEnemyStateTable & $ff)
-				ld      l,a
-				ld      h,((trackEnemyStateTable>>8) & $ff)
-				jr      VectorToStateCommon
+        call    VectorToStateCommonInit
+        add     (trackEnemyStateTable & $ff)
+        ld      l,a
+        ld      h,((trackEnemyStateTable>>8) & $ff)
+        jr      VectorToStateCommon
 
 ActorVectorToState:
-				call    VectorToStateCommonInit
-				add     (actorStateTable & $ff)
-				ld      l,a
-				ld      h,((actorStateTable>>8) & $ff)
-				jr      VectorToStateCommon
+        call    VectorToStateCommonInit
+        add     (actorStateTable & $ff)
+        ld      l,a
+        ld      h,((actorStateTable>>8) & $ff)
+        jr      VectorToStateCommon
 
 FleeVectorToState:
-				call    VectorToStateCommonInit
-				add     (fleeStateTable & $ff)
-				ld      l,a
-				ld      h,((fleeStateTable>>8) & $ff)
-				jr      VectorToStateCommon
+        call    VectorToStateCommonInit
+        add     (fleeStateTable & $ff)
+        ld      l,a
+        ld      h,((fleeStateTable>>8) & $ff)
+        jr      VectorToStateCommon
 
 LadyVectorToState:
-				call    VectorToStateCommonInit
-				add     (ladyBulletStateTable & $ff)
-				ld      l,a
-				ld      h,((ladyBulletStateTable>>8) & $ff)
-				jr      VectorToStateCommon
+        call    VectorToStateCommonInit
+        add     (ladyBulletStateTable & $ff)
+        ld      l,a
+        ld      h,((ladyBulletStateTable>>8) & $ff)
+        jr      VectorToStateCommon
 
 ;---------------------------------------------------------------------
-; STATE METHODS                         
+; STATE METHODS
 ; Arguments:    de  - "this"
 ; Returns:      b   - direction to move
 ;               a   - non-zero for move valid, zero for no move
@@ -3568,104 +3568,104 @@ LadyVectorToState:
 ;---------------------------------------------------------------------
 SetupRandomMoveState:
         ld      a,6
-				call    SetState
-				xor     a
-				ret 
+        call    SetState
+        xor     a
+        ret
 
 EatOrTrackState:
         ;move in direction of food next to me
-				ld      b,0
+        ld      b,0
 .checkDirectionForFood
         ld      a,b
         call    GetLocInFront
-				or      a
-				jr      z,.continue
+        or      a
+        jr      z,.continue
 
-				push    bc
-				push    hl
-				ld      b,a
-				call    GetDestL    ;min index I can eat
-				cp      b
-				jr      z,.maybeFood
-				jr      nc,.notFood
+        push    bc
+        push    hl
+        ld      b,a
+        call    GetDestL    ;min index I can eat
+        cp      b
+        jr      z,.maybeFood
+        jr      nc,.notFood
 .maybeFood
-				call    GetDestH    ;max index I can eat
-				cp      b
-				jr      nc,.food
+        call    GetDestH    ;max index I can eat
+        cp      b
+        jr      nc,.food
 
 .notFood
-				pop     hl
+        pop     hl
         pop     bc
-				jr      .continue
+        jr      .continue
 
 
 .food
-				pop     hl
-				pop     bc
+        pop     hl
+        pop     bc
 
-				;remove tile in direction I'm facing that way and I'm not split
-				call    GetFacing
-				bit     2,a
-				jr      nz,.foundFood
+        ;remove tile in direction I'm facing that way and I'm not split
+        call    GetFacing
+        bit     2,a
+        jr      nz,.foundFood
 
-				and     %11
-				cp      b
-				jr      nz,.foundFood
+        and     %11
+        cp      b
+        jr      nz,.foundFood
 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl],a
 
-				ld      hl,eatSound
-				call    PlaySound
+        ld      hl,eatSound
+        call    PlaySound
 
 .foundFood
-				ld      a,1    ;b contains valid move
-				ret
+        ld      a,1    ;b contains valid move
+        ret
 
 .continue
         inc     b
-				ld      a,b
-				cp      4
-				jr      nz,.checkDirectionForFood
+        ld      a,b
+        cp      4
+        jr      nz,.checkDirectionForFood
 
         jp      TrackEnemyVectorToState  ;no food around, track hero
 
 SetupTrackEnemy:
         call    GetCurZone
         ld      b,a
-				;Use bit 5 of my object address to determine which hero
-				;to try and follow.
-				ld      a,e
-				swap    a
-				and     %10    ;from %00 or %10 we get...
-				ld      h,a
-				rrca
-				xor     %01
-				or      h      ;%01 or %10
-				call    GetHeroZone
-				cp      b
-				jr      z,.inSameZone
+        ;Use bit 5 of my object address to determine which hero
+        ;to try and follow.
+        ld      a,e
+        swap    a
+        and     %10    ;from %00 or %10 we get...
+        ld      h,a
+        rrca
+        xor     %01
+        or      h      ;%01 or %10
+        call    GetHeroZone
+        cp      b
+        jr      z,.inSameZone
 
-				call    SetDestZone
-				ld      a,1
-				call    SetState
-				xor     a
-				ret
+        call    SetDestZone
+        ld      a,1
+        call    SetState
+        xor     a
+        ret
 
 .inSameZone
         ;ld      a,1    ;bit of slack
-				xor     a       ;no slack
+        xor     a       ;no slack
         jp      MoveToLocation
 
 ;return zero for no move
 SetupMoveToLoc:
         call    GetActorDestLoc
-				ld      a,h
-				or      a
+        ld      a,h
+        or      a
         jr      nz,.moveToLoc
-				;ret     z   ;no dest loc
+        ;ret     z   ;no dest loc
 
         ;1/32 chance of face random direction
         ld      a,31
@@ -3680,383 +3680,383 @@ SetupMoveToLoc:
         call    GetFacing
         bit     2,a
         ret     nz         ;don't change dir if split
-				and     %11111000
+        and     %11111000
         ld      b,a
         ld      a,3
         call    GetRandomNumMask
         or      b
-				call    SetFacing
-				call    StandardRedraw
+        call    SetFacing
+        call    StandardRedraw
         xor     a
         ret
 
 .moveToLoc
         push    hl
         call    GetCurZone
-				pop     hl
+        pop     hl
         ld      b,a
 
-				call    GetActorDestZone
-				cp      b
-				jr      z,.inSameZone
+        call    GetActorDestZone
+        cp      b
+        jr      z,.inSameZone
 
-				call    SetDestZone
-				ld      a,1
-				call    SetState
-				xor     a
-				ret
+        call    SetDestZone
+        ld      a,1
+        call    SetState
+        xor     a
+        ret
 
 .inSameZone
         call    GetActorDestLoc
-				xor     a
-				ld      [moveAlignPrecision],a
-				call    AmAtLocation
-				or      a
-				jr      z,.findLocation
+        xor     a
+        ld      [moveAlignPrecision],a
+        call    AmAtLocation
+        or      a
+        jr      z,.findLocation
 
         ld      hl,0
-				call    SetActorDestLoc
+        call    SetActorDestLoc
 
         ;call    GetFacing
-				;and     %11111011    ;set split bit to zero
-				;call    SetFacing
+        ;and     %11111011    ;set split bit to zero
+        ;call    SetFacing
 
-				xor     a
+        xor     a
 
-				ret
+        ret
 
 .findLocation
         xor     a     ;no slack
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         jp      MoveToLocation
 
 
 MoveToZone:
         ;-------------------------------------------------------------
-				; State 1:  MOVE TOWARDS DEST ZONE
-				;           if (curZone == destZone){
-				;             this->state = 0;
-				;           }else{
-				;             nextWayPoint=GetNextWayPoint(curZone,destZone);
-				;             if(this->pos == nextWayPoint){
-				;               curPathPos++;
-				;             }else{
-				;               int r = ChooseDirection(nextWayPoint, &dir);
-				;               if(!r){
-				;                 this->moveLimit = 3;
-				;                 this->majorAxis = dir:7;
-				;                 this->state = 2;  //try to the right
-				;               }
-				;               return r;
-				;             }
-				;           }
-				;           return 0;
+        ; State 1:  MOVE TOWARDS DEST ZONE
+        ;           if (curZone == destZone){
+        ;             this->state = 0;
+        ;           }else{
+        ;             nextWayPoint=GetNextWayPoint(curZone,destZone);
+        ;             if(this->pos == nextWayPoint){
+        ;               curPathPos++;
+        ;             }else{
+        ;               int r = ChooseDirection(nextWayPoint, &dir);
+        ;               if(!r){
+        ;                 this->moveLimit = 3;
+        ;                 this->majorAxis = dir:7;
+        ;                 this->state = 2;  //try to the right
+        ;               }
+        ;               return r;
+        ;             }
+        ;           }
+        ;           return 0;
         ;-------------------------------------------------------------
-				call    GetCurZone
-				ld      b,a               ;save curZone
-				call    GetDestZone
+        call    GetCurZone
+        ld      b,a               ;save curZone
+        call    GetDestZone
 
-				;if(curZone==destZone)
-				cp      b                 
-				jr      nz,.cur_NE_dest
+        ;if(curZone==destZone)
+        cp      b
+        jr      nz,.cur_NE_dest
 
-				xor     a
-				call    SetState
-				xor     a
-				ret
+        xor     a
+        call    SetState
+        xor     a
+        ret
 
 .cur_NE_dest
         swap    a
         or      b                 ;destZone in 7:4, curZone in 3:0
-				call    GetNextWayPoint   ;returns next WP loc in hl
-				xor     a
-				cp      h
-				jr      nz,.validWayPoint
-				cp      l
-				jr      nz,.validWayPoint
+        call    GetNextWayPoint   ;returns next WP loc in hl
+        xor     a
+        cp      h
+        jr      nz,.validWayPoint
+        cp      l
+        jr      nz,.validWayPoint
 
-				;invalid way point, try just moving towards hero w/dumb ai
-				;Use bit 5 of my object address to determine which hero
-				;to try and follow.
-				ld      a,e
-				swap    a
-				and     %10    ;from %00 or %10 we get...
-				ld      h,a
-				rrca
-				xor     %01
-				or      h      ;%01 or %10
-				call    GetHeroZone
-				xor     a       ;no slack
+        ;invalid way point, try just moving towards hero w/dumb ai
+        ;Use bit 5 of my object address to determine which hero
+        ;to try and follow.
+        ld      a,e
+        swap    a
+        and     %10    ;from %00 or %10 we get...
+        ld      h,a
+        rrca
+        xor     %01
+        or      h      ;%01 or %10
+        call    GetHeroZone
+        xor     a       ;no slack
         jp      MoveToLocation
 
 .validWayPoint
-				call    AmAtLocation 
-				or      a
-				jr      z,.moveToLocation
+        call    AmAtLocation
+        or      a
+        jr      z,.moveToLocation
 
-				call    IncrementPathPos  ;at next waypoint, increment waypoint
-				xor     a
-				ret
-        
+        call    IncrementPathPos  ;at next waypoint, increment waypoint
+        xor     a
+        ret
+
 .moveToLocation
-				ld      a,1               ;cut some slack on alignment
+        ld      a,1               ;cut some slack on alignment
 MoveToLocation:
         ;use "dumb-AI" to move towards waypoint
-				;hl should be destination location
+        ;hl should be destination location
         call    ChooseDirection   ;args hl=curWP
-				                          ;returns a=1 on success, b=dir
+                                  ;returns a=1 on success, b=dir
         or      a
-				jr      z,.decideDirectionLeftOrRight
+        jr      z,.decideDirectionLeftOrRight
 
         ;success!
         ret
 
 .decideDirectionLeftOrRight
         ld      a,b
-				call    SetDesiredDirection
-				ld      a,6
-				call    SetMoveLimit
-				call    GetMoveRightOfDesiredDir
-				or      a
-				jr      z,.tryLeft    ;try left if no exit to right
+        call    SetDesiredDirection
+        ld      a,6
+        call    SetMoveLimit
+        call    GetMoveRightOfDesiredDir
+        or      a
+        jr      z,.tryLeft    ;try left if no exit to right
 
-				ld      a,[secondChoiceDirection]
-				cp      b
-				jr      z,.tryRight   ;right matches our second choice
+        ld      a,[secondChoiceDirection]
+        cp      b
+        jr      z,.tryRight   ;right matches our second choice
 
 .tryLeft   ;try left then right
         ld      a,8
-				call    SetState
-				xor     a
-				ret
+        call    SetState
+        xor     a
+        ret
 
 
 .tryRight
         ;set critter to try along its right for a while
-				ld      a,2
-				call    SetState
-				xor     a
-				ret
+        ld      a,2
+        call    SetState
+        xor     a
+        ret
 
 TryRight:
         ;-------------------------------------------------------------
-				; State 2:  MOVE RIGHT TO LOOK FOR PASSAGE
+        ; State 2:  MOVE RIGHT TO LOOK FOR PASSAGE
         ;-------------------------------------------------------------
         call    GetMoveRightOfDesiredDir
-				or      a
-				jr      z,.changeState2To4  ;can't move right
+        or      a
+        jr      z,.changeState2To4  ;can't move right
 
-				;if move limit has expired switch to looking left
-				call    DecrementMoveLimit
-				or      a
-				jr      z,.changeState2To4
+        ;if move limit has expired switch to looking left
+        call    DecrementMoveLimit
+        or      a
+        jr      z,.changeState2To4
 
 .moveRightCheckForward
-				ld      a,3                 ;check for forward passage next
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,3                 ;check for forward passage next
+        call    SetState
+        ld      a,1
+        ret
 
 .changeState2To4
         ld      a,15
-				call    SetMoveLimit
+        call    SetMoveLimit
         ld      a,4
-				call    SetState
-				xor     a
-				ret
+        call    SetState
+        xor     a
+        ret
 
 TryFwdAfterRight:
         ;-------------------------------------------------------------
-				; State 3:  JUST MOVED RIGHT, CHECK FOR FORWARD PASSAGE
+        ; State 3:  JUST MOVED RIGHT, CHECK FOR FORWARD PASSAGE
         ;-------------------------------------------------------------
-				call    CheckForwardPassage
-				or      a
-				jr      nz,.changeState3ToState7
+        call    CheckForwardPassage
+        or      a
+        jr      nz,.changeState3ToState7
 
-				ld      a,2
-				call    SetState
-				xor     a
-				ret
+        ld      a,2
+        call    SetState
+        xor     a
+        ret
 
 .changeState3ToState7
         ;passage exists, MF twice (once to turn, once to move)
-				ld      a,7
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,7
+        call    SetState
+        ld      a,1
+        ret
 
 TryLeft:
         ;-------------------------------------------------------------
-				; State 4:  MOVE LEFT CHECKING FOR FORWARD PROGRESS
+        ; State 4:  MOVE LEFT CHECKING FOR FORWARD PROGRESS
         ;-------------------------------------------------------------
         call    GetMoveLeftOfDesiredDir
-				or      a
-				jr      z,.changeState4To6  ;can't move left, move random
+        or      a
+        jr      z,.changeState4To6  ;can't move left, move random
 
-				;if move limit has expired switch to moving random
-				call    DecrementMoveLimit
-				or      a
-				jr      z,.changeState4To6
+        ;if move limit has expired switch to moving random
+        call    DecrementMoveLimit
+        or      a
+        jr      z,.changeState4To6
 
-				ld      a,5                 ;check for forward passage next
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,5                 ;check for forward passage next
+        call    SetState
+        ld      a,1
+        ret
 
 .changeState4To6
 ChangeToStateRandom:
         ld      a,15
-				call    SetMoveLimit
+        call    SetMoveLimit
         ld      a,6
-				call    SetState
-				xor     a
-				ret
+        call    SetState
+        xor     a
+        ret
 
 TryFwdAfterLeft:
         ;-------------------------------------------------------------
-				; State 5:  CHECK FORWARD AFTER HAVING MOVED LEFT
+        ; State 5:  CHECK FORWARD AFTER HAVING MOVED LEFT
         ;-------------------------------------------------------------
-				call    CheckForwardPassage
-				or      a
-				jr      nz,.changeState5ToState7
+        call    CheckForwardPassage
+        or      a
+        jr      nz,.changeState5ToState7
 
-				ld      a,4
-				call    SetState
-				xor     a
-				ret
+        ld      a,4
+        call    SetState
+        xor     a
+        ret
 
 .changeState5ToState7
         ;passage exists, MF twice (once now to turn, once to move)
-				ld      a,7
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,7
+        call    SetState
+        ld      a,1
+        ret
 
 RandomMove:
         ;-------------------------------------------------------------
-				; State 6:  MOVE IN A RANDOM DIRECTION
+        ; State 6:  MOVE IN A RANDOM DIRECTION
         ;-------------------------------------------------------------
         call    GetRandomMovement
 
-				call    DecrementMoveLimit
-				or      a
-				jr      z,.randomBackToState0
-				ret
+        call    DecrementMoveLimit
+        or      a
+        jr      z,.randomBackToState0
+        ret
 
 .randomBackToState0
         ;a is zero
         call    SetState
-				ret
+        ret
 
 MoveFwdThenState1:
         ;-------------------------------------------------------------
-				; State 7:  Move Forward, Go to state 1
+        ; State 7:  Move Forward, Go to state 1
         ;-------------------------------------------------------------
-				ld      a,1
-				call    SetState
-				call    CheckForwardPassage
-				ret
+        ld      a,1
+        call    SetState
+        call    CheckForwardPassage
+        ret
 
 TryLeftFirst:
         ;-------------------------------------------------------------
-				; State 8:  MOVE LEFT CHECKING FOR FORWARD PROGRESS
+        ; State 8:  MOVE LEFT CHECKING FOR FORWARD PROGRESS
         ;-------------------------------------------------------------
         call    GetMoveLeftOfDesiredDir
-				or      a
-				jr      z,.changeState8To10  ;can't move left, move right
+        or      a
+        jr      z,.changeState8To10  ;can't move left, move right
 
-				;if move limit has expired switch to looking right
-				call    DecrementMoveLimit
-				or      a
-				jr      z,.changeState8To10
+        ;if move limit has expired switch to looking right
+        call    DecrementMoveLimit
+        or      a
+        jr      z,.changeState8To10
 
-				ld      a,9                 ;check for forward passage next
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,9                 ;check for forward passage next
+        call    SetState
+        ld      a,1
+        ret
 
 .changeState8To10
         ;look to the right
         ld      a,15
-				call    SetMoveLimit
+        call    SetMoveLimit
         ld      a,10
-				call    SetState
-				xor     a
-				ret
+        call    SetState
+        xor     a
+        ret
 
 TryFwdAfterLeftFirst:
         ;-------------------------------------------------------------
-				; State 9:  CHECK FORWARD AFTER HAVING MOVED LEFT
+        ; State 9:  CHECK FORWARD AFTER HAVING MOVED LEFT
         ;-------------------------------------------------------------
-				call    CheckForwardPassage
-				or      a
-				jr      nz,.changeState9ToState7
+        call    CheckForwardPassage
+        or      a
+        jr      nz,.changeState9ToState7
 
-				ld      a,8       ;go back to checking left
-				call    SetState
-				xor     a
-				ret
+        ld      a,8       ;go back to checking left
+        call    SetState
+        xor     a
+        ret
 
 .changeState9ToState7
         ;passage exists, MF twice (once now to turn, once to move)
-				ld      a,7
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,7
+        call    SetState
+        ld      a,1
+        ret
 
 TryRightSecond:
         ;-------------------------------------------------------------
-				; State 10:  MOVE RIGHT TO LOOK FOR PASSAGE
+        ; State 10:  MOVE RIGHT TO LOOK FOR PASSAGE
         ;-------------------------------------------------------------
         call    GetMoveRightOfDesiredDir
-				or      a
-				jr      z,.changeState10To6  ;can't move right, move random
+        or      a
+        jr      z,.changeState10To6  ;can't move right, move random
 
-				;if move limit has expired switch to moving random
-				call    DecrementMoveLimit
-				or      a
-				jr      z,.changeState10To6
+        ;if move limit has expired switch to moving random
+        call    DecrementMoveLimit
+        or      a
+        jr      z,.changeState10To6
 
 .moveRightCheckForward
-				ld      a,11                ;check for forward passage next
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,11                ;check for forward passage next
+        call    SetState
+        ld      a,1
+        ret
 
 .changeState10To6
         ld      a,15
-				call    SetMoveLimit
+        call    SetMoveLimit
         ld      a,6
-				call    SetState
-				xor     a
-				ret
+        call    SetState
+        xor     a
+        ret
 
 TryFwdAfterRightSecond:
         ;-------------------------------------------------------------
-				; State 11:  JUST MOVED RIGHT, CHECK FOR FORWARD PASSAGE
+        ; State 11:  JUST MOVED RIGHT, CHECK FOR FORWARD PASSAGE
         ;-------------------------------------------------------------
-				call    CheckForwardPassage
-				or      a
-				jr      nz,.changeState11ToState7
+        call    CheckForwardPassage
+        or      a
+        jr      nz,.changeState11ToState7
 
 .keepGoing
-				ld      a,10
-				call    SetState
-				xor     a
-				ret
+        ld      a,10
+        call    SetState
+        xor     a
+        ret
 
 .changeState11ToState7
         ;passage exists, MF twice (once to turn, once to move)
-				ld      a,7
-				call    SetState
-				ld      a,1
-				ret
+        ld      a,7
+        call    SetState
+        ld      a,1
+        ret
 
 NoMove:
         ;-------------------------------------------------------------
-				; Default:  RETURN "NO MOVE"
+        ; Default:  RETURN "NO MOVE"
         ;-------------------------------------------------------------
-				xor     a
+        xor     a
         ret
 
 ;---------------------------------------------------------------------
@@ -4072,9 +4072,9 @@ GetCurZone::
         ld      a,ZONEBANK        ;select zone RAM parallel to map ram
         ldio    [$ff70],a
 
-				ld      a,[hl]            ;A is curZone
-				and     $0f
-				ret
+        ld      a,[hl]            ;A is curZone
+        and     $0f
+        ret
 ;---------------------------------------------------------------------
 ; Routine:      GetHeroZone
 ; Arguments:    a   - prefer which hero?  1=Hero0, 2=Hero1, 0/3=Either
@@ -4086,37 +4086,37 @@ GetCurZone::
 GetHeroZone:
         push    de
 
-				ld      d,a
-				ld      a,[heroesPresent]
-				and     d
-				jr      z,.pickFirstAvailable
-				cp      3
-				jr      c,.getChosenHero
+        ld      d,a
+        ld      a,[heroesPresent]
+        and     d
+        jr      z,.pickFirstAvailable
+        cp      3
+        jr      c,.getChosenHero
 
 .pickFirstAvailable
         ld      a,[heroesPresent]
-				and     %01
-				jr      nz,.getChosenHero
+        and     %01
+        jr      nz,.getChosenHero
 
-				ld      a,%10
+        ld      a,%10
 
 .getChosenHero
         ;a has the valid, desired hero %10 or %01.
         ld      hl,hero0_object
-				cp      %01                      ;do we want hero 0?
-				jr      z,.haveHeroObjAddr
+        cp      %01                      ;do we want hero 0?
+        jr      z,.haveHeroObjAddr
 
         ld      l,(hero1_object & $ff)   ;we want hero 1
-        
+
 .haveHeroObjAddr
         ;Load the Hero object
-				ld      a,[hl+]       ;heroX_objectL
-				ld      e,a
-				ld      d,[hl]        ;heroX_objectH
+        ld      a,[hl+]       ;heroX_objectL
+        ld      e,a
+        ld      d,[hl]        ;heroX_objectH
 
-				call    GetCurZone
-				pop     de
-				ret
+        call    GetCurZone
+        pop     de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetState
@@ -4129,9 +4129,9 @@ GetState:
         ld      a,OBJBANK         ;select object RAM
         ldio    [$ff70],a
         ld      hl,OBJ_STATE
-				add     hl,de
-				ld      a,[hl]
-				and     %00111111
+        add     hl,de
+        ld      a,[hl]
+        and     %00111111
         ret
 
 ;---------------------------------------------------------------------
@@ -4147,19 +4147,19 @@ SetState::
         and     %00111111
         ld      b,a
 
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
         ld      hl,OBJ_STATE
-				add     hl,de
+        add     hl,de
 
-				ld      a,[hl]            ;get old state
-				and     %11000000
-				or      b
-				ld      [hl],a            ;save new state
+        ld      a,[hl]            ;get old state
+        and     %11000000
+        or      b
+        ld      [hl],a            ;save new state
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetAttackDirState
@@ -4172,12 +4172,12 @@ GetAttackDirState:
         ld      a,OBJBANK         ;select object RAM
         ldio    [$ff70],a
         ld      hl,OBJ_STATE
-				add     hl,de
-				ld      a,[hl]
+        add     hl,de
+        ld      a,[hl]
 
-				rlca
-				rlca
-				and     %00000011
+        rlca
+        rlca
+        and     %00000011
         ret
 
 ;---------------------------------------------------------------------
@@ -4192,17 +4192,17 @@ GetAttackDirState:
 SetAttackDirState:
         push    bc
 
-				rrca
-				rrca
-				and     %11000000
-				ld      b,a
+        rrca
+        rrca
+        and     %11000000
+        ld      b,a
 
         call    GetState
-				or      b
-				ld      [hl],a
+        or      b
+        ld      [hl],a
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetDestZone
@@ -4213,19 +4213,19 @@ SetAttackDirState:
 ;---------------------------------------------------------------------
 SetDestZone:
         ld      hl,OBJ_DESTZONE   ;hl = &this->move
-				add     hl,de
+        add     hl,de
 
         push    af
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
-				ld      a,[hl]
-				and     %00001111         ;mask off old zone
-				ld      [hl],a
-				pop     af
-				swap    a                 ;destZone in 7:4
-				or      [hl]              ;combine with move
-				ld      [hl],a            ;save in move
-        
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
+        ld      a,[hl]
+        and     %00001111         ;mask off old zone
+        ld      [hl],a
+        pop     af
+        swap    a                 ;destZone in 7:4
+        or      [hl]              ;combine with move
+        ld      [hl],a            ;save in move
+
         ret
 
 ;---------------------------------------------------------------------
@@ -4236,16 +4236,16 @@ SetDestZone:
 ; Alters:       a, hl
 ;---------------------------------------------------------------------
 GetDestZone:
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
         ld      hl,OBJ_DESTZONE   ;hl = &this->destzone
-				add     hl,de
-      
-			  ld      a,[hl]            ;get this->destzone
-				swap    a
-				and     %00001111
-				ret
+        add     hl,de
+
+        ld      a,[hl]            ;get this->destzone
+        swap    a
+        and     %00001111
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetPuffCount
@@ -4255,15 +4255,15 @@ GetDestZone:
 ; Alters:       a, hl
 ;---------------------------------------------------------------------
 GetPuffCount::
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
         ld      hl,OBJ_DESTZONE   ;hl = &this->state
-				add     hl,de
-      
-			  ld      a,[hl]            ;get this->state
-				and     %00001111
-				ret
+        add     hl,de
+
+        ld      a,[hl]            ;get this->state
+        and     %00001111
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetPuffCount
@@ -4275,19 +4275,19 @@ GetPuffCount::
 ;---------------------------------------------------------------------
 SetPuffCount::
         push    bc
-				ld      b,a
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      b,a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
         ld      hl,OBJ_DESTZONE   ;hl = &this->state
-				add     hl,de
-      
-			  ld      a,[hl]
-				and     %11110000
-				or      b
-			  ld      [hl],a            ;get this->state
-				pop     bc
-				ret
+        add     hl,de
+
+        ld      a,[hl]
+        and     %11110000
+        or      b
+        ld      [hl],a            ;get this->state
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetNextWayPoint
@@ -4296,54 +4296,54 @@ SetPuffCount::
 ; Returns:      hl  - position of next waypoint
 ; Alters:       a, hl
 ; C Code:
-;	      	      int curPath = pathMatrix[curZone][destZone];
-;			          int curWPIndex  = pathList[curPath][this->pathPos];
-;			          int nextWayPoint = wayPointList[curWPIndex];
+;                int curPath = pathMatrix[curZone][destZone];
+;                int curWPIndex  = pathList[curPath][this->pathPos];
+;                int nextWayPoint = wayPointList[curWPIndex];
 ;               return nextWayPoint
 ;---------------------------------------------------------------------
 GetNextWayPoint:
         push    bc
 
         ld      b,0
-				ld      c,a               ;BC gets index to array
+        ld      c,a               ;BC gets index to array
 
-				call    GetPathPos
-				push    de
-				ld      d,0
+        call    GetPathPos
+        push    de
+        ld      d,0
         ld      e,a               ;E gets pathPos
 
-				ld      a,WAYPOINTBANK    ;select object list RAM
-				ld      [$ff70],a
+        ld      a,WAYPOINTBANK    ;select object list RAM
+        ld      [$ff70],a
 
-				ld      hl,pathMatrix
-				add     hl,bc
-				ld      a,[hl]            ;A = curPath
-				ld      c,a               ;Setup curPath*4 as offset into
-				xor     a                 ;  pathlist
-				sla     c
-				rla
-				sla     c
-				rla
-				ld      b,a               ;bc = curPath*4
-				ld      hl,pathList
-				add     hl,bc             ;hl = &pathList[curPath]
-				add     hl,de             ;hl = &pathList[curPath][pathPos]
-				ld      a,[hl]            ;a = curWPIndex
-				ld      c,a               ;offset into WP list = curWPIndex*2
-				xor     a
-				sla     c
-				rla
-				ld      b,a               ;bc = offset
-				ld      hl,wayPointList
-				add     hl,bc
-				ld      a,[hl+]           ;low byte of waypoint location
-				ld      h,[hl]            ;high byte
-				ld      l,a               ;hl is location of next waypoint
+        ld      hl,pathMatrix
+        add     hl,bc
+        ld      a,[hl]            ;A = curPath
+        ld      c,a               ;Setup curPath*4 as offset into
+        xor     a                 ;  pathlist
+        sla     c
+        rla
+        sla     c
+        rla
+        ld      b,a               ;bc = curPath*4
+        ld      hl,pathList
+        add     hl,bc             ;hl = &pathList[curPath]
+        add     hl,de             ;hl = &pathList[curPath][pathPos]
+        ld      a,[hl]            ;a = curWPIndex
+        ld      c,a               ;offset into WP list = curWPIndex*2
+        xor     a
+        sla     c
+        rla
+        ld      b,a               ;bc = offset
+        ld      hl,wayPointList
+        add     hl,bc
+        ld      a,[hl+]           ;low byte of waypoint location
+        ld      h,[hl]            ;high byte
+        ld      l,a               ;hl is location of next waypoint
 
-				pop     de
+        pop     de
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetPathPos
@@ -4353,17 +4353,17 @@ GetNextWayPoint:
 ; Alters:       a, hl
 ;---------------------------------------------------------------------
 GetPathPos:
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
-				ld      hl,OBJ_FRAME
-				add     hl,de
+        ld      hl,OBJ_FRAME
+        add     hl,de
 
-				ld      a,[hl]            ;get frame var
-				swap    a
-				rrca
-				and     %00000011         ;get pathPos in 1:0
-				ret
+        ld      a,[hl]            ;get frame var
+        swap    a
+        rrca
+        and     %00000011         ;get pathPos in 1:0
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      AmAtLocation
@@ -4376,79 +4376,79 @@ GetPathPos:
 ;---------------------------------------------------------------------
 AmAtLocation::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
-				;not there if split bit is set
-				call    GetFacing
-				and     %100
-				ld      a,0
-				jr      nz,.done
+        ;not there if split bit is set
+        call    GetFacing
+        and     %100
+        ld      a,0
+        jr      nz,.done
 
         ;cur loc in bc
         ld      a,[de]            ;low byte of cur pos
-				inc     de
-				ld      c,a
-				ld      a,[de]            ;high byte
-				ld      b,a
+        inc     de
+        ld      c,a
+        ld      a,[de]            ;high byte
+        ld      b,a
 
         ;dest XY in de
-				call    ConvertLocHLToXY
-				ld      d,h
-				ld      e,l
+        call    ConvertLocHLToXY
+        ld      d,h
+        ld      e,l
 
         ;cur XY in hl
-				ld      h,b
-				ld      l,c
-				call    ConvertLocHLToXY
+        ld      h,b
+        ld      l,c
+        call    ConvertLocHLToXY
 
         ;compare sourceX to destX +/- 1
-				;ld      a,h
-				;add     1
+        ;ld      a,h
+        ;add     1
 
-				ld      a,[moveAlignPrecision]     ;x + precision
-				add     h
-				cp      d
-				jr      c,.returnFalse
+        ld      a,[moveAlignPrecision]     ;x + precision
+        add     h
+        cp      d
+        jr      c,.returnFalse
 
         ;sub     3
         ld      a,[moveAlignPrecision]     ;x - precision
-				cpl
-				add     1
-				add     h
-				cp      d
-				jr      z,.checkY
-				jr      nc,.returnFalse
+        cpl
+        add     1
+        add     h
+        cp      d
+        jr      z,.checkY
+        jr      nc,.returnFalse
 
 .checkY
         ;compare sourceY to destY +/- 1
-				ld      a,[moveAlignPrecision]     ;y + precision
-				add     l
-				cp      e
-				jr      c,.returnFalse
+        ld      a,[moveAlignPrecision]     ;y + precision
+        add     l
+        cp      e
+        jr      c,.returnFalse
 
-				ld      a,[moveAlignPrecision]     ;y - precision
-				cpl    
-				add     1
-				add     l
-				cp      e
-				jr      z,.returnTrue
-				jr      nc,.returnFalse
+        ld      a,[moveAlignPrecision]     ;y - precision
+        cpl
+        add     1
+        add     l
+        cp      e
+        jr      z,.returnTrue
+        jr      nc,.returnFalse
 
 .returnTrue
-				ld      a,1
-				jr      .done
+        ld      a,1
+        jr      .done
 
 .returnFalse
         xor     a
 .done
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      IsActorAtDest
@@ -4459,18 +4459,18 @@ AmAtLocation::
 IsActorAtDest::
         push    hl
         call    GetActorDestLoc
-				ld      a,h
-				or      a
-				jr      z,.returnTrue
+        ld      a,h
+        or      a
+        jr      z,.returnTrue
 
         xor     a
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 .returnTrue
         ld      a,1
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ResetCurPathPos
@@ -4480,17 +4480,17 @@ IsActorAtDest::
 ; Description:  Sets curPathPos (bits 6:5 of this->frame) to zero
 ;---------------------------------------------------------------------
 ResetCurPathPos:
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
 
         ld      hl,OBJ_FRAME
-				add     hl,de
+        add     hl,de
 
-				ld      a,[hl]
-				and     %10011111
-				ld      [hl],a
+        ld      a,[hl]
+        and     %10011111
+        ld      [hl],a
 
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -4501,24 +4501,24 @@ ResetCurPathPos:
 ; Description:  Adds 1 to bits 6:5 of this->frame, preserving others
 ;---------------------------------------------------------------------
 IncrementPathPos:
-				ld      a,OBJBANK         ;select object RAM
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME
-				add     hl,de
-				ld      a,[hl]
-				bit     7,a
-				jr      nz,.bit7WasOne
+        ld      a,OBJBANK         ;select object RAM
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME
+        add     hl,de
+        ld      a,[hl]
+        bit     7,a
+        jr      nz,.bit7WasOne
 
-				add     %00100000
-				res     7,a
-				ld      [hl],a
-				ret
+        add     %00100000
+        res     7,a
+        ld      [hl],a
+        ret
 
 .bit7WasOne
         add     %00100000
-				set     7,a
-				ld      [hl],a
-				ret
+        set     7,a
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      ChooseDirection
@@ -4528,7 +4528,7 @@ IncrementPathPos:
 ; Returns:      a   - 1 for valid move, 0 for no move
 ;               b   - direction of desired move (N,E,S,W)
 ; Alters:       a,b,hl
-; Description:  Converts current "source" location and destination 
+; Description:  Converts current "source" location and destination
 ;               location into x,y coordinates, then picks a direction
 ;               based on the following "dumb-AI" algorithm:
 ;
@@ -4539,90 +4539,90 @@ IncrementPathPos:
 ;---------------------------------------------------------------------
 ChooseDirection:
         push    bc
-				push    de
+        push    de
 
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
 
-				call    ConvertLocHLToXY
-				push    hl
+        call    ConvertLocHLToXY
+        push    hl
 
         call    GetCurLocation ;into hl
 
-				call    ConvertLocHLToXY
-				ld      b,h
-				ld      c,l
-				pop     de             ;source in bc, dest in de
+        call    ConvertLocHLToXY
+        ld      b,h
+        ld      c,l
+        pop     de             ;source in bc, dest in de
 
-				call    GetDirectionAttemptOrder  ;check order in A
+        call    GetDirectionAttemptOrder  ;check order in A
 
-				pop     de             ;retrieve ptr to this
+        pop     de             ;retrieve ptr to this
 
-				;check first direction
-				rlca                   ;get first direction in 1:0
-				rlca
-				ld      c,a
-				and     %00000011      ;mask off other choices
-				ld      b,a
-				xor     a
-				call    CheckDestEmpty
-				or      a              ;check result
-				jr      z,.checkDir2
+        ;check first direction
+        rlca                   ;get first direction in 1:0
+        rlca
+        ld      c,a
+        and     %00000011      ;mask off other choices
+        ld      b,a
+        xor     a
+        call    CheckDestEmpty
+        or      a              ;check result
+        jr      z,.checkDir2
 
 .foundDirection
-				ld      a,b            ;setup b with direction, return 1
-				pop     bc
-				ld      b,a
-				ld      a,1
-				ret
+        ld      a,b            ;setup b with direction, return 1
+        pop     bc
+        ld      b,a
+        ld      a,1
+        ret
 
 .checkDir2
         ld      a,c
-				rlca                   ;get second direction in 1:0
-				rlca
-				ld      c,a
-				and     %00000011      ;mask off other choices
-				ld      [secondChoiceDirection],a  ;save for left/right decision
+        rlca                   ;get second direction in 1:0
+        rlca
+        ld      c,a
+        and     %00000011      ;mask off other choices
+        ld      [secondChoiceDirection],a  ;save for left/right decision
 
-				;ld      b,a
-				;xor     a
-				;call    CheckDestEmpty
-				;or      a              ;check result
-				;jr      z,.checkDir3
+        ;ld      b,a
+        ;xor     a
+        ;call    CheckDestEmpty
+        ;or      a              ;check result
+        ;jr      z,.checkDir3
 
         ;foundDirection
-				;ld      a,b            ;setup b with direction, return 1
-				;pop     bc
-				;ld      b,a
-				;ld      a,1
-				;ret
+        ;ld      a,b            ;setup b with direction, return 1
+        ;pop     bc
+        ;ld      b,a
+        ;ld      a,1
+        ;ret
 
 .checkDir3
         ;ld      a,c
-				;rlca                   ;get third direction in 1:0
-				;rlca
-				;ld      c,a
-				;and     %00000011      ;mask off other choices
-				;ld      b,a
-				;xor     a
-				;call    CheckDestEmpty
-				;or      a              ;check result
-				;jr      z,.checkDir4
+        ;rlca                   ;get third direction in 1:0
+        ;rlca
+        ;ld      c,a
+        ;and     %00000011      ;mask off other choices
+        ;ld      b,a
+        ;xor     a
+        ;call    CheckDestEmpty
+        ;or      a              ;check result
+        ;jr      z,.checkDir4
 
         ;foundDirection
-				;ld      a,b            ;setup b with direction, return 1
-				;pop     bc
-				;ld      b,a
-				;ld      a,1
-				;ret
+        ;ld      a,b            ;setup b with direction, return 1
+        ;pop     bc
+        ;ld      b,a
+        ;ld      a,1
+        ;ret
 
 .checkDir4
-        ;no direction found, load b with desired direction and return 
-				;false
-				ld      a,b
-				pop     bc
-				ld      b,a
-				xor     a
-				ret
+        ;no direction found, load b with desired direction and return
+        ;false
+        ld      a,b
+        pop     bc
+        ld      b,a
+        xor     a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetDirectionAttemptOrder
@@ -4662,128 +4662,128 @@ ChooseDirection:
 ;               }
 ;
 ;  Note:        precision of "cur==dest" depends on current value
-;               stored in [moveAlignPrecision], e.g. value of 1 yields 
+;               stored in [moveAlignPrecision], e.g. value of 1 yields
 ;               cur>=(dest-1) && cur<=(dest+1)
 ;               e.g. (cur+1)>=dest && (cur-1)<=dest
 ;---------------------------------------------------------------------
 GetDirectionAttemptOrder:
 IF 0
-        ;if abs(dx-sx) <= 1 and abs(dy-sY)<=1 then set tolerance to 
-				;zero.  dx-sx yields $ff, 0, or 1 - plus one gives 0, 1, or 2
-				ld      h,3
-				ld      a,b
-				sub     d
-				cp      h
-				jr      nc,.afterSetAlignPrecision
+        ;if abs(dx-sx) <= 1 and abs(dy-sY)<=1 then set tolerance to
+        ;zero.  dx-sx yields $ff, 0, or 1 - plus one gives 0, 1, or 2
+        ld      h,3
+        ld      a,b
+        sub     d
+        cp      h
+        jr      nc,.afterSetAlignPrecision
 
-				ld      a,c
-				sub     e
-				cp      h
-				jr      nc,.afterSetAlignPrecision
+        ld      a,c
+        sub     e
+        cp      h
+        jr      nc,.afterSetAlignPrecision
 
-				xor     a
-				ld      [moveAlignPrecision],a
-				
+        xor     a
+        ld      [moveAlignPrecision],a
+
 .afterSetAlignPrecision
 ENDC
         ld      h,0
 
-				ld      a,[moveAlignPrecision]
-				add     b
-				;ld      a,b
-				;add     1
+        ld      a,[moveAlignPrecision]
+        add     b
+        ;ld      a,b
+        ;add     1
         cp      d
-				jr      c,.sx_LessThan_dx
+        jr      c,.sx_LessThan_dx
 
-				ld      a,[moveAlignPrecision]
-				cpl
-				add     1
-				add     b
-				cp      d
-				jr      c,.sx_Equals_dx
-				jr      z,.sx_Equals_dx
-				
-				;sx > dx
-				jr      .checkYCoords
+        ld      a,[moveAlignPrecision]
+        cpl
+        add     1
+        add     b
+        cp      d
+        jr      c,.sx_Equals_dx
+        jr      z,.sx_Equals_dx
+
+        ;sx > dx
+        jr      .checkYCoords
 
 .sx_Equals_dx
         set     3,h
-				jr      .checkYCoords
+        jr      .checkYCoords
 
 .sx_LessThan_dx
         set     1,h
 
 .checkYCoords
         ;ld      a,c
-				;add     1
-				ld      a,[moveAlignPrecision]
-				add     c
+        ;add     1
+        ld      a,[moveAlignPrecision]
+        add     c
         cp      e
-				jr      c,.sy_LessThan_dy
+        jr      c,.sy_LessThan_dy
 
-				ld      a,[moveAlignPrecision]
-				cpl
-				add     1
-				add     c
-				;sub     3
-				cp      e
-				jr      c,.sy_Equals_dy
-				jr      z,.sy_Equals_dy
+        ld      a,[moveAlignPrecision]
+        cpl
+        add     1
+        add     c
+        ;sub     3
+        cp      e
+        jr      c,.sy_Equals_dy
+        jr      z,.sy_Equals_dy
 
-				;sy>dy
-				jr      .checkOffsets      
+        ;sy>dy
+        jr      .checkOffsets
 
 .sy_Equals_dy
-				set     2,h
+        set     2,h
         jr      .pickOrder
 
 .sy_LessThan_dy
-				set     0,h
+        set     0,h
 
 .checkOffsets
         bit     3,h
-				jr      nz,.pickOrder
+        jr      nz,.pickOrder
 
-				;set bit 4 if abs(sx-dx) < abs(sy-dy)
-				ld      a,b
-				cp      d                 ;is sx < dx?
-				jr      c,.subtract_sx_from_dx
+        ;set bit 4 if abs(sx-dx) < abs(sy-dy)
+        ld      a,b
+        cp      d                 ;is sx < dx?
+        jr      c,.subtract_sx_from_dx
 
-				sub     d
-				jr      .getAbsY
+        sub     d
+        jr      .getAbsY
 
 .subtract_sx_from_dx
         ld      a,d
-				sub     b
+        sub     b
 
 .getAbsY
         ld      l,a               ;save abs(sx-dx) in l
-				ld      a,c
-				cp      e
-				jr      c,.subtract_sy_from_dy
+        ld      a,c
+        cp      e
+        jr      c,.subtract_sy_from_dy
 
         sub     e
-				jr      .haveAbsValues
+        jr      .haveAbsValues
 
 .subtract_sy_from_dy
         ld      a,e
-				sub     c
+        sub     c
 
 .haveAbsValues
         cp      l                 ;is abs(sy-dy) < abs(sx-dx)?
-				jr      nc,.pickOrder     ;no, leave bit 4 alone
+        jr      nc,.pickOrder     ;no, leave bit 4 alone
 
-				set     4,h
+        set     4,h
 
 .pickOrder
         ld      a,h
-				add     (.orderTable & $ff)
-				ld      l,a
-				ld      a,0               ;not xoring to leave the carry alone
-				adc     ((.orderTable >> 8) & $ff)
-				ld      h,a      ;hl is &orderTable[directionFlags]
-				ld      a,[hl]
-				ret
+        add     (.orderTable & $ff)
+        ld      l,a
+        ld      a,0               ;not xoring to leave the carry alone
+        adc     ((.orderTable >> 8) & $ff)
+        ld      h,a      ;hl is &orderTable[directionFlags]
+        ld      a,[hl]
+        ret
 
 .orderTable
         ;first half of table is for closing x-distance first
@@ -4834,20 +4834,20 @@ SetDesiredDirection:
         push    bc
 
         rrca
-				rrca
-				and     %11000000
-				ld      b,a
+        rrca
+        and     %11000000
+        ld      b,a
 
         ld      a,OBJBANK      ;select object RAM
         ldio    [$ff70],a
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
-				and     %00111111
-				or      b
-				ld      [hl],a
-				pop     bc
-				ret
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
+        and     %00111111
+        or      b
+        ld      [hl],a
+        pop     bc
+        ret
 
 
 ;---------------------------------------------------------------------
@@ -4861,17 +4861,17 @@ SetDesiredDirection:
 SetMoveLimit:
 SetFireDirection:
         push    bc
-				ld      b,a
+        ld      b,a
         ld      a,OBJBANK      ;select object RAM
         ldio    [$ff70],a
-				ld      hl,OBJ_LIMIT
-				add     hl,de
-				ld      a,[hl]
-				and     %11110000
-				or      b
-				ld      [hl],a
-				pop     bc
-				ret
+        ld      hl,OBJ_LIMIT
+        add     hl,de
+        ld      a,[hl]
+        and     %11110000
+        or      b
+        ld      [hl],a
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetMoveLimit / GetFireDirection
@@ -4883,25 +4883,25 @@ GetMoveLimit:
 GetFireDirection:
         ld      a,OBJBANK      ;select object RAM
         ldio    [$ff70],a
-				ld      hl,OBJ_LIMIT
-				add     hl,de
-				ld      a,[hl]
-				and     %00001111
-				ret
+        ld      hl,OBJ_LIMIT
+        add     hl,de
+        ld      a,[hl]
+        and     %00001111
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      PointToSpecialFlags
 ; Arguments:    de - this
 ; Returns:      Nothing.
 ; Alters:       a,hl
-; Description:  Sets HL to point to obj->limit.  
+; Description:  Sets HL to point to obj->limit.
 ;---------------------------------------------------------------------
 PointToSpecialFlags:
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      hl,OBJ_LIMIT
-				add     hl,de
-				ret
+        ldio    [$ff70],a
+        ld      hl,OBJ_LIMIT
+        add     hl,de
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     GetMoveRightOfDesiredDir
@@ -4910,41 +4910,41 @@ PointToSpecialFlags:
 ; Returns:      a - 0=no move, 1=move
 ;               b - direction of move if move possible
 ; Alters:       a,b,hl
-; Description:  Uses the value of this->desiredDirection to determine the 
-;               direction to move right of the major axis.  If that 
+; Description:  Uses the value of this->desiredDirection to determine the
+;               direction to move right of the major axis.  If that
 ;               move is possible, returns 1 and the direction in b.
 ;---------------------------------------------------------------------
 GetMoveRightOfDesiredDir:
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
+        ld      [$ff70],a
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
 
         rlca
-				rlca
-				inc     a               ;"turn" right
-				and     %00000011
-				ld      b,a
-				xor     a
-				call    CheckDestEmpty
-				ret
+        rlca
+        inc     a               ;"turn" right
+        and     %00000011
+        ld      b,a
+        xor     a
+        call    CheckDestEmpty
+        ret
 
 GetMoveLeftOfDesiredDir:
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
+        ld      [$ff70],a
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
 
-				rlca
-				rlca
-				dec     a               ;"turn" left
-				and     %00000011
-				ld      b,a
-				xor     a
-				call    CheckDestEmpty
-				ret
+        rlca
+        rlca
+        dec     a               ;"turn" left
+        and     %00000011
+        ld      b,a
+        xor     a
+        call    CheckDestEmpty
+        ret
 
 ;---------------------------------------------------------------------
 ; Routines:     CheckForwardPassage
@@ -4952,40 +4952,40 @@ GetMoveLeftOfDesiredDir:
 ; Returns:      a - 0=no move, 1=move
 ;               b - direction of move if move possible
 ; Alters:       a,hl
-; Description:  Uses the value of this->desiredDirection along with 
-;               current facing to determine the direction to move 
+; Description:  Uses the value of this->desiredDirection along with
+;               current facing to determine the direction to move
 ;               forward.
 ; Note:         Returns zero if the creature is split between
 ;               tiles (this->frame:2 == 1)
 ;---------------------------------------------------------------------
 CheckForwardPassage:
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,OBJ_FRAME
-				add     hl,de
+        ld      hl,OBJ_FRAME
+        add     hl,de
 
         ;check for split tile first
-				ld      a,[hl+]
-				and     %00000100
-				jr      z,.continue
+        ld      a,[hl+]
+        and     %00000100
+        jr      z,.continue
 
-				xor     a
-				ret
+        xor     a
+        ret
 
 .continue
-				inc     hl           ;state to misc
-				inc     hl           ;misc to health
-				ld      a,[hl]       ;get health byte
+        inc     hl           ;state to misc
+        inc     hl           ;misc to health
+        ld      a,[hl]       ;get health byte
 
-				rlca                 ;bits 7:6 have desired dir
-				rlca
-				and     %00000011
-				ld      b,a
-				xor     a
-				call    CheckDestEmpty
-				ret
-        
+        rlca                 ;bits 7:6 have desired dir
+        rlca
+        and     %00000011
+        ld      b,a
+        xor     a
+        call    CheckDestEmpty
+        ret
+
 ;---------------------------------------------------------------------
 ; Routines:     DecrementMoveLimit
 ; Arguments:    None.
@@ -4998,33 +4998,33 @@ DecrementMoveLimit:
         push    bc
 
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME
-				add     hl,de
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME
+        add     hl,de
 
-				ld      a,[hl+]             ;check for split tiles
-				and     %00000100
-				jr      z,.continue
+        ld      a,[hl+]             ;check for split tiles
+        and     %00000100
+        jr      z,.continue
 
-				pop     bc
-				ld      a,1
-				ret
+        pop     bc
+        ld      a,1
+        ret
 
 .continue
         inc     hl
-				ld      a,[hl]
+        ld      a,[hl]
         ld      c,a
-				and     %11110000
-				ld      b,a
-				ld      a,c
-				dec     a
-				and     %00001111
-				or      b
-				ld      [hl],a
-				and     %00001111           ;set a to be zero/nonzero
+        and     %11110000
+        ld      b,a
+        ld      a,c
+        dec     a
+        and     %00001111
+        or      b
+        ld      [hl],a
+        and     %00001111           ;set a to be zero/nonzero
 
         pop     bc
-				ret
+        ret
 
 BAInit:
         push    bc
@@ -5049,21 +5049,21 @@ BAInit:
 .afterSetHighImpactBullets
         pop     bc
 
-				;Load BA's bullet-type
-				call    SaveFGTileInfo
-				ld      a,HERO_BA_FLAG
-				call    SetHeroTileSet
+        ;Load BA's bullet-type
+        call    SaveFGTileInfo
+        ld      a,HERO_BA_FLAG
+        call    SetHeroTileSet
 
-				ld      de,classBABullet
-				ld      hl,BABULLET_CINDEX
-				xor     a
-				call    LoadAssociatedClass
-				call    GetAssociated
-				ld      b,a
-				ld      a,HERO_BA_FLAG
+        ld      de,classBABullet
+        ld      hl,BABULLET_CINDEX
+        xor     a
+        call    LoadAssociatedClass
+        call    GetAssociated
+        ld      b,a
+        ld      a,HERO_BA_FLAG
         call    SetHeroBulletIndex
 
-				call    RestoreFGTileInfo
+        call    RestoreFGTileInfo
 .done
         ret
 
@@ -5081,7 +5081,7 @@ BAPlayerCheck:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .noDirPressed
         ;xor     a
@@ -5089,34 +5089,34 @@ BAPlayerCheck:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jr      z,.done
+        or      a
+        jr      z,.done
 
         ;ld      a,HERO_BA_FLAG
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
-				call    GetFireDirection
-				ld      b,a
-				cp      4
-				jr      nc,.noStrafe    ;button not held down previously
+        call    GetFireDirection
+        ld      b,a
+        cp      4
+        jr      nc,.noStrafe    ;button not held down previously
 
 .strafeCheckSplit
         ;can only fire if not split frame or firing perpendicular
-				call    GetFacing
-				bit     2,a
-				jr      z,.gotFireDirection
-				xor     b
-				bit     0,a    ;bit zero = 0 if parallel direction
-				jr      z,.gotFireDirection
-				jr      .forceMoveForward    ;can't fire
+        call    GetFacing
+        bit     2,a
+        jr      z,.gotFireDirection
+        xor     b
+        bit     0,a    ;bit zero = 0 if parallel direction
+        jr      z,.gotFireDirection
+        jr      .forceMoveForward    ;can't fire
 
 .noStrafe
-				call    GetFacing
-				and     %00000011
-				ld      b,a
-				call    SetFireDirection
+        call    GetFacing
+        and     %00000011
+        ld      b,a
+        call    SetFireDirection
 
 .gotFireDirection
         ld      a,b
@@ -5124,19 +5124,19 @@ BAPlayerCheck:
         push    bc
         push    af
         push    hl
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
         ld      hl,baFireSound
 IF UPGRADES
-				ld      a,4               ;four points of damage
+        ld      a,4               ;four points of damage
 ELSE
-				ld      a,2               ;two points of damage
+        ld      a,2               ;two points of damage
 ENDC
-				call    StdFireBullet
-				ld      a,22
-				call    SetAttackDelay
+        call    StdFireBullet
+        ld      a,22
+        call    SetAttackDelay
 
         pop     hl
         pop     af
@@ -5156,21 +5156,21 @@ ENDC
         call    ThrowObjAtHLInDirB
 
 .afterThrowMonster
-				jr      .checkButtonB
+        jr      .checkButtonB
 
 .forceMoveForward
         call    GetHeroMoved
         ;ld      a,[baMoved]
-				or      a
-				jr      nz,.checkButtonB
+        or      a
+        jr      nz,.checkButtonB
         call    GetFacing
-				and     %00000011
-				ld      b,a
+        and     %00000011
+        ld      b,a
         call    PlayerValidateMoveAndRedraw
 
 .checkButtonB
 .done
-				ret
+        ret
 
 BAPlayerCheckSpace:
         ld      b,BA_MAX_HEALTH
@@ -5200,7 +5200,7 @@ BAPlayerCheckSpace:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .noDirPressed
         ;xor     a
@@ -5208,34 +5208,34 @@ BAPlayerCheckSpace:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jp      z,.done
+        or      a
+        jp      z,.done
 
         ;ld      a,HERO_BA_FLAG
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jp      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jp      z,.checkButtonB
 
-				call    GetFireDirection
-				ld      b,a
-				cp      4
-				jr      nc,.noStrafe    ;button not held down previously
+        call    GetFireDirection
+        ld      b,a
+        cp      4
+        jr      nc,.noStrafe    ;button not held down previously
 
 .strafeCheckSplit
         ;can only fire if not split frame or firing perpendicular
-				call    GetFacing
-				bit     2,a
-				jr      z,.gotFireDirection
-				xor     b
-				bit     0,a    ;bit zero = 0 if parallel direction
-				jr      z,.gotFireDirection
-				jr      .forceMoveForward    ;can't fire
+        call    GetFacing
+        bit     2,a
+        jr      z,.gotFireDirection
+        xor     b
+        bit     0,a    ;bit zero = 0 if parallel direction
+        jr      z,.gotFireDirection
+        jr      .forceMoveForward    ;can't fire
 
 .noStrafe
-				call    GetFacing
-				and     %00000011
-				ld      b,a
-				call    SetFireDirection
+        call    GetFacing
+        and     %00000011
+        ld      b,a
+        call    SetFireDirection
 
 .gotFireDirection
         ld      a,b
@@ -5243,19 +5243,19 @@ BAPlayerCheckSpace:
         push    bc
         push    af
         push    hl
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
         ld      hl,baFireSound
 IF UPGRADES
-				ld      a,4               ;four points of damage
+        ld      a,4               ;four points of damage
 ELSE
-				ld      a,2               ;two points of damage
+        ld      a,2               ;two points of damage
 ENDC
-				call    StdFireBullet
-				ld      a,22
-				call    SetAttackDelay
+        call    StdFireBullet
+        ld      a,22
+        call    SetAttackDelay
 
         ;reverse fire direction for travel direction
         call    GetFacing
@@ -5282,7 +5282,7 @@ ENDC
         pop     af
         or      b
         call    SetFacing
-				call    StandardRedrawNoCheckSprite
+        call    StandardRedrawNoCheckSprite
 
         pop     hl
         pop     af
@@ -5302,21 +5302,21 @@ ENDC
         call    ThrowObjAtHLInDirB
 
 .afterThrowMonster
-				jr      .checkButtonB
+        jr      .checkButtonB
 
 .forceMoveForward
         call    GetHeroMoved
         ;ld      a,[baMoved]
-				or      a
-				jr      nz,.checkButtonB
+        or      a
+        jr      nz,.checkButtonB
         call    GetFacing
-				and     %00000011
-				ld      b,a
+        and     %00000011
+        ld      b,a
         call    PlayerValidateMoveAndRedraw
 
 .checkButtonB
 .done
-				ret
+        ret
 
 IF 0
 BAPlayerCheck:
@@ -5330,16 +5330,16 @@ BAPlayerCheck:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jr      z,.done
+        or      a
+        jr      z,.done
 
         ;ld      a,HERO_BA_FLAG
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
         ret     z
 
         call    HeroSetupFireDirection
@@ -5354,20 +5354,20 @@ BAPlayerCheck:
 
         ld      hl,baFireSound
 IF UPGRADES
-				ld      a,4               ;four points of damage
+        ld      a,4               ;four points of damage
 ELSE
-				ld      a,2               ;two points of damage
+        ld      a,2               ;two points of damage
 ENDC
-				call    StdFireBullet
-				ld      a,22
-				call    SetAttackDelay
+        call    StdFireBullet
+        ld      a,22
+        call    SetAttackDelay
 
         pop     hl
         pop     af
 
         jr      BAThrowMonster
 .done
-				ret
+        ret
 
 BAThrowMonster:
         ld      b,a
@@ -5397,24 +5397,24 @@ ENDC
 ;---------------------------------------------------------------------
 SetHeroBulletIndex:
         push    hl
-				ld      hl,heroJoyIndex
-				and     [hl]
+        ld      hl,heroJoyIndex
+        and     [hl]
         ld      a,b
-				jr      nz,.useIndex1  ;note flags are still from AND
+        jr      nz,.useIndex1  ;note flags are still from AND
 
 .useIndex0
-				ld      [hero0_bullet_index],a
-				jr      .done
+        ld      [hero0_bullet_index],a
+        jr      .done
 
 .useIndex1
-				ld      [hero1_bullet_index],a
+        ld      [hero1_bullet_index],a
 
 .done
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetHeroTileSet 
+; Routine:      SetHeroTileSet
 ; Arguments:    a  - flag of hero (e.g. HERO_BA_FLAG)
 ; Returns:      Nothing.
 ; Alters:       af
@@ -5425,34 +5425,34 @@ SetHeroBulletIndex:
 ;---------------------------------------------------------------------
 SetHeroTileSet:
         push    bc
-				push    de
+        push    de
         push    hl
 
-				ld      hl,heroJoyIndex
-				and     [hl]
-				jr      nz,.secondTileSet
-				ld      a,6
-				ld      bc,$9060
-				ld      d,1
-				jr      .pickedTileSet
+        ld      hl,heroJoyIndex
+        and     [hl]
+        jr      nz,.secondTileSet
+        ld      a,6
+        ld      bc,$9060
+        ld      d,1
+        jr      .pickedTileSet
 .secondTileSet
         ld      a,26
-				ld      bc,$91a0
-				ld      d,3
+        ld      bc,$91a0
+        ld      d,3
 .pickedTileSet
         ld      [numFGTiles],a
-				ld      a,c
-				ld      [fgDestPtr],a
-				ld      a,b
-				ld      [fgDestPtr+1],a
-				ld      a,[firstHero]
-				add     d
-				ld      [numClasses],a
+        ld      a,c
+        ld      [fgDestPtr],a
+        ld      a,b
+        ld      [fgDestPtr+1],a
+        ld      a,[firstHero]
+        add     d
+        ld      [numClasses],a
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetHeroJoyInput
@@ -5462,30 +5462,30 @@ SetHeroTileSet:
 ;---------------------------------------------------------------------
 GetHeroJoyInput:
         ld      a,[hero0_index]
-				cp      c
-				jr      nz,.useIndex1
-				ld      a,[curJoy0]
-				ret
+        cp      c
+        jr      nz,.useIndex1
+        ld      a,[curJoy0]
+        ret
 
 .useIndex1
         ld      a,[curJoy1]
-				ret
+        ret
 
 GetAssocJoyInput:
-				call    GetAssociated
+        call    GetAssociated
         push    bc
         ld      b,a
         ld      a,[hero0_index]
-				cp      b
+        cp      b
         pop     bc
-				jr      nz,.useIndex1
-				ld      a,[curJoy0]
-				ret
+        jr      nz,.useIndex1
+        ld      a,[curJoy0]
+        ret
 
 .useIndex1
         ld      a,[curJoy1]
-				ret
- 
+        ret
+
 
 ;---------------------------------------------------------------------
 ; Routine:      SetHeroMoved
@@ -5496,17 +5496,17 @@ GetAssocJoyInput:
 ;---------------------------------------------------------------------
 SetHeroMoved:
         push    af
-				ld      a,[hero0_index]
-				cp      c
-				jr      nz,.useIndex1
-				pop     af
-				ld      [hero0_moved],a
-				ret
+        ld      a,[hero0_index]
+        cp      c
+        jr      nz,.useIndex1
+        pop     af
+        ld      [hero0_moved],a
+        ret
 
 .useIndex1
         pop     af
-				ld      [hero1_moved],a
-				ret
+        ld      [hero1_moved],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetHeroMoved
@@ -5515,22 +5515,22 @@ SetHeroMoved:
 ; Alters:       af
 ;---------------------------------------------------------------------
 GetHeroMoved:
-				ld      a,[hero0_index]
-				cp      c
-				jr      nz,.useIndex1
-				ld      a,[hero0_moved]
-				ret
+        ld      a,[hero0_index]
+        cp      c
+        jr      nz,.useIndex1
+        ld      a,[hero0_moved]
+        ret
 
 .useIndex1
-				ld      a,[hero1_moved]
-				ret
+        ld      a,[hero1_moved]
+        ret
 
 ;---------------------------------------------------------------------
 ; BS
 ;---------------------------------------------------------------------
 BSInit:
         push    bc
-				push    de
+        push    de
         push    hl
 
         push    bc
@@ -5556,25 +5556,25 @@ BSInit:
 .afterSetShootFast
         pop     bc
 
-				;Load BS's bullet-type
-				call    SaveFGTileInfo
-				ld      a,HERO_BS_FLAG
-				call    SetHeroTileSet
+        ;Load BS's bullet-type
+        call    SaveFGTileInfo
+        ld      a,HERO_BS_FLAG
+        call    SetHeroTileSet
 
-				ld      de,classBSBullet
-				ld      hl,BSBULLET_CINDEX
-				xor     a
-				call    LoadAssociatedClass
-				call    GetAssociated
-				ld      b,a
-				ld      a,HERO_BS_FLAG
+        ld      de,classBSBullet
+        ld      hl,BSBULLET_CINDEX
+        xor     a
+        call    LoadAssociatedClass
+        call    GetAssociated
+        ld      b,a
+        ld      a,HERO_BS_FLAG
         call    SetHeroBulletIndex
 
-				call    RestoreFGTileInfo
+        call    RestoreFGTileInfo
 
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
 
 .bsInitTable
@@ -5591,37 +5591,37 @@ BSPlayerCheck:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .checkButtons
         call    HeroCheckCanFire
         jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
         call    HeroSetupFireDirection
         jr      z,.checkButtonB
 
         ld      hl,bsFireSound
-				ld      a,1               ;one point of damage
-				call    StdFireBullet
+        ld      a,1               ;one point of damage
+        call    StdFireBullet
         ld      a,[bsUpgrades]
         bit     UPGRADE_BSSHOOTFAST,a
         jr      z,.shootSlow
 .shootFast
-				ld      a,10
+        ld      a,10
         jr      .setAttackD
 .shootSlow
-				ld      a,18
+        ld      a,18
 .setAttackD
-				call    SetAttackDelay
-				jr      .checkButtonB
+        call    SetAttackDelay
+        jr      .checkButtonB
 
 .checkButtonB
 .done
-				ret
+        ret
 
 BSPlayerCheckSpace:
         ld      b,BS_MAX_HEALTH
@@ -5651,32 +5651,32 @@ BSPlayerCheckSpace:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .checkButtons
         call    HeroCheckCanFire
         jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
         call    HeroSetupFireDirection
         jr      z,.checkButtonB
 
         ld      hl,bsFireSound
-				ld      a,1               ;one point of damage
-				call    StdFireBullet
+        ld      a,1               ;one point of damage
+        call    StdFireBullet
         ld      a,[bsUpgrades]
         bit     UPGRADE_BSSHOOTFAST,a
         jr      z,.shootSlow
 .shootFast
-				ld      a,10
+        ld      a,10
         jr      .setAttackD
 .shootSlow
-				ld      a,18
+        ld      a,18
 .setAttackD
-				call    SetAttackDelay
+        call    SetAttackDelay
 
         ;reverse fire direction for travel direction
         call    GetFacing
@@ -5703,69 +5703,69 @@ BSPlayerCheckSpace:
         pop     af
         or      b
         call    SetFacing
-				call    StandardRedrawNoCheckSprite
+        call    StandardRedrawNoCheckSprite
 
         ;call    ThrowObjAtHLInDirB
 
-				jr      .checkButtonB
+        jr      .checkButtonB
 
 .checkButtonB
 .done
-				ret
+        ret
 
 HeroCheckCanFire:
         call    DecrementAttackDelay
-				or      a
+        or      a
         ret     z
 
-				call    GetAssociated   ;has a gun?
-				or      a
+        call    GetAssociated   ;has a gun?
+        or      a
         ret
 
 HeroSetupFireDirection:
-				call    GetFireDirection
-				ld      b,a
-				cp      4
-				jr      nc,.noStrafe    ;button not held down previously
+        call    GetFireDirection
+        ld      b,a
+        cp      4
+        jr      nc,.noStrafe    ;button not held down previously
 
 .strafeCheckSplit
         ;can only fire if not split frame or firing perpendicular
-				call    GetFacing
-				bit     2,a
-				jr      z,.gotFireDirection
-				xor     b
-				bit     0,a    ;bit zero = 0 if parallel direction
-				jr      z,.gotFireDirection
-				jr      .forceMoveForward    ;can't fire
+        call    GetFacing
+        bit     2,a
+        jr      z,.gotFireDirection
+        xor     b
+        bit     0,a    ;bit zero = 0 if parallel direction
+        jr      z,.gotFireDirection
+        jr      .forceMoveForward    ;can't fire
 
 .noStrafe
-				call    GetFacing
-				and     %00000011
-				ld      b,a
-				call    SetFireDirection
+        call    GetFacing
+        and     %00000011
+        ld      b,a
+        call    SetFireDirection
 
 .gotFireDirection
         ld      a,b
         call    GetLocInFront
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
         or      a
         ret
 
 .forceMoveForward
         call    GetHeroMoved
-				or      a
-				jr      nz,.done
+        or      a
+        jr      nz,.done
         call    GetFacing
-				and     %00000011
-				ld      b,a
+        and     %00000011
+        ld      b,a
         call    PlayerValidateMoveAndRedraw
 .done
         xor     a
         ret
-      
+
 
 ;---------------------------------------------------------------------
 ; HAIKU
@@ -5783,7 +5783,7 @@ HaikuInit:
   DB 3,1,$0f,HAIKU_MAX_HEALTH,0,0,0,GROUP_HERO
 
 HaikuPlayerCheck:
-				;am I dead?
+        ;am I dead?
         ld      b,HAIKU_MAX_HEALTH
         call    StdPlayerCheckDead
         ret     z
@@ -5792,8 +5792,8 @@ HaikuPlayerCheck:
         jr      z,.checkButtons
 
         call    PlayerValidateMoveAndRedraw
-				or      a
-				jr      z,.checkButtons
+        or      a
+        jr      z,.checkButtons
 
         call    GetHeroJoyInput  ;no attack if braking
         bit     JOY_B_BIT,a
@@ -5803,12 +5803,12 @@ HaikuPlayerCheck:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jr      z,.done
+        or      a
+        jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
         ;clip to edges of map
 ;and (JOY_DOWN | JOY_A)
@@ -5816,14 +5816,14 @@ HaikuPlayerCheck:
 ;jr nz,.skip
 ;ld b,b
 ;.skip
-				call    GetFacing
+        call    GetFacing
         and     %11
         ld      b,a
         call    AmAtEdgeInDirection
         jr      nz,.checkButtonB
 
-				call    GetFacing
-				and     %00000011
+        call    GetFacing
+        and     %00000011
         ld      b,a
         call    GetLocInFront
         ld      a,b
@@ -5833,13 +5833,13 @@ HaikuPlayerCheck:
         jr      z,.checkButtonB
 
         ;haiku teleports two squares ahead
-				call    GetFacing
+        call    GetFacing
         push    af
         push    bc
-				ld      c,a
-				call    RemoveFromMap
+        ld      c,a
+        call    RemoveFromMap
         pop     bc
-				call    SetCurLocation
+        call    SetCurLocation
         pop     af
 
         push    hl
@@ -5887,17 +5887,17 @@ HaikuPlayerCheck:
         pop     bc
         ;----END call MOVEOVER method
 
-				ld      a,15
-				call    SetAttackDelay
-				jr      .checkButtonB
+        ld      a,15
+        call    SetAttackDelay
+        jr      .checkButtonB
 
 .forceMoveForward
 .checkButtonB
 .done
-				ret
+        ret
 
 HaikuPlayerCheckSpace:
-				;am I dead?
+        ;am I dead?
         ld      b,HAIKU_MAX_HEALTH
         call    StdPlayerCheckDead
         ret     z
@@ -5907,7 +5907,7 @@ HaikuPlayerCheckSpace:
 
         ;can only move if in different direction than facing
         ;or object in front
-				ld      a,4
+        ld      a,4
         call    GetLocInFront
         or      a
         jr      nz,.move
@@ -5919,8 +5919,8 @@ HaikuPlayerCheckSpace:
 
 .move
         call    PlayerValidateMoveAndRedraw
-				or      a
-				jr      z,.checkButtons
+        or      a
+        jr      z,.checkButtons
 
         call    GetHeroJoyInput  ;no attack if braking
         bit     JOY_B_BIT,a
@@ -5930,22 +5930,22 @@ HaikuPlayerCheckSpace:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jr      z,.done
+        or      a
+        jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
         ;clip to edges of map
-				call    GetFacing
+        call    GetFacing
         and     %11
         ld      b,a
         call    AmAtEdgeInDirection
         jr      nz,.checkButtonB
 
-				call    GetFacing
-				and     %00000011
+        call    GetFacing
+        and     %00000011
         ld      b,a
         call    GetLocInFront
         ld      a,b
@@ -5955,13 +5955,13 @@ HaikuPlayerCheckSpace:
         jr      z,.checkButtonB
 
         ;haiku teleports two squares ahead
-				call    GetFacing
+        call    GetFacing
         push    af
         push    bc
-				ld      c,a
-				call    RemoveFromMap
+        ld      c,a
+        call    RemoveFromMap
         pop     bc
-				call    SetCurLocation
+        call    SetCurLocation
         pop     af
 
         push    hl
@@ -6009,72 +6009,72 @@ HaikuPlayerCheckSpace:
         pop     bc
         ;----END call MOVEOVER method
 
-				ld      a,15
-				call    SetAttackDelay
-				jr      .checkButtonB
+        ld      a,15
+        call    SetAttackDelay
+        jr      .checkButtonB
 
 .forceMoveForward
 .checkButtonB
 .done
-				ret
+        ret
 
 HaikuHitObject:
-				;attack forward
-				call    GetFacing
-				and     %00000011
-				ld      b,a
-				ld      [fireBulletDirection],a
-				ld      a,4
+        ;attack forward
+        call    GetFacing
+        and     %00000011
+        ld      b,a
+        ld      [fireBulletDirection],a
+        ld      a,4
         call    GetLocInFront
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,[hl]
-				cp      b
-				jr      nc,.hitMonster
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,[hl]
+        cp      b
+        jr      nc,.hitMonster
 
 .hitAttackableWall
         call    HitWall
-				jr      .afterHit
+        jr      .afterHit
 
 .hitMonster
-				ld      b,a           ;index of monster being hit
+        ld      b,a           ;index of monster being hit
 
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
-				ld      a,1               ;one point of damage
-				ld      [methodParamL],a
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
+        ld      a,1               ;one point of damage
+        ld      [methodParamL],a
 
         ldio    a,[curObjWidthHeight]
-				push    af
-				ld      a,[fireBulletDirection]
-				call    HitObject
-				pop     af
-				ldio    [curObjWidthHeight],a
+        push    af
+        ld      a,[fireBulletDirection]
+        call    HitObject
+        pop     af
+        ldio    [curObjWidthHeight],a
 
 .afterHit
         ld      hl,haikuSound
-				call    PlaySound
-				ld      a,15
-				call    SetAttackDelay
-				call    GetFacing
-				ld      h,a
-				add     2
-				and     %00000011
-				ld      l,a
-				ld      a,h
-				and     %11111100
-				or      l
-				call    SetFacing
-				push    bc
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				pop     bc
+        call    PlaySound
+        ld      a,15
+        call    SetAttackDelay
+        call    GetFacing
+        ld      h,a
+        add     2
+        and     %00000011
+        ld      l,a
+        ld      a,h
+        and     %11111100
+        or      l
+        call    SetFacing
+        push    bc
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        pop     bc
         call    StandardRedrawNoCheckSprite  ;turn around
         ret
 
@@ -6083,76 +6083,76 @@ HaikuTakeDamage:
         push    hl
 
         ;store object palette color to be the explosion color later
-				call    GetFGAttributes
-				and     %111
-				ld      [bulletColor],a
+        call    GetFGAttributes
+        and     %111
+        ld      [bulletColor],a
 
-				;take damage only if I'm not facing bullet
-				call    GetFacing
-				add     2
-				and     %11
-				ld      hl,bulletDirection    ;was fireBulletDirection
-				cp      [hl]
-				jr      nz,.notFacingBullet
+        ;take damage only if I'm not facing bullet
+        call    GetFacing
+        add     2
+        and     %11
+        ld      hl,bulletDirection    ;was fireBulletDirection
+        cp      [hl]
+        jr      nz,.notFacingBullet
 
         ;take no damage
-				xor     a
-				pop     hl
-				pop     bc
-				ret
+        xor     a
+        pop     hl
+        pop     bc
+        ret
 
 .notFacingBullet
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				;play the explosion sound effect
-				ld      hl,stdExplosionSound
-				call    PlaySound
+        ;play the explosion sound effect
+        ld      hl,stdExplosionSound
+        call    PlaySound
 
         ;blow off a puff instead of taking damage?
-				ld      hl,OBJ_DESTZONE
-				add     hl,de
-				ld      a,[hl]
-				and     %1111
-				jr      z,.noPuffs
+        ld      hl,OBJ_DESTZONE
+        add     hl,de
+        ld      a,[hl]
+        and     %1111
+        jr      z,.noPuffs
 
-				dec     [hl]
-				ld      b,METHOD_DRAW
-				call    CallMethod
-				ld      b,1
-				jr      .done
+        dec     [hl]
+        ld      b,METHOD_DRAW
+        call    CallMethod
+        ld      b,1
+        jr      .done
 
 .noPuffs
-				ld      a,[methodParamL]
-				ld      c,a                   ;c is damage
+        ld      a,[methodParamL]
+        ld      c,a                   ;c is damage
 
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
-				;ld      b,a
-				ld      b,0
-				and     %00111111
-				jr      z,.done            ;already dead
-				ld      b,c                ;b is damage inflicted
-				sub     c
-				jr      nc,.notNegative
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
+        ;ld      b,a
+        ld      b,0
+        and     %00111111
+        jr      z,.done            ;already dead
+        ld      b,c                ;b is damage inflicted
+        sub     c
+        jr      nc,.notNegative
 
         add     c                  ;original health
-				ld      b,a                ;is damage inflicted
-				xor     a                  ;less than zero is zero
+        ld      b,a                ;is damage inflicted
+        xor     a                  ;less than zero is zero
 .notNegative
         ld      c,a
-				ld      a,[hl]
-				;ld      a,b
-				and     %11000000
-				or      c
-				ld      [hl],a
+        ld      a,[hl]
+        ;ld      a,b
+        and     %11000000
+        or      c
+        ld      [hl],a
 
 .done
-				ld      a,b      ;return damage inflicted
-				pop     hl
-				pop     bc
-				ret
+        ld      a,b      ;return damage inflicted
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Hero Lady Flower
@@ -6170,23 +6170,23 @@ LadyInit:
         pop     de
         pop     bc
 
-				;Load Lady's bullet-type
+        ;Load Lady's bullet-type
         push    bc
         push    de
-				call    SaveFGTileInfo
-				ld      a,HERO_FLOWER_FLAG
-				call    SetHeroTileSet
+        call    SaveFGTileInfo
+        ld      a,HERO_FLOWER_FLAG
+        call    SetHeroTileSet
 
-				ld      de,classLadyBullet
-				ld      hl,LADY_BULLET_CINDEX
-				xor     a
-				call    LoadAssociatedClass
-				call    GetAssociated
-				ld      b,a
-				ld      a,HERO_FLOWER_FLAG
+        ld      de,classLadyBullet
+        ld      hl,LADY_BULLET_CINDEX
+        xor     a
+        call    LoadAssociatedClass
+        call    GetAssociated
+        ld      b,a
+        ld      a,HERO_FLOWER_FLAG
         call    SetHeroBulletIndex
 
-				call    RestoreFGTileInfo
+        call    RestoreFGTileInfo
 
         pop     de
         pop     bc
@@ -6207,15 +6207,15 @@ LadyPlayerCheck:
         call    PlayerValidateMoveAndRedraw
 
         ld      a,1
-				call    SetHeroMoved
+        call    SetHeroMoved
 
 .checkButtons
         call    HeroCheckCanFire
         jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.checkButtonB
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.checkButtonB
 
         call    HeroSetupFireDirection
         jr      z,.checkButtonB
@@ -6226,9 +6226,9 @@ LadyPlayerCheck:
         or      a
         jr      nz,.checkShootOver
 
-				ld      a,[numFreeObjects]
-				cp      200
-				jr      c,.done
+        ld      a,[numFreeObjects]
+        cp      200
+        jr      c,.done
 
 .checkShootOver ;don't shoot on shootover-only tiles
         ldio    a,[firstMonster]
@@ -6247,28 +6247,28 @@ LadyPlayerCheck:
 
 .fire
         ld      hl,ladyFireSound
-				ld      a,1               ;one point of damage
-				call    StdFireBullet
-				ld      a,20
-				call    SetAttackDelay
-				jr      .checkButtonB
+        ld      a,1               ;one point of damage
+        call    StdFireBullet
+        ld      a,20
+        call    SetAttackDelay
+        jr      .checkButtonB
 
 .checkButtonB
 .done
-				ret
+        ret
 
 ladyFireSound:
   DB 1,$35,$80,$f3,$00,$c4
 
 LadyGetInput:
-				call    GetHeroJoyInput
+        call    GetHeroJoyInput
 
         bit     JOY_A_BIT,a             ;check strafe release
-				jr      nz,.afterStrafeRelease  ;nope
+        jr      nz,.afterStrafeRelease  ;nope
 
         push    af
         ld      a,15                    ;yep
-				call    SetFireDirection
+        call    SetFireDirection
         pop     af
 
 .afterStrafeRelease
@@ -6283,8 +6283,8 @@ LadyGetInput:
         ld      a,2
 
 .testMove
-				call    HeroTestMove
-				or      a
+        call    HeroTestMove
+        or      a
         ret     z
         jp      HeroDoSparks
 
@@ -6295,7 +6295,7 @@ LadyBulletInit:
         ;call    ChangeMyClass
 
         ld      hl,.pansyInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
         ld      a,[methodParamL]
         and     %00000011
@@ -6305,21 +6305,21 @@ LadyBulletInit:
         or      b
         call    SetFacing
 
-				call    PointToSpecialFlags
-				set     OBJBIT_THROWN,[hl]
+        call    PointToSpecialFlags
+        set     OBJBIT_THROWN,[hl]
 
         xor     a
         call    SetMisc
 
         ret
-        
+
 .pansyInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_HERO       ;group
-				DB      1                ;has bullet
-				DW      classPansyBullet ;associated bullet class ptr
-				DW      PANSYBULLET_CINDEX
+        DB      GROUP_HERO       ;group
+        DB      1                ;has bullet
+        DW      classPansyBullet ;associated bullet class ptr
+        DW      PANSYBULLET_CINDEX
 
 LadyBulletCheck:
         call    GetMisc
@@ -6328,14 +6328,14 @@ LadyBulletCheck:
 
 .changedClass
         ld      hl,.pansyCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .pansyCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      pansyFireSound
-				DB      10     ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      pansyFireSound
+        DB      10     ;fire delay
         DW      LadyVectorToState
 
 ;---------------------------------------------------------------------
@@ -6354,21 +6354,21 @@ FlourInit:
         pop     de
         pop     bc
 
-				;Load Captain's bullet-type
+        ;Load Captain's bullet-type
         push    bc
         push    de
-				call    SaveFGTileInfo
-				ld      a,HERO_FLOUR_FLAG
-				call    SetHeroTileSet
-				ld      de,classFlourBullet
-				ld      hl,FLOUR_BULLET_CINDEX
-				xor     a
-				call    LoadAssociatedClass
-				call    GetAssociated
-				ld      b,a
-				ld      a,HERO_FLOUR_FLAG
+        call    SaveFGTileInfo
+        ld      a,HERO_FLOUR_FLAG
+        call    SetHeroTileSet
+        ld      de,classFlourBullet
+        ld      hl,FLOUR_BULLET_CINDEX
+        xor     a
+        call    LoadAssociatedClass
+        call    GetAssociated
+        ld      b,a
+        ld      a,HERO_FLOUR_FLAG
         call    SetHeroBulletIndex
-				call    RestoreFGTileInfo
+        call    RestoreFGTileInfo
         pop     de
         pop     bc
 
@@ -6390,20 +6390,20 @@ FlourPlayerCheck:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jr      z,.done
+        or      a
+        jr      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jr      z,.done
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jr      z,.done
 
-				ld      hl,flourAttackSound
-				call    PlaySound
+        ld      hl,flourAttackSound
+        call    PlaySound
 
         ;turn into bullet
         xor     a
         call    SetMisc
-				call    ChangeMyClassToAssociatedAndRedraw
+        call    ChangeMyClassToAssociatedAndRedraw
 
 .done
         ret
@@ -6413,73 +6413,73 @@ flourAttackSound:
 
 FlourBulletCheck:
         call    .flourBulletCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    HeroTestMove
+        ;time to move?
+        ld      a,1
+        call    HeroTestMove
 
         or      a
-				ret     z
+        ret     z
 
-				call    .flourBulletCheckMain  ;move first of two
+        call    .flourBulletCheckMain  ;move first of two
         ;ret
 
-				call    GetHealth
+        call    GetHealth
         ld      b,FLOUR_MAX_HEALTH
-				call    HealthSparks
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    HealthSparks
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				ld      a,1   ;no, move again
+        ld      a,1   ;no, move again
 
-				call    .flourBulletCheckMain  ;move first of two
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    .flourBulletCheckMain  ;move first of two
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				ld      a,1   ;no, move again
+        ld      a,1   ;no, move again
 
 .flourBulletCheckMain
-				or      a
-				jr      z,.done           ;timer lsb==frame lsb, don't move yet
+        or      a
+        jr      z,.done           ;timer lsb==frame lsb, don't move yet
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      nc,.hitMonster
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      nc,.hitMonster
 
-				;bg in front flagged as shoot over?
-				ld      a,[bgFlags]
+        ;bg in front flagged as shoot over?
+        ld      a,[bgFlags]
         bit     BG_BIT_SHOOTOVER,a
         jr      z,.hitWall
-				;and     BG_FLAG_SHOOTOVER
-				;jr      z,.hitWall
-				jr      .keepGoing
+        ;and     BG_FLAG_SHOOTOVER
+        ;jr      z,.hitWall
+        jr      .keepGoing
 
 .hitMonster
         call    .flourBulletHitMonster
-				ret
+        ret
 
 .hitWall
         call    .flourBulletHitWall
-				ret
+        ret
 
 .keepGoing
         jp      .flourBulletKeepGoing
 .done
-				ret
+        ret
 
 .flourBulletCheckDead
-				call    GetHealth
-        cp      b 
+        call    GetHealth
+        cp      b
         jr      c,.afterLimitHealth
 
         ld      a,b
@@ -6488,34 +6488,34 @@ FlourBulletCheck:
         pop     af
 
 .afterLimitHealth
-				or      a
+        or      a
         ret     nz
 
         ld      a,[amShowingDialog]   ;don't die while showing dialog
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 IF INFINITEHEALTH==0
-				call    ChangeMyClassToAssociatedAndRedraw
+        call    ChangeMyClassToAssociatedAndRedraw
         xor     a
 ELSE
         ld      a,1
         or      a
 ENDC
-				ret
+        ret
 
 
 .flourBulletHitMonster
-				;object in front, hit it for damage
-				ld      b,a                  ;monster index in b, loc in hl
+        ;object in front, hit it for damage
+        ld      b,a                  ;monster index in b, loc in hl
 
-        ;get damage 
+        ;get damage
         ld      a,1
 
-				ld      [methodParamL],a
-				ld      a,4                  ;use direction of this object for expl
-				call    HitObject
+        ld      [methodParamL],a
+        ld      a,4                  ;use direction of this object for expl
+        call    HitObject
         call    .changeDirection
-				ret
+        ret
 
 .flourBulletHitWall
         bit     BG_BIT_ATTACKABLE,a
@@ -6526,7 +6526,7 @@ ENDC
 
 .afterHitWall
         call    .changeDirection
-				ret
+        ret
 
 .flourBulletKeepGoing
         call    GetMisc    ;bounced over three times?
@@ -6540,33 +6540,33 @@ ENDC
         bit     7,a
         jr      nz,.afterCheckStopSound
 
-				call    ChangeMyClassToAssociatedAndRedraw
+        call    ChangeMyClassToAssociatedAndRedraw
         ret
 
 .afterCheckStopSound
-				ld      hl,flourAttackSound
-				call    PlaySound
+        ld      hl,flourAttackSound
+        call    PlaySound
 
 .afterCheckStop
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME         ;get current direction
-				add     hl,de
-				ld      a,[hl]
-				and     %00000011            ;keep going same direction
-				ld      b,a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME         ;get current direction
+        add     hl,de
+        ld      a,[hl]
+        and     %00000011            ;keep going same direction
+        ld      b,a
 
-				call    Move
+        call    Move
         call    StdBulletRedraw  ;draw me please
-				ret
+        ret
 
 .changeDirection
         call    GetMisc
         inc     [hl]
         call    GetFacing
         ld      b,a
-  
-				call    GetAssocJoyInput   ;allow user to dictate dir of exit
+
+        call    GetAssocJoyInput   ;allow user to dictate dir of exit
         and     %1111
         jr      z,.reverseDir
 
@@ -6599,17 +6599,17 @@ ENDC
         ld      b,a
         ;call    Move
         ;call    StdBulletRedraw
-				push    bc
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				pop     bc
+        push    bc
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        pop     bc
         call    StandardRedrawNoCheckSprite  ;turn around
         ret
 
 StdPlayerCheckDead:
-				call    GetHealth
-        cp      b 
+        call    GetHealth
+        cp      b
         jr      c,.afterLimitHealth
 
         ld      a,b
@@ -6618,33 +6618,33 @@ StdPlayerCheckDead:
         pop     af
 
 .afterLimitHealth
-				or      a
+        or      a
         ret     nz
 
         ld      a,[amShowingDialog]   ;don't die while showing dialog
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 IF INFINITEHEALTH==0
-				call    RemoveHero
+        call    RemoveHero
         xor     a
 ELSE
         ld      a,1
         or      a
 ENDC
-				ret
+        ret
 
 StdPlayerGetInput:
         ;args:     b - max health
         ;returns:  z - no move, nz=has move
         ;          b - dir of move
-				call    GetHeroJoyInput
+        call    GetHeroJoyInput
 
         bit     JOY_A_BIT,a             ;check strafe release
-				jr      nz,.afterStrafeRelease  ;nope
+        jr      nz,.afterStrafeRelease  ;nope
 
         push    af
         ld      a,15                    ;yep
-				call    SetFireDirection
+        call    SetFireDirection
         pop     af
 
 .afterStrafeRelease
@@ -6659,49 +6659,49 @@ StdPlayerGetInput:
         ld      a,1
 
 .testMove
-				call    HeroTestMove
-				or      a
+        call    HeroTestMove
+        or      a
         ret     z
 ;fall through below
 
 ;falling through above
 HeroDoSparks:
-				xor     a
+        xor     a
         call    SetHeroMoved
 
-				call    GetHealth
+        call    GetHealth
         ;ld      b,HAIKU_MAX_HEALTH   ;b should be set up
-				call    HealthSparks
+        call    HealthSparks
 
-				call    GetHeroJoyInput
+        call    GetHeroJoyInput
 
-				and     %1111               ;get directions only
+        and     %1111               ;get directions only
         ret     z
-				;jr      nz,.checkEast
-				;jp      .checkButtons
+        ;jr      nz,.checkEast
+        ;jp      .checkButtons
 
         call    JoyAToDirB
         ld      a,1
         or      a
-        ret 
+        ret
 
 JoyAToDirB:
 .checkEast
-				bit     0,a
-				jr      z,.checkWest
-				ld      b,DIR_EAST
+        bit     0,a
+        jr      z,.checkWest
+        ld      b,DIR_EAST
         ret
 
 .checkWest
         bit     1,a
-				jr      z,.checkNorth
-				ld      b,DIR_WEST
+        jr      z,.checkNorth
+        ld      b,DIR_WEST
         ret
 
 .checkNorth
         bit     2,a
-				jr      z,.checkSouth
-				ld      b,DIR_NORTH
+        jr      z,.checkSouth
+        ld      b,DIR_NORTH
         ret
 
 .checkSouth
@@ -6760,9 +6760,9 @@ LocIsPassable:
 ;               zflag - or a
 ;---------------------------------------------------------------------
 AmAtEdgeInDirection:
-				;clip and make sure I'm at least 2 from the edge
-				call    GetCurLocation
-				call    ConvertLocHLToXY
+        ;clip and make sure I'm at least 2 from the edge
+        call    GetCurLocation
+        call    ConvertLocHLToXY
         ld      a,b
         cp      DIR_NORTH
         jr      z,.checkNorth
@@ -6772,15 +6772,15 @@ AmAtEdgeInDirection:
         jr      z,.checkSouth
 
 .checkWest
-				ld      a,h
-				cp      2
-				jr      c,.returnTrue
+        ld      a,h
+        cp      2
+        jr      c,.returnTrue
         jr      .returnFalse
 
 .checkNorth
-				ld      a,l
-				cp      2
-				jr      c,.returnTrue
+        ld      a,l
+        cp      2
+        jr      c,.returnTrue
         jr      .returnFalse
 
 .checkEast
@@ -6791,10 +6791,10 @@ AmAtEdgeInDirection:
 
         inc     h
 .xOkay
-				ld      a,[mapWidth]
-				sub     3
-				cp      h
-				jr      c,.returnTrue
+        ld      a,[mapWidth]
+        sub     3
+        cp      h
+        jr      c,.returnTrue
         jr      .returnFalse
 
 .checkSouth
@@ -6806,10 +6806,10 @@ AmAtEdgeInDirection:
         inc     l
 
 .yOkay
-				ld      a,[mapHeight]
-				sub     3
-				cp      l
-				jr      c,.returnTrue
+        ld      a,[mapHeight]
+        sub     3
+        cp      l
+        jr      c,.returnTrue
 
 .returnFalse
         xor     a
@@ -6855,12 +6855,12 @@ GrenadePlayerCheck:
 
 .checkButtons
         call    DecrementAttackDelay
-				or      a
-				jp      z,.done
+        or      a
+        jp      z,.done
 
-				call    GetHeroJoyInput
-				bit     4,a               ;button A pressed?
-				jp      z,.done
+        call    GetHeroJoyInput
+        bit     4,a               ;button A pressed?
+        jp      z,.done
 
         call    GetMisc   ;already started explosion?
         or      a
@@ -6880,11 +6880,11 @@ GrenadePlayerCheck:
         dec     h
         dec     l
         call    ConvertXYToLocHL
-				ld      bc,$0404
-				ld      de,$1407
-				call    CreateBigExplosion
-				ld      hl,bigExplosionSound
-				call    PlaySound
+        ld      bc,$0404
+        ld      de,$1407
+        call    CreateBigExplosion
+        ld      hl,bigExplosionSound
+        call    PlaySound
         pop     de
         pop     bc
 
@@ -6917,37 +6917,37 @@ IF 0
 
         ;reset hero to bs
         ld      hl,2056  ;bs
-				ld      a,l
-				ld      [hero0_class],a
-				ld      a,h
-				ld      [hero0_class+1],a
-				ld      a,HERO_BS_FLAG
-				ld      [hero0_type],a
+        ld      a,l
+        ld      [hero0_class],a
+        ld      a,h
+        ld      [hero0_class+1],a
+        ld      a,HERO_BS_FLAG
+        ld      [hero0_type],a
         jr      .done
 
 .resetHero1
         ;reset hero to bs
         ld      hl,2056  ;bs
-				ld      a,l
-				ld      [hero1_class],a
-				ld      a,h
-				ld      [hero1_class+1],a
-				ld      a,HERO_BS_FLAG
-				ld      [hero1_type],a
+        ld      a,l
+        ld      [hero1_class],a
+        ld      a,h
+        ld      [hero1_class+1],a
+        ld      a,HERO_BS_FLAG
+        ld      [hero1_type],a
 ENDC
 
 .done
         ret
 
 GrenadeGetInput:
-				call    GetHeroJoyInput
+        call    GetHeroJoyInput
 
         bit     JOY_A_BIT,a             ;check strafe release
-				jr      nz,.afterStrafeRelease  ;nope
+        jr      nz,.afterStrafeRelease  ;nope
 
         push    af
         ld      a,15                    ;yep
-				call    SetFireDirection
+        call    SetFireDirection
         pop     af
 
 .afterStrafeRelease
@@ -6962,8 +6962,8 @@ GrenadeGetInput:
         ld      a,4
 
 .testMove
-				call    HeroTestMove
-				or      a
+        call    HeroTestMove
+        or      a
         ret     z
         jp      HeroDoSparks
 
@@ -6976,195 +6976,195 @@ StdBulletInit:
         push    bc
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				ld      a,[methodParamL]
-				ld      b,a
+        ld      a,[methodParamL]
+        ld      b,a
 
-				ld      hl,OBJ_FRAME
-				add     hl,de
+        ld      hl,OBJ_FRAME
+        add     hl,de
         ld      a,b
-				and     %10000011
-				ld      c,a
-				ld      a,[objTimer60ths]   ;set to cur timer so no move this round
-				or      c
-				ld      [hl+],a          ;set frame
-				push    af               ;save frame for later
+        and     %10000011
+        ld      c,a
+        ld      a,[objTimer60ths]   ;set to cur timer so no move this round
+        or      c
+        ld      [hl+],a          ;set frame
+        push    af               ;save frame for later
 
         ld      a,1
-				ld      [hl+],a          ;move one
-				ld      a,b
-				and     %00011100        ;extract color palette
-				srl     a
-				srl     a
-				ld      [hl+],a          ;store in misc
-				ld      a,1
-				ld      [hl+],a          ;health = 1
-				inc     hl               ;skip nextL
-				inc     hl               ;skip nextH
-				ld      a,1
-				ld      [hl+],a          ;state=1 (length for long bullets)
-				ld      a,GROUP_FFA
-				ld      [hl+],a          ;group = FFA
+        ld      [hl+],a          ;move one
+        ld      a,b
+        and     %00011100        ;extract color palette
+        srl     a
+        srl     a
+        ld      [hl+],a          ;store in misc
+        ld      a,1
+        ld      [hl+],a          ;health = 1
+        inc     hl               ;skip nextL
+        inc     hl               ;skip nextH
+        ld      a,1
+        ld      [hl+],a          ;state=1 (length for long bullets)
+        ld      a,GROUP_FFA
+        ld      [hl+],a          ;group = FFA
 
-				ld      a,[fireBulletDamage]
-				ld      [hl+],a          ;DESTL/Damage
+        ld      a,[fireBulletDamage]
+        ld      [hl+],a          ;DESTL/Damage
 
-				inc     hl               ;skip DESTH
+        inc     hl               ;skip DESTH
 
-				;allocate a sprite if the isSprite flag starts out at 1
-				pop     af               ;retrieve frame
-				bit     7,a              ;sprite flag set?
-				jr      z,.afterAlloc
+        ;allocate a sprite if the isSprite flag starts out at 1
+        pop     af               ;retrieve frame
+        bit     7,a              ;sprite flag set?
+        jr      z,.afterAlloc
 
-				;call    AllocateSprite
-				;ld      [hl+],a          ;set SPRITELO
+        ;call    AllocateSprite
+        ;ld      [hl+],a          ;set SPRITELO
 
 .afterAlloc
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 YellowBulletInit:
-				ld      hl,methodParamL
-				ld      a,[hl]
-				and     %11100011
+        ld      hl,methodParamL
+        ld      a,[hl]
+        and     %11100011
         or      %00010100        ;yellow
-				ld      [hl],a
-				jp      StdBulletInit
+        ld      [hl],a
+        jp      StdBulletInit
 
 StdBulletRedraw:
         push    bc
         push    de
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				xor     a
-				ld      [fgFlags],a
+        xor     a
+        ld      [fgFlags],a
 
-				ld      hl,OBJ_LIMIT      ;get my color
-				add     hl,de
-				ld      b,[hl]
-				jp      StandardDraw
+        ld      hl,OBJ_LIMIT      ;get my color
+        add     hl,de
+        ld      b,[hl]
+        jp      StandardDraw
 
 StdCheckDead:
         push    hl
         call    GetHealth
-				pop     hl
-				or      a
-				ret     nz
-				call    StandardDie
-				xor     a
-				ret         ;return z flag set
+        pop     hl
+        or      a
+        ret     nz
+        call    StandardDie
+        xor     a
+        ret         ;return z flag set
 
 StdCheckTimeToMove:
-				;time to move?
-				ld      a,[hl+]
-				ld      [checkTemp],a
-				or      a
-				jr      nz,.goAhead
-				inc     a
-				ret            ;return nz - no move but can attack
+        ;time to move?
+        ld      a,[hl+]
+        ld      [checkTemp],a
+        or      a
+        jr      nz,.goAhead
+        inc     a
+        ret            ;return nz - no move but can attack
 
 .goAhead
-				push    hl
-				call    TestMove
-				pop     hl
-				or      a
-				ret     nz    ;can move
-				xor     a     ;return z
-				ret           ;timer lsb==frame lsb, don't move yet
+        push    hl
+        call    TestMove
+        pop     hl
+        or      a
+        ret     nz    ;can move
+        xor     a     ;return z
+        ret           ;timer lsb==frame lsb, don't move yet
 
 StdCheckAttack:
 .checkAttack
         ;can I attack yet?
-				push    hl
+        push    hl
         call    DecrementAttackDelay
-				pop     hl
-				or      a
-				jr      nz,.attackOkay
-				inc     hl
+        pop     hl
+        or      a
+        jr      nz,.attackOkay
+        inc     hl
 .didntFindEnemy
-				inc     hl
-				inc     hl
-				inc     hl
-				inc     hl
-				jr      .skipAttack
+        inc     hl
+        inc     hl
+        inc     hl
+        inc     hl
+        jr      .skipAttack
 
 .attackOkay
         ld      a,[hl+]
-				or      a
-				jr      z,.didntFindEnemy
+        or      a
+        jr      z,.didntFindEnemy
 
-				cp      1
-				jr      z,.meleeOnly
+        cp      1
+        jr      z,.meleeOnly
 
-				;Got an enemy in my sights?
-				xor     a
-				ld      [losLimit],a
-				call    LookForEnemyInLOS        ;returns dir of enemy in b
-				or      a
-				jr      z,.didntFindEnemy
-				jr      .foundEnemy
+        ;Got an enemy in my sights?
+        xor     a
+        ld      [losLimit],a
+        call    LookForEnemyInLOS        ;returns dir of enemy in b
+        or      a
+        jr      z,.didntFindEnemy
+        jr      .foundEnemy
 
 .meleeOnly
-				ld      a,1
-				ld      [losLimit],a
-				call    LookForEnemyInLOS        ;returns dir of enemy in b
-				or      a
-				jr      z,.didntFindEnemy
+        ld      a,1
+        ld      [losLimit],a
+        call    LookForEnemyInLOS        ;returns dir of enemy in b
+        or      a
+        jr      z,.didntFindEnemy
 
 .foundEnemy
-				;Fire instead of moving
-				ld      a,[curObjWidthHeight]
-				push    af
+        ;Fire instead of moving
+        ld      a,[curObjWidthHeight]
+        push    af
 
-				ld      a,[hl+]   ;bullet damage
-				push    hl
-				push    af
+        ld      a,[hl+]   ;bullet damage
+        push    hl
+        push    af
 
-				ld      a,[hl+]   ;hl = fire sound
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]   ;hl = fire sound
+        ld      h,[hl]
+        ld      l,a
 
         pop     af             ;damage
-				call    StdFireBullet  ;b is direction to fire
-				pop     hl
-				inc     hl
-				inc     hl
-				ld      a,[hl+]        ;delay
-				call    SetAttackDelay
+        call    StdFireBullet  ;b is direction to fire
+        pop     hl
+        inc     hl
+        inc     hl
+        ld      a,[hl+]        ;delay
+        call    SetAttackDelay
 
-				pop     af
-				ld      [curObjWidthHeight],a
+        pop     af
+        ld      [curObjWidthHeight],a
 
-				;turn to face the direction we just fired
-				ld      a,[checkTemp]
-				or      a
-				jr      z,.skipMove
+        ;turn to face the direction we just fired
+        ld      a,[checkTemp]
+        or      a
+        jr      z,.skipMove
 
-				call    GetFacing
-				and     %11
-				cp      b
-				jr      z,.skipMove  ;no need to turn
+        call    GetFacing
+        and     %11
+        cp      b
+        jr      z,.skipMove  ;no need to turn
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StandardValidateMoveAndRedraw
 
-				jr      .skipMove
+        jr      .skipMove
 
 .skipAttack
         ld      a,1 ;return nz (go ahead and move)
-				or      a
-				ret
+        or      a
+        ret
 
 .skipMove
         xor     a   ;return z (skip move)
-				ret
+        ret
 
 StdCheckTalk:
         ld      a,[dialogNPC_speakerIndex]  ;someone else talking?
@@ -7217,25 +7217,25 @@ StdCheckTalk:
         ld      a,1
         call    SetMisc
 
-				call    GetFacing
-				and     %11
-				cp      b
-				jr      z,.skipMove  ;no need to turn
+        call    GetFacing
+        and     %11
+        cp      b
+        jr      z,.skipMove  ;no need to turn
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StandardValidateMoveAndRedraw
 
-				jr      .skipMove
+        jr      .skipMove
 
 .skipTalk
         ld      a,1 ;return nz (go ahead and move)
-				or      a
-				ret
+        or      a
+        ret
 
 .skipMove
         xor     a   ;return z (skip move)
-				ret
+        ret
 
 .getHeroAtHL
         ;if a hero is at HL, sets up [dialogNPC*] with appropriate
@@ -7279,27 +7279,27 @@ StdCheckTalk:
 
 StdMove:
         ld      a,1
-				ld      [moveAlignPrecision],a
-				ld      a,c
-				ld      bc,.vectorToStateReturnAddress
-				push    bc
-				ld      c,a
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				or      a      ;no movement if vector table is zero
-				jr      nz,.jumpToVector
-				cp      h
-				jr      nz,.jumpToVector
+  ld      [moveAlignPrecision],a
+  ld      a,c
+  ld      bc,.vectorToStateReturnAddress
+  push    bc
+  ld      c,a
+  ld      a,[hl+]
+  ld      h,[hl]
+  ld      l,a
+  or      a      ;no movement if vector table is zero
+  jr      nz,.jumpToVector
+  cp      h
+  jr      nz,.jumpToVector
 
-				pop     bc
-				jr      .vectorToStateReturnAddress
+  pop     bc
+  jr      .vectorToStateReturnAddress
 
 .jumpToVector
-        jp      [hl]
+        jp      hl
 .vectorToStateReturnAddress
-				or      a
-				ret     z
+        or      a
+        ret     z
 
         call    StandardValidateMoveAndRedraw
 .done
@@ -7310,242 +7310,242 @@ StdMove:
 ;----bullet check methods---------------------------------------------
 WizardBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,2
-				call    TestMove
+        ;time to move?
+        ld      a,2
+        call    TestMove
 
-				or      a
-				jr      z,.done           ;timer lsb==frame lsb, don't move yet
+        or      a
+        jr      z,.done           ;timer lsb==frame lsb, don't move yet
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      nc,.hitMonster
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      nc,.hitMonster
 
-				;bg in front flagged as shoot over?
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.hitWall
-				jr      .keepGoing
+        ;bg in front flagged as shoot over?
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.hitWall
+        jr      .keepGoing
 
 .hitMonster
         ;'a' is class index of monster hit, hl it's location
-				ld      b,a
+        ld      b,a
         call    StandardDie
-				ld      c,b
-				ld      d,h
-				ld      e,l
-				call    FindObject
+        ld      c,b
+        ld      d,h
+        ld      e,l
+        call    FindObject
 
-				;perform a random effect on the monster hit
-				ld      a,1
-				call    GetRandomNumMask
-				or      a
-				jr      nz,.checkMonsterRand1
+        ;perform a random effect on the monster hit
+        ld      a,1
+        call    GetRandomNumMask
+        or      a
+        jr      nz,.checkMonsterRand1
 
-				;freeze the monster for a bit
-				ld      a,60
-				call    SetMoveDelay
-				ret
+        ;freeze the monster for a bit
+        ld      a,60
+        call    SetMoveDelay
+        ret
 
 .checkMonsterRand1
-				;don't let the monster attack for a bit
-				ld      a,[hero0_index]
-				cp      c
-				jr      z,.setHeroAttackDelay
-				ld      a,[hero1_index]
-				cp      c
-				jr      z,.setHeroAttackDelay
+        ;don't let the monster attack for a bit
+        ld      a,[hero0_index]
+        cp      c
+        jr      z,.setHeroAttackDelay
+        ld      a,[hero1_index]
+        cp      c
+        jr      z,.setHeroAttackDelay
 
-				;set monster attack delay
-				ld      a,20
-				call    SetAttackDelay
-				ret
+        ;set monster attack delay
+        ld      a,20
+        call    SetAttackDelay
+        ret
 
 .setHeroAttackDelay
         ld      a,200
-				call    SetAttackDelay
-				ret
+        call    SetAttackDelay
+        ret
 
 .hitWall
         call    StdBulletHitWall
-				ret
+        ret
 
 .keepGoing
         jp      StdBulletKeepGoing
 .done
-				ret
+        ret
 
 SuperSuperFastBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    TestMove
+        ;time to move?
+        ld      a,1
+        call    TestMove
 
         or      a
-				ret     z
+        ret     z
 
-				call    BulletCheckCommon  ;move first of two
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    BulletCheckCommon  ;move first of two
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				;no, move again
-				call    BulletCheckCommon
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        ;no, move again
+        call    BulletCheckCommon
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				;no, move yet again
-				jr      BulletCheckCommon
+        ;no, move yet again
+        jr      BulletCheckCommon
 
 SuperFastBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    TestMove
+        ;time to move?
+        ld      a,1
+        call    TestMove
 
         or      a
-				ret     z
+        ret     z
 
-				call    BulletCheckCommon  ;move first of two
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    BulletCheckCommon  ;move first of two
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				ld      a,1   ;no, move again
-				jr      BulletCheckCommon
+        ld      a,1   ;no, move again
+        jr      BulletCheckCommon
 
 StdBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,2
-				call    TestMove
+        ;time to move?
+        ld      a,2
+        call    TestMove
 
 BulletCheckCommon:
-				or      a
-				jr      z,.done           ;timer lsb==frame lsb, don't move yet
+        or      a
+        jr      z,.done           ;timer lsb==frame lsb, don't move yet
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      nc,.hitMonster
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      nc,.hitMonster
 
-				;bg in front flagged as shoot over?
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.hitWall
-				jr      .keepGoing
+        ;bg in front flagged as shoot over?
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.hitWall
+        jr      .keepGoing
 
 .hitMonster
         call    StdBulletHitMonster
-				ret
-				;jr      .done
+        ret
+        ;jr      .done
 
 .hitWall
         call    StdBulletHitWall
-				ret
-				;jr      .done
+        ret
+        ;jr      .done
 
 .keepGoing
         jp      StdBulletKeepGoing
 .done
 bulletCheckDone:
-				ret
+        ret
 
 StdBulletHitMonster:
-				;object in front, hit it for damage
-				ld      b,a                  ;monster index in b, loc in hl
+        ;object in front, hit it for damage
+        ld      b,a                  ;monster index in b, loc in hl
 
         ;get damage from object
-				push    hl
-				call    GetBulletDamage
-				pop     hl
+        push    hl
+        call    GetBulletDamage
+        pop     hl
 
-				ld      [methodParamL],a
-				ld      a,4                  ;use direction of this object for expl
-				call    HitObject
+        ld      [methodParamL],a
+        ld      a,4                  ;use direction of this object for expl
+        call    HitObject
         call    StandardDie
-				ret
+        ret
 
 StdBulletHitWall:
         ld      b,16                 ;initial frame
         call    HitWall
         call    StandardDie
-				ret
+        ret
 
 StdBulletKeepGoing:
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME         ;get current direction
-				add     hl,de
-				ld      a,[hl]
-				and     %00000011            ;keep going same direction
-				ld      b,a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME         ;get current direction
+        add     hl,de
+        ld      a,[hl]
+        and     %00000011            ;keep going same direction
+        ld      b,a
 
-				call    Move
+        call    Move
         call    StdBulletRedraw  ;draw me please
-				ret
+        ret
 
 BASuperFastBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    HeroTestMove
+        ;time to move?
+        ld      a,1
+        call    HeroTestMove
 
         or      a
-				ret     z
+        ret     z
 
-				call    BABulletCheckCommon  ;move first of two
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    BABulletCheckCommon  ;move first of two
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				ld      a,1   ;no, move again
+        ld      a,1   ;no, move again
 BABulletCheckCommon:
-				or      a
-				jr      z,.done           ;timer lsb==frame lsb, don't move yet
+        or      a
+        jr      z,.done           ;timer lsb==frame lsb, don't move yet
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      nc,.hitMonster
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      nc,.hitMonster
 
-				;bg in front flagged as shoot over?
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.hitWall
-				jr      .keepGoing
+        ;bg in front flagged as shoot over?
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.hitWall
+        jr      .keepGoing
 
 .hitMonster
         push    hl
@@ -7558,116 +7558,116 @@ BABulletCheckCommon:
         and     %11
         ld      b,a
         call    ThrowObjAtHLInDirB
-				ret
-				;jr      .done
+        ret
+        ;jr      .done
 
 .hitWall
         call    StdBulletHitWall
-				ret
-				;jr      .done
+        ret
+        ;jr      .done
 
 .keepGoing
         jp      StdBulletKeepGoing
 .done
-				ret
+        ret
 
 
 
 HeroBulletCheck:
-				;am I dead?
+        ;am I dead?
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    HeroTestMove
+        ;time to move?
+        ld      a,1
+        call    HeroTestMove
         jp      BulletCheckCommon
 
 HeroSuperFastBulletCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
 .checkTimeToMove
-				;time to move?
-				ld      a,1
-				call    HeroTestMove
+        ;time to move?
+        ld      a,1
+        call    HeroTestMove
 
         or      a
-				ret     z
+        ret     z
 
-				call    BulletCheckCommon  ;move first of two
-				call    GetHealth  ;died yet?
-				or      a
-				ret     z
+        call    BulletCheckCommon  ;move first of two
+        call    GetHealth  ;died yet?
+        or      a
+        ret     z
 
-				ld      a,1   ;no, move again
-				jp      BulletCheckCommon
+        ld      a,1   ;no, move again
+        jp      BulletCheckCommon
 
 
 ExplodingBulletCheck:
-				;am I dead?
-				call    GetHealth
-				or      a
-				jr      nz,.checkTimeToMove
-				call    StandardDie
-				jr      .done
+        ;am I dead?
+        call    GetHealth
+        or      a
+        jr      nz,.checkTimeToMove
+        call    StandardDie
+        jr      .done
 
 .checkTimeToMove
-				;time to move?
-				ld      a,2
-				call    TestMove
-				or      a
-				jr      z,.done           ;timer lsb==frame lsb, don't move yet
+        ;time to move?
+        ld      a,2
+        call    TestMove
+        or      a
+        jr      z,.done           ;timer lsb==frame lsb, don't move yet
 
-				ldio    a,[firstMonster]
-				ld      b,a
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      nc,.hitSomething
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      nc,.hitSomething
 
-				;bg in front flagged as shoot over?
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      nz,.keepGoing
+        ;bg in front flagged as shoot over?
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      nz,.keepGoing
 
 .hitWall
         call    GetMoveLimit
-				and     %00000111
-				ld      [bulletColor],a
-				call    GetBulletDamage
-				ld      b,a
-				call    GetCurLocation
+        and     %00000111
+        ld      [bulletColor],a
+        call    GetBulletDamage
+        ld      b,a
+        call    GetCurLocation
         call    StandardDie
-				call    BombLocation
-				jr      .done
+        call    BombLocation
+        jr      .done
 
 .hitSomething
         ;get damage from object
-				push    hl
+        push    hl
         call    GetMoveLimit
-				and     %00000111
-				ld      [bulletColor],a
-				call    GetBulletDamage
-				pop     hl
-				ld      b,a
+        and     %00000111
+        ld      [bulletColor],a
+        call    GetBulletDamage
+        pop     hl
+        ld      b,a
         call    StandardDie
-				call    BombLocation
-				jr      .done
+        call    BombLocation
+        jr      .done
 
 .keepGoing
         call    GetFacing
-				and     %00000011            ;keep going same direction
-				ld      b,a
+        and     %00000011            ;keep going same direction
+        ld      b,a
 
-				call    Move
+        call    Move
         call    StdBulletRedraw  ;draw me please
 
 .done
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetLocInFront
@@ -7686,156 +7686,156 @@ ExplodingBulletCheck:
 ;---------------------------------------------------------------------
 GetLocInFront:
         push    bc
-				push    de
+        push    de
 
-				cp      4
-				jr      nz,.checkArbitraryAfterSplit
+        cp      4
+        jr      nz,.checkArbitraryAfterSplit
 
-				xor     a
-				ld      [bgFlags],a
+        xor     a
+        ld      [bgFlags],a
 
-				;check in direction of current facing
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME        ;get facing
-				add     hl,de
-				ld      a,[hl]
-				bit     2,a
-				jr      z,.notSplit
+        ;check in direction of current facing
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME        ;get facing
+        add     hl,de
+        ld      a,[hl]
+        bit     2,a
+        jr      z,.notSplit
 
-				;is split, return zero and location in hl
+        ;is split, return zero and location in hl
         ld      h,d
-				ld      l,e                 ;hl = location
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				xor     a                   ;return zero
-				jr      .done
+        ld      l,e                 ;hl = location
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        xor     a                   ;return zero
+        jr      .done
 
 .notSplit
-				and     %00000011            ;left with cur direction in A
+        and     %00000011            ;left with cur direction in A
 
 .checkArbitraryAfterSplit
         ld      b,a                 ;b is dir to check
-				ld      [getLocInitFacing],a
+        ld      [getLocInitFacing],a
 
-				xor     a
-				ld      [bgFlags],a
+        xor     a
+        ld      [bgFlags],a
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME        ;get facing
-				add     hl,de
-				ld      a,[hl]
-				bit     2,a
-				jr      nz,.isSplit
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME        ;get facing
+        add     hl,de
+        ld      a,[hl]
+        bit     2,a
+        jr      nz,.isSplit
 
-				;not split, get offset, get location & we're done
-				call    .getLocInHLAndOffsetInDE
-				jr      .addedOnceOrTwice
-				;ld      a,[hl]
-				;jr      .done
+        ;not split, get offset, get location & we're done
+        call    .getLocInHLAndOffsetInDE
+        jr      .addedOnceOrTwice
+        ;ld      a,[hl]
+        ;jr      .done
 
 .isSplit
         ;combine desired facing + cur facing in B
-				rlca
-				rlca
-				and     %00001100
-				or      b
-				ld      b,a                 ;B is combo cur facing+desired check
-				ld      hl,getLocSplitTable
-				add     l
-				ld      l,a
-				ld      a,[hl]
-			  or      a
-				jr      nz, .addTwice
+        rlca
+        rlca
+        and     %00001100
+        or      b
+        ld      b,a                 ;B is combo cur facing+desired check
+        ld      hl,getLocSplitTable
+        add     l
+        ld      l,a
+        ld      a,[hl]
+        or      a
+        jr      nz, .addTwice
 
-				;add once
-				call    .getLocInHLAndOffsetInDE
-				jr      .addedOnceOrTwice
+        ;add once
+        call    .getLocInHLAndOffsetInDE
+        jr      .addedOnceOrTwice
 
 .addTwice
         ldio    a,[curObjWidthHeight]
-				push    af
-				ld      a,1
-				ldio    [curObjWidthHeight],a
-				call    .getLocInHLAndOffsetInDE
-				add     hl,de
-				pop     af
-				ldio    [curObjWidthHeight],a
+        push    af
+        ld      a,1
+        ldio    [curObjWidthHeight],a
+        call    .getLocInHLAndOffsetInDE
+        add     hl,de
+        pop     af
+        ldio    [curObjWidthHeight],a
 
 .addedOnceOrTwice
         ldio    a,[firstMonster]
-				ld      b,a
+        ld      b,a
 
-				ld      a,[hl]
-				or      a
-				jr      z,.done
-				cp      b
-				jr      nc,.done
+        ld      a,[hl]
+        or      a
+        jr      z,.done
+        cp      b
+        jr      nc,.done
 
         ;non-zero bg tile, get attribute flags in [bgFlags]
-				ld      e,a
-				ld      d,((bgAttributes>>8) & $ff)
-				ld      a,TILEINDEXBANK
-				ld      [$ff70],a
-				ld      a,[de]
-				ld      [bgFlags],a
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ld      a,e
+        ld      e,a
+        ld      d,((bgAttributes>>8) & $ff)
+        ld      a,TILEINDEXBANK
+        ld      [$ff70],a
+        ld      a,[de]
+        ld      [bgFlags],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ld      a,e
 
 .done
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 .getLocInHLAndOffsetInDE
         ;location in hl
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
         ld      h,d
-				ld      l,e                 ;hl = location
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ld      l,e                 ;hl = location
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
         ;direction offset in de
         ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
         ld      d,((mapOffsetNorth>>8)&$ff)  ;add offset to go in front
-				ld      a,b
-				and     %00000011
-				rla                                  ;times two
-				add     (mapOffsetNorth & $ff)
-				ld      e,a                          ;de pts to offset
-				ld      a,[de]
-				ld      c,a
-				inc     de
-				ld      a,[de]
-				ld      e,c
-				ld      d,a                          ;de IS offset
+        ld      a,b
+        and     %00000011
+        rla                                  ;times two
+        add     (mapOffsetNorth & $ff)
+        ld      e,a                          ;de pts to offset
+        ld      a,[de]
+        ld      c,a
+        inc     de
+        ld      a,[de]
+        ld      e,c
+        ld      d,a                          ;de IS offset
 
         ;2x2 creatures facing east or south should be +1 more tile
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      nz,.afterAdjust
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      nz,.afterAdjust
 
-				ld      a,[getLocInitFacing]
-				cp      1
-				jr      z,.offsetTimesTwo
+        ld      a,[getLocInitFacing]
+        cp      1
+        jr      z,.offsetTimesTwo
 
-				cp      2
-				jr      nz,.afterAdjust
+        cp      2
+        jr      nz,.afterAdjust
 
 .offsetTimesTwo
         sla     e
-				rl      d
+        rl      d
 
 .afterAdjust
-				add     hl,de                        ;hl += offset
-				ret
+        add     hl,de                        ;hl += offset
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      StdFireBullet
@@ -7850,135 +7850,135 @@ StdFireBullet:
         push    bc
         push    de
         push    hl
-				push    hl   ;save temp copy of fire sound
+        push    hl   ;save temp copy of fire sound
 
-				ld      [fireBulletDamage],a
-				ld      a,1
-				ld      [guardAlarm],a
+        ld      [fireBulletDamage],a
+        ld      a,1
+        ld      [guardAlarm],a
 
         ;save my facing for later
-				ld      a,b
-				cp      4                ;use current facing if b=4
-				jr      nz,.gotFacing    ;otherwise b is facing
+        ld      a,b
+        cp      4                ;use current facing if b=4
+        jr      nz,.gotFacing    ;otherwise b is facing
 
         call    GetFacing
-				and     %00000011
-				ld      b,a
-				call    GetLocInFront
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
-				ld      a,b
+        and     %00000011
+        ld      b,a
+        call    GetLocInFront
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
+        ld      a,b
 .gotFacing
         ld      [fireBulletDirection],a
 
         ;Position to place bullet
-				ldio    a,[firstMonster]
-				ld      b,a
-				;ld      a,[fireBulletDirection]
+        ldio    a,[firstMonster]
+        ld      b,a
+        ;ld      a,[fireBulletDirection]
         ;call    GetLocInFront            ;a is direction
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[fireBulletLocation]
-				ld      l,a
-				ld      a,[fireBulletLocation+1]
-				ld      h,a
-				ld      a,[hl]
-				or      a
-				jr      z,.okayToFire
-				cp      b
-				jr      nc,.hitMonsterRightAway
-				ld      a,[bgFlags]
-				bit     BG_BIT_SHOOTOVER,a
-				jr      nz,.okayToFire
-				bit     BG_BIT_ATTACKABLE,a
-				jr      nz,.hitWallRightAway
-				
-				;wall straight ahead, can't fire
-				pop     hl     ;get rid of fire sound
-				jr      .done
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[fireBulletLocation]
+        ld      l,a
+        ld      a,[fireBulletLocation+1]
+        ld      h,a
+        ld      a,[hl]
+        or      a
+        jr      z,.okayToFire
+        cp      b
+        jr      nc,.hitMonsterRightAway
+        ld      a,[bgFlags]
+        bit     BG_BIT_SHOOTOVER,a
+        jr      nz,.okayToFire
+        bit     BG_BIT_ATTACKABLE,a
+        jr      nz,.hitWallRightAway
+
+        ;wall straight ahead, can't fire
+        pop     hl     ;get rid of fire sound
+        jr      .done
 
 .hitWallRightAway
         ld      a,[fireBulletDirection]
         ld      [bulletDirection],a
-				call    GetFGAttributes
-				and     %111
-				ld      [bulletColor],a
-				call    GetAssociated
-				push    bc
-				ld      c,a
-				call    HitWallAfterSetDirection
-				pop     bc
-				jr      .playFireSound
+        call    GetFGAttributes
+        and     %111
+        ld      [bulletColor],a
+        call    GetAssociated
+        push    bc
+        ld      c,a
+        call    HitWallAfterSetDirection
+        pop     bc
+        jr      .playFireSound
 
 .hitMonsterRightAway
-				;object in front, hit it for damage
-				ld      b,a                  ;monster index in b, loc in hl
-				ld      a,[fireBulletDamage] ;one point of damage
-				ld      [methodParamL],a
-				ld      a,[fireBulletDirection]
-				call    HitObject
+        ;object in front, hit it for damage
+        ld      b,a                  ;monster index in b, loc in hl
+        ld      a,[fireBulletDamage] ;one point of damage
+        ld      [methodParamL],a
+        ld      a,[fireBulletDirection]
+        call    HitObject
 
-				pop     hl   ;fire sound
-				call    PlaySound
-				jr      .done
+        pop     hl   ;fire sound
+        call    PlaySound
+        jr      .done
 
 .okayToFire
         ;Get class index of bullet
-				call    GetAssociated
-				ld      b,c                  ;save class index
-				ld      c,a                  ;retreive class index
+        call    GetAssociated
+        ld      b,c                  ;save class index
+        ld      c,a                  ;retreive class index
 
         ;create the bullet
-				call    CreateObject
+        call    CreateObject
 
-				;init bullet sending my color palette and my facing
+        ;init bullet sending my color palette and my facing
         ld      a,TILEINDEXBANK
         ld      [$ff70],a
         ld      l,b                     ;retrieve my class index
         ld      h,((fgAttributes>>8) & $ff)
-				ld      a,[hl]
-				rlca
-				rlca                            ;b has palette in 4:2
-				and     %00011100
-				ld      b,a
+        ld      a,[hl]
+        rlca
+        rlca                            ;b has palette in 4:2
+        and     %00011100
+        ld      b,a
 
-				;retrieve facing
-				ld      a,[fireBulletDirection]
-				or      b
+        ;retrieve facing
+        ld      a,[fireBulletDirection]
+        or      b
 
-				;set isSprite if firing over background
-				ld      b,a
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.doneSetSprite
+        ;set isSprite if firing over background
+        ld      b,a
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.doneSetSprite
 
-				set     7,b
+        set     7,b
 
 .doneSetSprite
-				ld      a,b
+        ld      a,b
 
-				ld      [methodParamL],a        ;param is combo color+facing
-				ld      b,METHOD_INIT
-				call    CallMethod
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      [methodParamL],a        ;param is combo color+facing
+        ld      b,METHOD_INIT
+        call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
 .playFireSound
-				pop     hl   ;fire sound
-				call    PlaySound
+        pop     hl   ;fire sound
+        call    PlaySound
 
 .done
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CreateBulletOfClass
 ; Arguments:    [fireBulletDamage]    - amount of damage
-;               [fireBulletDirection] - 1:0 - direction to fire 
+;               [fireBulletDirection] - 1:0 - direction to fire
 ;               [bulletColor]         - bullet color
 ;               hl - location of bullet origin
 ;               c  - class index of bullet
@@ -7989,81 +7989,81 @@ CreateBulletOfClass:
         push    de
         push    hl
 
-				ld      a,[fireBulletDirection]
-				call    AdvanceLocHLInDirection
+        ld      a,[fireBulletDirection]
+        call    AdvanceLocHLInDirection
 
         ;Position to place bullet
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				push    af
-				call    GetBGAttributes
-				ld      [bgFlags],a
-				pop     af
-				or      a
-				jr      z,.okayToFire
-				cp      b
-				jr      nc,.hitMonsterRightAway
-				ld      a,[bgFlags]
-				bit     BG_BIT_SHOOTOVER,a
-				jr      nz,.okayToFire
-				bit     BG_BIT_ATTACKABLE,a
-				jr      nz,.hitWallRightAway
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        push    af
+        call    GetBGAttributes
+        ld      [bgFlags],a
+        pop     af
+        or      a
+        jr      z,.okayToFire
+        cp      b
+        jr      nc,.hitMonsterRightAway
+        ld      a,[bgFlags]
+        bit     BG_BIT_SHOOTOVER,a
+        jr      nz,.okayToFire
+        bit     BG_BIT_ATTACKABLE,a
+        jr      nz,.hitWallRightAway
 
-				;wall straight ahead, can't fire
-				jr      .done
+        ;wall straight ahead, can't fire
+        jr      .done
 
 .hitWallRightAway
         ld      a,[fireBulletDirection]
         ld      [bulletDirection],a
         call    HitWallAfterSetDirection
-				jr      .done
+        jr      .done
 
 .hitMonsterRightAway
-				;object in front, hit it for damage
-				ld      b,a                  ;monster index in b, loc in hl
-				ld      a,[fireBulletDamage] ;one point of damage
-				ld      [methodParamL],a
-				ld      a,[fireBulletDirection]
-				call    HitObject
-				jr      .done
+        ;object in front, hit it for damage
+        ld      b,a                  ;monster index in b, loc in hl
+        ld      a,[fireBulletDamage] ;one point of damage
+        ld      [methodParamL],a
+        ld      a,[fireBulletDirection]
+        call    HitObject
+        jr      .done
 
 .okayToFire
         ;create the bullet
-				call    CreateObject
+        call    CreateObject
 
         ld      a,[bulletColor]
-				and     %111
-				rlca
-				rlca
-				ld      b,a
+        and     %111
+        rlca
+        rlca
+        ld      b,a
         ld      a,[fireBulletDirection]
-				or      b
+        or      b
 
-				;set isSprite if firing over background
-				ld      b,a
-				ld      a,[bgFlags]
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.doneSetSprite
+        ;set isSprite if firing over background
+        ld      b,a
+        ld      a,[bgFlags]
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.doneSetSprite
 
-				set     7,b
+        set     7,b
 
 .doneSetSprite
-				ld      a,b
+        ld      a,b
 
-				ld      [methodParamL],a        ;param is combo color+facing
-				ld      b,METHOD_INIT
-				call    CallMethod
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      [methodParamL],a        ;param is combo color+facing
+        ld      b,METHOD_INIT
+        call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
 .done
         pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetFireTimer
@@ -8073,12 +8073,12 @@ CreateBulletOfClass:
 SetFireTimer:
         push    af
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FIRETIMER
-				add     hl,de
-				pop     af
-				ld      [hl],a
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_FIRETIMER
+        add     hl,de
+        pop     af
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      DecrementAttackDelay
@@ -8091,22 +8091,22 @@ SetFireTimer:
 ;---------------------------------------------------------------------
 DecrementAttackDelay:
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,OBJ_FIRETIMER
-				add     hl,de
-				ld      a,[hl]
-				or      a
-				jr      z,.returnTrue
+        ld      hl,OBJ_FIRETIMER
+        add     hl,de
+        ld      a,[hl]
+        or      a
+        jr      z,.returnTrue
 
-				dec     [hl]
+        dec     [hl]
 
-				xor     a
-				ret
+        xor     a
+        ret
 
 .returnTrue
         ld      a,1
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetAttackDelay
@@ -8118,18 +8118,18 @@ DecrementAttackDelay:
 ;---------------------------------------------------------------------
 SetAttackDelay::
         push    bc
-				ld      b,a
+        ld      b,a
 
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,OBJ_FIRETIMER
-				add     hl,de
-				ld      a,b
-				ld      [hl],a
+        ld      hl,OBJ_FIRETIMER
+        add     hl,de
+        ld      a,b
+        ld      [hl],a
 
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetAttackDelay
@@ -8141,12 +8141,12 @@ SetAttackDelay::
 ;---------------------------------------------------------------------
 GetAttackDelay::
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      hl,OBJ_FIRETIMER
-				add     hl,de
-				ld      a,[hl]
-				ret
+        ld      hl,OBJ_FIRETIMER
+        add     hl,de
+        ld      a,[hl]
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      HitObject
@@ -8162,48 +8162,48 @@ GetAttackDelay::
 ;---------------------------------------------------------------------
 HitObject:
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         ;Get direction bullet was travelling
-				cp      a,4
-				jr      nz,.gotBulletDirection
+        cp      a,4
+        jr      nz,.gotBulletDirection
 
         ;use this objects facing for bullet direction
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				inc     de
-				inc     de
-				ld      a,[de]
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        inc     de
+        inc     de
+        ld      a,[de]
 .gotBulletDirection
         and     %11
-				ld      [bulletDirection],a
+        ld      [bulletDirection],a
 
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
 
         ld      a,b          ;store monster class index in c
         call    EnsureTileIsHead
-				ld      d,h    ;de stores location of monster
-				ld      e,l
-				ld      c,a    ;a is class of monster
+        ld      d,h    ;de stores location of monster
+        ld      e,l
+        ld      c,a    ;a is class of monster
 
         call    FindObject
         ld      b,METHOD_TAKE_DAMAGE  ;should fill [bulletColor] w/obj color
-				call    CallMethod
-				or      a
-				jr      z,.done   ;zero damage, skip explosion
+        call    CallMethod
+        or      a
+        jr      z,.done   ;zero damage, skip explosion
 
         ld      b,1
-				call    CreateExplosion
+        call    CreateExplosion
 
 .done
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      HitWall
@@ -8220,104 +8220,104 @@ HitObject:
 ;---------------------------------------------------------------------
 HitWallAfterSetDirection:
         push    bc
-				push    de
-				jr      HitWallAfterSetDirectionPushedBCDE
+        push    de
+        jr      HitWallAfterSetDirectionPushedBCDE
 
 HitWall:
         push    bc
-				push    de
+        push    de
 
-				ld      a,[bgFlags]
-				and     BG_FLAG_ATTACKABLE
-				jr      z,HitWall_WallNotAttackable
+        ld      a,[bgFlags]
+        and     BG_FLAG_ATTACKABLE
+        jr      z,HitWall_WallNotAttackable
 
-				;set bullet's facing
-				call    GetFacing
-				and     %11
-				;ld      [fireBulletDirection],a
-				ld      [bulletDirection],a
+        ;set bullet's facing
+        call    GetFacing
+        and     %11
+        ;ld      [fireBulletDirection],a
+        ld      [bulletDirection],a
 
-				;save bullet's damage and color
-				push    hl
-				call    GetDestL
-				ld      [fireBulletDamage],a
-				call    GetMoveLimit
-				ld      [bulletColor],a
-				pop     hl
+        ;save bullet's damage and color
+        push    hl
+        call    GetDestL
+        ld      [fireBulletDamage],a
+        call    GetMoveLimit
+        ld      [bulletColor],a
+        pop     hl
 
 HitWallAfterSetDirectionPushedBCDE:
-				;save bullet's class index
-				ld      a,c
-				ld      [bulletClassIndex],a
+        ;save bullet's class index
+        ld      a,c
+        ld      [bulletClassIndex],a
 
-				;set 'b' to directional blast over wall
-				ld      b,1
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
+        ;set 'b' to directional blast over wall
+        ld      b,1
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
 
         ;get the bg tiles color
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				ld      c,a
-				call    GetBGAttributes
-				and     %111
-				push    af
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        ld      c,a
+        call    GetBGAttributes
+        and     %111
+        push    af
 
-				ld      a,BGACTION_HIT
-				call    CallBGAction
-				jr      z,HitWall_DoneAF
+        ld      a,BGACTION_HIT
+        call    CallBGAction
+        jr      z,HitWall_DoneAF
 
-				pop     af
-				ld      [bulletColor],a
+        pop     af
+        ld      [bulletColor],a
         ;call    GetHealth
         ;cp      2
         ;jr      nc,.skipSound    ;kludge for captain flour
 
         ld      hl,stdExplosionSound
-				call    PlaySound
+        call    PlaySound
 .skipSound
-				jr      HitWall_CreateExplosion
+        jr      HitWall_CreateExplosion
 
-HitWall_WallNotAttackable
+HitWall_WallNotAttackable:
         ;Get direction bullet was travelling
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      h,d
-				ld      l,e
-				ld      a,[hl+]
-				ld      [bulletLocation],a
-				ld      a,[hl+]
-				ld      [bulletLocation+1],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      h,d
+        ld      l,e
+        ld      a,[hl+]
+        ld      [bulletLocation],a
+        ld      a,[hl+]
+        ld      [bulletLocation+1],a
 
         ;get bullet color
-				ld      hl,OBJ_LIMIT
-				add     hl,de
+        ld      hl,OBJ_LIMIT
+        add     hl,de
         ld      a,[hl]
-				ld      [bulletColor],a
+        ld      [bulletColor],a
 
         ;call    GetHealth
         ;cp      2
         ;jr      nc,.skipSound    ;kludge for captain flour
-				ld      hl,bigExplosionSound
-				call    PlaySound
+        ld      hl,bigExplosionSound
+        call    PlaySound
 .skipSound
 
 HitWall_CreateExplosion:
-				call    CreateExplosion   ;uses b as initial frame
+        call    CreateExplosion   ;uses b as initial frame
 
 HitWall_Done:
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 HitWall_DoneAF:
         pop     af
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      StdTakeDamage
@@ -8333,66 +8333,66 @@ StdTakeDamage:
         push    hl
 
         ;store object palette color to be the explosion color later
-				call    GetFGAttributes
-				and     %111
-				ld      [bulletColor],a
+        call    GetFGAttributes
+        and     %111
+        ld      [bulletColor],a
 
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				;play the explosion sound effect
-				ld      hl,stdExplosionSound
-				call    PlaySound
+        ;play the explosion sound effect
+        ld      hl,stdExplosionSound
+        call    PlaySound
 
 TakeDamageCommon:
         ;blow off a puff instead of taking damage?
-				ld      hl,OBJ_DESTZONE
-				add     hl,de
-				ld      a,[hl]
-				and     %1111
-				jr      z,.noPuffs
+        ld      hl,OBJ_DESTZONE
+        add     hl,de
+        ld      a,[hl]
+        and     %1111
+        jr      z,.noPuffs
 
-				dec     [hl]
-				ld      b,METHOD_DRAW
-				call    CallMethod
-				jr      .resetState
+        dec     [hl]
+        ld      b,METHOD_DRAW
+        call    CallMethod
+        jr      .resetState
 
 .noPuffs
-				ld      a,[methodParamL]
-				ld      c,a                   ;c is damage
+        ld      a,[methodParamL]
+        ld      c,a                   ;c is damage
 
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
-				;ld      b,a
-				ld      b,0
-				and     %00111111
-				jr      z,.done            ;already dead
-				ld      b,c                ;b is damage inflicted
-				sub     c
-				jr      nc,.notNegative
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
+        ;ld      b,a
+        ld      b,0
+        and     %00111111
+        jr      z,.done            ;already dead
+        ld      b,c                ;b is damage inflicted
+        sub     c
+        jr      nc,.notNegative
 
         add     c                  ;original health
-				ld      b,a                ;is damage inflicted
-				xor     a                  ;less than zero is zero
+        ld      b,a                ;is damage inflicted
+        xor     a                  ;less than zero is zero
 .notNegative
         ld      c,a
-				ld      a,[hl]
-				;ld      a,b
-				and     %11000000
-				or      c
-				ld      [hl],a
+        ld      a,[hl]
+        ;ld      a,b
+        and     %11000000
+        or      c
+        ld      [hl],a
 
 .resetState
-				;reset state to zero (rethink where I'm going)
-				ld      a,0
-				call    SetState
+        ;reset state to zero (rethink where I'm going)
+        ld      a,0
+        call    SetState
 
 .done
-				ld      a,b      ;return damage inflicted
-				pop     hl
-				pop     bc
-				ret
+        ld      a,b      ;return damage inflicted
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      CowboyTakeDamage
@@ -8405,9 +8405,9 @@ CowboyTakeDamage:
         push    hl
 
         xor     a
-				ld      b,GROUP_HERO
-				ld      c,GROUP_MONSTERM
-				call    SetFOF
+        ld      b,GROUP_HERO
+        ld      c,GROUP_MONSTERM
+        call    SetFOF
 
         ;change any remaining CowboyTalkers to Angry Cowboys
         ld      bc,classCowboyTalker
@@ -8445,23 +8445,23 @@ CowboyTakeDamage:
 ;               normal.
 ;---------------------------------------------------------------------
 WallTakeDamage:
-				;change to other state (stunned<->normal)
-				call    ChangeMyClassToAssociatedAndRedraw
+        ;change to other state (stunned<->normal)
+        call    ChangeMyClassToAssociatedAndRedraw
 
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      b,METHOD_DRAW
+        call    CallMethod
 .done
         xor     a
-				ld      [bulletColor],a
+        ld      [bulletColor],a
         ld      a,1
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      TakeZeroDamage
 ;---------------------------------------------------------------------
 TakeZeroDamage:
-				xor     a
-				ret
+        xor     a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      BulletTakeDamage
@@ -8477,16 +8477,16 @@ BulletTakeDamage:
 
         ;store bullet palette color to be the explosion color later
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_LIMIT
-				add     hl,de
-				ld      a,[hl]
-				and     %00000111
-				ld      [bulletColor],a
+        ld      [$ff70],a
+        ld      hl,OBJ_LIMIT
+        add     hl,de
+        ld      a,[hl]
+        and     %00000111
+        ld      [bulletColor],a
 
-				;play the explosion sound effect
-				ld      hl,stdExplosionSound
-				call    PlaySound
+        ;play the explosion sound effect
+        ld      hl,stdExplosionSound
+        call    PlaySound
 
         jp      TakeDamageCommon
 
@@ -8494,8 +8494,8 @@ BulletTakeDamage:
 ; Routine:      StdTakeDamage2x2
 ; Arguments:    c  - class index of object
 ;               de - this
-; Alters:       af          
-; Description:  Like StandardTakeDamage except creates 4 explosion 
+; Alters:       af
+; Description:  Like StandardTakeDamage except creates 4 explosion
 ;               sprites over the area of the object when it dies.
 ;---------------------------------------------------------------------
 StdTakeDamage2x2:
@@ -8503,167 +8503,167 @@ StdTakeDamage2x2:
         push    hl
 
         ;store object palette color to be the explosion color later
-				call    GetFGAttributes
-				and     %111
-				ld      [bulletColor],a
+        call    GetFGAttributes
+        and     %111
+        ld      [bulletColor],a
 
         ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				;play the explosion sound effect
-				ld      hl,stdExplosionSound
-				call    PlaySound
+        ;play the explosion sound effect
+        ld      hl,stdExplosionSound
+        call    PlaySound
 
-				ld      a,[methodParamL]
-				ld      c,a                   ;c is damage
-				ld      b,c                   ;b is damage actually inflicted
+        ld      a,[methodParamL]
+        ld      c,a                   ;c is damage
+        ld      b,c                   ;b is damage actually inflicted
 
         call    GetHealth
-				and     %00111111
-				jr      z,.doneReturnZero     ;already dead
-				sub     c
-				jr      nc,.notNegative
+        and     %00111111
+        jr      z,.doneReturnZero     ;already dead
+        sub     c
+        jr      nc,.notNegative
 
         add     c
-				ld      b,a
-				xor     a                     ;less than zero is zero
+        ld      b,a
+        xor     a                     ;less than zero is zero
 .notNegative
         ld      c,a
-				ld      a,[hl]
-				and     %11000000
-				or      c
-				ld      [hl],a
-				and     %00111111
-				jr      nz,.done
+        ld      a,[hl]
+        and     %11000000
+        or      c
+        ld      [hl],a
+        and     %00111111
+        jr      nz,.done
 
         ;it's dead; blow up the 2x2 creature
-				;save original bullet hit location
-				push    bc
-				ld      a,[bulletLocation]
-				ld      l,a
-				ld      a,[bulletLocation+1]
-				ld      h,a
-				push    hl
+        ;save original bullet hit location
+        push    bc
+        ld      a,[bulletLocation]
+        ld      l,a
+        ld      a,[bulletLocation+1]
+        ld      h,a
+        push    hl
 
-				;create explosions
-				call    GetCurLocation
-				push    hl
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				xor     a
-				call    .createExplosion
-				ld      a,[bulletLocation]
-				inc     a
-				ld      [bulletLocation],a
-				ld      a,1
-				call    .createExplosion
-				pop     hl
-				call    ConvertLocHLToXY
-				inc     l
-				call    ConvertXYToLocHL
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				ld      a,2
-				call    .createExplosion
-				ld      a,[bulletLocation]
-				inc     a
-				ld      [bulletLocation],a
-				ld      a,3
-				call    .createExplosion
+        ;create explosions
+        call    GetCurLocation
+        push    hl
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        xor     a
+        call    .createExplosion
+        ld      a,[bulletLocation]
+        inc     a
+        ld      [bulletLocation],a
+        ld      a,1
+        call    .createExplosion
+        pop     hl
+        call    ConvertLocHLToXY
+        inc     l
+        call    ConvertXYToLocHL
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        ld      a,2
+        call    .createExplosion
+        ld      a,[bulletLocation]
+        inc     a
+        ld      [bulletLocation],a
+        ld      a,3
+        call    .createExplosion
 
-				;restore original bullet location
-				pop     hl
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				pop     bc
-				jr      .done
+        ;restore original bullet location
+        pop     hl
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        pop     bc
+        jr      .done
 
 .doneReturnZero
         ld      b,0
 .done
         ld      a,b
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 .createExplosion
         rlca    ;times 8
-				rlca
-				rlca
-				and     %00011000
+        rlca
+        rlca
+        and     %00011000
         add     32
-				ld      b,a
-				call    CreateExplosion
-				or      a
-				ret     z
+        ld      b,a
+        call    CreateExplosion
+        or      a
+        ret     z
 
         ;offset sprites +0,+0 to +4,+4
-				call    IndexToPointerHL
-				ld      a,l
-				add     12
-				ld      l,a
-				ld      l,[hl]
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				push    hl
-				call    GetFacing
-				pop     hl
+        call    IndexToPointerHL
+        ld      a,l
+        add     12
+        ld      l,a
+        ld      l,[hl]
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        push    hl
+        call    GetFacing
+        pop     hl
 
-				bit     2,a
-				jr      z,.afterSetOffset
+        bit     2,a
+        jr      z,.afterSetOffset
 
         bit     0,a
-				jr      nz,.eastWest
+        jr      nz,.eastWest
 
         ;facing north/south, add +4 offset
-				ld      a,[hl]
-				add     4
-				ld      [hl],a
-				jr      .afterSetOffset
+        ld      a,[hl]
+        add     4
+        ld      [hl],a
+        jr      .afterSetOffset
 
 .eastWest
         inc     hl
-				ld      a,[hl]
-				add     4
-				ld      [hl],a
-				dec     hl
+        ld      a,[hl]
+        add     4
+        ld      [hl],a
+        dec     hl
 
 .afterSetOffset
         ret
 
 
 ;---------------------------------------------------------------------
-; Routine:      StandardDie            
+; Routine:      StandardDie
 ; Arguments:    c  - class index of object
 ;               de - this
-; Alters:       af          
-; Description:  Removes the object from the map and deletes it 
+; Alters:       af
+; Description:  Removes the object from the map and deletes it
 ;---------------------------------------------------------------------
 StandardDie:
-				push    bc
-				push    de
-				push    hl
+        push    bc
+        push    de
+        push    hl
 
         ld      b,c
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				ld      c,b
-				call    SuperDie
-				call    DeleteObject
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        ld      c,b
+        call    SuperDie
+        call    DeleteObject
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetHealth            
+; Routine:      GetHealth
 ; Arguments:    c  - class index of object
 ;               de - this
 ; Returns:      a  - number of health points
@@ -8671,15 +8671,15 @@ StandardDie:
 ;---------------------------------------------------------------------
 GetHealth::
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
-				and     %00111111
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
+        and     %00111111
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetHealth            
+; Routine:      SetHealth
 ; Arguments:    a  - health to set to
 ;               de - this
 ; Returns:      Nothing.
@@ -8688,16 +8688,16 @@ GetHealth::
 SetHealth::
         push    af
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_HEALTH
-				add     hl,de
-				ld      a,[hl]
-				and     %11000000
-				ld      [hl],a
-				pop     af
-				or      [hl]
-				ld      [hl],a
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_HEALTH
+        add     hl,de
+        ld      a,[hl]
+        and     %11000000
+        ld      [hl],a
+        pop     af
+        or      [hl]
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetMoveDelay
@@ -8709,25 +8709,25 @@ SetHealth::
 SetMoveDelay:
         push    af
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      hl,OBJ_MOVE
-				add     de
-				pop     af
-				ld      [hl],a
-				ret
+        ldio    [$ff70],a
+        ld      hl,OBJ_MOVE
+        add     de
+        pop     af
+        ld      [hl],a
+        ret
 
         ;push    bc
-				;ld      b,a
-				;ld      a,OBJBANK
-				;ldio    [$ff70],a
-				;ld      hl,OBJ_MOVE
-				;add     de
-				;ld      a,[hl]
-				;and     %11110000
-				;or      b
-				;ld      [hl],a
-				;pop     bc
-				;ret
+        ;ld      b,a
+        ;ld      a,OBJBANK
+        ;ldio    [$ff70],a
+        ;ld      hl,OBJ_MOVE
+        ;add     de
+        ;ld      a,[hl]
+        ;and     %11110000
+        ;or      b
+        ;ld      [hl],a
+        ;pop     bc
+        ;ret
 
 
 ;---------------------------------------------------------------------
@@ -8737,57 +8737,57 @@ SetMoveDelay:
 ; Alters:       af,hl
 ;---------------------------------------------------------------------
 ConvertLocHLToSpriteCoords::
-				;calculate screen pixel positions
-				;x = (((tile_x * 8) - (mapLeft * 8)) - pixelOffset_x) + 8
-				;  = (((tile_x - mapLeft) * 8) - pixelOffset_x) + 8
-				;y = (((tile_y - mapTop) * 8) - pixelOffset_y) + 16
-				call    ConvertLocHLToXY
+        ;calculate screen pixel positions
+        ;x = (((tile_x * 8) - (mapLeft * 8)) - pixelOffset_x) + 8
+        ;  = (((tile_x - mapLeft) * 8) - pixelOffset_x) + 8
+        ;y = (((tile_y - mapTop) * 8) - pixelOffset_y) + 16
+        call    ConvertLocHLToXY
 
-				;----------------------x coordinate---------------------------
-				ld      a,[mapLeft]          ;a = -mapLeft
-				cpl
-				add     1
-				add     h                    ;a += tile_x
-				cp      32                   ;any chance of being visible?
-				jr      nc,.returnZero
-				rlca                         ;a *= 8
-				rlca
-				rlca
-				ld      h,a                  ;tile_x = a
-				ld      a,[desiredPixelOffset_x]
-				cpl
-				add     1
-				add     h
-				add     8
-				ld      h,a                  ;tile_x=(tile_x-pixelOffset_x)+8
+        ;----------------------x coordinate---------------------------
+        ld      a,[mapLeft]          ;a = -mapLeft
+        cpl
+        add     1
+        add     h                    ;a += tile_x
+        cp      32                   ;any chance of being visible?
+        jr      nc,.returnZero
+        rlca                         ;a *= 8
+        rlca
+        rlca
+        ld      h,a                  ;tile_x = a
+        ld      a,[desiredPixelOffset_x]
+        cpl
+        add     1
+        add     h
+        add     8
+        ld      h,a                  ;tile_x=(tile_x-pixelOffset_x)+8
 
-				;----------------------y coordinate---------------------------
-				ld      a,[mapTop]           ;a = -mapTop
-				cpl
-				add     1
-				add     l                    ;a += tile_y
-				cp      32                   ;any chance of being visible?
-				jr      nc,.returnZero
-				rlca                         ;a *= 8
-				rlca
-				rlca
-				ld      l,a                  ;tile_y = a
-				ld      a,[desiredPixelOffset_y]
-				cpl
-				add     1
-				add     l
-				add     16
-				ld      l,a                ;tile_y=(tile_y-pixelOffset_y)+16
+        ;----------------------y coordinate---------------------------
+        ld      a,[mapTop]           ;a = -mapTop
+        cpl
+        add     1
+        add     l                    ;a += tile_y
+        cp      32                   ;any chance of being visible?
+        jr      nc,.returnZero
+        rlca                         ;a *= 8
+        rlca
+        rlca
+        ld      l,a                  ;tile_y = a
+        ld      a,[desiredPixelOffset_y]
+        cpl
+        add     1
+        add     l
+        add     16
+        ld      l,a                ;tile_y=(tile_y-pixelOffset_y)+16
         ret
 
 .returnZero
         ld      hl,0               ;sprite not visible
-				ret
+        ret
 
 
 ;---------------------------------------------------------------------
-; Routine:      CreateExplosion      
-; Arguments:    b  - 1=moves in direction, >1 initial frame 
+; Routine:      CreateExplosion
+; Arguments:    b  - 1=moves in direction, >1 initial frame
 ;               c  - class index of object  (if directed)
 ;               de - this  (if directed)
 ;               [bulletColor]
@@ -8813,185 +8813,185 @@ CreateExplosion::
         push    de
         push    hl
 
-				call    AllocateSprite  ;returns sprite OAM lo-ptr in a or $ff
-				inc     a
-				jr      z,.done         ;no free sprites for explosion
+        call    AllocateSprite  ;returns sprite OAM lo-ptr in a or $ff
+        inc     a
+        jr      z,.done         ;no free sprites for explosion
 
         dec     a
-				ld      [methodParamL],a
+        ld      [methodParamL],a
 
         ld      hl,bulletLocation
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				call    ConvertLocHLToSpriteCoords
-				ld      a,b
-				cp      1                     ;directional or round?
-				jr      nz,.roundExplosion
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        call    ConvertLocHLToSpriteCoords
+        ld      a,b
+        cp      1                     ;directional or round?
+        jr      nz,.roundExplosion
 
         ;directed explosion
-				xor     a
+        xor     a
         ld      [explosionInitialFrame],a
-				ld      a,[bulletColor]
-				ld      b,a
-				swap    b
+        ld      a,[bulletColor]
+        ld      b,a
+        swap    b
 
-				ld      a,[bulletDirection]
-				and     %00000011
-				or      b
-				jr      .aIsSetup
+        ld      a,[bulletDirection]
+        and     %00000011
+        or      b
+        jr      .aIsSetup
 
 .roundExplosion
         ld      [explosionInitialFrame],a
-				ld      a,[bulletColor]
-				swap    a
-				or      %00000100
+        ld      a,[bulletColor]
+        swap    a
+        or      %00000100
 
 .aIsSetup
-				ld      [methodParamH],a
+        ld      [methodParamH],a
 
         ld      c,CLASS_EXPLOSION
         call    CreateObject
 
-				ld      b,METHOD_INIT
-				call    CallMethod
+        ld      b,METHOD_INIT
+        call    CallMethod
 
-				call    PointerDEToIndex   ;return index of explosion object
+        call    PointerDEToIndex   ;return index of explosion object
 
 .done   pop     hl
-			  pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ExplosionInit:
         push    bc
         push    de
         push    hl
 
-				push    de
+        push    de
 
         ld      a,[methodParamL]
         call    SetSpriteLo
 
         ;set up other stuff
-				ld      hl,OBJ_FRAME
-				add     hl,de
-				ld      a,[methodParamH]    ;color + direction
-				ld      b,a
-				ld      [hl+],a
-				inc     hl 
-				xor     a
-				ld      [hl],a              ;anim frame zero
-				dec     hl                  ;hl = move
-				ld      d,((spriteOAMBuffer>>8) & $ff)
-				ld      a,[methodParamL]    ;loptr
-				ld      e,a
-				ld      a,1
-				ld      [hl-],a             ;move = 1
-				dec      hl
+        ld      hl,OBJ_FRAME
+        add     hl,de
+        ld      a,[methodParamH]    ;color + direction
+        ld      b,a
+        ld      [hl+],a
+        inc     hl
+        xor     a
+        ld      [hl],a              ;anim frame zero
+        dec     hl                  ;hl = move
+        ld      d,((spriteOAMBuffer>>8) & $ff)
+        ld      a,[methodParamL]    ;loptr
+        ld      e,a
+        ld      a,1
+        ld      [hl-],a             ;move = 1
+        dec      hl
 
-				inc     de
-				ld      a,[hl-]             ;copy y pixel coordinate
-				ld      [de],a
-				dec     de
-				ld      a,[hl+]             ;copy x pixel coordinate
-				ld      [de],a
-				inc     de
-				inc     de                  ;de pts to pattern
+        inc     de
+        ld      a,[hl-]             ;copy y pixel coordinate
+        ld      [de],a
+        dec     de
+        ld      a,[hl+]             ;copy x pixel coordinate
+        ld      [de],a
+        inc     de
+        inc     de                  ;de pts to pattern
 
         ;make hl point to frame lookup table
         ld      a,b                 ;get color+dir byte
-				and     %00000111           ;mask off all but dir
-				add     (explosionFrameTable & $ff)
-				ld      l,a
+        and     %00000111           ;mask off all but dir
+        add     (explosionFrameTable & $ff)
+        ld      l,a
         ld      h,((explosionFrameTable>>8) & $ff)
-				ld      a,[explosionInitialFrame]
-				add     [hl]                ;pattern
-				ld      [de],a
-				inc     de                  ;de now pts to flags
-				set     3,l                 ;hl += 8
-				ld      a,b
-				swap    a
-				and     %00001111
-				ld      b,a
-				ld      a,[hl]
-				or      b
-				ld      b,a
+        ld      a,[explosionInitialFrame]
+        add     [hl]                ;pattern
+        ld      [de],a
+        inc     de                  ;de now pts to flags
+        set     3,l                 ;hl += 8
+        ld      a,b
+        swap    a
+        and     %00001111
+        ld      b,a
+        ld      a,[hl]
+        or      b
+        ld      b,a
 
-				;set flak to be randomly flipped
-				ld      a,[explosionInitialFrame]
-				cp      64   ;flack or spark?
-				ld      a,b
-				jr      c,.afterFlipFlack
+        ;set flak to be randomly flipped
+        ld      a,[explosionInitialFrame]
+        cp      64   ;flack or spark?
+        ld      a,b
+        jr      c,.afterFlipFlack
 
-				ld      a,%01100000
-				call    GetRandomNumMask
+        ld      a,%01100000
+        call    GetRandomNumMask
 
 .afterFlipFlack
         or      b
-				ld      [de],a              ;store attributes
+        ld      [de],a              ;store attributes
 
-				pop     de
+        pop     de
 
-				;---extra setup-----------------------------------------------
-				;store initial frame in DESTL
-				ld      a,[explosionInitialFrame]
-				ld      hl,OBJ_DESTL
-				add     hl,de
-				ld      [hl],a
+        ;---extra setup-----------------------------------------------
+        ;store initial frame in DESTL
+        ld      a,[explosionInitialFrame]
+        ld      hl,OBJ_DESTL
+        add     hl,de
+        ld      [hl],a
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 ExplosionRedraw:
 ExplosionCheck:
         push    hl
 
-				ld      a,OBJBANK
-				ldio    [$ff70],a
+        ld      a,OBJBANK
+        ldio    [$ff70],a
 
-				;Check timer slower for flack & 2x2 explosions
-				ld      hl,OBJ_DESTL      ;storage of initial frame
-				add     hl,de
-				ld      a,[hl]
-				cp      32
-				jr      c,.faster
-				cp      72
-				jr      nc,.faster
+        ;Check timer slower for flack & 2x2 explosions
+        ld      hl,OBJ_DESTL      ;storage of initial frame
+        add     hl,de
+        ld      a,[hl]
+        cp      32
+        jr      c,.faster
+        cp      72
+        jr      nc,.faster
 
 .slower
-				ld      a,3               ;slower
-				jr      .checkMove
+        ld      a,3               ;slower
+        jr      .checkMove
 
 .faster
         ld      a,1
 
 .checkMove
-				;my turn yet?
-				call    TestMove
-				or      a
-				jr      z,.skipTurn       ;timer lsb==frame lsb, don't move yet
+        ;my turn yet?
+        call    TestMove
+        or      a
+        jr      z,.skipTurn       ;timer lsb==frame lsb, don't move yet
 
-				ld      hl,OBJ_FRAME
-				add     hl,de
-				ld      a,[hl]
-				bit     2,a               ;should explosion move position?
-				jr      nz,.afterMove
+        ld      hl,OBJ_FRAME
+        add     hl,de
+        ld      a,[hl]
+        bit     2,a               ;should explosion move position?
+        jr      nz,.afterMove
 
-				;figger out which direction to move
-				;get ptr to sprite in hl
-				ld      hl,OBJ_SPRITELO
-				add     hl,de
-				ld      l,[hl]
-				ld      h,((spriteOAMBuffer>>8) & $ff)
+        ;figger out which direction to move
+        ;get ptr to sprite in hl
+        ld      hl,OBJ_SPRITELO
+        add     hl,de
+        ld      l,[hl]
+        ld      h,((spriteOAMBuffer>>8) & $ff)
 
-				bit     1,a
-				jr      nz,.moveSouthOrWest
+        bit     1,a
+        jr      nz,.moveSouthOrWest
 
-				bit     0,a
-				jr      z,.moveNorth
+        bit     0,a
+        jr      z,.moveNorth
 
 .moveEast
         inc     hl
@@ -9006,7 +9006,7 @@ ExplosionCheck:
 
 .moveSouthOrWest
         bit     0,a
-				jr      z,.moveSouth
+        jr      z,.moveSouth
 
 .moveWest
         inc     hl
@@ -9020,28 +9020,28 @@ ExplosionCheck:
 
 .afterMove
         ld      hl,OBJ_LIMIT      ;get current frame
-				add     hl,de
-				inc     [hl]              ;add one
-				ld      a,[hl+]           ;get frame in a
+        add     hl,de
+        inc     [hl]              ;add one
+        ld      a,[hl+]           ;get frame in a
 
-				;get lo-ptr to sprite
-				ld      hl,OBJ_SPRITELO
-				add     hl,de
-				ld      l,[hl]            
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				bit     3,a               ;become 8?
-				jr      z,.keepGoing
+        ;get lo-ptr to sprite
+        ld      hl,OBJ_SPRITELO
+        add     hl,de
+        ld      l,[hl]
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        bit     3,a               ;become 8?
+        jr      z,.keepGoing
 
         ;run out of frames, delete myself
         call    SuperDie
-				call    ExplosionDie
+        call    ExplosionDie
 
-				jr      .skipTurn
+        jr      .skipTurn
 
 .keepGoing
         inc     hl                ;add one to actual sprite frame
-				inc     hl
-				inc     [hl]
+        inc     hl
+        inc     [hl]
 
 .skipTurn
         pop     hl
@@ -9055,16 +9055,16 @@ IdleCantDieCheck:
         ret
 
 DoNothingCheck:
-				;am I dead?
-				call    GetHealth
-				or      a
-				jr      nz,.skipMove
-				call    StandardDie
+        ;am I dead?
+        call    GetHealth
+        or      a
+        jr      nz,.skipMove
+        call    StandardDie
 .skipMove
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      StdInitFromTable    
+; Routine:      StdInitFromTable
 ; Arguments:    hl - table containing
 ;                    BYTE initial facing (4 = random)
 ;                    BYTE health  (last value popped off)
@@ -9074,7 +9074,7 @@ DoNothingCheck:
 ;                    WORD bullet class index
 ; Alters:       all
 ; Returns:      Nothing.
-; Description:  Sets 
+; Description:  Sets
 ;                 - state to zero
 ;                 - facing to random
 ;                 - fire delay to 1
@@ -9083,55 +9083,55 @@ DoNothingCheck:
 ;               Loads associated bullet class
 ;---------------------------------------------------------------------
 StdInitFromTable:
-				ld      a,[hl+]
-				cp      4
-				jr      nz,.setFacing
+        ld      a,[hl+]
+        cp      4
+        jr      nz,.setFacing
 
-				ld      a,3
-				call    GetRandomNumZeroToN
+        ld      a,3
+        call    GetRandomNumZeroToN
 
 .setFacing
         push    hl
-				call    SetFacing
-
-				xor     a
-				call    SetState
+        call    SetFacing
 
         xor     a
-				call    SetFireTimer
-				pop     hl
+        call    SetState
 
-				ld      a,[hl+]
-				push    hl
-				call    SetHealth
-				pop     hl
+        xor     a
+        call    SetFireTimer
+        pop     hl
 
-				ld      a,[hl+]
-				call    SetGroup
+        ld      a,[hl+]
+        push    hl
+        call    SetHealth
+        pop     hl
+
+        ld      a,[hl+]
+        call    SetGroup
 
         push    de
-				ld      a,[hl+]   ;has bullet?
-				or      a
-				jr      z,.afterLoadAssociated
+        ld      a,[hl+]   ;has bullet?
+        or      a
+        jr      z,.afterLoadAssociated
 
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl+]
-				ld      d,a
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl+]
+        ld      d,a
 
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
 
-				ld      a,1
-				call    LoadAssociatedClass
-.afterLoadAssociated 
+        ld      a,1
+        call    LoadAssociatedClass
+.afterLoadAssociated
         ;hl screwed up here
         pop     de
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      StdCheckFromTable    
+; Routine:      StdCheckFromTable
 ; Arguments:    hl - pointer to table containing:
 ;                    BYTE  move delay
 ;                    BYTE  attack type (0=no attack,1=melee,2=missile)
@@ -9144,70 +9144,70 @@ StdInitFromTable:
 ;---------------------------------------------------------------------
 StdCheckFromTable:
         call    StdCheckDead
-				ret     z
+        ret     z
 StdCheckFromTableNotDead:
-				call    StdCheckTimeToMove
-				ret     z
+        call    StdCheckTimeToMove
+        ret     z
         call    StdCheckAttack
-				ret     z
-				call    StdMove
-				ret
+        ret     z
+        call    StdMove
+        ret
 
 ActorSpeed1Check:
         ld      hl,.actorCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .actorCheckTable
-				DB      1      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      nullSound
-				DB      3      ;fire delay
+        DB      1      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      nullSound
+        DB      3      ;fire delay
         DW      ActorVectorToState
 
 GuardCheck:
         ;this guy can only attack in the direction he's facing
-				;call    GetFacing
-				;and     %00000011
+        ;call    GetFacing
+        ;and     %00000011
         ;call    SetAttackDirState
 
         call    StdCheckDead
-				ret     z
+        ret     z
         ld      hl,.guardCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;sound the alarm if I attacked recently (attack delay non-zero)
-				ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      hl,OBJ_FIRETIMER
-				add     hl,de
-				ld      a,[hl]
-				or      a
-				ret     z
+        ;sound the alarm if I attacked recently (attack delay non-zero)
+        ld      a,OBJBANK
+        ldio    [$ff70],a
+        ld      hl,OBJ_FIRETIMER
+        add     hl,de
+        ld      a,[hl]
+        or      a
+        ret     z
 
         ld      a,1
-				ld      [guardAlarm],a
-				ret
+        ld      [guardAlarm],a
+        ret
 
 
 .guardCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      guardFireSound
-				DB      6      ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      guardFireSound
+        DB      6      ;fire delay
         DW      ActorVectorToState
 
 ;----bee--------------------------------------------------------------
 BeeInit:
         ld      hl,.beeInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .beeInitTable
         DB      4                ;initial facing
         DB      1                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 BeeCheck:
         push    bc
@@ -9218,167 +9218,167 @@ BeeCheck:
 
 .slowCheck
         ld      hl,.beeCheckTableSlow
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .fastCheck
         ld      hl,.beeCheckTableFast
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .beeCheckTableFast
-				DB      1      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      beeSound    
-				DB      20     ;fire delay
+        DB      1      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      beeSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 .beeCheckTableSlow
-				DB      2      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      beeSound    
-				DB      20     ;fire delay
+        DB      2      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      beeSound
+        DB      20     ;fire delay
         DW      StdVectorToState
 
 
 ;----Stunned Wall-----------------------------------------------------
 StunnedWallInit:
         ld      hl,.stunnedWallInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
         jp      LinkAssocToMe
-        
+
 .stunnedWallInitTable
         DB      4                ;initial facing
         DB      63               ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classWallCreature
-				DW      WALLCREATURE_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classWallCreature
+        DW      WALLCREATURE_CINDEX
 
 StunnedWallCheck:
         ld      hl,.stunnedWallCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .stunnedWallCheckTable
-				DB      0      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      nullSound    
-				DB      64     ;fire delay
+        DB      0      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      nullSound
+        DB      64     ;fire delay
         DW      0
 
 ;----Grenade----------------------------------------------------------
 GrenadeInit:
         ld      hl,.grenadeInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .grenadeInitTable
         DB      4                ;initial facing
         DB      3                ;health
-				DB      GROUP_HERO       ;group
-				DB      0                ;has bullet
+        DB      GROUP_HERO       ;group
+        DB      0                ;has bullet
 
 GrenadeCheck:
         call    GetHealth
-				or      a
-				jr      nz,.check
+        or      a
+        jr      nz,.check
 
-				call    GetCurLocation
-				ld      b,4
-				call    BombLocation
-				ld      hl,bigExplosionSound
-				call    PlaySound
-				ld      a,5
-				ld      [jiggleDuration],a
+        call    GetCurLocation
+        ld      b,4
+        call    BombLocation
+        ld      hl,bigExplosionSound
+        call    PlaySound
+        ld      a,5
+        ld      [jiggleDuration],a
 
 .check
         ld      hl,.grenadeCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .grenadeCheckTable
-				DB      4      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      nullSound       
-				DB      20     ;fire delay
+        DB      4      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      nullSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Vacuum-----------------------------------------------------------
 VacuumInit:
         ld      hl,.vacuumInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 
 .vacuumInitTable
         DB      4                ;initial facing
-				DB      6                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      6                ;health
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 VacuumCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
         ld      hl,.vacuumCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;handle 'firing' ourselves
-				;can we attack yet?
-				call    DecrementAttackDelay
-				or      a
-				ret     z
+        ;handle 'firing' ourselves
+        ;can we attack yet?
+        call    DecrementAttackDelay
+        or      a
+        ret     z
 
         push    de
-				call    GetFacing
-				push    af
-				and     %11
-				call    GetLocInFront
-				pop     af
-				rlca
-				and     %110
-				push    hl
-				ld      l,a
-				ld      a,(mapOffsetNorth & $ff)
-				add     l
-				ld      l,a
-				ld      h,((mapOffsetNorth>>8)&$ff)
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl]
-				ld      d,a
-				pop     hl
+        call    GetFacing
+        push    af
+        and     %11
+        call    GetLocInFront
+        pop     af
+        rlca
+        and     %110
+        push    hl
+        ld      l,a
+        ld      a,(mapOffsetNorth & $ff)
+        add     l
+        ld      l,a
+        ld      h,((mapOffsetNorth>>8)&$ff)
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl]
+        ld      d,a
+        pop     hl
 
         xor     a
-				ld      [losLimit],a
-				call    ScanDirectionForEnemy    ;returns dir of enemy in b
-				or      a
-				jr      z,.doneDE
+        ld      [losLimit],a
+        call    ScanDirectionForEnemy    ;returns dir of enemy in b
+        or      a
+        jr      z,.doneDE
 
-				;suck the enemy towards me
+        ;suck the enemy towards me
         ld      a,[fireBulletLocation]   ;enemy's location
-				ld      l,a
+        ld      l,a
         ld      a,[fireBulletLocation+1]
-				ld      h,a
-				pop     de
-				call    GetFacing
-				add     2
-				and     %11
-				call    ShiftObjectInDirection
-				ld      a,3
-				call    SetAttackDelay
-				ld      hl,.vacuumSuckSound
-				call    PlaySound
-				ret
+        ld      h,a
+        pop     de
+        call    GetFacing
+        add     2
+        and     %11
+        call    ShiftObjectInDirection
+        ld      a,3
+        call    SetAttackDelay
+        ld      hl,.vacuumSuckSound
+        call    PlaySound
+        ret
 
 .doneDE pop     de
-				ret
+        ret
 
 .vacuumCheckTable
         DB      4      ;move delay
-				DB      1      ;attack type (0=none,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .vacuumAttackSound
-				DB      25      ;fire delay
-				DW      TrackEnemyVectorToState
+        DB      1      ;attack type (0=none,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .vacuumAttackSound
+        DB      25      ;fire delay
+        DW      TrackEnemyVectorToState
 
 .vacuumAttackSound
         DB      1,$54,$c0,$f2,$00,$83
@@ -9389,72 +9389,72 @@ VacuumCheck:
 ;----Slug-------------------------------------------------------------
 SlugInit:
         ld      hl,.slugInitTable
-				call    StdInitFromTable
-				ld      bc,classSlugTrailBG
-				call    FindClassIndex
-				jp      SetMisc
-        
+        call    StdInitFromTable
+        ld      bc,classSlugTrailBG
+        call    FindClassIndex
+        jp      SetMisc
+
 .slugInitTable
         DB      4                ;initial facing
         DB      5                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 SlugCheck:
         call    GetCurLocation
         call    GetFacing
-				and     %111
-				cp      %100
-				jr      z,.adjustSouth
-				cp      %111
-				jr      nz,.foundCurLocation
+        and     %111
+        cp      %100
+        jr      z,.adjustSouth
+        cp      %111
+        jr      nz,.foundCurLocation
 
 .adjustWest
         call    ConvertLocHLToXY
-				inc     h
-				jr      .convertBack
+        inc     h
+        jr      .convertBack
 
 .adjustSouth
         call    ConvertLocHLToXY
-				inc     l
+        inc     l
 
 .convertBack
         call    ConvertXYToLocHL
 
 .foundCurLocation
-				push    hl
+        push    hl
 
         call    GetHealth
-				push    af
+        push    af
         ld      hl,.slugCheckTable
-				call    StdCheckFromTable
-				pop     af
-				or      a
-				jr      nz,.notDead
+        call    StdCheckFromTable
+        pop     af
+        or      a
+        jr      nz,.notDead
 
-				pop     af   ;dead
-				ret 
+        pop     af   ;dead
+        ret
 
 .notDead
-				call    GetMisc
-				ld      b,a
-				pop     hl   ;retrieve old location
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]      ;empty now?
-				or      a
-				ret     nz          ;still something in there
+        call    GetMisc
+        ld      b,a
+        pop     hl   ;retrieve old location
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]      ;empty now?
+        or      a
+        ret     nz          ;still something in there
 
-				;leave a slime trail
-				ld      [hl],b
-				jp      ResetMyBGSpecialFlags
+        ;leave a slime trail
+        ld      [hl],b
+        jp      ResetMyBGSpecialFlags
 
 .slugCheckTable
-				DB      6      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .slugFireSound    
-				DB      15     ;fire delay
+        DB      6      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .slugFireSound
+        DB      15     ;fire delay
         DW      StdVectorToState
 
 .slugFireSound
@@ -9463,28 +9463,28 @@ SlugCheck:
 ;----Wall Creature----------------------------------------------------
 WallCreatureInit:
         ld      hl,.wallCreatureInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
         jp      LinkAssocToMe
-        
+
 .wallCreatureInitTable
         DB      4                ;initial facing
         DB      63               ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classStunnedWall
-				DW      STUNNEDWALL_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classStunnedWall
+        DW      STUNNEDWALL_CINDEX
 
 WallCreatureCheck:
         ld      hl,.wallCreatureCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .wallCreatureCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .wallCreatureFireSound    
-				DB      25     ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .wallCreatureFireSound
+        DB      25     ;fire delay
         DW      TrackEnemyVectorToState
 
 .wallCreatureFireSound
@@ -9494,133 +9494,133 @@ WallCreatureCheck:
 BigBeeHiveInit:
 SmallBeeHiveInit:
         ld      hl,.smallBeeHiveInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .smallBeeHiveInitTable
         DB      DIR_EAST         ;initial facing
         DB      5                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classBee         ;associated bullet class ptr
-				DW      BEE_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classBee         ;associated bullet class ptr
+        DW      BEE_CINDEX
 
 SmallBeeHiveCheck:
         ld      hl,.smallBeeHiveCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .smallBeeHiveCheckTable
-				DB      0      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      beeSound
-				DB      20     ;fire delay
+        DB      0      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      beeSound
+        DB      20     ;fire delay
         DW      0
 
 ;----Scardie----------------------------------------------------------
 ScardieInit:
         ld      hl,.scardieInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .scardieInitTable
         DB      4                ;initial facing
         DB      4                ;health
-				DB      GROUP_FFA        ;group
-				DB      0                ;has bullet
+        DB      GROUP_FFA        ;group
+        DB      0                ;has bullet
 
 ScardieCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
         ld      hl,.scardieCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;test if either hero in zone
-				call    GetCurZone
-				ld      b,a
-				ld      a,1
-				call    GetHeroZone
-				cp      b
-				jr      z,.heroHere
-				ld      a,2
-				call    GetHeroZone
-				cp      b
-				ret     nz
+        ;test if either hero in zone
+        call    GetCurZone
+        ld      b,a
+        ld      a,1
+        call    GetHeroZone
+        cp      b
+        jr      z,.heroHere
+        ld      a,2
+        call    GetHeroZone
+        cp      b
+        ret     nz
 .heroHere
         jp      ScardieFlee
 
 .scardieCheckTable
-				DB      2      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      nullSound     
-				DB      20     ;fire delay
+        DB      2      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      nullSound
+        DB      20     ;fire delay
         DW      StdVectorToState
 
-;If scardie's dest zone is == cur zone or not moving to zone then pick 
+;If scardie's dest zone is == cur zone or not moving to zone then pick
 ;a new dest zone
 ScardieFlee:
-				call    GetCurZone
-				ld      b,a
-				call    GetDestZone
-				or      a
-				jr      z,ScardiePickNewZone
-				cp      b
-				jr      z,ScardiePickNewZone
+        call    GetCurZone
+        ld      b,a
+        call    GetDestZone
+        or      a
+        jr      z,ScardiePickNewZone
+        cp      b
+        jr      z,ScardiePickNewZone
 
         call    GetState
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
-				ld      a,1
-				jp      SetState
+        ld      a,1
+        jp      SetState
 
 ScardiePickNewZone:
         ;starting at my current zone, run through the zone path matrix
-				;to see what's available
-				ld      a,b
-				swap    a
-				or      b
-				ld      l,a
-				ld      h,((pathMatrix>>8)&$ff)
+        ;to see what's available
+        ld      a,b
+        swap    a
+        or      b
+        ld      l,a
+        ld      h,((pathMatrix>>8)&$ff)
 
-				ld      a,WAYPOINTBANK
-				ldio    [$ff70],a
+        ld      a,WAYPOINTBANK
+        ldio    [$ff70],a
 
         ld      b,15
 .checkNewZone
         push    bc        ;increment dest zone
         ld      a,l
-				add     1
-				and     %1111
-				ld      b,a
-				ld      a,l
-				and     %11110000
-				or      b
-				ld      l,a
-				and     %1111
-				jr      nz,.afterIncL
-				inc     l   ;dest zone can't be zero
+        add     1
+        and     %1111
+        ld      b,a
+        ld      a,l
+        and     %11110000
+        or      b
+        ld      l,a
+        and     %1111
+        jr      nz,.afterIncL
+        inc     l   ;dest zone can't be zero
 .afterIncL
-				pop     bc
+        pop     bc
 
-				ld      a,[hl]
-				or      a
-				jr      nz,.foundPath
+        ld      a,[hl]
+        or      a
+        jr      nz,.foundPath
 
-				dec     b
-				jr      nz,.checkNewZone
+        dec     b
+        jr      nz,.checkNewZone
 
-				ret     ;can do nothing
+        ret     ;can do nothing
 
 .foundPath
         ld      a,l
-				and     %1111
-				call    SetDestZone
-				ld      a,1
-				jp      SetState
+        and     %1111
+        call    SetDestZone
+        ld      a,1
+        jp      SetState
 
 ScardieTakeDamage:
         call    ScardieFlee
-				jp      StdTakeDamage
+        jp      StdTakeDamage
 
 LadyBulletMove:
         ld      a,[hero0_type]
@@ -9646,99 +9646,99 @@ LadyBulletMove:
 ;----Chomper----------------------------------------------------------
 ChomperInit:
         ld      hl,.chomperInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .chomperInitTable
         DB      4                ;initial facing
         DB      4                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 ChomperCheck:
         ld      hl,.chomperCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
         call    StdCheckAttack
-				ret     z
+        ret     z
 
-				;see if an enemy is +2 in any direction; if so eat
-				;through the wall towards it
-				push    hl
+        ;see if an enemy is +2 in any direction; if so eat
+        ;through the wall towards it
+        push    hl
 
         call    AmAtEdge
         jr      nz,.stdMove
 
-				ld      b,0
+        ld      b,0
 .checkNextDirection
         call    GetMapOffset
-				sla     l          ;offset times 2
-				rl      h
+        sla     l          ;offset times 2
+        rl      h
 
-				push    de
-				push    hl
-				call    GetCurLocation
-				pop     de
-				add     hl,de
-				pop     de
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    IsMyEnemy
-				cp      1
-				jr      nz,.continue
+        push    de
+        push    hl
+        call    GetCurLocation
+        pop     de
+        add     hl,de
+        pop     de
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    IsMyEnemy
+        cp      1
+        jr      nz,.continue
 
-				;remove wall if in-between, not split and facing 
-				;correct direction and not a walkover tile
-				call    GetFacing
-				bit     2,a
-				;jr      nz,.gotDirection
+        ;remove wall if in-between, not split and facing
+        ;correct direction and not a walkover tile
+        call    GetFacing
+        bit     2,a
+        ;jr      nz,.gotDirection
         jr      nz,.directionToB
 
-				and     %11
-				cp      b
-				;jr      nz,.gotDirection
+        and     %11
+        cp      b
+        ;jr      nz,.gotDirection
         jr      nz,.directionToB
 
-				;remove wall before moving
-				push    de
-				call    GetMapOffset
-				push    hl
-				call    GetCurLocation
-				pop     de
-				add     hl,de
-				pop     de
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ;remove wall before moving
+        push    de
+        call    GetMapOffset
+        push    hl
+        call    GetCurLocation
+        pop     de
+        add     hl,de
+        pop     de
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
         ldio    a,[firstMonster]
-				cp      [hl]
-				jr      z,.gotDirection
-				jr      c,.gotDirection  ;is not a wall
+        cp      [hl]
+        jr      z,.gotDirection
+        jr      c,.gotDirection  ;is not a wall
 
         ;make sure not walkover
         push    hl
         ld      l,[hl]
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
-				ld      h,((bgAttributes>>8) & $ff)
-				ld      a,[hl]
+        ld      [$ff70],a
+        ld      h,((bgAttributes>>8) & $ff)
+        ld      a,[hl]
         pop     hl
-				bit     BG_BIT_WALKOVER,a
+        bit     BG_BIT_WALKOVER,a
         jr      nz,.gotDirection   ;is a walkover
 
         ld      a,MAPBANK
         ldio    [$ff70],a
-				xor     a
-				ld      [hl],a
-				ld      hl,eatSound
-				call    PlaySound
+        xor     a
+        ld      [hl],a
+        ld      hl,eatSound
+        call    PlaySound
 
 .gotDirection
         call    StandardValidateMoveAndRedraw
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 .directionToB
         ld      b,a
@@ -9746,29 +9746,29 @@ ChomperCheck:
 
 .continue
         inc     b
-				ld      a,b
-			  cp      4
-				jr      nz,.checkNextDirection
+        ld      a,b
+        cp      4
+        jr      nz,.checkNextDirection
 
 .stdMove
         pop     hl
-				call    StdMove  ;nothing special found
-				ret
+        call    StdMove  ;nothing special found
+        ret
 
 
 .chomperCheckTable
-				DB      5      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      .chomperSound
-				DB      3      ;fire delay
+        DB      5      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      .chomperSound
+        DB      3      ;fire delay
         DW      TrackEnemyVectorToState
 
 .chomperSound
         DB      1,$59,$00,$f0,$00,$c4
 
 ;---------------------------------------------------------------------
-; Routine:      AmAtEdge    
+; Routine:      AmAtEdge
 ; Arguments:    c  - class index of object
 ;               de - this
 ; Alters:       af,hl
@@ -9776,23 +9776,23 @@ ChomperCheck:
 ;               zflag - or a
 ;---------------------------------------------------------------------
 AmAtEdge:
-				;clip and make sure I'm at least 2 from the edge
-				call    GetCurLocation
-				call    ConvertLocHLToXY
-				ld      a,h
-				cp      2
-				jr      c,.returnTrue
-				ld      a,l
-				cp      2
-				jr      c,.returnTrue
-				ld      a,[mapWidth]
-				sub     3
-				cp      h
-				jr      c,.returnTrue
-				ld      a,[mapHeight]
-				sub     3
-				cp      l
-				jr      c,.returnTrue
+        ;clip and make sure I'm at least 2 from the edge
+        call    GetCurLocation
+        call    ConvertLocHLToXY
+        ld      a,h
+        cp      2
+        jr      c,.returnTrue
+        ld      a,l
+        cp      2
+        jr      c,.returnTrue
+        ld      a,[mapWidth]
+        sub     3
+        cp      h
+        jr      c,.returnTrue
+        ld      a,[mapHeight]
+        sub     3
+        cp      l
+        jr      c,.returnTrue
 
         xor     a
         ret
@@ -9805,33 +9805,33 @@ AmAtEdge:
 ;----Reciprocator-----------------------------------------------------
 ReciprocatorInit:
         ld      hl,.reciprocatorInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .reciprocatorInitTable
         DB      4                ;initial facing
         DB      10               ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classReciprocatorPowerup
-				DW      RECIPROCATOR_POWERUP_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classReciprocatorPowerup
+        DW      RECIPROCATOR_POWERUP_CINDEX
 
 ReciprocatorCheck:
         call    GetHealth
-				cp      10
-				jr      nc,.afterChangeToPowerup
+        cp      10
+        jr      nc,.afterChangeToPowerup
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .afterChangeToPowerup
         ld      hl,.reciprocatorCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .reciprocatorCheckTable
-				DB      10     ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      reciprocatorSound
-				DB      5      ;fire delay
+        DB      10     ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      reciprocatorSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 reciprocatorSound:
@@ -9840,82 +9840,82 @@ reciprocatorSound:
 ;----ReciprocatorPowerup----------------------------------------------
 ReciprocatorPowerupCheck:
         ;use $c000 as temporary check table, fill in with:
-				; moveDelay = health;
-				; bulletDamage = 11 - health;
-				call    GetHealth
-				ld      b,a
-				ld      hl,$c000
-				ld      [hl+],a
-				ld      [hl],1
-				inc     hl
-				ld      a,11
-				sub     b
-				ld      [hl+],a
-				ld      a,(reciprocatorSound & $ff)
-				ld      [hl+],a
-				ld      a,((reciprocatorSound>>8) & $ff)
-				ld      [hl+],a
-				ld      [hl],10
-				inc     hl
-				ld      a,(TrackEnemyVectorToState & $ff)
-				ld      [hl+],a
-				ld      a,((TrackEnemyVectorToState>>8) & $ff)
-				ld      [hl],a
+        ; moveDelay = health;
+        ; bulletDamage = 11 - health;
+        call    GetHealth
+        ld      b,a
+        ld      hl,$c000
+        ld      [hl+],a
+        ld      [hl],1
+        inc     hl
+        ld      a,11
+        sub     b
+        ld      [hl+],a
+        ld      a,(reciprocatorSound & $ff)
+        ld      [hl+],a
+        ld      a,((reciprocatorSound>>8) & $ff)
+        ld      [hl+],a
+        ld      [hl],10
+        inc     hl
+        ld      a,(TrackEnemyVectorToState & $ff)
+        ld      [hl+],a
+        ld      a,((TrackEnemyVectorToState>>8) & $ff)
+        ld      [hl],a
 
         ld      hl,$c000
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 ;----Tri--------------------------------------------------------------
 TriInit:
         ld      hl,.triInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .triInitTable
         DB      4                ;initial facing
         DB      4                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classTriling
-				DW      TRILING_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classTriling
+        DW      TRILING_CINDEX
 
 TriCheck:
         call    GetHealth
-				or      a
-				jr      nz,.afterCheckSplit
+        or      a
+        jr      nz,.afterCheckSplit
 
-				;split into 3 trilings
-				call    GetCurLocation
-				push    bc
-				call    GetAssociated
-				ld      c,a
+        ;split into 3 trilings
+        call    GetCurLocation
+        push    bc
+        call    GetAssociated
+        ld      c,a
 
-				ld      b,3
+        ld      b,3
 .createTrilings
-				call    FindEmptyLocationAround1x1
-				or      a
-				jr      z,.doneCreateTrilings
+        call    FindEmptyLocationAround1x1
+        or      a
+        jr      z,.doneCreateTrilings
 
-				push    de
-				call    CreateInitAndDrawObject
-				pop     de
-				dec     b
-				jr      nz,.createTrilings
+        push    de
+        call    CreateInitAndDrawObject
+        pop     de
+        dec     b
+        jr      nz,.createTrilings
 
 .doneCreateTrilings
-				pop     bc
-				call    StandardDie
-				ret
+        pop     bc
+        call    StandardDie
+        ret
 
 .afterCheckSplit
         ld      hl,.triCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .triCheckTable
-				DB      12     ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      .triSound
-				DB      25     ;fire delay
+        DB      12     ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      .triSound
+        DB      25     ;fire delay
         DW      TrackEnemyVectorToState
 
 .triSound
@@ -9924,35 +9924,35 @@ TriCheck:
 ;----Triling----------------------------------------------------------
 TrilingInit:
         ld      hl,.trilingInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .trilingInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classTri
-				DW      TRI_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classTri
+        DW      TRI_CINDEX
 
 TrilingCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
         ld      hl,.trilingCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				call    GetMisc   ;mature into adult after 256 cycles
-				inc     a
-				ld      [hl],a
-				ret     nz
+        call    GetMisc   ;mature into adult after 256 cycles
+        inc     a
+        ld      [hl],a
+        ret     nz
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .trilingCheckTable
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .trilingSound
-				DB      20     ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .trilingSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 .trilingSound
@@ -9961,26 +9961,26 @@ TrilingCheck:
 ;----Tree-------------------------------------------------------------
 TreeInit:
         ld      hl,.treeInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .treeInitTable
         DB      DIR_EAST         ;initial facing
         DB      8                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classTreeBullet  ;associated bullet class ptr
-				DW      TREEBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classTreeBullet  ;associated bullet class ptr
+        DW      TREEBULLET_CINDEX
 
 TreeCheck:
         ld      hl,.treeCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .treeCheckTable
-				DB      0      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      treeFireSound
-				DB      10     ;fire delay
+        DB      0      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      treeFireSound
+        DB      10     ;fire delay
         DW      0
 
 TreeTalkerCheck:
@@ -9988,44 +9988,44 @@ TreeTalkerCheck:
         jp      TalkerCheckAfterSetupHL
 
 .treeTalkerCheckTable
-				DB      0      ;move delay
+        DB      0      ;move delay
         DW      0
 
 ;----Bush-------------------------------------------------------------
 BushInit:
         ld      hl,.bushInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .bushInitTable
         DB      DIR_EAST         ;initial facing
         DB      4                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classBushBullet  ;associated bullet class ptr
-				DW      TREEBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classBushBullet  ;associated bullet class ptr
+        DW      TREEBULLET_CINDEX
 
 BushCheck:
         ld      hl,.bushCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .bushCheckTable
-				DB      0      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      bushFireSound
-				DB      15     ;fire delay
+        DB      0      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      bushFireSound
+        DB      15     ;fire delay
         DW      0
 
 ;----Needle-----------------------------------------------------------
 NeedleInit:
         ld      hl,.needleInitTable
         call    StdInitFromTable
-				ld      a,3
-				call    SetDestL  ;bullet damage
-				xor     a
-				call    SetMoveLimit  ;bullet color
-				xor     a
-				jp      SetMisc   ;not triggered
+        ld      a,3
+        call    SetDestL  ;bullet damage
+        xor     a
+        call    SetMoveLimit  ;bullet color
+        xor     a
+        jp      SetMisc   ;not triggered
 
 .needleInitTable
         DB      4         ;initial facing
@@ -10035,76 +10035,76 @@ NeedleInit:
 
 NeedleCheck:
         call    GetMisc   ;triggered?
-				or      a
-				jr      z,.notTriggered
-				jp      SuperFastBulletCheck
+        or      a
+        jr      z,.notTriggered
+        jp      SuperFastBulletCheck
 .notTriggered
         ld      hl,.needleCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
 
-				call    GetFacing
-				bit     2,a           ;split tile?
-				jr      nz,.noEnemy   ;don't "fire" on the split tile
+        call    GetFacing
+        bit     2,a           ;split tile?
+        jr      nz,.noEnemy   ;don't "fire" on the split tile
 
-				xor     a
-				ld      [losLimit],a
-				ld      a,4
+        xor     a
+        ld      [losLimit],a
+        ld      a,4
 .lookInAllDirections
         push    af
-				call    LookForEnemyInLOS
-				or      a
-				jr      nz,.foundEnemy
-				pop     af
-				dec     a
-				jr      nz,.lookInAllDirections
-				jr      .noEnemy
+        call    LookForEnemyInLOS
+        or      a
+        jr      nz,.foundEnemy
+        pop     af
+        dec     a
+        jr      nz,.lookInAllDirections
+        jr      .noEnemy
 
 .foundEnemy
         pop     af
         ld      a,1
-				call    SetMisc    ;mark as triggered
+        call    SetMisc    ;mark as triggered
 
-				ld      hl,.needleTriggeredSound
-				call    PlaySound
+        ld      hl,.needleTriggeredSound
+        call    PlaySound
 
         call    .amFacingB
-				ret     z
+        ret     z
 
         ;close split tile or turn in dir
-				push    bc
-				call    StandardValidateMoveAndRedraw    ;move in dir 'b'
-				pop     bc
+        push    bc
+        call    StandardValidateMoveAndRedraw    ;move in dir 'b'
+        pop     bc
         call    .amFacingB
-				ret     z
+        ret     z
 
         ;closed split tile, now turn in dir
-				jp      StandardValidateMoveAndRedraw    ;move in dir 'b'
+        jp      StandardValidateMoveAndRedraw    ;move in dir 'b'
 
 .noEnemy
         ;move forward if possible
         call    GetFacing
-				and     %11
-				ld      b,a
-				xor     a
-				call    CheckDestEmpty
-				or      a
-				jr      z,.turnInRandomDir
-				jp      StandardValidateMoveAndRedraw
+        and     %11
+        ld      b,a
+        xor     a
+        call    CheckDestEmpty
+        or      a
+        jr      z,.turnInRandomDir
+        jp      StandardValidateMoveAndRedraw
 
 .turnInRandomDir
         ld      a,%11
-				call    GetRandomNumMask
-				ld      b,a
-				jp      StandardValidateMoveAndRedraw
+        call    GetRandomNumMask
+        ld      b,a
+        jp      StandardValidateMoveAndRedraw
 
 .amFacingB
-				call    GetFacing  ;turn to face enemy
-				and     %11
-				cp      b
-				ret     ;z=1 facing direction of enemy, z=0 not
+        call    GetFacing  ;turn to face enemy
+        and     %11
+        cp      b
+        ret     ;z=1 facing direction of enemy, z=0 not
 
 .needleCheckTable
         DB      8    ;move delay
@@ -10117,48 +10117,48 @@ BatInit:
         ld      hl,.batInitTable
         call    StdInitFromTable
 
-				;countdown until turn invisible
+        ;countdown until turn invisible
         ld      a,15
-				call    GetRandomNumMask
-				add     10
-				call    SetMisc
+        call    GetRandomNumMask
+        add     10
+        call    SetMisc
 
         ld      b,c  ;this->assoc->assoc = this
-				call    GetAssociated
-				ld      c,a
-				call    SetAssociated
+        call    GetAssociated
+        ld      c,a
+        call    SetAssociated
 
-				ret
+        ret
 
 .batInitTable
         DB      4         ;initial facing
         DB      2         ;health
         DB      GROUP_MONSTERC
         DB      1         ;has bullet
-				DW      classInvisibleBat
-				DW      INVISIBLEBAT_CINDEX
+        DW      classInvisibleBat
+        DW      INVISIBLEBAT_CINDEX
 
 BatCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ld      hl,.batCheckTable
         call    StdCheckFromTableNotDead
 
-				call    GetAttackDelay   ;attacked someone?
-				or      a
-				jr      z,.checkInvisible
+        call    GetAttackDelay   ;attacked someone?
+        or      a
+        jr      z,.checkInvisible
 
-				ld      a,50             ;delay until invisible
-				call    SetMisc
-				ret
+        ld      a,50             ;delay until invisible
+        call    SetMisc
+        ret
 
 .checkInvisible
         call    GetMisc
-				dec     a
-				ld      [hl],a
-				ret     nz
-				jp      ChangeMyClassToAssociatedAndRedraw
+        dec     a
+        ld      [hl],a
+        ret     nz
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .batCheckTable
         DB      3    ;move delay
@@ -10174,49 +10174,49 @@ batFireSound:
 ;----Burrower--------------------------------------------------------------
 BurrowerInit:
         ld      hl,.burrowerInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
-				ld      a,10     ;keep track of my health
-				call    SetMisc
+        ld      a,10     ;keep track of my health
+        call    SetMisc
 
         ld      b,c  ;this->assoc->assoc = this
-				call    GetAssociated
-				ld      c,a
-				call    SetAssociated
+        call    GetAssociated
+        ld      c,a
+        call    SetAssociated
 
-				ret
-        
+        ret
+
 .burrowerInitTable
         DB      4                ;initial facing
         DB      10               ;health  (above also)
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classBurrowerDirt
-				DW      BURROWER_DIRT_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classBurrowerDirt
+        DW      BURROWER_DIRT_CINDEX
 
 BurrowerCheck:
         ;burrow if I've taken damage
-				call    GetHealth
-				ld      b,a
-				call    GetMisc
-				cp      b
-				jr      z,.normalCheck    ;same health, no burrow
+        call    GetHealth
+        ld      b,a
+        call    GetMisc
+        cp      b
+        jr      z,.normalCheck    ;same health, no burrow
 
         ld      a,64    ;cycles until unburrow
-				call    SetMisc 
+        call    SetMisc
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .normalCheck
         ld      hl,.burrowerCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .burrowerCheckTable
-				DB      5      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .burrowerSound
-				DB      20     ;fire delay
+        DB      5      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .burrowerSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 .burrowerSound
@@ -10225,74 +10225,74 @@ BurrowerCheck:
 ;----BurrowerDirt----------------------------------------------------------
 BurrowerDirtInit:
         ld      hl,.burrowerDirtInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .burrowerDirtInitTable
         DB      4                ;initial facing
         DB      10               ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classBurrower
-				DW      BURROWER_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classBurrower
+        DW      BURROWER_CINDEX
 
 BurrowerDirtCheck:
         ;unburrow at end of 64 cycles
-				call    GetMisc
-				dec     [hl]
-				jr      nz,.normalCheck
+        call    GetMisc
+        dec     [hl]
+        jr      nz,.normalCheck
 
-				call    GetHealth     ;track my health
-				call    SetMisc
+        call    GetHealth     ;track my health
+        call    SetMisc
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .normalCheck
         ld      hl,.burrowerDirtCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .burrowerDirtCheckTable
-				DB      7      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      nullSound
-				DB      20     ;fire delay
+        DB      7      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      nullSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Dandelion--------------------------------------------------------
 DandelionInit:
         ld      hl,.dandelionInitTable
-				call    StdInitFromTable
-				jp      LinkAssocToMe
-        
+        call    StdInitFromTable
+        jp      LinkAssocToMe
+
 .dandelionInitTable
         DB      1                ;initial facing
         DB      1                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classDandelionPuff
-				DW      DANDELIONPUFF_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classDandelionPuff
+        DW      DANDELIONPUFF_CINDEX
 
 DandelionCheck:
         call    GetHealth
-				or      a
-				ret     nz
+        or      a
+        ret     nz
 
-				call    GetCurLocation
-				push    bc
-				call    GetAssociated
-				ld      c,a
+        call    GetCurLocation
+        push    bc
+        call    GetAssociated
+        ld      c,a
 
-				ld      b,4
+        ld      b,4
 .createPuffs
-				call    FindEmptyLocationAround1x1
-				or      a
-				jr      z,.doneCreatePuffs
+        call    FindEmptyLocationAround1x1
+        or      a
+        jr      z,.doneCreatePuffs
 
-				push    de
-				call    CreateInitAndDrawObject
-				pop     de
-				dec     b
-				jr      nz,.createPuffs
+        push    de
+        call    CreateInitAndDrawObject
+        pop     de
+        dec     b
+        jr      nz,.createPuffs
 
 .doneCreatePuffs
         pop     bc
@@ -10302,70 +10302,70 @@ DandelionCheck:
 ;----Dandelion Puff---------------------------------------------------
 DandelionPuffInit:
         ld      hl,.dandelionPuffInitTable
-				call    StdInitFromTable
-				ld      a,255   ;countdown till take root
-				jp      SetMisc
-        
+        call    StdInitFromTable
+        ld      a,255   ;countdown till take root
+        jp      SetMisc
+
 .dandelionPuffInitTable
         DB      4                ;initial facing
         DB      1                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classDandelion
-				DW      DANDELION_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classDandelion
+        DW      DANDELION_CINDEX
 
 DandelionPuffCheck:
         call    GetMisc
-				dec     [hl]    ;countdown till root
-				jr      nz,.checkAttach
+        dec     [hl]    ;countdown till root
+        jr      nz,.checkAttach
 
-				ld      a,[numFreeObjects]
-				cp      (255-60)
-				jr      nc,.takeRoot
+        ld      a,[numFreeObjects]
+        cp      (255-60)
+        jr      nc,.takeRoot
 
-				xor     a
-				jp      SetHealth
+        xor     a
+        jp      SetHealth
 
 .takeRoot
-				call    MoveForwardIfSplit
-				jp      ChangeMyClassToAssociatedAndRedraw
+        call    MoveForwardIfSplit
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .checkAttach
         ld      hl,.dandelionPuffCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
 .checkAttack
-				ld      a,1
-				ld      [losLimit],a
-				call    LookForEnemyInLOS
-				or      a
-				jr      z,.noEnemy
+        ld      a,1
+        ld      [losLimit],a
+        call    LookForEnemyInLOS
+        or      a
+        jr      z,.noEnemy
 
 .enemyFound
         xor     a
-				call    SetHealth    ;die next time
-				ld      hl,.dandelionPuffAttackSound
-				call    PlaySound
-				ld      a,[fireBulletLocation]   ;location of enemy
-				ld      l,a
-				ld      a,[fireBulletLocation+1]
-				ld      h,a
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ld      a,[hl]    ;enemy class index
-				call    EnsureTileIsHead
-				ld      c,a
-				ld      d,h
-				ld      e,l
-				call    FindObject
-				call    GetPuffCount
-				cp      15
-				ret     z
-				add     1
-				call    SetPuffCount
-				ret
+        call    SetHealth    ;die next time
+        ld      hl,.dandelionPuffAttackSound
+        call    PlaySound
+        ld      a,[fireBulletLocation]   ;location of enemy
+        ld      l,a
+        ld      a,[fireBulletLocation+1]
+        ld      h,a
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ld      a,[hl]    ;enemy class index
+        call    EnsureTileIsHead
+        ld      c,a
+        ld      d,h
+        ld      e,l
+        call    FindObject
+        call    GetPuffCount
+        cp      15
+        ret     z
+        add     1
+        call    SetPuffCount
+        ret
 
 .noEnemy
         inc     hl
@@ -10373,14 +10373,14 @@ DandelionPuffCheck:
         inc     hl
         inc     hl
         inc     hl
-				jp      StdMove
+        jp      StdMove
 
 .dandelionPuffCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      .dandelionPuffAttackSound
-				DB      1      ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      .dandelionPuffAttackSound
+        DB      1      ;fire delay
         DW      StdVectorToState
 
 .dandelionPuffAttackSound
@@ -10389,63 +10389,63 @@ DandelionPuffCheck:
 ;----Mouse------------------------------------------------------------
 MouseInit:
         ld      hl,.mouseInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .mouseInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_HERO       ;group
-				DB      1                ;has bullet
-				DW      classUberMouse   ;associated bullet class ptr
-				DW      UBERMOUSE_CINDEX
+        DB      GROUP_HERO       ;group
+        DB      1                ;has bullet
+        DW      classUberMouse   ;associated bullet class ptr
+        DW      UBERMOUSE_CINDEX
 
 MouseCheck:
         ;health >= 5?
-				call    GetHealth
-				cp      5
-				jr      c,.mouseCheck
+        call    GetHealth
+        cp      5
+        jr      c,.mouseCheck
 
-				;want to become UberMouse
+        ;want to become UberMouse
         ld      a,63
         call    SetHealth
-				call    GetFacing    ;must not be split or sprite
-				and     %10000100
-				jr      nz,.mouseCheck
+        call    GetFacing    ;must not be split or sprite
+        and     %10000100
+        jr      nz,.mouseCheck
 
-				;adjacent locations must be clear
-				call    GetCurLocation
-				inc     hl
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				or      a
-				jr      nz,.mouseCheck    ;not empty
+        ;adjacent locations must be clear
+        call    GetCurLocation
+        inc     hl
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        or      a
+        jr      nz,.mouseCheck    ;not empty
 
-				ld      a,[mapPitch]
-				add     l
-				ld      l,a
-				ld      a,h
-				adc     0
-				ld      h,a
-				ld      a,[hl-]
-				or      a
-				jr      nz,.mouseCheck
-				ld      a,[hl]
-				or      a
-				jr      nz,.mouseCheck
+        ld      a,[mapPitch]
+        add     l
+        ld      l,a
+        ld      a,h
+        adc     0
+        ld      h,a
+        ld      a,[hl-]
+        or      a
+        jr      nz,.mouseCheck
+        ld      a,[hl]
+        or      a
+        jr      nz,.mouseCheck
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .mouseCheck
         ld      hl,.mouseCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .mouseCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .mouseFireSound
-				DB      4      ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .mouseFireSound
+        DB      4      ;fire delay
         DW      StdVectorToState
 
 .mouseFireSound
@@ -10455,24 +10455,24 @@ MouseCheck:
 ;----Penguin----------------------------------------------------------
 PenguinInit:
         ld      hl,.penguinInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .penguinInitTable
         DB      4                ;initial facing
         DB      5                ;health
-				DB      GROUP_MONSTERB   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERB   ;group
+        DB      0                ;has bullet
 
 PenguinCheck:
         ld      hl,.penguinCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .penguinCheckTable
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .penguinFireSound
-				DB      4      ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .penguinFireSound
+        DB      4      ;fire delay
         DW      TrackEnemyVectorToState
 
 .penguinFireSound
@@ -10481,24 +10481,24 @@ PenguinCheck:
 ;----BIOS-------------------------------------------------------------
 BIOSInit:
         ld      hl,.BIOSInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .BIOSInitTable
         DB      4                ;initial facing
         DB      4                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERA   ;group
+        DB      0                ;has bullet
 
 BIOSCheck:
         ld      hl,.BIOSCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .BIOSCheckTable
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .BIOSFireSound
-				DB      4      ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .BIOSFireSound
+        DB      4      ;fire delay
         DW      TrackEnemyVectorToState
 
 .BIOSFireSound
@@ -10507,146 +10507,146 @@ BIOSCheck:
 ;----Crouton Hulk-----------------------------------------------------
 CroutonHulkInit:
         ld      hl,.croutonHulkInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .croutonHulkInitTable
         DB      4                ;initial facing
         DB      10               ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classCroutonBullet ;associated bullet class ptr
-				DW      CROUTONBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classCroutonBullet ;associated bullet class ptr
+        DW      CROUTONBULLET_CINDEX
 
 CroutonHulkCheck:
         ld      hl,.croutonHulkCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .croutonHulkCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      hulkFireSound
-				DB      5      ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      hulkFireSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 CroutonGruntInit:
         ld      hl,.croutonGruntInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .croutonGruntInitTable
         DB      4                ;initial facing
         DB      5                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERA   ;group
+        DB      0                ;has bullet
 
 ;----Crouton Grunt----------------------------------------------------
 CroutonGruntCheck:
         ld      hl,.croutonGruntCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .croutonGruntCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      gruntFireSound
-				DB      5      ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      gruntFireSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Wolf-------------------------------------------------------------
 WolfSheepInit:
         ld      hl,.wolfSheepInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 
 .wolfSheepInitTable
         DB      4                ;initial facing
         DB      3                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classWolf        ;associated bullet class ptr
-				DW      WOLF_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classWolf        ;associated bullet class ptr
+        DW      WOLF_CINDEX
 
 WolfInit:
         ld      hl,.wolfInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
         call    LinkAssocToMe
 
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .wolfInitTable:
         DB      4                ;initial facing
         DB      3                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classWolfSheep   ;associated bullet class ptr
-				DW      SHEEP_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classWolfSheep   ;associated bullet class ptr
+        DW      SHEEP_CINDEX
 
 WolfCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ld      hl,.wolfCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				call    GetAttackDelay
-				or      a
-				jr      z,.checkChangeToSheep
- 
-				ld      a,100        ;delay until I can change back
-				call    SetMisc
-				ret
+        call    GetAttackDelay
+        or      a
+        jr      z,.checkChangeToSheep
+
+        ld      a,100        ;delay until I can change back
+        call    SetMisc
+        ret
 
 .checkChangeToSheep
-				;turn back into a sheep after bit
-				call    GetMisc     ;countdown until sheep
-				dec     a
-				ld      [hl],a
-				ret     nz
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ;turn back into a sheep after bit
+        call    GetMisc     ;countdown until sheep
+        dec     a
+        ld      [hl],a
+        ret     nz
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .wolfCheckTable:
-				DB      2      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      wolfFireSound
-				DB      6      ;fire delay
+        DB      2      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      wolfFireSound
+        DB      6      ;fire delay
         DW      TrackEnemyVectorToState
 
 WolfSheepCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ld      hl,.wolfSheepCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
         ;turn into a wolf if I attacked somebody
-				call    GetAttackDelay     ;attacked this round?
-				or      a
-				ret     z
+        call    GetAttackDelay     ;attacked this round?
+        or      a
+        ret     z
 
-				;change into wolf
-				ld      a,100        ;delay until I can change back
-				call    SetMisc
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ;change into wolf
+        ld      a,100        ;delay until I can change back
+        call    SetMisc
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .wolfSheepCheckTable:
-				DB      5      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      wolfFireSound
-				DB      6      ;fire delay
+        DB      5      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      wolfFireSound
+        DB      6      ;fire delay
         DW      TrackEnemyVectorToState
 
 wolfFireSound:
         DB      1,$1d,$40,$f2,$00,$82
 
 WolfSheepTakeDamage:
-				call    StdTakeDamage
+        call    StdTakeDamage
 
         ;change into wolf
-				ld      a,100        ;delay until I can change back
-				call    SetMisc
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ld      a,100        ;delay until I can change back
+        call    SetMisc
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 ;---------------------------------------------------------------------
 ;  LinkAssocToMe
@@ -10654,22 +10654,22 @@ WolfSheepTakeDamage:
 LinkAssocToMe:
         push    bc
         ld      b,c  ;this->assoc->assoc = this
-				call    GetAssociated
-				ld      c,a
-				call    SetAssociated
-				pop     bc
-				ret
+        call    GetAssociated
+        ld      c,a
+        call    SetAssociated
+        pop     bc
+        ret
 
 ;----Snake------------------------------------------------------------
 SnakeInit:
         ld      hl,.snakeInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .snakeInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 SnakeCheck:
         push    bc
@@ -10680,26 +10680,26 @@ SnakeCheck:
 
 .checkWithKit
         ld      hl,.snakeCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .checkNoKit
         ld      hl,.snakeCheckTableNoKit
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .snakeCheckTable
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .snakeFireSound
-				DB      4      ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .snakeFireSound
+        DB      4      ;fire delay
         DW      TrackEnemyVectorToState
 
 .snakeCheckTableNoKit
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      20     ;bullet damage
-				DW      .snakeFireSound
-				DB      4      ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      20     ;bullet damage
+        DW      .snakeFireSound
+        DB      4      ;fire delay
         DW      TrackEnemyVectorToState
 
 .snakeFireSound
@@ -10708,146 +10708,146 @@ SnakeCheck:
 ;----Neanderthal------------------------------------------------------
 NeanderthalInit:
         ld      hl,.neanderthalInitTable
-				call    StdInitFromTable
-				ld      a,4
-				jp      SetMisc      ;direction throwing enemy 4=none
+        call    StdInitFromTable
+        ld      a,4
+        jp      SetMisc      ;direction throwing enemy 4=none
 
 .neanderthalInitTable
         DB      4                ;initial facing
         DB      6                ;health
-				DB      GROUP_MONSTERD   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERD   ;group
+        DB      0                ;has bullet
 
 NeanderthalCheck:
         ld      hl,.neanderthalCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
         call    .neanderthalCheckAttack
-				ret     z
-				call    StdMove
-				ret
+        ret     z
+        call    StdMove
+        ret
 
 .neanderthalCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .neanderthalAttackSound
-				DB      20     ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .neanderthalAttackSound
+        DB      20     ;fire delay
         DW      TrackEnemyVectorToState
 
 .neanderthalCheckAttack
         ;can I attack yet?
-				push    hl
+        push    hl
         call    DecrementAttackDelay
-				pop     hl
-				or      a
-				jr      nz,.attackOkay
-				inc     hl
+        pop     hl
+        or      a
+        jr      nz,.attackOkay
+        inc     hl
 .didntFindEnemy
-				inc     hl
-				inc     hl
-				inc     hl
-				inc     hl
-				jr      .skipAttack
+        inc     hl
+        inc     hl
+        inc     hl
+        inc     hl
+        jr      .skipAttack
 
 .attackOkay
         ld      a,[hl+]
 
 .meleeOnly
-				ld      a,1
-				ld      [losLimit],a
-				call    LookForEnemyInLOS        ;returns dir of enemy in b
-				or      a
-				jr      z,.didntFindEnemy
+        ld      a,1
+        ld      [losLimit],a
+        call    LookForEnemyInLOS        ;returns dir of enemy in b
+        or      a
+        jr      z,.didntFindEnemy
 
 .foundEnemy
 
-				;Fire instead of moving
-				ld      a,[curObjWidthHeight]
-				push    af
+        ;Fire instead of moving
+        ld      a,[curObjWidthHeight]
+        push    af
 
-				ld      a,[hl+]   ;bullet damage
-				push    hl
-				push    af
+        ld      a,[hl+]   ;bullet damage
+        push    hl
+        push    af
 
-				ld      a,[hl+]   ;hl = fire sound
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]   ;hl = fire sound
+        ld      h,[hl]
+        ld      l,a
 
         pop     af             ;damage
-				call    StdFireBullet  ;b is direction to fire
-				pop     hl
-				inc     hl
-				inc     hl
-				ld      a,[hl+]        ;delay
-				call    SetAttackDelay
+        call    StdFireBullet  ;b is direction to fire
+        pop     hl
+        inc     hl
+        inc     hl
+        ld      a,[hl+]        ;delay
+        call    SetAttackDelay
 
         ;throw enemy object away from us
-				push    hl
-				ld      a,[fireBulletLocation]
-				ld      l,a
-				ld      a,[fireBulletLocation+1]
-				ld      h,a
+        push    hl
+        ld      a,[fireBulletLocation]
+        ld      l,a
+        ld      a,[fireBulletLocation+1]
+        ld      h,a
         call    ThrowObjAtHLInDirB
-				pop     hl
+        pop     hl
 
-				pop     af
-				ld      [curObjWidthHeight],a
+        pop     af
+        ld      [curObjWidthHeight],a
 
-				;turn to face the direction we just fired
-				call    GetFacing
-				and     %11
-				cp      b
-				jr      z,.skipMove  ;no need to turn
+        ;turn to face the direction we just fired
+        call    GetFacing
+        and     %11
+        cp      b
+        jr      z,.skipMove  ;no need to turn
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StandardValidateMoveAndRedraw
 
-				jr      .skipMove
+        jr      .skipMove
 
 .skipAttack
         ld      a,1 ;return nz (go ahead and move)
-				or      a
-				ret
+        or      a
+        ret
 
 .skipMove
         xor     a   ;return z (skip move)
-				ret
+        ret
 
 .neanderthalAttackSound
         DB      1,$79,$c0,$f3,$00,$c3
 
 ThrowObjAtHLInDirB:
-				push    bc
-				push    de
+        push    bc
+        push    de
         push    hl
         ldio    a,[curObjWidthHeight]
         push    af
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
         ldio    a,[firstMonster]
         ld      c,a
-				ld      a,[hl]
+        ld      a,[hl]
         cp      c
         jr      c,.done   ;no monster here
 
-				call    EnsureTileIsHead
-				ld      d,h
-				ld      e,l
-				ld      c,a
+        call    EnsureTileIsHead
+        ld      d,h
+        ld      e,l
+        ld      c,a
         call    GetFGAttributes
         and     FLAG_NOTHROW
         jr      nz,.done
 
-				call    FindObject
+        call    FindObject
         call    SetObjWidthHeight
-				call    StandardValidateMoveAndRedraw
-				call    StandardValidateMoveAndRedraw
-				call    PointToSpecialFlags
-				set     OBJBIT_THROWN,[hl]
+        call    StandardValidateMoveAndRedraw
+        call    StandardValidateMoveAndRedraw
+        call    PointToSpecialFlags
+        set     OBJBIT_THROWN,[hl]
 
         ;set timer to current-1 to ensure this moves next check
         ld      hl,OBJ_FRAME
@@ -10866,34 +10866,34 @@ ThrowObjAtHLInDirB:
         pop     af
         ldio    [curObjWidthHeight],a
         pop     hl
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
         ret
-        
+
 ;----Crow-------------------------------------------------------------
 CrowInit:
         ld      hl,.crowInitTable
-				call    StdInitFromTable
-				ld      hl,0
-				call    SetFoodIndexRange
-				ret
-        
+        call    StdInitFromTable
+        ld      hl,0
+        call    SetFoodIndexRange
+        ret
+
 .crowInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 CrowCheck:
         ld      hl,.crowCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .crowCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .crowSound
-				DB      20     ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .crowSound
+        DB      20     ;fire delay
         DW      EatVectorToState
 
 .crowSound
@@ -10902,72 +10902,72 @@ CrowCheck:
 ;----Scarecrow--------------------------------------------------------
 ScarecrowInit:
         ld      hl,.scarecrowInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .scarecrowInitTable
         DB      1                ;initial facing
         DB      20               ;health
-				DB      GROUP_MONSTERN   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERN   ;group
+        DB      0                ;has bullet
 
 ScarecrowCheck:
         ld      hl,.crowCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .crowCheckTable
-				DB      0      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      nullSound
-				DB      20     ;fire delay
+        DB      0      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      nullSound
+        DB      20     ;fire delay
         DW      0
 
 ScarecrowTakeDamage:
         ;call    GetFacing
-				;xor     %10
-				;call    SetFacing
-				;ld      b,METHOD_DRAW
-				;call    CallMethod
-				jp      StdTakeDamage2x2
+        ;xor     %10
+        ;call    SetFacing
+        ;ld      b,METHOD_DRAW
+        ;call    CallMethod
+        jp      StdTakeDamage2x2
 
 ;----Alligator--------------------------------------------------------
 AlligatorInit:
         ld      hl,.alligatorInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .alligatorInitTable
         DB      4                ;initial facing
         DB      13               ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 AlligatorCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ;save original facing
         call    GetFacing
-				and     %00000011
-				push    af
+        and     %00000011
+        push    af
 
         ld      hl,.alligatorCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;if facing changes set move delay to 10
-				call    GetFacing
-				and     %00000011
-				pop     bc
-				cp      b
-				ret     z
-				ld      a,10 
-				call    SetMoveDelay
-				ret
+        ;if facing changes set move delay to 10
+        call    GetFacing
+        and     %00000011
+        pop     bc
+        cp      b
+        ret     z
+        ld      a,10
+        call    SetMoveDelay
+        ret
 
 .alligatorCheckTable
-				DB      2      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .alligatorAttackSound
-				DB      5      ;fire delay
+        DB      2      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .alligatorAttackSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 .alligatorAttackSound
@@ -10987,117 +10987,117 @@ ScorpionInit:
 ScorpionCheck:
         ld      hl,.scorpionCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
         call    .scorpionCheckAttack
-				ret     z
-				call    StdMove
-				ret
+        ret     z
+        call    StdMove
+        ret
 
 .scorpionCheckAttack
         ;can I attack yet?
-				push    hl
+        push    hl
         call    DecrementAttackDelay
-				pop     hl
-				or      a
-				jr      nz,.attackOkay
-				inc     hl
+        pop     hl
+        or      a
+        jr      nz,.attackOkay
+        inc     hl
 .didntFindEnemy
-				inc     hl
-				inc     hl
-				inc     hl
-				inc     hl
-				jr      .skipAttack
+        inc     hl
+        inc     hl
+        inc     hl
+        inc     hl
+        jr      .skipAttack
 
 .attackOkay
         ld      a,[hl+]
 
 .meleeOnly
-				ld      a,1
-				ld      [losLimit],a
-				call    LookForEnemyInLOS        ;returns dir of enemy in b
-				or      a
-				jr      z,.didntFindEnemy
+        ld      a,1
+        ld      [losLimit],a
+        call    LookForEnemyInLOS        ;returns dir of enemy in b
+        or      a
+        jr      z,.didntFindEnemy
 
 .foundEnemy
-				;Fire instead of moving
-				ld      a,[curObjWidthHeight]
-				push    af
+        ;Fire instead of moving
+        ld      a,[curObjWidthHeight]
+        push    af
 
-				ld      a,[hl+]   ;bullet damage
-				push    hl
-				push    af
+        ld      a,[hl+]   ;bullet damage
+        push    hl
+        push    af
 
-				ld      a,[hl+]   ;hl = fire sound
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]   ;hl = fire sound
+        ld      h,[hl]
+        ld      l,a
 
         pop     af             ;damage
-				call    StdFireBullet  ;b is direction to fire
-				pop     hl
-				inc     hl
-				inc     hl
-				ld      a,[hl+]        ;delay
-				call    SetAttackDelay
+        call    StdFireBullet  ;b is direction to fire
+        pop     hl
+        inc     hl
+        inc     hl
+        ld      a,[hl+]        ;delay
+        call    SetAttackDelay
 
         ;freeze enemy
-				push    bc
-				push    de
-				push    hl
-				ld      a,[fireBulletLocation]
-				ld      l,a
-				ld      a,[fireBulletLocation+1]
-				ld      h,a
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    EnsureTileIsHead
-				ld      d,h
-				ld      e,l
-				ld      c,a
-				call    FindObject
+        push    bc
+        push    de
+        push    hl
+        ld      a,[fireBulletLocation]
+        ld      l,a
+        ld      a,[fireBulletLocation+1]
+        ld      h,a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    EnsureTileIsHead
+        ld      d,h
+        ld      e,l
+        ld      c,a
+        call    FindObject
 
-				;freeze the enemy for a bit
-				call    GetHealth
-				or      a
-				jr      z,.afterFreeze
+        ;freeze the enemy for a bit
+        call    GetHealth
+        or      a
+        jr      z,.afterFreeze
 
-				ld      a,60
-				call    SetMoveDelay
+        ld      a,60
+        call    SetMoveDelay
 
-				call    GetHealth   ;deal 1 point of damage
-				dec     a           ;(so can't get stuck with Haiku)
-				call    SetHealth
+        call    GetHealth   ;deal 1 point of damage
+        dec     a           ;(so can't get stuck with Haiku)
+        call    SetHealth
 
 .afterFreeze
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
 
-				pop     af
-				ld      [curObjWidthHeight],a
+        pop     af
+        ld      [curObjWidthHeight],a
 
-				;turn to face the direction we just fired
-				call    GetFacing
-				and     %11
-				cp      b
-				jr      z,.skipMove  ;no need to turn
+        ;turn to face the direction we just fired
+        call    GetFacing
+        and     %11
+        cp      b
+        jr      z,.skipMove  ;no need to turn
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StandardValidateMoveAndRedraw
 
-				jr      .skipMove
+        jr      .skipMove
 
 .skipAttack
         ld      a,1 ;return nz (go ahead and move)
-				or      a
-				ret
+        or      a
+        ret
 
 .skipMove
         xor     a   ;return z (skip move)
-				ret
+        ret
 
 .scorpionCheckTable
         DB      5    ;move delay
@@ -11121,8 +11121,8 @@ BowInit:
         DB      3         ;health
         DB      GROUP_MONSTERC
         DB      1         ;has bullet
-				DW      classArrowBullet
-				DW      ARROWBULLET_CINDEX
+        DW      classArrowBullet
+        DW      ARROWBULLET_CINDEX
 
 BowCheck:
         ld      hl,.bowCheckTable
@@ -11147,10 +11147,10 @@ CowboyInit:
 .cowboyInitTable
         DB      4         ;initial facing
         DB      4         ;health
-        DB      GROUP_MONSTERM  ;friends 
+        DB      GROUP_MONSTERM  ;friends
         DB      1         ;has bullet
-				DW      classCowboyBullet
-				DW      COWBOYBULLET_CINDEX
+        DW      classCowboyBullet
+        DW      COWBOYBULLET_CINDEX
 
 CowboyCheck:
         ld      hl,.cowboyCheckTable
@@ -11182,51 +11182,51 @@ AngryCowboyCheck:
 ;----Crouton Doctor / Guard-------------------------------------------
 CroutonDoctorInit:
         ld      hl,.croutonDoctorInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .croutonDoctorInitTable
         DB      4                ;initial facing
         DB      3                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classCroutonBullet ;associated bullet class ptr
-				DW      CROUTONBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classCroutonBullet ;associated bullet class ptr
+        DW      CROUTONBULLET_CINDEX
 
 CroutonDoctorCheck:
         ld      hl,.croutonDoctorCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .croutonDoctorCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      guardFireSound
-				DB      6      ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      guardFireSound
+        DB      6      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Crouton Wizard---------------------------------------------------
 CroutonWizardInit:
         ld      hl,.croutonWizardInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .croutonWizardInitTable
         DB      4                ;initial facing
         DB      3                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classWizardBullet ;associated bullet class ptr
-				DW      WIZARDBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classWizardBullet ;associated bullet class ptr
+        DW      WIZARDBULLET_CINDEX
 
 CroutonWizardCheck:
         ld      hl,.croutonWizardCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .croutonWizardCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      .wizardFireSound
-				DB      6      ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      .wizardFireSound
+        DB      6      ;fire delay
         DW      TrackEnemyVectorToState
 
 .wizardFireSound
@@ -11235,64 +11235,64 @@ CroutonWizardCheck:
 ;----Big Bee Hive-----------------------------------------------------
 BigBeeHiveCheck:
         ;randomly create a bee every so often
-				ld      a,127
-				call    GetRandomNumMask
-				or      a
-				jr      nz,.afterCreateBee
+        ld      a,127
+        call    GetRandomNumMask
+        or      a
+        jr      nz,.afterCreateBee
 
-				ld      a,[numFreeObjects]
-				cp      (255-32)
-				jr      c,.afterCreateBee
+        ld      a,[numFreeObjects]
+        cp      (255-32)
+        jr      c,.afterCreateBee
 
-				call    FindEmptyLocationAround2x2
-		    ld      a,h
-				or      a
-				jr      z,.afterCreateBee
+        call    FindEmptyLocationAround2x2
+        ld      a,h
+        or      a
+        jr      z,.afterCreateBee
 
         push    bc
-				push    de
+        push    de
         ld      bc,classBee
-				call    FindClassIndex
-				or      a
-				jr      z,.afterCreateObject
-				ld      c,a
-				call    CreateInitAndDrawObject
+        call    FindClassIndex
+        or      a
+        jr      z,.afterCreateObject
+        ld      c,a
+        call    CreateInitAndDrawObject
 .afterCreateObject
-				pop     de
-				pop     bc
+        pop     de
+        pop     bc
 
 .afterCreateBee
         ld      hl,.bigBeeHiveCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .bigBeeHiveCheckTable
-				DB      0      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      beeSound
-				DB      20     ;fire delay
+        DB      0      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      beeSound
+        DB      20     ;fire delay
         DW      0
 
 ;----Sheep------------------------------------------------------------
 SheepCheck:
         call    GetHealth
-				or      a
-				jr      nz,.afterChangeToDrumstick
+        or      a
+        jr      nz,.afterChangeToDrumstick
 
         call    GetCurLocation
-				push    hl
+        push    hl
         call    StandardDie
-				pop     hl
+        pop     hl
 
-				ld      bc,classDrumstickBG
-				call    FindClassIndex
-				push    af
+        ld      bc,classDrumstickBG
+        call    FindClassIndex
+        push    af
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      [hl],a
+        ldio    [$ff70],a
+        pop     af
+        ld      [hl],a
 
-				jp      ResetMyBGSpecialFlags
+        jp      ResetMyBGSpecialFlags
 
 .afterChangeToDrumstick
         jp      GenericCheck
@@ -11300,229 +11300,229 @@ SheepCheck:
 ;----Chicken----------------------------------------------------------
 ChickenInit:
         ld      hl,.chickenInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .chickenInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERB   ;group
-				DB      1                ;has bullet
-				DW      classEgg
-				DW      EGG_CINDEX
+        DB      GROUP_MONSTERB   ;group
+        DB      1                ;has bullet
+        DW      classEgg
+        DW      EGG_CINDEX
 
 ChickenCheck:
         ;lay egg?
-				ld      a,255
-				call    GetRandomNumMask
-				or      a
-				jr      nz,.afterLayEgg
-				ldio    a,[updateTimer]
-				and     %11
-				or      a
-				jr      nz,.afterLayEgg
-				ld      a,[numFreeObjects]
-				cp      200
-				jr      c,.afterLayEgg
+        ld      a,255
+        call    GetRandomNumMask
+        or      a
+        jr      nz,.afterLayEgg
+        ldio    a,[updateTimer]
+        and     %11
+        or      a
+        jr      nz,.afterLayEgg
+        ld      a,[numFreeObjects]
+        cp      200
+        jr      c,.afterLayEgg
 
-				push    bc
-				call    GetAssociated
-				ld      c,a
-				call    FindEmptyLocationAround1x1
-				or      a
-				jr      z,.afterCreateEgg
-				push    de
-				call    CreateInitAndDrawObject
-				pop     de
+        push    bc
+        call    GetAssociated
+        ld      c,a
+        call    FindEmptyLocationAround1x1
+        or      a
+        jr      z,.afterCreateEgg
+        push    de
+        call    CreateInitAndDrawObject
+        pop     de
 .afterCreateEgg
         pop     bc
 
 .afterLayEgg
         ld      hl,.chickenCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .chickenCheckTable
-				DB      5      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      nullSound
-				DB      30     ;fire delay
+        DB      5      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      nullSound
+        DB      30     ;fire delay
         DW      StdVectorToState
 
 ;----Wisp-------------------------------------------------------------
 WispInit:
         ld      hl,.wispInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .wispInitTable
         DB      4                ;initial facing
         DB      1                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERC   ;group
+        DB      0                ;has bullet
 
 WispCheck:
         ld      hl,.wispCheckTable
         call    StdCheckDead
-				ret     z
-				call    StdCheckTimeToMove
-				ret     z
+        ret     z
+        call    StdCheckTimeToMove
+        ret     z
         call    .wispCheckAttack
-				ret     z
-				call    StdMove
-				ret
+        ret     z
+        call    StdMove
+        ret
 
 .wispCheckAttack
         ;can I attack yet?
-				push    hl
+        push    hl
         call    DecrementAttackDelay
-				pop     hl
-				or      a
-				jr      nz,.attackOkay
-				inc     hl
+        pop     hl
+        or      a
+        jr      nz,.attackOkay
+        inc     hl
 .didntFindEnemy
-				inc     hl
-				inc     hl
-				inc     hl
-				inc     hl
-				jp      .skipAttack
+        inc     hl
+        inc     hl
+        inc     hl
+        inc     hl
+        jp      .skipAttack
 
 .attackOkay
         ld      a,[hl+]
 
 .meleeOnly
-				ld      a,1
-				ld      [losLimit],a
-				call    LookForEnemyInLOS        ;returns dir of enemy in b
-				or      a
-				jr      z,.didntFindEnemy
+        ld      a,1
+        ld      [losLimit],a
+        call    LookForEnemyInLOS        ;returns dir of enemy in b
+        or      a
+        jr      z,.didntFindEnemy
 
 .foundEnemy
-				;Fire instead of moving
-				ld      a,[curObjWidthHeight]
-				push    af
+        ;Fire instead of moving
+        ld      a,[curObjWidthHeight]
+        push    af
 
-				ld      a,[hl+]   ;bullet damage
-				push    hl
-				push    af
+        ld      a,[hl+]   ;bullet damage
+        push    hl
+        push    af
 
-				ld      a,[hl+]   ;hl = fire sound
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]   ;hl = fire sound
+        ld      h,[hl]
+        ld      l,a
 
         pop     af             ;damage
-				call    StdFireBullet  ;b is direction to fire
-				pop     hl
-				inc     hl
-				inc     hl
-				ld      a,[hl+]        ;delay
-				call    SetAttackDelay
+        call    StdFireBullet  ;b is direction to fire
+        pop     hl
+        inc     hl
+        inc     hl
+        ld      a,[hl+]        ;delay
+        call    SetAttackDelay
 
         push    bc
-				;exchange enemy with another randomly selected wisp 
-				ld      a,c
-				call    CountNumObjects
-				dec     a
-				jr      z,.afterExchange
-				call    GetRandomNumZeroToN
+        ;exchange enemy with another randomly selected wisp
+        ld      a,c
+        call    CountNumObjects
+        dec     a
+        jr      z,.afterExchange
+        call    GetRandomNumZeroToN
 
-				ld      b,a
-				inc     b
+        ld      b,a
+        inc     b
 
-				push    bc   ;save my class and object
-				push    de
+        push    bc   ;save my class and object
+        push    de
 
-				call    GetFirst
-				dec     b
-				jr      z,.foundRemoteWisp
+        call    GetFirst
+        dec     b
+        jr      z,.foundRemoteWisp
 
 .findWisp
         call    GetNextObject
-				dec     b
-				jr      nz,.findWisp
+        dec     b
+        jr      nz,.findWisp
 
 .foundRemoteWisp
         ;save remote wisp's class and object
-				push    bc
-				push    de
+        push    bc
+        push    de
 
-				call    GetCurLocation
-				push    hl
+        call    GetCurLocation
+        push    hl
 
         call    .wispRemove
 
-				call    GetFireTargetAsObject
-				call    GetCurLocation
-				push    hl
+        call    GetFireTargetAsObject
+        call    GetCurLocation
+        push    hl
         call    .wispRemove
-				ld      hl,[sp+2]     ;other object's location
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				call    SetCurLocation
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        ld      hl,[sp+2]     ;other object's location
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        call    SetCurLocation
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
         ;reset camera if it was the hero that was moved
-				LDHL_CURHERODATA HERODATA_OBJ
-				ld      a,[hl+]
-				cp      e
-				jr      nz,.afterResetCamera
-				ld      a,[hl+]
-				cp      d
-				jr      nz,.afterResetCamera
+        LDHL_CURHERODATA HERODATA_OBJ
+        ld      a,[hl+]
+        cp      e
+        jr      nz,.afterResetCamera
+        ld      a,[hl+]
+        cp      d
+        jr      nz,.afterResetCamera
 
         call    AdjustCameraToHero
-				call    RestrictCameraToBounds
-				ld      a,[desiredMapLeft]
-				ld      [mapLeft],a
-				ld      a,[desiredMapTop]
-				ld      [mapTop],a
+        call    RestrictCameraToBounds
+        ld      a,[desiredMapLeft]
+        ld      [mapLeft],a
+        ld      a,[desiredMapTop]
+        ld      [mapTop],a
 .afterResetCamera
 
-				pop     hl
-				pop     de    ;first location(discard)
+        pop     hl
+        pop     de    ;first location(discard)
 
-				pop     de    ;first object
-				pop     bc
-				call    SetCurLocation
-				ld      b,METHOD_DRAW
-				call    CallMethod
+        pop     de    ;first object
+        pop     bc
+        call    SetCurLocation
+        ld      b,METHOD_DRAW
+        call    CallMethod
 
 .exchangeDone
-				pop     de
+        pop     de
         pop     bc
 .afterExchange
         pop     bc
 
-				pop     af
-				ld      [curObjWidthHeight],a
+        pop     af
+        ld      [curObjWidthHeight],a
 
-				;turn to face the direction we just fired
-				call    GetFacing
-				and     %11
-				cp      b
-				jr      z,.skipMove  ;no need to turn
+        ;turn to face the direction we just fired
+        call    GetFacing
+        and     %11
+        cp      b
+        jr      z,.skipMove  ;no need to turn
 
         ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      [moveAlignPrecision],a
         call    StandardValidateMoveAndRedraw
 
-				jr      .skipMove
+        jr      .skipMove
 
 .skipAttack
         ld      a,1 ;return nz (go ahead and move)
-				or      a
-				ret
+        or      a
+        ret
 
 .skipMove
         xor     a   ;return z (skip move)
-				ret
+        ret
 
 .wispCheckTable
-				DB      3      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .wispFireSound
-				DB      4      ;fire delay
+        DB      3      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .wispFireSound
+        DB      4      ;fire delay
         DW      StdVectorToState
 
 .wispFireSound
@@ -11530,143 +11530,143 @@ WispCheck:
 
 .wispRemove
         call    GetFGAttributes
-				and     FLAG_2X2
-				swap    a
-				ldio    [curObjWidthHeight],a
+        and     FLAG_2X2
+        swap    a
+        ldio    [curObjWidthHeight],a
         call    GetFacing
-				push    bc
-				ld      c,a
-				call    RemoveFromMap
-				pop     bc
-				call    GetFacing
-				and     %11111011     ;turn off split
-				jp      SetFacing
+        push    bc
+        ld      c,a
+        call    RemoveFromMap
+        pop     bc
+        call    GetFacing
+        and     %11111011     ;turn off split
+        jp      SetFacing
 
 ;----GetFireTargetAsObject--------------------------------------------
 GetFireTargetAsObject
-				ld      a,[fireBulletLocation]
-				ld      l,a
-				ld      a,[fireBulletLocation+1]
-				ld      h,a
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    EnsureTileIsHead
-				ld      d,h
-				ld      e,l
-				ld      c,a
-				jp      FindObject
+        ld      a,[fireBulletLocation]
+        ld      l,a
+        ld      a,[fireBulletLocation+1]
+        ld      h,a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    EnsureTileIsHead
+        ld      d,h
+        ld      e,l
+        ld      c,a
+        jp      FindObject
 
 ;----Quatrain---------------------------------------------------------
 QuatrainInit:
         ld      hl,.quatrainInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .quatrainInitTable
         DB      4                ;initial facing
         DB      10               ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERA   ;group
+        DB      0                ;has bullet
 
 QuatrainCheck:
         ld      hl,.quatrainCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .quatrainCheckTable
-				DB      1      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      nullSound
-				DB      5      ;fire delay
+        DB      1      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      nullSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Crouton Goblin---------------------------------------------------
 CroutonGoblinInit:
         ld      hl,.croutonGoblinInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .croutonGoblinInitTable
         DB      4                ;initial facing
         DB      1                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERA   ;group
+        DB      0                ;has bullet
 
 CroutonGoblinCheck:
         ld      hl,.croutonGoblinCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .croutonGoblinCheckTable
-				DB      2      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      goblinSound
-				DB      3      ;fire delay
+        DB      2      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      goblinSound
+        DB      3      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----General Gyro-----------------------------------------------------
 GeneralGyroInit:
         ld      hl,.gyroInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .gyroInitTable
         DB      4                ;initial facing
         DB      63               ;health (max)
-				DB      GROUP_MONSTERA   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERA   ;group
+        DB      0                ;has bullet
 
 ;----Crouton Artillery------------------------------------------------
 CroutonArtilleryInit:
         ld      hl,.croutonArtilleryInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .croutonArtilleryInitTable
         DB      4                ;initial facing
         DB      10               ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classRocketBullet ;associated bullet class ptr
-				DW      CROUTONROCKET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classRocketBullet ;associated bullet class ptr
+        DW      CROUTONROCKET_CINDEX
 
 CroutonArtilleryCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ;save original facing
         call    GetFacing
-				and     %00000011
-				push    af
+        and     %00000011
+        push    af
 
         ld      hl,.croutonArtilleryCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;if facing changes set move delay to 15
-				call    GetFacing
-				and     %00000011
-				pop     bc
-				cp      b
-				ret     z
-				ld      a,15
-				call    SetMoveDelay
-				ret
+        ;if facing changes set move delay to 15
+        call    GetFacing
+        and     %00000011
+        pop     bc
+        cp      b
+        ret     z
+        ld      a,15
+        call    SetMoveDelay
+        ret
 
 .croutonArtilleryCheckTable
-				DB      3      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      6      ;bullet damage
-				DW      rocketFireSound
-				DB      10     ;fire delay
+        DB      3      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      6      ;bullet damage
+        DW      rocketFireSound
+        DB      10     ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Teleport Cube----------------------------------------------------
 TeleportCubeInit:
         ld      hl,.cubeInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
         jp      LinkAssocToMe
-        
+
 .cubeInitTable
         DB      1                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classTeleportCube2
-				DW      TCUBE2_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classTeleportCube2
+        DW      TCUBE2_CINDEX
 
 TeleportCubeCheck:
         call    GetCurLocation
@@ -11687,19 +11687,19 @@ TeleportCubeCheck:
         call    GetRandomNumMask
         cp      2
         jr      nc,.cluster
-        
+
         ;one big enemy
         or      a
         jr      nz,.artillery
 
         ;create a hulk
-				ld      bc,classCroutonHulk
+        ld      bc,classCroutonHulk
         jr      .createSingle
 
 .artillery
-				ld      bc,classCroutonArtillery
+        ld      bc,classCroutonArtillery
 .createSingle
-				call    FindClassIndex
+        call    FindClassIndex
         ret     z
         ld      c,a
         jp      CreateInitAndDrawObject
@@ -11716,7 +11716,7 @@ TeleportCubeCheck:
         ;goblins
         ld      bc,classCroutonGoblin
 .createCluster
-				call    FindClassIndex
+        call    FindClassIndex
         ret     z
         ld      c,a
         call    CreateInitAndDrawObject
@@ -11780,39 +11780,39 @@ TeleportCubeCheck:
 
         ld      hl,.flashSound
         call    PlaySound
-				jp      ChangeMyClassToAssociatedAndRedraw
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .flashSound
   DB 1,$35,$40,$f0,$00,$c4
 
 TeleportCubeCheck2:
         call    StdCheckDead
-				ret     z
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ret     z
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 ;----Dandelion Guard--------------------------------------------------
 DandelionGuardInit:
         ld      hl,.dandelionGuardInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .dandelionGuardInitTable
         DB      4                ;initial facing
         DB      5                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classPansyBullet ;associated bullet class ptr
-				DW      PANSYBULLET_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classPansyBullet ;associated bullet class ptr
+        DW      PANSYBULLET_CINDEX
 
 DandelionGuardCheck:
         ld      hl,.dandelionGuardCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .dandelionGuardCheckTable
-				DB      3      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      .dandelionGuardFireSound
-				DB      8      ;fire delay
+        DB      3      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      .dandelionGuardFireSound
+        DB      8      ;fire delay
         DW      TrackEnemyVectorToState
 
 .dandelionGuardFireSound
@@ -11821,49 +11821,49 @@ DandelionGuardCheck:
 ;----B12 Soldier------------------------------------------------------
 B12SoldierInit:
         ld      hl,.b12SoldierInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .b12SoldierInitTable
         DB      4                ;initial facing
         DB      8                ;health
-				DB      GROUP_MONSTERB   ;group
-				DB      1                ;has bullet
-				DW      classB12SoldierBullet   ;associated bullet class ptr
-				DW      B12SOLDIERBULLET_CINDEX
+        DB      GROUP_MONSTERB   ;group
+        DB      1                ;has bullet
+        DW      classB12SoldierBullet   ;associated bullet class ptr
+        DW      B12SOLDIERBULLET_CINDEX
 
 B12SoldierCheck:
         ld      hl,.b12SoldierCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .b12SoldierCheckTable
-				DB      3      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      baFireSound
-				DB      5      ;fire delay
+        DB      3      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      baFireSound
+        DB      5      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Big Spider-------------------------------------------------------
 BigSpiderInit:
         ld      hl,.bigSpiderInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .bigSpiderInitTable
         DB      4                ;initial facing
         DB      9                ;health
-				DB      GROUP_MONSTERE   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERE   ;group
+        DB      0                ;has bullet
 
 BigSpiderCheck:
         ld      hl,.bigSpiderCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .bigSpiderCheckTable
-				DB      12     ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      .bigSpiderSound
-				DB      5      ;fire delay
+        DB      12     ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      .bigSpiderSound
+        DB      5      ;fire delay
         DW      StdVectorToState
 
 .bigSpiderSound
@@ -11872,24 +11872,24 @@ BigSpiderCheck:
 ;----Little Spider----------------------------------------------------
 LittleSpiderInit:
         ld      hl,.littleSpiderInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .littleSpiderInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERE   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERE   ;group
+        DB      0                ;has bullet
 
 LittleSpiderCheck:
         ld      hl,.littleSpiderCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .littleSpiderCheckTable
-				DB      10     ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .littleSpiderSound
-				DB      5      ;fire delay
+        DB      10     ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .littleSpiderSound
+        DB      5      ;fire delay
         DW      StdVectorToState
 
 .littleSpiderSound
@@ -11898,33 +11898,33 @@ LittleSpiderCheck:
 ;----Invisible Bat----------------------------------------------------
 InvisibleBatCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ld      hl,.invisibleBatCheckTable
         call    StdCheckFromTableNotDead
 
-				;make a noise every so often
-				ld      hl,updateTimer
-				ld      a,e
-				rrca
-				rrca
-				rrca
-				add     [hl]
-				and     %11111
-				cp      %10000
-				jr      nz,.checkAttack
+        ;make a noise every so often
+        ld      hl,updateTimer
+        ld      a,e
+        rrca
+        rrca
+        rrca
+        add     [hl]
+        and     %11111
+        cp      %10000
+        jr      nz,.checkAttack
 
-				ld      hl,batFireSound
-				call    PlaySound
+        ld      hl,batFireSound
+        call    PlaySound
 
 .checkAttack
-				call    GetAttackDelay   ;attacked someone?
-				or      a
-				ret     z
+        call    GetAttackDelay   ;attacked someone?
+        or      a
+        ret     z
 
-				call    ChangeMyClassToAssociatedAndRedraw
-				ld      a,50             ;delay until invisible
-				jp      SetMisc
+        call    ChangeMyClassToAssociatedAndRedraw
+        ld      a,50             ;delay until invisible
+        jp      SetMisc
 
 .invisibleBatCheckTable
         DB      3    ;move delay
@@ -11937,18 +11937,18 @@ InvisibleBatCheck:
 InvisibleBatTakeDamage:
         call    StdTakeDamage
 
-				call    ChangeMyClassToAssociatedAndRedraw
-				ld      a,50             ;delay until invisible
-				jp      SetMisc
+        call    ChangeMyClassToAssociatedAndRedraw
+        ld      a,50             ;delay until invisible
+        jp      SetMisc
 
 
 ;----Slime------------------------------------------------------------
 SlimeInit:
         call    GetCurLocation
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				xor     a
-				ld      [hl],a  ;clear slime BG tile I'm on
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        xor     a
+        ld      [hl],a  ;clear slime BG tile I'm on
 
         ld      hl,.slimeInitTable
         jp      StdInitFromTable
@@ -11978,27 +11978,27 @@ SlimeCheck:
 EggInit:
         ld      hl,.eggInitTable
         call    StdInitFromTable
-				ld      a,255
-				jp      SetMisc   ;turns until hatch
+        ld      a,255
+        jp      SetMisc   ;turns until hatch
 
 .eggInitTable
         DB      1         ;initial facing
         DB      2         ;health
         DB      GROUP_MONSTERN
         DB      1         ;has bullet
-				DW      classChicken 
-				DW      CHICKEN_CINDEX
+        DW      classChicken
+        DW      CHICKEN_CINDEX
 
 ;----Monkey-----------------------------------------------------------
 MonkeyInit:
         push    bc
-				push    de
+        push    de
         ld      de,classSleepingMonkey
-				ld      hl,MONKEY_CINDEX
-				ld      a,1
-				call    LoadAssociatedClass
-				pop     de
-				pop     bc
+        ld      hl,MONKEY_CINDEX
+        ld      a,1
+        call    LoadAssociatedClass
+        pop     de
+        pop     bc
 
         ld      hl,.monkeyInitTable
         jp      StdInitFromTable
@@ -12008,8 +12008,8 @@ MonkeyInit:
         DB      2         ;health
         DB      GROUP_MONSTERD
         DB      1         ;has bullet
-				DW      classBananaBullet
-				DW      BANANABULLET_CINDEX
+        DW      classBananaBullet
+        DW      BANANABULLET_CINDEX
 
 MonkeyCheck:
         ld      hl,.monkeyCheckTable
@@ -12029,50 +12029,50 @@ monkeyFireSound:
 ;----Duke-------------------------------------------------------------
 DukeInit:
         ld      hl,.dukeInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .dukeInitTable
         DB      4                ;initial facing
         DB      63               ;health (max)
-				DB      GROUP_MONSTERD   ;group
-				DB      1                ;has bullet
-				DW      classBananaBullet
-				DW      BANANABULLET_CINDEX
+        DB      GROUP_MONSTERD   ;group
+        DB      1                ;has bullet
+        DW      classBananaBullet
+        DW      BANANABULLET_CINDEX
 
 DukeCheck:
         ld      hl,.dukeCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .dukeCheckTable
-				DB      5      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      3      ;bullet damage
-				DW      monkeyFireSound
-				DB      3      ;fire delay
+        DB      5      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      3      ;bullet damage
+        DW      monkeyFireSound
+        DB      3      ;fire delay
         DW      StdVectorToState
 
 ;----Pig--------------------------------------------------------------
 PigCheck:
         call    GetHealth
-				or      a
-				jr      nz,.afterPorkProducts
+        or      a
+        jr      nz,.afterPorkProducts
 
         call    GetCurLocation
-				push    hl
+        push    hl
         call    StandardDie
-				pop     hl
+        pop     hl
 
-				ld      bc,classPorkBG
-				call    FindClassIndex
-				ld      b,a
+        ld      bc,classPorkBG
+        call    FindClassIndex
+        ld      b,a
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,2
-				call    GetRandomNumZeroToN
-				add     b
-				ld      [hl],a
+        ldio    [$ff70],a
+        ld      a,2
+        call    GetRandomNumZeroToN
+        add     b
+        ld      [hl],a
 
-				call    ResetMyBGSpecialFlags
-				ret
+        call    ResetMyBGSpecialFlags
+        ret
 
 .afterPorkProducts
         jp      GenericCheck
@@ -12080,33 +12080,33 @@ PigCheck:
 
 EggCheck:
         call    GetHealth
-				or      a
-				jr      nz,.afterFried
+        or      a
+        jr      nz,.afterFried
 
         call    GetCurLocation
-				push    hl
+        push    hl
         call    StandardDie
-				pop     hl
+        pop     hl
 
-				ld      bc,classFriedEggBG
-				call    FindClassIndex
-				push    af
+        ld      bc,classFriedEggBG
+        call    FindClassIndex
+        push    af
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      [hl],a
+        ldio    [$ff70],a
+        pop     af
+        ld      [hl],a
 
-				call    ResetMyBGSpecialFlags
-				ret
+        call    ResetMyBGSpecialFlags
+        ret
 
 .afterFried
         call    GetMisc
-				dec     [hl]
-				jr      nz,.notHatchedYet
+        dec     [hl]
+        jr      nz,.notHatchedYet
 
-				ld      hl,.eggHatchSound
-				call    PlaySound
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ld      hl,.eggHatchSound
+        call    PlaySound
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .notHatchedYet
         ld      hl,.eggCheckTable
@@ -12136,68 +12136,68 @@ BlowerInit:
 
 BlowerCheck:
         call    StdCheckDead
-				ret     z
+        ret     z
 
         ld      hl,.blowerCheckTable
-				call    StdCheckFromTableNotDead
+        call    StdCheckFromTableNotDead
 
-				;handle 'firing' ourselves
-				;can we attack yet?
-				call    DecrementAttackDelay
-				or      a
-				ret     z
+        ;handle 'firing' ourselves
+        ;can we attack yet?
+        call    DecrementAttackDelay
+        or      a
+        ret     z
 
         push    de
-				call    GetFacing
-				push    af
-				and     %11
-				call    GetLocInFront
-				pop     af
-				rlca
-				and     %110
-				push    hl
-				ld      l,a
-				ld      a,(mapOffsetNorth & $ff)
-				add     l
-				ld      l,a
-				ld      h,((mapOffsetNorth>>8)&$ff)
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl]
-				ld      d,a
-				pop     hl
+        call    GetFacing
+        push    af
+        and     %11
+        call    GetLocInFront
+        pop     af
+        rlca
+        and     %110
+        push    hl
+        ld      l,a
+        ld      a,(mapOffsetNorth & $ff)
+        add     l
+        ld      l,a
+        ld      h,((mapOffsetNorth>>8)&$ff)
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl]
+        ld      d,a
+        pop     hl
 
         xor     a
-				ld      [losLimit],a
-				call    ScanDirectionForEnemy    ;returns dir of enemy in b
-				or      a
-				jr      z,.doneDE
+        ld      [losLimit],a
+        call    ScanDirectionForEnemy    ;returns dir of enemy in b
+        or      a
+        jr      z,.doneDE
 
-				;blow the enemy away from me
+        ;blow the enemy away from me
         ld      a,[fireBulletLocation]   ;enemy's location
-				ld      l,a
+        ld      l,a
         ld      a,[fireBulletLocation+1]
-				ld      h,a
-				pop     de
-				call    GetFacing
-				and     %11
-				call    ShiftObjectInDirection
-				ld      a,3
-				call    SetAttackDelay
-				ld      hl,.blowerBlowSound
-				call    PlaySound
-				ret
+        ld      h,a
+        pop     de
+        call    GetFacing
+        and     %11
+        call    ShiftObjectInDirection
+        ld      a,3
+        call    SetAttackDelay
+        ld      hl,.blowerBlowSound
+        call    PlaySound
+        ret
 
 .doneDE pop     de
-				ret
+        ret
 
 .blowerCheckTable
         DB      4      ;move delay
-				DB      1      ;attack type (0=none,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      gruntFireSound
-				DB      5       ;fire delay
-				DW      TrackEnemyVectorToState
+        DB      1      ;attack type (0=none,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      gruntFireSound
+        DB      5       ;fire delay
+        DW      TrackEnemyVectorToState
 
 .blowerBlowSound
         DB      4,$00,$f5,$07,$80
@@ -12205,157 +12205,157 @@ BlowerCheck:
 ;----Sleeping Monkey--------------------------------------------------
 SleepingMonkeyInit:
         ld      hl,.sleepingMonkeyInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 
 .sleepingMonkeyInitTable
         DB      4                ;initial facing
         DB      2                ;health (max)
-				DB      GROUP_MONSTERD   ;group
-				DB      1                ;has bullet
-				DW      classMonkey
-				DW      MONKEY_CINDEX
+        DB      GROUP_MONSTERD   ;group
+        DB      1                ;has bullet
+        DW      classMonkey
+        DW      MONKEY_CINDEX
 
 SleepingMonkeyCheck:
         ld      a,[guardAlarm]
-				or      a
-				jr      z,.check
+        or      a
+        jr      z,.check
 
-				call    ChangeMyClassToAssociatedAndRedraw
-				ld      de,classBananaBullet
-				ld      hl,BANANABULLET_CINDEX
-				ld      a,1
-				jp      LoadAssociatedClass
+        call    ChangeMyClassToAssociatedAndRedraw
+        ld      de,classBananaBullet
+        ld      hl,BANANABULLET_CINDEX
+        ld      a,1
+        jp      LoadAssociatedClass
 
 .check
         ld      hl,.sleepingMonkeyCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .sleepingMonkeyCheckTable
-				DB      0      ;move delay
-				DB      0      ;attack type (0=no attack,1=melee,2=missile)
-				DB      0      ;bullet damage
-				DW      monkeyFireSound
-				DB      3      ;fire delay
+        DB      0      ;move delay
+        DB      0      ;attack type (0=no attack,1=melee,2=missile)
+        DB      0      ;bullet damage
+        DW      monkeyFireSound
+        DB      3      ;fire delay
         DW      0
 
 ;----Bell-------------------------------------------------------------
 BellInit:
         ld      hl,.bellInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
         jp      LinkAssocToMe
 
 .bellInitTable
         DB      1                ;initial facing
         DB      63               ;health (max)
-				DB      GROUP_MONSTERN   ;group
-				DB      1                ;has bullet
-				DW      classRingingBell
-				DW      RINGINGBELL_CINDEX
+        DB      GROUP_MONSTERN   ;group
+        DB      1                ;has bullet
+        DW      classRingingBell
+        DW      RINGINGBELL_CINDEX
 
 ;----Banana Tree------------------------------------------------------
 BananaTreeInit:
         ld      hl,.bananaTreeInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 
 .bananaTreeInitTable
         DB      1                ;initial facing
         DB      6                ;health (max)
-				DB      GROUP_MONSTERN   ;group
-				DB      0                ;has bullet
+        DB      GROUP_MONSTERN   ;group
+        DB      0                ;has bullet
 
 BananaTreeCheck:
         ;regain 1 health every few seconds
         ldio    a,[updateTimer]
-				or      a
-				jr      nz,.check
+        or      a
+        jr      nz,.check
 
-				call    GetHealth
-				cp      6   ;at max?
-				jr      nc,.check
+        call    GetHealth
+        cp      6   ;at max?
+        jr      nc,.check
 
-				inc     a
-				call    SetHealth
+        inc     a
+        call    SetHealth
 .check
-				jp      DoNothingCheck
+        jp      DoNothingCheck
 
 BananaTreeTakeDamage:
         ;create an adjacent banana that "fell off"
-				call    FindEmptyLocationAround2x2
-				or      a
-				jr      z,.takeDamage
+        call    FindEmptyLocationAround2x2
+        or      a
+        jr      z,.takeDamage
 
-				push    bc
-				ld      bc,classBananaBG
-				call    FindClassIndex
-				push    af
+        push    bc
+        ld      bc,classBananaBG
+        call    FindClassIndex
+        push    af
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      [hl],a
-				pop     bc
-				call    ResetMyBGSpecialFlags
+        ldio    [$ff70],a
+        pop     af
+        ld      [hl],a
+        pop     bc
+        call    ResetMyBGSpecialFlags
 
 .takeDamage
-				jp      StdTakeDamage2x2
+        jp      StdTakeDamage2x2
 
 ;----Hermit Crab No Shell---------------------------------------------
 HermitNoShellInit:
         ld      hl,.hermitNoShellInitTable
-				call    StdInitFromTable
+        call    StdInitFromTable
 
-				;set misc to be class index of shell
-				ld      bc,classHermitCrabShellBG
-				call    FindClassIndex
-				jp      SetMisc
+        ;set misc to be class index of shell
+        ld      bc,classHermitCrabShellBG
+        call    FindClassIndex
+        jp      SetMisc
 
 .hermitNoShellInitTable
         DB      4                ;initial facing
         DB      3                ;health (max)
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classHermitInShell
-				DW      HERMITINSHELL_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classHermitInShell
+        DW      HERMITINSHELL_CINDEX
 
 HermitNoShellCheck:
         ;standing on shell?
-				call    GetFacing
-				bit     7,a       ;must be sprite
-				jr      z,.notOnShell
+        call    GetFacing
+        bit     7,a       ;must be sprite
+        jr      z,.notOnShell
 
-				call    GetMisc
-				ld      b,a
+        call    GetMisc
+        ld      b,a
 
         call    GetCurLocation
-				ld      a,TILESHADOWBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				cp      b
-				jr      nz,.notOnShell
+        ld      a,TILESHADOWBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        cp      b
+        jr      nz,.notOnShell
 
-				;get in shell
-				ld      [hl],0     ;clear out shell
-				push    bc
-				call    GetFacing
-				ld      c,a
-				call    RemoveFromMap
-				pop     bc
+        ;get in shell
+        ld      [hl],0     ;clear out shell
+        push    bc
+        call    GetFacing
+        ld      c,a
+        call    RemoveFromMap
+        pop     bc
 
-				ld      a,20
-				call    SetHealth
-				call    ChangeMyClassToAssociatedAndRedraw
-				ret
+        ld      a,20
+        call    SetHealth
+        call    ChangeMyClassToAssociatedAndRedraw
+        ret
 
 .notOnShell
         ld      hl,.hermitNoShellCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .hermitNoShellCheckTable
-				DB      5      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      crabAttackSound
-				DB      4      ;fire delay
+        DB      5      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      crabAttackSound
+        DB      4      ;fire delay
         DW      StdVectorToState
 
 crabAttackSound:
@@ -12364,142 +12364,142 @@ crabAttackSound:
 ;----Hermit Crab In Shell---------------------------------------------
 HermitInShellCheck:
         ld      hl,.hermitInShellCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .hermitInShellCheckTable
-				DB      4      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      crabAttackSound
-				DB      4      ;fire delay
+        DB      4      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      crabAttackSound
+        DB      4      ;fire delay
         DW      TrackEnemyVectorToState
 
 ;----Crab / Crab Burrowing -------------------------------------------
 CrabInit:
         ld      hl,.crabInitTable
-				call    StdInitFromTable
-				ld      a,100            ;time till burrow
-				jp      SetMisc
+        call    StdInitFromTable
+        ld      a,100            ;time till burrow
+        jp      SetMisc
 
 .crabInitTable
         DB      4                ;initial facing
         DB      3                ;health (max)
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classCrabBurrowing
-				DW      CRABBURROWING_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classCrabBurrowing
+        DW      CRABBURROWING_CINDEX
 
 CrabCheck:
         ;can't burrow if sprite
-				call    GetFacing
-				bit     7,a
-				jr      nz,.notBurrowing
+        call    GetFacing
+        bit     7,a
+        jr      nz,.notBurrowing
 
         call    GetMisc
-				dec     [hl]
-				jr      nz,.notBurrowing
+        dec     [hl]
+        jr      nz,.notBurrowing
 
-				;take another step if split tile
-				call    MoveForwardIfSplit
-				jp      ChangeMyClassToAssociatedAndRedraw
+        ;take another step if split tile
+        call    MoveForwardIfSplit
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .notBurrowing
         ld      hl,.crabCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .crabCheckTable
-				DB      6      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      2      ;bullet damage
-				DW      crabAttackSound
-				DB      1      ;fire delay
+        DB      6      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      2      ;bullet damage
+        DW      crabAttackSound
+        DB      1      ;fire delay
         DW      TrackEnemyVectorToState
 
 CrabBurrowingInit:
         ld      hl,.crabBurrowingInitTable
-				call    StdInitFromTable
-				xor     a
-				call    SetMisc
+        call    StdInitFromTable
+        xor     a
+        call    SetMisc
 
         jp      LinkAssocToMe
 
 .crabBurrowingInitTable
         DB      4                ;initial facing
         DB      3                ;health (max)
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classCrab
-				DW      CRAB_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classCrab
+        DW      CRAB_CINDEX
 
 CrabBurrowingCheck:
         ;fully burrowed yet?
-				call    GetMisc
-				cp      100
-				jr      z,.burrowed
-				cp      5
-				jr      z,.burrowed
+        call    GetMisc
+        cp      100
+        jr      z,.burrowed
+        cp      5
+        jr      z,.burrowed
 
-				inc     [hl]
-				call    GetFacing
-				ld      c,a
-				jp      RemoveFromMap
+        inc     [hl]
+        call    GetFacing
+        ld      c,a
+        jp      RemoveFromMap
 
 .burrowed
         call    GetMisc   ;time to unburrow?
-				cp      100
-				jr      nz,.notUnburrowing
+        cp      100
+        jr      nz,.notUnburrowing
 
         call    GetCurLocation
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				or      a
-				ret     nz    ;can't unburrow when someone's on top
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        or      a
+        ret     nz    ;can't unburrow when someone's on top
 
-				call    GetFacing   ;clear split bit
-				res     2,a
-				call    SetFacing
-				jp      ChangeMyClassToAssociatedAndRedraw
+        call    GetFacing   ;clear split bit
+        res     2,a
+        call    SetFacing
+        jp      ChangeMyClassToAssociatedAndRedraw
 
 .notUnburrowing
         ;is an enemy on top of me?
-				call    GetCurLocation
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				call    IsMyEnemy
-				cp      1
-				ret     nz
+        call    GetCurLocation
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        call    IsMyEnemy
+        cp      1
+        ret     nz
 
-				;flag to unburrow next time
-				ld      a,100
-				jp      SetMisc
+        ;flag to unburrow next time
+        ld      a,100
+        jp      SetMisc
 
 
 ;---------------------------------------------------------------------
 ;MoveForwardIfSplit
 ;---------------------------------------------------------------------
 MoveForwardIfSplit:
-				call    GetFacing
-				bit     2,a
-				ret     z
-				and     %11
-				ld      b,a
-				jp      StandardValidateMoveAndRedraw
+        call    GetFacing
+        bit     2,a
+        ret     z
+        and     %11
+        ld      b,a
+        jp      StandardValidateMoveAndRedraw
 
 ;----UberMouse--------------------------------------------------------
 UberMouseCheck:
         ld      a,63      ;can never die
         call    SetHealth
         ld      hl,.uberMouseCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .uberMouseCheckTable
-				DB      5      ;move delay
-				DB      1      ;attack type (0=no attack,1=melee,2=missile)
-				DB      5      ;bullet damage
-				DW      .uberMouseFireSound
-				DB      2      ;fire delay
+        DB      5      ;move delay
+        DB      1      ;attack type (0=no attack,1=melee,2=missile)
+        DB      5      ;bullet damage
+        DW      .uberMouseFireSound
+        DB      2      ;fire delay
         DW      TrackEnemyVectorToState
 
 .uberMouseFireSound
@@ -12508,25 +12508,25 @@ UberMouseCheck:
 ;----Turret-----------------------------------------------------------
 TurretInit:
         ld      hl,.turretInitTable
-				jp      StdInitFromTable
+        jp      StdInitFromTable
 .turretInitTable
         DB      4                ;initial facing
         DB      20               ;health (max)
-				DB      GROUP_MONSTERA   ;group
-				DB      1                ;has bullet
-				DW      classTurretBullet
-				DW      TURRETBULLET_CINDEX
+        DB      GROUP_MONSTERA   ;group
+        DB      1                ;has bullet
+        DW      classTurretBullet
+        DW      TURRETBULLET_CINDEX
 
 TurretCheck:
         ld      hl,.turretCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .turretCheckTable
-				DB      2      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      .turretFireSound
-				DB      1      ;fire delay
+        DB      2      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      .turretFireSound
+        DB      1      ;fire delay
         DW      0
 
 .turretFireSound
@@ -12536,38 +12536,38 @@ TurretCheck:
 ;----Pansy------------------------------------------------------------
 PansyInit:
         ld      hl,.pansyInitTable
-				jp      StdInitFromTable
-        
+        jp      StdInitFromTable
+
 .pansyInitTable
         DB      4                ;initial facing
         DB      2                ;health
-				DB      GROUP_MONSTERC   ;group
-				DB      1                ;has bullet
-				DW      classPansyBullet ;associated bullet class ptr
-				DW      PANSYBULLET_CINDEX
+        DB      GROUP_MONSTERC   ;group
+        DB      1                ;has bullet
+        DW      classPansyBullet ;associated bullet class ptr
+        DW      PANSYBULLET_CINDEX
 
 PansyCheck:
         ld      hl,.pansyCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .pansyCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      pansyFireSound
-				DB      10     ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      pansyFireSound
+        DB      10     ;fire delay
         DW      TrackEnemyVectorToState
 
 HippiePansyCheck:
         ld      hl,.hippiePansyCheckTable
-				jp      StdCheckFromTable
+        jp      StdCheckFromTable
 
 .hippiePansyCheckTable
-				DB      4      ;move delay
-				DB      2      ;attack type (0=no attack,1=melee,2=missile)
-				DB      1      ;bullet damage
-				DW      pansyFireSound
-				DB      10     ;fire delay
+        DB      4      ;move delay
+        DB      2      ;attack type (0=no attack,1=melee,2=missile)
+        DB      1      ;bullet damage
+        DW      pansyFireSound
+        DB      10     ;fire delay
         DW      EatVectorToState
 
 ;---------------------------------------------------------------------
@@ -12578,26 +12578,26 @@ ActorCheck:
         push    de
         push    hl
 
-				;am I dead?
-				call    GetHealth
-				or      a
-				jr      nz,.checkTimeToMove
-				call    StandardDie
-				jr      .done
+        ;am I dead?
+        call    GetHealth
+        or      a
+        jr      nz,.checkTimeToMove
+        call    StandardDie
+        jr      .done
 
 .checkTimeToMove
-				;time to move?
-				ld      a,2
-				call    TestMove
-				or      a
-				jr      z,.skipMove       ;timer lsb==frame lsb, don't move yet
+        ;time to move?
+        ld      a,2
+        call    TestMove
+        or      a
+        jr      z,.skipMove       ;timer lsb==frame lsb, don't move yet
 
         ;xor     a
-				ld      a,1
-				ld      [moveAlignPrecision],a
+        ld      a,1
+        ld      [moveAlignPrecision],a
         call    ActorVectorToState
-				or      a
-				jr      z,.skipMove
+        or      a
+        jr      z,.skipMove
         call    StandardValidateMoveAndRedraw
 .skipMove
 
@@ -12607,187 +12607,187 @@ ActorCheck:
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      LookForEnemyInLOS    
+; Routine:      LookForEnemyInLOS
 ; Arguments:    c  - class index of object
 ;               de - this
 ; Alters:       af,b
 ; Returns:      a  - 1=enemy spotted, 0=no enemy
 ;               b  - direction of enemy
-;               [fireBulletLocation] 
+;               [fireBulletLocation]
 ;                    loc adj to shooter to place bullet
 ;---------------------------------------------------------------------
 LookForEnemyInLOS:
-				push    hl
+        push    hl
 
-				;save my group and direction first
-				call    GetGroup
-				ld      [myGroup],a
+        ;save my group and direction first
+        call    GetGroup
+        ld      [myGroup],a
 
-				call    GetAttackDirState
-				or      a
-				jr      nz,.scanEast
+        call    GetAttackDirState
+        or      a
+        jr      nz,.scanEast
 
         ;de = north offset
-				push    de
-				ld      a,DIR_NORTH
-				ld      [myFacing],a
-				call    GetLocInFront
-				ld      a,[mapOffsetNorth]    ;get North offset
-				ld      e,a
-				ld      a,[mapOffsetNorth+1]
-				ld      d,a
+        push    de
+        ld      a,DIR_NORTH
+        ld      [myFacing],a
+        call    GetLocInFront
+        ld      a,[mapOffsetNorth]    ;get North offset
+        ld      e,a
+        ld      a,[mapOffsetNorth+1]
+        ld      d,a
 
-				call    ScanDirectionForEnemy
-				or      a
-				jr      nz,.afterN2
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.try2x2N
-				xor     a
-				jr      .afterN2
+        call    ScanDirectionForEnemy
+        or      a
+        jr      nz,.afterN2
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      z,.try2x2N
+        xor     a
+        jr      .afterN2
 .try2x2N
-				inc     hl   ;try again to the side
-				call    ScanDirectionForEnemy
+        inc     hl   ;try again to the side
+        call    ScanDirectionForEnemy
 
 .afterN2
-				pop     de
-				or      a
-				jr      nz,.foundEnemyN
-				jp      .advanceState       ;found a wall
+        pop     de
+        or      a
+        jr      nz,.foundEnemyN
+        jp      .advanceState       ;found a wall
 .foundEnemyN
-				ld      b,DIR_NORTH           ;found enemy
+        ld      b,DIR_NORTH           ;found enemy
         jp      .saveEnemyLocation
 
 .scanEast
         ;Attack Dir State says look east?
         cp      1
-				jr      nz,.scanSouth
+        jr      nz,.scanSouth
 
         ;de = east offset
-				push    de
-				ld      a,DIR_EAST
-				ld      [myFacing],a
-				call    GetLocInFront
-				ld      a,[mapOffsetEast]    ;get East offset
-				ld      e,a
-				ld      a,[mapOffsetEast+1]
-				ld      d,a
+        push    de
+        ld      a,DIR_EAST
+        ld      [myFacing],a
+        call    GetLocInFront
+        ld      a,[mapOffsetEast]    ;get East offset
+        ld      e,a
+        ld      a,[mapOffsetEast+1]
+        ld      d,a
 
-				call    ScanDirectionForEnemy
-				or      a
-				jr      nz,.afterE2
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.try2x2E
-				xor     a
-				jr      .afterE2
+        call    ScanDirectionForEnemy
+        or      a
+        jr      nz,.afterE2
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      z,.try2x2E
+        xor     a
+        jr      .afterE2
 .try2x2E
-				;try again to the side
-				ld      a,[mapOffsetSouth]
-				add     l
-				ld      l,a
-				ld      a,[mapOffsetSouth+1]
-				adc     h
-				ld      h,a
-				call    ScanDirectionForEnemy
+        ;try again to the side
+        ld      a,[mapOffsetSouth]
+        add     l
+        ld      l,a
+        ld      a,[mapOffsetSouth+1]
+        adc     h
+        ld      h,a
+        call    ScanDirectionForEnemy
 
 .afterE2
-				pop     de
-				or      a
-				jr      z,.advanceState       ;found a wall
-				ld      b,DIR_EAST            ;found enemy
+        pop     de
+        or      a
+        jr      z,.advanceState       ;found a wall
+        ld      b,DIR_EAST            ;found enemy
         jr      .saveEnemyLocation
 
 .scanSouth
         ;Attack Dir State says look south?
         cp      2
-				jr      nz,.scanWest
+        jr      nz,.scanWest
 
         ;de = south offset
-				push    de
-				ld      a,DIR_SOUTH
-				ld      [myFacing],a
-				call    GetLocInFront
-				ld      a,[mapOffsetSouth]    ;get South offset
-				ld      e,a
-				ld      a,[mapOffsetSouth+1]
-				ld      d,a
+        push    de
+        ld      a,DIR_SOUTH
+        ld      [myFacing],a
+        call    GetLocInFront
+        ld      a,[mapOffsetSouth]    ;get South offset
+        ld      e,a
+        ld      a,[mapOffsetSouth+1]
+        ld      d,a
 
-				call    ScanDirectionForEnemy
-				or      a
-				jr      nz,.afterS2
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.try2x2S
-				xor     a
-				jr      .afterS2
+        call    ScanDirectionForEnemy
+        or      a
+        jr      nz,.afterS2
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      z,.try2x2S
+        xor     a
+        jr      .afterS2
 .try2x2S
-				inc     hl   ;try again to the side
-				call    ScanDirectionForEnemy
+        inc     hl   ;try again to the side
+        call    ScanDirectionForEnemy
 
 .afterS2
-				pop     de
-				or      a
-				jr      z,.scanWest           ;found a wall
-				ld      b,DIR_SOUTH           ;found enemy
+        pop     de
+        or      a
+        jr      z,.scanWest           ;found a wall
+        ld      b,DIR_SOUTH           ;found enemy
         jr      .saveEnemyLocation
 
 .scanWest
         ;de = west offset
-				push    de
-				ld      a,DIR_WEST
-				ld      [myFacing],a
-				call    GetLocInFront
-				ld      a,[mapOffsetWest]    ;get West offset
-				ld      e,a
-				ld      a,[mapOffsetWest+1]
-				ld      d,a
+        push    de
+        ld      a,DIR_WEST
+        ld      [myFacing],a
+        call    GetLocInFront
+        ld      a,[mapOffsetWest]    ;get West offset
+        ld      e,a
+        ld      a,[mapOffsetWest+1]
+        ld      d,a
 
-				call    ScanDirectionForEnemy
-				or      a
-				jr      nz,.afterW2
-				ldio    a,[curObjWidthHeight]
-				cp      2
-				jr      z,.try2x2W
-				xor     a
-				jr      .afterW2
+        call    ScanDirectionForEnemy
+        or      a
+        jr      nz,.afterW2
+        ldio    a,[curObjWidthHeight]
+        cp      2
+        jr      z,.try2x2W
+        xor     a
+        jr      .afterW2
 .try2x2W
-				;try again to the side
-				ld      a,[mapOffsetSouth]
-				add     l
-				ld      l,a
-				ld      a,[mapOffsetSouth+1]
-				adc     h
-				ld      h,a
-				call    ScanDirectionForEnemy
+        ;try again to the side
+        ld      a,[mapOffsetSouth]
+        add     l
+        ld      l,a
+        ld      a,[mapOffsetSouth+1]
+        adc     h
+        ld      h,a
+        call    ScanDirectionForEnemy
 
 .afterW2
-				pop     de
-				or      a
-				jr      z,.advanceState       ;found a wall
-				ld      b,DIR_WEST            ;found enemy
+        pop     de
+        or      a
+        jr      z,.advanceState       ;found a wall
+        ld      b,DIR_WEST            ;found enemy
 
 .saveEnemyLocation
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
-				ld      a,1
-				jr      .done
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
+        ld      a,1
+        jr      .done
 
 .advanceState
         ;no enemies found, look next direction next time
-				call    GetAttackDirState
-				inc     a
-				call    SetAttackDirState
+        call    GetAttackDirState
+        inc     a
+        call    SetAttackDirState
         xor     a
 
 .done
-				pop     hl
+        pop     hl
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      ScanDirectionForEnemy    
+; Routine:      ScanDirectionForEnemy
 ; Arguments:    c  - class index of scanning object
 ;               de - offset to scan in
 ;               hl - starting location for scan
@@ -12798,75 +12798,75 @@ LookForEnemyInLOS:
 ;---------------------------------------------------------------------
 ScanDirectionForEnemy:
         push    bc
-				push    hl
+        push    hl
 
         ld      a,MAPBANK
-				ld      [$ff70],a
-				ldio    a,[firstMonster]
-				ld      b,a
+        ld      [$ff70],a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-				ld      a,[losLimit]
-				cp      1
-				jr      nz,.loop
+        ld      a,[losLimit]
+        cp      1
+        jr      nz,.loop
 
-				;one time only
+        ;one time only
         ld      a,[hl]
-				or      a
-				jr      z,.done
-				cp      b
-				jr      c,.returnFalse
-				call    IsMyEnemy
-				and     1           ;mask out & ignore bullets
-				jr      .done
+        or      a
+        jr      z,.done
+        cp      b
+        jr      c,.returnFalse
+        call    IsMyEnemy
+        and     1           ;mask out & ignore bullets
+        jr      .done
 
         ;infinite until hit wall
 .loop   ld      a,[hl]
-				or      a
-				jr      z,.nextLocation
-				cp      b
-				jr      c,.foundWall
+        or      a
+        jr      z,.nextLocation
+        cp      b
+        jr      c,.foundWall
 
-				;might be an enemy
-				push    af
-				ld      a,l
-				ld      [fireBulletLocation],a
-				ld      a,h
-				ld      [fireBulletLocation+1],a
-				pop     af
-				call    IsMyEnemy
-				cp      2
-				jr      z,.restoreMapNextLocation    ;is bullet, look past it
-				and     1
-				jr      .done              ;is creature 
+        ;might be an enemy
+        push    af
+        ld      a,l
+        ld      [fireBulletLocation],a
+        ld      a,h
+        ld      [fireBulletLocation+1],a
+        pop     af
+        call    IsMyEnemy
+        cp      2
+        jr      z,.restoreMapNextLocation    ;is bullet, look past it
+        and     1
+        jr      .done              ;is creature
 
 .restoreMapNextLocation
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 .nextLocation
         add     hl,de
-				jr      .loop
+        jr      .loop
 
 .foundWall
         ;might be a shoot-over wall
-				push    af
-				ld      a,ZONEBANK
-				ldio    [$ff70],a
-				pop     af
-				bit     7,[hl]    ;anything special here?
-				jr      z,.returnFalse   ;nope
-				call    GetBGAttributes  ;maybe...
-				and     BG_FLAG_SHOOTOVER
-				jr      z,.returnFalse   ;still no
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				jr      .nextLocation    ;go back to looking
+        push    af
+        ld      a,ZONEBANK
+        ldio    [$ff70],a
+        pop     af
+        bit     7,[hl]    ;anything special here?
+        jr      z,.returnFalse   ;nope
+        call    GetBGAttributes  ;maybe...
+        and     BG_FLAG_SHOOTOVER
+        jr      z,.returnFalse   ;still no
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        jr      .nextLocation    ;go back to looking
 
 .returnFalse
         xor     a
 .done
         pop     hl
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      IsMyEnemy
@@ -12881,60 +12881,60 @@ ScanDirectionForEnemy:
 ;---------------------------------------------------------------------
 IsMyEnemy:
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
         push    af
-				ldio    a,[firstMonster]
-				ld      b,a
-				pop     af
-				cp      b
-				jr      c,.notEnemy
+        ldio    a,[firstMonster]
+        ld      b,a
+        pop     af
+        cp      b
+        jr      c,.notEnemy
 
-				call    EnsureTileIsHead     ;a = findHead(a)
-				ld      c,a
-				ld      d,h
-				ld      e,l
-				call    FindObject
+        call    EnsureTileIsHead     ;a = findHead(a)
+        ld      c,a
+        ld      d,h
+        ld      e,l
+        call    FindObject
 
-				call    GetFGAttributes
-				and     FLAG_ISBULLET
-				jr      nz,.specialCaseIsBullet
+        call    GetFGAttributes
+        and     FLAG_ISBULLET
+        jr      nz,.specialCaseIsBullet
 
-				call    GetGroup
+        call    GetGroup
 
-				ld      b,a
-				ld      a,[myGroup]
-				ld      c,a
-				call    GetFOF
-				xor     1                    ;reverse return value
-				jr      .done
+        ld      b,a
+        ld      a,[myGroup]
+        ld      c,a
+        call    GetFOF
+        xor     1                    ;reverse return value
+        jr      .done
 
 .specialCaseIsBullet
         call    GetFacing            ;get bullets direction
-				add     2                    ;reverse it
-				and     %11
-				ld      hl,myFacing
-				cp      [hl]                 ;coming towards me if same dir
-				jr      z,.isEnemy
+        add     2                    ;reverse it
+        and     %11
+        ld      hl,myFacing
+        cp      [hl]                 ;coming towards me if same dir
+        jr      z,.isEnemy
 
-				;no enemy but is bullet
-				ld      a,2
-				jr      .done
+        ;no enemy but is bullet
+        ld      a,2
+        jr      .done
 
 .notEnemy
         ;not my enemy
-				xor     a
-				jr      .done
+        xor     a
+        jr      .done
 
 .isEnemy
         ld      a,1
 
 .done
         pop     hl
-				pop     de
+        pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      EnsureTileIsHead
@@ -12943,54 +12943,54 @@ IsMyEnemy:
 ; Returns:      a  - head of obj / class index
 ;               hl - location of head
 ; Alters:       af,hl
-; Description:  Follows tail tiles back to head (if need be) 
+; Description:  Follows tail tiles back to head (if need be)
 ;---------------------------------------------------------------------
 EnsureTileIsHead::
         push    bc
-				push    de
-				ld      c,a
+        push    de
+        ld      c,a
 
-				ld      d,h
-				ld      e,l
+        ld      d,h
+        ld      e,l
 
-				ld      a,MAPBANK
-				ld      [$ff70],a
+        ld      a,MAPBANK
+        ld      [$ff70],a
 
 .checkIfFoundHead
-				ld      a,c
-				cp      CLASS_ADJOIN_N
-				jr      c,.foundHeadTile
+        ld      a,c
+        cp      CLASS_ADJOIN_N
+        jr      c,.foundHeadTile
 
-				jr      z,.followTileToNorth
-				cp      CLASS_ADJOIN_W
-				jr      z,.followTileToWest
+        jr      z,.followTileToNorth
+        cp      CLASS_ADJOIN_W
+        jr      z,.followTileToWest
 
-				di
+        di
 .error  jr      .error   ;no classes should adjoin east or south
 
 .followTileToNorth
         ld      a,[mapOffsetNorth]
-				ld      l,a
-				ld      a,[mapOffsetNorth+1]
-				ld      h,a
-				add     hl,de
-				ld      d,h
-				ld      e,l
-				ld      c,[hl]
-				jr      .checkIfFoundHead
+        ld      l,a
+        ld      a,[mapOffsetNorth+1]
+        ld      h,a
+        add     hl,de
+        ld      d,h
+        ld      e,l
+        ld      c,[hl]
+        jr      .checkIfFoundHead
 
 .followTileToWest
         dec     de
-				ld      a,[de]
-				ld      c,a
-				jr      .checkIfFoundHead
+        ld      a,[de]
+        ld      c,a
+        jr      .checkIfFoundHead
 
 .foundHeadTile
         ld      h,d
-				ld      l,e
+        ld      l,e
         pop     de
         pop     bc
-				ret
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      StandardValidateMoveAndRedraw
@@ -12998,15 +12998,15 @@ EnsureTileIsHead::
 ;---------------------------------------------------------------------
 StandardValidateMoveAndRedraw:
         ld      a,b
-				and     %11
-				ld      b,a
+        and     %11
+        ld      b,a
         call    EnforceLegalMove
-				ld      a,1
+        ld      a,1
         call    CheckDestEmpty
         or      a
         ret     z
         call    Move
-        call    StandardRedrawNoCheckSprite 
+        call    StandardRedrawNoCheckSprite
         ret
 
 ;---------------------------------------------------------------------
@@ -13019,23 +13019,23 @@ StandardValidateMoveAndRedraw:
 ;---------------------------------------------------------------------
 PlayerValidateMoveAndRedraw:
         call    EnforceLegalMove
-				ld      a,1
+        ld      a,1
         call    CheckDestEmpty
         or      a
         jr      nz,.move
 
-				;can't move.  Bumping into exit?
-				ld      a,4
-				call    GetLocInFront
+        ;can't move.  Bumping into exit?
+        ld      a,4
+        call    GetLocInFront
 
-				;can't be a monster
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,[hl]
-				cp      b
-				jr      c,.notAMonster
+        ;can't be a monster
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,[hl]
+        cp      b
+        jr      c,.notAMonster
 
         ;return is monster unless it is a talker
         call    EnsureTileIsHead
@@ -13048,85 +13048,85 @@ PlayerValidateMoveAndRedraw:
         ret
 
 .returnTrue
-				ld      a,1
-				ret
+        ld      a,1
+        ret
 
 .notAMonster
         ;save monster(?) index in b
         ;ld      b,a
 
-				;switch to zone/exit map
-				ld      a,ZONEBANK
-				ld      [$ff70],a
-				
-				;get & check exit at location in front
-				ld      a,[hl]
-				and     %01110000  ;clear off extraneous
-				xor     %01110000  ;must be type "X"
-				;jr      nz,.checkBumpIntoMonster
-				jr      nz,.checkBumpIntoAttackable
+        ;switch to zone/exit map
+        ld      a,ZONEBANK
+        ld      [$ff70],a
 
-				;have an exit!
-				;save exit tile index
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				ld      [exitTileIndex],a
-				call    HandleExitFromMap
-				xor     a
-				ret
+        ;get & check exit at location in front
+        ld      a,[hl]
+        and     %01110000  ;clear off extraneous
+        xor     %01110000  ;must be type "X"
+        ;jr      nz,.checkBumpIntoMonster
+        jr      nz,.checkBumpIntoAttackable
+
+        ;have an exit!
+        ;save exit tile index
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        ld      [exitTileIndex],a
+        call    HandleExitFromMap
+        xor     a
+        ret
 
 .move
         call    Move
-        call    StandardRedrawNoCheckSprite 
-				xor     a
+        call    StandardRedrawNoCheckSprite
+        xor     a
         ret
 
         ;ld      a,MAPBANK
-				;ldio    [$ff70],a
+        ;ldio    [$ff70],a
         ;ld      a,[firstMonster]
-				;ld      b,a
-				;ld      a,[hl]
-				;cp      b
-				;jr      c,.checkBumpIntoAttackable
-				;ld      a,1
+        ;ld      b,a
+        ;ld      a,[hl]
+        ;cp      b
+        ;jr      c,.checkBumpIntoAttackable
+        ;ld      a,1
         ;ret
 
 .checkBumpIntoAttackable
         ld      a,[bgFlags]
-				and     BG_FLAG_ATTACKABLE
-				ret     z
-				ld      a,1
-				ret
+        and     BG_FLAG_ATTACKABLE
+        ret     z
+        ld      a,1
+        ret
 
 ;---------------------------------------------------------------------
-; Routines:     StreamRedraw  
-;               StreamCheck  
-;               StreamDraw  
-;               StreamDie    
+; Routines:     StreamRedraw
+;               StreamCheck
+;               StreamDraw
+;               StreamDie
 ;---------------------------------------------------------------------
 StreamRedraw:
         push    bc
         push    de
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				xor     a
-				ld      [fgFlags],a
+        xor     a
+        ld      [fgFlags],a
 
-				ld      hl,OBJ_LIMIT      ;get my color
-				add     hl,de
-				ld      b,[hl]
-				jp      StreamDraw
+        ld      hl,OBJ_LIMIT      ;get my color
+        add     hl,de
+        ld      b,[hl]
+        jp      StreamDraw
 
 StreamCheck:
-				;time to move?
-				ld      a,1
-				call    TestMove
-				or      a
-				jr      z,.streamDone    ;timer lsb==frame lsb, don't move yet
+        ;time to move?
+        ld      a,1
+        call    TestMove
+        or      a
+        jr      z,.streamDone    ;timer lsb==frame lsb, don't move yet
 
         call    .streamMove
         call    .streamMove
@@ -13137,81 +13137,81 @@ StreamCheck:
 
 .streamMove
         push    bc
-				push    hl
+        push    hl
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-        ld      a,4 
-				call    GetLocInFront        ;4=in front, split included
-				or      a
-				jr      z,.keepGoing         ;nothing in front
-				cp      b                    ;is a monster or what?
-				jr      c,.hitWall           ;wall in front, bullet just dies
+        ld      a,4
+        call    GetLocInFront        ;4=in front, split included
+        or      a
+        jr      z,.keepGoing         ;nothing in front
+        cp      b                    ;is a monster or what?
+        jr      c,.hitWall           ;wall in front, bullet just dies
 
-				;object in front, hit it for damage but keep going next time
-				ld      b,a                  ;monster index in b, loc in hl
-				ld      a,1                  ;one point of damage
-				ld      [methodParamL],a
-				ld      a,4                  ;use direction of this object for expl
-				call    HitObject
-				jr      .done
+        ;object in front, hit it for damage but keep going next time
+        ld      b,a                  ;monster index in b, loc in hl
+        ld      a,1                  ;one point of damage
+        ld      [methodParamL],a
+        ld      a,4                  ;use direction of this object for expl
+        call    HitObject
+        jr      .done
 
 .hitWall
         call    StreamDie
         call    GetCurLocation       ;move obj over wall
-				call    GetFacing
-				and     %11
-				call    AdvanceLocHLInDirection
-				call    SetCurLocation
-				ld      a,MAPBANK
-				ld      [$ff70],a
-				xor     a
-				ld      [hl],a               ;destroy bg tile at this loc
+        call    GetFacing
+        and     %11
+        call    AdvanceLocHLInDirection
+        call    SetCurLocation
+        ld      a,MAPBANK
+        ld      [$ff70],a
+        xor     a
+        ld      [hl],a               ;destroy bg tile at this loc
 
         ld      b,24                 ;initial frame
         call    HitWall
 
-				ld      hl,bigExplosionSound
-				call    PlaySound
+        ld      hl,bigExplosionSound
+        call    PlaySound
         pop     hl
         pop     bc
         pop     af    ;return addr
         ret
 
 .keepGoing
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME         ;get current direction
-				add     hl,de
-				ld      a,[hl]
-				and     %00000011            ;keep going same direction
-				ld      b,a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME         ;get current direction
+        add     hl,de
+        ld      a,[hl]
+        and     %00000011            ;keep going same direction
+        ld      b,a
 
-				call    Move
+        call    Move
         ;call    StreamRedraw         ;draw me please
 
 .done
         pop     hl
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 StreamDraw:
         jp      StandardDraw
 
-				;call    GetCurLocation
-				;call    GetFacing
-				;add     2
-				;and     %11            ;reverse facing
-				;call    AdvanceLocHLInDirection   ;location behind head
-				;call    GetBaseTile
+        ;call    GetCurLocation
+        ;call    GetFacing
+        ;add     2
+        ;and     %11            ;reverse facing
+        ;call    AdvanceLocHLInDirection   ;location behind head
+        ;call    GetBaseTile
 
 
 
 StreamDie:
         ld      a,5
-				ld      [jiggleDuration],a
-				jp      StandardDie
+        ld      [jiggleDuration],a
+        jp      StandardDie
 
 ;---------------------------------------------------------------------
 ; Routine:      BombLocation
@@ -13222,8 +13222,8 @@ StreamDie:
 ; Description:  Does 'b' damage in a cross shape spreading outward
 ;               from center in a random radius of (2...b) horizontally
 ;               and another random radius of (2...b) vertically.
-; 
-;               Uses $c000 as work RAM to collect locations and 
+;
+;               Uses $c000 as work RAM to collect locations and
 ;               objects affected.
 ;---------------------------------------------------------------------
 BombLocation:
@@ -13231,219 +13231,219 @@ BombLocation:
         push    de
         push    hl
 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				;save current object width & height
-				ldio    a,[curObjWidthHeight]
-				push    af
+        ;save current object width & height
+        ldio    a,[curObjWidthHeight]
+        push    af
 
-				xor     a          ;number of objects found
-				ld      [$c000],a 
+        xor     a          ;number of objects found
+        ld      [$c000],a
 
-				ld      a,b
-				ld      [fireBulletDamage],a
+        ld      a,b
+        ld      [fireBulletDamage],a
 
-				;limit b to 4 max
-				ld      a,b
-				cp      5
-				jr      c,.bOkay
-				ld      b,4
+        ;limit b to 4 max
+        ld      a,b
+        cp      5
+        jr      c,.bOkay
+        ld      b,4
 .bOkay
 
-				push    hl
+        push    hl
 
         ;----left/right-----------------------------------------------
-				;get random radius 1...b
-				ld      a,b
-				sub     2
-				call    GetRandomNumZeroToN
-				inc     a
-				inc     a
-				ld      c,a   ;c is original desired number of explosions
+        ;get random radius 1...b
+        ld      a,b
+        sub     2
+        call    GetRandomNumZeroToN
+        inc     a
+        inc     a
+        ld      c,a   ;c is original desired number of explosions
 
         ;find left and right boundaries
-				ld      de,$ffff
-				call    .numTilesUntilWall
-				cp      c
-				jr      c,.leftSideOkay
-				jr      z,.leftSideOkay
+        ld      de,$ffff
+        call    .numTilesUntilWall
+        cp      c
+        jr      c,.leftSideOkay
+        jr      z,.leftSideOkay
         ld      a,c     ;clip
 .leftSideOkay
-				push    af
+        push    af
 
-				ld      de,1
-				call    .numTilesUntilWall
-				cp      c
-				jr      c,.rightSideOkay
-				jr      z,.rightSideOkay
+        ld      de,1
+        call    .numTilesUntilWall
+        cp      c
+        jr      c,.rightSideOkay
+        jr      z,.rightSideOkay
         ld      a,c     ;clip
 .rightSideOkay
         dec     a
         ld      c,a
-				pop     af
-				push    af
-				add     c
-				ld      c,a
-				pop     af
+        pop     af
+        push    af
+        add     c
+        ld      c,a
+        pop     af
         cpl
-				inc     a
-				inc     a
-				add     l
-				ld      l,a
+        inc     a
+        inc     a
+        add     l
+        ld      l,a
 
-				;hl is at left side, c indiates num tiles until right side
-				ld      de,1
-				call    .createExplosions
+        ;hl is at left side, c indiates num tiles until right side
+        ld      de,1
+        call    .createExplosions
 
-				pop     hl
+        pop     hl
 
         ;----up/down--------------------------------------------------
-				;get random radius 1...b
-				ld      a,b
-				sub     2
-				call    GetRandomNumZeroToN
-				inc     a
-				inc     a
-				ld      c,a
+        ;get random radius 1...b
+        ld      a,b
+        sub     2
+        call    GetRandomNumZeroToN
+        inc     a
+        inc     a
+        ld      c,a
 
         ;find top and bottom boundaries
-				ld      a,[mapOffsetNorth]
-				ld      e,a
-				ld      a,[mapOffsetNorth+1]
-				ld      d,a
-				call    .numTilesUntilWall
-				cp      c
-				jr      c,.topSideOkay
-				jr      z,.topSideOkay
+        ld      a,[mapOffsetNorth]
+        ld      e,a
+        ld      a,[mapOffsetNorth+1]
+        ld      d,a
+        call    .numTilesUntilWall
+        cp      c
+        jr      c,.topSideOkay
+        jr      z,.topSideOkay
         ld      a,c     ;clip
 .topSideOkay
         ld      b,c
         dec     a
-				ld      c,a
-				or      a
-				jr      z,.topSideDone
+        ld      c,a
+        or      a
+        jr      z,.topSideDone
 
-				push    hl
+        push    hl
 .adjustTopHL
-				add     hl,de
-				dec     a
-				jr      nz,.adjustTopHL
+        add     hl,de
+        dec     a
+        jr      nz,.adjustTopHL
 
-				;hl is at top side, c indiates num tiles until bottom side
-				ld      a,[mapOffsetSouth]
-				ld      e,a
-				ld      a,[mapOffsetSouth+1]
-				ld      d,a
-				call    .createExplosions
-				pop     hl
+        ;hl is at top side, c indiates num tiles until bottom side
+        ld      a,[mapOffsetSouth]
+        ld      e,a
+        ld      a,[mapOffsetSouth+1]
+        ld      d,a
+        call    .createExplosions
+        pop     hl
 .topSideDone
 
-				ld      a,[mapOffsetSouth]
-				ld      e,a
-				ld      a,[mapOffsetSouth+1]
-				ld      d,a
+        ld      a,[mapOffsetSouth]
+        ld      e,a
+        ld      a,[mapOffsetSouth+1]
+        ld      d,a
         ld      c,b
-				call    .numTilesUntilWall
-				cp      c
-				jr      c,.bottomSideOkay
-				jr      z,.bottomSideOkay
+        call    .numTilesUntilWall
+        cp      c
+        jr      c,.bottomSideOkay
+        jr      z,.bottomSideOkay
         ld      a,c     ;clip
 .bottomSideOkay
         dec     a
-				jr      z,.bottomSideDone
+        jr      z,.bottomSideDone
         ld      c,a
 
-				add     hl,de
+        add     hl,de
 
-				;hl is at top side, c indiates num tiles until bottom side
-				call    .createExplosions
+        ;hl is at top side, c indiates num tiles until bottom side
+        call    .createExplosions
 .bottomSideDone
 
         ;loop through list of objects recorded as being in bomb
-				;blast and cause damage to each one
-				ld      a,[$c000]
-				or      a
-				jr      z,.done
-				ld      c,a
-				ld      hl,$c001
+        ;blast and cause damage to each one
+        ld      a,[$c000]
+        or      a
+        jr      z,.done
+        ld      c,a
+        ld      hl,$c001
 
 .distributeDamageLoop
         push    bc
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl+]
-				ld      e,a
-				ld      a,[hl+]
-				ld      d,a
-				ld      a,[de]    ;class index of target
-				ld      c,a       ;class index to look for
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl+]
+        ld      e,a
+        ld      a,[hl+]
+        ld      d,a
+        ld      a,[de]    ;class index of target
+        ld      c,a       ;class index to look for
         call    FindObject
-				ld      a,[fireBulletDamage]
-				ld      [methodParamL],a
-				ld      a,4
-				ld      [fireBulletDirection],a
+        ld      a,[fireBulletDamage]
+        ld      [methodParamL],a
+        ld      a,4
+        ld      [fireBulletDirection],a
         ld      b,METHOD_TAKE_DAMAGE
-				call    CallMethod
-				pop     bc
-				dec     c
-				jr      nz,.distributeDamageLoop
+        call    CallMethod
+        pop     bc
+        dec     c
+        jr      nz,.distributeDamageLoop
 
-				;ld      hl,bombSound
-				;call    PlaySound
+        ;ld      hl,bombSound
+        ;call    PlaySound
 
 .done
-				;restore current object width and height
-				pop     af
-				ldio    [curObjWidthHeight],a
+        ;restore current object width and height
+        pop     af
+        ldio    [curObjWidthHeight],a
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .createExplosions
         ld      a,c
-				or      a
-				ret     z
-				
+        or      a
+        ret     z
+
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
 .createExplosionLoop
         ld      a,MAPBANK
-				ldio    [$ff70],a
-				ldio    a,[firstMonster]
-				ld      b,a
-				ld      a,[hl]
-				cp      b
+        ldio    [$ff70],a
+        ldio    a,[firstMonster]
+        ld      b,a
+        ld      a,[hl]
+        cp      b
         push    de
         push    hl
-				jr      c,.afterRecordObject
+        jr      c,.afterRecordObject
 
-				call    EnsureTileIsHead
+        call    EnsureTileIsHead
 
         ;add location to list of locations if not already there
-				call    .isLocationRecorded
-				or      a
-				jr      nz,.afterRecordObject
+        call    .isLocationRecorded
+        or      a
+        jr      nz,.afterRecordObject
 
-				;record the location
-				ld      a,[$c000]
-				push    af
-				sla     a               ;times two + 1
-				inc     a
-				ld      e,a
-				ld      d,$c0           ;de = numObj*2 + 1
-				ld      a,l
-				ld      [de],a
-				inc     de
-				ld      a,h
-				ld      [de],a
-				pop     af
-				inc     a
-				ld      [$c000],a       ;one more in the list
+        ;record the location
+        ld      a,[$c000]
+        push    af
+        sla     a               ;times two + 1
+        inc     a
+        ld      e,a
+        ld      d,$c0           ;de = numObj*2 + 1
+        ld      a,l
+        ld      [de],a
+        inc     de
+        ld      a,h
+        ld      [de],a
+        pop     af
+        inc     a
+        ld      [$c000],a       ;one more in the list
 
 .afterRecordObject
         pop     hl
@@ -13452,100 +13452,100 @@ BombLocation:
         ld      [bulletLocation],a
         ld      a,h
         ld      [bulletLocation+1],a
-				ld      b,16
-				call    CreateExplosion
-				add     hl,de
-				dec     c
-				jr      nz,.createExplosionLoop
+        ld      b,16
+        call    CreateExplosion
+        add     hl,de
+        dec     c
+        jr      nz,.createExplosionLoop
 
-				pop     hl
-				pop     de
-				pop     bc
-				ret
+        pop     hl
+        pop     de
+        pop     bc
+        ret
 
 .isLocationRecorded
         ;args:     a  - class
-			  ;          hl - cur location
-				;returns:  a  - 1=in list, 0=not in list
-				push       bc
-				push       de
-				push       hl
-				call       EnsureTileIsHead
-				ld         d,h
-				ld         e,l
-				ld         a,[$c000]  ;num classes
-				or         a
-				jr         z,.inListDone    ;no list - so not in list
-				ld         c,a
-				ld         hl,$c001
+        ;          hl - cur location
+        ;returns:  a  - 1=in list, 0=not in list
+        push       bc
+        push       de
+        push       hl
+        call       EnsureTileIsHead
+        ld         d,h
+        ld         e,l
+        ld         a,[$c000]  ;num classes
+        or         a
+        jr         z,.inListDone    ;no list - so not in list
+        ld         c,a
+        ld         hl,$c001
 .testInListLoop
         ld         a,[hl+]
-				cp         e
-				jr         nz,.continueInListLoop
-				ld         a,[hl]
-				cp         d
-				jr         nz,.continueInListLoop
+        cp         e
+        jr         nz,.continueInListLoop
+        ld         a,[hl]
+        cp         d
+        jr         nz,.continueInListLoop
 
-				ld         a,1     ;is in list
-				jr         .inListDone
+        ld         a,1     ;is in list
+        jr         .inListDone
 
 .continueInListLoop
         inc        hl
-				dec        c
-				jr         nz,.testInListLoop
+        dec        c
+        jr         nz,.testInListLoop
 
-				xor        a
+        xor        a
 
 .inListDone
-				pop        hl
-				pop        de
-				pop        bc
-				ret
+        pop        hl
+        pop        de
+        pop        bc
+        ret
 
 .numTilesUntilWall
         ;takes a location (hl), an offset (de), and returns how
-				;many tiles (including the first) there are until a wall.
-				push    bc
-				push    hl
+        ;many tiles (including the first) there are until a wall.
+        push    bc
+        push    hl
 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				ldio    a,[firstMonster]
-				ld      b,a
+        ldio    a,[firstMonster]
+        ld      b,a
 
-				ld      c,0
+        ld      c,0
 .loop   ld      a,[hl]
         or      a
-				jr      z,.keepCounting
-				cp      b
-				jr      c,.foundWall
+        jr      z,.keepCounting
+        cp      b
+        jr      c,.foundWall
 
 .keepCounting
         inc     c
-				add     hl,de
-				jr      .loop
+        add     hl,de
+        jr      .loop
 
 .foundWall
         ;keep going if shoot-over type
-				push    af
-				ld      a,ZONEBANK
-				ldio    [$ff70],a
-				pop     af
-				bit     7,[hl]     ;special?
-				jr      z,.foundWallDone
-				call    GetBGAttributes
-				bit     BG_BIT_SHOOTOVER,a
-				jr      z,.foundWallDone
-				ld      a,MAPBANK   ;keep looking
-				ldio    [$ff70],a
-				jr      .keepCounting
+        push    af
+        ld      a,ZONEBANK
+        ldio    [$ff70],a
+        pop     af
+        bit     7,[hl]     ;special?
+        jr      z,.foundWallDone
+        call    GetBGAttributes
+        bit     BG_BIT_SHOOTOVER,a
+        jr      z,.foundWallDone
+        ld      a,MAPBANK   ;keep looking
+        ldio    [$ff70],a
+        jr      .keepCounting
 
 .foundWallDone
-				ld      a,c
-				pop     hl
-				pop     bc
-				ret
+        ld      a,c
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      FindEmptyLocationAround1x1
@@ -13556,59 +13556,59 @@ BombLocation:
 ;---------------------------------------------------------------------
 FindEmptyLocationAround1x1Loc:
         push    bc
-				jr      FindEmptyLocationAround1x1Common
+        jr      FindEmptyLocationAround1x1Common
 
 FindEmptyLocationAround1x1:
         push    bc
 
-				;get my TL corner plus (-1,-1)
-				call    GetCurLocation
+        ;get my TL corner plus (-1,-1)
+        call    GetCurLocation
 FindEmptyLocationAround1x1Common:
-				call    ConvertLocHLToXY
-				dec     h
-				dec     l
+        call    ConvertLocHLToXY
+        dec     h
+        dec     l
 
-				ld      b,0
+        ld      b,0
 .outer
-				ld      c,0
+        ld      c,0
 .inner
         push    hl
-				ld      a,h
-				add     b
-				ld      h,a
-				ld      a,l
-				add     c
-				ld      l,a
-				call    ConvertXYToLocHL
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				or      a
-				jr      nz,.notEmpty
+        ld      a,h
+        add     b
+        ld      h,a
+        ld      a,l
+        add     c
+        ld      l,a
+        call    ConvertXYToLocHL
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        or      a
+        jr      nz,.notEmpty
 
         ld      a,1
-				pop     bc
-				jr      .done
+        pop     bc
+        jr      .done
 
 .notEmpty
-				pop     hl
-				ld      a,3
-				inc     c
-				cp      c
-				jr      nz,.inner
-				inc     b
-				cp      b
-				jr      nz,.outer
+        pop     hl
+        ld      a,3
+        inc     c
+        cp      c
+        jr      nz,.inner
+        inc     b
+        cp      b
+        jr      nz,.outer
 
-				ld      hl,0
-				xor     a
+        ld      hl,0
+        xor     a
 
 .done
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      FindEmptyLocationAround2x2  
+; Routine:      FindEmptyLocationAround2x2
 ; Arguments:    de - 2x2 object
 ; Returns:      hl - empty location around object or $0000 if none
 ;               a  - 0 if none empty
@@ -13617,150 +13617,150 @@ FindEmptyLocationAround1x1Common:
 FindEmptyLocationAround2x2:
         push    bc
 
-				;get my TL corner plus (-1,-1)
-				call    GetCurLocation
-				call    ConvertLocHLToXY
-				dec     h
-				dec     l
+        ;get my TL corner plus (-1,-1)
+        call    GetCurLocation
+        call    ConvertLocHLToXY
+        dec     h
+        dec     l
 
-				ld      b,0
+        ld      b,0
 .outer
-				ld      c,0
+        ld      c,0
 .inner
         push    hl
-				ld      a,h
-				add     b
-				ld      h,a
-				ld      a,l
-				add     c
-				ld      l,a
-				call    ConvertXYToLocHL
-				ld      a,MAPBANK
-				ldio    [$ff70],a
-				ld      a,[hl]
-				or      a
-				jr      nz,.notEmpty
+        ld      a,h
+        add     b
+        ld      h,a
+        ld      a,l
+        add     c
+        ld      l,a
+        call    ConvertXYToLocHL
+        ld      a,MAPBANK
+        ldio    [$ff70],a
+        ld      a,[hl]
+        or      a
+        jr      nz,.notEmpty
 
-				ld      a,1
-				pop     bc
-				jr      .done
+        ld      a,1
+        pop     bc
+        jr      .done
 
 .notEmpty
-				pop     hl
-				ld      a,4
-				inc     c
-				cp      c
-				jr      nz,.inner
-				inc     b
-				cp      b
-				jr      nz,.outer
+        pop     hl
+        ld      a,4
+        inc     c
+        cp      c
+        jr      nz,.inner
+        inc     b
+        cp      b
+        jr      nz,.outer
 
-				xor     a
-				ld      hl,0
+        xor     a
+        ld      hl,0
 
 .done
-				pop     bc
+        pop     bc
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetCurLocation  
+; Routine:      GetCurLocation
 ; Arguments:    de - object
-; Returns:      hl - current location 
+; Returns:      hl - current location
 ; Alters:       af
 ;---------------------------------------------------------------------
 GetCurLocation::
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      a,[de]
-				ld      l,a
-				inc     de
-				ld      a,[de]
-				ld      h,a
-				dec     de
-				ret
+        ld      [$ff70],a
+        ld      a,[de]
+        ld      l,a
+        inc     de
+        ld      a,[de]
+        ld      h,a
+        dec     de
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetCurLocation  
+; Routine:      SetCurLocation
 ;---------------------------------------------------------------------
 SetCurLocation::
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      a,l
-				ld      [de],a
-				inc     de
-				ld      a,h
-				ld      [de],a
-				dec     de
-				ret
+        ld      [$ff70],a
+        ld      a,l
+        ld      [de],a
+        inc     de
+        ld      a,h
+        ld      [de],a
+        dec     de
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetFacing  
+; Routine:      GetFacing
 ; Returns:      current facing + split
 ; Alters:       af
 ;---------------------------------------------------------------------
 GetFacing::
         push    hl
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME
-				add     hl,de
-				ld      a,[hl]
-				pop     hl
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME
+        add     hl,de
+        ld      a,[hl]
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetFacing   
+; Routine:      SetFacing
 ; Arguments:    a - byte to set facing to
 ; Alters:       af,hl
 ;---------------------------------------------------------------------
 SetFacing::
         push    af
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_FRAME
-				add     hl,de
-				pop     af
-				ld      [hl],a
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_FRAME
+        add     hl,de
+        pop     af
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      AdvanceLocHLInDirection  
+; Routine:      AdvanceLocHLInDirection
 ; Arguments:    a  - direction to advance in
 ;---------------------------------------------------------------------
 AdvanceLocHLInDirection:
         bit     0,a
-				jr      nz,.eastOrWest
+        jr      nz,.eastOrWest
 
-				push    de
+        push    de
 
-        rlca 
+        rlca
         ld      de,mapOffsetNorth     ;de to correct map offset
-				add     e
-				ld      e,a
+        add     e
+        ld      e,a
 
-				ld      a,[de]
-				inc     de
-				add     l
-				ld      l,a
-				ld      a,[de]
-				adc     h
-				ld      h,a
+        ld      a,[de]
+        inc     de
+        add     l
+        ld      l,a
+        ld      a,[de]
+        adc     h
+        ld      h,a
 
-				pop     de
-				ret
+        pop     de
+        ret
 
 .eastOrWest
         bit     1,a
-				jr      nz,.west
+        jr      nz,.west
 
-				inc     hl
-				ret
+        inc     hl
+        ret
 
 .west   dec     hl
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetGroup  
+; Routine:      SetGroup
 ; Arguments:    a  - group to set to (see object.asm for details)
 ;               de - object
 ; Alters:       af
@@ -13768,42 +13768,42 @@ AdvanceLocHLInDirection:
 ;---------------------------------------------------------------------
 SetGroup::
         push    bc
-				push    hl
+        push    hl
 
-				ld      b,a
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      b,a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				ld      hl,OBJ_GROUP
-				add     hl,de
-				ld      a,[hl]
-				and     %11110000
-				or      b
-				ld      [hl],a
+        ld      hl,OBJ_GROUP
+        add     hl,de
+        ld      a,[hl]
+        and     %11110000
+        or      b
+        ld      [hl],a
 
-				pop     hl
-				pop     bc
-				ret
+        pop     hl
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetGroup  
+; Routine:      GetGroup
 ; Arguments:    de - object
 ; Alters:       af
 ; Returns:      a  - this object's group (see object.asm for details)
 ;---------------------------------------------------------------------
 GetGroup:
         push    hl
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_GROUP
-				add     hl,de
-				ld      a,[hl]
-				and     %00001111
-				pop     hl
-				ret
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_GROUP
+        add     hl,de
+        ld      a,[hl]
+        and     %00001111
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetActorDestZone  
+; Routine:      GetActorDestZone
 ; Arguments:    de - object
 ; Alters:       af
 ; Returns:      a  - destination zone of DESTL/DESTH
@@ -13811,27 +13811,27 @@ GetGroup:
 GetActorDestZone:
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				ld      hl,OBJ_DESTL
-				add     hl,de
+        ld      hl,OBJ_DESTL
+        add     hl,de
 
-				ld      a,[hl+]        ;get location in hl
-				ld      h,[hl]
-				ld      l,a
+        ld      a,[hl+]        ;get location in hl
+        ld      h,[hl]
+        ld      l,a
 
-				ld      a,ZONEBANK
-				ld      [$ff70],a
+        ld      a,ZONEBANK
+        ld      [$ff70],a
 
-				ld      a,[hl]
-				and     %1111
+        ld      a,[hl]
+        and     %1111
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetActorDestLoc  
+; Routine:      SetActorDestLoc
 ;               aka SetFoodIndexRange
 ; Arguments:    de - object
 ;               hl - location / food range h=high index, l=low
@@ -13841,46 +13841,46 @@ GetActorDestZone:
 SetActorDestLoc::
 SetFoodIndexRange::
         push    bc
-				push    hl
+        push    hl
 
-				ld      b,h
-				ld      c,l
+        ld      b,h
+        ld      c,l
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
+        ld      a,OBJBANK
+        ld      [$ff70],a
 
-				ld      hl,OBJ_DESTL
-				add     hl,de
+        ld      hl,OBJ_DESTL
+        add     hl,de
 
-				ld      [hl],c
-				inc     hl
-				ld      [hl],b
+        ld      [hl],c
+        inc     hl
+        ld      [hl],b
 
-				xor     a
-				call    SetState
+        xor     a
+        call    SetState
 
         pop     hl
-				pop     bc
-				ret
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetActorDestLoc  
+; Routine:      GetActorDestLoc
 ; Arguments:    de - object
 ; Alters:       af, hl
 ; Returns:      hl - location
 ;---------------------------------------------------------------------
 GetActorDestLoc:
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_DESTL
-				add     hl,de
-				ld      a,[hl+]
-				ld      h,[hl]
-				ld      l,a
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_DESTL
+        add     hl,de
+        ld      a,[hl+]
+        ld      h,[hl]
+        ld      l,a
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      GetDestL           
+; Routine:      GetDestL
 ;               GetDestH
 ; Arguments:    de - object
 ; Returns:      a  - contents of DESTL/DESTH
@@ -13888,22 +13888,22 @@ GetActorDestLoc:
 ;---------------------------------------------------------------------
 GetDestL::
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      hl,OBJ_DESTL
-				add     hl,de
-				ld      a,[hl]
-				ret
+        ldio    [$ff70],a
+        ld      hl,OBJ_DESTL
+        add     hl,de
+        ld      a,[hl]
+        ret
 
 GetDestH::
         ld      a,OBJBANK
-				ldio    [$ff70],a
-				ld      hl,OBJ_DESTH
-				add     hl,de
-				ld      a,[hl]
-				ret
+        ldio    [$ff70],a
+        ld      hl,OBJ_DESTH
+        add     hl,de
+        ld      a,[hl]
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetDestL           
+; Routine:      SetDestL
 ;               SetDestH
 ; Arguments:    a  - value to set to
 ;               de - object
@@ -13912,26 +13912,26 @@ GetDestH::
 ;---------------------------------------------------------------------
 SetDestL::
         push    af
-				ld      a,OBJBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      hl,OBJ_DESTL
-				add     hl,de
-				ld      [hl],a
-				ret
+        ld      a,OBJBANK
+        ldio    [$ff70],a
+        pop     af
+        ld      hl,OBJ_DESTL
+        add     hl,de
+        ld      [hl],a
+        ret
 
 SetDestH::
         push    af
-				ld      a,OBJBANK
-				ldio    [$ff70],a
-				pop     af
-				ld      hl,OBJ_DESTH
-				add     hl,de
-				ld      [hl],a
-				ret
+        ld      a,OBJBANK
+        ldio    [$ff70],a
+        pop     af
+        ld      hl,OBJ_DESTH
+        add     hl,de
+        ld      [hl],a
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetMisc            
+; Routine:      SetMisc
 ;               GetMisc
 ; Arguments:    a  - value to set to (SetMisc)
 ;               de - object
@@ -13940,21 +13940,21 @@ SetDestH::
 ;---------------------------------------------------------------------
 SetMisc::
        push     af
-			 ld       a,OBJBANK
-			 ldio     [$ff70],a
-			 ld       hl,OBJ_MISC
-			 add      hl,de
-			 pop      af
-			 ld       [hl],a
-			 ret
+       ld       a,OBJBANK
+       ldio     [$ff70],a
+       ld       hl,OBJ_MISC
+       add      hl,de
+       pop      af
+       ld       [hl],a
+       ret
 
 GetMisc::
-			 ld       a,OBJBANK
-			 ldio     [$ff70],a
-			 ld       hl,OBJ_MISC
-			 add      hl,de
-			 ld       a,[hl]
-			 ret
+       ld       a,OBJBANK
+       ldio     [$ff70],a
+       ld       hl,OBJ_MISC
+       add      hl,de
+       ld       a,[hl]
+       ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetSpriteLo
@@ -13964,15 +13964,15 @@ GetMisc::
 ;---------------------------------------------------------------------
 SetSpriteLo:
         push    hl
-				ld      h,a
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      a,h
-				ld      hl,OBJ_SPRITELO
-				add     hl,de
-				ld      [hl],a
-				pop     hl
-				ret
+        ld      h,a
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      a,h
+        ld      hl,OBJ_SPRITELO
+        add     hl,de
+        ld      [hl],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetSpriteLo
@@ -13983,14 +13983,14 @@ SetSpriteLo:
 GetSpriteLo:
         push    hl
 
-				ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_SPRITELO
-				add     hl,de
-				ld      a,[hl]
+        ld      a,OBJBANK
+        ld      [$ff70],a
+        ld      hl,OBJ_SPRITELO
+        add     hl,de
+        ld      a,[hl]
 
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetSpritePtrInHL
@@ -14000,9 +14000,9 @@ GetSpriteLo:
 ;---------------------------------------------------------------------
 GetSpritePtrInHL:
         call    GetSpriteLo
-				ld      l,a
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				ret
+        ld      l,a
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        ret
 
 ;---------------------------------------------------------------------
 ; Routine:      GetBulletDamage
@@ -14011,15 +14011,15 @@ GetSpritePtrInHL:
 ;---------------------------------------------------------------------
 GetBulletDamage:
         ld      a,OBJBANK
-				ld      [$ff70],a
-				ld      hl,OBJ_DESTL
-				add     hl,de
-				ld      a,[hl]
-				ret
+        ld      [$ff70],a
+        ld      hl,OBJ_DESTL
+        add     hl,de
+        ld      a,[hl]
+        ret
 
 
 ;---------------------------------------------------------------------
-; Routine:      GetFGAttributes  
+; Routine:      GetFGAttributes
 ; Arguments:    c - class index
 ; Alters:       af
 ; Returns:      a - attributes for given class index
@@ -14028,7 +14028,7 @@ GetBulletDamage:
 ;               Returns full set of attributes including:
 ;               [2:0] - color        FLAG_PALETTE
 ;               [4]   - isBullet     FLAG_ISBULLET
-;               [5]   - is2x2        FLAG_2X2            
+;               [5]   - is2x2        FLAG_2X2
 ;               [6]   - noRotate     FLAG_NOROTATE
 ;---------------------------------------------------------------------
 GetFGAttributes::
@@ -14038,47 +14038,47 @@ GetFGAttributes::
         ld      l,c
         ld      h,((fgAttributes>>8) & $ff)
         ld      a,[hl]
-				ld      [fgFlags],a
-				pop     hl
-				ret
+        ld      [fgFlags],a
+        pop     hl
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetFGAttributes  
+; Routine:      SetFGAttributes
 ; Arguments:    a - new attributs
 ;               c - class index
 ; Alters:       af
 ;---------------------------------------------------------------------
 SetFGAttributes::
         push    hl
-				push    af
+        push    af
         ld      a,TILEINDEXBANK
         ldio    [$ff70],a
         ld      l,c
         ld      h,((fgAttributes>>8) & $ff)
-				pop     af
+        pop     af
         ld      [hl],a
-				pop     hl
-				ret
+        pop     hl
+        ret
 
 
 ;---------------------------------------------------------------------
-; Routine:      GetFGTileMapping  
+; Routine:      GetFGTileMapping
 ; Arguments:    c - class index
-; Returns:      a - base fg tile for given class index 
+; Returns:      a - base fg tile for given class index
 ; Alters:       af
 ;---------------------------------------------------------------------
 GetFGTileMapping:
         push    hl
 
         ld      a,TILEINDEXBANK
-				ld      [$ff70],a
+        ld      [$ff70],a
 
-				ld      l,c
-				ld      h,((fgTileMap>>8) & $ff)
+        ld      l,c
+        ld      h,((fgTileMap>>8) & $ff)
 
-				ld      a,[hl]
+        ld      a,[hl]
 
-				pop     hl
+        pop     hl
         ret
 
 ;---------------------------------------------------------------------
@@ -14089,10 +14089,10 @@ GetFGTileMapping:
 ;---------------------------------------------------------------------
 SetupHeroData:
         ld      a,[hero0_index]
-				cp      c
-				jr      nz,.hero1
-				ld      hl,hero0_data
-				ret
+        cp      c
+        jr      nz,.hero1
+        ld      hl,hero0_data
+        ret
 
 .hero1
         ld      hl,hero1_data
@@ -14109,18 +14109,18 @@ GetHeroData:
         push    de
         push    hl
 
-				ld      d,0
-				ld      e,a
-				add     hl,de
-				ld      a,[hl]
+        ld      d,0
+        ld      e,a
+        add     hl,de
+        ld      a,[hl]
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         ret
 
 ;---------------------------------------------------------------------
 ; Routine:      SetHeroData
-; Arguments:    a  - data to set 
+; Arguments:    a  - data to set
 ;               b  - data offset (e.g. HERODATA_HEALTH)
 ;               hl - ptr to hero0_data or hero1_data
 ; Returns:      a - 8-bit value
@@ -14130,17 +14130,17 @@ SetHeroData:
         push    de
         push    hl
 
-				ld      d,0
-				ld      e,b
-				add     hl,de
-				ld      [hl],a
+        ld      d,0
+        ld      e,b
+        add     hl,de
+        ld      [hl],a
 
-				pop     hl
-				pop     de
+        pop     hl
+        pop     de
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      HealthSparks  
+; Routine:      HealthSparks
 ; Arguments:    a  - cur health
 ;               b  - max health
 ;               de - this
@@ -14152,106 +14152,106 @@ SetHeroData:
 ;---------------------------------------------------------------------
 HealthSparks:
         push    bc
-				push    de
+        push    de
 
-				srl     b      ;half max health
-				cp      b
-				jr      z,.atHalfHealth
-				jr      nc,.done   ;greater than half health
+        srl     b      ;half max health
+        cp      b
+        jr      z,.atHalfHealth
+        jr      nc,.done   ;greater than half health
 
-				srl     b          ;1/4 max
-				cp      b
-				jr      z,.atQuarterHealth
-				jr      nc,.atHalfHealth
+        srl     b          ;1/4 max
+        cp      b
+        jr      z,.atQuarterHealth
+        jr      nc,.atHalfHealth
 
-				srl     b          ;1/8 max
-				cp      b
-				jr      z,.atEighthHealth
-				jr      nc,.atQuarterHealth
+        srl     b          ;1/8 max
+        cp      b
+        jr      z,.atEighthHealth
+        jr      nc,.atQuarterHealth
 
 .atEighthHealth
-				;at 1/8 health
-				call    GetState
-				add     1
-				call    SetState
-				and     %00000001
-				jr      .spark
+        ;at 1/8 health
+        call    GetState
+        add     1
+        call    SetState
+        and     %00000001
+        jr      .spark
 
 .atQuarterHealth
-				call    GetState
-				add     1
-				call    SetState
-				and     %00000111
-				jr      .spark
+        call    GetState
+        add     1
+        call    SetState
+        and     %00000111
+        jr      .spark
 
 .atHalfHealth
-				call    GetState
-				add     1
-				call    SetState
-				and     %00001111
+        call    GetState
+        add     1
+        call    SetState
+        and     %00001111
 
 .spark
         or      a
-				jr      nz,.done
+        jr      nz,.done
 
         call    GetFGAttributes
-				and     %111
-				ld      [bulletColor],a
-				call    GetCurLocation
-				ld      a,l
-				ld      [bulletLocation],a
-				ld      a,h
-				ld      [bulletLocation+1],a
-				ld      b,72   ;initial spark frame
-				call    CreateExplosion
+        and     %111
+        ld      [bulletColor],a
+        call    GetCurLocation
+        ld      a,l
+        ld      [bulletLocation],a
+        ld      a,h
+        ld      [bulletLocation+1],a
+        ld      b,72   ;initial spark frame
+        call    CreateExplosion
 
         ;hl points to explosion object
-				push    de
-				call    IndexToPointerDE
-				call    GetSpriteLo
-				ld      h,((spriteOAMBuffer>>8) & $ff)
-				ld      l,a
-				pop     de
+        push    de
+        call    IndexToPointerDE
+        call    GetSpriteLo
+        ld      h,((spriteOAMBuffer>>8) & $ff)
+        ld      l,a
+        pop     de
 
-				;add +4 y if split north/south
-				push    hl
-				push    hl
-				call    GetFacing
-				pop     hl
-				bit     2,a
-				jr      z,.afterSplit
+        ;add +4 y if split north/south
+        push    hl
+        push    hl
+        call    GetFacing
+        pop     hl
+        bit     2,a
+        jr      z,.afterSplit
 
         bit     0,a
-				jr      z,.splitNS
+        jr      z,.splitNS
 
-				inc     hl   ;split e/w
+        inc     hl   ;split e/w
 
 .splitNS
         ld      a,[hl]
-				add     4
-				ld      [hl],a
+        add     4
+        ld      [hl],a
 .afterSplit
         pop     hl
 
-				;offset by random +/- 0-3 pixels
-				ld      a,%111
-				call    GetRandomNumMask
-				add     [hl]     ;sprite y pos
-				sub     4
-				ld      [hl+],a
-				ld      a,%111
-				call    GetRandomNumMask
-				add     [hl]     ;sprite x pos
-				sub     4
-				ld      [hl],a
+        ;offset by random +/- 0-3 pixels
+        ld      a,%111
+        call    GetRandomNumMask
+        add     [hl]     ;sprite y pos
+        sub     4
+        ld      [hl+],a
+        ld      a,%111
+        call    GetRandomNumMask
+        add     [hl]     ;sprite x pos
+        sub     4
+        ld      [hl],a
 
 .done
-				pop     de
-				pop     bc
-				ret
+        pop     de
+        pop     bc
+        ret
 
 ;---------------------------------------------------------------------
-; Routine:      ShiftObjectInDirection  
+; Routine:      ShiftObjectInDirection
 ; Arguments:    a  - direction to shift object
 ;               hl - location of object
 ; Alters:       af, [curObjWidthHeight]
@@ -14259,52 +14259,52 @@ HealthSparks:
 ;---------------------------------------------------------------------
 ShiftObjectInDirection::
         push    bc
-				push    de
-				push    hl
+        push    de
+        push    hl
 
-				ld      b,a
+        ld      b,a
 
         ldio    a,[curObjWidthHeight]
         push    af
 
-				ld      a,MAPBANK
-				ldio    [$ff70],a
+        ld      a,MAPBANK
+        ldio    [$ff70],a
 
-				ld      a,[hl]
-				call    EnsureTileIsHead
-				ld      d,h
-				ld      e,l
+        ld      a,[hl]
+        call    EnsureTileIsHead
+        ld      d,h
+        ld      e,l
 
-				ld      c,a
-				ld      a,[hero0_index]
-				cp      c
-				jr      z,.isPlayer
-				ld      a,[hero1_index]
-				cp      c
-				jr      z,.isPlayer
+        ld      c,a
+        ld      a,[hero0_index]
+        cp      c
+        jr      z,.isPlayer
+        ld      a,[hero1_index]
+        cp      c
+        jr      z,.isPlayer
 
-				call    FindObject
+        call    FindObject
         call    SetObjWidthHeight
-				call    StandardValidateMoveAndRedraw
+        call    StandardValidateMoveAndRedraw
 
         pop     af
         ldio    [curObjWidthHeight],a
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 .isPlayer
-				call    FindObject
-				call    PlayerValidateMoveAndRedraw
+        call    FindObject
+        call    PlayerValidateMoveAndRedraw
 
         pop     af
         ldio    [curObjWidthHeight],a
 
-				pop     hl
-				pop     de
-				pop     bc
+        pop     hl
+        pop     de
+        pop     bc
         ret
 
 
@@ -14366,72 +14366,72 @@ stdStateTable:
   ;$7f00
   DW SetupRandomMoveState, MoveToZone, TryRight, TryFwdAfterRight
   DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
 
 eatStateTable:
-	;$7f20
+  ;$7f20
   ;DW EatOrTrack, MoveToZone, TryRight, TryFwdAfterRight
   ;DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	;DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	;DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
-	DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
-	DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
-	DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
-	DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
+  ;DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  ;DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
+  DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
+  DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
+  DW EatOrTrackState,EatOrTrackState,EatOrTrackState,EatOrTrackState
 
 explosionFrameTable:
-	;$7f40
-	DB 0,8,0,8,0,0,0,0    ;pattern numbers
-	DB %00000000,%00000000,%01000000,%00100000    ;base attributes
-	DB %00000000,%01000000,%00100000,%01100000
+  ;$7f40
+  DB 0,8,0,8,0,0,0,0    ;pattern numbers
+  DB %00000000,%00000000,%01000000,%00100000    ;base attributes
+  DB %00000000,%01000000,%00100000,%01100000
 
 trackEnemyStateTable:
-	;$7f50
+  ;$7f50
   DW SetupTrackEnemy, MoveToZone, TryRight, TryFwdAfterRight
   DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
 
 getLocSplitTable:
-	;$7f70
-	DB 0   ;%00 00   Facing: N  Check: N
-	DB 0   ;%00 01   Facing: N  Check: E
-	DB 1   ;%00 10   Facing: N  Check: S
-	DB 0   ;%00 11   Facing: N  Check: W
-	DB 0   ;%01 00   Facing: E  Check: N
-	DB 1   ;%01 01   Facing: E  Check: E
-	DB 0   ;%01 10   Facing: E  Check: S
-	DB 0   ;%01 11   Facing: E  Check: W
-	DB 0   ;%10 00   Facing: S  Check: N
-	DB 0   ;%10 01   Facing: S  Check: E
-	DB 1   ;%10 10   Facing: S  Check: S
-	DB 0   ;%10 11   Facing: S  Check: W
-	DB 0   ;%11 00   Facing: W  Check: N
-	DB 1   ;%11 01   Facing: W  Check: E
-	DB 0   ;%11 10   Facing: W  Check: S
-	DB 0   ;%01 11   Facing: W  Check: W
+  ;$7f70
+  DB 0   ;%00 00   Facing: N  Check: N
+  DB 0   ;%00 01   Facing: N  Check: E
+  DB 1   ;%00 10   Facing: N  Check: S
+  DB 0   ;%00 11   Facing: N  Check: W
+  DB 0   ;%01 00   Facing: E  Check: N
+  DB 1   ;%01 01   Facing: E  Check: E
+  DB 0   ;%01 10   Facing: E  Check: S
+  DB 0   ;%01 11   Facing: E  Check: W
+  DB 0   ;%10 00   Facing: S  Check: N
+  DB 0   ;%10 01   Facing: S  Check: E
+  DB 1   ;%10 10   Facing: S  Check: S
+  DB 0   ;%10 11   Facing: S  Check: W
+  DB 0   ;%11 00   Facing: W  Check: N
+  DB 1   ;%11 01   Facing: W  Check: E
+  DB 0   ;%11 10   Facing: W  Check: S
+  DB 0   ;%01 11   Facing: W  Check: W
 
 
 actorStateTable:
-	;$7f80
+  ;$7f80
   DW SetupMoveToLoc, MoveToZone, TryRight, TryFwdAfterRight
   DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
 
 fleeStateTable:
-	;$7fa0
+  ;$7fa0
   DW ScardieFlee, MoveToZone, TryRight, TryFwdAfterRight
   DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
 
 ladyBulletStateTable:
-	;$7fc0
+  ;$7fc0
   DW LadyBulletMove, MoveToZone, TryRight, TryFwdAfterRight
   DW TryLeft, TryFwdAfterLeft, RandomMove, MoveFwdThenState1
-	DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
-	DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
+  DW TryLeftFirst, TryFwdAfterLeftFirst, TryRightSecond
+  DW TryFwdAfterRightSecond, NoMove, NoMove, NoMove, NoMove
 
-	;$7fe0
+  ;$7fe0

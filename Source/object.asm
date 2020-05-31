@@ -14,17 +14,17 @@
 ;               bits[4:3] - copy of timer's 2 LSB on upon last move
 ;               bits[6:5] - index 0-3 on current path
 ;               bit[7]    - 1 if obj is currently a sprite, 0 if not
-;    3  move    Next move info                  
+;    3  move    Next move info
 ;               bits[7:0] - counter 'till next move
 ;    4  limit   Moves until AI switch + moves until fire again
-;               bits[3:0] - moveLimit.  Decremented every move and 
+;               bits[3:0] - moveLimit.  Decremented every move and
 ;                           sometimes used to switch states ("well this
-;                           direction's not working").  
+;                           direction's not working").
 ;                           - Used as direction of fire by hero
 ;                           - Used as bullet color by bullet.
 ;               bits[7-4] - special flags
 ;                           7 = travel straight, speed=1 (OBJBIT_THROWN)
-;    5  health  Amount of health left 
+;    5  health  Amount of health left
 ;               bits[5:0] - Amount of health / hit points left
 ;               bits[7:6] - desired direction.  When the AI is sliding
 ;                           to the side looking for forward progress
@@ -38,8 +38,8 @@
 ;                           0 - Reset.  Figure out from scratch what
 ;                               to do.
 ;                           1 - Move straightforwardly towards waypoint.
-;                           2 - Move up to "moveLimit" (see byte 4 
-;                               following) parallel to right of major 
+;                           2 - Move up to "moveLimit" (see byte 4
+;                               following) parallel to right of major
 ;                               axis, each time switching to state 3 to
 ;                               check for forward movement
 ;                           3 - If can move forward along major axis do
@@ -55,7 +55,7 @@
 ;                           0  - Free for all (shoot anything)
 ;                           1  - Hero group
 ;                           2-15 Monster A - Monster N
-;   10  DESTL            - actor dest low byte 
+;   10  DESTL            - actor dest low byte
 ;                        - eater low index
 ;                        - bullet damage
 ;                        - explosion initial frame
@@ -115,7 +115,7 @@ AddObjectsToObjList::
         ld      d,a
 
 .inner  ld      a,MAPBANK       ;switch to map RAM bank
-        ld      [$ff00+$70],a         
+        ld      [$ff00+$70],a
         ld      a,[hl]         ;get a class index from map
         cp      d               ;is it < first monster index?
         jr      c,.notAnObject
@@ -209,7 +209,7 @@ ResetList::
         ld      a,OBJLISTBANK
         ld      [$ff00+$70],a
 
-        ;Set object zero (which should never be accessed) to 
+        ;Set object zero (which should never be accessed) to
 				;all-null to help ID infinite loops.
 				ld      hl,objects
 				ld      b,16
@@ -225,7 +225,7 @@ ResetList::
         ld      hl,headTable
         xor     a
         ld      c,0           ;e.g. counter of 256
-              
+
 .loop1  ld      [hl+],a
         ld      [hl+],a
         dec     c
@@ -328,8 +328,8 @@ ENDC
 ;---------------------------------------------------------------------
 ; Routine:      CreateObject
 ; Arguments:    c  - class index of object to create
-;               hl - ptr to location in map             
-; Returns:      de - address of object 
+;               hl - ptr to location in map
+; Returns:      de - address of object
 ; Alters:       af,de
 ; Description:  Creates and adds the specified object into the list
 ;               providing there's room.  Equivalent to the following
@@ -401,7 +401,7 @@ CreateObject::
 .thisObjNotFree
         ld      a,l
 				or      a
-				jr      nz,.lookAtNextObj  
+				jr      nz,.lookAtNextObj
 				;no free objects (1st is zero)
 
 .foundNextFree
@@ -422,13 +422,13 @@ CreateObject::
 				ld      h,((tailTable>>8) & $ff)     ;hl is tailTable[c]
         ld      [hl],a
 
-        ;switch in object RAM 
+        ;switch in object RAM
         ld      a,OBJBANK
         ld      [$ff00+$70],a
 
         jr      .setNextToNull
 
-.headExists    
+.headExists
         ;oldTail = tailTable[c]
 				ld      h,((tailTable>>8) & $ff)
         ld      a,[hl]         ;old tail index
@@ -440,9 +440,9 @@ CreateObject::
 
         ;tailTable[c] = curObjIndex
 				ld      a,[curObjIndex]
-        ld      [hl],a 
+        ld      [hl],a
 
-        ;switch in object RAM 
+        ;switch in object RAM
         ld      a,OBJBANK
         ld      [$ff00+$70],a
 
@@ -456,7 +456,7 @@ CreateObject::
         ;newObj->nextItem = null
         ld      hl,OBJ_NEXT    ;offset to get to nextItem low byte
 				add     hl,de           ;hl = &newObj->nextItem
-        xor     a 
+        xor     a
         ld      [hl],a         ;newObj->nextItem = null
 
         ;objExists[objectIndex] = 1;
@@ -469,7 +469,7 @@ CreateObject::
 				;objClassLookup[objIndex] = classIndex
 				ld      h,((objClassLookup>>8) & $ff)
 				pop     bc                ;get class lookup in c
-				ld      [hl],c            
+				ld      [hl],c
 
 .doneHL pop     hl
         ;de is return value
@@ -480,8 +480,8 @@ CreateObject::
 ;---------------------------------------------------------------------
 ; Routine:      CreateInitAndDrawObject
 ; Arguments:    c  - class index to create
-;               hl - ptr to location in map             
-; Returns:      de - address of object 
+;               hl - ptr to location in map
+; Returns:      de - address of object
 ; Alters:       af,de
 ; Description:  Creates and adds the specified object into the list
 ;               providing there's room.
@@ -510,9 +510,9 @@ CreateInitAndDrawObject::
 ; Routine:      DeleteObject
 ; Arguments:    c  - class index of object to delete
 ;               de - address of object
-; Alters:       af   
-; Description:  Deletes the specified object from the class index's 
-;               object list and returns it to the free node list.  
+; Alters:       af
+; Description:  Deletes the specified object from the class index's
+;               object list and returns it to the free node list.
 ;               Equivalent to the following C code:
 ;
 ;                 //find the object
@@ -522,7 +522,7 @@ CreateInitAndDrawObject::
 ;                   prev = cur;
 ;                 }
 ;                 if(!cur) goto addToFreeList;    //object not found
-;                
+;
 ;                 //handle special cases of head and tail
 ;                 if(cur==headTable[c]){
 ;                   headTable[c] = cur->nextItem;
@@ -532,7 +532,7 @@ CreateInitAndDrawObject::
 ;                 if(cur==tailTable[c]){
 ;                   tailTable[c] = prev;
 ;                 }
-;                
+;
 ;                 addToFreeList:
 ;                   firstFreeObj = min(firstFreeObj, curIndex);
 ;                   objExists[objIndex] = 0;
@@ -553,7 +553,7 @@ DeleteObject::
 				ld      a,[hl]
 				ld      [nextObjIndex],a
 
-        ;switch in objectList RAM 
+        ;switch in objectList RAM
         ld      a,OBJLISTBANK
         ld      [$ff00+$70],a
 
@@ -610,7 +610,7 @@ DeleteObject::
 				or      a
 
 				;is head, set headTable[c] = cur->nextObj
-				jr      z,.afterCheckHead 
+				jr      z,.afterCheckHead
 
 .notHead
         ;prev->nextObj = cur->nextObj
@@ -665,9 +665,9 @@ DeleteObject::
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      IterateAllLists   
+; Routine:      IterateAllLists
 ; Arguments:    b  - offset of method to call on a given object
-; Description:  Loops through all the objects in each class calling a 
+; Description:  Loops through all the objects in each class calling a
 ;               specified method on each.  Makes use of the IterateList
 ;               routine to do so.
 ;
@@ -688,7 +688,7 @@ IterateAllLists::
         ld      hl,headTable     ;start of array of ptrs to heads of list
         ld      c,0              ;loop 0...numClasses - 1
 
-.loop   ld      a,OBJLISTBANK    ;switch in objectList RAM 
+.loop   ld      a,OBJLISTBANK    ;switch in objectList RAM
         ld      [$ff00+$70],a
 
         ld      a,[hl+]          ;de = headTable[i]
@@ -708,16 +708,16 @@ IterateAllLists::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      IterateList      
+; Routine:      IterateList
 ; Arguments:    b  - offset of method to call on a given object
 ;               c  - class index of object
 ;               de - ptr to current object
-; Description:  Given a pointer to a list node (presumably the head), 
+; Description:  Given a pointer to a list node (presumably the head),
 ;               loops though all linked nodes calling a specified method
 ;               on each object.
 ;
 ;               Equivalent to the following C code:
-;               
+;
 ;               void IterateList(Node*cur, void *fnptr()){
 ;                 if(!cur) return;
 ;                 do{
@@ -768,7 +768,7 @@ IterateList::
 				call    GetMethodAddrFromPointer
 
 .loop   ;get ptr to next before calling method
-        ld      a,OBJBANK        ;switch in object RAM 
+        ld      a,OBJBANK        ;switch in object RAM
         ld      [$ff00+$70],a
 
         push    hl
@@ -810,7 +810,7 @@ IterateList::
 				ld      a,[allIdle]
 				or      a
 				jr      z,.afterCheckIdle
-				;can't be explosion 
+				;can't be explosion
 				pop     de
 				pop     bc
 				ld      a,c
@@ -827,7 +827,7 @@ IterateList::
 				push    hl
         call    SetObjWidthHeight
 				pop     hl
-        jp      [hl]                ;start class method (de is cur)
+        jp      hl                ;start class method (de is cur)
 .returnAddress
 
         pop     hl
@@ -922,7 +922,7 @@ FindObject::
 ; Routine:      CallMethod
 ; Arguments:    b  - offset of method to call
 ;               c  - class index of object
-;               de - ptr to object     
+;               de - ptr to object
 ; Returns:      a  - return value
 ; Alters:       af
 ; Description:  Calls the a class method passing in the location of an
@@ -938,7 +938,7 @@ CallMethod::
 				ld      a,[allIdle]
 				or      a
 				jr      z,.afterCheckIdle
-				;can't be explosion 
+				;can't be explosion
 				ld      a,c
 				cp      $ff
 				ret     nz
@@ -990,7 +990,7 @@ CallMethod::
         ld      bc,.returnAddress   ;save return address on stack
         push    bc
         ld      c,a                 ;class index into c
-        jp      [hl]                ;start class method (de is cur)
+        jp      hl                ;start class method (de is cur)
 .returnAddress
 
 .done
@@ -1027,7 +1027,7 @@ SetObjWidthHeight::
 
 ;---------------------------------------------------------------------
 ; Routine:      GetObjectIndex
-; Arguments:    de - ptr to object     
+; Arguments:    de - ptr to object
 ; Returns:      hl - &objExists[objIndex]
 ; Alters:       af,hl
 ;---------------------------------------------------------------------
@@ -1048,7 +1048,7 @@ GetObjectIndex:
 ;               "maxObjects" have been handled the routine returns
 ;               and picks up again next time where it left off.  Each
 ;               time the counter wraps around the object timers are
-;               incremented                                           
+;               incremented
 ;---------------------------------------------------------------------
 IterateMaxObjects::
         push    bc
@@ -1117,7 +1117,7 @@ IterateMaxObjects::
 
 .skipUnused
 
-.done   
+.done
         ;save current value of hl
         ld      a,l
 				ld      [iterateNext],a
@@ -1131,10 +1131,10 @@ IterateMaxObjects::
 
 
 ;---------------------------------------------------------------------
-; Routine:      DeleteObjectsOfClass             
+; Routine:      DeleteObjectsOfClass
 ; Arguments:    bc - class to delete objects
 ; Alters:       af
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 DeleteObjectsOfClass::
         push    de
@@ -1203,7 +1203,7 @@ DeleteObjectsOfClassIndex::
 
 ;---------------------------------------------------------------------
 ; Routine:      GetFirst
-; Arguments:    c  - class index 
+; Arguments:    c  - class index
 ; Returns:      de - head of list or null
 ;               a  - null if no first object
 ;               zflag - or a
@@ -1382,7 +1382,7 @@ GetNumObjects::
 
 ;---------------------------------------------------------------------
 ; Routine:      GetAssociated
-; Arguments:    c  - class index 
+; Arguments:    c  - class index
 ; Returns:      a  - associated class index
 ; Alters:       af
 ;---------------------------------------------------------------------
@@ -1408,7 +1408,7 @@ SECTION "ObjListHome",ROM0
 ; Description:  Initializes the Friend Or Foe Table so that each group
 ;               is friends only with itself except for:
 ;                 - FFA group friends with no one (not even selves)
-;                 - MONSTERM/N (groups M&N) set to friends with all 
+;                 - MONSTERM/N (groups M&N) set to friends with all
 ;                   but FFA
 ;                 - MONSTERB set to friends with hero
 ;---------------------------------------------------------------------
@@ -1511,7 +1511,7 @@ SetFOF::
 				;set the reverse entry
 				swap    l
 				ld      [hl],a
-				
+
 				pop     hl
 				ret
 
@@ -1551,11 +1551,11 @@ GetFOF::
 ;                 objTimer60ths  = 0
 ;                 heroTimerBase  = 0
 ;                 heroTimer60ths = 0
-;                 oamFindPos = 0               
+;                 oamFindPos = 0
 ;                 baMoved = 0
 ;                 bsMoved = 0
 ;                 iterateNext = objExists + 1
-; 
+;
 ;               Remakes the tailTable.
 ;               Waits for a VBLANK
 ;               Resets $ff+vblankTimer to zero
@@ -1813,7 +1813,7 @@ SetBGMapping::
 ; Returns:      a  - 1 or 0 result of last function called
 ; Alters:       all
 ; Description:  loads {A} with hero0_index and then hero1_index,
-;               calling the routine pointer with each. 
+;               calling the routine pointer with each.
 ;---------------------------------------------------------------------
 CheckEachHero::
         push    af
@@ -1824,7 +1824,7 @@ CheckEachHero::
 				push    hl
 				ld      de,.returnPoint0
 				push    de ;return address
-				jp      [hl]
+				jp      hl
 .returnPoint0
         pop     hl
 				or      a
@@ -1844,7 +1844,7 @@ CheckEachHero::
 
         ld      de,.returnAddress1
 				push    de
-				jp      [hl]   ;will return to my parent
+				jp      hl   ;will return to my parent
 .returnAddress1
         ret
 
@@ -1853,14 +1853,14 @@ CheckEachHero::
 ; Arguments:    c  - hero class index
 ; Returns:      Nothing.
 ; Alters:       af
-; Description:  Saving heroes current health etc into heroX_data.  
+; Description:  Saving heroes current health etc into heroX_data.
 ;               If its health is zero:
 ;                  - restores health to full (incorrect)
 ;                  - changes map to [respawnMap] if local hero, leaves
 ;                    map be if remote hero.
 ;               Does nothing if class index is null.
 ;               Removes the hero from the map.
-;               If local, sets [heroesPresent] to zero. If remote 
+;               If local, sets [heroesPresent] to zero. If remote
 ;               then remote hero flag is removed by RemoveRemoteHero
 ;---------------------------------------------------------------------
 RemoveHero::
@@ -1974,7 +1974,7 @@ IF INFINITEHEALTH==0
         ld       a,1
 				ld       [timeToChangeLevel],a
 ENDC
-				jr      .done      
+				jr      .done
 
 .removeRemote
         call    RemoveRemoteHero
@@ -1994,7 +1994,7 @@ ENDC
 ;               0 - no explosion
 ;               non-zero - explosion
 ; Alters:       af
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 CallBGAction::
         push    bc
@@ -2037,7 +2037,7 @@ CallBGAction::
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      ChangeMyClass             
+; Routine:      ChangeMyClass
 ;               ChangeMyClassAndRedraw
 ;               ChangeMyClassToAssociatedAndRedraw
 ; Arguments:    a  - new class type
@@ -2065,7 +2065,7 @@ ChangeMyClass::
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      RemoveObjectFromList             
+; Routine:      RemoveObjectFromList
 ; Arguments:    c  - class type
 ;               de - this
 ; Returns:      Nothing.
@@ -2129,12 +2129,12 @@ RemoveObjectFromList::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      AddObjectToList             
+; Routine:      AddObjectToList
 ; Arguments:    c  - class type
 ;               de - this
 ; Returns:      Nothing.
 ; Alters:       af
-; Description:  
+; Description:
 ;---------------------------------------------------------------------
 AddObjectToList::
         push    de
@@ -2178,7 +2178,7 @@ AddObjectToList::
         ret
 
 ;---------------------------------------------------------------------
-; Routine:      SetAssociated 
+; Routine:      SetAssociated
 ; Arguments:    b - class to associate
 ;               c - current class
 ; Alters:       af
@@ -2195,7 +2195,7 @@ SetAssociated::
 				ret
 
 ;---------------------------------------------------------------------
-; Routine:      CountNumObjects 
+; Routine:      CountNumObjects
 ; Arguments:    a - class index to count
 ; Returns:      a - number of objects of this class
 ; Alters:       af
