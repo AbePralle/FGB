@@ -39,7 +39,7 @@ routine rogo_build
   local obj_files = String[]
   forEach (asm_file in File.listing("Source/***/*.asm"))
     local obj_file = "Build/$.obj" (File.filename(asm_file).leftmost(-4))
-    execute "rgbasm -Wextra    $ -o $" (asm_file,obj_file)
+    execute "rgbasm -Wextra -Wobsolete   $ -o $" (asm_file,obj_file)
     obj_files.add( obj_file )
   endForEach
 

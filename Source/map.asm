@@ -671,7 +671,7 @@ LoadMap::
         ld      a,OBJROM
         call    SetActiveROM
 
-        ld      hl,[sp+0]
+        ld      hl,sp
         ld      a,l
         ld      [loadStackPosL],a
         ld      a,h

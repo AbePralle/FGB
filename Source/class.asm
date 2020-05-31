@@ -11453,7 +11453,7 @@ WispCheck:
         call    GetCurLocation
         push    hl
         call    .wispRemove
-        ld      hl,[sp+2]     ;other object's location
+        ld      hl,sp+2     ;other object's location
         ld      a,[hl+]
         ld      h,[hl]
         ld      l,a
