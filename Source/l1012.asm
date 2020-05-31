@@ -14,7 +14,7 @@ SECTION "Level1012Section",ROMX
 
 dialog:
 l1012_hero_readbook_gtx:
-  INCBIN "gtx\\talk\\l1012_hero_readbook.gtx"
+  INCBIN "Data/Dialog/talk/l1012_hero_readbook.gtx"
 
 L1012_Contents::
   DW L1012_Load
@@ -36,7 +36,7 @@ L1012_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1012_Map:
-INCBIN "..\\fgbeditor\\l1012_library.lvl"
+INCBIN "Data/Levels/l1012_library.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -7649,7 +7649,7 @@ blankTileData:
   DW 0,0,0,0,0,0,0,0
 
 explosionSprites:
-INCBIN "explosions0-85.bin"
+INCBIN "Data/Sprites/explosions0-85.bin"
 
 SECTION "ReservedSpriteDMAHandler",HRAM[$FF80]
 SpriteDMAHandler::
@@ -7714,5 +7714,5 @@ DB $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 
 ;SECTION "InGameGraphicsSection1",ROMX
 ;select_hero_bg::
-;  INCBIN "gamebg\\select_hero.bg"
+;  INCBIN "gamebg/select_hero.bg"
 

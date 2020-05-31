@@ -10,10 +10,10 @@ INCLUDE "Source/levels.inc"
 SECTION "Level1402SectionData2",ROMX
 ;---------------------------------------------------------------------
 spacepan_bg:
-  INCBIN "..\\fgbpix\\distress\\spacepan.bg"
+  INCBIN "../fgbpix/distress/spacepan.bg"
 
 final_bg:
-  INCBIN "..\\fgbpix\\distress\\final.bg"
+  INCBIN "../fgbpix/distress/final.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402Section",ROMX
@@ -26,38 +26,38 @@ L1402_Contents::
   DW L1402_Map
 
 moon_mini_bg:
-  INCBIN "..\\fgbpix\\distress\\moon_mini.bg"
+  INCBIN "../fgbpix/distress/moon_mini.bg"
 
 palace_bg:
-  INCBIN "..\\fgbpix\\distress\\palace.bg"
+  INCBIN "../fgbpix/distress/palace.bg"
 
 flowernight_bg:
-  INCBIN "..\\fgbpix\\distress\\flowernight.bg"
+  INCBIN "../fgbpix/distress/flowernight.bg"
   
 fgstars_sp:
-  INCBIN "..\\fgbpix\\distress\\fgstars.sp"
+  INCBIN "../fgbpix/distress/fgstars.sp"
 
 yacht_mini_sp:
-  INCBIN "..\\fgbpix\\distress\\yacht_mini.sp"
+  INCBIN "../fgbpix/distress/yacht_mini.sp"
 
 bee_sp:
-  INCBIN "..\\fgbpix\\distress\\bee.sp"
+  INCBIN "../fgbpix/distress/bee.sp"
 
 dialog:
 lady_badNews_gtx:
-  INCBIN "gtx\\distress\\lady_badNews.gtx"
+  INCBIN "Data/Dialog/distress/lady_badNews.gtx"
 
 lady_dispatched_gtx:
-  INCBIN "gtx\\distress\\lady_dispatched.gtx"
+  INCBIN "Data/Dialog/distress/lady_dispatched.gtx"
 
 lady_surrender_gtx:
-  INCBIN "gtx\\distress\\lady_surrender.gtx"
+  INCBIN "Data/Dialog/distress/lady_surrender.gtx"
 
 lady_bigBullies_gtx:
-  INCBIN "gtx\\distress\\lady_bigBullies.gtx"
+  INCBIN "Data/Dialog/distress/lady_bigBullies.gtx"
 
 lady_poorCaptain_gtx:
-  INCBIN "gtx\\distress\\lady_poorCaptain.gtx"
+  INCBIN "Data/Dialog/distress/lady_poorCaptain.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

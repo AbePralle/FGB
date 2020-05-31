@@ -60,64 +60,64 @@ L0107_LoadFinished:
 
 
 L0107_Map:
-INCBIN "..\\fgbeditor\\L0107_landing.lvl"
+INCBIN "Data/Levels/L0107_landing.lvl"
 
 arrows_bin:   INCBIN "arrows0-4.bin"
 
 dialog:
 hero_checkgate_gtx:
-  INCBIN "gtx\\landing\\hero_checkgate.gtx"
+  INCBIN "Data/Dialog/landing/hero_checkgate.gtx"
 
 guard_dontcomecloser_gtx:
-  INCBIN "gtx\\landing\\guard_dontcomecloser.gtx"
+  INCBIN "Data/Dialog/landing/guard_dontcomecloser.gtx"
 
 hero_whoareyou_gtx:
-  INCBIN "gtx\\landing\\hero_whoareyou.gtx"
+  INCBIN "Data/Dialog/landing/hero_whoareyou.gtx"
 
 guard_pansies_gtx:
-  INCBIN "gtx\\landing\\guard_pansies.gtx"
+  INCBIN "Data/Dialog/landing/guard_pansies.gtx"
 
 hero_move_gtx:
-  INCBIN "gtx\\landing\\hero_move.gtx"
+  INCBIN "Data/Dialog/landing/hero_move.gtx"
 
 guard_notpossible_gtx:
-  INCBIN "gtx\\landing\\guard_notpossible.gtx"
+  INCBIN "Data/Dialog/landing/guard_notpossible.gtx"
 
 hero_whatever_gtx:
-  INCBIN "gtx\\landing\\hero_whatever.gtx"
+  INCBIN "Data/Dialog/landing/hero_whatever.gtx"
 
 guard_really_gtx:
-  INCBIN "gtx\\landing\\guard_really.gtx"
+  INCBIN "Data/Dialog/landing/guard_really.gtx"
 
 bs_absolutely_gtx:
-  INCBIN "gtx\\landing\\bs_absolutely.gtx"
+  INCBIN "Data/Dialog/landing/bs_absolutely.gtx"
 
 guard_yeah_gtx:
-  INCBIN "gtx\\landing\\guard_yeah.gtx"
+  INCBIN "Data/Dialog/landing/guard_yeah.gtx"
 
 hero_closedgate_gtx:
-  INCBIN "gtx\\landing\\hero_closedgate.gtx"
+  INCBIN "Data/Dialog/landing/hero_closedgate.gtx"
 
 hero_report_gtx:
-  INCBIN "gtx\\landing\\hero_report.gtx"
+  INCBIN "Data/Dialog/landing/hero_report.gtx"
 
 bs_tookkey_gtx:
-  INCBIN "gtx\\landing\\bs_tookkey.gtx"
+  INCBIN "Data/Dialog/landing/bs_tookkey.gtx"
 
 ba_whataboutspare_gtx:
-  INCBIN "gtx\\landing\\ba_whataboutspare.gtx"
+  INCBIN "Data/Dialog/landing/ba_whataboutspare.gtx"
 
 bs_wasspare_gtx:
-  INCBIN "gtx\\landing\\bs_wasspare.gtx"
+  INCBIN "Data/Dialog/landing/bs_wasspare.gtx"
 
 ba_guns_gtx:
-  INCBIN "gtx\\landing\\ba_guns.gtx"
+  INCBIN "Data/Dialog/landing/ba_guns.gtx"
 
 bs_finelotofgood_gtx:
-  INCBIN "gtx\\landing\\bs_finelotofgood.gtx"
+  INCBIN "Data/Dialog/landing/bs_finelotofgood.gtx"
 
 bs_cool_gtx:
-  INCBIN "gtx\\landing\\bs_cool.gtx"
+  INCBIN "Data/Dialog/landing/bs_cool.gtx"
 
 L0107_Init:
         DW ((L0107_InitFinished - L0107_Init)-2)  ;size

@@ -16,7 +16,7 @@ SECTION "LevelsSection0105",ROMX
 
 dialog:
 l0105_hero_wrangling_gtx:
-  INCBIN "gtx\\talk\\l0105_hero_wrangling.gtx"
+  INCBIN "Data/Dialog/talk/l0105_hero_wrangling.gtx"
 
 L0105_Contents::
   DW L0105_Load
@@ -36,12 +36,12 @@ L0105_Load2:
 L0105_LoadFinished:
 
 L0105_Map:
-INCBIN "..\\fgbeditor\\l0105_path.lvl"
+INCBIN "Data/Levels/l0105_path.lvl"
 
-;gtx_intro:                INCBIN  "gtx\\Landing\\intro.gtx"
-;gtx_intro2:               INCBIN  "gtx\\Landing\\intro2.gtx"
-;gtx_finished:             INCBIN  "gtx\\Landing\\finished.gtx"
-;gtx_finished2:            INCBIN  "gtx\\Landing\\finished2.gtx"
+;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
+;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
+;gtx_finished:             INCBIN  "Data/Dialog/Landing/finished.gtx"
+;gtx_finished2:            INCBIN  "Data/Dialog/Landing/finished2.gtx"
 
 ;---------------------------------------------------------------------
 L0105_Init:

@@ -32,7 +32,7 @@ L0606_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0606_Map:
-INCBIN "..\\fgbeditor\\l0606_mooreslanding.lvl"
+INCBIN "Data/Levels/l0606_mooreslanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

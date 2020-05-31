@@ -14,37 +14,37 @@ VAR_HERO EQU 11
 SECTION "Level1103Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_tree_bg:
-  INCBIN "..\\fgbpix\\wedding\\gyro_tree.bg"
+  INCBIN "../fgbpix/wedding/gyro_tree.bg"
 
 gyro_costume_sp:
-  INCBIN "..\\fgbpix\\wedding\\gyro_costume.sp"
+  INCBIN "../fgbpix/wedding/gyro_costume.sp"
 
 gang_watches_wedding_bg:
-  INCBIN "..\\fgbpix\\wedding\\gang_watches_wedding.bg"
+  INCBIN "../fgbpix/wedding/gang_watches_wedding.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Gfx2",ROMX
 ;---------------------------------------------------------------------
 preacher_bg:
-  INCBIN "..\\fgbpix\\wedding\\preacher.bg"
+  INCBIN "../fgbpix/wedding/preacher.bg"
 
 wedding_panoramic_bg:
-  INCBIN "..\\fgbpix\\wedding\\wedding_panoramic.bg"
+  INCBIN "../fgbpix/wedding/wedding_panoramic.bg"
 
 flour_at_wedding_bg:
-  INCBIN "..\\fgbpix\\wedding\\flour_at_wedding.bg"
+  INCBIN "../fgbpix/wedding/flour_at_wedding.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Gfx3",ROMX
 ;---------------------------------------------------------------------
 flower_at_wedding_bg:
-  INCBIN "..\\fgbpix\\wedding\\flower_at_wedding.bg"
+  INCBIN "../fgbpix/wedding/flower_at_wedding.bg"
 
 gang_watches_front_bg::
-  INCBIN "..\\fgbpix\\wedding\\gang_watches_front.bg"
+  INCBIN "../fgbpix/wedding/gang_watches_front.bg"
 
 gyro_big_bg:
-  INCBIN "..\\fgbpix\\wedding\\gyro_big.bg"
+  INCBIN "../fgbpix/wedding/gyro_big.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Dialog",ROMX
@@ -52,76 +52,76 @@ SECTION "Level1103Dialog",ROMX
 
 dialog:
 preacher_blah_gtx:
-  INCBIN "gtx\\wedding\\preacher_blah.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_blah.gtx"
 
 preacher_reasons_gtx:
-  INCBIN "gtx\\wedding\\preacher_reasons.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_reasons.gtx"
 
 hero_reasons_gtx:
-  INCBIN "gtx\\wedding\\hero_reasons.gtx"
+  INCBIN "Data/Dialog/wedding/hero_reasons.gtx"
 
 captain_thanks_gtx:
-  INCBIN "gtx\\wedding\\captain_thanks.gtx"
+  INCBIN "Data/Dialog/wedding/captain_thanks.gtx"
 
 captain_cake_gtx:
-  INCBIN "gtx\\wedding\\captain_cake.gtx"
+  INCBIN "Data/Dialog/wedding/captain_cake.gtx"
 
 lady_byallmeans_gtx:
-  INCBIN "gtx\\wedding\\lady_byallmeans.gtx"
+  INCBIN "Data/Dialog/wedding/lady_byallmeans.gtx"
 
 lady_radio_gtx:
-  INCBIN "gtx\\wedding\\lady_radio.gtx"
+  INCBIN "Data/Dialog/wedding/lady_radio.gtx"
 
 preacher_takebegonia_gtx:
-  INCBIN "gtx\\wedding\\preacher_takebegonia.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_takebegonia.gtx"
 
 gyro_bs_gtx:
-  INCBIN "gtx\\wedding\\gyro_bs.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_bs.gtx"
 
 preacher_takesack_gtx:
-  INCBIN "gtx\\wedding\\preacher_takesack.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_takesack.gtx"
 
 gyro_ba_gtx:
-  INCBIN "gtx\\wedding\\gyro_ba.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_ba.gtx"
 
 preacher_pronounce_gtx:
-  INCBIN "gtx\\wedding\\preacher_pronounce.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_pronounce.gtx"
 
 gyro_haiku_gtx:
-  INCBIN "gtx\\wedding\\gyro_haiku.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_haiku.gtx"
 
 preacher_married_gtx:
-  INCBIN "gtx\\wedding\\preacher_married.gtx"
+  INCBIN "Data/Dialog/wedding/preacher_married.gtx"
 
 gyro_notsofast_gtx:
-  INCBIN "gtx\\wedding\\gyro_notsofast.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_notsofast.gtx"
 
 captain_why_gtx:
-  INCBIN "gtx\\wedding\\captain_why.gtx"
+  INCBIN "Data/Dialog/wedding/captain_why.gtx"
 
 gyro_reveals_gtx:
-  INCBIN "gtx\\wedding\\gyro_reveals.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_reveals.gtx"
 
 captain_thankyou_gtx:
-  INCBIN "gtx\\wedding\\captain_thankyou.gtx"
+  INCBIN "Data/Dialog/wedding/captain_thankyou.gtx"
 
 gyro_notyummy_gtx:
-  INCBIN "gtx\\wedding\\gyro_notyummy.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_notyummy.gtx"
 
 gyro_recall_gtx:
-  INCBIN "gtx\\wedding\\gyro_recall.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_recall.gtx"
 
 gyro_surrender_gtx:
-  INCBIN "gtx\\wedding\\gyro_surrender.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_surrender.gtx"
 
 gyro_difficult_gtx:
-  INCBIN "gtx\\wedding\\gyro_difficult.gtx"
+  INCBIN "Data/Dialog/wedding/gyro_difficult.gtx"
 
 captain_okay_gtx:
-  INCBIN "gtx\\wedding\\captain_okay.gtx"
+  INCBIN "Data/Dialog/wedding/captain_okay.gtx"
 
 lady_dontbesilly_gtx:
-  INCBIN "gtx\\wedding\\lady_dontbesilly.gtx"
+  INCBIN "Data/Dialog/wedding/lady_dontbesilly.gtx"
 
 
 ;---------------------------------------------------------------------

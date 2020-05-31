@@ -14,62 +14,62 @@ TEMPKLUDGE EQU 0
 SECTION "Level1502Gfx1",ROMX
 ;---------------------------------------------------------------------
 flour_gang_mono_bg:
-  INCBIN "..\\fgbpix\\distress\\flour_gang_mono.bg"
+  INCBIN "../fgbpix/distress/flour_gang_mono.bg"
 
 appomattox_big_bg:
-  INCBIN "..\\fgbpix\\distress\\appomattox_big.bg"
+  INCBIN "../fgbpix/distress/appomattox_big.bg"
 
 appomattox_big_sprites_sp::
-  INCBIN "..\\fgbpix\\distress\\appomattox_big_sprites.sp"
+  INCBIN "../fgbpix/distress/appomattox_big_sprites.sp"
 
 nar_certaindanger_bg:
-  INCBIN "..\\fgbpix\\distress\\nar_certaindanger.bg"
+  INCBIN "../fgbpix/distress/nar_certaindanger.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx2",ROMX
 ;---------------------------------------------------------------------
 flourdriving_bg::
-  INCBIN "..\\fgbpix\\distress\\flourdriving.bg"
+  INCBIN "../fgbpix/distress/flourdriving.bg"
 
 ba_bg::
-  INCBIN "..\\fgbpix\\distress\\ba.bg"
+  INCBIN "../fgbpix/distress/ba.bg"
 
 bs_bg::
-  INCBIN "..\\fgbpix\\distress\\bs.bg"
+  INCBIN "../fgbpix/distress/bs.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx3",ROMX
 ;---------------------------------------------------------------------
 remote_bg:
-  INCBIN "..\\fgbpix\\distress\\remote.bg"
+  INCBIN "../fgbpix/distress/remote.bg"
 
 flowerviewscreen_bg::
-  INCBIN "..\\fgbpix\\distress\\flowerviewscreen.bg"
+  INCBIN "../fgbpix/distress/flowerviewscreen.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx4",ROMX
 ;---------------------------------------------------------------------
 yacht_under_fire_bg:
-  INCBIN "..\\fgbpix\\distress\\yacht_under_fire.bg"
+  INCBIN "../fgbpix/distress/yacht_under_fire.bg"
 
 pirate_sprites_sp:
-  INCBIN "..\\fgbpix\\distress\\pirate_sprites.sp"
+  INCBIN "../fgbpix/distress/pirate_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx5",ROMX
 ;---------------------------------------------------------------------
 starfield_bg:
-  INCBIN "..\\fgbpix\\intro\\starfield.bg"
+  INCBIN "../fgbpix/intro/starfield.bg"
 
 starfield_sprite_sp::
-  INCBIN "..\\fgbpix\\intro\\starfield_sprite.sp"
+  INCBIN "../fgbpix/intro/starfield_sprite.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx6",ROMX
 ;---------------------------------------------------------------------
 appomattox_tokiwi_bg::
-  INCBIN "..\\fgbpix\\distress\\appomattox_tokiwi.bg"
+  INCBIN "../fgbpix/distress/appomattox_tokiwi.bg"
 
 
 ;---------------------------------------------------------------------
@@ -77,79 +77,79 @@ SECTION "Level1502Dialog",ROMX
 ;---------------------------------------------------------------------
 dialog:
 captain_cider_gtx:
-  INCBIN "gtx\\distress\\captain_cider.gtx"
+  INCBIN "Data/Dialog/distress/captain_cider.gtx"
 
 haiku_cider_gtx:
-  INCBIN "gtx\\distress\\haiku_cider.gtx"
+  INCBIN "Data/Dialog/distress/haiku_cider.gtx"
 
 captain_whyglum_gtx:
-  INCBIN "gtx\\distress\\captain_whyglum.gtx"
+  INCBIN "Data/Dialog/distress/captain_whyglum.gtx"
 
 ba_surrendering_gtx:
-  INCBIN "gtx\\distress\\ba_surrendering.gtx"
+  INCBIN "Data/Dialog/distress/ba_surrendering.gtx"
 
 captain_winsome_gtx:
-  INCBIN "gtx\\distress\\captain_winsome.gtx"
+  INCBIN "Data/Dialog/distress/captain_winsome.gtx"
 
 bs_nearKiwi_gtx:
-  INCBIN "gtx\\distress\\bs_nearKiwi.gtx"
+  INCBIN "Data/Dialog/distress/bs_nearKiwi.gtx"
 
 haiku_signal_gtx:
-  INCBIN "gtx\\distress\\haiku_signal.gtx"
+  INCBIN "Data/Dialog/distress/haiku_signal.gtx"
 
 captain_showit_gtx:
-  INCBIN "gtx\\distress\\captain_showit.gtx"
+  INCBIN "Data/Dialog/distress/captain_showit.gtx"
 
 lady_help_gtx:
-  INCBIN "gtx\\distress\\lady_help.gtx"
+  INCBIN "Data/Dialog/distress/lady_help.gtx"
 
 captain_goodness_gtx:
-  INCBIN "gtx\\distress\\captain_goodness.gtx"
+  INCBIN "Data/Dialog/distress/captain_goodness.gtx"
 
 lady_saved_gtx::
-  INCBIN "gtx\\distress\\lady_saved.gtx"
+  INCBIN "Data/Dialog/distress/lady_saved.gtx"
 
 captain_seeyou_gtx::
-  INCBIN "gtx\\distress\\captain_seeyou.gtx"
+  INCBIN "Data/Dialog/distress/captain_seeyou.gtx"
 
 lady_wait_gtx::
-  INCBIN "gtx\\distress\\lady_wait.gtx"
+  INCBIN "Data/Dialog/distress/lady_wait.gtx"
 
 captain_holdout_gtx::
-  INCBIN "gtx\\distress\\captain_holdout.gtx"
+  INCBIN "Data/Dialog/distress/captain_holdout.gtx"
 
 lady_no_gtx::
-  INCBIN "gtx\\distress\\lady_no.gtx"
+  INCBIN "Data/Dialog/distress/lady_no.gtx"
 
 captain_shuttle_gtx::
-  INCBIN "gtx\\distress\\captain_shuttle.gtx"
+  INCBIN "Data/Dialog/distress/captain_shuttle.gtx"
 
 lady_stay_gtx::
-  INCBIN "gtx\\distress\\lady_stay.gtx"
+  INCBIN "Data/Dialog/distress/lady_stay.gtx"
 
 captain_nostuff_gtx::
-  INCBIN "gtx\\distress\\captain_nostuff.gtx"
+  INCBIN "Data/Dialog/distress/captain_nostuff.gtx"
 
 lady_please_gtx::
-  INCBIN "gtx\\distress\\lady_please.gtx"
+  INCBIN "Data/Dialog/distress/lady_please.gtx"
 
 captain_nothanks_gtx::
-  INCBIN "gtx\\distress\\captain_nothanks.gtx"
+  INCBIN "Data/Dialog/distress/captain_nothanks.gtx"
 
 lady_must_gtx::
-  INCBIN "gtx\\distress\\lady_must.gtx"
+  INCBIN "Data/Dialog/distress/lady_must.gtx"
 
 captain_no_gtx::
-  INCBIN "gtx\\distress\\captain_no.gtx"
+  INCBIN "Data/Dialog/distress/captain_no.gtx"
 
 lady_insist_gtx::
-  INCBIN "gtx\\distress\\lady_insist.gtx"
+  INCBIN "Data/Dialog/distress/lady_insist.gtx"
 
 captain_okay_gtx::
-  INCBIN "gtx\\distress\\captain_okay.gtx"
+  INCBIN "Data/Dialog/distress/captain_okay.gtx"
 
 ba_goneawhile_gtx::
-  INCBIN "gtx\\distress\\ba_goneawhile.gtx"
+  INCBIN "Data/Dialog/distress/ba_goneawhile.gtx"
 
 
 ;---------------------------------------------------------------------

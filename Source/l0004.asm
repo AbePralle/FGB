@@ -15,13 +15,13 @@ SECTION "Level0004Section",ROMX
 
 dialog:
 l0004_howdypilgrim_gtx:
-  INCBIN "gtx\\talk\\l0004_howdypilgrim.gtx"
+  INCBIN "Data/Dialog/talk/l0004_howdypilgrim.gtx"
 
 l0004_sure_gtx:
-  INCBIN "gtx\\talk\\l0004_sure.gtx"
+  INCBIN "Data/Dialog/talk/l0004_sure.gtx"
 
 l0004_mindyourbusiness_gtx:
-  INCBIN "gtx\\talk\\l0004_mindyourbusiness.gtx"
+  INCBIN "Data/Dialog/talk/l0004_mindyourbusiness.gtx"
 
 L0004_Contents::
   DW L0004_Load
@@ -43,7 +43,7 @@ L0004_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0004_Map:
-INCBIN "..\\fgbeditor\\L0004_ranch.lvl"
+INCBIN "Data/Levels/L0004_ranch.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

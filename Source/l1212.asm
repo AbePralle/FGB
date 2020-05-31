@@ -23,16 +23,16 @@ SECTION "Level1212Section",ROMX
 
 dialog:
 l1212_anytime_gtx:
-  INCBIN "gtx\\talk\\l1212_anytime.gtx"
+  INCBIN "Data/Dialog/talk/l1212_anytime.gtx"
 
 l1212_yeah_gtx:
-  INCBIN "gtx\\talk\\l1212_yeah.gtx"
+  INCBIN "Data/Dialog/talk/l1212_yeah.gtx"
 
 l1212_makesure_gtx:
-  INCBIN "gtx\\talk\\l1212_makesure.gtx"
+  INCBIN "Data/Dialog/talk/l1212_makesure.gtx"
 
 l1212_suckstobehim_gtx:
-  INCBIN "gtx\\talk\\l1212_suckstobehim.gtx"
+  INCBIN "Data/Dialog/talk/l1212_suckstobehim.gtx"
 
 L1212_Contents::
   DW L1212_Load
@@ -54,7 +54,7 @@ L1212_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1212_Map:
-INCBIN "..\\fgbeditor\\L1212_crouton_hw1.lvl"
+INCBIN "Data/Levels/L1212_crouton_hw1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

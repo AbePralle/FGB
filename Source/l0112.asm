@@ -29,7 +29,7 @@ L0112_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0112_Map:
-INCBIN "..\\fgbeditor\\l0112_hive_entrance.lvl"
+INCBIN "Data/Levels/l0112_hive_entrance.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

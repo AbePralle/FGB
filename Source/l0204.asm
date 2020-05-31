@@ -26,12 +26,12 @@ L0204_Load2:
 L0204_LoadFinished:
 
 L0204_Map:
-INCBIN "..\\fgbeditor\\l0204_path.lvl"
+INCBIN "Data/Levels/l0204_path.lvl"
 
-;gtx_intro:                INCBIN  "gtx\\Landing\\intro.gtx"
-;gtx_intro2:               INCBIN  "gtx\\Landing\\intro2.gtx"
-;gtx_finished:             INCBIN  "gtx\\Landing\\finished.gtx"
-;gtx_finished2:            INCBIN  "gtx\\Landing\\finished2.gtx"
+;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
+;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
+;gtx_finished:             INCBIN  "Data/Dialog/Landing/finished.gtx"
+;gtx_finished2:            INCBIN  "Data/Dialog/Landing/finished2.gtx"
 
 ;---------------------------------------------------------------------
 L0204_Init:

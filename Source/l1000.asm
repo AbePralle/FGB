@@ -30,16 +30,16 @@ SECTION "Level1000Section",ROMX
 
 dialog:
 l1000_needbomb_gtx:
-  INCBIN "gtx\\talk\\l1000_needbomb.gtx"
+  INCBIN "Data/Dialog/talk/l1000_needbomb.gtx"
 
 l1000_freeze_gtx:
-  INCBIN "gtx\\talk\\l1000_freeze.gtx"
+  INCBIN "Data/Dialog/talk/l1000_freeze.gtx"
 
 l1000_toolate_gtx:
-  INCBIN "gtx\\talk\\l1000_toolate.gtx"
+  INCBIN "Data/Dialog/talk/l1000_toolate.gtx"
 
 l1000_follow_gtx:
-  INCBIN "gtx\\talk\\l1000_follow.gtx"
+  INCBIN "Data/Dialog/talk/l1000_follow.gtx"
 
 L1000_Contents::
   DW L1000_Load
@@ -61,7 +61,7 @@ L1000_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1000_Map:
-INCBIN "..\\fgbeditor\\l1000_basecamp.lvl"
+INCBIN "Data/Levels/l1000_basecamp.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

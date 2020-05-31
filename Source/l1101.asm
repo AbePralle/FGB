@@ -20,7 +20,7 @@ JOINDIR EQU EXIT_D
 SECTION "LevelsSection1101_data2",ROMX
 ;---------------------------------------------------------------------
 bullet_sp:
-  INCBIN "..\\fgbpix\\menu\\menucursor.sp"
+  INCBIN "../fgbpix/menu/menucursor.sp"
 
 
 ;---------------------------------------------------------------------
@@ -34,7 +34,7 @@ L1101_Contents::
   DW L1101_Map
 
 mainmenu_bg:
-  INCBIN "..\\fgbpix\\menu\\fgbmenu.bg"
+  INCBIN "../fgbpix/menu/fgbmenu.bg"
 
 
 ;---------------------------------------------------------------------

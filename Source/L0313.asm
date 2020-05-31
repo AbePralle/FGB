@@ -17,7 +17,7 @@ L0313_Contents::
 
 dialog:
 intercom_gtx:
-  INCBIN "gtx\\main_intro\\intercom.gtx"
+  INCBIN "Data/Dialog/main_intro/intercom.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load
@@ -33,7 +33,7 @@ L0313_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0313_Map:
-INCBIN "..\\fgbeditor\\l0313_intro_ba4.lvl"
+INCBIN "Data/Levels/l0313_intro_ba4.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -19,25 +19,25 @@ L0015_Contents::
 
 dialog:
 soldier_how_gtx:
-  INCBIN "gtx\\intro_bs\\soldier_how.gtx"
+  INCBIN "Data/Dialog/intro_bs/soldier_how.gtx"
 
 bs_likeButter_gtx:
-  INCBIN "gtx\\intro_bs\\bs_likeButter.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_likeButter.gtx"
 
 soldier_yellow_gtx:
-  INCBIN "gtx\\intro_bs\\soldier_yellow.gtx"
+  INCBIN "Data/Dialog/intro_bs/soldier_yellow.gtx"
 
 bs_slippery_gtx:
-  INCBIN "gtx\\intro_bs\\bs_slippery.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_slippery.gtx"
 
 guard_freeze_gtx:
-  INCBIN "gtx\\intro_bs\\guard_freeze.gtx"
+  INCBIN "Data/Dialog/intro_bs/guard_freeze.gtx"
 
 bs_actually_gtx:
-  INCBIN "gtx\\intro_bs\\bs_actually.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_actually.gtx"
 
 guard_moveAlong_gtx:
-  INCBIN "gtx\\intro_bs\\guard_moveAlong.gtx"
+  INCBIN "Data/Dialog/intro_bs/guard_moveAlong.gtx"
 
 
 ;---------------------------------------------------------------------
@@ -54,7 +54,7 @@ L0015_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0015_Map:
-INCBIN "..\\fgbeditor\\l0015_intro_bs1.lvl"
+INCBIN "Data/Levels/l0015_intro_bs1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

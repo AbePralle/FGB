@@ -32,7 +32,7 @@ L0810_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0810_Map:
-INCBIN "..\\fgbeditor\\l0810_graveslanding.lvl"
+INCBIN "Data/Levels/l0810_graveslanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

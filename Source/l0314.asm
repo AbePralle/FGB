@@ -19,37 +19,37 @@ L0314_Contents::
 
 dialog:
 skippy_woowee_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_woowee.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_woowee.gtx"
 
 flour_anySign_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_anySign.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_anySign.gtx"
 
 haiku_theyNever_gtx:
-  INCBIN "gtx\\intro_haiku\\haiku_theyNever.gtx"
+  INCBIN "Data/Dialog/intro_haiku/haiku_theyNever.gtx"
 
 flour_poorIambic_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_poorIambic.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_poorIambic.gtx"
 
 flour_poorQuatrain_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_poorQuatrain.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_poorQuatrain.gtx"
 
 flour_headHome_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_headHome.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_headHome.gtx"
 
 skippy_notJustYet_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_notJustYet.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_notJustYet.gtx"
 
 skippy_smartestThing_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_smartestThing.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_smartestThing.gtx"
 
 skippy_loseForSure_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_loseForSure.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_loseForSure.gtx"
 
 flour_sendBS_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_sendBS.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_sendBS.gtx"
 
 flour_sabotage_gtx:
-  INCBIN "gtx\\intro_haiku\\flour_sabotage.gtx"
+  INCBIN "Data/Dialog/intro_haiku/flour_sabotage.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load
@@ -393,7 +393,7 @@ L0314_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0314_Map:
-INCBIN "..\\fgbeditor\\l0314_intro_haiku4.lvl"
+INCBIN "Data/Levels/l0314_intro_haiku4.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

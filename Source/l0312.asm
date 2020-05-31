@@ -33,7 +33,7 @@ L0312_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0312_Map:
-INCBIN "..\\fgbeditor\\l0312_sunsethousedown.lvl"
+INCBIN "Data/Levels/l0312_sunsethousedown.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

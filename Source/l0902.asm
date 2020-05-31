@@ -32,7 +32,7 @@ L0902_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0902_Map:
-INCBIN "..\\fgbeditor\\l0902_iceplainland.lvl"
+INCBIN "Data/Levels/l0902_iceplainland.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

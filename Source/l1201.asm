@@ -18,7 +18,7 @@ L1201_Contents::
   DW L1201_Map
 
 waiting_to_join_bg:
-  INCBIN "..\\fgbpix\\menu\\waiting_to_join.bg"
+  INCBIN "../fgbpix/menu/waiting_to_join.bg"
 
 ;---------------------------------------------------------------------
 ;  Load

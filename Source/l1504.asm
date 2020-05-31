@@ -23,10 +23,10 @@ STATE_BOTHEXITED  EQU 4
 SECTION "Level1504Gfx1",ROMX
 ;---------------------------------------------------------------------
 at_gunpoint_bg:
-  INCBIN "..\\fgbpix\\distress\\at_gunpoint.bg"
+  INCBIN "../fgbpix/distress/at_gunpoint.bg"
 
 at_gunpoint_sprites_sp:
-  INCBIN "..\\fgbpix\\distress\\at_gunpoint_sprites.sp"
+  INCBIN "../fgbpix/distress/at_gunpoint_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1504Section",ROMX
@@ -139,7 +139,7 @@ L1504_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1504_Map:
-  INCBIN "..\\fgbeditor\\L1504_landing.lvl"
+  INCBIN "Data/Levels/L1504_landing.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

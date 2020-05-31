@@ -11,112 +11,112 @@ TEMPKLUDGE EQU 50
 SECTION "L1200DataSection",ROMX
 ;---------------------------------------------------------------------
 logo160_bg:
-  INCBIN "..\\fgbpix\\logo\\logo160.bg"
+  INCBIN "../fgbpix/logo/logo160.bg"
 
 presents_bg:
-  INCBIN "..\\fgbpix\\logo\\presents.bg"
+  INCBIN "../fgbpix/logo/presents.bg"
 
 fgbtitle_bg:
-  INCBIN "..\\fgbpix\\logo\\fgbtitle.bg"
+  INCBIN "../fgbpix/logo/fgbtitle.bg"
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection2",ROMX
 ;---------------------------------------------------------------------
 kiwi1_bg::
-  INCBIN "..\\fgbpix\\intro\\kiwi1.bg"
+  INCBIN "../fgbpix/intro/kiwi1.bg"
 
 kiwi2_bg::
-  INCBIN "..\\fgbpix\\intro\\kiwi2.bg"
+  INCBIN "../fgbpix/intro/kiwi2.bg"
 
 kiwi3_bg::
-  INCBIN "..\\fgbpix\\intro\\kiwi3.bg"
+  INCBIN "../fgbpix/intro/kiwi3.bg"
 
 landing_bg_bg::
-  INCBIN "..\\fgbpix\\intro\\landing_bg.bg"
+  INCBIN "../fgbpix/intro/landing_bg.bg"
 
 landing_sprites_sp::
-  INCBIN "..\\fgbpix\\intro\\landing_sprites.sp"
+  INCBIN "../fgbpix/intro/landing_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection3",ROMX
 ;---------------------------------------------------------------------
 titlesprite_sp:
-  INCBIN "..\\fgbpix\\logo\\titlesprite.sp"
+  INCBIN "../fgbpix/logo/titlesprite.sp"
 
 ocloud0_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud0.bg"
+  INCBIN "../fgbpix/logo/ocloud0.bg"
 
 ocloud1_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud1.bg"
+  INCBIN "../fgbpix/logo/ocloud1.bg"
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection4",ROMX
 ;---------------------------------------------------------------------
 ocloud2_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud2.bg"
+  INCBIN "../fgbpix/logo/ocloud2.bg"
 
 ocloud3_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud3.bg"
+  INCBIN "../fgbpix/logo/ocloud3.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection5",ROMX
 ;---------------------------------------------------------------------
 ocloud4_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud4.bg"
+  INCBIN "../fgbpix/logo/ocloud4.bg"
 
 ocloud5_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud5.bg"
+  INCBIN "../fgbpix/logo/ocloud5.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection6",ROMX
 ;---------------------------------------------------------------------
 ocloud6_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud6.bg"
+  INCBIN "../fgbpix/logo/ocloud6.bg"
 
 ocloud7_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud7.bg"
+  INCBIN "../fgbpix/logo/ocloud7.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection7",ROMX
 ;---------------------------------------------------------------------
 ocloud8_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud8.bg"
+  INCBIN "../fgbpix/logo/ocloud8.bg"
 
 ocloud9_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloud9.bg"
+  INCBIN "../fgbpix/logo/ocloud9.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection8",ROMX
 ;---------------------------------------------------------------------
 oclouda_bg:
-  INCBIN "..\\fgbpix\\logo\\oclouda.bg"
+  INCBIN "../fgbpix/logo/oclouda.bg"
 
 ocloudb_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloudb.bg"
+  INCBIN "../fgbpix/logo/ocloudb.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection9",ROMX
 ;---------------------------------------------------------------------
 ocloudc_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloudc.bg"
+  INCBIN "../fgbpix/logo/ocloudc.bg"
 
 ocloudd_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloudd.bg"
+  INCBIN "../fgbpix/logo/ocloudd.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection10",ROMX
 ;---------------------------------------------------------------------
 ocloude_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloude.bg"
+  INCBIN "../fgbpix/logo/ocloude.bg"
 
 ocloudf_bg:
-  INCBIN "..\\fgbpix\\logo\\ocloudf.bg"
+  INCBIN "../fgbpix/logo/ocloudf.bg"
 
 ;---------------------------------------------------------------------
 SECTION "L1200CodeSection",ROMX
@@ -721,7 +721,7 @@ PRINTT "/$500 bytes\n"
 
 L1200_Map:
 
-;gtx_app_closed_gate_bs5:  INCBIN  "gtx\\Landing\\app_closed_gate_bs5.gtx"
+;gtx_app_closed_gate_bs5:  INCBIN  "Data/Dialog/Landing/app_closed_gate_bs5.gtx"
 
 L1200_Init:
         DW ((L1200_InitFinished - L1200_Init)-2)  ;size

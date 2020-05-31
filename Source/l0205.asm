@@ -30,19 +30,19 @@ SECTION "LevelsSection0205",ROMX,BANK[MAP0ROM]
 
 dialog:
 l0205_idiot_gtx:
-  INCBIN "gtx\\talk\\l0205_idiot.gtx"
+  INCBIN "Data/Dialog/talk/l0205_idiot.gtx"
 
 l0205_what_gtx:
-  INCBIN "gtx\\talk\\l0205_what.gtx"
+  INCBIN "Data/Dialog/talk/l0205_what.gtx"
 
 l0205_forgive_gtx:
-  INCBIN "gtx\\talk\\l0205_forgive.gtx"
+  INCBIN "Data/Dialog/talk/l0205_forgive.gtx"
 
 l0205_okay_gtx:
-  INCBIN "gtx\\talk\\l0205_okay.gtx"
+  INCBIN "Data/Dialog/talk/l0205_okay.gtx"
 
 l0205_west_gtx:
-  INCBIN "gtx\\talk\\l0205_west.gtx"
+  INCBIN "Data/Dialog/talk/l0205_west.gtx"
 
 L0205_Contents::
   DW L0205_Load
@@ -62,12 +62,12 @@ L0205_Load2:
 L0205_LoadFinished:
 
 L0205_Map:
-INCBIN "..\\fgbeditor\\l0205_bridge.lvl"
+INCBIN "Data/Levels/l0205_bridge.lvl"
 
-;gtx_intro:                INCBIN  "gtx\\Landing\\intro.gtx"
-;gtx_intro2:               INCBIN  "gtx\\Landing\\intro2.gtx"
-;gtx_finished:             INCBIN  "gtx\\Landing\\finished.gtx"
-;gtx_finished2:            INCBIN  "gtx\\Landing\\finished2.gtx"
+;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
+;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
+;gtx_finished:             INCBIN  "Data/Dialog/Landing/finished.gtx"
+;gtx_finished2:            INCBIN  "Data/Dialog/Landing/finished2.gtx"
 
 ;---------------------------------------------------------------------
 L0205_Init:

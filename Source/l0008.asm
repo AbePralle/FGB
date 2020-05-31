@@ -15,7 +15,7 @@ SECTION "Level0008Section",ROMX
 
 dialog:
 l0008_findspray_gtx:
-  INCBIN "gtx\\talk\\l0008_findspray.gtx"
+  INCBIN "Data/Dialog/talk/l0008_findspray.gtx"
 
 L0008_Contents::
   DW L0008_Load
@@ -37,7 +37,7 @@ L0008_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0008_Map:
-INCBIN "..\\fgbeditor\\l0008_forest.lvl"
+INCBIN "Data/Levels/l0008_forest.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -13,7 +13,7 @@ SECTION "Level0304Section",ROMX
 
 dialog:
 l0304_spores_gtx:
-  INCBIN "gtx\\talk\\l0304_spores.gtx"
+  INCBIN "Data/Dialog/talk/l0304_spores.gtx"
 
 L0304_Contents::
   DW L0304_Load
@@ -35,7 +35,7 @@ L0304_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0304_Map:
-INCBIN "..\\fgbeditor\\l0304_shroom.lvl"
+INCBIN "Data/Levels/l0304_shroom.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

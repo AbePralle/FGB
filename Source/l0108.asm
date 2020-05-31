@@ -15,7 +15,7 @@ SECTION "Level0108Section",ROMX
 
 dialog:
 l0108_sign_gtx:
-  INCBIN "gtx\\talk\\l0108_sign.gtx"
+  INCBIN "Data/Dialog/talk/l0108_sign.gtx"
 
 L0108_Contents::
   DW L0108_Load
@@ -37,7 +37,7 @@ L0108_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0108_Map:
-INCBIN "..\\fgbeditor\\l0108_forest_landing.lvl"
+INCBIN "Data/Levels/l0108_forest_landing.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -32,7 +32,7 @@ L0712_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0712_Map:
-INCBIN "..\\fgbeditor\\l0712_farmlanding.lvl"
+INCBIN "Data/Levels/l0712_farmlanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

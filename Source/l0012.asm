@@ -20,13 +20,13 @@ SECTION "Level0012Section",ROMX
 
 dialog:
 l0012_bombs_gtx:
-  INCBIN "gtx\\apocalypse\\l0012_bombs.gtx"
+  INCBIN "Data/Dialog/apocalypse/l0012_bombs.gtx"
 
 l0012_defused_gtx::
-  INCBIN "gtx\\apocalypse\\l0012_defused.gtx"
+  INCBIN "Data/Dialog/apocalypse/l0012_defused.gtx"
 
 l0012_alldefused_gtx::
-  INCBIN "gtx\\apocalypse\\l0012_alldefused.gtx"
+  INCBIN "Data/Dialog/apocalypse/l0012_alldefused.gtx"
 
 L0012_Contents::
   DW L0012_Load
@@ -48,7 +48,7 @@ L0012_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0012_Map:
-INCBIN "..\\fgbeditor\\l0012_ssa_cmdcore.lvl"
+INCBIN "Data/Levels/l0012_ssa_cmdcore.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

@@ -14,7 +14,7 @@ SECTION "LevelsSection0000",ROMX,BANK[MAP0ROM]
 
 dialog:
 l0000_hero_honey_gtx:
-  INCBIN "gtx\\talk\\l0000_hero_honey.gtx"
+  INCBIN "Data/Dialog/talk/l0000_hero_honey.gtx"
 
 L0000_Contents::
   DW L0000_Load
@@ -34,12 +34,12 @@ L0000_Load2:
 L0000_LoadFinished:
 
 L0000_Map:
-INCBIN "..\\fgbeditor\\l0000_hive.lvl"
+INCBIN "Data/Levels/l0000_hive.lvl"
 
-;gtx_intro:                INCBIN  "gtx\\Landing\\intro.gtx"
-;gtx_intro2:               INCBIN  "gtx\\Landing\\intro2.gtx"
-;gtx_finished:             INCBIN  "gtx\\Landing\\finished.gtx"
-;gtx_finished2:            INCBIN  "gtx\\Landing\\finished2.gtx"
+;gtx_intro:                INCBIN  "Data/Dialog/Landing/intro.gtx"
+;gtx_intro2:               INCBIN  "Data/Dialog/Landing/intro2.gtx"
+;gtx_finished:             INCBIN  "Data/Dialog/Landing/finished.gtx"
+;gtx_finished2:            INCBIN  "Data/Dialog/Landing/finished2.gtx"
 
 ;---------------------------------------------------------------------
 L0000_Init:

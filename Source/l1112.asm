@@ -28,10 +28,10 @@ STATE_AVERTED        EQU  2
 SECTION "Level1112Gfx1",ROMX
 ;---------------------------------------------------------------------
 success_bg:
-  INCBIN "..\\fgbpix\\disco\\success.bg"
+  INCBIN "../fgbpix/disco/success.bg"
 
 party_over_bg:
-  INCBIN "..\\fgbpix\\disco\\party_over.bg"
+  INCBIN "../fgbpix/disco/party_over.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1112Section",ROMX
@@ -57,7 +57,7 @@ L1112_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L1112_Map:
-INCBIN "..\\fgbeditor\\l1112_disco.lvl"
+INCBIN "Data/Levels/l1112_disco.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

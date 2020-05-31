@@ -32,7 +32,7 @@ L0905_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0905_Map:
-INCBIN "..\\fgbeditor\\l0905_junglelanding.lvl"
+INCBIN "Data/Levels/l0905_junglelanding.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

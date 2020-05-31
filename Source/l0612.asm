@@ -30,22 +30,22 @@ SECTION "Level0612Section",ROMX
 
 dialog:
 l0612_plan_gtx:
-  INCBIN "gtx\\talk\\l0612_plan.gtx"
+  INCBIN "Data/Dialog/talk/l0612_plan.gtx"
 
 l0612_clearance_gtx:
-  INCBIN "gtx\\talk\\l0612_clearance.gtx"
+  INCBIN "Data/Dialog/talk/l0612_clearance.gtx"
 
 l0612_controls_gtx:
-  INCBIN "gtx\\talk\\l0612_controls.gtx"
+  INCBIN "Data/Dialog/talk/l0612_controls.gtx"
 
 l0612_go_gtx:
-  INCBIN "gtx\\talk\\l0612_go.gtx"
+  INCBIN "Data/Dialog/talk/l0612_go.gtx"
 
 l0612_duke_gtx:
-  INCBIN "gtx\\talk\\l0612_duke.gtx"
+  INCBIN "Data/Dialog/talk/l0612_duke.gtx"
 
 l0612_return_gtx:
-  INCBIN "gtx\\talk\\l0612_return.gtx"
+  INCBIN "Data/Dialog/talk/l0612_return.gtx"
 
 L0612_Contents::
   DW L0612_Load
@@ -78,7 +78,7 @@ L0612_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0612_Map:
-INCBIN "..\\fgbeditor\\l0612_teleport.lvl"
+INCBIN "Data/Levels/l0612_teleport.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

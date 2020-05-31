@@ -17,55 +17,55 @@ L0115_Contents::
 
 dialog:
 brainiac_detectIntruder_gtx:
-  INCBIN "gtx\\intro_bs\\brainiac_detectIntruder.gtx"
+  INCBIN "Data/Dialog/intro_bs/brainiac_detectIntruder.gtx"
 
 bs_segashuating_gtx:
-  INCBIN "gtx\\intro_bs\\bs_segashuating.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_segashuating.gtx"
 
 brainiac_bringIt_gtx:
-  INCBIN "gtx\\intro_bs\\brainiac_bringIt.gtx"
+  INCBIN "Data/Dialog/intro_bs/brainiac_bringIt.gtx"
 
 monitor_onlyCroutons_gtx:
-  INCBIN "gtx\\intro_bs\\monitor_onlyCroutons.gtx"
+  INCBIN "Data/Dialog/intro_bs/monitor_onlyCroutons.gtx"
 
 bs_idea_gtx:
-  INCBIN "gtx\\intro_bs\\bs_idea.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_idea.gtx"
 
 bs_presto_gtx:
-  INCBIN "gtx\\intro_bs\\bs_presto.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_presto.gtx"
 
 bs_hangin1_gtx:
-  INCBIN "gtx\\intro_bs\\bs_hangin1.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_hangin1.gtx"
 
 grunt_hangin2_gtx:
-  INCBIN "gtx\\intro_bs\\grunt_hangin2.gtx"
+  INCBIN "Data/Dialog/intro_bs/grunt_hangin2.gtx"
 
 bs_hangin3_gtx:
-  INCBIN "gtx\\intro_bs\\bs_hangin3.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_hangin3.gtx"
 
 grunt_hangin4_gtx:
-  INCBIN "gtx\\intro_bs\\grunt_hangin4.gtx"
+  INCBIN "Data/Dialog/intro_bs/grunt_hangin4.gtx"
 
 bs_hangin5_gtx:
-  INCBIN "gtx\\intro_bs\\bs_hangin5.gtx"
+  INCBIN "Data/Dialog/intro_bs/bs_hangin5.gtx"
 
 monitor_openDoor_gtx:
-  INCBIN "gtx\\intro_bs\\monitor_openDoor.gtx"
+  INCBIN "Data/Dialog/intro_bs/monitor_openDoor.gtx"
 
 brainiac_wait_gtx:
-  INCBIN "gtx\\intro_bs\\brainiac_wait.gtx"
+  INCBIN "Data/Dialog/intro_bs/brainiac_wait.gtx"
 
 monitor_sorry_gtx:
-  INCBIN "gtx\\intro_bs\\monitor_sorry.gtx"
+  INCBIN "Data/Dialog/intro_bs/monitor_sorry.gtx"
 
 brainiac_justClose_gtx:
-  INCBIN "gtx\\intro_bs\\brainiac_justClose.gtx"
+  INCBIN "Data/Dialog/intro_bs/brainiac_justClose.gtx"
 
 monitor_oneSecond_gtx:
-  INCBIN "gtx\\intro_bs\\monitor_oneSecond.gtx"
+  INCBIN "Data/Dialog/intro_bs/monitor_oneSecond.gtx"
 
 brainiac_idiotz_gtx:
-  INCBIN "gtx\\intro_bs\\brainiac_idiotz.gtx"
+  INCBIN "Data/Dialog/intro_bs/brainiac_idiotz.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load
@@ -81,7 +81,7 @@ L0115_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0115_Map:
-INCBIN "..\\fgbeditor\\l0115_intro_bs2.lvl"
+INCBIN "Data/Levels/l0115_intro_bs2.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

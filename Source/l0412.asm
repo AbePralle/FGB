@@ -19,16 +19,16 @@ SECTION "Level0412Section",ROMX
 
 dialog:
 l0006_avacado_gtx:
-  INCBIN "gtx\\talk\\l0006_avacado.gtx"
+  INCBIN "Data/Dialog/talk/l0006_avacado.gtx"
 
 l0006_hero_sayagain_gtx:
-  INCBIN "gtx\\talk\\l0006_hero_sayagain.gtx"
+  INCBIN "Data/Dialog/talk/l0006_hero_sayagain.gtx"
 
 l0006_fixbridge_gtx:
-  INCBIN "gtx\\talk\\l0006_fixbridge.gtx"
+  INCBIN "Data/Dialog/talk/l0006_fixbridge.gtx"
 
 l0006_fixed_gtx:
-  INCBIN "gtx\\talk\\l0006_fixed.gtx"
+  INCBIN "Data/Dialog/talk/l0006_fixed.gtx"
 
 L0412_Contents::
   DW L0412_Load
@@ -50,7 +50,7 @@ L0412_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0412_Map:
-INCBIN "..\\fgbeditor\\l0412_sunsethousewest.lvl"
+INCBIN "Data/Levels/l0412_sunsethousewest.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

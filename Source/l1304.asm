@@ -9,7 +9,7 @@ INCLUDE "Source/levels.inc"
 SECTION "Level1304Gfx",ROMX
 ;---------------------------------------------------------------------
 backinside_bg:
-  INCBIN "..\\fgbpix\\charselect\\backinside.bg"
+  INCBIN "../fgbpix/charselect/backinside.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1304Section",ROMX

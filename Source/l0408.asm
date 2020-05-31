@@ -29,7 +29,7 @@ L0408_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0408_Map:
-INCBIN "..\\fgbeditor\\l0408_deathvalley.lvl"
+INCBIN "Data/Levels/l0408_deathvalley.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

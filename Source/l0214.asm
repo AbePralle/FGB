@@ -18,16 +18,16 @@ L0214_Contents::
 
 dialog:
 haiku_enterPrison_gtx:
-  INCBIN "gtx\\intro_haiku\\haiku_enterPrison.gtx"
+  INCBIN "Data/Dialog/intro_haiku/haiku_enterPrison.gtx"
 
 skippy_clues_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_clues.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_clues.gtx"
 
 skippy_letsGo_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_letsGo.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_letsGo.gtx"
 
 skippy_holdOn_gtx:
-  INCBIN "gtx\\intro_haiku\\skippy_holdOn.gtx"
+  INCBIN "Data/Dialog/intro_haiku/skippy_holdOn.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load
@@ -43,7 +43,7 @@ L0214_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0214_Map:
-INCBIN "..\\fgbeditor\\l0214_intro_haiku3.lvl"
+INCBIN "Data/Levels/l0214_intro_haiku3.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

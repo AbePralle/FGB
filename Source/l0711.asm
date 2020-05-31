@@ -56,7 +56,7 @@ L0711_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0711_Map:
-INCBIN "..\\fgbeditor\\l0711_spacestation.lvl"
+INCBIN "Data/Levels/l0711_spacestation.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

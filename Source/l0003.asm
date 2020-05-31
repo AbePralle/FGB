@@ -18,19 +18,19 @@ SECTION "Level0003Section",ROMX
 
 dialog:
 l0003_wolves_gtx:
-  INCBIN "gtx\\talk\\l0003_wolves.gtx"
+  INCBIN "Data/Dialog/talk/l0003_wolves.gtx"
 
 l0003_shootfast_gtx:
-  INCBIN "gtx\\talk\\l0003_shootfast.gtx"
+  INCBIN "Data/Dialog/talk/l0003_shootfast.gtx"
 
 l0003_hero_jeb_gtx:
-  INCBIN "gtx\\talk\\l0003_hero_jeb.gtx"
+  INCBIN "Data/Dialog/talk/l0003_hero_jeb.gtx"
 
 l0003_nevermind_gtx:
-  INCBIN "gtx\\talk\\l0003_nevermind.gtx"
+  INCBIN "Data/Dialog/talk/l0003_nevermind.gtx"
 
 l0003_aboutjeb_gtx:
-  INCBIN "gtx\\talk\\l0003_aboutjeb.gtx"
+  INCBIN "Data/Dialog/talk/l0003_aboutjeb.gtx"
 
 L0003_Contents::
   DW L0003_Load
@@ -52,7 +52,7 @@ L0003_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0003_Map:
-INCBIN "..\\fgbeditor\\l0003_green.lvl"
+INCBIN "Data/Levels/l0003_green.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

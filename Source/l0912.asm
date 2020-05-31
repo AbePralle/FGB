@@ -19,37 +19,37 @@ SECTION "Level0912Section",ROMX
 ;---------------------------------------------------------------------
 dialog:
 l0912_sign_gtx:
-  INCBIN "gtx\\talk\\l0912_sign.gtx"
+  INCBIN "Data/Dialog/talk/l0912_sign.gtx"
 
 l0912_welcome_gtx:
-  INCBIN "gtx\\talk\\l0912_welcome.gtx"
+  INCBIN "Data/Dialog/talk/l0912_welcome.gtx"
 
 l0912_hero_revolt_gtx:
-  INCBIN "gtx\\talk\\l0912_hero_revolt.gtx"
+  INCBIN "Data/Dialog/talk/l0912_hero_revolt.gtx"
 
 l0912_justit_gtx:
-  INCBIN "gtx\\talk\\l0912_justit.gtx"
+  INCBIN "Data/Dialog/talk/l0912_justit.gtx"
 
 l0912_hero_losing_gtx:
-  INCBIN "gtx\\talk\\l0912_hero_losing.gtx"
+  INCBIN "Data/Dialog/talk/l0912_hero_losing.gtx"
 
 l0912_killpatsy_gtx:
-  INCBIN "gtx\\talk\\l0912_killpatsy.gtx"
+  INCBIN "Data/Dialog/talk/l0912_killpatsy.gtx"
 
 l0912_hero_brokenteleport_gtx:
-  INCBIN "gtx\\talk\\l0912_hero_brokenteleport.gtx"
+  INCBIN "Data/Dialog/talk/l0912_hero_brokenteleport.gtx"
 
 l0912_hero_startteleport_nopassword_gtx:
-  INCBIN "gtx\\talk\\l0912_hero_startteleport_nopassword.gtx"
+  INCBIN "Data/Dialog/talk/l0912_hero_startteleport_nopassword.gtx"
 
 l0912_needpassword_gtx:
-  INCBIN "gtx\\talk\\l0912_needpassword.gtx"
+  INCBIN "Data/Dialog/talk/l0912_needpassword.gtx"
 
 l0912_hero_startteleport_password_gtx:
-  INCBIN "gtx\\talk\\l0912_hero_startteleport_password.gtx"
+  INCBIN "Data/Dialog/talk/l0912_hero_startteleport_password.gtx"
 
 l0912_ba_givepassword_gtx:
-  INCBIN "gtx\\talk\\l0912_ba_givepassword.gtx"
+  INCBIN "Data/Dialog/talk/l0912_ba_givepassword.gtx"
 
 L0912_Contents::
   DW L0912_Load
@@ -71,7 +71,7 @@ L0912_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0912_Map:
-INCBIN "..\\fgbeditor\\l0912_monkeyworld.lvl"
+INCBIN "Data/Levels/l0912_monkeyworld.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

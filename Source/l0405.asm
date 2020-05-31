@@ -25,13 +25,13 @@ SECTION "Level0405Section",ROMX
 
 dialog:
 l0405_ho_gtx:
-  INCBIN "gtx\\talk\\l0405_ho.gtx"
+  INCBIN "Data/Dialog/talk/l0405_ho.gtx"
 
 l0405_hero_reaction_gtx:
-  INCBIN "gtx\\talk\\l0405_hero_reaction.gtx"
+  INCBIN "Data/Dialog/talk/l0405_hero_reaction.gtx"
 
 l0405_final_word_gtx:
-  INCBIN "gtx\\talk\\l0405_final_word.gtx"
+  INCBIN "Data/Dialog/talk/l0405_final_word.gtx"
 
 L0405_Contents::
   DW L0405_Load
@@ -53,7 +53,7 @@ L0405_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0405_Map:
-INCBIN "..\\fgbeditor\\l0405_garden.lvl"
+INCBIN "Data/Levels/l0405_garden.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

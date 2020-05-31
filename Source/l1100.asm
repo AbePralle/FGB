@@ -15,35 +15,35 @@ EXITAPPOMATTOX EQU $1300
 SECTION "L1100Gfx1",ROMX
 ;---------------------------------------------------------------------
 select_grenade_sp:
-  INCBIN "..\\fgbpix\\charselect\\select_grenade.sp"
+  INCBIN "../fgbpix/charselect/select_grenade.sp"
 
 select_grenade_name_bg:
-  INCBIN "..\\fgbpix\\charselect\\kgname.bg"
+  INCBIN "../fgbpix/charselect/kgname.bg"
 
 ;---------------------------------------------------------------------
 SECTION "L1100Section",ROMX
 ;---------------------------------------------------------------------
 
 select_hero_bg:
-  INCBIN "..\\fgbpix\\charselect\\charselecthills.bg"
+  INCBIN "../fgbpix/charselect/charselecthills.bg"
 
 select_ba_sp:
-  INCBIN "charselect\\select_ba.sp"
+  INCBIN "charselect/select_ba.sp"
 
 select_ba_name_bg:
-  INCBIN "..\\fgbpix\\charselect\\select_ba_name.bg"
+  INCBIN "../fgbpix/charselect/select_ba_name.bg"
 
 select_bs_sp:
-  INCBIN "charselect\\select_bs.sp"
+  INCBIN "charselect/select_bs.sp"
 
 select_bs_name_bg:
-  INCBIN "..\\fgbpix\\charselect\\select_bs_name.bg"
+  INCBIN "../fgbpix/charselect/select_bs_name.bg"
 
 select_haiku_sp:
-  INCBIN "charselect\\select_haiku.sp"
+  INCBIN "charselect/select_haiku.sp"
 
 select_haiku_name_bg:
-  INCBIN "..\\fgbpix\\charselect\\select_haiku_name.bg"
+  INCBIN "../fgbpix/charselect/select_haiku_name.bg"
 
 L1100_Contents::
   DW L1100_Load
@@ -646,7 +646,7 @@ PRINTT "/$500 bytes\n"
 
 L1100_Map:
 
-;gtx_app_closed_gate_bs5:  INCBIN  "gtx\\Landing\\app_closed_gate_bs5.gtx"
+;gtx_app_closed_gate_bs5:  INCBIN  "Data/Dialog/Landing/app_closed_gate_bs5.gtx"
 
 L1100_Init:
         DW ((L1100_InitFinished - L1100_Init)-2)  ;size

@@ -18,13 +18,13 @@ L0014_Contents::
 
 dialog:
 haiku_warn_gtx:
-  INCBIN "gtx\\intro_haiku\\haiku_warn.gtx"
+  INCBIN "Data/Dialog/intro_haiku/haiku_warn.gtx"
 haiku_askOkay_gtx:
-  INCBIN "gtx\\intro_haiku\\haiku_askOkay.gtx"
+  INCBIN "Data/Dialog/intro_haiku/haiku_askOkay.gtx"
 quatrain_gtx:
-  INCBIN "gtx\\intro_haiku\\quatrain.gtx"
+  INCBIN "Data/Dialog/intro_haiku/quatrain.gtx"
 haiku_goAhead_gtx:
-  INCBIN "gtx\\intro_haiku\\haiku_goAhead.gtx"
+  INCBIN "Data/Dialog/intro_haiku/haiku_goAhead.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load
@@ -55,7 +55,7 @@ L0014_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0014_Map:
-INCBIN "..\\fgbeditor\\l0014_intro_haiku1.lvl"
+INCBIN "Data/Levels/l0014_intro_haiku1.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init

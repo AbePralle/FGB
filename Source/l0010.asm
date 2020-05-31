@@ -24,13 +24,13 @@ SECTION "Level0010Section",ROMX
 
 dialog:
 l0010_mattermitter_gtx:
-  INCBIN "gtx\\talk\\l0010_mattermitter.gtx"
+  INCBIN "Data/Dialog/talk/l0010_mattermitter.gtx"
 
 l0010_foundmask_gtx:
-  INCBIN "gtx\\talk\\l0010_foundmask.gtx"
+  INCBIN "Data/Dialog/talk/l0010_foundmask.gtx"
 
 l0010_crate_gtx:
-  INCBIN "gtx\\talk\\l0010_crate.gtx"
+  INCBIN "Data/Dialog/talk/l0010_crate.gtx"
 
 L0010_Contents::
   DW L0010_Load
@@ -52,7 +52,7 @@ L0010_LoadFinished:
 ;  Map
 ;---------------------------------------------------------------------
 L0010_Map:
-INCBIN "..\\fgbeditor\\l0010_serpent.lvl"
+INCBIN "Data/Levels/l0010_serpent.lvl"
 
 ;---------------------------------------------------------------------
 ;  Init
