@@ -1,4 +1,4 @@
-;leveL0105.asm rainy forest w/hive & wrangling iron
+;L0105.asm rainy forest w/hive & wrangling iron
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"

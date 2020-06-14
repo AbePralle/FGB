@@ -1,4 +1,4 @@
-;leveL0106.asm
+;L0106.asm
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"

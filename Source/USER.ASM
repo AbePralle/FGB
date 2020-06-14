@@ -30,7 +30,7 @@ UserMain::
         call    InitGfx
 
         ;set up initial location + hero
-        ;initial leveL0009 (demo intro)
+        ;initial L0009 (demo intro)
         ld      a,LEVELSTATEBANK
         ld      [$ff70],a
         xor     a

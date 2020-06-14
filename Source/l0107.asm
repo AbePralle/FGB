@@ -1,4 +1,4 @@
-;leveL0107.asm first landing
+;L0107.asm first landing
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
@@ -48,12 +48,6 @@ L0107_Load:
         DW ((L0107_LoadFinished - L0107_Load)-2)  ;size
 L0107_Load2:
         call    ParseMap
-
-        ;ld      a,BANK(arrows_bin)
-        ;ld      hl,arrows_bin
-        ;ld      c,5
-        ;ld      de,$8300
-        ;call    LoadSprites
         ret
 
 L0107_LoadFinished:
@@ -61,8 +55,6 @@ L0107_LoadFinished:
 
 L0107_Map:
 INCBIN "Data/Levels/L0107_landing.lvl"
-
-arrows_bin:   INCBIN "arrows0-4.bin"
 
 dialog:
 hero_checkgate_gtx:
@@ -187,22 +179,6 @@ L0107_Init2:
         call    DeleteObjectsOfClass
 
 .afterDeletePansies
-        ;ldio    a,[mapState]
-        ;cp      3
-        ;jr      nz,.afterSetupArrow
-
-        ;ld      a,128
-        ;ld      [metaSprite_x],a
-        ;ld      a,120
-        ;ld      [metaSprite_y],a
-        ;ld      bc,$0202            ;2x2
-        ;ld      de,$3105
-        ;ld      hl,(arrowInfo + (levelCheckRAM-L0107_Check2))
-        ;call    CreateMetaSprite
-        ;ld      a,45  
-        ;ldio    [mapState+1],a
-
-;.afterSetupArrow
         ret
 
 .closeGate

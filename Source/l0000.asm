@@ -1,4 +1,4 @@
-;leveL0000.asm hive
+;L0000.asm hive
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"

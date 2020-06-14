@@ -1,4 +1,4 @@
-;leveL1100 character select
+;L1100 character select
 ;Abe Pralle 4.3.2000
 
 INCLUDE "Source/defs.inc"

@@ -1,4 +1,4 @@
-;leveL0205.asm bridge
+;L0205.asm bridge
 ;Abe Pralle 3.4.2000
 
 INCLUDE "Source/defs.inc"
