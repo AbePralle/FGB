@@ -1625,7 +1625,7 @@ classClearanceBG:
         ld      hl,mapToCodeIndexTable
         ld      a,[curLevelStateIndex]
         call    LookupIndexOfData8
-        ld      hl,romxIndexToItemTable
+        ld      hl,codeIndexToItemTable
         call    Lookup16
         push    hl
         pop     bc

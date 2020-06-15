@@ -671,7 +671,7 @@ LoadMap::
         ld      a,OBJROM
         call    SetActiveROM
 
-        ld      hl,sp
+        ld      hl,sp+0
         ld      a,l
         ld      [loadStackPosL],a
         ld      a,h
@@ -3688,7 +3688,7 @@ MapLookupTable:
 ;calculate index number 0-255 from xxyy with "i = yy*16 + xx"
 ;e.g. L0205 = 5*16 + 2 = 82
 DW      BANK(L0000_Contents),L0000_Contents  ;0 The Hive
-DW      BANK(L0100_Contents),L0100_Contents  ;1
+DW      0,0                                  ;1
 DW      BANK(L0200_Contents),L0200_Contents  ;2
 DW      BANK(L0300_Contents),L0300_Contents  ;3
 DW      BANK(L0400_Contents),L0400_Contents  ;4
@@ -3698,126 +3698,126 @@ DW      BANK(L0700_Contents),L0700_Contents  ;7
 DW      BANK(L0800_Contents),L0800_Contents  ;8
 DW      BANK(L0900_Contents),L0900_Contents  ;9
 DW      BANK(L1000_Contents),L1000_Contents  ;10
-DW      BANK(L1100_Contents),L1100_Contents   ;11 (1100, char select)
-DW      BANK(L1200_Contents),L1200_Contents   ;12 (1200, demo intro)
-DW      BANK(L1300_Contents),L1300_Contents   ;13
-DW      BANK(L1400_Contents),L1400_Contents   ;14
-DW      BANK(L1500_Contents),L1500_Contents   ;15
-DW      BANK(L0001_Contents),L0001_Contents   ;16
-DW      BANK(L0101_Contents),L0101_Contents   ;17
-DW      BANK(L0201_Contents),L0201_Contents   ;18
-DW      BANK(L0301_Contents),L0301_Contents   ;19
-DW      BANK(L0401_Contents),L0401_Contents   ;20
-DW      BANK(L0501_Contents),L0501_Contents   ;21
-DW      BANK(L0601_Contents),L0601_Contents   ;22
-DW      BANK(L0701_Contents),L0701_Contents   ;23
-DW      BANK(L0801_Contents),L0801_Contents   ;24
-DW      BANK(L0901_Contents),L0901_Contents   ;25
-DW      BANK(L1001_Contents),L1001_Contents   ;26
-DW      BANK(L1101_Contents),L1101_Contents   ;27 (1101, Main Menu)
-DW      BANK(L1201_Contents),L1201_Contents   ;28 (join game)
-DW      BANK(L1301_Contents),L1301_Contents   ;29
-DW      BANK(L1401_Contents),L1401_Contents   ;30
-DW      BANK(L1501_Contents),L1501_Contents   ;31
-DW      BANK(L0002_Contents),L0002_Contents   ;32
-DW      BANK(L0102_Contents),L0102_Contents   ;33
-DW      BANK(L0202_Contents),L0202_Contents   ;34
-DW      BANK(L0302_Contents),L0302_Contents   ;35
-DW      BANK(L0402_Contents),L0402_Contents   ;36
-DW      BANK(L0502_Contents),L0502_Contents   ;37
-DW      BANK(L0602_Contents),L0602_Contents   ;38
-DW      BANK(L0702_Contents),L0702_Contents   ;39
-DW      BANK(L0802_Contents),L0802_Contents   ;40
-DW      BANK(L0902_Contents),L0902_Contents   ;41
-DW      BANK(L1002_Contents),L1002_Contents   ;42
-DW      BANK(L1102_Contents),L1102_Contents   ;43 (1102, main intro)
-DW      BANK(L1202_Contents),L1202_Contents   ;44 (1202, dropship lv v.t.)
-DW      BANK(L1302_Contents),L1302_Contents   ;45 (1302 ba corners gyro)
-DW      BANK(L1402_Contents),L1402_Contents   ;46 (1402 b12 surrenders)
-DW      BANK(L1502_Contents),L1502_Contents   ;47
-DW      BANK(L0003_Contents),L0003_Contents   ;48
-DW      BANK(L0103_Contents),L0103_Contents   ;49
-DW      BANK(L0203_Contents),L0203_Contents   ;50
-DW      BANK(L0303_Contents),L0303_Contents   ;51
-DW      BANK(L0403_Contents),L0403_Contents   ;52
-DW      BANK(L0503_Contents),L0503_Contents   ;53
-DW      BANK(L0603_Contents),L0603_Contents   ;54
-DW      BANK(L0703_Contents),L0703_Contents   ;55
-DW      BANK(L0803_Contents),L0803_Contents   ;56
-DW      BANK(L0903_Contents),L0903_Contents   ;57
-DW      BANK(L1003_Contents),L1003_Contents   ;58
-DW      BANK(L1103_Contents),L1103_Contents   ;59
-DW      BANK(L1203_Contents),L1203_Contents   ;60
-DW      BANK(L1303_Contents),L1303_Contents   ;61
-DW      BANK(L1403_Contents),L1403_Contents   ;62
-DW      BANK(L1503_Contents),L1503_Contents   ;63
-DW      BANK(L0004_Contents),L0004_Contents   ;64
-DW      BANK(L0104_Contents),L0104_Contents   ;65
+DW      BANK(L1100_Contents),L1100_Contents  ;11 (1100, char select)
+DW      BANK(L1200_Contents),L1200_Contents  ;12 (1200, demo intro)
+DW      BANK(L1300_Contents),L1300_Contents  ;13
+DW      BANK(L1400_Contents),L1400_Contents  ;14
+DW      BANK(L1500_Contents),L1500_Contents  ;15
+DW      BANK(L0001_Contents),L0001_Contents  ;16
+DW      0,0                                  ;17
+DW      BANK(L0201_Contents),L0201_Contents  ;18
+DW      BANK(L0301_Contents),L0301_Contents  ;19
+DW      BANK(L0401_Contents),L0401_Contents  ;20
+DW      BANK(L0501_Contents),L0501_Contents  ;21
+DW      BANK(L0601_Contents),L0601_Contents  ;22
+DW      BANK(L0701_Contents),L0701_Contents  ;23
+DW      BANK(L0801_Contents),L0801_Contents  ;24
+DW      BANK(L0901_Contents),L0901_Contents  ;25
+DW      BANK(L1001_Contents),L1001_Contents  ;26
+DW      BANK(L1101_Contents),L1101_Contents  ;27 (1101, Main Menu)
+DW      BANK(L1201_Contents),L1201_Contents  ;28 (join game)
+DW      BANK(L1301_Contents),L1301_Contents  ;29
+DW      BANK(L1401_Contents),L1401_Contents  ;30
+DW      0,0                                  ;31
+DW      BANK(L0002_Contents),L0002_Contents  ;32
+DW      0,0                                  ;33
+DW      0,0                                  ;34
+DW      BANK(L0302_Contents),L0302_Contents  ;35
+DW      BANK(L0402_Contents),L0402_Contents  ;36
+DW      BANK(L0502_Contents),L0502_Contents  ;37
+DW      BANK(L0602_Contents),L0602_Contents  ;38
+DW      BANK(L0702_Contents),L0702_Contents  ;39
+DW      BANK(L0802_Contents),L0802_Contents  ;40
+DW      BANK(L0902_Contents),L0902_Contents  ;41
+DW      BANK(L1002_Contents),L1002_Contents  ;42
+DW      BANK(L1102_Contents),L1102_Contents  ;43 (1102, main intro)
+DW      BANK(L1202_Contents),L1202_Contents  ;44 (1202, dropship lv v.t.)
+DW      BANK(L1302_Contents),L1302_Contents  ;45 (1302 ba corners gyro)
+DW      BANK(L1402_Contents),L1402_Contents  ;46 (1402 b12 surrenders)
+DW      BANK(L1502_Contents),L1502_Contents  ;47
+DW      BANK(L0003_Contents),L0003_Contents  ;48
+DW      BANK(L0103_Contents),L0103_Contents  ;49
+DW      BANK(L0203_Contents),L0203_Contents  ;50
+DW      BANK(L0303_Contents),L0303_Contents  ;51
+DW      BANK(L0403_Contents),L0403_Contents  ;52
+DW      BANK(L0503_Contents),L0503_Contents  ;53
+DW      BANK(L0603_Contents),L0603_Contents  ;54
+DW      BANK(L0703_Contents),L0703_Contents  ;55
+DW      BANK(L0803_Contents),L0803_Contents  ;56
+DW      BANK(L0903_Contents),L0903_Contents  ;57
+DW      BANK(L1003_Contents),L1003_Contents  ;58
+DW      BANK(L1103_Contents),L1103_Contents  ;59
+DW      BANK(L1203_Contents),L1203_Contents  ;60
+DW      0,0                                  ;61
+DW      BANK(L1403_Contents),L1403_Contents  ;62
+DW      BANK(L1503_Contents),L1503_Contents  ;63
+DW      BANK(L0004_Contents),L0004_Contents  ;64
+DW      BANK(L0104_Contents),L0104_Contents  ;65
 DW      BANK(L0204_Contents),L0204_Contents  ;66
-DW      BANK(L0304_Contents),L0304_Contents   ;67 0304 shroom
-DW      BANK(L0404_Contents),L0404_Contents   ;68
-DW      BANK(L0504_Contents),L0504_Contents   ;69
-DW      BANK(L0604_Contents),L0604_Contents   ;70
-DW      BANK(L0704_Contents),L0704_Contents   ;71
-DW      BANK(L0804_Contents),L0804_Contents   ;72
-DW      BANK(L0904_Contents),L0904_Contents   ;73
-DW      BANK(L1004_Contents),L1004_Contents   ;74
-DW      BANK(L1104_Contents),L1104_Contents   ;75
-DW      BANK(L1204_Contents),L1204_Contents   ;76
-DW      BANK(L1304_Contents),L1304_Contents   ;77
-DW      BANK(L1404_Contents),L1404_Contents   ;78
-DW      BANK(L1504_Contents),L1504_Contents   ;79
-DW      BANK(L0005_Contents),L0005_Contents   ;80
-DW      BANK(L0105_Contents),L0105_Contents   ;81  path
-DW      BANK(L0205_Contents),L0205_Contents   ;82  bridge
-DW      BANK(L0305_Contents),L0305_Contents   ;83
-DW      BANK(L0405_Contents),L0405_Contents   ;84
-DW      BANK(L0505_Contents),L0505_Contents   ;85
-DW      BANK(L0605_Contents),L0605_Contents   ;86
-DW      BANK(L0705_Contents),L0705_Contents   ;87
-DW      BANK(L0805_Contents),L0805_Contents   ;88
-DW      BANK(L0905_Contents),L0905_Contents   ;89
-DW      BANK(L1005_Contents),L1005_Contents   ;90
-DW      BANK(L1105_Contents),L1105_Contents   ;91
-DW      BANK(L1205_Contents),L1205_Contents   ;92
-DW      BANK(L1305_Contents),L1305_Contents   ;93
-DW      BANK(L1405_Contents),L1405_Contents   ;94
-DW      BANK(L1505_Contents),L1505_Contents   ;95
-DW      BANK(L0006_Contents),L0006_Contents   ;96
-DW      BANK(L0106_Contents),L0106_Contents   ;97   path
-DW      BANK(L0206_Contents),L0206_Contents   ;98
-DW      BANK(L0306_Contents),L0306_Contents   ;99
-DW      BANK(L0406_Contents),L0406_Contents   ;100
-DW      BANK(L0506_Contents),L0506_Contents   ;101
-DW      BANK(L0606_Contents),L0606_Contents   ;102
-DW      BANK(L0706_Contents),L0706_Contents   ;103
-DW      BANK(L0806_Contents),L0806_Contents   ;104
-DW      BANK(L0906_Contents),L0906_Contents   ;105
-DW      BANK(L1006_Contents),L1006_Contents   ;106
-DW      BANK(L1106_Contents),L1106_Contents   ;107
-DW      BANK(L1206_Contents),L1206_Contents   ;108
-DW      BANK(L1306_Contents),L1306_Contents   ;109
-DW      BANK(L1406_Contents),L1406_Contents   ;110
-DW      BANK(L1506_Contents),L1506_Contents   ;111
-DW      BANK(L0007_Contents),L0007_Contents   ;112
-DW      BANK(L0107_Contents),L0107_Contents   ;113  path
-DW      BANK(L0207_Contents),L0207_Contents   ;114
-DW      BANK(L0307_Contents),L0307_Contents   ;115
-DW      BANK(L0407_Contents),L0407_Contents   ;116
-DW      BANK(L0507_Contents),L0507_Contents   ;117
-DW      BANK(L0607_Contents),L0607_Contents   ;118
-DW      BANK(L0707_Contents),L0707_Contents   ;119
-DW      BANK(L0807_Contents),L0807_Contents   ;120
-DW      BANK(L0907_Contents),L0907_Contents   ;121
-DW      BANK(L1007_Contents),L1007_Contents   ;122
-DW      BANK(L1107_Contents),L1107_Contents   ;123
-DW      BANK(L1207_Contents),L1207_Contents   ;124
-DW      BANK(L1307_Contents),L1307_Contents   ;125
-DW      BANK(L1407_Contents),L1407_Contents   ;126
-DW      BANK(L1507_Contents),L1507_Contents   ;127
+DW      BANK(L0304_Contents),L0304_Contents  ;67 0304 shroom
+DW      BANK(L0404_Contents),L0404_Contents  ;68
+DW      BANK(L0504_Contents),L0504_Contents  ;69
+DW      BANK(L0604_Contents),L0604_Contents  ;70
+DW      BANK(L0704_Contents),L0704_Contents  ;71
+DW      BANK(L0804_Contents),L0804_Contents  ;72
+DW      BANK(L0904_Contents),L0904_Contents  ;73
+DW      BANK(L1004_Contents),L1004_Contents  ;74
+DW      BANK(L1104_Contents),L1104_Contents  ;75
+DW      BANK(L1204_Contents),L1204_Contents  ;76
+DW      BANK(L1304_Contents),L1304_Contents  ;77
+DW      0,0                                  ;78
+DW      BANK(L1504_Contents),L1504_Contents  ;79
+DW      BANK(L0005_Contents),L0005_Contents  ;80
+DW      BANK(L0105_Contents),L0105_Contents  ;81  path
+DW      BANK(L0205_Contents),L0205_Contents  ;82  bridge
+DW      BANK(L0305_Contents),L0305_Contents  ;83
+DW      BANK(L0405_Contents),L0405_Contents  ;84
+DW      BANK(L0505_Contents),L0505_Contents  ;85
+DW      BANK(L0605_Contents),L0605_Contents  ;86
+DW      BANK(L0705_Contents),L0705_Contents  ;87
+DW      BANK(L0805_Contents),L0805_Contents  ;88
+DW      BANK(L0905_Contents),L0905_Contents  ;89
+DW      BANK(L1005_Contents),L1005_Contents  ;90
+DW      BANK(L1105_Contents),L1105_Contents  ;91
+DW      0,0                                  ;92
+DW      0,0                                  ;93
+DW      0,0                                  ;94
+DW      0,0                                  ;95
+DW      BANK(L0006_Contents),L0006_Contents  ;96
+DW      BANK(L0106_Contents),L0106_Contents  ;97   path
+DW      0,0                                  ;98
+DW      BANK(L0306_Contents),L0306_Contents  ;99
+DW      BANK(L0406_Contents),L0406_Contents  ;100
+DW      BANK(L0506_Contents),L0506_Contents  ;101
+DW      BANK(L0606_Contents),L0606_Contents  ;102
+DW      BANK(L0706_Contents),L0706_Contents  ;103
+DW      BANK(L0806_Contents),L0806_Contents  ;104
+DW      BANK(L0906_Contents),L0906_Contents  ;105
+DW      BANK(L1006_Contents),L1006_Contents  ;106
+DW      0,0                                  ;107
+DW      0,0                                  ;108
+DW      0,0                                  ;109
+DW      0,0                                  ;110
+DW      0,0                                  ;111
+DW      BANK(L0007_Contents),L0007_Contents  ;112
+DW      BANK(L0107_Contents),L0107_Contents  ;113  path
+DW      0,0                                  ;114
+DW      BANK(L0307_Contents),L0307_Contents  ;115
+DW      BANK(L0407_Contents),L0407_Contents  ;116
+DW      BANK(L0507_Contents),L0507_Contents  ;117
+DW      BANK(L0607_Contents),L0607_Contents  ;118
+DW      BANK(L0707_Contents),L0707_Contents  ;119
+DW      BANK(L0807_Contents),L0807_Contents  ;120
+DW      BANK(L0907_Contents),L0907_Contents  ;121
+DW      BANK(L1007_Contents),L1007_Contents  ;122
+DW      0,0                                  ;123
+DW      0,0                                  ;124
+DW      0,0                                  ;125
+DW      0,0                                  ;126
+DW      0,0                                  ;127
 DW      BANK(L0008_Contents),L0008_Contents
 DW      BANK(L0108_Contents),L0108_Contents
-DW      BANK(L0208_Contents),L0208_Contents
+DW      0,0                                  ;130
 DW      BANK(L0308_Contents),L0308_Contents
 DW      BANK(L0408_Contents),L0408_Contents
 DW      BANK(L0508_Contents),L0508_Contents
@@ -3826,14 +3826,14 @@ DW      BANK(L0708_Contents),L0708_Contents
 DW      BANK(L0808_Contents),L0808_Contents
 DW      BANK(L0908_Contents),L0908_Contents
 DW      BANK(L1008_Contents),L1008_Contents
-DW      BANK(L1108_Contents),L1108_Contents
-DW      BANK(L1208_Contents),L1208_Contents
-DW      BANK(L1308_Contents),L1308_Contents
-DW      BANK(L1408_Contents),L1408_Contents
-DW      BANK(L1508_Contents),L1508_Contents
+DW      0,0                                  ;139
+DW      0,0                                  ;140
+DW      0,0                                  ;141
+DW      0,0                                  ;142
+DW      0,0                                  ;143
 DW      BANK(L0009_Contents),L0009_Contents
 DW      BANK(L0109_Contents),L0109_Contents
-DW      BANK(L0209_Contents),L0209_Contents
+DW      0,0                                  ;146
 DW      BANK(L0309_Contents),L0309_Contents
 DW      BANK(L0409_Contents),L0409_Contents
 DW      BANK(L0509_Contents),L0509_Contents
@@ -3842,14 +3842,14 @@ DW      BANK(L0709_Contents),L0709_Contents
 DW      BANK(L0809_Contents),L0809_Contents
 DW      BANK(L0909_Contents),L0909_Contents
 DW      BANK(L1009_Contents),L1009_Contents
-DW      BANK(L1109_Contents),L1109_Contents
-DW      BANK(L1209_Contents),L1209_Contents
-DW      BANK(L1309_Contents),L1309_Contents
-DW      BANK(L1409_Contents),L1409_Contents
-DW      BANK(L1509_Contents),L1509_Contents
+DW      0,0                                  ;155
+DW      0,0                                  ;156
+DW      0,0                                  ;157
+DW      0,0                                  ;158
+DW      0,0                                  ;159
 DW      BANK(L0010_Contents),L0010_Contents
 DW      BANK(L0110_Contents),L0110_Contents
-DW      BANK(L0210_Contents),L0210_Contents
+DW      0,0                                  ;162
 DW      BANK(L0310_Contents),L0310_Contents
 DW      BANK(L0410_Contents),L0410_Contents
 DW      BANK(L0510_Contents),L0510_Contents
@@ -3858,27 +3858,27 @@ DW      BANK(L0710_Contents),L0710_Contents
 DW      BANK(L0810_Contents),L0810_Contents
 DW      BANK(L0910_Contents),L0910_Contents
 DW      BANK(L1010_Contents),L1010_Contents
-DW      BANK(L1110_Contents),L1110_Contents
-DW      BANK(L1210_Contents),L1210_Contents
-DW      BANK(L1310_Contents),L1310_Contents
-DW      BANK(L1410_Contents),L1410_Contents
-DW      BANK(L1510_Contents),L1510_Contents
+DW      0,0                                  ;171
+DW      0,0                                  ;172
+DW      0,0                                  ;173
+DW      0,0                                  ;174
+DW      0,0                                  ;175
 DW      BANK(L0011_Contents),L0011_Contents
 DW      BANK(L0111_Contents),L0111_Contents
 DW      BANK(L0211_Contents),L0211_Contents
 DW      BANK(L0311_Contents),L0311_Contents
 DW      BANK(L0411_Contents),L0411_Contents
-DW      BANK(L0511_Contents),L0511_Contents
-DW      BANK(L0611_Contents),L0611_Contents
+DW      0,0                                  ;181
+DW      0,0                                  ;182
 DW      BANK(L0711_Contents),L0711_Contents
 DW      BANK(L0811_Contents),L0811_Contents
 DW      BANK(L0911_Contents),L0911_Contents
 DW      BANK(L1011_Contents),L1011_Contents
 DW      BANK(L1111_Contents),L1111_Contents
-DW      BANK(L1211_Contents),L1211_Contents
-DW      BANK(L1311_Contents),L1311_Contents
-DW      BANK(L1411_Contents),L1411_Contents
-DW      BANK(L1511_Contents),L1511_Contents
+DW      0,0                                  ;188
+DW      0,0                                  ;189
+DW      0,0                                  ;190
+DW      0,0                                  ;191
 DW      BANK(L0012_Contents),L0012_Contents
 DW      BANK(L0112_Contents),L0112_Contents
 DW      BANK(L0212_Contents),L0212_Contents
@@ -3895,54 +3895,54 @@ DW      BANK(L1212_Contents),L1212_Contents
 DW      BANK(L1312_Contents),L1312_Contents
 DW      BANK(L1412_Contents),L1412_Contents
 DW      BANK(L1512_Contents),L1512_Contents
-DW      BANK(L0013_Contents),L0013_Contents   ;208 intro_ba1
-DW      BANK(L0113_Contents),L0113_Contents   ;209 intro_ba2
-DW      BANK(L0213_Contents),L0213_Contents   ;210 intro_ba3
-DW      BANK(L0313_Contents),L0313_Contents   ;211 intro_ba4
+DW      BANK(L0013_Contents),L0013_Contents  ;208 intro_ba1
+DW      BANK(L0113_Contents),L0113_Contents  ;209 intro_ba2
+DW      BANK(L0213_Contents),L0213_Contents  ;210 intro_ba3
+DW      BANK(L0313_Contents),L0313_Contents  ;211 intro_ba4
 DW      BANK(L0413_Contents),L0413_Contents  ;212
-DW      BANK(L0513_Contents),L0513_Contents  ;213
-DW      BANK(L0613_Contents),L0613_Contents  ;214
-DW      BANK(L0713_Contents),L0713_Contents  ;215
-DW      BANK(L0813_Contents),L0813_Contents  ;216
-DW      BANK(L0913_Contents),L0913_Contents  ;217
-DW      BANK(L1013_Contents),L1013_Contents  ;218
-DW      BANK(L1113_Contents),L1113_Contents  ;219
-DW      BANK(L1213_Contents),L1213_Contents  ;220
-DW      BANK(L1313_Contents),L1313_Contents  ;221
-DW      BANK(L1413_Contents),L1413_Contents  ;222
-DW      BANK(L1513_Contents),L1513_Contents  ;223
+DW      0,0                                  ;213
+DW      0,0                                  ;214
+DW      0,0                                  ;215
+DW      0,0                                  ;216
+DW      0,0                                  ;217
+DW      0,0                                  ;218
+DW      0,0                                  ;219
+DW      0,0                                  ;220
+DW      0,0                                  ;221
+DW      0,0                                  ;222
+DW      0,0                                  ;223
 DW      BANK(L0014_Contents),L0014_Contents  ;224 intro haiku 1
 DW      BANK(L0114_Contents),L0114_Contents  ;225 intro haiku 2
 DW      BANK(L0214_Contents),L0214_Contents  ;226 intro haiku 3
 DW      BANK(L0314_Contents),L0314_Contents  ;227 intro haiku 4 (escape)
-DW      BANK(L0414_Contents),L0414_Contents  ;228
-DW      BANK(L0514_Contents),L0514_Contents  ;229
-DW      BANK(L0614_Contents),L0614_Contents  ;230
-DW      BANK(L0714_Contents),L0714_Contents  ;231
-DW      BANK(L0814_Contents),L0814_Contents  ;232
-DW      BANK(L0914_Contents),L0914_Contents  ;233
-DW      BANK(L1014_Contents),L1014_Contents  ;234
-DW      BANK(L1114_Contents),L1114_Contents  ;235
-DW      BANK(L1214_Contents),L1214_Contents  ;236
-DW      BANK(L1314_Contents),L1314_Contents  ;237
-DW      BANK(L1414_Contents),L1414_Contents  ;238
-DW      BANK(L1514_Contents),L1514_Contents  ;239
+DW      0,0                                  ;228
+DW      0,0                                  ;229
+DW      0,0                                  ;230
+DW      0,0                                  ;231
+DW      0,0                                  ;232
+DW      0,0                                  ;233
+DW      0,0                                  ;234
+DW      0,0                                  ;235
+DW      0,0                                  ;236
+DW      0,0                                  ;237
+DW      0,0                                  ;238
+DW      0,0                                  ;239
 DW      BANK(L0015_Contents),L0015_Contents  ;240 intro bs 1
 DW      BANK(L0115_Contents),L0115_Contents  ;241 intro bs 2
 DW      BANK(L0215_Contents),L0215_Contents  ;242 intro bs 3
 DW      BANK(L0315_Contents),L0315_Contents  ;243 intro bs 4
-DW      BANK(L0415_Contents),L0415_Contents  ;244
-DW      BANK(L0515_Contents),L0515_Contents  ;245
-DW      BANK(L0615_Contents),L0615_Contents  ;246
-DW      BANK(L0715_Contents),L0715_Contents  ;247
-DW      BANK(L0815_Contents),L0815_Contents  ;248
-DW      BANK(L0915_Contents),L0915_Contents  ;249
-DW      BANK(L1015_Contents),L1015_Contents  ;250
-DW      BANK(L1115_Contents),L1115_Contents  ;251
-DW      BANK(L1215_Contents),L1215_Contents  ;252
-DW      BANK(L1315_Contents),L1315_Contents  ;253
-DW      BANK(L1415_Contents),L1415_Contents  ;254
-DW      BANK(L1515_Contents),L1515_Contents  ;255
+DW      0,0                                  ;244
+DW      0,0                                  ;245
+DW      0,0                                  ;246
+DW      0,0                                  ;247
+DW      0,0                                  ;248
+DW      0,0                                  ;249
+DW      0,0                                  ;250
+DW      0,0                                  ;251
+DW      0,0                                  ;252
+DW      0,0                                  ;253
+DW      0,0                                  ;254
+DW      0,0                                  ;255
 
 ;SECTION "BGTileSection",ROMX,BANK[BGTILEROM]
 SECTION "BGTileSection",ROMX[$4000],BANK[BGTILEROM1]

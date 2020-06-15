@@ -5,16 +5,16 @@
 INCLUDE "Source/defs.inc"
 INCLUDE "Source/levels.inc"
 
-import classBAPlayer
-import classBSPlayer
-import classHaikuPlayer
-import classBAPlayerSpace
-import classBSPlayerSpace
-import classHaikuPlayerSpace
-
 ;---------------------------------------------------------------------
 SECTION "Level0711Section",ROMX
 ;---------------------------------------------------------------------
+
+;import classBAPlayer
+;import classBSPlayer
+;import classHaikuPlayer
+;import classBAPlayerSpace
+;import classBSPlayerSpace
+;import classHaikuPlayerSpace
 
 L0711_Contents::
   DW L0711_Load

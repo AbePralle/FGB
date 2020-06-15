@@ -274,7 +274,7 @@ IF 0
 
         SETDIALOGSKIP(.afterIntro + (levelCheckRAM-L1200_Load2))
 
-        ;number of cycles total 
+        ;number of cycles total
         ld       b,180 + TEMPKLUDGE + 20
 
 .loop
@@ -734,7 +734,6 @@ L1200_InitFinished:
 L1200_Check:
         DW ((L1200_CheckFinished - L1200_Check) - 2)  ;size
 L1200_Check2:
-L1200_CheckOffset EQU (levelCheckADDR - L1200_Check2)
         ret
 
 L1200_CheckFinished:

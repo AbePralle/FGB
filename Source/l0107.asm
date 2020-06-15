@@ -201,7 +201,6 @@ L0107_InitFinished:
 L0107_Check:
         DW ((L0107_CheckFinished - L0107_Check) - 2)  ;size
 L0107_Check2:
-L0107_CheckOffset EQU (levelCheckADDR - L0107_Check2)
         call    ((.animateLandingLights-L0107_Check2)+levelCheckRAM)
         VECTORTOSTATE ((.stateTable-L0107_Check2)+levelCheckRAM)
 

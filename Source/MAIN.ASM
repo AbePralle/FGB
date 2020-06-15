@@ -1,6 +1,6 @@
 ;***************************************************************************
 ;*
-;* MAIN.ASM - Standard ROM-image header
+;* Main.asm - Standard ROM-image header
 ;*
 ;* All fields left to zero since RGBFix does a nice job of filling them in
 ;* in for us...

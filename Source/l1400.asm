@@ -1,4 +1,4 @@
-; L1400.asm Appomattox flying 
+; L1400.asm Appomattox flying
 ; Generated 02.21.2001 by mlevel
 ; Modified  02.21.2001 by Abe Pralle
 
@@ -14,92 +14,92 @@ VAR_SELSTAGE  EQU 6
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ1",ROMX
+SECTION "Level1400SectionLZ1",ROMX
 ;---------------------------------------------------------------------
 lz_mist_bg::
   INCBIN "Data/Cinema/Appomattox/lz_mist.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ2",ROMX
+SECTION "Level1400SectionLZ2",ROMX
 ;---------------------------------------------------------------------
 lz_ice1_bg::
   INCBIN "Data/Cinema/Appomattox/lz_ice1.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ3",ROMX
+SECTION "Level1400SectionLZ3",ROMX
 ;---------------------------------------------------------------------
 lz_gate_bg::
   INCBIN "Data/Cinema/Appomattox/lz_gate.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ4",ROMX
+SECTION "Level1400SectionLZ4",ROMX
 ;---------------------------------------------------------------------
 lz_brokenwall_bg::
   INCBIN "Data/Cinema/Appomattox/lz_brokenwall.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ5",ROMX
+SECTION "Level1400SectionLZ5",ROMX
 ;---------------------------------------------------------------------
 lz_canyon_bg::
   INCBIN "Data/Cinema/Appomattox/lz_canyon.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ6",ROMX
+SECTION "Level1400SectionLZ6",ROMX
 ;---------------------------------------------------------------------
 lz_desert_bg::
   INCBIN "Data/Cinema/Appomattox/lz_desert.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ7",ROMX
+SECTION "Level1400SectionLZ7",ROMX
 ;---------------------------------------------------------------------
 lz_graves_bg::
   INCBIN "Data/Cinema/Appomattox/lz_graves.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ8",ROMX
+SECTION "Level1400SectionLZ8",ROMX
 ;---------------------------------------------------------------------
 lz_icecubes_bg::
   INCBIN "Data/Cinema/Appomattox/lz_icecubes.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ9",ROMX
+SECTION "Level1400SectionLZ9",ROMX
 ;---------------------------------------------------------------------
 lz_jungle_bg::
   INCBIN "Data/Cinema/Appomattox/lz_jungle.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ10",ROMX
+SECTION "Level1400SectionLZ10",ROMX
 ;---------------------------------------------------------------------
 lz_mountains_bg::
   INCBIN "Data/Cinema/Appomattox/lz_mountains.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ11",ROMX
+SECTION "Level1400SectionLZ11",ROMX
 ;---------------------------------------------------------------------
 lz_ocean_bg::
   INCBIN "Data/Cinema/Appomattox/lz_ocean.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ12",ROMX
+SECTION "Level1400SectionLZ12",ROMX
 ;---------------------------------------------------------------------
 lz_pencil_bg::
   INCBIN "Data/Cinema/Appomattox/lz_pencil.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionLZ13",ROMX
+SECTION "Level1400SectionLZ13",ROMX
 ;---------------------------------------------------------------------
 lz_treepath_bg::
   INCBIN "Data/Cinema/Appomattox/lz_treepath.bg"
 
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionData3",ROMX
+SECTION "Level1400SectionData3",ROMX
 ;---------------------------------------------------------------------
 lz_trees1_bg::
   INCBIN "Data/Cinema/Appomattox/lz_trees1.bg"
 
 ;---------------------------------------------------------------------
-SECTION "Level1402SectionData2",ROMX
+SECTION "Level1400SectionData2",ROMX
 ;---------------------------------------------------------------------
 cloud0_bg::
   INCBIN "Data/Cinema/Appomattox/cloud0.bg"
@@ -291,7 +291,7 @@ L1400_Load2:
 
         ld      a,[amLinkMaster]
         bit     7,a
-        jr      nz,.afterRemoteAppx 
+        jr      nz,.afterRemoteAppx
 
 .addRemoteAppx
         ld      a,LCHANGEAPPXMAP
@@ -308,7 +308,7 @@ L1400_Load2:
 
         ld      hl,musicEnabled  ;disable track 4
         res     3,[hl]
-       
+
         ld      hl,((.engineSound1-L1400_Load2)+levelCheckRAM)
         call    PlaySound
 

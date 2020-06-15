@@ -659,7 +659,6 @@ L1100_InitFinished:
 L1100_Check:
         DW ((L1100_CheckFinished - L1100_Check) - 2)  ;size
 L1100_Check2:
-L1100_CheckOffset EQU (levelCheckADDR - L1100_Check2)
         ret
 
 L1100_CheckFinished:
