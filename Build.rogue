@@ -16,9 +16,10 @@ endAugment
 routine rogo_fix
   forEach (filepath in File.listing("Assets/Cinema/**"))
     if (not File.is_folder(filepath))
-      if (filepath.ends_with(".bg"))
-        println filepath
-        File.delete( filepath )
+      if (filepath.ends_with(".sp"))
+        local to_filepath = "Data/Cinema/" + filepath.after_first("Assets/Cinema/")
+        println "$ -> $" (filepath,to_filepath)
+        File.rename( filepath, to_filepath )
       endIf
     endIf
   endForEach
