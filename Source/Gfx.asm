@@ -154,7 +154,7 @@ InitGfx::
 ;---------------------------------------------------------------------
 ; Routine:      VMemCopy
 ; Arguments:    a  - VRAM bank of destination
-;               c  - length in multiples of 16 bytes
+;               c  - number of 16-byte blocks (tiles) to copy
 ;               de - dest
 ;               hl - source
 ; Alters:       af
@@ -7641,7 +7641,7 @@ INCBIN "Data/discolights.dat"
 ;Not in HOME
 
 ;---------------------------------------------------------------------
-SECTION  "FontSection",ROMX,BANK[MAP0ROM]
+SECTION  "FontSection",ROMX,BANK[MAP0ROM],ALIGN[4]
 fontData:
   INCBIN "Data/font.bin"
 

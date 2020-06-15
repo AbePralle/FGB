@@ -252,7 +252,7 @@ routine rogo_build
   forEach (asm_file in File.listing("Source/**/*.asm"))
     local obj_file = "Build/$.obj" (File.filename(asm_file).leftmost(-4))
     if (File.is_newer_than(asm_file,obj_file))
-      execute "rgbasm     $ -o $" (asm_file,obj_file)
+      execute "rgbasm -p 0xff $ -o $" (asm_file,obj_file)
       any_new_obj_files = true
     elseIf (File.is_newer_than(obj_file,rom_output))
       any_new_obj_files = true
@@ -261,8 +261,8 @@ routine rogo_build
   endForEach
 
   if (any_new_obj_files)
-    execute "rgblink   $ -o $" (obj_files.join(" "),build_output)
-    execute "rgbfix -p 0 -v $" (build_output)
+    execute "rgblink --map Build/FGB.map --sym Build/FGB.sym $ -o $" (obj_files.join(" "),build_output)
+    execute "rgbfix -p 0xff -v $" (build_output)
 
     local file_size = File.size( build_output )
     println "> Copy $ -> $ ($ bytes)" (build_output,rom_output,file_size.format(","))
