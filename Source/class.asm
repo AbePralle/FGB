@@ -11,9 +11,9 @@
 ;  update - performs any required AI
 ;           adjusts its own position within the map
 
-INCLUDE "Source/defs.inc"
-INCLUDE "Source/start.inc"
-INCLUDE "Source/items.inc"
+INCLUDE "Source/Defs.inc"
+INCLUDE "Source/Start.inc"
+INCLUDE "Source/Items.inc"
 
 
 GRENADE_CINDEX          EQU 2048+ 12
@@ -13761,7 +13761,7 @@ AdvanceLocHLInDirection:
 
 ;---------------------------------------------------------------------
 ; Routine:      SetGroup
-; Arguments:    a  - group to set to (see object.asm for details)
+; Arguments:    a  - group to set to (see Object.asm for details)
 ;               de - object
 ; Alters:       af
 ; Returns:      nothing
@@ -13789,7 +13789,7 @@ SetGroup::
 ; Routine:      GetGroup
 ; Arguments:    de - object
 ; Alters:       af
-; Returns:      a  - this object's group (see object.asm for details)
+; Returns:      a  - this object's group (see Object.asm for details)
 ;---------------------------------------------------------------------
 GetGroup:
         push    hl

@@ -1,4 +1,4 @@
-INCLUDE "Source/class.inc"
+INCLUDE "Source/Class.inc"
 
 DEBUG EQU 0
 EMULATORCOMPATIBLE EQU 1
@@ -354,7 +354,7 @@ EXPORT hblankWinOn
 EXPORT hblankWinOff
 EXPORT hblankFlag
 
-;gfx.asm
+;Gfx.asm
 EXPORT LoadNextLevel
 EXPORT temp
 EXPORT drawMapTemp
@@ -449,7 +449,7 @@ EXPORT CallBGAction
 
 EXPORT ResetSprites
 
-;cinema.asm
+;Cinema.asm
 EXPORT LoadCinemaBG
 EXPORT LoadCinemaSprite
 EXPORT LoadCinemaTextBox
@@ -473,7 +473,7 @@ EXPORT AnimateCaptainGunpoint
 EXPORT State0To1
 
 
-;map.asm
+;Map.asm
 EXPORT BGTiles1024
 EXPORT LoadMap
 EXPORT MapCoordsToIndex
@@ -655,7 +655,7 @@ EXPORT GfxShowStandardTextBox
 EXPORT CheckSkip
 EXPORT Delay
 
-;music.asm
+;Music.asm
 EXPORT InitMusic
 EXPORT PlayMusic
 EXPORT StopMusic
@@ -684,5 +684,5 @@ EXPORT mysterious_gbm
 
 EXPORT GetNumObjects
 
-INCLUDE "Source/macro.inc"
+INCLUDE "Source/Macro.inc"
 

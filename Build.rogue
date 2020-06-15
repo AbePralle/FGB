@@ -211,20 +211,24 @@ routine rogo_fix
   endForEach
 endRoutine
 
-routine rogo_reid( old:String, new:String, &yes )
+routine rogo_reid( old:String, new:String )
+  do_reid( old, new )
+endRoutine
+
+routine do_reid( old:String, new:String, &yes )
   if (new == "")
     local temp = "_Temp" + Random.int32(1_000_000)
-    rogo_reid( old, temp )
-    rogo_reid( temp, old.capitalized, &yes )
+    do_reid( old, temp )
+    do_reid( temp, old.capitalized, &yes )
     return
   elseIf (0 == old.compare_to(new,&ignore_case))
     local temp = "_Temp" + Random.int32(1_000_000)
-    rogo_reid( old, temp )
-    rogo_reid( temp, new, &yes )
+    do_reid( old, temp )
+    do_reid( temp, new, &yes )
     return
   endIf
   execute ''reid --exact "$" "$" "Assets/**" "Data/**" "Source/**"$'' (old,new,which{yes:" --yes"||""})
-  #execute @|lst Data/Cinema
+  execute @|ls Source
 endRoutine
 
 routine rogo_default

@@ -1,5 +1,5 @@
 ;------------------------------------------------------------------------
-; cinema.asm
+; Cinema.asm
 ; 1-5-2000 by Martin Casado
 ; 4.27.2000 by Abe Pralle
 ;
@@ -12,7 +12,7 @@
 ;   LoadCinemaTextBox
 ;------------------------------------------------------------------------
 
-INCLUDE "Source/defs.inc"
+INCLUDE "Source/Defs.inc"
 
 FIRST_TEXTBOX_TILE EQU 136
 

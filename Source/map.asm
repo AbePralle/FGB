@@ -1,7 +1,7 @@
 ;12.29.1999
 
-INCLUDE "Source/defs.inc"
-INCLUDE "Source/levels.inc"
+INCLUDE "Source/Defs.inc"
+INCLUDE "Source/Levels.inc"
 
 
 ;world map

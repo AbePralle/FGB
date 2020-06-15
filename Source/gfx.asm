@@ -1,12 +1,12 @@
 ;***************************************************************************
-;*  gfx.asm - graphics support routines
+;*  Gfx.asm - graphics support routines
 ;*  12.17.99 by Abe Pralle
 ;*
 ;***************************************************************************
 
-INCLUDE "Source/defs.inc"
-INCLUDE "Source/levels.inc"
-INCLUDE "Source/start.inc"
+INCLUDE "Source/Defs.inc"
+INCLUDE "Source/Levels.inc"
+INCLUDE "Source/Start.inc"
 
 MAX_PER_TURN EQU 32
 

@@ -1,8 +1,8 @@
-; object.asm
+; Object.asm
 ; 1.2.2000 by Abe Pralle
 ; defines and handles the objects (data of classes) of FGB
 
-;see map.asm for location definitions of object RAM
+;see Map.asm for location definitions of object RAM
 
 ;object data:
 ;each object is 16 bytes long
@@ -87,8 +87,8 @@
 ;                      bytes marks the start of a LowByte, HighByte address
 ;     tailTable[256]:  Indices of tail of list of a certain class.
 
-INCLUDE "Source/defs.inc"
-INCLUDE "Source/start.inc"
+INCLUDE "Source/Defs.inc"
+INCLUDE "Source/Start.inc"
 
 
 SECTION "ObjList",ROMX,BANK[CLASSROM]
