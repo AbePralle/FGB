@@ -30,22 +30,22 @@ SECTION "Level0612Section",ROMX
 
 dialog:
 L0612_plan_gtx:
-  INCBIN "Data/Dialog/talk/L0612_plan.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_plan.gtx"
 
 L0612_clearance_gtx:
-  INCBIN "Data/Dialog/talk/L0612_clearance.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_clearance.gtx"
 
 L0612_controls_gtx:
-  INCBIN "Data/Dialog/talk/L0612_controls.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_controls.gtx"
 
 L0612_go_gtx:
-  INCBIN "Data/Dialog/talk/L0612_go.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_go.gtx"
 
 L0612_duke_gtx:
-  INCBIN "Data/Dialog/talk/L0612_duke.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_duke.gtx"
 
 L0612_return_gtx:
-  INCBIN "Data/Dialog/talk/L0612_return.gtx"
+  INCBIN "Data/Dialog/Talk/L0612_return.gtx"
 
 L0612_Contents::
   DW L0612_Load

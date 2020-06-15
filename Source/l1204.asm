@@ -10,34 +10,34 @@ INCLUDE "Source/levels.inc"
 SECTION "Level1204Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_screen_bg:
-  INCBIN "../fgbpix/ending/gyro_screen.bg"
+  INCBIN "Data/Cinema/Ending/gyro_screen.bg"
 
 button_bg:
-  INCBIN "../fgbpix/ending/button.bg"
+  INCBIN "Data/Cinema/Ending/button.bg"
 
 minuteslater_bg:
-  INCBIN "../fgbpix/ending/minuteslater.bg"
+  INCBIN "Data/Cinema/Ending/minuteslater.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 appland3d2_bg:
-  INCBIN "../fgbpix/ending/appland3d2.bg"
+  INCBIN "Data/Cinema/Ending/appland3d2.bg"
 
 appland_sprites_sp:
-  INCBIN "../fgbpix/ending/appland_sprites.sp"
+  INCBIN "Data/Cinema/Ending/appland_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 willtheyland_bg:
-  INCBIN "../fgbpix/promo/willtheyland.bg"
+  INCBIN "Data/Cinema/promo/willtheyland.bg"
 
 haveseenthelast_bg:
-  INCBIN "../fgbpix/promo/haveseenthelast.bg"
+  INCBIN "Data/Cinema/promo/haveseenthelast.bg"
 
 publish_bg:
-  INCBIN "../fgbpix/promo/publish.bg"
+  INCBIN "Data/Cinema/promo/publish.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Section",ROMX
@@ -45,34 +45,34 @@ SECTION "Level1204Section",ROMX
 
 dialog:
 L1204_gyro_notthere_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_notthere.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_notthere.gtx"
 
 L1204_gyro_ofcourse_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_ofcourse.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_ofcourse.gtx"
 
 L1204_gyro_unfortunately_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_unfortunately.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_unfortunately.gtx"
 
 L1204_gyro_explode_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_explode.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_explode.gtx"
 
 L1204_gyro_escape_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_escape.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_escape.gtx"
 
 L1204_gyro_button_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gyro_button.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gyro_button.gtx"
 
 L1204_gotitall_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_gotitall.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_gotitall.gtx"
 
 L1204_datahere_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_datahere.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_datahere.gtx"
 
 L1204_letsroll_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1204_letsroll.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1204_letsroll.gtx"
 
 blank_gtx:
-  INCBIN "Data/Dialog/main_intro/blank.gtx"
+  INCBIN "Data/Dialog/Intro/blank.gtx"
 
 L1204_Contents::
   DW L1204_Load

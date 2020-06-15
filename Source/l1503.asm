@@ -21,19 +21,19 @@ VAR_SELSTAGE  EQU 6
 SECTION "Level1503Gfx1",ROMX
 ;---------------------------------------------------------------------
 downramp_bg::
-  INCBIN "../fgbpix/distress/downramp.bg"
+  INCBIN "Data/Cinema/Distress/downramp.bg"
 
 downramp_sprites_sp:
-  INCBIN "../fgbpix/distress/downramp_sprites.sp"
+  INCBIN "Data/Cinema/Distress/downramp_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1503Gfx2",ROMX
 ;---------------------------------------------------------------------
 flower_and_flour_establishing_bg:
-  INCBIN "../fgbpix/distress/flower_and_flour_establishing.bg"
+  INCBIN "Data/Cinema/Distress/flower_and_flour_establishing.bg"
 
 flour_and_flower_bg:
-  INCBIN "../fgbpix/distress/flour_and_flower.bg"
+  INCBIN "Data/Cinema/Distress/flour_and_flower.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1503Section",ROMX

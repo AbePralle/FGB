@@ -19,16 +19,16 @@ SECTION "Level0412Section",ROMX
 
 dialog:
 L0006_avacado_gtx:
-  INCBIN "Data/Dialog/talk/L0006_avacado.gtx"
+  INCBIN "Data/Dialog/Talk/L0006_avacado.gtx"
 
 L0006_hero_sayagain_gtx:
-  INCBIN "Data/Dialog/talk/L0006_hero_sayagain.gtx"
+  INCBIN "Data/Dialog/Talk/L0006_hero_sayagain.gtx"
 
 L0006_fixbridge_gtx:
-  INCBIN "Data/Dialog/talk/L0006_fixbridge.gtx"
+  INCBIN "Data/Dialog/Talk/L0006_fixbridge.gtx"
 
 L0006_fixed_gtx:
-  INCBIN "Data/Dialog/talk/L0006_fixed.gtx"
+  INCBIN "Data/Dialog/Talk/L0006_fixed.gtx"
 
 L0412_Contents::
   DW L0412_Load

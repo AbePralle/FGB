@@ -25,13 +25,13 @@ SECTION "Level0405Section",ROMX
 
 dialog:
 L0405_ho_gtx:
-  INCBIN "Data/Dialog/talk/L0405_ho.gtx"
+  INCBIN "Data/Dialog/Talk/L0405_ho.gtx"
 
 L0405_hero_reaction_gtx:
-  INCBIN "Data/Dialog/talk/L0405_hero_reaction.gtx"
+  INCBIN "Data/Dialog/Talk/L0405_hero_reaction.gtx"
 
 L0405_final_word_gtx:
-  INCBIN "Data/Dialog/talk/L0405_final_word.gtx"
+  INCBIN "Data/Dialog/Talk/L0405_final_word.gtx"
 
 L0405_Contents::
   DW L0405_Load

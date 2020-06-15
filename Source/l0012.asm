@@ -20,13 +20,13 @@ SECTION "Level0012Section",ROMX
 
 dialog:
 L0012_bombs_gtx:
-  INCBIN "Data/Dialog/apocalypse/L0012_bombs.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L0012_bombs.gtx"
 
 L0012_defused_gtx::
-  INCBIN "Data/Dialog/apocalypse/L0012_defused.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L0012_defused.gtx"
 
 L0012_alldefused_gtx::
-  INCBIN "Data/Dialog/apocalypse/L0012_alldefused.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L0012_alldefused.gtx"
 
 L0012_Contents::
   DW L0012_Load

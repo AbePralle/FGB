@@ -13,7 +13,7 @@ SECTION "Level0304Section",ROMX
 
 dialog:
 L0304_spores_gtx:
-  INCBIN "Data/Dialog/talk/L0304_spores.gtx"
+  INCBIN "Data/Dialog/Talk/L0304_spores.gtx"
 
 L0304_Contents::
   DW L0304_Load

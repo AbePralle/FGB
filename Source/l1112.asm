@@ -28,10 +28,10 @@ STATE_AVERTED        EQU  2
 SECTION "Level1112Gfx1",ROMX
 ;---------------------------------------------------------------------
 success_bg:
-  INCBIN "../fgbpix/disco/success.bg"
+  INCBIN "Data/Cinema/Disco/success.bg"
 
 party_over_bg:
-  INCBIN "../fgbpix/disco/party_over.bg"
+  INCBIN "Data/Cinema/Disco/party_over.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1112Section",ROMX

@@ -14,7 +14,7 @@ SECTION "Level1012Section",ROMX
 
 dialog:
 L1012_hero_readbook_gtx:
-  INCBIN "Data/Dialog/talk/L1012_hero_readbook.gtx"
+  INCBIN "Data/Dialog/Talk/L1012_hero_readbook.gtx"
 
 L1012_Contents::
   DW L1012_Load

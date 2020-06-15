@@ -30,19 +30,19 @@ SECTION "LevelsSection0205",ROMX,BANK[MAP0ROM]
 
 dialog:
 L0205_idiot_gtx:
-  INCBIN "Data/Dialog/talk/L0205_idiot.gtx"
+  INCBIN "Data/Dialog/Talk/L0205_idiot.gtx"
 
 L0205_what_gtx:
-  INCBIN "Data/Dialog/talk/L0205_what.gtx"
+  INCBIN "Data/Dialog/Talk/L0205_what.gtx"
 
 L0205_forgive_gtx:
-  INCBIN "Data/Dialog/talk/L0205_forgive.gtx"
+  INCBIN "Data/Dialog/Talk/L0205_forgive.gtx"
 
 L0205_okay_gtx:
-  INCBIN "Data/Dialog/talk/L0205_okay.gtx"
+  INCBIN "Data/Dialog/Talk/L0205_okay.gtx"
 
 L0205_west_gtx:
-  INCBIN "Data/Dialog/talk/L0205_west.gtx"
+  INCBIN "Data/Dialog/Talk/L0205_west.gtx"
 
 L0205_Contents::
   DW L0205_Load

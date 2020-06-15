@@ -19,25 +19,25 @@ L0015_Contents::
 
 dialog:
 soldier_how_gtx:
-  INCBIN "Data/Dialog/intro_bs/soldier_how.gtx"
+  INCBIN "Data/Dialog/IntroBS/soldier_how.gtx"
 
 bs_likeButter_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_likeButter.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_likeButter.gtx"
 
 soldier_yellow_gtx:
-  INCBIN "Data/Dialog/intro_bs/soldier_yellow.gtx"
+  INCBIN "Data/Dialog/IntroBS/soldier_yellow.gtx"
 
 bs_slippery_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_slippery.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_slippery.gtx"
 
 guard_freeze_gtx:
-  INCBIN "Data/Dialog/intro_bs/guard_freeze.gtx"
+  INCBIN "Data/Dialog/IntroBS/guard_freeze.gtx"
 
 bs_actually_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_actually.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_actually.gtx"
 
 guard_moveAlong_gtx:
-  INCBIN "Data/Dialog/intro_bs/guard_moveAlong.gtx"
+  INCBIN "Data/Dialog/IntroBS/guard_moveAlong.gtx"
 
 
 ;---------------------------------------------------------------------

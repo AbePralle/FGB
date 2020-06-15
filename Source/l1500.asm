@@ -11,7 +11,7 @@ SECTION "Level1500Section",ROMX
 ;---------------------------------------------------------------------
 
 deathscreen_bg:
-  INCBIN "../fgbpix/charselect/deathscreen.bg"
+  INCBIN "Data/Cinema/CharSelect/deathscreen.bg"
 
 L1500_Contents::
   DW L1500_Load

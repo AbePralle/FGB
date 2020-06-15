@@ -30,16 +30,16 @@ SECTION "Level1000Section",ROMX
 
 dialog:
 L1000_needbomb_gtx:
-  INCBIN "Data/Dialog/talk/L1000_needbomb.gtx"
+  INCBIN "Data/Dialog/Talk/L1000_needbomb.gtx"
 
 L1000_freeze_gtx:
-  INCBIN "Data/Dialog/talk/L1000_freeze.gtx"
+  INCBIN "Data/Dialog/Talk/L1000_freeze.gtx"
 
 L1000_toolate_gtx:
-  INCBIN "Data/Dialog/talk/L1000_toolate.gtx"
+  INCBIN "Data/Dialog/Talk/L1000_toolate.gtx"
 
 L1000_follow_gtx:
-  INCBIN "Data/Dialog/talk/L1000_follow.gtx"
+  INCBIN "Data/Dialog/Talk/L1000_follow.gtx"
 
 L1000_Contents::
   DW L1000_Load

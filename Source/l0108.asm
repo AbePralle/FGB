@@ -15,7 +15,7 @@ SECTION "Level0108Section",ROMX
 
 dialog:
 L0108_sign_gtx:
-  INCBIN "Data/Dialog/talk/L0108_sign.gtx"
+  INCBIN "Data/Dialog/Talk/L0108_sign.gtx"
 
 L0108_Contents::
   DW L0108_Load

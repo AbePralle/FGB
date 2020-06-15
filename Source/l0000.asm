@@ -14,7 +14,7 @@ SECTION "LevelsSection0000",ROMX,BANK[MAP0ROM]
 
 dialog:
 L0000_hero_honey_gtx:
-  INCBIN "Data/Dialog/talk/L0000_hero_honey.gtx"
+  INCBIN "Data/Dialog/Talk/L0000_hero_honey.gtx"
 
 L0000_Contents::
   DW L0000_Load

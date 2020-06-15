@@ -19,37 +19,37 @@ SECTION "Level0912Section",ROMX
 ;---------------------------------------------------------------------
 dialog:
 L0912_sign_gtx:
-  INCBIN "Data/Dialog/talk/L0912_sign.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_sign.gtx"
 
 L0912_welcome_gtx:
-  INCBIN "Data/Dialog/talk/L0912_welcome.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_welcome.gtx"
 
 L0912_hero_revolt_gtx:
-  INCBIN "Data/Dialog/talk/L0912_hero_revolt.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_hero_revolt.gtx"
 
 L0912_justit_gtx:
-  INCBIN "Data/Dialog/talk/L0912_justit.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_justit.gtx"
 
 L0912_hero_losing_gtx:
-  INCBIN "Data/Dialog/talk/L0912_hero_losing.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_hero_losing.gtx"
 
 L0912_killpatsy_gtx:
-  INCBIN "Data/Dialog/talk/L0912_killpatsy.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_killpatsy.gtx"
 
 L0912_hero_brokenteleport_gtx:
-  INCBIN "Data/Dialog/talk/L0912_hero_brokenteleport.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_hero_brokenteleport.gtx"
 
 L0912_hero_startteleport_nopassword_gtx:
-  INCBIN "Data/Dialog/talk/L0912_hero_startteleport_nopassword.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_hero_startteleport_nopassword.gtx"
 
 L0912_needpassword_gtx:
-  INCBIN "Data/Dialog/talk/L0912_needpassword.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_needpassword.gtx"
 
 L0912_hero_startteleport_password_gtx:
-  INCBIN "Data/Dialog/talk/L0912_hero_startteleport_password.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_hero_startteleport_password.gtx"
 
 L0912_ba_givepassword_gtx:
-  INCBIN "Data/Dialog/talk/L0912_ba_givepassword.gtx"
+  INCBIN "Data/Dialog/Talk/L0912_ba_givepassword.gtx"
 
 L0912_Contents::
   DW L0912_Load

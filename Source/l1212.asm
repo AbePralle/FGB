@@ -23,16 +23,16 @@ SECTION "Level1212Section",ROMX
 
 dialog:
 L1212_anytime_gtx:
-  INCBIN "Data/Dialog/talk/L1212_anytime.gtx"
+  INCBIN "Data/Dialog/Talk/L1212_anytime.gtx"
 
 L1212_yeah_gtx:
-  INCBIN "Data/Dialog/talk/L1212_yeah.gtx"
+  INCBIN "Data/Dialog/Talk/L1212_yeah.gtx"
 
 L1212_makesure_gtx:
-  INCBIN "Data/Dialog/talk/L1212_makesure.gtx"
+  INCBIN "Data/Dialog/Talk/L1212_makesure.gtx"
 
 L1212_suckstobehim_gtx:
-  INCBIN "Data/Dialog/talk/L1212_suckstobehim.gtx"
+  INCBIN "Data/Dialog/Talk/L1212_suckstobehim.gtx"
 
 L1212_Contents::
   DW L1212_Load

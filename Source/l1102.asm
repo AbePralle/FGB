@@ -15,52 +15,52 @@ NEXTLEVELDIR EQU EXIT_D
 SECTION "Level1102Section2",ROMX
 ;---------------------------------------------------------------------
 flour_bg::
-  INCBIN "../fgbpix/mainchardialog/flour_triumph.bg"
+  INCBIN "Data/Cinema/MainCharDialog/flour_triumph.bg"
 skippy_bg::
-  INCBIN "../fgbpix/mainchardialog/skippy_triumph.bg"
+  INCBIN "Data/Cinema/MainCharDialog/skippy_triumph.bg"
 
 dialog:
 flour1_gtx:
-  INCBIN "Data/Dialog/main_intro/flour1.gtx"
+  INCBIN "Data/Dialog/Intro/flour1.gtx"
 
 flour2_gtx:
-  INCBIN "Data/Dialog/main_intro/flour2.gtx"
+  INCBIN "Data/Dialog/Intro/flour2.gtx"
 
 flour3_gtx:
-  INCBIN "Data/Dialog/main_intro/flour3.gtx"
+  INCBIN "Data/Dialog/Intro/flour3.gtx"
 
 flour4_gtx:
-  INCBIN "Data/Dialog/main_intro/flour4.gtx"
+  INCBIN "Data/Dialog/Intro/flour4.gtx"
 
 flour5_gtx:
-  INCBIN "Data/Dialog/main_intro/flour5.gtx"
+  INCBIN "Data/Dialog/Intro/flour5.gtx"
 
 flour6_gtx:
-  INCBIN "Data/Dialog/main_intro/flour6.gtx"
+  INCBIN "Data/Dialog/Intro/flour6.gtx"
 
 flour7_gtx:
-  INCBIN "Data/Dialog/main_intro/flour7.gtx"
+  INCBIN "Data/Dialog/Intro/flour7.gtx"
 
 skippy1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippy1.gtx"
+  INCBIN "Data/Dialog/Intro/skippy1.gtx"
 
 skippy2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippy2.gtx"
+  INCBIN "Data/Dialog/Intro/skippy2.gtx"
 
 skippy3_gtx:
-  INCBIN "Data/Dialog/main_intro/skippy3.gtx"
+  INCBIN "Data/Dialog/Intro/skippy3.gtx"
 
 triumph_small_sp:
-  INCBIN "../fgbpix/main_intro/triumph_small.sp"
+  INCBIN "Data/Cinema/Intro/triumph_small.sp"
 
 bcs_vestigial_bg:
-  INCBIN "../fgbpix/main_intro/bcs_vestigial.bg"
+  INCBIN "Data/Cinema/Intro/bcs_vestigial.bg"
 
 narrator_warroom_bg:
-  INCBIN "../fgbpix/main_intro/narrator_warroom.bg"
+  INCBIN "Data/Cinema/Intro/narrator_warroom.bg"
 
 nar_crewquarters_bg:
-  INCBIN "../fgbpix/main_intro/nar_crewquarters.bg"
+  INCBIN "Data/Cinema/Intro/nar_crewquarters.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1102Section",ROMX
@@ -73,15 +73,15 @@ L1102_Contents::
   DW L1102_Map
 
 moon_bg::
-  INCBIN "../fgbpix/main_intro/moon.bg"
+  INCBIN "Data/Cinema/Intro/moon.bg"
 group_in_triumph_bg:
-  INCBIN "../fgbpix/main_intro/group_in_triumph.bg"
+  INCBIN "Data/Cinema/Intro/group_in_triumph.bg"
 space_bg1_bg:
-  INCBIN "../fgbpix/main_intro/space_bg1.bg"
+  INCBIN "Data/Cinema/Intro/space_bg1.bg"
 moontact_bg::
-  INCBIN "../fgbpix/main_intro/moontact.bg"
+  INCBIN "Data/Cinema/Intro/moontact.bg"
 tactmap_bg:
-  INCBIN "../fgbpix/main_intro/tactmap.bg"
+  INCBIN "Data/Cinema/Intro/tactmap.bg"
 
 ;---------------------------------------------------------------------
 ;  Load

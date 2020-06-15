@@ -18,19 +18,19 @@ SECTION "Level0002Section",ROMX
 
 dialog:
 L0002_bees_gtx:
-  INCBIN "Data/Dialog/talk/L0002_bees.gtx"
+  INCBIN "Data/Dialog/Talk/L0002_bees.gtx"
 
 L0002_hero_spray_gtx:
-  INCBIN "Data/Dialog/talk/L0002_hero_spray.gtx"
+  INCBIN "Data/Dialog/Talk/L0002_hero_spray.gtx"
 
 L0002_village_gtx:
-  INCBIN "Data/Dialog/talk/L0002_village.gtx"
+  INCBIN "Data/Dialog/Talk/L0002_village.gtx"
 
 L0002_hero_no_gtx:
-  INCBIN "Data/Dialog/talk/L0002_hero_no.gtx"
+  INCBIN "Data/Dialog/Talk/L0002_hero_no.gtx"
 
 L0002_croutons_gtx:
-  INCBIN "Data/Dialog/talk/L0002_croutons.gtx"
+  INCBIN "Data/Dialog/Talk/L0002_croutons.gtx"
 
 L0002_Contents::
   DW L0002_Load

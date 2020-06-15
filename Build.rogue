@@ -14,14 +14,31 @@ augment Build
 endAugment
 
 routine rogo_fix
-  forEach (file in File.listing("Source/**"))
-    local content = File.load_as_string( file )
-    local fixed = content.replacing( "\t", "  " )
-    if (fixed != content)
-      println file
-      File.save( file, fixed )
+  forEach (filepath in File.listing("Assets/Cinema/**"))
+    if (not File.is_folder(filepath))
+      if (filepath.ends_with(".sp"))
+        local to_filepath = "Data/Cinema/" + filepath.after_first("Assets/Cinema/")
+        println "$ -> $" (filepath,to_filepath)
+        File.rename( filepath, to_filepath )
+      endIf
     endIf
   endForEach
+endRoutine
+
+routine rogo_reid( old:String, new:String )
+  if (new == "")
+    local temp = "_Temp" + Random.int32(1_000_000)
+    rogo_reid( old, temp )
+    rogo_reid( temp, old.capitalized )
+    return
+  elseIf (0 == old.compare_to(new,&ignore_case))
+    local temp = "_Temp" + Random.int32(1_000_000)
+    rogo_reid( old, temp )
+    rogo_reid( temp, new )
+    return
+  endIf
+  execute ''reid --exact "$" "$" "Assets/**" "Data/**" "Source/**"'' (old,new)
+  #execute @|lst Data/Cinema
 endRoutine
 
 routine rogo_default

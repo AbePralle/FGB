@@ -16,7 +16,7 @@ SECTION "LevelsSection0105",ROMX
 
 dialog:
 L0105_hero_wrangling_gtx:
-  INCBIN "Data/Dialog/talk/L0105_hero_wrangling.gtx"
+  INCBIN "Data/Dialog/Talk/L0105_hero_wrangling.gtx"
 
 L0105_Contents::
   DW L0105_Load

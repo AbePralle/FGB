@@ -15,13 +15,13 @@ SECTION "Level0004Section",ROMX
 
 dialog:
 L0004_howdypilgrim_gtx:
-  INCBIN "Data/Dialog/talk/L0004_howdypilgrim.gtx"
+  INCBIN "Data/Dialog/Talk/L0004_howdypilgrim.gtx"
 
 L0004_sure_gtx:
-  INCBIN "Data/Dialog/talk/L0004_sure.gtx"
+  INCBIN "Data/Dialog/Talk/L0004_sure.gtx"
 
 L0004_mindyourbusiness_gtx:
-  INCBIN "Data/Dialog/talk/L0004_mindyourbusiness.gtx"
+  INCBIN "Data/Dialog/Talk/L0004_mindyourbusiness.gtx"
 
 L0004_Contents::
   DW L0004_Load
