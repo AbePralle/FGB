@@ -28,19 +28,19 @@ select_hero_bg:
   INCBIN "Data/Cinema/CharSelect/charselecthills.bg"
 
 select_ba_sp:
-  INCBIN "charselect/select_ba.sp"
+  INCBIN "Data/Cinema/CharSelect/select_ba.sp"
 
 select_ba_name_bg:
   INCBIN "Data/Cinema/CharSelect/select_ba_name.bg"
 
 select_bs_sp:
-  INCBIN "charselect/select_bs.sp"
+  INCBIN "Data/Cinema/CharSelect/select_bs.sp"
 
 select_bs_name_bg:
   INCBIN "Data/Cinema/CharSelect/select_bs_name.bg"
 
 select_haiku_sp:
-  INCBIN "charselect/select_haiku.sp"
+  INCBIN "Data/Cinema/CharSelect/select_haiku.sp"
 
 select_haiku_name_bg:
   INCBIN "Data/Cinema/CharSelect/select_haiku_name.bg"
@@ -83,13 +83,13 @@ L1100_Load2:
         ld      [gamePalette+2],a
         ld      [gamePalette+3],a
 
-        ;if my hero type is the same as both hero types (e.g. the other 
+        ;if my hero type is the same as both hero types (e.g. the other
         ;hero's types) then pick an alternate hero (probably just
         ;joined game)
         LDHL_CURHERODATA HERODATA_TYPE
         ld      b,[hl]
         ld      a,[hero0_type]
-        cp      b 
+        cp      b
         jr      nz,.myTypeOkay
         ld      a,[amLinkMaster]
         bit     7,a
@@ -408,10 +408,10 @@ L1100_Load2:
         xor     a
         ld      [mapLeft],a
         ret
-        
+
 .loadCurHeroSprite
         xor     a
-        ldio    [backBufferReady],a 
+        ldio    [backBufferReady],a
 
         LDHL_CURHERODATA HERODATA_TYPE
         ld      a,[hl]
@@ -544,7 +544,7 @@ CharSelectOnHBlank:
 
         ;restore background palette 0, color zero
         ld      a,%10000000         ;specification
-        ld      c,$68 
+        ld      c,$68
         ld      hl,mapColor
         ld      [c],a               ;ff68
         ld      a,[hl+]             ;[mapColor]
