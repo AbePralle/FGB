@@ -14,62 +14,62 @@ TEMPKLUDGE EQU 0
 SECTION "Level1502Gfx1",ROMX
 ;---------------------------------------------------------------------
 flour_gang_mono_bg:
-  INCBIN "../fgbpix/Distress/flour_gang_mono.bg"
+  INCBIN "Data/Cinema/Distress/flour_gang_mono.bg"
 
 appomattox_big_bg:
-  INCBIN "../fgbpix/Distress/appomattox_big.bg"
+  INCBIN "Data/Cinema/Distress/appomattox_big.bg"
 
 appomattox_big_sprites_sp::
-  INCBIN "../fgbpix/Distress/appomattox_big_sprites.sp"
+  INCBIN "Data/Cinema/Distress/appomattox_big_sprites.sp"
 
 nar_certaindanger_bg:
-  INCBIN "../fgbpix/Distress/nar_certaindanger.bg"
+  INCBIN "Data/Cinema/Distress/nar_certaindanger.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx2",ROMX
 ;---------------------------------------------------------------------
 flourdriving_bg::
-  INCBIN "../fgbpix/Distress/flourdriving.bg"
+  INCBIN "Data/Cinema/Distress/flourdriving.bg"
 
 ba_bg::
-  INCBIN "../fgbpix/Distress/ba.bg"
+  INCBIN "Data/Cinema/Distress/ba.bg"
 
 bs_bg::
-  INCBIN "../fgbpix/Distress/bs.bg"
+  INCBIN "Data/Cinema/Distress/bs.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx3",ROMX
 ;---------------------------------------------------------------------
 remote_bg:
-  INCBIN "../fgbpix/Distress/remote.bg"
+  INCBIN "Data/Cinema/Distress/remote.bg"
 
 flowerviewscreen_bg::
-  INCBIN "../fgbpix/Distress/flowerviewscreen.bg"
+  INCBIN "Data/Cinema/Distress/flowerviewscreen.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx4",ROMX
 ;---------------------------------------------------------------------
 yacht_under_fire_bg:
-  INCBIN "../fgbpix/Distress/yacht_under_fire.bg"
+  INCBIN "Data/Cinema/Distress/yacht_under_fire.bg"
 
 pirate_sprites_sp:
-  INCBIN "../fgbpix/Distress/pirate_sprites.sp"
+  INCBIN "Data/Cinema/Distress/pirate_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx5",ROMX
 ;---------------------------------------------------------------------
 starfield_bg:
-  INCBIN "../fgbpix/Appomattox/starfield.bg"
+  INCBIN "Data/Cinema/Appomattox/starfield.bg"
 
 starfield_sprite_sp::
-  INCBIN "../fgbpix/Appomattox/starfield_sprite.sp"
+  INCBIN "Data/Cinema/Appomattox/starfield_sprite.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1502Gfx6",ROMX
 ;---------------------------------------------------------------------
 appomattox_tokiwi_bg::
-  INCBIN "../fgbpix/Distress/appomattox_tokiwi.bg"
+  INCBIN "Data/Cinema/Distress/appomattox_tokiwi.bg"
 
 
 ;---------------------------------------------------------------------

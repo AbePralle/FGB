@@ -14,37 +14,37 @@ VAR_HERO EQU 11
 SECTION "Level1103Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_tree_bg:
-  INCBIN "../fgbpix/Wedding/gyro_tree.bg"
+  INCBIN "Data/Cinema/Wedding/gyro_tree.bg"
 
 gyro_costume_sp:
-  INCBIN "../fgbpix/Wedding/gyro_costume.sp"
+  INCBIN "Data/Cinema/Wedding/gyro_costume.sp"
 
 gang_watches_wedding_bg:
-  INCBIN "../fgbpix/Wedding/gang_watches_wedding.bg"
+  INCBIN "Data/Cinema/Wedding/gang_watches_wedding.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Gfx2",ROMX
 ;---------------------------------------------------------------------
 preacher_bg:
-  INCBIN "../fgbpix/Wedding/preacher.bg"
+  INCBIN "Data/Cinema/Wedding/preacher.bg"
 
 wedding_panoramic_bg:
-  INCBIN "../fgbpix/Wedding/wedding_panoramic.bg"
+  INCBIN "Data/Cinema/Wedding/wedding_panoramic.bg"
 
 flour_at_wedding_bg:
-  INCBIN "../fgbpix/Wedding/flour_at_wedding.bg"
+  INCBIN "Data/Cinema/Wedding/flour_at_wedding.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Gfx3",ROMX
 ;---------------------------------------------------------------------
 flower_at_wedding_bg:
-  INCBIN "../fgbpix/Wedding/flower_at_wedding.bg"
+  INCBIN "Data/Cinema/Wedding/flower_at_wedding.bg"
 
 gang_watches_front_bg::
-  INCBIN "../fgbpix/Wedding/gang_watches_front.bg"
+  INCBIN "Data/Cinema/Wedding/gang_watches_front.bg"
 
 gyro_big_bg:
-  INCBIN "../fgbpix/Wedding/gyro_big.bg"
+  INCBIN "Data/Cinema/Wedding/gyro_big.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1103Dialog",ROMX

@@ -37,7 +37,7 @@ routine rogo_reid( old:String, new:String )
     return
   endIf
   execute ''reid --exact "$" "$" "Assets/**" "Data/**" "Source/**"'' (old,new)
-  execute @|lst Data/Cinema
+  #execute @|lst Data/Cinema
 endRoutine
 
 routine rogo_default

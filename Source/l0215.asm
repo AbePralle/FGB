@@ -18,10 +18,10 @@ L0215_Contents::
   DW L0215_Map
 
 brainiac_bg::
-  INCBIN "../fgbpix/Intro/brainiac.bg"
+  INCBIN "Data/Cinema/Intro/brainiac.bg"
 
 haiku_bg::
-  INCBIN "../fgbpix/MainCharDialog/haiku.bg"
+  INCBIN "Data/Cinema/MainCharDialog/haiku.bg"
 
 dialog:
 skippycapture_gyves1_gtx:

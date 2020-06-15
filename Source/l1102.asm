@@ -15,9 +15,9 @@ NEXTLEVELDIR EQU EXIT_D
 SECTION "Level1102Section2",ROMX
 ;---------------------------------------------------------------------
 flour_bg::
-  INCBIN "../fgbpix/MainCharDialog/flour_triumph.bg"
+  INCBIN "Data/Cinema/MainCharDialog/flour_triumph.bg"
 skippy_bg::
-  INCBIN "../fgbpix/MainCharDialog/skippy_triumph.bg"
+  INCBIN "Data/Cinema/MainCharDialog/skippy_triumph.bg"
 
 dialog:
 flour1_gtx:
@@ -51,16 +51,16 @@ skippy3_gtx:
   INCBIN "Data/Dialog/Intro/skippy3.gtx"
 
 triumph_small_sp:
-  INCBIN "../fgbpix/Intro/triumph_small.sp"
+  INCBIN "Data/Cinema/Intro/triumph_small.sp"
 
 bcs_vestigial_bg:
-  INCBIN "../fgbpix/Intro/bcs_vestigial.bg"
+  INCBIN "Data/Cinema/Intro/bcs_vestigial.bg"
 
 narrator_warroom_bg:
-  INCBIN "../fgbpix/Intro/narrator_warroom.bg"
+  INCBIN "Data/Cinema/Intro/narrator_warroom.bg"
 
 nar_crewquarters_bg:
-  INCBIN "../fgbpix/Intro/nar_crewquarters.bg"
+  INCBIN "Data/Cinema/Intro/nar_crewquarters.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1102Section",ROMX
@@ -73,15 +73,15 @@ L1102_Contents::
   DW L1102_Map
 
 moon_bg::
-  INCBIN "../fgbpix/Intro/moon.bg"
+  INCBIN "Data/Cinema/Intro/moon.bg"
 group_in_triumph_bg:
-  INCBIN "../fgbpix/Intro/group_in_triumph.bg"
+  INCBIN "Data/Cinema/Intro/group_in_triumph.bg"
 space_bg1_bg:
-  INCBIN "../fgbpix/Intro/space_bg1.bg"
+  INCBIN "Data/Cinema/Intro/space_bg1.bg"
 moontact_bg::
-  INCBIN "../fgbpix/Intro/moontact.bg"
+  INCBIN "Data/Cinema/Intro/moontact.bg"
 tactmap_bg:
-  INCBIN "../fgbpix/Intro/tactmap.bg"
+  INCBIN "Data/Cinema/Intro/tactmap.bg"
 
 ;---------------------------------------------------------------------
 ;  Load

@@ -10,10 +10,10 @@ INCLUDE "Source/levels.inc"
 SECTION "Level1402SectionData2",ROMX
 ;---------------------------------------------------------------------
 spacepan_bg:
-  INCBIN "../fgbpix/Distress/spacepan.bg"
+  INCBIN "Data/Cinema/Distress/spacepan.bg"
 
 final_bg:
-  INCBIN "../fgbpix/Distress/final.bg"
+  INCBIN "Data/Cinema/Distress/final.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402Section",ROMX
@@ -26,22 +26,22 @@ L1402_Contents::
   DW L1402_Map
 
 moon_mini_bg:
-  INCBIN "../fgbpix/Distress/moon_mini.bg"
+  INCBIN "Data/Cinema/Distress/moon_mini.bg"
 
 palace_bg:
-  INCBIN "../fgbpix/Distress/palace.bg"
+  INCBIN "Data/Cinema/Distress/palace.bg"
 
 flowernight_bg:
-  INCBIN "../fgbpix/Distress/flowernight.bg"
+  INCBIN "Data/Cinema/Distress/flowernight.bg"
   
 fgstars_sp:
-  INCBIN "../fgbpix/Distress/fgstars.sp"
+  INCBIN "Data/Cinema/Distress/fgstars.sp"
 
 yacht_mini_sp:
-  INCBIN "../fgbpix/Distress/yacht_mini.sp"
+  INCBIN "Data/Cinema/Distress/yacht_mini.sp"
 
 bee_sp:
-  INCBIN "../fgbpix/Distress/bee.sp"
+  INCBIN "Data/Cinema/Distress/bee.sp"
 
 dialog:
 lady_badNews_gtx:

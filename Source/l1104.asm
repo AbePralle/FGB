@@ -11,34 +11,34 @@ VAR_TAKEOFFPOS EQU 0
 SECTION "Level1104Gfx1",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_bg:
-  INCBIN "../fgbpix/Ending/appx_takeoff.bg"
+  INCBIN "Data/Cinema/Ending/appx_takeoff.bg"
 
 station_tactical_bg::
-  INCBIN "../fgbpix/Ending/station_tactical.bg"
+  INCBIN "Data/Cinema/Ending/station_tactical.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1104Gfx2",ROMX
 ;---------------------------------------------------------------------
 small_station_approach_bg:
-  INCBIN "../fgbpix/Ending/small_station_approach.bg"
+  INCBIN "Data/Cinema/Ending/small_station_approach.bg"
 
 big_station_approach_bg:
-  INCBIN "../fgbpix/Ending/big_station_approach.bg"
+  INCBIN "Data/Cinema/Ending/big_station_approach.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1104Gfx3",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_sprites_sp:
-  INCBIN "../fgbpix/Ending/appx_takeoff_sprites.sp"
+  INCBIN "Data/Cinema/Ending/appx_takeoff_sprites.sp"
 
 station_tactical_sprites_sp:
-  INCBIN "../fgbpix/Ending/station_tactical_sprites.sp"
+  INCBIN "Data/Cinema/Ending/station_tactical_sprites.sp"
 
 small_station_sprites_sp:
-  INCBIN "../fgbpix/Ending/small_station_sprites.sp"
+  INCBIN "Data/Cinema/Ending/small_station_sprites.sp"
 
 big_station_sprites_sp:
-  INCBIN "../fgbpix/Ending/big_station_sprites.sp"
+  INCBIN "Data/Cinema/Ending/big_station_sprites.sp"
 
 
 ;---------------------------------------------------------------------

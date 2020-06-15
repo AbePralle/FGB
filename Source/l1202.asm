@@ -19,13 +19,13 @@ L1202_Contents::
   DW L1202_Map
 
 triumphBIG_bg::
-  INCBIN "../fgbpix/Intro/triumphBIG.bg"
+  INCBIN "Data/Cinema/Intro/triumphBIG.bg"
 
 dropship_tiny_sp:
-  INCBIN "../fgbpix/Intro/dropship_tiny.sp"
+  INCBIN "Data/Cinema/Intro/dropship_tiny.sp"
 
 nar_skippyshuttle_bg:
-  INCBIN "../fgbpix/Intro/nar_skippyshuttle.bg"
+  INCBIN "Data/Cinema/Intro/nar_skippyshuttle.bg"
 
 dialog:
 blank_gtx:

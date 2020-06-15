@@ -10,34 +10,34 @@ INCLUDE "Source/levels.inc"
 SECTION "Level1204Gfx1",ROMX
 ;---------------------------------------------------------------------
 gyro_screen_bg:
-  INCBIN "../fgbpix/Ending/gyro_screen.bg"
+  INCBIN "Data/Cinema/Ending/gyro_screen.bg"
 
 button_bg:
-  INCBIN "../fgbpix/Ending/button.bg"
+  INCBIN "Data/Cinema/Ending/button.bg"
 
 minuteslater_bg:
-  INCBIN "../fgbpix/Ending/minuteslater.bg"
+  INCBIN "Data/Cinema/Ending/minuteslater.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 appland3d2_bg:
-  INCBIN "../fgbpix/Ending/appland3d2.bg"
+  INCBIN "Data/Cinema/Ending/appland3d2.bg"
 
 appland_sprites_sp:
-  INCBIN "../fgbpix/Ending/appland_sprites.sp"
+  INCBIN "Data/Cinema/Ending/appland_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Gfx2",ROMX
 ;---------------------------------------------------------------------
 willtheyland_bg:
-  INCBIN "../fgbpix/promo/willtheyland.bg"
+  INCBIN "Data/Cinema/promo/willtheyland.bg"
 
 haveseenthelast_bg:
-  INCBIN "../fgbpix/promo/haveseenthelast.bg"
+  INCBIN "Data/Cinema/promo/haveseenthelast.bg"
 
 publish_bg:
-  INCBIN "../fgbpix/promo/publish.bg"
+  INCBIN "Data/Cinema/promo/publish.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1204Section",ROMX

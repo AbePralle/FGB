@@ -25,46 +25,46 @@ VAR_LASTDIR   EQU 11
 SECTION "Level1401Gfx2",ROMX
 ;---------------------------------------------------------------------
 nokey_bg::
-  INCBIN "../fgbpix/Appomattox/nokey.bg"
+  INCBIN "Data/Cinema/Appomattox/nokey.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1401Gfx",ROMX
 ;---------------------------------------------------------------------
 lz_zorhaus_bg::
-  INCBIN "../fgbpix/Appomattox/lz_zorhaus.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_zorhaus.bg"
 
 lz_palace_bg::
-  INCBIN "../fgbpix/Appomattox/lz_palace.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_palace.bg"
 
 lz_croutongate_bg::
-  INCBIN "../fgbpix/Appomattox/lz_croutongate.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_croutongate.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1401SectionDataControlPanel",ROMX
 ;---------------------------------------------------------------------
 controlpanel_bg::
-  INCBIN "../fgbpix/Appomattox/controlpanel.bg"
+  INCBIN "Data/Cinema/Appomattox/controlpanel.bg"
 
 panelsprites_sp::
-  INCBIN "../fgbpix/Appomattox/panelsprites.sp"
+  INCBIN "Data/Cinema/Appomattox/panelsprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "Level1401Waves",ROMX
 ;---------------------------------------------------------------------
 appwaves0_dat::
-  INCBIN "../fgbpix/Appomattox/appwaves0.dat"
+  INCBIN "Data/Cinema/Appomattox/appwaves0.dat"
 
 appwaves1_dat::
-  INCBIN "../fgbpix/Appomattox/appwaves1.dat"
+  INCBIN "Data/Cinema/Appomattox/appwaves1.dat"
 
 appwaves2_dat::
-  INCBIN "../fgbpix/Appomattox/appwaves2.dat"
+  INCBIN "Data/Cinema/Appomattox/appwaves2.dat"
 
 appwaves3_dat::
-  INCBIN "../fgbpix/Appomattox/appwaves3.dat"
+  INCBIN "Data/Cinema/Appomattox/appwaves3.dat"
 
 appwaves4_dat::
-  INCBIN "../fgbpix/Appomattox/appwaves4.dat"
+  INCBIN "Data/Cinema/Appomattox/appwaves4.dat"
 
 
 ;---------------------------------------------------------------------

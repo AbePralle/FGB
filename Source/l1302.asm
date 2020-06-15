@@ -16,10 +16,10 @@ L1302_Contents::
   DW L1302_Map
 
 gyro_cornered_bg:
-  INCBIN "../fgbpix/Intro/gyrocornered.bg"
+  INCBIN "Data/Cinema/Intro/gyrocornered.bg"
 
 gyro_cornered_gun_sp:
-  INCBIN "../fgbpix/Intro/gyro_cornered_gun.sp"
+  INCBIN "Data/Cinema/Intro/gyro_cornered_gun.sp"
 
 dialog:
 gyro_cornered1_gtx:

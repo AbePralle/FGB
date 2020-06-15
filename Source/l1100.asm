@@ -15,35 +15,35 @@ EXITAPPOMATTOX EQU $1300
 SECTION "L1100Gfx1",ROMX
 ;---------------------------------------------------------------------
 select_grenade_sp:
-  INCBIN "../fgbpix/CharSelect/select_grenade.sp"
+  INCBIN "Data/Cinema/CharSelect/select_grenade.sp"
 
 select_grenade_name_bg:
-  INCBIN "../fgbpix/CharSelect/kgname.bg"
+  INCBIN "Data/Cinema/CharSelect/kgname.bg"
 
 ;---------------------------------------------------------------------
 SECTION "L1100Section",ROMX
 ;---------------------------------------------------------------------
 
 select_hero_bg:
-  INCBIN "../fgbpix/CharSelect/charselecthills.bg"
+  INCBIN "Data/Cinema/CharSelect/charselecthills.bg"
 
 select_ba_sp:
   INCBIN "charselect/select_ba.sp"
 
 select_ba_name_bg:
-  INCBIN "../fgbpix/CharSelect/select_ba_name.bg"
+  INCBIN "Data/Cinema/CharSelect/select_ba_name.bg"
 
 select_bs_sp:
   INCBIN "charselect/select_bs.sp"
 
 select_bs_name_bg:
-  INCBIN "../fgbpix/CharSelect/select_bs_name.bg"
+  INCBIN "Data/Cinema/CharSelect/select_bs_name.bg"
 
 select_haiku_sp:
   INCBIN "charselect/select_haiku.sp"
 
 select_haiku_name_bg:
-  INCBIN "../fgbpix/CharSelect/select_haiku_name.bg"
+  INCBIN "Data/Cinema/CharSelect/select_haiku_name.bg"
 
 L1100_Contents::
   DW L1100_Load

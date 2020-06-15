@@ -11,10 +11,10 @@ INCLUDE "Source/items.inc"
 SECTION "Level1203Gfx1",ROMX
 ;---------------------------------------------------------------------
 in_prison_bg:
-  INCBIN "../fgbpix/Wedding/in_prison.bg"
+  INCBIN "Data/Cinema/Wedding/in_prison.bg"
 
 bs_driving_bg:
-  INCBIN "../fgbpix/Wedding/bs_driving.bg"
+  INCBIN "Data/Cinema/Wedding/bs_driving.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1203Section",ROMX

@@ -17,111 +17,111 @@ VAR_SELSTAGE  EQU 6
 SECTION "Level1402SectionLZ1",ROMX
 ;---------------------------------------------------------------------
 lz_mist_bg::
-  INCBIN "../fgbpix/Appomattox/lz_mist.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_mist.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ2",ROMX
 ;---------------------------------------------------------------------
 lz_ice1_bg::
-  INCBIN "../fgbpix/Appomattox/lz_ice1.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_ice1.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ3",ROMX
 ;---------------------------------------------------------------------
 lz_gate_bg::
-  INCBIN "../fgbpix/Appomattox/lz_gate.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_gate.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ4",ROMX
 ;---------------------------------------------------------------------
 lz_brokenwall_bg::
-  INCBIN "../fgbpix/Appomattox/lz_brokenwall.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_brokenwall.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ5",ROMX
 ;---------------------------------------------------------------------
 lz_canyon_bg::
-  INCBIN "../fgbpix/Appomattox/lz_canyon.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_canyon.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ6",ROMX
 ;---------------------------------------------------------------------
 lz_desert_bg::
-  INCBIN "../fgbpix/Appomattox/lz_desert.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_desert.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ7",ROMX
 ;---------------------------------------------------------------------
 lz_graves_bg::
-  INCBIN "../fgbpix/Appomattox/lz_graves.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_graves.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ8",ROMX
 ;---------------------------------------------------------------------
 lz_icecubes_bg::
-  INCBIN "../fgbpix/Appomattox/lz_icecubes.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_icecubes.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ9",ROMX
 ;---------------------------------------------------------------------
 lz_jungle_bg::
-  INCBIN "../fgbpix/Appomattox/lz_jungle.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_jungle.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ10",ROMX
 ;---------------------------------------------------------------------
 lz_mountains_bg::
-  INCBIN "../fgbpix/Appomattox/lz_mountains.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_mountains.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ11",ROMX
 ;---------------------------------------------------------------------
 lz_ocean_bg::
-  INCBIN "../fgbpix/Appomattox/lz_ocean.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_ocean.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ12",ROMX
 ;---------------------------------------------------------------------
 lz_pencil_bg::
-  INCBIN "../fgbpix/Appomattox/lz_pencil.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_pencil.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionLZ13",ROMX
 ;---------------------------------------------------------------------
 lz_treepath_bg::
-  INCBIN "../fgbpix/Appomattox/lz_treepath.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_treepath.bg"
 
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionData3",ROMX
 ;---------------------------------------------------------------------
 lz_trees1_bg::
-  INCBIN "../fgbpix/Appomattox/lz_trees1.bg"
+  INCBIN "Data/Cinema/Appomattox/lz_trees1.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1402SectionData2",ROMX
 ;---------------------------------------------------------------------
 cloud0_bg::
-  INCBIN "../fgbpix/Appomattox/cloud0.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud0.bg"
 cloud1_bg::
-  INCBIN "../fgbpix/Appomattox/cloud1.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud1.bg"
 cloud2_bg::
-  INCBIN "../fgbpix/Appomattox/cloud2.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud2.bg"
 cloud3_bg::
-  INCBIN "../fgbpix/Appomattox/cloud3.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud3.bg"
 cloud4_bg::
-  INCBIN "../fgbpix/Appomattox/cloud4.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud4.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1400Section",ROMX
 ;---------------------------------------------------------------------
 
 cloud5_bg::
-  INCBIN "../fgbpix/Appomattox/cloud5.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud5.bg"
 cloud6_bg::
-  INCBIN "../fgbpix/Appomattox/cloud6.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud6.bg"
 cloud7_bg::
-  INCBIN "../fgbpix/Appomattox/cloud7.bg"
+  INCBIN "Data/Cinema/Appomattox/cloud7.bg"
 
 L1400_Contents::
   DW L1400_Load
