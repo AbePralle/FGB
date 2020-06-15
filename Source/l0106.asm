@@ -12,16 +12,16 @@ SECTION "LevelsSection0106",ROMX
 
 dialog:
 L0106_heysonny_gtx:
-  INCBIN "Data/Dialog/talk/L0106_heysonny.gtx"
+  INCBIN "Data/Dialog/Talk/L0106_heysonny.gtx"
 
 L0106_hero_seethem_gtx:
-  INCBIN "Data/Dialog/talk/L0106_hero_seethem.gtx"
+  INCBIN "Data/Dialog/Talk/L0106_hero_seethem.gtx"
 
 L0106_sure_gtx:
-  INCBIN "Data/Dialog/talk/L0106_sure.gtx"
+  INCBIN "Data/Dialog/Talk/L0106_sure.gtx"
 
 L0106_headnorth_gtx:
-  INCBIN "Data/Dialog/talk/L0106_headnorth.gtx"
+  INCBIN "Data/Dialog/Talk/L0106_headnorth.gtx"
 
 L0106_Contents::
   DW L0106_Load

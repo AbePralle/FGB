@@ -11,16 +11,16 @@ VAR_SELECTION EQU 0
 SECTION "Level1105Gfx1",ROMX
 ;---------------------------------------------------------------------
 savegame_bg:
-  INCBIN "../fgbpix/appomattox/savegame.bg"
+  INCBIN "../fgbpix/Appomattox/savegame.bg"
 
 cantsave_bg:
-  INCBIN "../fgbpix/appomattox/cantsave.bg"
+  INCBIN "../fgbpix/Appomattox/cantsave.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1105Gfx2",ROMX
 ;---------------------------------------------------------------------
 cantsave_flying_bg:
-  INCBIN "../fgbpix/appomattox/cantsave_flying.bg"
+  INCBIN "../fgbpix/Appomattox/cantsave_flying.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1105Section",ROMX

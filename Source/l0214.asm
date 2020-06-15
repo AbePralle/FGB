@@ -18,16 +18,16 @@ L0214_Contents::
 
 dialog:
 haiku_enterPrison_gtx:
-  INCBIN "Data/Dialog/intro_haiku/haiku_enterPrison.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/haiku_enterPrison.gtx"
 
 skippy_clues_gtx:
-  INCBIN "Data/Dialog/intro_haiku/skippy_clues.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/skippy_clues.gtx"
 
 skippy_letsGo_gtx:
-  INCBIN "Data/Dialog/intro_haiku/skippy_letsGo.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/skippy_letsGo.gtx"
 
 skippy_holdOn_gtx:
-  INCBIN "Data/Dialog/intro_haiku/skippy_holdOn.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/skippy_holdOn.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

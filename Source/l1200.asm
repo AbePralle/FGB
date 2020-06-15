@@ -23,19 +23,19 @@ fgbtitle_bg:
 SECTION "L1200DataSection2",ROMX
 ;---------------------------------------------------------------------
 kiwi1_bg::
-  INCBIN "../fgbpix/intro/kiwi1.bg"
+  INCBIN "../fgbpix/Appomattox/kiwi1.bg"
 
 kiwi2_bg::
-  INCBIN "../fgbpix/intro/kiwi2.bg"
+  INCBIN "../fgbpix/Appomattox/kiwi2.bg"
 
 kiwi3_bg::
-  INCBIN "../fgbpix/intro/kiwi3.bg"
+  INCBIN "../fgbpix/Appomattox/kiwi3.bg"
 
 landing_bg_bg::
-  INCBIN "../fgbpix/intro/landing_bg.bg"
+  INCBIN "../fgbpix/Appomattox/landing_bg.bg"
 
 landing_sprites_sp::
-  INCBIN "../fgbpix/intro/landing_sprites.sp"
+  INCBIN "../fgbpix/Appomattox/landing_sprites.sp"
 
 ;---------------------------------------------------------------------
 SECTION "L1200DataSection3",ROMX

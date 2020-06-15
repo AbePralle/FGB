@@ -14,7 +14,7 @@ SECTION "Level1301Section",ROMX
 ;---------------------------------------------------------------------
 
 fgbmap_bg:
-  INCBIN "../fgbpix/appomattox/fgbmap_big.bg"
+  INCBIN "../fgbpix/Appomattox/fgbmap_big.bg"
 
 L1301_Contents::
   DW L1301_Load

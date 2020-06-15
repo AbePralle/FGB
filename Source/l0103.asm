@@ -21,37 +21,37 @@ SECTION "Level0103Section",ROMX
 
 dialog:
 L0103_shootinfast_gtx:
-  INCBIN "Data/Dialog/talk/L0103_shootinfast.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_shootinfast.gtx"
 
 L0103_wrangling_gtx:
-  INCBIN "Data/Dialog/talk/L0103_wrangling.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_wrangling.gtx"
 
 L0103_bs_where_gtx:
-  INCBIN "Data/Dialog/talk/L0103_bs_where.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_bs_where.gtx"
 
 L0103_forest_gtx:
-  INCBIN "Data/Dialog/talk/L0103_forest.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_forest.gtx"
 
 L0103_bs_figures_gtx:
-  INCBIN "Data/Dialog/talk/L0103_bs_figures.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_bs_figures.gtx"
 
 L0103_learn_gtx:
-  INCBIN "Data/Dialog/talk/L0103_learn.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_learn.gtx"
 
 L0103_honey_gtx:
-  INCBIN "Data/Dialog/talk/L0103_honey.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_honey.gtx"
 
 L0103_hero_honeyresponse_gtx:
-  INCBIN "Data/Dialog/talk/L0103_hero_honeyresponse.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_hero_honeyresponse.gtx"
 
 L0103_gethoney_gtx:
-  INCBIN "Data/Dialog/talk/L0103_gethoney.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_gethoney.gtx"
 
 L0103_snakebitekit_gtx:
-  INCBIN "Data/Dialog/talk/L0103_snakebitekit.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_snakebitekit.gtx"
 
 L0103_seenyoubefore_gtx:
-  INCBIN "Data/Dialog/talk/L0103_seenyoubefore.gtx"
+  INCBIN "Data/Dialog/Talk/L0103_seenyoubefore.gtx"
 
 
 L0103_Contents::

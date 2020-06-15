@@ -11,34 +11,34 @@ VAR_TAKEOFFPOS EQU 0
 SECTION "Level1104Gfx1",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_bg:
-  INCBIN "../fgbpix/ending/appx_takeoff.bg"
+  INCBIN "../fgbpix/Ending/appx_takeoff.bg"
 
 station_tactical_bg::
-  INCBIN "../fgbpix/ending/station_tactical.bg"
+  INCBIN "../fgbpix/Ending/station_tactical.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1104Gfx2",ROMX
 ;---------------------------------------------------------------------
 small_station_approach_bg:
-  INCBIN "../fgbpix/ending/small_station_approach.bg"
+  INCBIN "../fgbpix/Ending/small_station_approach.bg"
 
 big_station_approach_bg:
-  INCBIN "../fgbpix/ending/big_station_approach.bg"
+  INCBIN "../fgbpix/Ending/big_station_approach.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1104Gfx3",ROMX
 ;---------------------------------------------------------------------
 appx_takeoff_sprites_sp:
-  INCBIN "../fgbpix/ending/appx_takeoff_sprites.sp"
+  INCBIN "../fgbpix/Ending/appx_takeoff_sprites.sp"
 
 station_tactical_sprites_sp:
-  INCBIN "../fgbpix/ending/station_tactical_sprites.sp"
+  INCBIN "../fgbpix/Ending/station_tactical_sprites.sp"
 
 small_station_sprites_sp:
-  INCBIN "../fgbpix/ending/small_station_sprites.sp"
+  INCBIN "../fgbpix/Ending/small_station_sprites.sp"
 
 big_station_sprites_sp:
-  INCBIN "../fgbpix/ending/big_station_sprites.sp"
+  INCBIN "../fgbpix/Ending/big_station_sprites.sp"
 
 
 ;---------------------------------------------------------------------
@@ -47,16 +47,16 @@ SECTION "Level1104Section",ROMX
 
 dialog:
 L1104_whereisgyro_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1104_whereisgyro.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1104_whereisgyro.gtx"
 
 L1104_station_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1104_station.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1104_station.gtx"
 
 L1104_apocalypse_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1104_apocalypse.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1104_apocalypse.gtx"
 
 L1104_letsgo_gtx:
-  INCBIN "Data/Dialog/apocalypse/L1104_letsgo.gtx"
+  INCBIN "Data/Dialog/Apocalypse/L1104_letsgo.gtx"
 
 
 L1104_Contents::

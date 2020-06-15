@@ -18,112 +18,112 @@ L0215_Contents::
   DW L0215_Map
 
 brainiac_bg::
-  INCBIN "../fgbpix/main_intro/brainiac.bg"
+  INCBIN "../fgbpix/Intro/brainiac.bg"
 
 haiku_bg::
-  INCBIN "../fgbpix/mainchardialog/haiku.bg"
+  INCBIN "../fgbpix/MainCharDialog/haiku.bg"
 
 dialog:
 skippycapture_gyves1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_gyves1.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_gyves1.gtx"
 
 skippycapture_gyves1_2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_gyves1_2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_gyves1_2.gtx"
 
 skippycapture_brainiac1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_brainiac1.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_brainiac1.gtx"
 
 skippycapture_skippy1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_skippy1.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_skippy1.gtx"
 
 skippycapture_skippy1_2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_skippy1_2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_skippy1_2.gtx"
 
 skippycapture_brainiac2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_brainiac2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_brainiac2.gtx"
 
 skippycapture_skippy2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_skippy2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_skippy2.gtx"
 
 skippycapture_brainiac3_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_brainiac3.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_brainiac3.gtx"
 
 skippycapture_flour1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_flour1.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_flour1.gtx"
 
 skippycapture_haiku1_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_haiku1.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_haiku1.gtx"
 
 skippycapture_flour2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_flour2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_flour2.gtx"
 
 skippycapture_haiku2_gtx:
-  INCBIN "Data/Dialog/main_intro/skippycapture_haiku2.gtx"
+  INCBIN "Data/Dialog/Intro/skippycapture_haiku2.gtx"
 
 ;----BS Dialog--------------------------------------
 
 bs_justYouAnMe_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_justYouAnMe.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_justYouAnMe.gtx"
 
 brainiac_sorry_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_sorry.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_sorry.gtx"
 
 bs_answerSomeQuestions_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_answerSomeQuestions.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_answerSomeQuestions.gtx"
 
 brainiac_lovzHelping_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_lovzHelping.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_lovzHelping.gtx"
 
 bs_showMe_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_showMe.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_showMe.gtx"
 
 brainiac_notNeedBRAINIAC_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_notNeedBRAINIAC.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_notNeedBRAINIAC.gtx"
 
 bs_gotAPoint_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_gotAPoint.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_gotAPoint.gtx"
 
 brainiac_sezAsk_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_sezAsk.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_sezAsk.gtx"
 
 bs_reallyHard_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_reallyHard.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_reallyHard.gtx"
 
 brainiac_canAnswerAny_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_canAnswerAny.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_canAnswerAny.gtx"
 
 bs_hereGoes_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_hereGoes.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_hereGoes.gtx"
 
 brainiac_computes1_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes1.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes1.gtx"
 
 brainiac_computes2_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes2.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes2.gtx"
 
 brainiac_computes3_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes3.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes3.gtx"
 
 brainiac_computes4_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes4.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes4.gtx"
 
 brainiac_computes5_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes5.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes5.gtx"
 
 brainiac_computes6_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes6.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes6.gtx"
 
 brainiac_computes7_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_computes7.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_computes7.gtx"
 
 bs_well_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_well.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_well.gtx"
 
 brainiac_surrender_gtx:
-  INCBIN "Data/Dialog/intro_bs/brainiac_surrender.gtx"
+  INCBIN "Data/Dialog/IntroBS/brainiac_surrender.gtx"
 
 bs_wellSee_gtx:
-  INCBIN "Data/Dialog/intro_bs/bs_wellSee.gtx"
+  INCBIN "Data/Dialog/IntroBS/bs_wellSee.gtx"
 
 STATE_MOVETOBRAINIAC  EQU 1
 STATE_GYROTALKDELAY1  EQU 2

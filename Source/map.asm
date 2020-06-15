@@ -4131,5 +4131,5 @@ DB  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  ;2468 +420
 SECTION "MapBGPix",ROMX
 ;---------------------------------------------------------------------
 waitingToJoin_bg:
-  INCBIN "../fgbpix/menu/waitingToJoin.bg"
+  INCBIN "../fgbpix/menu/WaitingToJoin.bg"
 

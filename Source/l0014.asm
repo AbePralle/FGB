@@ -18,13 +18,13 @@ L0014_Contents::
 
 dialog:
 haiku_warn_gtx:
-  INCBIN "Data/Dialog/intro_haiku/haiku_warn.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/haiku_warn.gtx"
 haiku_askOkay_gtx:
-  INCBIN "Data/Dialog/intro_haiku/haiku_askOkay.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/haiku_askOkay.gtx"
 quatrain_gtx:
-  INCBIN "Data/Dialog/intro_haiku/quatrain.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/quatrain.gtx"
 haiku_goAhead_gtx:
-  INCBIN "Data/Dialog/intro_haiku/haiku_goAhead.gtx"
+  INCBIN "Data/Dialog/IntroHaiku/haiku_goAhead.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

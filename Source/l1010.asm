@@ -18,13 +18,13 @@ SECTION "Level1010Section",ROMX
 
 dialog:
 L1010_amking_gtx:
-  INCBIN "Data/Dialog/talk/L1010_amking.gtx"
+  INCBIN "Data/Dialog/Talk/L1010_amking.gtx"
 
 L1010_cannotleave_gtx:
-  INCBIN "Data/Dialog/talk/L1010_cannotleave.gtx"
+  INCBIN "Data/Dialog/Talk/L1010_cannotleave.gtx"
 
 L1010_readytogo_gtx:
-  INCBIN "Data/Dialog/talk/L1010_readytogo.gtx"
+  INCBIN "Data/Dialog/Talk/L1010_readytogo.gtx"
 
 L1010_Contents::
   DW L1010_Load

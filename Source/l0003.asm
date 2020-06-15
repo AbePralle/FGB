@@ -18,19 +18,19 @@ SECTION "Level0003Section",ROMX
 
 dialog:
 L0003_wolves_gtx:
-  INCBIN "Data/Dialog/talk/L0003_wolves.gtx"
+  INCBIN "Data/Dialog/Talk/L0003_wolves.gtx"
 
 L0003_shootfast_gtx:
-  INCBIN "Data/Dialog/talk/L0003_shootfast.gtx"
+  INCBIN "Data/Dialog/Talk/L0003_shootfast.gtx"
 
 L0003_hero_jeb_gtx:
-  INCBIN "Data/Dialog/talk/L0003_hero_jeb.gtx"
+  INCBIN "Data/Dialog/Talk/L0003_hero_jeb.gtx"
 
 L0003_nevermind_gtx:
-  INCBIN "Data/Dialog/talk/L0003_nevermind.gtx"
+  INCBIN "Data/Dialog/Talk/L0003_nevermind.gtx"
 
 L0003_aboutjeb_gtx:
-  INCBIN "Data/Dialog/talk/L0003_aboutjeb.gtx"
+  INCBIN "Data/Dialog/Talk/L0003_aboutjeb.gtx"
 
 L0003_Contents::
   DW L0003_Load

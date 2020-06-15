@@ -24,13 +24,13 @@ SECTION "Level0010Section",ROMX
 
 dialog:
 L0010_mattermitter_gtx:
-  INCBIN "Data/Dialog/talk/L0010_mattermitter.gtx"
+  INCBIN "Data/Dialog/Talk/L0010_mattermitter.gtx"
 
 L0010_foundmask_gtx:
-  INCBIN "Data/Dialog/talk/L0010_foundmask.gtx"
+  INCBIN "Data/Dialog/Talk/L0010_foundmask.gtx"
 
 L0010_crate_gtx:
-  INCBIN "Data/Dialog/talk/L0010_crate.gtx"
+  INCBIN "Data/Dialog/Talk/L0010_crate.gtx"
 
 L0010_Contents::
   DW L0010_Load

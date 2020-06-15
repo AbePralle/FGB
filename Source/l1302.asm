@@ -16,23 +16,23 @@ L1302_Contents::
   DW L1302_Map
 
 gyro_cornered_bg:
-  INCBIN "../fgbpix/main_intro/gyrocornered.bg"
+  INCBIN "../fgbpix/Intro/gyrocornered.bg"
 
 gyro_cornered_gun_sp:
-  INCBIN "../fgbpix/main_intro/gyro_cornered_gun.sp"
+  INCBIN "../fgbpix/Intro/gyro_cornered_gun.sp"
 
 dialog:
 gyro_cornered1_gtx:
-  INCBIN "Data/Dialog/main_intro/gyro_cornered1.gtx"
+  INCBIN "Data/Dialog/Intro/gyro_cornered1.gtx"
 
 gyro_cornered2_gtx:
-  INCBIN "Data/Dialog/main_intro/gyro_cornered2.gtx"
+  INCBIN "Data/Dialog/Intro/gyro_cornered2.gtx"
 
 gyro_cornered3_gtx:
-  INCBIN "Data/Dialog/main_intro/gyro_cornered3.gtx"
+  INCBIN "Data/Dialog/Intro/gyro_cornered3.gtx"
 
 gyro_cornered4_gtx:
-  INCBIN "Data/Dialog/main_intro/gyro_cornered4.gtx"
+  INCBIN "Data/Dialog/Intro/gyro_cornered4.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

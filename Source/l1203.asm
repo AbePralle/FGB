@@ -11,10 +11,10 @@ INCLUDE "Source/items.inc"
 SECTION "Level1203Gfx1",ROMX
 ;---------------------------------------------------------------------
 in_prison_bg:
-  INCBIN "../fgbpix/wedding/in_prison.bg"
+  INCBIN "../fgbpix/Wedding/in_prison.bg"
 
 bs_driving_bg:
-  INCBIN "../fgbpix/wedding/bs_driving.bg"
+  INCBIN "../fgbpix/Wedding/bs_driving.bg"
 
 ;---------------------------------------------------------------------
 SECTION "Level1203Section",ROMX
@@ -22,34 +22,34 @@ SECTION "Level1203Section",ROMX
 
 dialog:
 flour_heyguys_gtx:
-  INCBIN "Data/Dialog/wedding/flour_heyguys.gtx"
+  INCBIN "Data/Dialog/Wedding/flour_heyguys.gtx"
 
 bs_explain_gtx:
-  INCBIN "Data/Dialog/wedding/bs_explain.gtx"
+  INCBIN "Data/Dialog/Wedding/bs_explain.gtx"
 
 bs_explain2_gtx:
-  INCBIN "Data/Dialog/wedding/bs_explain2.gtx"
+  INCBIN "Data/Dialog/Wedding/bs_explain2.gtx"
 
 captain_interrupt_gtx:
-  INCBIN "Data/Dialog/wedding/captain_interrupt.gtx"
+  INCBIN "Data/Dialog/Wedding/captain_interrupt.gtx"
 
 captain_tellyouwhat_gtx:
-  INCBIN "Data/Dialog/wedding/captain_tellyouwhat.gtx"
+  INCBIN "Data/Dialog/Wedding/captain_tellyouwhat.gtx"
 
 captain_key_gtx:
-  INCBIN "Data/Dialog/wedding/captain_key.gtx"
+  INCBIN "Data/Dialog/Wedding/captain_key.gtx"
 
 captain_dosomething_gtx:
-  INCBIN "Data/Dialog/wedding/captain_dosomething.gtx"
+  INCBIN "Data/Dialog/Wedding/captain_dosomething.gtx"
 
 captain_camp_gtx:
-  INCBIN "Data/Dialog/wedding/captain_camp.gtx"
+  INCBIN "Data/Dialog/Wedding/captain_camp.gtx"
 
 bs_driving_gtx:
-  INCBIN "Data/Dialog/wedding/bs_driving.gtx"
+  INCBIN "Data/Dialog/Wedding/bs_driving.gtx"
 
 bs_palace_gtx:
-  INCBIN "Data/Dialog/wedding/bs_palace.gtx"
+  INCBIN "Data/Dialog/Wedding/bs_palace.gtx"
 
 
 L1203_Contents::

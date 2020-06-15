@@ -19,17 +19,17 @@ L1202_Contents::
   DW L1202_Map
 
 triumphBIG_bg::
-  INCBIN "../fgbpix/main_intro/triumphBIG.bg"
+  INCBIN "../fgbpix/Intro/triumphBIG.bg"
 
 dropship_tiny_sp:
-  INCBIN "../fgbpix/main_intro/dropship_tiny.sp"
+  INCBIN "../fgbpix/Intro/dropship_tiny.sp"
 
 nar_skippyshuttle_bg:
-  INCBIN "../fgbpix/main_intro/nar_skippyshuttle.bg"
+  INCBIN "../fgbpix/Intro/nar_skippyshuttle.bg"
 
 dialog:
 blank_gtx:
-  INCBIN "Data/Dialog/main_intro/blank.gtx"
+  INCBIN "Data/Dialog/Intro/blank.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

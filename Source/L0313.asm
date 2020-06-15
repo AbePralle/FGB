@@ -17,7 +17,7 @@ L0313_Contents::
 
 dialog:
 intercom_gtx:
-  INCBIN "Data/Dialog/main_intro/intercom.gtx"
+  INCBIN "Data/Dialog/Intro/intercom.gtx"
 
 ;---------------------------------------------------------------------
 ;  Load

@@ -15,7 +15,7 @@ SECTION "Level0008Section",ROMX
 
 dialog:
 L0008_findspray_gtx:
-  INCBIN "Data/Dialog/talk/L0008_findspray.gtx"
+  INCBIN "Data/Dialog/Talk/L0008_findspray.gtx"
 
 L0008_Contents::
   DW L0008_Load
