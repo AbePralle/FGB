@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LevelEditor - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\WINDOWS\TEMP\RSP60B1.TMP" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Aprogs\FGBEditor\Controls.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP60B1.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP60B2.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/LevelEditor.pdb" /machine:I386 /out:"Release/LevelEditor.exe" 
+.\Release\BGColorDialog.obj
+.\Release\ChildView.obj
+.\Release\ClassList.obj
+.\Release\ClassListList.obj
+.\Release\Controls.obj
+.\Release\LevelEditor.obj
+.\Release\LinkExitsDialog.obj
+.\Release\MainFrm.obj
+.\Release\MapWin.obj
+.\Release\StdAfx.obj
+.\Release\TerrainTiles.obj
+.\Release\TileLimitDialog.obj
+.\Release\WayPointList.obj
+.\Release\ZoneList.obj
+.\Release\wingk.obj
+.\Release\LevelEditor.res
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP60B2.TMP"
+<h3>Output Window</h3>
+Compiling...
+Controls.cpp
+Linking...
+LINK : warning LNK4089: all references to "comdlg32.dll" discarded by /OPT:REF
+Creating temporary file "C:\WINDOWS\TEMP\RSP6130.BAT" with contents
+[
+@echo off
+copy /y Release\*.exe .
+]
+Creating command line "C:\WINDOWS\TEMP\RSP6130.BAT"
+Copy EXE to parent directory
+Release\LevelEditor.exe
+        1 file(s) copied
+
+
+
+<h3>Results</h3>
+LevelEditor.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>
