@@ -1,6 +1,13 @@
+===============================================================================
+Source Code
+
+The source code for the FGB game (Source/ folder) and the included editors
+(Tools/ folder) is released under the MIT license, as are the essential data
+files for the editors.
+===============================================================================
 MIT License
 
-Copyright (c) 2020 AbePralle
+Copyright (c) 2000, 2020 Abe Pralle and Jacob Stevens
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +26,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+===============================================================================
+Game Data and Intellectual Property
+
+The FGB game data files in the Data/ folder and all intellectual property
+(characters, art, dialog, maps, music, etc.) - collectively, "the FGB IP" - are
+released under the following Creative Commons license.
+===============================================================================
+The FGB IP by Abe Pralle and Jacob Stevens is licensed under CC BY-NC-SA 4.0
+https://creativecommons.org/licenses/by-nc-sa/4.0
+
