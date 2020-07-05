@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: GBConv2 - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/GBConv2.res" /d "NDEBUG" "D:\Aprogs\GBConv2\GBConv2.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP1245.TMP" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/GBConv2.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Aprogs\GBConv2\BGSaveDialog.cpp"
+"D:\Aprogs\GBConv2\ChildFrm.cpp"
+"D:\Aprogs\GBConv2\ChildView.cpp"
+"D:\Aprogs\GBConv2\Controls.cpp"
+"D:\Aprogs\GBConv2\EditArea.cpp"
+"D:\Aprogs\GBConv2\EditPaletteDialog.cpp"
+"D:\Aprogs\GBConv2\gb_pic.cpp"
+"D:\Aprogs\GBConv2\GBConv2.cpp"
+"D:\Aprogs\GBConv2\MainFrm.cpp"
+"D:\Aprogs\GBConv2\PaletteButton.cpp"
+"D:\Aprogs\GBConv2\PaletteListBox.cpp"
+"D:\Aprogs\GBConv2\wingk.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP1245.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP1246.TMP" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/GBConv2.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\Aprogs\GBConv2\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP1246.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP1247.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/GBConv2.pdb" /machine:I386 /out:"Release/GBConv2.exe" 
+.\Release\BGSaveDialog.obj
+.\Release\ChildFrm.obj
+.\Release\ChildView.obj
+.\Release\Controls.obj
+.\Release\EditArea.obj
+.\Release\EditPaletteDialog.obj
+.\Release\gb_pic.obj
+.\Release\GBConv2.obj
+.\Release\MainFrm.obj
+.\Release\PaletteButton.obj
+.\Release\PaletteListBox.obj
+.\Release\StdAfx.obj
+.\Release\wingk.obj
+.\Release\GBConv2.res
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP1247.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+BGSaveDialog.cpp
+ChildFrm.cpp
+ChildView.cpp
+Controls.cpp
+EditArea.cpp
+EditPaletteDialog.cpp
+gb_pic.cpp
+GBConv2.cpp
+MainFrm.cpp
+PaletteButton.cpp
+PaletteListBox.cpp
+wingk.cpp
+Generating Code...
+Linking...
+Creating temporary file "C:\WINDOWS\TEMP\RSP1370.BAT" with contents
+[
+@echo off
+copy /y Release\*.exe .
+]
+Creating command line "C:\WINDOWS\TEMP\RSP1370.BAT"
+copy exe from Release directory
+Release\GBConv2.exe
+        1 file(s) copied
+
+
+
+<h3>Results</h3>
+GBConv2.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
