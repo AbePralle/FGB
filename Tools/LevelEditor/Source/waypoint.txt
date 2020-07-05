@@ -1,0 +1,20 @@
+Manipulating Paths and Waypoints:
+
+Click on "Show Zones"
+
+
+Waypoints:
+  Set:  Click on orange button, left-click on map to place new waypoint.
+	Delete:  Right-click on existing waypoint.
+
+Path:
+  Place waypoint in current zone, adjacent zone, and destination zone.
+	With waypoint button selected, right-click on the "from" zone (but
+	not on a waypoint), left-click on "from" zone's waypoint, adjacent
+	zone's waypoint, destination zone's waypoint, and finally destination
+	zone (not on waypoint).
+
+To show paths leaving a specific zone:
+  Select zone color but not waypoint button.  Right click on an existing
+	zone.
+
