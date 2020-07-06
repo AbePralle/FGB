@@ -1,0 +1,13 @@
+mv fgb03_starfield.png FGB-01-Starfield.png
+mv fgb04_appomattox.png FGB-02-Appomattox.png
+mv fgb05_pansies.png FGB-03-Pansies.png
+mv fgb06_hive.png FGB-04-Hive.png
+mv fgb07_river.png FGB-05-River.png
+mv fgb08_ba.png FGB-06-BA.png
+mv fgb09_bs.png FGB-07-BS.png
+mv fgb10_haiku.png FGB-08-Haiku.png
+mv fgb11_war.png FGB-09-War.png
+mv fgb12_crouton.png FGB-10-Crouton.png
+mv fgb13_mapeditor1.png FGB-11-MapEditor1.png
+mv fgb14_mapeditor2.png FGB-12-MapEditor2.png
+mv fgb15_tileconverter.png FGB-13-TileConverter.png
