@@ -26,8 +26,25 @@ The pre-compiled FGB ROM for Game Boy Color is [here](ROMS/fgb.gb).
 ## Tools
 - Each of the following tools is provided as a precompiled Windows `exe` along with their original source code.
 - These `exe` files were last compiled circa 2000. No attempt has been made to update their project source. The Level Editor and Image Converter `exe`'s are both confirmed to work on Windows 10.
-- During its original development, FGB was essentially a single folder containing hundreds of files. Because of this, each tool typically expects its data files to be in the same folder as the tool itself. Data files will need to be moved into each tool folder as inputs and the result moved back to the appropriate location.
-each of the following tools was designed to
-All of the editors and conversion tools
+- During its original development, FGB was essentially a single folder containing hundreds of files. Because of this, each tool typically expects its data files to be in the same folder as the tool itself.
+- This project has now been reorganized to cleanly separate original assets, converted data, and source code into separate folders.
+- As such data files will generally need to be moved into each tool folder as inputs and the results moved back to the appropriate location if the editors are used.
+- Ideally at some point Abe Pralle or a contributer will update the editor projects to be in a modern Visual Studio format and adjust the input and output locations to utilize the current folder structure.
+
+### LevelEditor
+
+![Level Editor](Media/Screenshots/LevelEditor.png)
+
+1. Refer to `Media/DesignDocs/WorldMap.xls` (slightly out of date) to identify levels you want to edit.
+2. Copy corresponding `Data/Levels/*.lvl` files to `Tools/LevelEditor`.
+3. Run `Tools/LevelEditor`, load, edit, and save the levels.
+4. Copy the modified levels back to `Data/Levels/`.
+
+### GBConv2
+
+![GBConv2](Media/Screenshots/GBConv2.png)
+
+1.
+
 
 ## About
