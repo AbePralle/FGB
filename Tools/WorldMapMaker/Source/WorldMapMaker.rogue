@@ -12,33 +12,13 @@ class WorldMapMaker
   METHODS
     method init
       File.create_folder( "Images" )
-      #forEach (filepath in File.listing("../../Data/Levels/L*.lvl"))
-        local filepath = "../../Data/Levels/L0001.lvl"
+      forEach (filepath in File.listing("../../Data/Levels/L*.lvl"))
+        #local filepath = "../../Data/Levels/L0001.lvl"
         println filepath
         local level = FGBLevel( filepath )
         level.render.save_as_png( "Images/$.png"(level.level_number.format("04")) )
-        #endForEach
-endClass
-
-class Graphics [singleton]
-  PROPERTIES
-    tiles = Bitmap[]
-
-  METHODS
-    method init
-      tiles.add( load_with_black_as_transparent("../LevelEditor/background0001-1535.bmp").split(32,64) )
-      tiles.add( load_with_black_as_transparent("../LevelEditor/objects2048-2303.bmp").split(32,32) )
-
-    method load_with_black_as_transparent( filename:String )->Bitmap
-      local bmp = Bitmap( File(filename) )
-      forEach (pixel at index in bmp.pixels)
-        if (pixel.argb == 0xff000000)
-          bmp.pixels[ index ] = Color(0)
-        endIf
       endForEach
-      return bmp
 endClass
-
 
 class FGBLevel
   PROPERTIES
@@ -84,11 +64,9 @@ class FGBLevel
       pitch  = reader.read
       height = reader.read
 
-      trace width, pitch, height
       forEach (j in 0..<height)
         forEach (i in 0..<width)
           local index = reader.read
-trace index, classes.count
           require (index >= 0 and index < classes.count)
           tiles.add( classes[index] )
         endForEach
@@ -107,7 +85,7 @@ trace index, classes.count
       local color_low  = reader.read : Int32
       local color_high = reader.read : Int32
       local color = (color_high :<<: 8) | color_low
-      bg_color = Color( color_5_to_8(color), color_5_to_8(color:>>:5), color_5_to_8(color:>>:10) )
+      bg_color = Graphics.color_16_to_32( color )
 
       # Waypoint List
       # TODO (investigate starting at Tools/LevelEditor/Source/Controls.cpp line 393)
@@ -135,8 +113,278 @@ trace index, classes.count
         endForEach
       endForEach
       return result
+endClass
+
+class Graphics [singleton]
+  PROPERTIES
+    tiles    = Bitmap[]
+
+  METHODS
+    method init
+      tiles.add( load_with_black_as_transparent("../LevelEditor/background0001-1535.bmp").split(32,64) )
+      tiles.add( load_with_black_as_transparent("../LevelEditor/objects2048-2303.bmp").split(32,32) )
+
+      # Loads binary data - but tile color table is incomplete to using the pre-rendered images above instead.
+      #tiles.add( forEach in TileData )
+      #save_tileset
+
+    method color_16_to_32( c:Int32 )->Color
+      return Color( color_5_to_8(c), color_5_to_8(c:>>:5), color_5_to_8(c:>>:10) )
 
     method color_5_to_8( c:Int32 )->Int32
       c &= 0x1F
       return ((c / Real64(0x1F)) * 255)->Int32
+
+    method load_with_black_as_transparent( filename:String )->Bitmap
+      local bmp = Bitmap( File(filename) )
+      forEach (pixel at index in bmp.pixels)
+        if (pixel.argb == 0xff000000)
+          bmp.pixels[ index ] = Color(0)
+        endIf
+      endForEach
+      return bmp
+
+    method save_tileset
+      local w = 32
+      local h = TileData.count / 32
+      local bitmap = Bitmap( w*8, h*8, 0 )
+      local reader = tiles.reader
+      forEach (j in 0..<h)
+        forEach (i in 0..<w)
+          reader.read.blit( bitmap, i*8, j*8, BitmapBlitFn.ALPHA )
+        endForEach
+      endForEach
+      println "Saving Tileset.png"
+      bitmap.save_as_png( "Tileset.png" )
+endClass
+
+class TileData [singleton]
+  DEFINITIONS
+    COLOR_MASK        = 7
+
+    BG_CAN_WALK_OVER  = 8
+    BG_CAN_SHOOT_OVER = 16
+    BG_CAN_ATTACK     = 32
+
+    FG_IS_BULLET      = 16
+    FG_IS_2X2         = 32
+    FG_NO_ROTATE      = 64
+    FG_NO_SHOVE       = 128
+
+  PROPERTIES
+    bytes       = Byte[]
+    tile_index  = 0
+    reader      : BitReader
+    palettes    = Color[][]
+    flags       = Byte[][
+      #0=Grey, 1=Red, 2=Blue, 3=Green, 4=Purple, 5=Yellow, 6=Brown/Orange, 7=Fuscia
+      #+8=can walk over
+      #+16=can shoot over
+      #+32=attackable
+
+      #1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6  7  8  9  0
+       0, 0, 0, 4, 2, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, #  1- 20
+       0, 3, 3, 3, 3, 3,34,34,34,34,34,34,34,34,34,34,34,34,34,34, # 21- 40
+      34,34,34,34,34,34,34,34,34,34, 1, 1, 1, 1, 2, 2, 2, 2, 6, 6, # 41- 60
+       6, 6, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, # 61- 80
+       6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, # 81-100
+       0, 0, 0, 0, 0,38,38,38,38, 2,36,36,36,36,36,36,36,36,36,36, #101-120
+      36,36,39, 6, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 4, 4, 4, 4, 5, #121-140
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, #141-160
+       2, 2, 2, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #161-180
+       0, 0, 0, 6, 4, 1, 5, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, #181-200
+       4, 4, 4, 4, 6, 6, 6, 6, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, #201-220
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, #221-240
+       3, 3, 3, 3, 3, 3, 0,16, 0, 6, 6, 3, 3, 3, 3, 0,37,37,37,37, #241-260
+      37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37, #261-280
+      37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,37, #281-300
+      37,37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #301-320
+       0, 0,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,18, #321-340
+      18,18, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #341-360
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, #361-380
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, #381-400
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, #401-420
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 5, 5, 5, 5, #421-440
+       5, 5, 5, 6,18,18,18,18,18,18,18,18,18,18,18,18, 0, 0, 0,18, #441-460 water
+      18,18,18,22,22,22,22,22,22,22,22,22,22,22,22,22,22, 7, 4, 4, #461-480 bank
+       4, 4, 4, 4, 7, 7, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 3, 3, #481-500
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, #501-520
+       3, 3, 3, 3, 3, 3, 3, 3, 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, #521-540
+       2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, #541-560
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #561-580
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #581-600
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, #601
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, #621
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #641
+       0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, #661
+       4, 4, 4, 6, 6, 6, 6, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 3, 6, 3, #681
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 3, 3, 3, 3, #701
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, #721
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, #741
+       1, 1, 1, 1, 1, 1, 0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #761
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #781
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #801
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #821
+       6, 6, 6, 6, 6,38, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,38, 6, 0, #841
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, #861
+       1, 1, 1, 1, 1, 1, 0, 0, 0, 0,32, 0, 3, 3, 3, 3,35, 3, 5, 5, #881
+       5, 5,37, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, #901
+       6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, #921
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, #941
+       0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 5, 5,37, 5, 1, 1, 1, 1, #961
+       5, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #981
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1001
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1021
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1041
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,34,34,34,34, 2, 2, 2, 2, #1061
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, #1081
+       1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1,24,24,24,24, #1101
+      24,24,24,24,24,24,24,24,24,24,24,24, 0, 0, 0, 2, 2, 0, 0, 0, #1121
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,32, #1141
+      32, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1161
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1181
+       3, 6, 6, 6, 6, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #1201
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 3, 3, 3, #1221
+       3, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, #1241
+       4,32,32,32,32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 6, 0, #1261
+       2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 0,32,32, 0, 0, 0, 0, 0, 0, 0, #1281
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1301
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, #1321
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 5, 2, 2, 3, #1341
+       3, 3, 3, 1, 1, 3, 3, 3, 3, 3, 6, 5, 5, 3, 3, 3, 2, 2, 2, 2, #1361
+       2, 2, 2, 0, 0, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1381
+       0,35,35,35,35,35, 8, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1401
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1421
+       0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 2, 2, 0, 0, 0, 0, 0, 5, 6, 6, #1441
+       1, 3, 2,33,33,33,33,34,34,34,34,38,38,38,38,32,32,32,32,32, #1461
+      32,32,32,32,32,32,32,32,32,33,33,33,33,35,35,35,35,35,35,35, #1481
+      35,35,35,35,35,35,35,35,35,35,35,29,37,37,37,37,37,37,37,37, #1501
+      37,37,37,37,37,37,37,37,37,37,37,37,16,25,25,25,29,30,32,32, #1521
+      32,32,32,32,32,32, 4, 4, 4, 4,53,53,53,53,53,53,53,53,53,53, #1541
+      53,53,53,53,53,53,53,53, 0, 0, 0,30,29, 2, 2, 2, 2, 2, 2, 2, #1561
+       2, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #1581
+       6, 6, 6, 6, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, #1601
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1621
+       0, 0,32,32,32,32,32,32,32,32,32,30, 6, 6, 6, 6, 6, 6, 6, 6, #1641
+       6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, #1661
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, #1681
+       2, 2, 2, 0, 2, 2, 2, 2, 2, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, #1701
+       6, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, #1721
+       6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 3, 3, 3, 0, #1741
+       0, 3, 3, 3, 0,32,32,32,32,32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1761
+       0,32,32, 0, 0,32,32, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, #1781
+       2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, #1801
+       1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, #1821
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,33, 1,34, 2,33,33, #1841
+       1, 1,34,34, 2, 2,33,33, 1, 1,34,34, 2, 2, 6, 0, 0, 0, 0,24, #1861
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1881
+       1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1901
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1921
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1941
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1961
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #1981
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2001
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5, #2021
+       0, 0,25, 0, 0, 5, 1, 0,                                     #2041-2047
+
+      #0=Grey, 1=Red, 2=Blue, 3=Green, 4=Purple, 5=Yellow, 6=Brown/Orange, 7=Fuscia
+      # + any combination of:
+      #16 = is bullet
+      #32 = 2x2 monster
+      #64 = no rotate when facing N/S
+      #128 = can't be thrown (probably stationary)
+       4, 4, 2, 2, 5, 5, 1, 1, 2, 2, 3, 3, 3, 3,64, 2, 2, 6, 6,64, #2048 +0
+       0,133,5, 0, 0, 0, 0, 0, 0, 1, 0, 6, 6, 4, 0, 4, 0, 5, 5, 5, #2068 +20
+       5,195,195,0,0,65,65, 6, 6,70,70,67, 0, 0,35,35,35,35,35,35, #2088 +40
+       0, 0, 0, 0, 2, 2, 5, 5, 6, 6, 0, 0,38,38,38,38,38,38,38,38, #2108 +60
+       6, 6,16,16,16,16,16,16, 3, 3, 0, 0,165,165,165,165,2,2,1,1, #2128 +80
+       4, 0, 0, 0, 2, 2, 3, 3, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, #2148 +100
+      166,0, 0, 0, 0, 0,70,70,70,70,64,64,65,65,66,66,35,35,35,35, #2168 +120
+      35,35, 0, 0, 6, 6, 6, 6,66,66,70,70, 6, 6,16,16, 6, 6,16,16, #2188 +140
+       0, 0,16,16,16,16,16,16,16,16,16,16, 6, 6,38,38,38,38,38,38, #2208 +160
+      38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,37,37, #2228 +180
+      37,37,37,37,37,37, 3, 3, 5, 5,33,33,33,33,33,33,33,33, 1, 1, #2248 +200
+      34,34,34,34,34,34,34,34, 5, 5, 4, 4, 0, 0, 5, 5, 5, 5, 0, 0, #2268 +220
+       3, 3, 1, 1, 4, 4,16,16,34,34,34,34,19,19, 0, 0,64,64,65,65, #2288 +240
+       3, 3, 5, 5, 0, 0, 0, 6, 6,21,21,38,38,38,38,38,38,38,38, 3, #2308 +260
+       3, 7, 7, 5, 6, 6, 6,37, 5, 5, 5,37, 5, 5, 5,163,3, 3, 3, 6, #2328 +280
+       6, 6, 6,35, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,32, 0, 0, 0, 0, 0, #2348 +300
+       0, 0,32, 0, 0, 0,38, 0, 0, 0, 0, 0, 0, 0,16, 0, 1, 0, 2, 0, #2368 +320
+       3, 0,35, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,70, 0, 0, 0, 0, 0, #2388 +340
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2408 +360
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2428 +380
+       0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 5, 0, 1, 0, 0, 0, 0, 0, #2448 +400
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2468 +420
+       0, 0, 0, 0, 0, 0, 0, 0                                      #2488 +440
+    ]
+
+  METHODS
+    method init
+      palettes.clear
+      add_palette( 0x0000, 0x2108, 0x4210, 0x7fff )   # Palette 0 (Grey)
+      add_palette( 0x0000, 0x000A, 0x001f, 0x7fff )   # Palette 1 (Red)
+      add_palette( 0x0000, 0x5000, 0x7e00, 0x7fff )   # Palette 2 (Blue)
+      add_palette( 0x0000, 0x0140, 0x03e0, 0x7fff )   # Palette 3 (Green)
+      add_palette( 0x0000, 0x4008, 0x5192, 0x7fff )   # Palette 4 (Purple)
+      add_palette( 0x0000, 0x01cd, 0x03fe, 0x7fff )   # Palette 5 (Yellow)
+      add_palette( 0x0000, 0x00d1, 0x09ff, 0x7fff )   # Palette 6 (Brown)
+      add_palette( 0x0000, 0x4412, 0x799c, 0x7fff )   # Palette 7 (Fuscia)
+
+      bytes.clear
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles1-256.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles257-512.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles513-768.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles769-979.bin") )
+      loop (688) bytes.add( 0 )  # pad to 1023
+
+      loop (16) bytes.add( 0 )   # 1024
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles1024-1279.bin") )  # actual fg tile indices are +1 on all these
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles1280-1535.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles1536-1791.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/bgTiles1792-2047.bin") )
+      loop (16) bytes.add( 0 )   # 1024
+
+      bytes.add( File.load_as_bytes("../../Data/Tiles/fgTiles2048-2302.bin") )
+      bytes.add( File.load_as_bytes("../../Data/Tiles/fgTiles2304-2559.bin") )
+      loop (32*16) bytes.add( 0 )   # pad to 2496 tiles
+      trace bytes.count/16
+      trace flags.count
+
+      reset
+
+    method reset
+      reader     = BitReader( bytes )
+      tile_index = 0
+
+    method add_palette( c0:Int32, c1:Int32, c2:Int32, c3:Int32 )
+      local palette = Color[]
+      palette.add( Graphics.color_16_to_32(c0) )
+      palette.add( Graphics.color_16_to_32(c1) )
+      palette.add( Graphics.color_16_to_32(c2) )
+      palette.add( Graphics.color_16_to_32(c3) )
+      palettes.add( palette )
+
+    method count->Int32
+      return flags.count
+
+    method has_another->Logical
+      return tile_index < flags.count
+
+    method read->Bitmap
+      local bits = Int32[]
+      local bitmap = Bitmap( 8, 8, Color[](64) )
+      local palette = palettes[ flags[tile_index] & COLOR_MASK ]
+      loop 8
+        bits.clear
+        loop (8) bits.add( reader.read(1) )
+        forEach (v in bits)
+          v = (reader.read(1):<<:1) | v
+          bitmap.pixels.add( palette[v] )
+        endForEach
+      endLoop
+
+      ++tile_index
+
+      return bitmap
+
 endClass
