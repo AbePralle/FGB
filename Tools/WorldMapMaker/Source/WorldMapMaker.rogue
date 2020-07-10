@@ -11,9 +11,9 @@ WorldMapMaker()
 class WorldMapMaker
   METHODS
     method init
+      println "Generating level Images/"
       File.create_folder( "Images" )
       forEach (filepath in File.listing("../../Data/Levels/L*.lvl"))
-        #local filepath = "../../Data/Levels/L0001.lvl"
         println filepath
         local level = FGBLevel( filepath )
         level.render.save_as_png( "Images/$.png"(level.level_number.format("04")) )
@@ -108,7 +108,7 @@ class FGBLevel
         forEach (i in 1..<width-1)
           local tile = this.get(i,j)
           if (tile > 0)
-            Graphics.tiles[ this.get(i,j) ].blit( result, (i-1)*16, (j-1)*16, BitmapBlitFn.ALPHA )
+            Graphics[ this.get(i,j) ].blit( result, (i-1)*16, (j-1)*16, BitmapBlitFn.ALPHA )
           endIf
         endForEach
       endForEach
@@ -117,14 +117,30 @@ endClass
 
 class Graphics [singleton]
   PROPERTIES
-    tiles    = Bitmap[]
+    tiles       = Bitmap[]
+    facings     = Bitmap[][]
+    first_actor : Int32
+
 
   METHODS
     method init
       tiles.add( load_with_black_as_transparent("../LevelEditor/background0001-1535.bmp").split(32,64) )
-      tiles.add( load_with_black_as_transparent("../LevelEditor/objects2048-2303.bmp").split(32,32) )
 
-      # Loads binary data - but tile color table is incomplete to using the pre-rendered images above instead.
+      first_actor = tiles.count
+      tiles.add( load_with_black_as_transparent("../LevelEditor/objects2048-2303.bmp").split(32,32) )
+      local right = Bitmap[]
+      local left  = Bitmap[]
+      local up    = Bitmap[]
+      local down  = Bitmap[]
+      facings.add( up ).add( left ).add( down ).add( right )
+      forEach (tile in tiles from first_actor)
+        right.add( tile )
+        up.add( tile.cloned.[rotate_90(&ccw)] )
+        down.add( tile.cloned.[flip(&h), rotate_90(&ccw)] )
+        left.add( tile.cloned.[flip(&h)] )
+      endForEach
+
+      # Loads binary data - but tile color table is incomplete so using the pre-rendered images above instead.
       #tiles.add( forEach in TileData )
       #save_tileset
 
@@ -134,6 +150,11 @@ class Graphics [singleton]
     method color_5_to_8( c:Int32 )->Int32
       c &= 0x1F
       return ((c / Real64(0x1F)) * 255)->Int32
+
+    method get( tile_type:Int32 )->Bitmap
+      if (tile_type < first_actor) return tiles[ tile_type ]
+      if (TileData.flags[tile_type] & (TileData.FG_IS_2X2|TileData.FG_NO_ROTATE)) return tiles[ tile_type ]
+      return facings[Random.int32(4)][ tile_type-first_actor ]
 
     method load_with_black_as_transparent( filename:String )->Bitmap
       local bmp = Bitmap( File(filename) )
@@ -294,7 +315,7 @@ class TileData [singleton]
       #64 = no rotate when facing N/S
       #128 = can't be thrown (probably stationary)
        4, 4, 2, 2, 5, 5, 1, 1, 2, 2, 3, 3, 3, 3,64, 2, 2, 6, 6,64, #2048 +0
-       0,133,5, 0, 0, 0, 0, 0, 0, 1, 0, 6, 6, 4, 0, 4, 0, 5, 5, 5, #2068 +20
+       0,197,5, 0, 0, 0, 0, 0, 0, 1, 0, 6, 6, 4, 0, 4, 0, 5, 5, 5, #2068 +20
        5,195,195,0,0,65,65, 6, 6,70,70,67, 0, 0,35,35,35,35,35,35, #2088 +40
        0, 0, 0, 0, 2, 2, 5, 5, 6, 6, 0, 0,38,38,38,38,38,38,38,38, #2108 +60
        6, 6,16,16,16,16,16,16, 3, 3, 0, 0,165,165,165,165,2,2,1,1, #2128 +80
@@ -307,9 +328,9 @@ class TileData [singleton]
       34,34,34,34,34,34,34,34, 5, 5, 4, 4, 0, 0, 5, 5, 5, 5, 0, 0, #2268 +220
        3, 3, 1, 1, 4, 4,16,16,34,34,34,34,19,19, 0, 0,64,64,65,65, #2288 +240
        3, 3, 5, 5, 0, 0, 0, 6, 6,21,21,38,38,38,38,38,38,38,38, 3, #2308 +260
-       3, 7, 7, 5, 6, 6, 6,37, 5, 5, 5,37, 5, 5, 5,163,3, 3, 3, 6, #2328 +280
-       6, 6, 6,35, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,32, 0, 0, 0, 0, 0, #2348 +300
-       0, 0,32, 0, 0, 0,38, 0, 0, 0, 0, 0, 0, 0,16, 0, 1, 0, 2, 0, #2368 +320
+       3, 7, 7, 5, 6, 6, 6,37,37,37,37,37,37,37,37,163,163,163,163, 6, #2328 +280
+       6, 6, 6,35,35,35,35, 0, 0, 0, 0, 1, 1, 1,32, 0, 0, 0, 0, 0, #2348 +300
+       0, 0,32,32,32,32,38, 0, 0, 0, 0, 0, 0, 0,16, 0, 1, 0, 2, 0, #2368 +320
        3, 0,35, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0,70, 0, 0, 0, 0, 0, #2388 +340
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2408 +360
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, #2428 +380
@@ -347,8 +368,6 @@ class TileData [singleton]
       bytes.add( File.load_as_bytes("../../Data/Tiles/fgTiles2048-2302.bin") )
       bytes.add( File.load_as_bytes("../../Data/Tiles/fgTiles2304-2559.bin") )
       loop (32*16) bytes.add( 0 )   # pad to 2496 tiles
-      trace bytes.count/16
-      trace flags.count
 
       reset
 
