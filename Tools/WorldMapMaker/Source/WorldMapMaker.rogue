@@ -9,64 +9,107 @@ uses Bitmap
 WorldMapMaker()
 
 class WorldMapMaker
+  PROPERTIES
+    ZONE_WIDTH  = 640
+    ZONE_HEIGHT = 576
+
   METHODS
     method init
+      println "Loading levels"
+
+      local levels = FGBLevel[]
+      levels.add( FGBLevel(forEach in File.listing("../../Data/Levels/L*.lvl")) )
+      require levels.count
+
+      local world = Bitmap( ZONE_WIDTH*11, ZONE_HEIGHT*11, Color.BLACK )
+
+      File.create_folder( "../../Media/Levels" )
+      File.create_folder( "../../Media/Maps" )
+      print( "Generating map images" ).flush
+      forEach (level at index in levels)
+        if (index % 5 == 0) print( '.' ).flush
+        local bmp = level.render
+        if (level.level_number == 14)
+          bmp = Bitmap( bmp, Box(bmp.width-320,0,320,bmp.height) )
+        elseIf (level.level_number == 215)
+          bmp = Bitmap( bmp, Box(0,0,320,bmp.height) )
+        endIf
+        if (level.column < 11 and level.row < 11)
+          place( level, bmp, world, level.column, level.row )
+        else
+          bmp.save_as_png( "../../Media/Levels/$.png"(level.level_number.format("04")) )
+        endIf
+      endForEach
+      println
+
+      println "Saving WorldMap.png"
+      world.save_as_png( "../../Media/WorldMap.png" )
+
+    method place( level:FGBLevel, bmp:Bitmap, destination:Bitmap, i:Int32, j:Int32 )
+      local x = i * ZONE_WIDTH
+      local y = j * ZONE_HEIGHT
+      local w = ZONE_WIDTH
+      local h = ZONE_HEIGHT
+      destination.fill( Box(x,y,w,h), level.bg_color )
+      local scale = (w/Real64(bmp.width)).or_smaller( h/Real64(bmp.height) )
+
+      local new_w = Int32(bmp.width*scale)
+      local new_h = Int32(bmp.height*scale)
+      bmp.resize( new_w, new_h )
+      bmp.blit( destination, x+(w-new_w)/2, y+(h-new_h)/2, BitmapBlitFn.ALPHA )
+
+    #{
+    # Was used to establish standard zone size of 640x576
+    method calculate_sizes( levels:FGBLevel[] )
+      println "Calculating sizes"
+
+      # Max sizes
       local max_column_width = Int32[]
       local max_row_height   = Int32[]
-      local min_column_width = Int32[]
-      local min_row_height   = Int32[]
-
-      local levels = File.listing( "../../Data/Levels/L*.lvl" )
-
-      print( "Calculating sizes" ).flush
-      forEach (filepath at index in levels)
-        if (index % 5 == 0) print( '.' ).flush
-
-        local level = FGBLevel( filepath )
-
+      forEach (level in levels)
         max_column_width.expand_to_include( level.column )
         max_column_width[level.column] = max_column_width[level.column].or_larger(level.pixel_width)
-        min_column_width.expand_to_include( level.column )
-        if (min_column_width[level.column] == 0) min_column_width[level.column] = level.pixel_width
-        else                                     min_column_width[level.column] = max_column_width[level.column].or_smaller(level.pixel_width)
 
         max_row_height.expand_to_include( level.row )
         max_row_height[level.row] = max_row_height[level.row].or_larger(level.pixel_height)
-        min_row_height.expand_to_include( level.row )
-        if (min_row_height[level.row] == 0) min_row_height[level.row] = level.pixel_height
-        else                                min_row_height[level.row] = max_column_width[level.row].or_smaller(level.pixel_height)
-        System.sleep( 0.001 )
-      endForEach
-      println
-
-      # Nominal size already uses 2x pixels so make large levels half size for a good fit that doesn't lose detail
-      forEach (i of max_column_width)
-        if (max_column_width[i] > min_column_width[i]*2) max_column_width[i] /= 2
-      endForEach
-      forEach (j of max_row_height)
-        if (max_row_height[j] > min_row_height[j]*2) max_row_height[j] /= 2
       endForEach
 
-      trace max_column_width
-      trace max_row_height
-      trace min_column_width
-      trace min_row_height
+      # Max sizes help determine min sizes
+      local min_column_width = max_column_width.cloned
+      local min_row_height   = max_row_height.cloned
+      forEach (level in levels)
+        min_column_width[level.column] = min_column_width[level.column].or_smaller(level.pixel_width)
+        min_row_height[level.row] = min_row_height[level.row].or_smaller(level.pixel_height)
+      endForEach
+
+      local column_width = Int32[]
+      local row_height   = Int32[]
+      forEach (min_w at i in min_column_width)
+        column_width.add( max_column_width[i].or_smaller(min_w*2) )
+      endForEach
+      forEach (min_h at j in min_row_height)
+        row_height.add( max_row_height[j].or_smaller(min_h*2) )
+      endForEach
+
+      #column_width.add( 640 )
+      #row_height.add( 576 )
+
+      trace column_width.count
+      trace row_height.count
+      trace column_width.count * row_height.count
+      trace levels.count
+
+      @trace column_width
+      @trace row_height
       local sum_width = 0
-      sum_width += (forEach in max_column_width)
+      sum_width += (forEach in column_width)
       local sum_height = 0
-      sum_height += (forEach in max_row_height)
-      trace sum_width, sum_height, sum_width*sum_height
+      sum_height += (forEach in row_height)
 
-      print( "Generating level Images/" ).flush
-      File.create_folder( "Images" )
-      #{
-      forEach (filepath in File.listing("../../Data/Levels/L*.lvl"))
-        if (index % 5 == 0) print( '.' ).flush
-        local level = FGBLevel( filepath )
-        level.render.save_as_png( "Images/$.png"(level.level_number.format("04")) )
-      endForEach
-      println
-      }#
+      local mb = (sum_width * sum_height * 4) / 1024^2
+      @trace sum_width, sum_height, mb
+    }#
+
 endClass
 
 class FGBLevel
@@ -149,7 +192,7 @@ class FGBLevel
       # TODO
 
     method column->Int32
-      return level_number % 100
+      return level_number / 100
 
     method get( i:Int32, j:Int32 )->Int32
       return tiles[ j*width + i ]
@@ -173,7 +216,7 @@ class FGBLevel
       return result
 
     method row->Int32
-      return (level_number / 100)
+      return (level_number % 100)
 endClass
 
 class Graphics [singleton]
