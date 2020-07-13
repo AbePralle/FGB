@@ -9,54 +9,141 @@ uses Bitmap
 WorldMapMaker()
 
 class WorldMapMaker
+  DEFINITIONS
+    SCALED_WIDTH  = 640
+    SCALED_HEIGHT = 576
+
   PROPERTIES
-    ZONE_WIDTH  = 640
-    ZONE_HEIGHT = 576
+      levels = FGBLevel[]
 
   METHODS
     method init
-      println "Loading levels"
-
-      local levels = FGBLevel[]
-      levels.add( FGBLevel(forEach in File.listing("../../Data/Levels/L*.lvl")) )
+      File.create_folder( "../../Media/Levels" )
+      print( "Rendering level images" ).flush
+      forEach (filepath at index in File.listing("../../Data/Levels/L*.lvl"))
+        if (index % 10 == 9) print( '.' ).flush
+        levels.add( FGBLevel(filepath) )
+      endForEach
+      println
       require levels.count
 
-      local world = Bitmap( ZONE_WIDTH*11, ZONE_HEIGHT*11, Color.BLACK )
-
-      File.create_folder( "../../Media/Levels" )
-      File.create_folder( "../../Media/Maps" )
-      print( "Generating map images" ).flush
+      print( "Saving level images" ).flush
       forEach (level at index in levels)
-        if (index % 5 == 0) print( '.' ).flush
-        local bmp = level.render
-        if (level.level_number == 14)
-          bmp = Bitmap( bmp, Box(bmp.width-320,0,320,bmp.height) )
-        elseIf (level.level_number == 215)
-          bmp = Bitmap( bmp, Box(0,0,320,bmp.height) )
-        endIf
+        if (index % 10 == 9) print( '.' ).flush
+        level.bitmap.save_as_png( "../../Media/Levels/$.png"(level.level_number.format("04")) )
+      endForEach
+      println
+
+      File.create_folder( "../../Media/Maps" )
+
+      local map = Bitmap( SCALED_WIDTH*11, SCALED_HEIGHT*11, Color.BLACK )
+      print( "Building WorldMap.png" ).flush
+      forEach (level at index in levels)
+        if (index % 10 == 9) print( '.' ).flush
         if (level.column < 11 and level.row < 11)
-          place( level, bmp, world, level.column, level.row )
-        else
-          bmp.save_as_png( "../../Media/Levels/$.png"(level.level_number.format("04")) )
+          place( level, map, level.column, level.row )
         endIf
       endForEach
       println
 
       println "Saving WorldMap.png"
-      world.save_as_png( "../../Media/WorldMap.png" )
+      map.save_as_png( "../../Media/Maps/WorldMap.png" )
 
-    method place( level:FGBLevel, bmp:Bitmap, destination:Bitmap, i:Int32, j:Int32 )
-      local x = i * ZONE_WIDTH
-      local y = j * ZONE_HEIGHT
-      local w = ZONE_WIDTH
-      local h = ZONE_HEIGHT
-      destination.fill( Box(x,y,w,h), level.bg_color )
-      local scale = (w/Real64(bmp.width)).or_smaller( h/Real64(bmp.height) )
+      create_map( "MoonBase.png",
+        [
+          [  -1, 0213,   -1, 0314, 0215],
+          [0013, 0113, 0214, 0114, 0115],
+          [0313, 0315,   -1, 0014, 0015]
+        ]
+      )
 
-      local new_w = Int32(bmp.width*scale)
-      local new_h = Int32(bmp.height*scale)
-      bmp.resize( new_w, new_h )
-      bmp.blit( destination, x+(w-new_w)/2, y+(h-new_h)/2, BitmapBlitFn.ALPHA )
+      create_map( "Tower.png",
+        [
+          [0411],
+          [0311],
+          [0211],
+          [0111]
+        ]
+      )
+
+      create_map( "FourSeasonsHouse.png", 0011 )
+
+      create_map( "SunsetVillageHouses.png",
+        [
+          [0212,0312,0412]
+        ]
+      )
+
+      create_map( "SpaceStationApocalypse.png",
+        [
+          [0811,0012,0911],
+          [1011,0711,1111]
+        ]
+      )
+
+      create_map( "TheHive.png",
+        [
+          [0000,0112]
+        ]
+      )
+
+      create_map( "WitchsHouse.png",
+        [
+          [0512],
+          [0508]
+        ]
+      )
+
+      create_map( "FarmLanding.png",
+        [
+          [0103],
+          [0712]
+        ]
+      )
+
+      create_map( "TheAppomattox.png", 1300 )
+      #create_map( "DemoWarpZone.png", 0812 )  # can set L1100.asm to exit to 0812; was not in final game
+
+      create_map( "MonkeyHomeworldAndCroutonHomeworld.png",
+        [
+          [  -1,  -1,1512],
+          [  -1,  -1,1412],
+          [  -1,1112,1312],
+          [0612,0912,1212],
+          [0808,1012,  -1]
+        ]
+      )
+
+
+    method create_map( filename:String, level_numbers:Int32[][] )
+      local h = level_numbers.count
+      local w = level_numbers.first.count
+
+      local map = Bitmap( SCALED_WIDTH*w, SCALED_HEIGHT*h, Color.BLACK )
+      forEach (row at j in level_numbers)
+        forEach (number at i in row)
+          if (number == -1) nextIteration
+          local level = levels.find( $.level_number == number )
+          if (level.exists)
+            place( level.value, map, i, j )
+          endIf
+        endForEach
+      endForEach
+
+      println "Saving "+filename
+      map.save_as_png( "../../Media/Maps/"+filename )
+
+    method create_map( filename:String, level_number:Int32 )
+      local level = levels.find( $.level_number == level_number )
+      require level.exists
+      println "Saving "+filename
+      level.value.bitmap.save_as_png( "../../Media/Maps/"+filename )
+
+
+    method place( level:FGBLevel, destination:Bitmap, i:Int32, j:Int32 )
+      local x = i * SCALED_WIDTH
+      local y = j * SCALED_HEIGHT
+      level.scaled_bitmap.blit( destination, x, y, BitmapBlitFn.ALPHA )
 
     #{
     # Was used to establish standard zone size of 640x576
@@ -114,17 +201,19 @@ endClass
 
 class FGBLevel
   PROPERTIES
-    filename     : String
-    level_number : Int32
-    version      : Int32
-    classes      = Int32[]
+    filename      : String
+    level_number  : Int32
+    version       : Int32
+    classes       = Int32[]
     first_character_index : Int32
     first_character_id    : Int32
-    width        : Int32
-    pitch        : Int32
-    height       : Int32
-    tiles        = Int32[]
-    bg_color     : Color
+    width         : Int32
+    pitch         : Int32
+    height        : Int32
+    tiles         = Int32[]
+    bg_color      : Color
+    bitmap        : Bitmap
+    scaled_bitmap : Bitmap
 
   METHODS
     method init( filename )
@@ -190,6 +279,12 @@ class FGBLevel
 
       # Exit Links
       # TODO
+      bitmap = _render
+
+      local W = WorldMapMaker.SCALED_WIDTH
+      local H = WorldMapMaker.SCALED_HEIGHT
+      local scale = (W/Real64(bitmap.width)).or_smaller( H/Real64(bitmap.height) )
+      scaled_bitmap = bitmap.resized( bitmap.size*scale ).[ reframe(W,H,Anchor.CENTER,&pad_color=bg_color) ]
 
     method column->Int32
       return level_number / 100
@@ -203,7 +298,7 @@ class FGBLevel
     method pixel_width->Real64
       return (width-2)*16
 
-    method render->Bitmap
+    method _render->Bitmap
       local result = Bitmap( (width-2)*16, (height-2)*16, bg_color )
       forEach (j in 1..<height-1)
         forEach (i in 1..<width-1)
@@ -213,6 +308,15 @@ class FGBLevel
           endIf
         endForEach
       endForEach
+
+      if (level_number == 0014)
+        result = Bitmap( result, Box(result.width-320,0,320,result.height) )
+      elseIf (level_number == 0115)
+        result = Bitmap( result, Box(0,0,544,result.height) )
+      elseIf (level_number == 0215)
+        result = Bitmap( result, Box(0,0,320,result.height) )
+      endIf
+
       return result
 
     method row->Int32
