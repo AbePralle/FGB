@@ -14,8 +14,8 @@ augment Build
   # You can create a Local.mk file with overrides for these values, e.g.:
   # LAUNCHER_FOLDER = "~/bin"
   PROPERTIES
-    PROJECT         = "WorldMapMaker"
-    LAUNCHER_NAME   = "worldmapmaker"
+    PROJECT         = "MapMaker"
+    LAUNCHER_NAME   = "mapmaker"
     LAUNCHER_FOLDER = "/usr/local/bin"
 endAugment
 
@@ -33,7 +33,7 @@ endRoutine
 routine rogo_default
   rogo_build
   rogo_run
-  #rogo_install_launcher  # Uncomment to automatically install a /usr/local/bin/worldmapmaker launcher
+  #rogo_install_launcher  # Uncomment to automatically install a /usr/local/bin/mapmaker launcher
 endRoutine
 
 routine rogo_build

@@ -1,14 +1,14 @@
 #===============================================================================
-# WorldMapMaker.rogue
+# MapMaker.rogue
 # July 6, 2020
 #===============================================================================
 $requireRogue "1.7.5"
 
 uses Bitmap
 
-WorldMapMaker()
+MapMaker()
 
-class WorldMapMaker
+class MapMaker
   DEFINITIONS
     SCALED_WIDTH  = 640
     SCALED_HEIGHT = 576
@@ -37,7 +37,7 @@ class WorldMapMaker
       File.create_folder( "../../Media/Maps" )
 
       local map = Bitmap( SCALED_WIDTH*11, SCALED_HEIGHT*11, Color.BLACK )
-      print( "Building WorldMap.png" ).flush
+      print( "Building WorldMap-Rendered.png" ).flush
       forEach (level at index in levels)
         if (index % 10 == 9) print( '.' ).flush
         if (level.column < 11 and level.row < 11)
@@ -46,8 +46,8 @@ class WorldMapMaker
       endForEach
       println
 
-      println "Saving WorldMap.png"
-      map.save_as_png( "../../Media/Maps/WorldMap.png" )
+      println "Saving WorldMap-Rendered.png"
+      map.save_as_png( "../../Media/Maps/WorldMap-Rendered.png" )
 
       create_map( "MoonBase.png",
         [
@@ -281,8 +281,8 @@ class FGBLevel
       # TODO
       bitmap = _render
 
-      local W = WorldMapMaker.SCALED_WIDTH
-      local H = WorldMapMaker.SCALED_HEIGHT
+      local W = MapMaker.SCALED_WIDTH
+      local H = MapMaker.SCALED_HEIGHT
       local scale = (W/Real64(bitmap.width)).or_smaller( H/Real64(bitmap.height) )
       scaled_bitmap = bitmap.resized( bitmap.size*scale ).[ reframe(W,H,Anchor.CENTER,&pad_color=bg_color) ]
 
