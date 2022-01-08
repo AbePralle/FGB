@@ -49,11 +49,11 @@ L0009_Check2:
         ret
 
 L0009_CheckFinished:
-PRINTT "0009 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0009_LoadFinished - L0009_Load2)
-PRINTT " / "
-PRINTV (L0009_InitFinished - L0009_Init2)
-PRINTT " / "
-PRINTV (L0009_CheckFinished - L0009_Check2)
-PRINTT "\n"
+PRINT "0009 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0009_LoadFinished - L0009_Load2)
+PRINT " / "
+PRINT (L0009_InitFinished - L0009_Init2)
+PRINT " / "
+PRINT (L0009_CheckFinished - L0009_Check2)
+PRINT "\n"
 

@@ -49,11 +49,11 @@ L0406_Check2:
         ret
 
 L0406_CheckFinished:
-PRINTT "0406 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0406_LoadFinished - L0406_Load2)
-PRINTT " / "
-PRINTV (L0406_InitFinished - L0406_Init2)
-PRINTT " / "
-PRINTV (L0406_CheckFinished - L0406_Check2)
-PRINTT "\n"
+PRINT "0406 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0406_LoadFinished - L0406_Load2)
+PRINT " / "
+PRINT (L0406_InitFinished - L0406_Init2)
+PRINT " / "
+PRINT (L0406_CheckFinished - L0406_Check2)
+PRINT "\n"
 

@@ -142,7 +142,7 @@ L0106_Check2:
 L0106_CheckFinished:
 
 
-PRINTT "  0106 Level Check Size: "
-PRINTV (L0106_CheckFinished - L0106_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0106 Level Check Size: "
+PRINT (L0106_CheckFinished - L0106_Check2)
+PRINT "/$500 bytes"
 

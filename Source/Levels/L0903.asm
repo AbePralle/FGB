@@ -49,11 +49,11 @@ L0903_Check2:
         ret
 
 L0903_CheckFinished:
-PRINTT "0903 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0903_LoadFinished - L0903_Load2)
-PRINTT " / "
-PRINTV (L0903_InitFinished - L0903_Init2)
-PRINTT " / "
-PRINTV (L0903_CheckFinished - L0903_Check2)
-PRINTT "\n"
+PRINT "0903 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0903_LoadFinished - L0903_Load2)
+PRINT " / "
+PRINT (L0903_InitFinished - L0903_Init2)
+PRINT " / "
+PRINT (L0903_CheckFinished - L0903_Check2)
+PRINT "\n"
 

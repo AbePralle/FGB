@@ -99,11 +99,11 @@ L0411_Check2:
         DB      1,$7e,$80,$f5,$00,$86
 
 L0411_CheckFinished:
-PRINTT "0411 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0411_LoadFinished - L0411_Load2)
-PRINTT " / "
-PRINTV (L0411_InitFinished - L0411_Init2)
-PRINTT " / "
-PRINTV (L0411_CheckFinished - L0411_Check2)
-PRINTT "\n"
+PRINT "0411 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0411_LoadFinished - L0411_Load2)
+PRINT " / "
+PRINT (L0411_InitFinished - L0411_Init2)
+PRINT " / "
+PRINT (L0411_CheckFinished - L0411_Check2)
+PRINT "\n"
 

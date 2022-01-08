@@ -52,11 +52,11 @@ L0807_Check2:
         ret
 
 L0807_CheckFinished:
-PRINTT "0807 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0807_LoadFinished - L0807_Load2)
-PRINTT " / "
-PRINTV (L0807_InitFinished - L0807_Init2)
-PRINTT " / "
-PRINTV (L0807_CheckFinished - L0807_Check2)
-PRINTT "\n"
+PRINT "0807 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0807_LoadFinished - L0807_Load2)
+PRINT " / "
+PRINT (L0807_InitFinished - L0807_Init2)
+PRINT " / "
+PRINT (L0807_CheckFinished - L0807_Check2)
+PRINT "\n"
 

@@ -250,11 +250,11 @@ L1105_Check2:
         ret
 
 L1105_CheckFinished:
-PRINTT "1105 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1105_LoadFinished - L1105_Load2)
-PRINTT " / "
-PRINTV (L1105_InitFinished - L1105_Init2)
-PRINTT " / "
-PRINTV (L1105_CheckFinished - L1105_Check2)
-PRINTT "\n"
+PRINT "1105 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1105_LoadFinished - L1105_Load2)
+PRINT " / "
+PRINT (L1105_InitFinished - L1105_Init2)
+PRINT " / "
+PRINT (L1105_CheckFinished - L1105_Check2)
+PRINT "\n"
 

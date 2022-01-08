@@ -69,11 +69,11 @@ L0001_Check2:
         ret
 
 L0001_CheckFinished:
-PRINTT "0001 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0001_LoadFinished - L0001_Load2)
-PRINTT " / "
-PRINTV (L0001_InitFinished - L0001_Init2)
-PRINTT " / "
-PRINTV (L0001_CheckFinished - L0001_Check2)
-PRINTT "\n"
+PRINT "0001 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0001_LoadFinished - L0001_Load2)
+PRINT " / "
+PRINT (L0001_InitFinished - L0001_Init2)
+PRINT " / "
+PRINT (L0001_CheckFinished - L0001_Check2)
+PRINT "\n"
 

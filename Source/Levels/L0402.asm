@@ -49,11 +49,11 @@ L0402_Check2:
         ret
 
 L0402_CheckFinished:
-PRINTT "0402 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0402_LoadFinished - L0402_Load2)
-PRINTT " / "
-PRINTV (L0402_InitFinished - L0402_Init2)
-PRINTT " / "
-PRINTV (L0402_CheckFinished - L0402_Check2)
-PRINTT "\n"
+PRINT "0402 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0402_LoadFinished - L0402_Load2)
+PRINT " / "
+PRINT (L0402_InitFinished - L0402_Init2)
+PRINT " / "
+PRINT (L0402_CheckFinished - L0402_Check2)
+PRINT "\n"
 

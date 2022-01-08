@@ -80,11 +80,11 @@ L0211_Check2:
         DB      1,$7e,$80,$f5,$00,$86
 
 L0211_CheckFinished:
-PRINTT "0211 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0211_LoadFinished - L0211_Load2)
-PRINTT " / "
-PRINTV (L0211_InitFinished - L0211_Init2)
-PRINTT " / "
-PRINTV (L0211_CheckFinished - L0211_Check2)
-PRINTT "\n"
+PRINT "0211 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0211_LoadFinished - L0211_Load2)
+PRINT " / "
+PRINT (L0211_InitFinished - L0211_Init2)
+PRINT " / "
+PRINT (L0211_CheckFinished - L0211_Check2)
+PRINT "\n"
 

@@ -820,11 +820,11 @@ L0014_Check2:
 
 
 L0014_CheckFinished:
-PRINTT "0014 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0014_LoadFinished - L0014_Load2)
-PRINTT " / "
-PRINTV (L0014_InitFinished - L0014_Init2)
-PRINTT " / "
-PRINTV (L0014_CheckFinished - L0014_Check2)
-PRINTT "\n"
+PRINT "0014 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0014_LoadFinished - L0014_Load2)
+PRINT " / "
+PRINT (L0014_InitFinished - L0014_Init2)
+PRINT " / "
+PRINT (L0014_CheckFinished - L0014_Check2)
+PRINT "\n"
 

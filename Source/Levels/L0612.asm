@@ -582,11 +582,11 @@ L0612_Check2:
 
 
 L0612_CheckFinished:
-PRINTT "0612 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0612_LoadFinished - L0612_Load2)
-PRINTT " / "
-PRINTV (L0612_InitFinished - L0612_Init2)
-PRINTT " / "
-PRINTV (L0612_CheckFinished - L0612_Check2)
-PRINTT "\n"
+PRINT "0612 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0612_LoadFinished - L0612_Load2)
+PRINT " / "
+PRINT (L0612_InitFinished - L0612_Init2)
+PRINT " / "
+PRINT (L0612_CheckFinished - L0612_Check2)
+PRINT "\n"
 

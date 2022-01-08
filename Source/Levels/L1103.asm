@@ -772,11 +772,11 @@ L1103_Check2:
         ret
 
 L1103_CheckFinished:
-PRINTT "1103 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1103_LoadFinished - L1103_Load2)
-PRINTT " / "
-PRINTV (L1103_InitFinished - L1103_Init2)
-PRINTT " / "
-PRINTV (L1103_CheckFinished - L1103_Check2)
-PRINTT "\n"
+PRINT "1103 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1103_LoadFinished - L1103_Load2)
+PRINT " / "
+PRINT (L1103_InitFinished - L1103_Init2)
+PRINT " / "
+PRINT (L1103_CheckFinished - L1103_Check2)
+PRINT "\n"
 

@@ -1553,7 +1553,7 @@ GenerateFacings::
         pop     af
         ret
 
-SECTION "Graphics",ROM0
+SECTION "Graphics2",ROM0
 ;---------------------------------------------------------------------
 ; Routine:      LoadGraphics
 ; Arguments:

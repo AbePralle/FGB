@@ -638,11 +638,11 @@ L1101_Check2:
 L1101_CheckFinished:
 
 
-PRINTT "  1101 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1101_LoadFinished - L1101_Load2)
-PRINTT " / "
-PRINTV (L1101_InitFinished - L1101_Init2)
-PRINTT " / "
-PRINTV (L1101_CheckFinished - L1101_Check2)
-PRINTT "\n"
+PRINT "  1101 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1101_LoadFinished - L1101_Load2)
+PRINT " / "
+PRINT (L1101_InitFinished - L1101_Init2)
+PRINT " / "
+PRINT (L1101_CheckFinished - L1101_Check2)
+PRINT "\n"
 

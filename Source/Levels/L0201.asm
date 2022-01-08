@@ -64,11 +64,11 @@ L0201_Check2:
         ret
 
 L0201_CheckFinished:
-PRINTT "0201 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0201_LoadFinished - L0201_Load2)
-PRINTT " / "
-PRINTV (L0201_InitFinished - L0201_Init2)
-PRINTT " / "
-PRINTV (L0201_CheckFinished - L0201_Check2)
-PRINTT "\n"
+PRINT "0201 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0201_LoadFinished - L0201_Load2)
+PRINT " / "
+PRINT (L0201_InitFinished - L0201_Init2)
+PRINT " / "
+PRINT (L0201_CheckFinished - L0201_Check2)
+PRINT "\n"
 

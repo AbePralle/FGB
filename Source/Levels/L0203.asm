@@ -160,7 +160,7 @@ L0203_Check2:
 L0203_CheckFinished:
 
 
-PRINTT "  0203 Level Check Size: "
-PRINTV (L0203_CheckFinished - L0203_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0203 Level Check Size: "
+PRINT (L0203_CheckFinished - L0203_Check2)
+PRINT "/$500 bytes"
 

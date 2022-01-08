@@ -837,11 +837,11 @@ L1503_Check2:
         ret
 
 L1503_CheckFinished:
-PRINTT "1503 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1503_LoadFinished - L1503_Load2)
-PRINTT " / "
-PRINTV (L1503_InitFinished - L1503_Init2)
-PRINTT " / "
-PRINTV (L1503_CheckFinished - L1503_Check2)
-PRINTT "\n"
+PRINT "1503 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1503_LoadFinished - L1503_Load2)
+PRINT " / "
+PRINT (L1503_InitFinished - L1503_Init2)
+PRINT " / "
+PRINT (L1503_CheckFinished - L1503_Check2)
+PRINT "\n"
 

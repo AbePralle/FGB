@@ -303,11 +303,11 @@ L1300_Check2:
 
 
 L1300_CheckFinished:
-PRINTT "1300 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1300_LoadFinished - L1300_Load2)
-PRINTT " / "
-PRINTV (L1300_InitFinished - L1300_Init2)
-PRINTT " / "
-PRINTV (L1300_CheckFinished - L1300_Check2)
-PRINTT "\n"
+PRINT "1300 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1300_LoadFinished - L1300_Load2)
+PRINT " / "
+PRINT (L1300_InitFinished - L1300_Init2)
+PRINT " / "
+PRINT (L1300_CheckFinished - L1300_Check2)
+PRINT "\n"
 

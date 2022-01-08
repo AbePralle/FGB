@@ -180,11 +180,11 @@ DW      $0000, $0060+$40, $0060+$40, $0060+$40
 DW      $0000, $0060+$40, $00a0+$40, $0060+$40
 
 L0114_CheckFinished:
-PRINTT "0114 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0114_LoadFinished - L0114_Load2)
-PRINTT " / "
-PRINTV (L0114_InitFinished - L0114_Init2)
-PRINTT " / "
-PRINTV (L0114_CheckFinished - L0114_Check2)
-PRINTT "\n"
+PRINT "0114 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0114_LoadFinished - L0114_Load2)
+PRINT " / "
+PRINT (L0114_InitFinished - L0114_Init2)
+PRINT " / "
+PRINT (L0114_CheckFinished - L0114_Check2)
+PRINT "\n"
 

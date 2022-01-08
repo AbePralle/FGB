@@ -123,7 +123,7 @@ L0000_Check2:
 L0000_CheckFinished:
 
 
-PRINTT "  0000 Level Check Size: "
-PRINTV (L0000_CheckFinished - L0000_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0000 Level Check Size: "
+PRINT (L0000_CheckFinished - L0000_Check2)
+PRINT "/$500 bytes"
 

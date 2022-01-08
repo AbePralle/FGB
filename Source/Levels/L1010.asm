@@ -212,11 +212,11 @@ L1010_Check2:
         ret
 
 L1010_CheckFinished:
-PRINTT "1010 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1010_LoadFinished - L1010_Load2)
-PRINTT " / "
-PRINTV (L1010_InitFinished - L1010_Init2)
-PRINTT " / "
-PRINTV (L1010_CheckFinished - L1010_Check2)
-PRINTT "\n"
+PRINT "1010 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1010_LoadFinished - L1010_Load2)
+PRINT " / "
+PRINT (L1010_InitFinished - L1010_Init2)
+PRINT " / "
+PRINT (L1010_CheckFinished - L1010_Check2)
+PRINT "\n"
 

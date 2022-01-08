@@ -251,11 +251,11 @@ L1301_Check2:
         ret
 
 L1301_CheckFinished:
-PRINTT "1301 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1301_LoadFinished - L1301_Load2)
-PRINTT " / "
-PRINTV (L1301_InitFinished - L1301_Init2)
-PRINTT " / "
-PRINTV (L1301_CheckFinished - L1301_Check2)
-PRINTT "\n"
+PRINT "1301 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1301_LoadFinished - L1301_Load2)
+PRINT " / "
+PRINT (L1301_InitFinished - L1301_Init2)
+PRINT " / "
+PRINT (L1301_CheckFinished - L1301_Check2)
+PRINT "\n"
 

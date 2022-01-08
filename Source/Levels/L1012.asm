@@ -97,11 +97,11 @@ L1012_Check2:
         
 
 L1012_CheckFinished:
-PRINTT "1012 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1012_LoadFinished - L1012_Load2)
-PRINTT " / "
-PRINTV (L1012_InitFinished - L1012_Init2)
-PRINTT " / "
-PRINTV (L1012_CheckFinished - L1012_Check2)
-PRINTT "\n"
+PRINT "1012 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1012_LoadFinished - L1012_Load2)
+PRINT " / "
+PRINT (L1012_InitFinished - L1012_Init2)
+PRINT " / "
+PRINT (L1012_CheckFinished - L1012_Check2)
+PRINT "\n"
 

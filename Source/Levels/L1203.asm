@@ -342,11 +342,11 @@ L1203_Check2:
         ret
 
 L1203_CheckFinished:
-PRINTT "1203 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1203_LoadFinished - L1203_Load2)
-PRINTT " / "
-PRINTV (L1203_InitFinished - L1203_Init2)
-PRINTT " / "
-PRINTV (L1203_CheckFinished - L1203_Check2)
-PRINTT "\n"
+PRINT "1203 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1203_LoadFinished - L1203_Load2)
+PRINT " / "
+PRINT (L1203_InitFinished - L1203_Init2)
+PRINT " / "
+PRINT (L1203_CheckFinished - L1203_Check2)
+PRINT "\n"
 

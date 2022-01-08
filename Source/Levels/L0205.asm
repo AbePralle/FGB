@@ -278,7 +278,7 @@ L0205_Check2:
 L0205_CheckFinished:
 
 
-PRINTT "  0205 Level Check Size: "
-PRINTV (L0205_CheckFinished - L0205_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0205 Level Check Size: "
+PRINT (L0205_CheckFinished - L0205_Check2)
+PRINT "/$500 bytes"
 

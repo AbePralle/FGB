@@ -93,11 +93,11 @@ L0600_Check2:
         ret
 
 L0600_CheckFinished:
-PRINTT "0600 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0600_LoadFinished - L0600_Load2)
-PRINTT " / "
-PRINTV (L0600_InitFinished - L0600_Init2)
-PRINTT " / "
-PRINTV (L0600_CheckFinished - L0600_Check2)
-PRINTT "\n"
+PRINT "0600 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0600_LoadFinished - L0600_Load2)
+PRINT " / "
+PRINT (L0600_InitFinished - L0600_Init2)
+PRINT " / "
+PRINT (L0600_CheckFinished - L0600_Check2)
+PRINT "\n"
 

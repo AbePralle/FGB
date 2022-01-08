@@ -639,9 +639,9 @@ CharSelectOnHBlank:
 
 L1100_LoadFinished:
 
-PRINTT "  1100 Level Load Size: "
-PRINTV (L1100_LoadFinished - L1100_Load2)
-PRINTT "/$500 bytes\n"
+PRINT "  1100 Level Load Size: "
+PRINT (L1100_LoadFinished - L1100_Load2)
+PRINT "/$500 bytes\n"
 
 
 L1100_Map:
@@ -663,7 +663,7 @@ L1100_Check2:
 
 L1100_CheckFinished:
 
-PRINTT "  1100 Level Load Size: "
-PRINTV (L1100_LoadFinished - L1100_Load2)
-PRINTT "/$500 bytes\n"
+PRINT "  1100 Level Load Size: "
+PRINT (L1100_LoadFinished - L1100_Load2)
+PRINT "/$500 bytes\n"
 

@@ -179,11 +179,11 @@ ENDR
 
 
 L0404_CheckFinished:
-PRINTT "0404 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0404_LoadFinished - L0404_Load2)
-PRINTT " / "
-PRINTV (L0404_InitFinished - L0404_Init2)
-PRINTT " / "
-PRINTV (L0404_CheckFinished - L0404_Check2)
-PRINTT "\n"
+PRINT "0404 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0404_LoadFinished - L0404_Load2)
+PRINT " / "
+PRINT (L0404_InitFinished - L0404_Init2)
+PRINT " / "
+PRINT (L0404_CheckFinished - L0404_Check2)
+PRINT "\n"
 

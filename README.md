@@ -1,17 +1,17 @@
 ![FGB](Media/Logo/Logo.png)
 
-A weird and wonderful action odyssey for Game Boy Color. Developed in 2000 by Abe Pralle and Jacob Stevens. Playable and fairly complete but never finished.
+A weird and wonderful action odyssey for Game Boy Color. Developed in 2000 by Abe Pralle and Jacob Stevens. Playable and fairly complete but not fully finished.
 
 ![Preview Video](Media/FGBPreview.gif)
 
-About     | Current Release
-----------|-----------------------
-Version   | 1.1
-Date      | 2020.07.05
-Target    | Game Boy Color
-Build     | macOS, Windows, Linux
-Editors   | Windows
-Licenses  | MIT (source code) and Creative Commons (IP) - see the [LICENSE](LICENSE).
+About         | Current Release
+--------------|-----------------------
+Version       | 1.1
+Date          | 2022.01.07
+Target        | Game Boy Color
+Build         | macOS, Windows, Linux
+Tools/Editors | Windows
+Licenses      | MIT (source code) and Creative Commons (IP) - see the [LICENSE](LICENSE).
 
 ## ROM
 The pre-compiled FGB ROM for Game Boy Color is [here](ROMS/fgb.gb).
@@ -35,7 +35,7 @@ It can be run on emulators such as [SameBoy](https://sameboy.github.io). Note: t
 - During its original development, FGB was essentially a single folder containing hundreds of files. Because of this, each tool typically expects its data files to be in the same folder as the tool itself.
 - This project has now been reorganized to cleanly separate original assets, converted data, and source code into separate folders.
 - As such data files will generally need to be moved into each tool folder as inputs and the results moved back to the appropriate location if the editors are used.
-- Ideally at some point Abe Pralle or a contributer will update the editor projects to be in a modern Visual Studio format and adjust the input and output locations to utilize the current folder structure.
+- Ideally at some point Abe Pralle or a contributor will update the editor projects to be in a modern Visual Studio format and adjust the input and output locations to utilize the current folder structure.
 
 ### LevelEditor
 
@@ -91,5 +91,5 @@ The [Game Boy Sound Manipulator](https://github.com/AbePralle/GameBoySoundManipu
 6. FGB had a digitized sound sample for eating food (an "Mmmm" with lip-smacking). Conventional wisdom would have us playing the sound over Sound Channel 3 that supports a custom wave form. However, we figured out an alternate way to do it that didn't use up an instrument voice: we played 3-bit sound by setting the Game Boy's master sound volume (at `FF24`) to be 0-7 according to each sample. It didn't diminish the other music or sound effects and the digitized sound was significantly louder than it would have been playing on Channel 3.
 
 ### Fate
-Jacob and Abe were both passionate indie game devs but had no industry contacts. They attended E3 2000 with a nice demo of FGB and pitched it to various publishers. After failing to find a publisher at E3 or over the next few months, they finally threw in the FGB towel in late 2000 or early 2001.
+Jacob and Abe were both passionate indie game devs but had no industry contacts. They attended E3 2000 with a nice demo of FGB and pitched it to various publishers. After failing to find a publisher at E3 or over the next few months, they finally threw in the FGB towel in late 2000 or early 2001 and released it as freeware for anyone to enjoy.
 

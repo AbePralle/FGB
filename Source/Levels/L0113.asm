@@ -417,11 +417,11 @@ bigExplosionSound:
   DB 4,$00,$f3,$81,$80
 
 L0113_CheckFinished:
-PRINTT "0113 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0113_LoadFinished - L0113_Load2)
-PRINTT " / "
-PRINTV (L0113_InitFinished - L0113_Init2)
-PRINTT " / "
-PRINTV (L0113_CheckFinished - L0113_Check2)
-PRINTT "\n"
+PRINT "0113 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0113_LoadFinished - L0113_Load2)
+PRINT " / "
+PRINT (L0113_InitFinished - L0113_Init2)
+PRINT " / "
+PRINT (L0113_CheckFinished - L0113_Check2)
+PRINT "\n"
 

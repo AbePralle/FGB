@@ -87,11 +87,11 @@ L1304_Check2:
         ret
 
 L1304_CheckFinished:
-PRINTT "1304 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1304_LoadFinished - L1304_Load2)
-PRINTT " / "
-PRINTV (L1304_InitFinished - L1304_Init2)
-PRINTT " / "
-PRINTV (L1304_CheckFinished - L1304_Check2)
-PRINTT "\n"
+PRINT "1304 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1304_LoadFinished - L1304_Load2)
+PRINT " / "
+PRINT (L1304_InitFinished - L1304_Init2)
+PRINT " / "
+PRINT (L1304_CheckFinished - L1304_Check2)
+PRINT "\n"
 

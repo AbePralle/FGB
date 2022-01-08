@@ -85,11 +85,11 @@ L0800_Check2:
         ret
 
 L0800_CheckFinished:
-PRINTT "0800 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0800_LoadFinished - L0800_Load2)
-PRINTT " / "
-PRINTV (L0800_InitFinished - L0800_Init2)
-PRINTT " / "
-PRINTV (L0800_CheckFinished - L0800_Check2)
-PRINTT "\n"
+PRINT "0800 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0800_LoadFinished - L0800_Load2)
+PRINT " / "
+PRINT (L0800_InitFinished - L0800_Init2)
+PRINT " / "
+PRINT (L0800_CheckFinished - L0800_Check2)
+PRINT "\n"
 

@@ -98,11 +98,11 @@ REPT 16
 ENDR
 
 L0403_CheckFinished:
-PRINTT "0403 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0403_LoadFinished - L0403_Load2)
-PRINTT " / "
-PRINTV (L0403_InitFinished - L0403_Init2)
-PRINTT " / "
-PRINTV (L0403_CheckFinished - L0403_Check2)
-PRINTT "\n"
+PRINT "0403 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0403_LoadFinished - L0403_Load2)
+PRINT " / "
+PRINT (L0403_InitFinished - L0403_Init2)
+PRINT " / "
+PRINT (L0403_CheckFinished - L0403_Check2)
+PRINT "\n"
 

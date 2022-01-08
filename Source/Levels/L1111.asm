@@ -163,11 +163,11 @@ L1111_Check2:
         ret
 
 L1111_CheckFinished:
-PRINTT "1111 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1111_LoadFinished - L1111_Load2)
-PRINTT " / "
-PRINTV (L1111_InitFinished - L1111_Init2)
-PRINTT " / "
-PRINTV (L1111_CheckFinished - L1111_Check2)
-PRINTT "\n"
+PRINT "1111 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1111_LoadFinished - L1111_Load2)
+PRINT " / "
+PRINT (L1111_InitFinished - L1111_Init2)
+PRINT " / "
+PRINT (L1111_CheckFinished - L1111_Check2)
+PRINT "\n"
 

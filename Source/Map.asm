@@ -186,9 +186,9 @@ guardAlarm::            DS 1    ;guard sounded the alarm?
 ;160/160
 
 blankSpace:
-PRINTT "blank space 1: "
-PRINTV (768 - (blankSpace - backBuffer))
-PRINTT "\n"
+PRINT "blank space 1: "
+PRINT (768 - (blankSpace - backBuffer))
+PRINT "\n"
 
 DS (768 - (blankSpace - backBuffer))
 
