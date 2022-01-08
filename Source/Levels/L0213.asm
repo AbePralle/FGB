@@ -127,7 +127,7 @@ L0213_Check2:
         ld      d,0
         ld      e,a
         ld      hl,((.monitorLocations-L0213_Check2)+levelCheckRAM)
-        add     de
+        add     hl,de
         ld      a,[hl+]
         ld      h,[hl]
         ld      l,a
@@ -239,11 +239,11 @@ DW $d25c,$d29c,$d2dc,$d31c               ;4   23
 
 L0213_CheckFinished:
 
-PRINTT "0213 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0213_LoadFinished - L0213_Load2)
-PRINTT " / "
-PRINTV (L0213_InitFinished - L0213_Init2)
-PRINTT " / "
-PRINTV (L0213_CheckFinished - L0213_Check2)
-PRINTT "\n"
+PRINT "0213 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0213_LoadFinished - L0213_Load2)
+PRINT " / "
+PRINT (L0213_InitFinished - L0213_Init2)
+PRINT " / "
+PRINT (L0213_CheckFinished - L0213_Check2)
+PRINT "\n"
 

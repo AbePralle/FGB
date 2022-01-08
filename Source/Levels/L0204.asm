@@ -149,7 +149,7 @@ L0204_Check2:
 L0204_CheckFinished:
 
 
-PRINTT "  0204 Level Check Size: "
-PRINTV (L0204_CheckFinished - L0204_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0204 Level Check Size: "
+PRINT (L0204_CheckFinished - L0204_Check2)
+PRINT "/$500 bytes"
 

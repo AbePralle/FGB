@@ -65,11 +65,11 @@ L0812_Check2:
         ret
 
 L0812_CheckFinished:
-PRINTT "0812 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0812_LoadFinished - L0812_Load2)
-PRINTT " / "
-PRINTV (L0812_InitFinished - L0812_Init2)
-PRINTT " / "
-PRINTV (L0812_CheckFinished - L0812_Check2)
-PRINTT "\n"
+PRINT "0812 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0812_LoadFinished - L0812_Load2)
+PRINT " / "
+PRINT (L0812_InitFinished - L0812_Init2)
+PRINT " / "
+PRINT (L0812_CheckFinished - L0812_Check2)
+PRINT "\n"
 

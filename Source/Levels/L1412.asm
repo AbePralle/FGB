@@ -49,11 +49,11 @@ L1412_Check2:
         ret
 
 L1412_CheckFinished:
-PRINTT "1412 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1412_LoadFinished - L1412_Load2)
-PRINTT " / "
-PRINTV (L1412_InitFinished - L1412_Init2)
-PRINTT " / "
-PRINTV (L1412_CheckFinished - L1412_Check2)
-PRINTT "\n"
+PRINT "1412 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1412_LoadFinished - L1412_Load2)
+PRINT " / "
+PRINT (L1412_InitFinished - L1412_Init2)
+PRINT " / "
+PRINT (L1412_CheckFinished - L1412_Check2)
+PRINT "\n"
 

@@ -28,7 +28,7 @@ appland_sprites_sp:
   INCBIN "Data/Cinema/Ending/appland_sprites.sp"
 
 ;---------------------------------------------------------------------
-SECTION "Level1204Gfx2",ROMX
+SECTION "Level1204Gfx3",ROMX
 ;---------------------------------------------------------------------
 willtheyland_bg:
   INCBIN "Data/Cinema/promo/willtheyland.bg"
@@ -431,11 +431,11 @@ L1204_Check2:
         ret
 
 L1204_CheckFinished:
-PRINTT "1204 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1204_LoadFinished - L1204_Load2)
-PRINTT " / "
-PRINTV (L1204_InitFinished - L1204_Init2)
-PRINTT " / "
-PRINTV (L1204_CheckFinished - L1204_Check2)
-PRINTT "\n"
+PRINT "1204 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1204_LoadFinished - L1204_Load2)
+PRINT " / "
+PRINT (L1204_InitFinished - L1204_Init2)
+PRINT " / "
+PRINT (L1204_CheckFinished - L1204_Check2)
+PRINT "\n"
 

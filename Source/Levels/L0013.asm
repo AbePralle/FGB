@@ -760,11 +760,11 @@ L0013_Check2:
         DB      4,$00,$f7,$82,$80
 
 L0013_CheckFinished:
-PRINTT "0013 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0013_LoadFinished - L0013_Load2)
-PRINTT " / "
-PRINTV (L0013_InitFinished - L0013_Init2)
-PRINTT " / "
-PRINTV (L0013_CheckFinished - L0013_Check2)
-PRINTT "\n"
+PRINT "0013 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0013_LoadFinished - L0013_Load2)
+PRINT " / "
+PRINT (L0013_InitFinished - L0013_Init2)
+PRINT " / "
+PRINT (L0013_CheckFinished - L0013_Check2)
+PRINT "\n"
 

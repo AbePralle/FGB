@@ -60,11 +60,11 @@ L1002_Check2:
         ret
 
 L1002_CheckFinished:
-PRINTT "1002 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1002_LoadFinished - L1002_Load2)
-PRINTT " / "
-PRINTV (L1002_InitFinished - L1002_Init2)
-PRINTT " / "
-PRINTV (L1002_CheckFinished - L1002_Check2)
-PRINTT "\n"
+PRINT "1002 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1002_LoadFinished - L1002_Load2)
+PRINT " / "
+PRINT (L1002_InitFinished - L1002_Init2)
+PRINT " / "
+PRINT (L1002_CheckFinished - L1002_Check2)
+PRINT "\n"
 

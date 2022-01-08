@@ -177,11 +177,11 @@ L0505_Check2:
 
 
 L0505_CheckFinished:
-PRINTT "0505 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0505_LoadFinished - L0505_Load2)
-PRINTT " / "
-PRINTV (L0505_InitFinished - L0505_Init2)
-PRINTT " / "
-PRINTV (L0505_CheckFinished - L0505_Check2)
-PRINTT "\n"
+PRINT "0505 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0505_LoadFinished - L0505_Load2)
+PRINT " / "
+PRINT (L0505_InitFinished - L0505_Init2)
+PRINT " / "
+PRINT (L0505_CheckFinished - L0505_Check2)
+PRINT "\n"
 

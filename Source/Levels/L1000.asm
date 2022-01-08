@@ -437,11 +437,11 @@ L1000_Check2:
         ret
 
 L1000_CheckFinished:
-PRINTT "1000 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1000_LoadFinished - L1000_Load2)
-PRINTT " / "
-PRINTV (L1000_InitFinished - L1000_Init2)
-PRINTT " / "
-PRINTV (L1000_CheckFinished - L1000_Check2)
-PRINTT "\n"
+PRINT "1000 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1000_LoadFinished - L1000_Load2)
+PRINT " / "
+PRINT (L1000_InitFinished - L1000_Init2)
+PRINT " / "
+PRINT (L1000_CheckFinished - L1000_Check2)
+PRINT "\n"
 

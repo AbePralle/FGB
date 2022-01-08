@@ -8711,7 +8711,7 @@ SetMoveDelay:
         ld      a,OBJBANK
         ldio    [$ff70],a
         ld      hl,OBJ_MOVE
-        add     de
+        add     hl,de
         pop     af
         ld      [hl],a
         ret
@@ -8721,7 +8721,7 @@ SetMoveDelay:
         ;ld      a,OBJBANK
         ;ldio    [$ff70],a
         ;ld      hl,OBJ_MOVE
-        ;add     de
+        ;add     hl,de
         ;ld      a,[hl]
         ;and     %11110000
         ;or      b

@@ -101,11 +101,11 @@ L0302_Check2:
         ret
 
 L0302_CheckFinished:
-PRINTT "0302 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0302_LoadFinished - L0302_Load2)
-PRINTT " / "
-PRINTV (L0302_InitFinished - L0302_Init2)
-PRINTT " / "
-PRINTV (L0302_CheckFinished - L0302_Check2)
-PRINTT "\n"
+PRINT "0302 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0302_LoadFinished - L0302_Load2)
+PRINT " / "
+PRINT (L0302_InitFinished - L0302_Init2)
+PRINT " / "
+PRINT (L0302_CheckFinished - L0302_Check2)
+PRINT "\n"
 

@@ -72,11 +72,11 @@ L0604_Check2:
         ret
 
 L0604_CheckFinished:
-PRINTT "0604 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0604_LoadFinished - L0604_Load2)
-PRINTT " / "
-PRINTV (L0604_InitFinished - L0604_Init2)
-PRINTT " / "
-PRINTV (L0604_CheckFinished - L0604_Check2)
-PRINTT "\n"
+PRINT "0604 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0604_LoadFinished - L0604_Load2)
+PRINT " / "
+PRINT (L0604_InitFinished - L0604_Init2)
+PRINT " / "
+PRINT (L0604_CheckFinished - L0604_Check2)
+PRINT "\n"
 

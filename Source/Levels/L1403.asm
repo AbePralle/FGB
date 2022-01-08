@@ -594,11 +594,11 @@ L1403_Check2:
         ret
 
 L1403_CheckFinished:
-PRINTT "1403 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1403_LoadFinished - L1403_Load2)
-PRINTT " / "
-PRINTV (L1403_InitFinished - L1403_Init2)
-PRINTT " / "
-PRINTV (L1403_CheckFinished - L1403_Check2)
-PRINTT "\n"
+PRINT "1403 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1403_LoadFinished - L1403_Load2)
+PRINT " / "
+PRINT (L1403_InitFinished - L1403_Init2)
+PRINT " / "
+PRINT (L1403_CheckFinished - L1403_Check2)
+PRINT "\n"
 

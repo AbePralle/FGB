@@ -1138,11 +1138,11 @@ L0215_Check2:
         ret
 
 L0215_CheckFinished:
-PRINTT "0215 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0215_LoadFinished - L0215_Load2)
-PRINTT " / "
-PRINTV (L0215_InitFinished - L0215_Init2)
-PRINTT " / "
-PRINTV (L0215_CheckFinished - L0215_Check2)
-PRINTT "\n"
+PRINT "0215 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0215_LoadFinished - L0215_Load2)
+PRINT " / "
+PRINT (L0215_InitFinished - L0215_Init2)
+PRINT " / "
+PRINT (L0215_CheckFinished - L0215_Check2)
+PRINT "\n"
 

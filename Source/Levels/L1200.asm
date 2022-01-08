@@ -714,9 +714,9 @@ ENDC
 
 L1200_LoadFinished:
 
-PRINTT "  1200 Level Load Size: "
-PRINTV (L1200_LoadFinished - L1200_Load2)
-PRINTT "/$500 bytes\n"
+PRINT "  1200 Level Load Size: "
+PRINT (L1200_LoadFinished - L1200_Load2)
+PRINT "/$500 bytes\n"
 
 
 L1200_Map:
@@ -738,7 +738,7 @@ L1200_Check2:
 
 L1200_CheckFinished:
 
-PRINTT "  1200 Level Check Size: "
-PRINTV (L1200_CheckFinished - L1200_Check2)
-PRINTT "/$500 bytes\n"
+PRINT "  1200 Level Check Size: "
+PRINT (L1200_CheckFinished - L1200_Check2)
+PRINT "/$500 bytes\n"
 

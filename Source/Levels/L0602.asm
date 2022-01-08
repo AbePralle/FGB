@@ -66,11 +66,11 @@ L0602_Check2:
         ret
 
 L0602_CheckFinished:
-PRINTT "0602 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0602_LoadFinished - L0602_Load2)
-PRINTT " / "
-PRINTV (L0602_InitFinished - L0602_Init2)
-PRINTT " / "
-PRINTV (L0602_CheckFinished - L0602_Check2)
-PRINTT "\n"
+PRINT "0602 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0602_LoadFinished - L0602_Load2)
+PRINT " / "
+PRINT (L0602_InitFinished - L0602_Init2)
+PRINT " / "
+PRINT (L0602_CheckFinished - L0602_Check2)
+PRINT "\n"
 

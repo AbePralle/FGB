@@ -179,11 +179,11 @@ L1212_Check2:
   DW 0,L1212_anytime_gtx,L1212_makesure_gtx,L1212_suckstobehim_gtx
 
 L1212_CheckFinished:
-PRINTT "1212 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1212_LoadFinished - L1212_Load2)
-PRINTT " / "
-PRINTV (L1212_InitFinished - L1212_Init2)
-PRINTT " / "
-PRINTV (L1212_CheckFinished - L1212_Check2)
-PRINTT "\n"
+PRINT "1212 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1212_LoadFinished - L1212_Load2)
+PRINT " / "
+PRINT (L1212_InitFinished - L1212_Init2)
+PRINT " / "
+PRINT (L1212_CheckFinished - L1212_Check2)
+PRINT "\n"
 

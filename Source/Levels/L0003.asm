@@ -189,11 +189,11 @@ L0003_Check2:
         ret
 
 L0003_CheckFinished:
-PRINTT "0003 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0003_LoadFinished - L0003_Load2)
-PRINTT " / "
-PRINTV (L0003_InitFinished - L0003_Init2)
-PRINTT " / "
-PRINTV (L0003_CheckFinished - L0003_Check2)
-PRINTT "\n"
+PRINT "0003 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0003_LoadFinished - L0003_Load2)
+PRINT " / "
+PRINT (L0003_InitFinished - L0003_Init2)
+PRINT " / "
+PRINT (L0003_CheckFinished - L0003_Check2)
+PRINT "\n"
 

@@ -49,11 +49,11 @@ L0305_Check2:
         ret
 
 L0305_CheckFinished:
-PRINTT "0305 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0305_LoadFinished - L0305_Load2)
-PRINTT " / "
-PRINTV (L0305_InitFinished - L0305_Init2)
-PRINTT " / "
-PRINTV (L0305_CheckFinished - L0305_Check2)
-PRINTT "\n"
+PRINT "0305 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0305_LoadFinished - L0305_Load2)
+PRINT " / "
+PRINT (L0305_InitFinished - L0305_Init2)
+PRINT " / "
+PRINT (L0305_CheckFinished - L0305_Check2)
+PRINT "\n"
 

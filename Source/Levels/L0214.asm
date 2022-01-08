@@ -542,11 +542,11 @@ DW      $0000, $0809, $0c2f, $0c6f
         DB      4,$00,$f7,$5a,$c0
 
 L0214_CheckFinished:
-PRINTT "0214 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0214_LoadFinished - L0214_Load2)
-PRINTT " / "
-PRINTV (L0214_InitFinished - L0214_Init2)
-PRINTT " / "
-PRINTV (L0214_CheckFinished - L0214_Check2)
-PRINTT "\n"
+PRINT "0214 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0214_LoadFinished - L0214_Load2)
+PRINT " / "
+PRINT (L0214_InitFinished - L0214_Init2)
+PRINT " / "
+PRINT (L0214_CheckFinished - L0214_Check2)
+PRINT "\n"
 

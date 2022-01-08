@@ -91,11 +91,11 @@ L0011_Check2:
 
 
 L0011_CheckFinished:
-PRINTT "0011 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0011_LoadFinished - L0011_Load2)
-PRINTT " / "
-PRINTV (L0011_InitFinished - L0011_Init2)
-PRINTT " / "
-PRINTV (L0011_CheckFinished - L0011_Check2)
-PRINTT "\n"
+PRINT "0011 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0011_LoadFinished - L0011_Load2)
+PRINT " / "
+PRINT (L0011_InitFinished - L0011_Init2)
+PRINT " / "
+PRINT (L0011_CheckFinished - L0011_Check2)
+PRINT "\n"
 

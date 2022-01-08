@@ -593,7 +593,7 @@ L0107_CheckFinished:
 arrowInfo:    DS      5
 bsExists:     DS      1
 
-PRINTT "  0107 Level Check Size: "
-PRINTV (L0107_CheckFinished - L0107_Check2) + 5
-PRINTT "/$500 bytes"
+PRINT "  0107 Level Check Size: "
+PRINT (L0107_CheckFinished - L0107_Check2) + 5
+PRINT "/$500 bytes"
 

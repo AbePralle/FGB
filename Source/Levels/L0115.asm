@@ -854,11 +854,11 @@ L0115_Check2:
         ;DB      4,$00,$f0,$20,$c0
 
 L0115_CheckFinished:
-PRINTT "0115 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0115_LoadFinished - L0115_Load2)
-PRINTT " / "
-PRINTV (L0115_InitFinished - L0115_Init2)
-PRINTT " / "
-PRINTV (L0115_CheckFinished - L0115_Check2)
-PRINTT "\n"
+PRINT "0115 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0115_LoadFinished - L0115_Load2)
+PRINT " / "
+PRINT (L0115_InitFinished - L0115_Init2)
+PRINT " / "
+PRINT (L0115_CheckFinished - L0115_Check2)
+PRINT "\n"
 

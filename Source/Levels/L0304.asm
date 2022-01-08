@@ -243,11 +243,11 @@ DB  0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3
 ENDR
 
 L0304_CheckFinished:
-PRINTT "0304 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0304_LoadFinished - L0304_Load2)
-PRINTT " / "
-PRINTV (L0304_InitFinished - L0304_Init2)
-PRINTT " / "
-PRINTV (L0304_CheckFinished - L0304_Check2)
-PRINTT "\n"
+PRINT "0304 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0304_LoadFinished - L0304_Load2)
+PRINT " / "
+PRINT (L0304_InitFinished - L0304_Init2)
+PRINT " / "
+PRINT (L0304_CheckFinished - L0304_Check2)
+PRINT "\n"
 

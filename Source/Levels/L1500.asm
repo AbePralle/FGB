@@ -129,11 +129,11 @@ L1500_Check2:
         ret
 
 L1500_CheckFinished:
-PRINTT "1500 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1500_LoadFinished - L1500_Load2)
-PRINTT " / "
-PRINTV (L1500_InitFinished - L1500_Init2)
-PRINTT " / "
-PRINTV (L1500_CheckFinished - L1500_Check2)
-PRINTT "\n"
+PRINT "1500 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1500_LoadFinished - L1500_Load2)
+PRINT " / "
+PRINT (L1500_InitFinished - L1500_Init2)
+PRINT " / "
+PRINT (L1500_CheckFinished - L1500_Check2)
+PRINT "\n"
 

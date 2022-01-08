@@ -56,11 +56,11 @@ L0501_Check2:
         ret
 
 L0501_CheckFinished:
-PRINTT "0501 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0501_LoadFinished - L0501_Load2)
-PRINTT " / "
-PRINTV (L0501_InitFinished - L0501_Init2)
-PRINTT " / "
-PRINTV (L0501_CheckFinished - L0501_Check2)
-PRINTT "\n"
+PRINT "0501 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0501_LoadFinished - L0501_Load2)
+PRINT " / "
+PRINT (L0501_InitFinished - L0501_Init2)
+PRINT " / "
+PRINT (L0501_CheckFinished - L0501_Check2)
+PRINT "\n"
 

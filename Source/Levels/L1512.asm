@@ -200,11 +200,11 @@ L1512_Check2:
 
 
 L1512_CheckFinished:
-PRINTT "1512 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1512_LoadFinished - L1512_Load2)
-PRINTT " / "
-PRINTV (L1512_InitFinished - L1512_Init2)
-PRINTT " / "
-PRINTV (L1512_CheckFinished - L1512_Check2)
-PRINTT "\n"
+PRINT "1512 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1512_LoadFinished - L1512_Load2)
+PRINT " / "
+PRINT (L1512_InitFinished - L1512_Init2)
+PRINT " / "
+PRINT (L1512_CheckFinished - L1512_Check2)
+PRINT "\n"
 

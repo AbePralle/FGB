@@ -55,11 +55,11 @@ L0400_Check2:
         ret
 
 L0400_CheckFinished:
-PRINTT "0400 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0400_LoadFinished - L0400_Load2)
-PRINTT " / "
-PRINTV (L0400_InitFinished - L0400_Init2)
-PRINTT " / "
-PRINTV (L0400_CheckFinished - L0400_Check2)
-PRINTT "\n"
+PRINT "0400 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0400_LoadFinished - L0400_Load2)
+PRINT " / "
+PRINT (L0400_InitFinished - L0400_Init2)
+PRINT " / "
+PRINT (L0400_CheckFinished - L0400_Check2)
+PRINT "\n"
 

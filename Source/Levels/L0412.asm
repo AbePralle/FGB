@@ -188,11 +188,11 @@ L0412_Check2:
         ret
 
 L0412_CheckFinished:
-PRINTT "0412 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0412_LoadFinished - L0412_Load2)
-PRINTT " / "
-PRINTV (L0412_InitFinished - L0412_Init2)
-PRINTT " / "
-PRINTV (L0412_CheckFinished - L0412_Check2)
-PRINTT "\n"
+PRINT "0412 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0412_LoadFinished - L0412_Load2)
+PRINT " / "
+PRINT (L0412_InitFinished - L0412_Init2)
+PRINT " / "
+PRINT (L0412_CheckFinished - L0412_Check2)
+PRINT "\n"
 

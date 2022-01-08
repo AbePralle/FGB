@@ -49,11 +49,11 @@ L0300_Check2:
         ret
 
 L0300_CheckFinished:
-PRINTT "0300 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0300_LoadFinished - L0300_Load2)
-PRINTT " / "
-PRINTV (L0300_InitFinished - L0300_Init2)
-PRINTT " / "
-PRINTV (L0300_CheckFinished - L0300_Check2)
-PRINTT "\n"
+PRINT "0300 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0300_LoadFinished - L0300_Load2)
+PRINT " / "
+PRINT (L0300_InitFinished - L0300_Init2)
+PRINT " / "
+PRINT (L0300_CheckFinished - L0300_Check2)
+PRINT "\n"
 

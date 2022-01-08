@@ -80,7 +80,7 @@ L1201_Check2:
 L1201_CheckFinished:
 
 
-PRINTT "  1201 Level Check Size: "
-PRINTV (L1201_CheckFinished - L1201_Check2)
-PRINTT "/$500 bytes"
+PRINT "  1201 Level Check Size: "
+PRINT (L1201_CheckFinished - L1201_Check2)
+PRINT "/$500 bytes"
 

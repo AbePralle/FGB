@@ -101,7 +101,7 @@ L0105_Check2:
 L0105_CheckFinished:
 
 
-PRINTT "  0105 Level Check Size: "
-PRINTV (L0105_CheckFinished - L0105_Check2)
-PRINTT "/$500 bytes"
+PRINT "  0105 Level Check Size: "
+PRINT (L0105_CheckFinished - L0105_Check2)
+PRINT "/$500 bytes"
 

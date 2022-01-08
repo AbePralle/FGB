@@ -134,11 +134,11 @@ L0004_Check2:
         ret
 
 L0004_CheckFinished:
-PRINTT "0004 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0004_LoadFinished - L0004_Load2)
-PRINTT " / "
-PRINTV (L0004_InitFinished - L0004_Init2)
-PRINTT " / "
-PRINTV (L0004_CheckFinished - L0004_Check2)
-PRINTT "\n"
+PRINT "0004 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0004_LoadFinished - L0004_Load2)
+PRINT " / "
+PRINT (L0004_InitFinished - L0004_Init2)
+PRINT " / "
+PRINT (L0004_CheckFinished - L0004_Check2)
+PRINT "\n"
 

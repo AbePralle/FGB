@@ -885,11 +885,11 @@ L1401_Check2:
         ret
 
 L1401_CheckFinished:
-PRINTT "1401 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1401_LoadFinished - L1401_Load2)
-PRINTT " / "
-PRINTV (L1401_InitFinished - L1401_Init2)
-PRINTT " / "
-PRINTV (L1401_CheckFinished - L1401_Check2)
-PRINTT "\n"
+PRINT "1401 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1401_LoadFinished - L1401_Load2)
+PRINT " / "
+PRINT (L1401_InitFinished - L1401_Init2)
+PRINT " / "
+PRINT (L1401_CheckFinished - L1401_Check2)
+PRINT "\n"
 

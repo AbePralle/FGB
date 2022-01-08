@@ -345,11 +345,11 @@ L1504_Check2:
 
 
 L1504_CheckFinished:
-PRINTT "1504 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L1504_LoadFinished - L1504_Load2)
-PRINTT " / "
-PRINTV (L1504_InitFinished - L1504_Init2)
-PRINTT " / "
-PRINTV (L1504_CheckFinished - L1504_Check2)
-PRINTT "\n"
+PRINT "1504 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L1504_LoadFinished - L1504_Load2)
+PRINT " / "
+PRINT (L1504_InitFinished - L1504_Init2)
+PRINT " / "
+PRINT (L1504_CheckFinished - L1504_Check2)
+PRINT "\n"
 

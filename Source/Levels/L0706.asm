@@ -49,11 +49,11 @@ L0706_Check2:
         ret
 
 L0706_CheckFinished:
-PRINTT "0706 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0706_LoadFinished - L0706_Load2)
-PRINTT " / "
-PRINTV (L0706_InitFinished - L0706_Init2)
-PRINTT " / "
-PRINTV (L0706_CheckFinished - L0706_Check2)
-PRINTT "\n"
+PRINT "0706 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0706_LoadFinished - L0706_Load2)
+PRINT " / "
+PRINT (L0706_InitFinished - L0706_Init2)
+PRINT " / "
+PRINT (L0706_CheckFinished - L0706_Check2)
+PRINT "\n"
 

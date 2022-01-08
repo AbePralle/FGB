@@ -164,11 +164,11 @@ L0811_Check2:
         
 
 L0811_CheckFinished:
-PRINTT "0811 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0811_LoadFinished - L0811_Load2)
-PRINTT " / "
-PRINTV (L0811_InitFinished - L0811_Init2)
-PRINTT " / "
-PRINTV (L0811_CheckFinished - L0811_Check2)
-PRINTT "\n"
+PRINT "0811 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0811_LoadFinished - L0811_Load2)
+PRINT " / "
+PRINT (L0811_InitFinished - L0811_Init2)
+PRINT " / "
+PRINT (L0811_CheckFinished - L0811_Check2)
+PRINT "\n"
 

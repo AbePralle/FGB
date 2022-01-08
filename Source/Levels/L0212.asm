@@ -49,11 +49,11 @@ L0212_Check2:
         ret
 
 L0212_CheckFinished:
-PRINTT "0212 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0212_LoadFinished - L0212_Load2)
-PRINTT " / "
-PRINTV (L0212_InitFinished - L0212_Init2)
-PRINTT " / "
-PRINTV (L0212_CheckFinished - L0212_Check2)
-PRINTT "\n"
+PRINT "0212 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0212_LoadFinished - L0212_Load2)
+PRINT " / "
+PRINT (L0212_InitFinished - L0212_Init2)
+PRINT " / "
+PRINT (L0212_CheckFinished - L0212_Check2)
+PRINT "\n"
 

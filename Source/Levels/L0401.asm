@@ -126,11 +126,11 @@ L0401_Check2:
         DW      $7fff, $0000, $0000, $0000
 
 L0401_CheckFinished:
-PRINTT "0401 Script Sizes (Load/Init/Check) (of $500):  "
-PRINTV (L0401_LoadFinished - L0401_Load2)
-PRINTT " / "
-PRINTV (L0401_InitFinished - L0401_Init2)
-PRINTT " / "
-PRINTV (L0401_CheckFinished - L0401_Check2)
-PRINTT "\n"
+PRINT "0401 Script Sizes (Load/Init/Check) (of $500):  "
+PRINT (L0401_LoadFinished - L0401_Load2)
+PRINT " / "
+PRINT (L0401_InitFinished - L0401_Init2)
+PRINT " / "
+PRINT (L0401_CheckFinished - L0401_Check2)
+PRINT "\n"
 
