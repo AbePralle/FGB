@@ -2,7 +2,7 @@
 
 A weird and wonderful action odyssey for Game Boy Color. Developed in 2000 by Abe Pralle and Jacob Stevens. Playable and fairly complete but not fully finished.
 
-![Preview Video](Media/FGBPreview.gif)
+<center>![Preview Video](Media/FGBPreview.gif)</center>
 
 About         | Current Release
 --------------|-----------------------
@@ -91,5 +91,5 @@ The [Game Boy Sound Manipulator](https://github.com/AbePralle/GameBoySoundManipu
 6. FGB had a digitized sound sample for eating food (an "Mmmm" with lip-smacking). Conventional wisdom would have us playing the sound over Sound Channel 3 that supports a custom wave form. However, we figured out an alternate way to do it that didn't use up an instrument voice: we played 3-bit sound by setting the Game Boy's master sound volume (at `FF24`) to be 0-7 according to each sample. It didn't diminish the other music or sound effects and the digitized sound was significantly louder than it would have been playing on Channel 3.
 
 ### Fate
-Jacob and Abe were both passionate indie game devs but had no industry contacts. They attended E3 2000 with a nice demo of FGB and pitched it to various publishers. After failing to find a publisher at E3 or over the next few months, they finally threw in the FGB towel in late 2000 or early 2001 and released it as freeware for anyone to enjoy.
+Jacob and Abe were both passionate indie game devs but had no industry contacts. They attended E3 2000 with a nice demo of FGB and pitched it to various publishers. After failing to find a publisher at E3 or over the next few months, they finally threw in the FGB towel in late 2000 or early 2001 and released the ROM as freeware for anyone to enjoy.
 
