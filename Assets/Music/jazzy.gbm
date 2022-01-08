@@ -1,0 +1,225 @@
+//FGB
+//Jazzy (BS?)
+//Jacob Stevens
+notesPerSecond 8    //quarter = 120, one note equals one sixteenth
+ 
+track 1   //countermelody
+	
+	counterA,counterA
+
+	.repeat
+	counterB,counterC,counterB,counterC
+	counterB,counterC,counterB,counterC
+	counterB,counterC,counterD,counterE
+	counterD,counterF
+	jmp .repeat
+
+track 2   //melody
+	
+	melodyA,melodyA
+	
+	.repeat
+
+	melodyB,melodyC,melodyB,melodyC
+	melodyB,melodyC,melodyD,melodyE
+	melodyD,melodyE,melodyF,melodyG
+	melodyF,melodyH
+
+	jmp .repeat
+
+track 3   //bass
+
+	bassA,bassB	
+
+	.repeat
+	
+	bassC,bassD,bassC,bassD
+	bassE,bassF,bassE,bassF
+	bassE,bassF,bassG,bassH
+	bassJ,bassK
+
+	jmp .repeat
+
+track 4   //percussion
+	
+	percA,percA
+		
+	.repeat
+	percA,percA,percA,percA
+	percB,percB,percB,percB
+	percB,percB,percB,percB
+	percB,percB
+	jmp .repeat
+
+//counter
+track 1
+counterA:
+-16
+
+track 1
+counterB:
+-4
+C6,h2 C6
+C6 C6 C6,h
+-4
+
+track 1
+counterC:
+-4
+D6#,h2 D6#
+D6# D6# D6#,h
+-4
+
+track 1
+counterD:
+G5,h2 G5
+G5,h2 G5
+E5,h2 E5
+E5,h2 E5
+
+track 1
+counterE:
+F5,h2 F5
+F5,h2 F5
+B4,h2 B4
+B4,h2 B4
+
+track 1
+counterF:
+F5,h2 F5
+F5,h2 F5
+B4,h2 B4
+-4
+
+//melody
+track 2
+melodyA:
+-16
+
+track 2
+melodyB:
+-4
+A5#,h2 A5#
+A5# A5# A5#,h
+-4
+
+track 2
+melodyC:
+-4
+C6,h2 C6
+C6 C6 C6,h
+-4
+
+track 2
+melodyD:
+- C6 F6 F6#
+G6,h2 D6#
+E6 C6,h6
+
+track 2
+melodyE:
+- C6 D6# E6
+F6,h2 D6#
+F6 D6# F6 D6#
+F6# G6,h2
+
+track 2
+melodyF:
+B6 A6# A6 G6#
+G6,h2 D6#
+E6 D6# D6 C6#
+C6,h3
+
+track 2
+melodyG:
+A6 G6# G6 F6#
+F6,h2 A5#
+B5 A5# A5 G5#
+G5,h3
+
+track 2
+melodyH:
+A6 G6# G6 F6#
+F6 G6# A6 A6#
+B6 A6# A6 G6#
+G6,h3
+
+//bass
+track 3
+bassA:
+-16
+
+track 3
+bassB:
+-12
+G5 A5#,h2
+
+track 3
+bassC:
+C6,h3
+-8
+G5 A5#,h2
+
+track 3
+bassD:
+F5,h3
+-8
+G5 A5#,h2
+
+track 3
+bassE:
+C5,h C5,h
+A5#,h2 C5
+C6 C6 C6,h
+A5#,h G5,h
+
+track 3
+bassF:
+F5,h F5,h
+D6#,h2 F5
+F6 F6 F6,h
+G5 A5#,h2
+
+track 3
+bassG:
+E6,h3
+E5,h3
+A5,h3
+A6,h3
+
+track 3
+bassH:
+D6,h3
+D5,h3
+G5,h3
+G6,h3
+
+track 3
+bassJ:
+E6,h3
+E5,h3
+A5,h3
+A6,h3
+
+track 3
+bassK:
+D6,h3
+D5,h3
+G5,h3
+G5 A5#,h2
+
+//perc
+track 4
+percA:
+rd,-3
+rd,-2 rd
+rd,-3
+rd,-2 rd
+
+
+track 4
+percB:
+rd rd rd,-
+sn sn,- sn
+rd,- rd rd
+sn sn,- sn

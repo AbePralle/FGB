@@ -1,0 +1,38 @@
+FGB Level Data Format
+July 6, 2020 by Abe pralle
+
+file_format_version = 3 : Byte
+class_count_minus_1     : Byte
+
+first_character_index   : Byte           # the first index that is a mobile character rather than a BG tile
+first_character_id      : UInt16LowHigh  # the class of the first character
+
+forEach (index in 0..class_count_minus_1)
+  class_number_low  : Byte
+  class_number_high : Byte
+  class_number = ((class_number_high :<<: 8) | class_number) - 1
+endForEach
+
+tiles_wide : Byte
+pitch      : Byte   # smallest power of 2 where tiles_wide <= pitch
+tiles_high : Byte
+loop (tiles_high)
+  loop (tiles_wide)
+    class_index : Byte
+  endLoop
+endLoop
+
+bg_color : UInt16   # 0_bbbbb_ggggg_rrrrr
+
+# Waypoint List
+# TODO (investigate starting at Tools/LevelEditor/Source/Controls.cpp line 393)
+
+# Zones
+# TODO
+
+# Exits
+# TODO
+
+# Exit Links
+# TODO
+

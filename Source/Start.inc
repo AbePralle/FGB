@@ -1,0 +1,49 @@
+INFINITEHEALTH EQU 0
+UPGRADES EQU 1
+
+MENUTOMAP EQU $1102        ;intro missions
+;MENUTOMAP EQU $1100        ;straight to appomattox
+;MENUTOMAP EQU $1104        ;other map
+
+FORCE_EXIT     EQU 0
+FORCE_EXIT_MAP EQU $1000
+
+INITIALMAP   EQU $1200    ;(Logo cinema)
+;INITIALMAP   EQU $1101    ;(main menu)
+;INITIALMAP   EQU $1300    ;(appomattox)
+;INITIALMAP EQU $0808
+;INITIALMAP   EQU $1401    ;(appomattox control panel)
+;INITIALMAP EQU $1102       ;intro cinema / music test
+;INITIALMAP EQU $1100       ;appomattox (no join menu)
+;INITIALMAP   EQU $1502    ;(approach kiwi cinema)
+;INITIALMAP   EQU $1402    ;(lady flower intervenes)
+
+INITEXIT0    EQU EXIT_D
+;INITEXIT0    EQU EXIT_W
+
+APPOMATTOXMAPINDEX EQU $71
+;APPOMATTOXMAPINDEX EQU $0a
+
+;INITHERO0    EQU 2054     ;hero class (2054 = BA)
+;INITHERO0    EQU 2056     ;hero class (2056 = BS)
+INITHERO0    EQU 2058     ;hero class (2058 = Haiku)
+;INITHERO0    EQU 2400     ;hero class (Captain Flour)
+;INITHERO0    EQU 2398     ;hero class (Lady Flour)
+;2390 = king grenade
+
+;INITTYPE0    EQU HERO_BA_FLAG
+;INITTYPE0    EQU HERO_BS_FLAG
+INITTYPE0    EQU HERO_HAIKU_FLAG
+;INITTYPE0    EQU HERO_FLOUR_FLAG
+;INITTYPE0    EQU HERO_FLOWER_FLAG
+
+INITLOC0     EQU $0909
+;INITLOC0     EQU $0e0f    ;14,15
+
+INITEXIT1    EQU EXIT_D
+INITHERO1    EQU FREEVERSE_CINDEX
+INITLOC1     EQU $0909
+;INITLOC1     EQU $0e10    ;14,16
+INITTYPE1    EQU HERO_BS_FLAG
+
+KGRENADE_CINDEX EQU 2390

@@ -1,0 +1,14 @@
+//FGB
+//nothing
+//Jacob Stevens
+notesPerSecond 9    //quarter = 140, one note equals one sixteenth
+ 
+track 1   //countermelody
+	
+	.repeat
+	melodyA
+	jmp .repeat
+
+track 1
+melodyA:
+C5 E5 G5 E5
