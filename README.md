@@ -1,8 +1,12 @@
+<center>
 ![FGB](Media/Logo/Logo.png)
+</center>
 
 A weird and wonderful action odyssey for Game Boy Color. Developed in 2000 by Abe Pralle and Jacob Stevens. Playable and fairly complete but not fully finished.
 
-<center>![Preview Video](Media/FGBPreview.gif)</center>
+<center>
+![Preview Video](Media/FGBPreview.gif)
+</center>
 
 About         | Current Release
 --------------|-----------------------
