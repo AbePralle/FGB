@@ -340,7 +340,7 @@ class Graphics [singleton]
       local left  = Bitmap[]
       local up    = Bitmap[]
       local down  = Bitmap[]
-      facings.add( up ).add( left ).add( down ).add( right )
+      facings.[ add(up), add(left), add(down), add(right) ]
       forEach (tile in tiles from first_actor)
         right.add( tile )
         up.add( tile.cloned.[rotate_90(&ccw)] )
